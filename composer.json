@@ -12,14 +12,14 @@
     "homepage": "https://github.com/laraxot/theme_sixteen_fila3",
     "license": "MIT",
     "require": {
-        "filament/filament": "^4.0",
-        "filament/support": "^4.0",
-        "filament/forms": "^4.0",
-        "filament/tables": "^4.0",
-        "filament/actions": "^4.0",
-        "filament/widgets": "^4.0",
-        "filament/notifications": "^4.0",
-        "filament/infolists": "^4.0"
+        "filament/filament": "*",
+        "filament/support": "*",
+        "filament/forms": "*",
+        "filament/tables": "*",
+        "filament/actions": "*",
+        "filament/widgets": "*",
+        "filament/notifications": "*",
+        "filament/infolists": "*"
     },
     "authors": [
         {
