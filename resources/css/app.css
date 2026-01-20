@@ -1,0 +1,692 @@
+/**
+ * Tema Sixteen - CSS principale
+ * Design System AGID per Filament 4.x + Bootstrap Italia + Tailwind CSS
+ */
+
+/* ========================================
+   FONTS UFFICIALI AGID
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ========================================
+   BOOTSTRAP ITALIA CORE
+======================================== */
+/* Bootstrap Italia Design System */
+@import "./bootstrap-italia.css";
+
+/* Colori AGID */
+@import "./agid-colors.css";
+
+/* Override AGID */
+@import "./agid-override.css";
+
+/* ========================================
+   TAILWIND CSS 4.x BASE
+======================================== */
+/* Sorgenti per lo scan delle classi (Tailwind v4) */
+@source "../views/**/*.blade.php";
+@source "../js/**/*.js";
+@source "./**/*.css";
+@source "../../../app/Filament/**/*.php";
+@source "../../../resources/views/**/*.blade.php";
+@source "../../../Modules/**/Filament/**/*.php";
+@source "../../../Modules/**/resources/views/**/*.blade.php";
+@source "../../../storage/framework/views/*.php";
+@source "../../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../../../public_html/vendor/**/*.blade.php";
+@import "tailwindcss";
+
+/* ========================================
+   FILAMENT 4.X CORE CSS
+======================================== */
+/* Required by all components */
+@import '../../../../vendor/filament/support/resources/css/index.css';
+
+/* Required by actions and tables */
+@import '../../../../vendor/filament/actions/resources/css/index.css';
+
+/* Required by actions, forms and tables */
+@import '../../../../vendor/filament/forms/resources/css/index.css';
+
+/* Required by actions and infolists */
+@import '../../../../vendor/filament/infolists/resources/css/index.css';
+
+/* Required by notifications */
+@import '../../../../vendor/filament/notifications/resources/css/index.css';
+
+/* Required by actions, infolists, forms, schemas and tables */
+@import '../../../../vendor/filament/schemas/resources/css/index.css';
+
+/* Required by tables */
+@import '../../../../vendor/filament/tables/resources/css/index.css';
+
+/* Required by widgets */
+@import '../../../../vendor/filament/widgets/resources/css/index.css';
+
+/* ========================================
+   FILAMENT 4.X + AGID INTEGRATION
+======================================== */
+
+@variant dark (&:where(.dark, .dark *));
+
+/* ========================================
+   AGID CSS VARIABLES
+======================================== */
+:root {
+    /* Colori primari AGID */
+    --agid-primary: #0066CC;
+    --agid-primary-light: #4da6ff;
+    --agid-primary-dark: #003d7a;
+
+    --agid-success: #00B373;
+    --agid-success-light: #4dc493;
+    --agid-success-dark: #006b45;
+
+    --agid-danger: #D9364F;
+    --agid-danger-light: #ed4954;
+    --agid-danger-dark: #83202f;
+
+    --agid-warning: #F5A623;
+    --agid-warning-light: #ffd44d;
+    --agid-warning-dark: #936315;
+
+    /* Grigi */
+    --agid-gray-50: #f9fafb;
+    --agid-gray-100: #f3f4f6;
+    --agid-gray-200: #e5e7eb;
+    --agid-gray-300: #d1d5db;
+    --agid-gray-400: #9ca3af;
+    --agid-gray-500: #6b7280;
+    --agid-gray-600: #4b5563;
+    --agid-gray-700: #374151;
+    --agid-gray-800: #1f2937;
+    --agid-gray-900: #111827;
+
+    /* Tipografia */
+    --agid-font-family-sans: 'Titillium Web', 'Inter var', system-ui, -apple-system, sans-serif;
+    --agid-font-family-mono: 'Roboto Mono', 'JetBrains Mono', Menlo, monospace;
+
+    /* Shadows AGID */
+    --agid-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --agid-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --agid-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --agid-shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.25);
+
+    /* Radius */
+    --agid-radius: 4px;
+    --agid-radius-md: 6px;
+    --agid-radius-lg: 8px;
+}
+
+/* Dark mode variables */
+:root.dark {
+    --agid-gray-50: #111827;
+    --agid-gray-100: #1f2937;
+    --agid-gray-200: #374151;
+    --agid-gray-300: #4b5563;
+    --agid-gray-400: #6b7280;
+    --agid-gray-500: #9ca3af;
+    --agid-gray-600: #d1d5db;
+    --agid-gray-700: #e5e7eb;
+    --agid-gray-800: #f3f4f6;
+    --agid-gray-900: #f9fafb;
+}
+
+/* ========================================
+   FILAMENT 4.X ENHANCED INTEGRATION
+======================================== */
+
+/* Base typography override */
+.fi-body, [data-filament-main] {
+    font-family: var(--agid-font-family-sans);
+}
+
+/* Panel styling */
+.fi-panel {
+    background-color: var(--agid-gray-50);
+    min-height: 100vh;
+}
+
+.fi-panel.dark {
+    background-color: var(--agid-gray-900);
+}
+
+/* Sidebar navigation */
+.fi-sidebar {
+    background-color: white;
+    border-right: 1px solid var(--agid-gray-200);
+}
+
+.fi-sidebar.dark {
+    background-color: var(--agid-gray-800);
+    border-right-color: var(--agid-gray-700);
+}
+
+/* Navigation items */
+.fi-sidebar-nav-item {
+    color: var(--agid-gray-700);
+    border-radius: var(--agid-radius);
+    transition: all 0.2s ease;
+}
+
+.fi-sidebar-nav-item:hover {
+    background-color: var(--agid-gray-100);
+    color: var(--agid-primary);
+}
+
+.fi-sidebar-nav-item[aria-current="page"] {
+    background-color: rgb(0 102 204 / 0.1);
+    color: var(--agid-primary);
+    font-weight: 600;
+}
+
+.fi-sidebar-nav-item.dark {
+    color: var(--agid-gray-300);
+}
+
+.fi-sidebar-nav-item.dark:hover {
+    background-color: var(--agid-gray-700);
+    color: white;
+}
+
+/* Header */
+.fi-topbar {
+    background-color: white;
+    border-bottom: 1px solid var(--agid-gray-200);
+    box-shadow: var(--agid-shadow);
+}
+
+.fi-topbar.dark {
+    background-color: var(--agid-gray-800);
+    border-bottom-color: var(--agid-gray-700);
+}
+
+/* Custom Filament 4.x styles with AGID compliance */
+@layer components {
+    /* Filament 4.x Button Styles */
+    .filament-button {
+        @apply inline-flex items-center justify-center py-2 px-4 font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+    }
+
+    .filament-button-primary {
+        @apply text-white;
+        background-color: var(--italia-blue-500);
+    }
+    
+    .filament-button-primary:hover {
+        background-color: var(--italia-blue-600);
+    }
+    
+    .filament-button-primary:focus {
+        @apply ring-2 ring-offset-2;
+        --tw-ring-color: var(--italia-blue-500);
+    }
+
+    .filament-button-success {
+        @apply text-white;
+        background-color: var(--italia-green-500);
+    }
+    
+    .filament-button-success:hover {
+        background-color: var(--italia-green-600);
+    }
+    
+    .filament-button-success:focus {
+        @apply ring-2 ring-offset-2;
+        --tw-ring-color: var(--italia-green-500);
+    }
+
+    .filament-button-warning {
+        @apply text-white;
+        background-color: var(--italia-yellow-500);
+    }
+    
+    .filament-button-warning:hover {
+        background-color: var(--italia-yellow-600);
+    }
+    
+    .filament-button-warning:focus {
+        @apply ring-2 ring-offset-2;
+        --tw-ring-color: var(--italia-yellow-500);
+    }
+
+    .filament-button-danger {
+        @apply text-white;
+        background-color: var(--italia-red-500);
+    }
+    
+    .filament-button-danger:hover {
+        background-color: var(--italia-red-600);
+    }
+    
+    .filament-button-danger:focus {
+        @apply ring-2 ring-offset-2;
+        --tw-ring-color: var(--italia-red-500);
+    }
+
+    /* Filament 4.x Form Styles */
+    .filament-forms-field-wrapper {
+        @apply mb-4;
+    }
+    
+    .filament-forms-field-wrapper-label {
+        @apply text-sm font-medium text-gray-700 mb-1;
+    }
+    
+    .filament-forms-field-wrapper-error {
+        @apply text-sm mt-1;
+        color: var(--italia-red-500);
+    }
+
+    /* Filament 4.x Table Styles */
+    .filament-tables-table {
+        @apply bg-white rounded-lg shadow-sm border border-gray-200;
+    }
+    
+    .filament-tables-header {
+        @apply bg-gray-50 border-b border-gray-200;
+    }
+    
+    .filament-tables-header-cell {
+        @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+    }
+    
+    .filament-tables-cell {
+        @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+    }
+    
+    .filament-tables-row:hover {
+        @apply bg-gray-50;
+    }
+
+    /* Filament 4.x Section Styles */
+    .filament-forms-section {
+        @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+    }
+    
+    .filament-forms-section-header {
+        @apply text-lg font-medium text-gray-900 mb-4;
+    }
+    
+    .filament-forms-section-description {
+        @apply text-sm text-gray-600 mb-6;
+    }
+
+    /* Filament 4.x Panel Styles */
+    .filament-panel {
+        @apply bg-gray-50 min-h-screen;
+    }
+    
+    .filament-panel-header {
+        @apply bg-white border-b border-gray-200;
+    }
+    
+    .filament-panel-content {
+        @apply p-6;
+    }
+
+    /* Filament 4.x Navigation Styles */
+    .filament-navigation {
+        @apply bg-white border-b border-gray-200;
+    }
+    
+    .filament-navigation-item {
+        @apply text-gray-700 hover:bg-gray-50;
+        color: var(--italia-blue-500);
+    }
+    
+    .filament-navigation-item:hover {
+        color: var(--italia-blue-500);
+    }
+    
+    .filament-navigation-item-active {
+        @apply bg-gray-50;
+        color: var(--italia-blue-500);
+        background-color: var(--italia-blue-50);
+    }
+
+    /* Filament 4.x Modal Styles */
+    .filament-modal {
+        @apply bg-white rounded-lg shadow-xl border border-gray-200;
+    }
+    
+    .filament-modal-header {
+        @apply px-6 py-4 border-b border-gray-200;
+    }
+    
+    .filament-modal-content {
+        @apply px-6 py-4;
+    }
+    
+    .filament-modal-footer {
+        @apply px-6 py-4 border-t border-gray-200;
+    }
+
+    /* Filament 4.x Notification Styles */
+    .filament-notification {
+        @apply bg-white border border-gray-200 rounded-lg shadow-lg;
+    }
+    
+    .filament-notification-success {
+        @apply border-green-200;
+        background-color: var(--italia-green-50);
+        border-color: var(--italia-green-200);
+    }
+    
+    .filament-notification-warning {
+        @apply border-yellow-200;
+        background-color: var(--italia-yellow-50);
+        border-color: var(--italia-yellow-200);
+    }
+    
+    .filament-notification-danger {
+        @apply border-red-200;
+        background-color: var(--italia-red-50);
+        border-color: var(--italia-red-200);
+    }
+
+    /* Filament 4.x Card Styles */
+    .filament-card {
+        @apply bg-white rounded-lg shadow-sm border border-gray-200;
+    }
+    
+    .filament-card-header {
+        @apply px-6 py-4 border-b border-gray-200;
+    }
+    
+    .filament-card-content {
+        @apply px-6 py-4;
+    }
+
+    /* Filament 4.x Input Styles */
+    .filament-input {
+        @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .filament-input:focus {
+        border-color: var(--italia-blue-500);
+        --tw-ring-color: var(--italia-blue-500);
+    }
+    
+    .filament-input-error {
+        border-color: var(--italia-red-500);
+    }
+    
+    .filament-input-error:focus {
+        --tw-ring-color: var(--italia-red-500);
+        border-color: var(--italia-red-500);
+    }
+
+    /* Filament 4.x Select Styles */
+    .filament-select {
+        @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .filament-select:focus {
+        border-color: var(--italia-blue-500);
+        --tw-ring-color: var(--italia-blue-500);
+    }
+
+    /* Filament 4.x Checkbox Styles */
+    .filament-checkbox {
+        @apply h-4 w-4 border-gray-300 rounded focus:ring-2 focus:ring-offset-2;
+        color: var(--italia-blue-600);
+    }
+    
+    .filament-checkbox:focus {
+        --tw-ring-color: var(--italia-blue-500);
+    }
+
+    /* Filament 4.x Radio Styles */
+    .filament-radio {
+        @apply h-4 w-4 border-gray-300 focus:ring-2 focus:ring-offset-2;
+        color: var(--italia-blue-600);
+    }
+    
+    .filament-radio:focus {
+        --tw-ring-color: var(--italia-blue-500);
+    }
+
+    /* Filament 4.x Textarea Styles */
+    .filament-textarea {
+        @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .filament-textarea:focus {
+        border-color: var(--italia-blue-500);
+        --tw-ring-color: var(--italia-blue-500);
+    }
+
+    /* Filament 4.x Badge Styles */
+    .filament-badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+    
+    .filament-badge-primary {
+        background-color: var(--italia-blue-100);
+        color: var(--italia-blue-800);
+    }
+    
+    .filament-badge-success {
+        background-color: var(--italia-green-100);
+        color: var(--italia-green-800);
+    }
+    
+    .filament-badge-warning {
+        background-color: var(--italia-yellow-100);
+        color: var(--italia-yellow-800);
+    }
+    
+    .filament-badge-danger {
+        background-color: var(--italia-red-100);
+        color: var(--italia-red-800);
+    }
+
+    /* Filament 4.x Alert Styles */
+    .filament-alert {
+        @apply p-4 rounded-md border;
+    }
+    
+    .filament-alert-success {
+        background-color: var(--italia-green-50);
+        border-color: var(--italia-green-200);
+        color: var(--italia-green-800);
+    }
+    
+    .filament-alert-warning {
+        background-color: var(--italia-yellow-50);
+        border-color: var(--italia-yellow-200);
+        color: var(--italia-yellow-800);
+    }
+    
+    .filament-alert-danger {
+        background-color: var(--italia-red-50);
+        border-color: var(--italia-red-200);
+        color: var(--italia-red-800);
+    }
+    
+    .filament-alert-info {
+        background-color: var(--italia-blue-50);
+        border-color: var(--italia-blue-200);
+        color: var(--italia-blue-800);
+    }
+
+    /* AGID Login Styles */
+    .agid-login-container {
+        @apply max-w-md mx-auto bg-white rounded-lg shadow-lg p-8;
+    }
+    
+    .agid-login-header {
+        @apply text-center mb-8;
+    }
+    
+    .agid-login-title {
+        @apply text-2xl font-bold text-gray-900 mb-2;
+        color: var(--italia-blue-500);
+    }
+    
+    .agid-login-subtitle {
+        @apply text-gray-600;
+    }
+    
+    .agid-tab-container {
+        @apply flex border-b border-gray-200 mb-6;
+    }
+    
+    .agid-tab-button {
+        @apply flex-1 py-2 px-4 text-center font-medium border-b-2 border-transparent;
+        color: var(--italia-blue-500);
+    }
+    
+    .agid-tab-button:hover {
+        @apply bg-gray-50;
+        color: var(--italia-blue-500);
+    }
+    
+    .agid-tab-button.active {
+        @apply bg-white border-b-2;
+        color: var(--italia-blue-500);
+        border-bottom-color: var(--italia-blue-500);
+    }
+    
+    .agid-login-container .fi-input {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .agid-login-container .fi-input:focus {
+        border-color: var(--italia-blue-500);
+        --tw-ring-color: var(--italia-blue-500);
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+    
+    .agid-login-container .fi-btn {
+        @apply w-full text-white py-3 px-5 rounded-md text-base font-semibold cursor-pointer transition-all mt-2;
+        background-color: var(--italia-blue-500);
+        border: 2px solid var(--italia-blue-500);
+    }
+    
+    .agid-login-container .fi-btn:hover {
+        background-color: var(--italia-blue-600);
+        border-color: var(--italia-blue-600);
+    }
+
+    /* Header Navigation Styles */
+    .header-nav-dropdown {
+        @apply absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50;
+    }
+    
+    .header-nav-dropdown a {
+        @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50;
+    }
+    
+    .header-nav-dropdown a:hover {
+        color: var(--italia-blue-500);
+    }
+    
+    .lang-toggle {
+        @apply px-3 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50;
+    }
+    
+    .lang-toggle:hover {
+        border-color: var(--italia-blue-500);
+        color: var(--italia-blue-500);
+    }
+    
+    .menu-toggle {
+        @apply p-2 text-gray-600 hover:text-white transition-colors;
+        background-color: var(--italia-blue-500);
+    }
+    
+    .menu-toggle:hover {
+        background-color: var(--italia-blue-600);
+    }
+
+    /* Beautiful Login Card */
+    .login-card-beautiful {
+        @apply bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto transform transition-all duration-300;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border: 1px solid rgba(0, 102, 204, 0.1);
+    }
+    
+    .login-card-beautiful:hover {
+        @apply scale-105 shadow-2xl;
+        box-shadow:
+            0 35px 60px -12px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
+    
+    .login-input {
+        @apply w-full px-6 py-4 text-gray-900 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-4 transition-all duration-300;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .login-input:focus {
+        border-color: var(--italia-blue-500);
+        --tw-ring-color: rgba(0, 102, 204, 0.2);
+    }
+    
+    .login-label {
+        @apply absolute -top-2 left-4 px-2 text-sm font-semibold bg-white rounded;
+        color: var(--italia-blue-600);
+    }
+    
+    /* Beautiful Submit Button */
+    .login-button {
+        @apply w-full py-4 px-8 text-white font-bold rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4;
+        background: linear-gradient(135deg, var(--italia-blue-500) 0%, var(--italia-blue-700) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .login-button:focus {
+        --tw-ring-color: rgba(0, 102, 204, 0.5);
+    }
+    
+    .login-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+    
+    .login-button:hover::before {
+        left: 100%;
+    }
+    
+    .spid-button {
+        @apply border-2 rounded-lg px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4;
+        border-color: var(--italia-blue-600);
+        color: var(--italia-blue-600);
+        background-color: var(--italia-blue-50);
+    }
+    
+    .spid-button:hover {
+        background-color: var(--italia-blue-600);
+        color: white;
+    }
+    
+    .spid-button:focus {
+        --tw-ring-color: rgba(0, 102, 204, 0.5);
+    }
+    
+    .cie-button {
+        @apply border-2 rounded-lg px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4;
+        border-color: var(--italia-green-600);
+        color: var(--italia-green-600);
+        background-color: var(--italia-green-50);
+    }
+    
+    .cie-button:hover {
+        background-color: var(--italia-green-600);
+        color: white;
+    }
+    
+    .cie-button:focus {
+        --tw-ring-color: rgba(0, 179, 115, 0.5);
+    }
+}
