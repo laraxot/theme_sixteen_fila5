@@ -2,9 +2,11 @@
 
 namespace Themes\Sixteen\Models;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo};
-use Illuminate\Database\Eloquent\Casts\{Attribute, AsArrayObject};
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Modello Appuntamento - Gestione prenotazioni servizi comunali
@@ -47,18 +49,26 @@ class Appointment extends Model
      * Stati appuntamento conformi AGID
      */
     const STATUS_PENDING = 'pending';      // In attesa di conferma
+
     const STATUS_CONFIRMED = 'confirmed';  // Confermato
+
     const STATUS_COMPLETED = 'completed';  // Completato
+
     const STATUS_CANCELLED = 'cancelled';  // Cancellato
+
     const STATUS_NO_SHOW = 'no_show';      // Non presentato
 
     /**
      * Tipi di servizio supportati
      */
     const SERVICE_ANAGRAFE = 'anagrafe';
+
     const SERVICE_TRIBUTI = 'tributi';
+
     const SERVICE_SUAP = 'suap';
+
     const SERVICE_URP = 'urp';
+
     const SERVICE_OTHER = 'other';
 
     /**
@@ -99,7 +109,7 @@ class Appointment extends Model
     public function scopeUpcoming($query)
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
-                    ->where('status', self::STATUS_CONFIRMED);
+            ->where('status', self::STATUS_CONFIRMED);
     }
 
     /**
@@ -150,7 +160,7 @@ class Appointment extends Model
     protected function timeSlot(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->start_time->format('H:i') . ' - ' . $this->end_time->format('H:i')
+            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
         );
     }
 
@@ -169,7 +179,7 @@ class Appointment extends Model
      */
     public function needsReminder(): bool
     {
-        return !$this->reminder_sent 
+        return ! $this->reminder_sent
             && $this->status === self::STATUS_CONFIRMED
             && $this->appointment_date->isTomorrow()
             && now()->hour < 18; // Invio solo prima delle 18
