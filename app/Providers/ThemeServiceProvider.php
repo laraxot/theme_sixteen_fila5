@@ -4,32 +4,35 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
-use Themes\Sixteen\Services\SpidAuthService;
-use Themes\Sixteen\Services\CieAuthService;
-use Themes\Sixteen\Services\MenuBuilder;
-use Themes\Sixteen\Services\ThemeService;
-use Themes\Sixteen\View\Composers\SixteenComposer;
+use Modules\Xot\Providers\XotBaseThemeServiceProvider;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
 use Themes\Sixteen\Console\Commands\SixteenPublishCommand;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
-use Themes\Sixteen\Filters\{HrefMenuFilter, ActiveMenuFilter, GateMenuFilter};
-use Modules\Xot\Providers\XotBaseThemeServiceProvider;
+use Themes\Sixteen\Filters\ActiveMenuFilter;
+use Themes\Sixteen\Filters\GateMenuFilter;
+use Themes\Sixteen\Filters\HrefMenuFilter;
+use Themes\Sixteen\Services\MenuBuilder;
+use Themes\Sixteen\Services\ThemeService;
+use Themes\Sixteen\View\Composers\SixteenComposer;
 
 /**
  * Enhanced Service Provider per il tema Sixteen.
- * 
+ *
  * Questo provider gestisce la registrazione e configurazione
  * del tema Sixteen nell'applicazione Laravel, integrando il
  * nuovo Menu Builder System e le funzionalità avanzate.
- * 
+ *
  * IMPORTANTE: Il tema Sixteen usa il namespace 'pub_theme' per le viste,
  * non 'sixteen', per essere compatibile con il sistema di temi.
  */
 class ThemeServiceProvider extends XotBaseThemeServiceProvider
 {
     public string $name = 'Sixteen';
+
     public string $nameLower = 'sixteen';
-    protected string $module_dir = __DIR__ . '/../../';
+
+    protected string $module_dir = __DIR__.'/../../';
+
     protected string $module_ns = __NAMESPACE__;
 
     /**
@@ -37,26 +40,26 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     public function boot(): void
     {
-        parent::boot();
-        
-        // Core theme loading
+        // Load theme resources BEFORE parent to ensure pub_theme namespace is registered first
         $this->loadCoreThemeResources();
-        
+
+        parent::boot();
+
         // Menu system registration
         $this->registerMenuSystem();
-        
+
         // View composers
         $this->registerViewComposers();
-        
+
         // Artisan commands
         $this->registerCommands();
-        
+
         // Publishing configurations
         $this->registerPublishing();
-        
+
         // Authentication routes
         $this->registerAuthRoutes();
-        
+
         // Layout shortcuts (legacy compatibility)
         $this->registerLayoutShortcuts();
     }
@@ -67,13 +70,13 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     public function register(): void
     {
         parent::register();
-        
+
         // Register core services
         $this->registerCoreServices();
-        
+
         // Register menu filters
         $this->registerMenuFilters();
-        
+
         // Register SPID/CIE services
         $this->registerAuthServices();
     }
@@ -84,11 +87,11 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function loadCoreThemeResources(): void
     {
         // IMPORTANTE: pub_theme è il namespace standard per i temi
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'pub_theme');
-        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'pub_theme');
-        
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'pub_theme');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'pub_theme');
+
         // Caricamento delle configurazioni del tema
-        $this->loadConfigFrom(__DIR__ . '/../../config', 'sixteen');
+        $this->loadConfigFrom(__DIR__.'/../../config', 'sixteen');
     }
 
     /**
@@ -99,9 +102,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         // Singleton per il Menu Builder
         $this->app->singleton(MenuBuilder::class, function ($app) {
             $filters = $app->tagged('sixteen.menu.filters');
+
             return new MenuBuilder($filters);
         });
-        
+
         // Alias per backward compatibility
         $this->app->alias(MenuBuilder::class, 'sixteen.menu');
     }
@@ -115,7 +119,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->app->singleton('sixteen.theme', function ($app) {
             return new ThemeService($app[MenuBuilder::class]);
         });
-        
+
         // Alias per il ThemeService
         $this->app->alias('sixteen.theme', ThemeService::class);
     }
@@ -129,14 +133,14 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->app->singleton(HrefMenuFilter::class);
         $this->app->singleton(ActiveMenuFilter::class);
         $this->app->singleton(GateMenuFilter::class);
-        
+
         // Tag them for the menu builder
         $this->app->tag([
             HrefMenuFilter::class,
             ActiveMenuFilter::class,
             GateMenuFilter::class,
         ], 'sixteen.menu.filters');
-        
+
         // Register the interface binding for extension
         $this->app->bind(MenuFilterInterface::class, HrefMenuFilter::class);
     }
@@ -150,12 +154,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->app->singleton(\Themes\Sixteen\Services\SpidAuthService::class, function ($app) {
             return new \Themes\Sixteen\Services\SpidAuthService();
         });
-        
-        // Register CIE Auth Service  
+
+        // Register CIE Auth Service
         $this->app->singleton(\Themes\Sixteen\Services\CieAuthService::class, function ($app) {
             return new \Themes\Sixteen\Services\CieAuthService();
         });
-        
+
         // Aliases for easier access
         $this->app->alias(\Themes\Sixteen\Services\SpidAuthService::class, 'sixteen.spid');
         $this->app->alias(\Themes\Sixteen\Services\CieAuthService::class, 'sixteen.cie');
@@ -196,19 +200,46 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Pubblicazione degli assets del tema
         $this->publishes([
-            __DIR__ . '/../../resources/assets' => public_path('themes/sixteen/assets'),
-            __DIR__ . '/../../public' => public_path('themes/sixteen'),
+            __DIR__.'/../../resources/assets' => public_path('themes/sixteen/assets'),
+            __DIR__.'/../../public' => public_path('themes/sixteen'),
         ], 'sixteen-assets');
-        
+
         // Pubblicazione delle configurazioni del tema
         $this->publishes([
-            __DIR__ . '/../../config' => config_path('themes/sixteen'),
+            __DIR__.'/../../config' => config_path('themes/sixteen'),
         ], 'sixteen-config');
-        
+
         // Pubblicazione delle viste (opzionale per personalizzazioni)
         $this->publishes([
-            __DIR__ . '/../../resources/views' => resource_path('views/themes/sixteen'),
+            __DIR__.'/../../resources/views' => resource_path('views/themes/sixteen'),
         ], 'sixteen-views');
+    }
+
+    /**
+     * Register anonymous components for pub_theme namespace.
+     */
+    /**
+     * Register Blade components for both sixteen and pub_theme namespaces.
+     */
+    protected function registerBladeComponents(): void
+    {
+        $componentNamespace = $this->module_ns.'\View\Components';
+
+        // Register with sixteen namespace (parent)
+        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespace, 'sixteen');
+
+        // Register with pub_theme namespace (for theme compatibility)
+        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespace, 'pub_theme');
+
+        // Register anonymous components for pub_theme
+        $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+        if ($componentsPath !== false) {
+            \Illuminate\Support\Facades\Blade::anonymousComponentPath($componentsPath, 'pub_theme');
+        }
+
+        // Register class-based components
+        app(\Modules\Xot\Actions\Blade\RegisterBladeComponentsAction::class)
+            ->execute($this->module_dir.'/../View/Components', $this->module_ns);
     }
 
     /**
@@ -216,8 +247,8 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function registerAuthRoutes(): void
     {
-        if (!$this->app->routesAreCached()) {
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/auth.php');
+        if (! $this->app->routesAreCached()) {
+            $this->loadRoutesFrom(__DIR__.'/../../routes/auth.php');
         }
     }
 
@@ -227,12 +258,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerLayoutShortcuts(): void
     {
         // Registrazione dei layout shortcuts per facilitare l'uso
-        $this->app['view']->addNamespace('layouts', __DIR__ . '/../../resources/views/layouts');
-        
+        $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+
         // Enhanced composer per layout AGID-compliant
         $this->app['view']->composer('layouts.guest-agid', function ($view) {
             $themeService = app('sixteen.theme');
-            
+
             $view->with([
                 'theme_name' => 'Sixteen',
                 'theme_info' => $themeService->getInfo(),
@@ -242,16 +273,16 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
             ]);
         });
     }
-    
+
     /**
      * Carica le configurazioni del tema.
      */
     protected function loadConfigFrom(string $path, string $namespace): void
     {
         if (is_dir($path)) {
-            foreach (glob($path . '/*.php') as $file) {
+            foreach (glob($path.'/*.php') as $file) {
                 $name = basename($file, '.php');
-                $this->mergeConfigFrom($file, $namespace . '.' . $name);
+                $this->mergeConfigFrom($file, $namespace.'.'.$name);
             }
         }
     }

@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany, BelongsToMany};
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 /**
  * Modello per i documenti pubblici (Public Document)
- * 
+ *
  * Rappresenta atti, delibere, determine, regolamenti
  * e altri documenti ufficiali dell'ente secondo l'ontologia AGID
  */
@@ -125,7 +128,7 @@ class PublicDocument extends Model
         'regulation' => 'Regolamento',
         'ordinance' => 'Ordinanza',
         'directive' => 'Direttiva',
-        
+
         // Atti amministrativi
         'deliberation' => 'Deliberazione',
         'determination' => 'Determinazione',
@@ -133,13 +136,13 @@ class PublicDocument extends Model
         'resolution' => 'Risoluzione',
         'circular' => 'Circolare',
         'instruction' => 'Istruzione',
-        
+
         // Atti di programmazione
         'plan' => 'Piano',
         'program' => 'Programma',
         'budget' => 'Bilancio',
         'report' => 'Relazione',
-        
+
         // Documenti contrattuali
         'contract' => 'Contratto',
         'agreement' => 'Convenzione',
@@ -147,13 +150,13 @@ class PublicDocument extends Model
         'authorization' => 'Autorizzazione',
         'permit' => 'Permesso',
         'license' => 'Licenza',
-        
+
         // Atti di trasparenza
         'transparency_act' => 'Atto di Trasparenza',
         'publication_notice' => 'Avviso di Pubblicazione',
         'selection_notice' => 'Avviso di Selezione',
         'tender_notice' => 'Bando di Gara',
-        
+
         // Altri documenti
         'form' => 'Modulistica',
         'guide' => 'Guida',
@@ -285,7 +288,7 @@ class PublicDocument extends Model
         return $query->where('is_active', true)
             ->where(function ($q) {
                 $q->whereNull('expiry_date')
-                  ->orWhere('expiry_date', '>', now());
+                    ->orWhere('expiry_date', '>', now());
             });
     }
 
@@ -321,7 +324,7 @@ class PublicDocument extends Model
         return $query->where('document_status', 'effective')
             ->where(function ($q) {
                 $q->whereNull('effective_date')
-                  ->orWhere('effective_date', '<=', now());
+                    ->orWhere('effective_date', '<=', now());
             });
     }
 
@@ -393,15 +396,15 @@ class PublicDocument extends Model
                 if ($this->document_status !== 'effective') {
                     return false;
                 }
-                
+
                 if ($this->effective_date && $this->effective_date->isFuture()) {
                     return false;
                 }
-                
+
                 if ($this->is_expired) {
                     return false;
                 }
-                
+
                 return true;
             }
         );
@@ -424,20 +427,20 @@ class PublicDocument extends Model
     {
         return Attribute::make(
             get: function () {
-                if (!$this->file_size) {
-                    return null;
+                if (! $this->file_size) {
+                    return;
                 }
-                
+
                 $units = ['B', 'KB', 'MB', 'GB'];
                 $size = $this->file_size;
                 $unit = 0;
-                
+
                 while ($size >= 1024 && $unit < count($units) - 1) {
                     $size /= 1024;
                     $unit++;
                 }
-                
-                return round($size, 2) . ' ' . $units[$unit];
+
+                return round($size, 2).' '.$units[$unit];
             }
         );
     }
@@ -473,6 +476,7 @@ class PublicDocument extends Model
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
                 }
+
                 return $value;
             }
         );
@@ -483,7 +487,7 @@ class PublicDocument extends Model
      */
     public function getFormattedKeywords(): array
     {
-        if (!$this->keywords || !is_array($this->keywords)) {
+        if (! $this->keywords || ! is_array($this->keywords)) {
             return [];
         }
 
@@ -499,7 +503,7 @@ class PublicDocument extends Model
      */
     public function getFormattedAttachments(): array
     {
-        if (!$this->attachments || !is_array($this->attachments)) {
+        if (! $this->attachments || ! is_array($this->attachments)) {
             return [];
         }
 
@@ -509,13 +513,13 @@ class PublicDocument extends Model
                     return [
                         'path' => $attachment,
                         'name' => basename($attachment),
-                        'url' => asset('storage/' . $attachment),
+                        'url' => asset('storage/'.$attachment),
                         'type' => pathinfo($attachment, PATHINFO_EXTENSION),
                     ];
                 }
-                
+
                 return array_merge([
-                    'url' => isset($attachment['path']) ? asset('storage/' . $attachment['path']) : null,
+                    'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
                 ], $attachment);
             })
             ->toArray();
@@ -526,7 +530,7 @@ class PublicDocument extends Model
      */
     public function getFormattedVersions(): array
     {
-        if (!$this->versions || !is_array($this->versions)) {
+        if (! $this->versions || ! is_array($this->versions)) {
             return [];
         }
 
@@ -549,7 +553,7 @@ class PublicDocument extends Model
      */
     public function getFormattedLegislativeReferences(): array
     {
-        if (!$this->legislative_references || !is_array($this->legislative_references)) {
+        if (! $this->legislative_references || ! is_array($this->legislative_references)) {
             return [];
         }
 
@@ -558,6 +562,7 @@ class PublicDocument extends Model
                 if (is_string($reference)) {
                     return ['title' => $reference];
                 }
+
                 return $reference;
             })
             ->toArray();
@@ -577,10 +582,10 @@ class PublicDocument extends Model
      */
     public function isPubliclyAccessible(): bool
     {
-        return $this->is_published && 
+        return $this->is_published &&
                $this->visibility_level === 'public' &&
                $this->privacy_level === 'public' &&
-               !$this->requires_authentication;
+               ! $this->requires_authentication;
     }
 
     /**
@@ -588,16 +593,16 @@ class PublicDocument extends Model
      */
     public function verifyFileIntegrity(): bool
     {
-        if (!$this->file_path || !$this->checksum) {
+        if (! $this->file_path || ! $this->checksum) {
             return false;
         }
-        
-        $filePath = storage_path('app/' . $this->file_path);
-        
-        if (!file_exists($filePath)) {
+
+        $filePath = storage_path('app/'.$this->file_path);
+
+        if (! file_exists($filePath)) {
             return false;
         }
-        
+
         return hash_file('sha256', $filePath) === $this->checksum;
     }
 
@@ -612,23 +617,23 @@ class PublicDocument extends Model
             'metadata' => $this->metadata_compliance,
             'overall' => false,
         ];
-        
+
         // Verifica requisiti AGID
         $requirements = [
-            'has_title' => !empty($this->title),
-            'has_description' => !empty($this->description),
-            'has_date' => !empty($this->document_date),
-            'has_author' => !empty($this->author_id),
-            'has_classification' => !empty($this->classification_code),
-            'has_keywords' => !empty($this->keywords),
-            'accessible_format' => !empty($this->accessible_format),
-            'digital_signature' => !empty($this->digital_signature),
+            'has_title' => ! empty($this->title),
+            'has_description' => ! empty($this->description),
+            'has_date' => ! empty($this->document_date),
+            'has_author' => ! empty($this->author_id),
+            'has_classification' => ! empty($this->classification_code),
+            'has_keywords' => ! empty($this->keywords),
+            'accessible_format' => ! empty($this->accessible_format),
+            'digital_signature' => ! empty($this->digital_signature),
         ];
-        
+
         $compliance['requirements'] = $requirements;
         $compliance['score'] = count(array_filter($requirements)) / count($requirements) * 100;
         $compliance['overall'] = $compliance['score'] >= 80;
-        
+
         return $compliance;
     }
 
@@ -731,7 +736,7 @@ class PublicDocument extends Model
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug . '-' . $counter;
+                $model->slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
         });
@@ -741,19 +746,19 @@ class PublicDocument extends Model
             if (is_null($model->document_status)) {
                 $model->document_status = 'draft';
             }
-            
+
             if (is_null($model->publication_status)) {
                 $model->publication_status = 'unpublished';
             }
-            
+
             if (is_null($model->privacy_level)) {
                 $model->privacy_level = 'public';
             }
-            
+
             if (is_null($model->language)) {
                 $model->language = 'it';
             }
-            
+
             if (is_null($model->visibility_level)) {
                 $model->visibility_level = 'public';
             }
@@ -762,7 +767,7 @@ class PublicDocument extends Model
         // Calcola checksum del file se presente
         static::creating(function ($model) {
             if ($model->file_path && empty($model->checksum)) {
-                $filePath = storage_path('app/' . $model->file_path);
+                $filePath = storage_path('app/'.$model->file_path);
                 if (file_exists($filePath)) {
                     $model->checksum = hash_file('sha256', $filePath);
                     $model->file_size = filesize($filePath);

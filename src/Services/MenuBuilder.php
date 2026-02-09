@@ -15,9 +15,13 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
 class MenuBuilder
 {
     protected Collection $slimHeader;
+
     protected Collection $header;
+
     protected Collection $footer;
+
     protected Collection $footerBar;
+
     protected array $filters = [];
 
     public function __construct()
@@ -35,7 +39,7 @@ class MenuBuilder
     {
         $processedItems = $this->transformItems($items);
         $this->slimHeader = $this->slimHeader->merge($processedItems);
-        
+
         return $this;
     }
 
@@ -46,7 +50,7 @@ class MenuBuilder
     {
         $processedItems = $this->transformItems($items);
         $this->header = $this->header->merge($processedItems);
-        
+
         return $this;
     }
 
@@ -57,7 +61,7 @@ class MenuBuilder
     {
         $processedItems = $this->transformItems($items);
         $this->footer = $this->footer->merge($processedItems);
-        
+
         return $this;
     }
 
@@ -68,7 +72,7 @@ class MenuBuilder
     {
         $processedItems = $this->transformItems($items);
         $this->footerBar = $this->footerBar->merge($processedItems);
-        
+
         return $this;
     }
 
@@ -78,6 +82,7 @@ class MenuBuilder
     public function setFilters(array $filters): self
     {
         $this->filters = $filters;
+
         return $this;
     }
 
@@ -133,19 +138,19 @@ class MenuBuilder
     {
         $config = config('sixteen.menu', []);
 
-        if (!empty($config['slim_header'])) {
+        if (! empty($config['slim_header'])) {
             $this->addSlimHeader($config['slim_header']);
         }
 
-        if (!empty($config['header'])) {
+        if (! empty($config['header'])) {
             $this->addHeader($config['header']);
         }
 
-        if (!empty($config['footer'])) {
+        if (! empty($config['footer'])) {
             $this->addFooter($config['footer']);
         }
 
-        if (!empty($config['footer_bar'])) {
+        if (! empty($config['footer_bar'])) {
             $this->addFooterBar($config['footer_bar']);
         }
 
@@ -200,7 +205,7 @@ class MenuBuilder
         foreach ($this->filters as $filter) {
             if ($filter instanceof MenuFilterInterface) {
                 $item = $filter->filter($item);
-                
+
                 // Se il filtro restituisce false, rimuovi l'elemento
                 if ($item === false) {
                     return false;
@@ -288,7 +293,7 @@ class MenuBuilder
     /**
      * Trova un elemento del menu per ID
      */
-    public function findItem(string $id, string $menu = null): array|null
+    public function findItem(string $id, ?string $menu = null): ?array
     {
         $menus = $menu ? [$menu => $this->{$menu}] : [
             'slim_header' => $this->slimHeader,
@@ -310,7 +315,7 @@ class MenuBuilder
     /**
      * Rimuovi un elemento del menu per ID
      */
-    public function removeItem(string $id, string $menu = null): self
+    public function removeItem(string $id, ?string $menu = null): self
     {
         $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
 
@@ -326,7 +331,7 @@ class MenuBuilder
     /**
      * Aggiorna un elemento del menu
      */
-    public function updateItem(string $id, array $updates, string $menu = null): self
+    public function updateItem(string $id, array $updates, ?string $menu = null): self
     {
         $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
 
@@ -335,6 +340,7 @@ class MenuBuilder
                 if (isset($item['id']) && $item['id'] === $id) {
                     return array_merge($item, $updates);
                 }
+
                 return $item;
             });
         }
@@ -352,9 +358,9 @@ class MenuBuilder
             'header_count' => $this->header->count(),
             'footer_count' => $this->footer->count(),
             'footer_bar_count' => $this->footerBar->count(),
-            'total_items' => $this->slimHeader->count() + 
-                           $this->header->count() + 
-                           $this->footer->count() + 
+            'total_items' => $this->slimHeader->count() +
+                           $this->header->count() +
+                           $this->footer->count() +
                            $this->footerBar->count(),
             'has_dropdowns' => $this->header->contains('type', 'dropdown'),
             'has_megamenus' => $this->header->contains('type', 'megamenu'),

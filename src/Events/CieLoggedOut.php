@@ -10,7 +10,7 @@ use Themes\Sixteen\Models\User;
 
 /**
  * Evento lanciato quando un utente effettua il logout da CIE
- * 
+ *
  * Questo evento permette di reagire al logout CIE per cleanup,
  * logging, sincronizzazione con sistemi esterni, etc.
  */
@@ -21,8 +21,7 @@ class CieLoggedOut
     public function __construct(
         public User $user,
         public array $cieAttributes
-    ) {
-    }
+    ) {}
 
     /**
      * Ottiene il metodo di autenticazione CIE utilizzato
