@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany, BelongsToMany};
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 /**
  * Modello per gli eventi municipali (Municipal Event)
- * 
+ *
  * Rappresenta eventi, manifestazioni, incontri pubblici
  * e altre attività organizzate dall'ente secondo l'ontologia AGID
  */
@@ -247,7 +251,7 @@ class MunicipalEvent extends Model
         return $query->where('end_date', '<', now()->toDateString())
             ->orWhere(function ($q) {
                 $q->where('start_date', '<', now()->toDateString())
-                  ->whereNull('end_date');
+                    ->whereNull('end_date');
             });
     }
 
@@ -257,10 +261,11 @@ class MunicipalEvent extends Model
     public function scopeOngoing($query)
     {
         $today = now()->toDateString();
+
         return $query->where('start_date', '<=', $today)
             ->where(function ($q) use ($today) {
                 $q->where('end_date', '>=', $today)
-                  ->orWhereNull('end_date');
+                    ->orWhereNull('end_date');
             })
             ->where('event_status', 'in_progress');
     }
@@ -326,7 +331,7 @@ class MunicipalEvent extends Model
     protected function isUpcoming(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->start_date->isFuture() || 
+            get: fn () => $this->start_date->isFuture() ||
                 ($this->start_date->isToday() && $this->start_time?->isFuture())
         );
     }
@@ -341,9 +346,9 @@ class MunicipalEvent extends Model
                 $now = now();
                 $startDateTime = $this->getStartDateTime();
                 $endDateTime = $this->getEndDateTime();
-                
-                return $startDateTime <= $now && 
-                       ($endDateTime >= $now || !$endDateTime) &&
+
+                return $startDateTime <= $now &&
+                       ($endDateTime >= $now || ! $endDateTime) &&
                        $this->event_status === 'in_progress';
             }
         );
@@ -357,6 +362,7 @@ class MunicipalEvent extends Model
         return Attribute::make(
             get: function () {
                 $endDateTime = $this->getEndDateTime();
+
                 return $endDateTime ? $endDateTime->isPast() : $this->start_date->isPast();
             }
         );
@@ -378,7 +384,7 @@ class MunicipalEvent extends Model
     protected function hasAvailableSpots(): Attribute
     {
         return Attribute::make(
-            get: fn () => !$this->capacity || $this->current_attendees < $this->capacity
+            get: fn () => ! $this->capacity || $this->current_attendees < $this->capacity
         );
     }
 
@@ -400,24 +406,24 @@ class MunicipalEvent extends Model
         return Attribute::make(
             get: function () {
                 if ($this->is_all_day) {
-                    return $this->end_date 
-                        ? $this->start_date->diffInDays($this->end_date) + 1 . ' giorni'
+                    return $this->end_date
+                        ? $this->start_date->diffInDays($this->end_date) + 1 .' giorni'
                         : '1 giorno';
                 }
-                
+
                 if ($this->start_time && $this->end_time) {
                     $diff = $this->start_time->diffInMinutes($this->end_time);
-                    
+
                     if ($diff >= 60) {
                         $hours = intval($diff / 60);
                         $minutes = $diff % 60;
+
                         return $minutes > 0 ? "{$hours}h {$minutes}m" : "{$hours}h";
                     }
-                    
+
                     return "{$diff}m";
                 }
-                
-                return null;
+
             }
         );
     }
@@ -443,6 +449,7 @@ class MunicipalEvent extends Model
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
                 }
+
                 return $value;
             }
         );
@@ -456,7 +463,7 @@ class MunicipalEvent extends Model
         if ($this->is_all_day) {
             return $this->start_date->startOfDay();
         }
-        
+
         return $this->start_time ?: $this->start_date->startOfDay();
     }
 
@@ -468,7 +475,7 @@ class MunicipalEvent extends Model
         if ($this->is_all_day) {
             return $this->end_date ? $this->end_date->endOfDay() : $this->start_date->endOfDay();
         }
-        
+
         return $this->end_time;
     }
 
@@ -478,26 +485,27 @@ class MunicipalEvent extends Model
     public function getFormattedDateTime(): string
     {
         if ($this->is_all_day) {
-            if ($this->end_date && !$this->start_date->isSameDay($this->end_date)) {
-                return $this->start_date->format('d/m/Y') . ' - ' . $this->end_date->format('d/m/Y');
+            if ($this->end_date && ! $this->start_date->isSameDay($this->end_date)) {
+                return $this->start_date->format('d/m/Y').' - '.$this->end_date->format('d/m/Y');
             }
-            return $this->start_date->format('d/m/Y') . ' (tutto il giorno)';
+
+            return $this->start_date->format('d/m/Y').' (tutto il giorno)';
         }
-        
+
         $formatted = $this->start_date->format('d/m/Y');
-        
+
         if ($this->start_time) {
-            $formatted .= ' alle ' . $this->start_time->format('H:i');
-            
+            $formatted .= ' alle '.$this->start_time->format('H:i');
+
             if ($this->end_time) {
                 if ($this->start_time->isSameDay($this->end_time)) {
-                    $formatted .= ' - ' . $this->end_time->format('H:i');
+                    $formatted .= ' - '.$this->end_time->format('H:i');
                 } else {
-                    $formatted .= ' - ' . $this->end_time->format('d/m/Y H:i');
+                    $formatted .= ' - '.$this->end_time->format('d/m/Y H:i');
                 }
             }
         }
-        
+
         return $formatted;
     }
 
@@ -506,7 +514,7 @@ class MunicipalEvent extends Model
      */
     public function getFormattedAgenda(): array
     {
-        if (!$this->agenda || !is_array($this->agenda)) {
+        if (! $this->agenda || ! is_array($this->agenda)) {
             return [];
         }
 
@@ -521,6 +529,7 @@ class MunicipalEvent extends Model
                         'order' => $index,
                     ];
                 }
+
                 return array_merge(['order' => $index], $item);
             })
             ->sortBy('order')
@@ -533,7 +542,7 @@ class MunicipalEvent extends Model
      */
     public function getFormattedSpeakers(): array
     {
-        if (!$this->speaker_info || !is_array($this->speaker_info)) {
+        if (! $this->speaker_info || ! is_array($this->speaker_info)) {
             return [];
         }
 
@@ -542,6 +551,7 @@ class MunicipalEvent extends Model
                 if (is_string($speaker)) {
                     return ['name' => $speaker];
                 }
+
                 return $speaker;
             })
             ->toArray();
@@ -552,7 +562,7 @@ class MunicipalEvent extends Model
      */
     public function getFormattedRequirements(): array
     {
-        if (!$this->requirements || !is_array($this->requirements)) {
+        if (! $this->requirements || ! is_array($this->requirements)) {
             return [];
         }
 
@@ -561,6 +571,7 @@ class MunicipalEvent extends Model
                 if (is_string($requirement)) {
                     return ['description' => $requirement, 'mandatory' => true];
                 }
+
                 return $requirement;
             })
             ->toArray();
@@ -571,18 +582,18 @@ class MunicipalEvent extends Model
      */
     public function canRegister(): bool
     {
-        if (!$this->registration_required) {
+        if (! $this->registration_required) {
             return false;
         }
-        
+
         if ($this->registration_deadline && $this->registration_deadline->isPast()) {
             return false;
         }
-        
-        if (!$this->hasAvailableSpots) {
+
+        if (! $this->hasAvailableSpots) {
             return false;
         }
-        
+
         return in_array($this->event_status, ['scheduled', 'confirmed']);
     }
 
@@ -591,7 +602,7 @@ class MunicipalEvent extends Model
      */
     public function isFree(): bool
     {
-        return !$this->registration_cost || $this->registration_cost == 0;
+        return ! $this->registration_cost || $this->registration_cost == 0;
     }
 
     /**
@@ -663,7 +674,7 @@ class MunicipalEvent extends Model
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug . '-' . $counter;
+                $model->slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
         });
@@ -673,11 +684,11 @@ class MunicipalEvent extends Model
             if (is_null($model->event_status)) {
                 $model->event_status = 'scheduled';
             }
-            
+
             if (is_null($model->visibility)) {
                 $model->visibility = 'public';
             }
-            
+
             if (is_null($model->priority_level)) {
                 $model->priority_level = 1;
             }

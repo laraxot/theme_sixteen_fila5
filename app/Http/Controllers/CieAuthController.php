@@ -4,24 +4,28 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Http\Controllers;
 
-use Illuminate\Http\{Request, RedirectResponse, JsonResponse};
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\{Auth, Log, Session};
-use Themes\Sixteen\Services\CieAuthService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use Themes\Sixteen\Events\CieAuthenticated;
+use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
-use Themes\Sixteen\Events\{CieAuthenticated, CieLoggedOut};
+use Themes\Sixteen\Services\CieAuthService;
 
 /**
  * Controller per l'autenticazione CIE
- * 
+ *
  * Gestisce il flusso completo di autenticazione CIE secondo le specifiche AGID
  */
 class CieAuthController extends Controller
 {
     public function __construct(
         protected CieAuthService $cieService
-    ) {
-    }
+    ) {}
 
     /**
      * Reindirizza a CIE per l'autenticazione web
@@ -38,7 +42,7 @@ class CieAuthController extends Controller
             ]);
 
             $loginUrl = $this->cieService->getLoginUrl($returnUrl);
-            
+
             return redirect()->to($loginUrl);
 
         } catch (\Exception $e) {
@@ -68,7 +72,7 @@ class CieAuthController extends Controller
             ]);
 
             $mobileUrl = $this->cieService->getMobileLoginUrl($returnUrl);
-            
+
             // Se è una richiesta AJAX, ritorna JSON per gestire il deep linking
             if ($request->wantsJson() || $request->ajax()) {
                 return response()->json([
@@ -110,20 +114,20 @@ class CieAuthController extends Controller
         try {
             // Processa la response OAuth2
             $userAttributes = $this->cieService->processCallback($request);
-            
+
             // Trova o crea l'utente
             $user = $this->findOrCreateUser($userAttributes);
-            
+
             // Effettua il login
             Auth::login($user, true);
-            
+
             // Salva i dati CIE in sessione
             Session::put('cie.authenticated', true);
             Session::put('cie.user_data', $userAttributes);
-            
+
             // Trigger evento
             event(new CieAuthenticated($user, $userAttributes));
-            
+
             Log::info('CIE authentication completed', [
                 'user_id' => $user->id,
                 'auth_method' => $userAttributes['auth_method'],
@@ -132,7 +136,7 @@ class CieAuthController extends Controller
 
             // Redirect all'URL di ritorno
             $returnUrl = Session::pull('cie.return_url', route('dashboard'));
-            
+
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione CIE completata con successo.');
 
@@ -147,7 +151,7 @@ class CieAuthController extends Controller
             $this->cieService->logout();
 
             return redirect()->route('login')
-                ->with('error', 'Errore durante l\'autenticazione CIE: ' . $e->getMessage());
+                ->with('error', 'Errore durante l\'autenticazione CIE: '.$e->getMessage());
         }
     }
 
@@ -180,6 +184,7 @@ class CieAuthController extends Controller
             // Se configurato, usa il logout endpoint CIE
             if (config('cie.logout_endpoint_enabled', false)) {
                 $logoutUrl = $this->cieService->getLogoutUrl($returnUrl);
+
                 return redirect()->to($logoutUrl);
             }
 
@@ -210,7 +215,7 @@ class CieAuthController extends Controller
     public function refresh(Request $request): JsonResponse
     {
         try {
-            if (!$this->cieService->isAuthenticated()) {
+            if (! $this->cieService->isAuthenticated()) {
                 return response()->json([
                     'success' => false,
                     'error' => 'Utente non autenticato con CIE',
@@ -218,8 +223,8 @@ class CieAuthController extends Controller
             }
 
             $tokenData = $this->cieService->refreshToken();
-            
-            if (!$tokenData) {
+
+            if (! $tokenData) {
                 return response()->json([
                     'success' => false,
                     'error' => 'Impossibile rinnovare il token',
@@ -291,7 +296,7 @@ class CieAuthController extends Controller
      */
     public function debug(Request $request): JsonResponse
     {
-        if (!config('app.debug') || !app()->environment(['local', 'development'])) {
+        if (! config('app.debug') || ! app()->environment(['local', 'development'])) {
             abort(404);
         }
 
@@ -318,7 +323,7 @@ class CieAuthController extends Controller
     protected function findOrCreateUser(array $attributes): User
     {
         $fiscalCode = $attributes['fiscal_code'];
-        
+
         if (empty($fiscalCode)) {
             throw new \Exception('Codice fiscale mancante nei dati CIE');
         }
@@ -329,6 +334,7 @@ class CieAuthController extends Controller
         if ($user) {
             // Aggiorna i dati se necessario
             $this->updateUserFromCie($user, $attributes);
+
             return $user;
         }
 
@@ -358,8 +364,8 @@ class CieAuthController extends Controller
         ];
 
         // Genera email temporanea se mancante o non verificata
-        if (empty($userData['email']) || !($attributes['email_verified'] ?? false)) {
-            $userData['email'] = 'cie.' . $attributes['fiscal_code'] . '@noemail.local';
+        if (empty($userData['email']) || ! ($attributes['email_verified'] ?? false)) {
+            $userData['email'] = 'cie.'.$attributes['fiscal_code'].'@noemail.local';
             $userData['email_verified_at'] = null;
         }
 
@@ -377,22 +383,22 @@ class CieAuthController extends Controller
         if ($user->name !== $attributes['name']) {
             $updateData['name'] = $attributes['name'];
         }
-        
+
         if ($user->surname !== $attributes['surname']) {
             $updateData['surname'] = $attributes['surname'];
         }
 
         // Aggiorna email solo se verificata in CIE
-        if (($attributes['email_verified'] ?? false) && 
-            $attributes['email'] && 
+        if (($attributes['email_verified'] ?? false) &&
+            $attributes['email'] &&
             $user->email !== $attributes['email']) {
             $updateData['email'] = $attributes['email'];
             $updateData['email_verified_at'] = now();
         }
 
         // Aggiorna telefono solo se verificato in CIE
-        if (($attributes['phone_verified'] ?? false) && 
-            $attributes['phone'] && 
+        if (($attributes['phone_verified'] ?? false) &&
+            $attributes['phone'] &&
             $user->phone !== $attributes['phone']) {
             $updateData['phone'] = $attributes['phone'];
             $updateData['phone_verified_at'] = now();
@@ -407,7 +413,7 @@ class CieAuthController extends Controller
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
-        if (!empty($updateData)) {
+        if (! empty($updateData)) {
             $user->update($updateData);
         }
     }

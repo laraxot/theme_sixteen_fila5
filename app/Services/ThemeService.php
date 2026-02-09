@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Services;
 
-use Themes\Sixteen\Services\MenuBuilder;
 /**
  * Servizio per la gestione del tema Sixteen.
- * 
+ *
  * Questo servizio fornisce metodi per la gestione
  * delle configurazioni e funzionalità del tema.
- * 
+ *
  * Enhanced version integrating with the new Menu Builder System
  */
 class ThemeService
@@ -27,8 +26,7 @@ class ThemeService
 
     public function __construct(
         protected MenuBuilder $menuBuilder
-    ) {
-    }
+    ) {}
 
     /**
      * Ottiene il nome del tema.
@@ -75,8 +73,6 @@ class ThemeService
 
     /**
      * Inizializza le risorse del tema.
-     *
-     * @return void
      */
     public function initialize(): void
     {
@@ -133,7 +129,7 @@ class ThemeService
             'implemented' => 26,
             'compliance_percentage' => 48,
             'critical_missing' => ['dropdown', 'pagination', 'spid_integration'],
-            'status' => 'in_development'
+            'status' => 'in_development',
         ];
     }
 
@@ -148,12 +144,12 @@ class ThemeService
     /**
      * Ottiene le configurazioni del tema.
      */
-    public function getConfig(string $key = null, mixed $default = null): mixed
+    public function getConfig(?string $key = null, mixed $default = null): mixed
     {
         if ($key === null) {
             return config('sixteen');
         }
 
-        return config('sixteen.' . $key, $default);
+        return config('sixteen.'.$key, $default);
     }
 }

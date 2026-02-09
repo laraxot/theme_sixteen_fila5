@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsTo, MorphMany, BelongsToMany};
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 /**
  * Modello per le unità organizzative
- * 
+ *
  * Rappresenta uffici, dipartimenti, settori e altre unità organizzative
  * dell'ente secondo l'ontologia AGID
  */
@@ -204,12 +209,12 @@ class OrganizationalUnit extends Model
             get: function () {
                 $path = collect([$this->name]);
                 $current = $this;
-                
+
                 while ($current->parent) {
                     $current = $current->parent;
                     $path->prepend($current->name);
                 }
-                
+
                 return $path->implode(' › ');
             }
         );
@@ -234,12 +239,12 @@ class OrganizationalUnit extends Model
             get: function () {
                 $level = 0;
                 $current = $this;
-                
+
                 while ($current->parent) {
                     $level++;
                     $current = $current->parent;
                 }
-                
+
                 return $level;
             }
         );
@@ -266,6 +271,7 @@ class OrganizationalUnit extends Model
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
                 }
+
                 return $value;
             }
         );
@@ -276,7 +282,7 @@ class OrganizationalUnit extends Model
      */
     public function getFormattedCompetences(): array
     {
-        if (!$this->competences || !is_array($this->competences)) {
+        if (! $this->competences || ! is_array($this->competences)) {
             return [];
         }
 
@@ -285,6 +291,7 @@ class OrganizationalUnit extends Model
                 if (is_string($competence)) {
                     return ['title' => $competence];
                 }
+
                 return $competence;
             })
             ->toArray();
@@ -295,7 +302,7 @@ class OrganizationalUnit extends Model
      */
     public function getFormattedServices(): array
     {
-        if (!$this->services_provided || !is_array($this->services_provided)) {
+        if (! $this->services_provided || ! is_array($this->services_provided)) {
             return [];
         }
 
@@ -304,6 +311,7 @@ class OrganizationalUnit extends Model
                 if (is_string($service)) {
                     return ['name' => $service];
                 }
+
                 return $service;
             })
             ->toArray();
@@ -314,14 +322,14 @@ class OrganizationalUnit extends Model
      */
     public function getFormattedOfficeHours(): array
     {
-        if (!$this->office_hours || !is_array($this->office_hours)) {
+        if (! $this->office_hours || ! is_array($this->office_hours)) {
             return [];
         }
 
         $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
         $dayNames = [
             'monday' => 'Lunedì',
-            'tuesday' => 'Martedì', 
+            'tuesday' => 'Martedì',
             'wednesday' => 'Mercoledì',
             'thursday' => 'Giovedì',
             'friday' => 'Venerdì',
@@ -332,6 +340,7 @@ class OrganizationalUnit extends Model
         return collect($days)
             ->mapWithKeys(function ($day) use ($dayNames) {
                 $hours = $this->office_hours[$day] ?? null;
+
                 return [$dayNames[$day] => $hours];
             })
             ->filter()
@@ -349,7 +358,7 @@ class OrganizationalUnit extends Model
 
         $todayHours = $this->office_hours[$currentDay] ?? null;
 
-        if (!$todayHours || !is_array($todayHours)) {
+        if (! $todayHours || ! is_array($todayHours)) {
             return false;
         }
 
@@ -440,7 +449,7 @@ class OrganizationalUnit extends Model
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug . '-' . $counter;
+                $model->slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
         });

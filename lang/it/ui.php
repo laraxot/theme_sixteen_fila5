@@ -14,20 +14,20 @@ return [
     'Entra con SPID' => 'Entra con SPID',
     'Entra con CIE 3.0' => 'Entra con CIE 3.0',
     'Prossimamente' => 'Prossimamente',
-    
+
     // Support
     'Hai bisogno di aiuto?' => 'Hai bisogno di aiuto?',
     'Telefono' => 'Telefono',
     'Email' => 'Email',
     'Orari: Lun-Ven 9:00-17:00 | Sab 9:00-13:00' => 'Orari: Lun-Ven 9:00-17:00 | Sab 9:00-13:00',
-    
+
     // Accessibility
     'Accessibilità' => 'Accessibilità',
     'Conforme a WCAG 2.1 AA' => 'Conforme a WCAG 2.1 AA',
     'Dichiarazione di accessibilità' => 'Dichiarazione di accessibilità',
     'Navigazione' => 'Navigazione',
     'Tab per spostarsi • Invio per confermare' => 'Tab per spostarsi • Invio per confermare',
-    
+
     // Common UI
     'Continua' => 'Continua',
     'Annulla' => 'Annulla',
@@ -42,7 +42,7 @@ return [
     'Successo' => 'Successo',
     'Avviso' => 'Avviso',
     'Informazione' => 'Informazione',
-    
+
     // Dark mode and UI controls
     'dark_mode_toggle' => 'Cambia modalità scura',
     'light_mode' => 'Modalità chiara',

@@ -10,7 +10,7 @@ use Themes\Sixteen\Models\User;
 
 /**
  * Evento lanciato quando un utente si autentica con successo tramite CIE
- * 
+ *
  * Questo evento permette di reagire all'autenticazione CIE
  * per logging, analytics, integrazione con sistemi esterni, etc.
  */
@@ -21,8 +21,7 @@ class CieAuthenticated
     public function __construct(
         public User $user,
         public array $cieAttributes
-    ) {
-    }
+    ) {}
 
     /**
      * Ottiene il metodo di autenticazione CIE utilizzato

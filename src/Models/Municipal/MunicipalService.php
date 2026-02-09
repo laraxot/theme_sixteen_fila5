@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsTo, MorphMany, BelongsToMany};
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 /**
  * Modello per i servizi comunali (Municipal Service)
- * 
+ *
  * Rappresenta i servizi erogati dall'ente ai cittadini
  * secondo l'ontologia AGID e le specifiche dei servizi pubblici
  */
@@ -327,6 +332,7 @@ class MunicipalService extends Model
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
                 }
+
                 return $value;
             }
         );
@@ -337,7 +343,7 @@ class MunicipalService extends Model
      */
     public function getFormattedRequirements(): array
     {
-        if (!$this->requirements || !is_array($this->requirements)) {
+        if (! $this->requirements || ! is_array($this->requirements)) {
             return [];
         }
 
@@ -346,6 +352,7 @@ class MunicipalService extends Model
                 if (is_string($requirement)) {
                     return ['description' => $requirement, 'mandatory' => true];
                 }
+
                 return $requirement;
             })
             ->toArray();
@@ -356,7 +363,7 @@ class MunicipalService extends Model
      */
     public function getFormattedProcedures(): array
     {
-        if (!$this->procedures || !is_array($this->procedures)) {
+        if (! $this->procedures || ! is_array($this->procedures)) {
             return [];
         }
 
@@ -365,6 +372,7 @@ class MunicipalService extends Model
                 if (is_string($procedure)) {
                     return ['step' => $index + 1, 'description' => $procedure];
                 }
+
                 return array_merge(['step' => $index + 1], $procedure);
             })
             ->toArray();
@@ -375,7 +383,7 @@ class MunicipalService extends Model
      */
     public function getFormattedRequiredDocuments(): array
     {
-        if (!$this->required_documents || !is_array($this->required_documents)) {
+        if (! $this->required_documents || ! is_array($this->required_documents)) {
             return [];
         }
 
@@ -384,6 +392,7 @@ class MunicipalService extends Model
                 if (is_string($document)) {
                     return ['name' => $document, 'mandatory' => true];
                 }
+
                 return $document;
             })
             ->toArray();
@@ -394,7 +403,7 @@ class MunicipalService extends Model
      */
     public function getFormattedCosts(): array
     {
-        if (!$this->costs || !is_array($this->costs)) {
+        if (! $this->costs || ! is_array($this->costs)) {
             return [];
         }
 
@@ -403,6 +412,7 @@ class MunicipalService extends Model
                 if (is_numeric($cost)) {
                     return ['amount' => $cost, 'description' => 'Costo del servizio'];
                 }
+
                 return $cost;
             })
             ->toArray();
@@ -413,7 +423,7 @@ class MunicipalService extends Model
      */
     public function getFormattedDigitalChannels(): array
     {
-        if (!$this->digital_channels || !is_array($this->digital_channels)) {
+        if (! $this->digital_channels || ! is_array($this->digital_channels)) {
             return [];
         }
 
@@ -428,7 +438,7 @@ class MunicipalService extends Model
                     'cie' => 'CIE',
                     'pagopa' => 'PagoPA',
                 ];
-                
+
                 return [$channelNames[$channel] ?? $channel => $url];
             })
             ->toArray();
@@ -439,7 +449,7 @@ class MunicipalService extends Model
      */
     public function getFormattedFaq(): array
     {
-        if (!$this->faq || !is_array($this->faq)) {
+        if (! $this->faq || ! is_array($this->faq)) {
             return [];
         }
 
@@ -448,6 +458,7 @@ class MunicipalService extends Model
                 if (is_array($item) && isset($item['question']) && isset($item['answer'])) {
                     return $item;
                 }
+
                 return ['question' => "Domanda {$index}", 'answer' => $item];
             })
             ->toArray();
@@ -458,12 +469,13 @@ class MunicipalService extends Model
      */
     public function isFree(): bool
     {
-        if (!$this->costs || !is_array($this->costs)) {
+        if (! $this->costs || ! is_array($this->costs)) {
             return true;
         }
 
         return collect($this->costs)->every(function ($cost) {
             $amount = is_array($cost) ? ($cost['amount'] ?? 0) : $cost;
+
             return $amount == 0;
         });
     }
@@ -473,10 +485,10 @@ class MunicipalService extends Model
      */
     public function isFullyDigital(): bool
     {
-        return $this->is_digital && 
+        return $this->is_digital &&
                is_array($this->delivery_methods) &&
                in_array('online', $this->delivery_methods) &&
-               !in_array('in_person', $this->delivery_methods);
+               ! in_array('in_person', $this->delivery_methods);
     }
 
     /**
@@ -484,13 +496,14 @@ class MunicipalService extends Model
      */
     public function getProcessingTimeFormatted(): ?string
     {
-        if (!$this->processing_time) {
+        if (! $this->processing_time) {
             return null;
         }
 
         // Se è un numero, assume giorni lavorativi
         if (is_numeric($this->processing_time)) {
             $days = (int) $this->processing_time;
+
             return $days === 1 ? '1 giorno lavorativo' : "{$days} giorni lavorativi";
         }
 
@@ -502,7 +515,7 @@ class MunicipalService extends Model
      */
     public function needsReview(): bool
     {
-        if (!$this->next_review_date) {
+        if (! $this->next_review_date) {
             return false;
         }
 
@@ -563,7 +576,7 @@ class MunicipalService extends Model
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug . '-' . $counter;
+                $model->slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
         });
@@ -573,11 +586,11 @@ class MunicipalService extends Model
             if (is_null($model->service_status)) {
                 $model->service_status = 'active';
             }
-            
+
             if (is_null($model->priority_level)) {
                 $model->priority_level = 1;
             }
-            
+
             if (is_null($model->last_updated)) {
                 $model->last_updated = now();
             }

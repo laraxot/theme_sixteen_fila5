@@ -10,7 +10,7 @@ use Tests\TestCase;
 
 /**
  * Test Suite for Bootstrap Italia Components
- * 
+ *
  * Tests all newly implemented Bootstrap Italia components for:
  * - Component rendering without errors
  * - Proper HTML structure and classes
@@ -30,8 +30,8 @@ class BootstrapItaliaComponentsTest extends TestCase
         $view = $this->view('pub_theme::bootstrap-italia.skiplinks', [
             'links' => [
                 ['label' => 'Vai al contenuto', 'href' => '#content'],
-                ['label' => 'Vai al menu', 'href' => '#navigation']
-            ]
+                ['label' => 'Vai al menu', 'href' => '#navigation'],
+            ],
         ]);
 
         $view->assertSee('skiplinks');
@@ -48,7 +48,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $view = $this->view('pub_theme::bootstrap-italia.cookiebar', [
             'acceptText' => 'Accetta tutti',
             'rejectText' => 'Rifiuta tutti',
-            'customizeText' => 'Personalizza'
+            'customizeText' => 'Personalizza',
         ]);
 
         $view->assertSee('cookiebar');
@@ -67,7 +67,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $textHero = $this->view('pub_theme::bootstrap-italia.hero', [
             'type' => 'text',
             'title' => 'Hero Title',
-            'subtitle' => 'Hero Subtitle'
+            'subtitle' => 'Hero Subtitle',
         ]);
 
         $textHero->assertSee('hero-text');
@@ -78,7 +78,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $imageHero = $this->view('pub_theme::bootstrap-italia.hero', [
             'type' => 'image',
             'image' => '/images/hero.jpg',
-            'imageAlt' => 'Hero Image'
+            'imageAlt' => 'Hero Image',
         ]);
 
         $imageHero->assertSee('hero-image');
@@ -94,7 +94,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $view = $this->view('pub_theme::bootstrap-italia.badge', [
             'variant' => 'primary',
             'text' => 'Badge Text',
-            'pill' => false
+            'pill' => false,
         ]);
 
         $view->assertSee('badge');
@@ -112,17 +112,17 @@ class BootstrapItaliaComponentsTest extends TestCase
             [
                 'id' => 'accordion-1',
                 'title' => 'First Item',
-                'content' => 'First content'
+                'content' => 'First content',
             ],
             [
-                'id' => 'accordion-2', 
+                'id' => 'accordion-2',
                 'title' => 'Second Item',
-                'content' => 'Second content'
-            ]
+                'content' => 'Second content',
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.accordion', [
-            'items' => $items
+            'items' => $items,
         ]);
 
         $view->assertSee('accordion');
@@ -140,14 +140,14 @@ class BootstrapItaliaComponentsTest extends TestCase
         $options = [
             'option1' => 'Option 1',
             'option2' => 'Option 2',
-            'option3' => 'Option 3'
+            'option3' => 'Option 3',
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.select', [
             'name' => 'test_select',
             'options' => $options,
             'label' => 'Select Label',
-            'placeholder' => 'Choose an option'
+            'placeholder' => 'Choose an option',
         ]);
 
         $view->assertSee('form-select');
@@ -167,19 +167,19 @@ class BootstrapItaliaComponentsTest extends TestCase
             [
                 'id' => 'radio1',
                 'value' => 'value1',
-                'label' => 'Radio 1'
+                'label' => 'Radio 1',
             ],
             [
                 'id' => 'radio2',
-                'value' => 'value2', 
-                'label' => 'Radio 2'
-            ]
+                'value' => 'value2',
+                'label' => 'Radio 2',
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.radio', [
             'radios' => $radios,
             'name' => 'test_radio',
-            'legend' => 'Radio Group'
+            'legend' => 'Radio Group',
         ]);
 
         $view->assertSee('fieldset');
@@ -198,7 +198,7 @@ class BootstrapItaliaComponentsTest extends TestCase
             'name' => 'file_upload',
             'label' => 'Upload File',
             'multiple' => true,
-            'accept' => '.pdf,.doc,.docx'
+            'accept' => '.pdf,.doc,.docx',
         ]);
 
         $view->assertSee('upload');
@@ -216,7 +216,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $view = $this->view('pub_theme::bootstrap-italia.toggle', [
             'name' => 'test_toggle',
             'label' => 'Toggle Label',
-            'checked' => true
+            'checked' => true,
         ]);
 
         $view->assertSee('toggles');
@@ -235,14 +235,14 @@ class BootstrapItaliaComponentsTest extends TestCase
                 'title' => 'Category 1',
                 'links' => [
                     ['label' => 'Link 1', 'url' => '/link1'],
-                    ['label' => 'Link 2', 'url' => '/link2']
-                ]
-            ]
+                    ['label' => 'Link 2', 'url' => '/link2'],
+                ],
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.megamenu', [
             'title' => 'Megamenu',
-            'columns' => $columns
+            'columns' => $columns,
         ]);
 
         $view->assertSee('megamenu');
@@ -261,17 +261,17 @@ class BootstrapItaliaComponentsTest extends TestCase
             [
                 'label' => 'Home',
                 'url' => '/',
-                'active' => true
+                'active' => true,
             ],
             [
-                'label' => 'Services', 
-                'url' => '/services'
-            ]
+                'label' => 'Services',
+                'url' => '/services',
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.sidebar', [
             'title' => 'Navigation',
-            'links' => $links
+            'links' => $links,
         ]);
 
         $view->assertSee('sidebar-wrapper');
@@ -290,18 +290,18 @@ class BootstrapItaliaComponentsTest extends TestCase
             [
                 'label' => 'Home',
                 'url' => '/',
-                'icon' => 'it-home'
+                'icon' => 'it-home',
             ],
             [
                 'label' => 'Settings',
                 'url' => '/settings',
-                'icon' => 'it-settings'
-            ]
+                'icon' => 'it-settings',
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.bottom-nav', [
             'items' => $items,
-            'fixed' => true
+            'fixed' => true,
         ]);
 
         $view->assertSee('bottom-nav');
@@ -321,7 +321,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $spinner = $this->view('pub_theme::bootstrap-italia.progress-indicators', [
             'type' => 'spinner',
             'active' => true,
-            'size' => 'lg'
+            'size' => 'lg',
         ]);
 
         $spinner->assertSee('progress-spinner');
@@ -332,7 +332,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $progressBar = $this->view('pub_theme::bootstrap-italia.progress-indicators', [
             'type' => 'bar',
             'value' => 0.75,
-            'showLabel' => true
+            'showLabel' => true,
         ]);
 
         $progressBar->assertSee('progress-bar');
@@ -348,7 +348,7 @@ class BootstrapItaliaComponentsTest extends TestCase
             'title' => 'Test Notification',
             'message' => 'This is a test message',
             'type' => 'success',
-            'dismissible' => true
+            'dismissible' => true,
         ]);
 
         $view->assertSee('notification');
@@ -368,7 +368,7 @@ class BootstrapItaliaComponentsTest extends TestCase
             'name' => 'test_rating',
             'legend' => 'Rate this service',
             'value' => 4,
-            'showLabel' => true
+            'showLabel' => true,
         ]);
 
         $view->assertSee('rating');
@@ -387,18 +387,18 @@ class BootstrapItaliaComponentsTest extends TestCase
         $tabs = [
             'tab1' => [
                 'label' => 'Tab 1',
-                'content' => 'Content 1'
+                'content' => 'Content 1',
             ],
             'tab2' => [
                 'label' => 'Tab 2',
                 'content' => 'Content 2',
-                'icon' => 'it-settings'
-            ]
+                'icon' => 'it-settings',
+            ],
         ];
 
         $view = $this->view('pub_theme::bootstrap-italia.tab', [
             'tabs' => $tabs,
-            'activeTab' => 'tab1'
+            'activeTab' => 'tab1',
         ]);
 
         $view->assertSee('nav-tabs');
@@ -419,14 +419,14 @@ class BootstrapItaliaComponentsTest extends TestCase
         // Test that components include responsive classes
         $bottomNav = $this->view('pub_theme::bootstrap-italia.bottom-nav', [
             'items' => [['label' => 'Home', 'url' => '/']],
-            'hiddenOnDesktop' => true
+            'hiddenOnDesktop' => true,
         ]);
 
         $bottomNav->assertSee('d-lg-none');
 
         $megamenu = $this->view('pub_theme::bootstrap-italia.megamenu', [
             'title' => 'Menu',
-            'fullWidth' => true
+            'fullWidth' => true,
         ]);
 
         $megamenu->assertSee('full-width');
@@ -440,8 +440,8 @@ class BootstrapItaliaComponentsTest extends TestCase
         // Test that key components have proper ARIA attributes
         $accordion = $this->view('pub_theme::bootstrap-italia.accordion', [
             'items' => [
-                ['id' => 'test', 'title' => 'Test', 'content' => 'Content']
-            ]
+                ['id' => 'test', 'title' => 'Test', 'content' => 'Content'],
+            ],
         ]);
 
         $accordion->assertSee('aria-expanded');
@@ -462,7 +462,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         $badge->assertSee('badge');
 
         $rating = $this->view('pub_theme::bootstrap-italia.rating', [
-            'name' => 'default_rating'
+            'name' => 'default_rating',
         ]);
         $rating->assertSee('rating');
         $rating->assertSee('Rating');
@@ -478,7 +478,7 @@ class BootstrapItaliaComponentsTest extends TestCase
         // Should contain multiple Bootstrap Italia components
         $view->assertSee('form-select'); // Select component
         $view->assertSee('type="radio"'); // Radio component
-        $view->assertSee('toggles'); // Toggle component  
+        $view->assertSee('toggles'); // Toggle component
         $view->assertSee('upload'); // Upload component
         $view->assertSee('rating'); // Rating component
     }
@@ -493,15 +493,15 @@ class BootstrapItaliaComponentsTest extends TestCase
         // Render multiple components
         $this->view('pub_theme::bootstrap-italia.hero', [
             'type' => 'text',
-            'title' => 'Performance Test'
+            'title' => 'Performance Test',
         ]);
 
         $this->view('pub_theme::bootstrap-italia.accordion', [
             'items' => array_fill(0, 10, [
                 'id' => 'perf-test',
                 'title' => 'Performance Item',
-                'content' => 'Performance content'
-            ])
+                'content' => 'Performance content',
+            ]),
         ]);
 
         $endTime = microtime(true);

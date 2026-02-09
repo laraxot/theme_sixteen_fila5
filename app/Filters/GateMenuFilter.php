@@ -17,22 +17,22 @@ class GateMenuFilter implements MenuFilterInterface
     {
         // Controllo permesso con Laravel Gate
         if (isset($item['can'])) {
-            if (!Gate::allows($item['can'])) {
+            if (! Gate::allows($item['can'])) {
                 return false;
             }
         }
-        
+
         // Controllo ruolo utente
         if (isset($item['role'])) {
-            if (!auth()->check()) {
+            if (! auth()->check()) {
                 return false;
             }
-            
+
             $user = auth()->user();
-            
+
             // Se l'utente ha un metodo hasRole (es. Spatie/Permission)
             if (method_exists($user, 'hasRole')) {
-                if (!$user->hasRole($item['role'])) {
+                if (! $user->hasRole($item['role'])) {
                     return false;
                 }
             }
@@ -40,27 +40,27 @@ class GateMenuFilter implements MenuFilterInterface
 
         // Controllo permesso diretto
         if (isset($item['permission'])) {
-            if (!auth()->check()) {
+            if (! auth()->check()) {
                 return false;
             }
 
             $user = auth()->user();
-            
+
             // Se l'utente ha un metodo hasPermissionTo (es. Spatie/Permission)
             if (method_exists($user, 'hasPermissionTo')) {
-                if (!$user->hasPermissionTo($item['permission'])) {
+                if (! $user->hasPermissionTo($item['permission'])) {
                     return false;
                 }
             }
             // Fallback a Laravel Gate
-            elseif (!Gate::allows($item['permission'])) {
+            elseif (! Gate::allows($item['permission'])) {
                 return false;
             }
         }
 
         // Controllo se utente è autenticato
         if (isset($item['auth']) && $item['auth'] === true) {
-            if (!auth()->check()) {
+            if (! auth()->check()) {
                 return false;
             }
         }
@@ -74,7 +74,7 @@ class GateMenuFilter implements MenuFilterInterface
 
         // Controllo custom con callback
         if (isset($item['when']) && is_callable($item['when'])) {
-            if (!call_user_func($item['when'])) {
+            if (! call_user_func($item['when'])) {
                 return false;
             }
         }

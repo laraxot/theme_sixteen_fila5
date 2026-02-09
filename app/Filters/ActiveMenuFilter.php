@@ -31,7 +31,7 @@ class ActiveMenuFilter implements MenuFilterInterface
                     break;
                 }
             }
-            
+
             if ($hasActiveChild) {
                 $item['active'] = true;
             }
@@ -50,7 +50,7 @@ class ActiveMenuFilter implements MenuFilterInterface
                     }
                 }
             }
-            
+
             if ($hasActiveChild) {
                 $item['active'] = true;
             }
@@ -70,7 +70,7 @@ class ActiveMenuFilter implements MenuFilterInterface
         // Se ha un array di URL attivi personalizzato
         if (isset($item['active_urls']) && is_array($item['active_urls'])) {
             foreach ($item['active_urls'] as $activeUrl) {
-                if ($this->matchesPattern($currentPath, $activeUrl) || 
+                if ($this->matchesPattern($currentPath, $activeUrl) ||
                     $this->matchesPattern($currentUrl, $activeUrl)) {
                     return true;
                 }
@@ -83,7 +83,7 @@ class ActiveMenuFilter implements MenuFilterInterface
         }
 
         // Se non ha URL, non può essere attivo
-        if (!isset($item['url'])) {
+        if (! isset($item['url'])) {
             return false;
         }
 
@@ -114,7 +114,7 @@ class ActiveMenuFilter implements MenuFilterInterface
         }
 
         // Sub-path match (l'URL corrente è sotto l'URL dell'elemento)
-        if ($itemPath !== '' && str_starts_with($currentPath . '/', $itemPath . '/')) {
+        if ($itemPath !== '' && str_starts_with($currentPath.'/', $itemPath.'/')) {
             return true;
         }
 
@@ -134,13 +134,15 @@ class ActiveMenuFilter implements MenuFilterInterface
         // Wildcard pattern
         if (str_contains($pattern, '*')) {
             $pattern = str_replace('*', '.*', preg_quote($pattern, '/'));
-            return (bool) preg_match('/^' . $pattern . '$/i', $path);
+
+            return (bool) preg_match('/^'.$pattern.'$/i', $path);
         }
 
         // Sub-path pattern (ends with /*)
         if (str_ends_with($pattern, '/*')) {
             $basePath = rtrim($pattern, '/*');
-            return str_starts_with($path, $basePath . '/') || $path === $basePath;
+
+            return str_starts_with($path, $basePath.'/') || $path === $basePath;
         }
 
         return false;

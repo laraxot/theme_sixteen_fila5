@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
-use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsToMany, MorphMany};
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 /**
  * Modello per le persone pubbliche (Public Person)
- * 
+ *
  * Rappresenta amministratori, dirigenti, dipendenti e altre figure
  * pubbliche dell'ente secondo l'ontologia AGID
  */
@@ -184,7 +187,7 @@ class PublicPerson extends Model
         return $query->where('start_date', '<=', now())
             ->where(function ($q) {
                 $q->whereNull('end_date')
-                  ->orWhere('end_date', '>', now());
+                    ->orWhere('end_date', '>', now());
             });
     }
 
@@ -202,7 +205,7 @@ class PublicPerson extends Model
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn () => trim($this->first_name . ' ' . $this->last_name)
+            get: fn () => trim($this->first_name.' '.$this->last_name)
         );
     }
 
@@ -212,7 +215,7 @@ class PublicPerson extends Model
     protected function displayName(): Attribute
     {
         return Attribute::make(
-            get: fn () => trim($this->last_name . ', ' . $this->first_name)
+            get: fn () => trim($this->last_name.', '.$this->first_name)
         );
     }
 
@@ -253,11 +256,11 @@ class PublicPerson extends Model
     {
         return Attribute::make(
             get: function () {
-                if (!$this->start_date || $this->start_date->isFuture()) {
+                if (! $this->start_date || $this->start_date->isFuture()) {
                     return false;
                 }
-                
-                return !$this->end_date || $this->end_date->isFuture();
+
+                return ! $this->end_date || $this->end_date->isFuture();
             }
         );
     }
@@ -269,10 +272,10 @@ class PublicPerson extends Model
     {
         return Attribute::make(
             get: function () {
-                if (!$this->is_in_office) {
-                    return null;
+                if (! $this->is_in_office) {
+                    return;
                 }
-                
+
                 return $this->end_date?->diffInDays(now()) ?? null;
             }
         );
@@ -296,9 +299,10 @@ class PublicPerson extends Model
         return Attribute::make(
             set: function ($value) {
                 $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && !empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'] . ' ' . $value);
+                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
+                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
                 }
+
                 return $value;
             }
         );
@@ -309,7 +313,7 @@ class PublicPerson extends Model
      */
     public function getFormattedEducation(): array
     {
-        if (!$this->education || !is_array($this->education)) {
+        if (! $this->education || ! is_array($this->education)) {
             return [];
         }
 
@@ -318,6 +322,7 @@ class PublicPerson extends Model
                 if (is_string($education)) {
                     return ['degree' => $education];
                 }
+
                 return $education;
             })
             ->toArray();
@@ -328,7 +333,7 @@ class PublicPerson extends Model
      */
     public function getFormattedWorkExperience(): array
     {
-        if (!$this->work_experience || !is_array($this->work_experience)) {
+        if (! $this->work_experience || ! is_array($this->work_experience)) {
             return [];
         }
 
@@ -337,6 +342,7 @@ class PublicPerson extends Model
                 if (is_string($experience)) {
                     return ['position' => $experience];
                 }
+
                 return $experience;
             })
             ->sortByDesc('start_date')
@@ -349,7 +355,7 @@ class PublicPerson extends Model
      */
     public function getFormattedSocialProfiles(): array
     {
-        if (!$this->social_profiles || !is_array($this->social_profiles)) {
+        if (! $this->social_profiles || ! is_array($this->social_profiles)) {
             return [];
         }
 
@@ -375,7 +381,7 @@ class PublicPerson extends Model
      */
     public function hasCurriculumVitae(): bool
     {
-        return !empty($this->cv_file_path) || !empty($this->curriculum_vitae);
+        return ! empty($this->cv_file_path) || ! empty($this->curriculum_vitae);
     }
 
     /**
@@ -383,11 +389,11 @@ class PublicPerson extends Model
      */
     public function getCvUrl(): ?string
     {
-        if (!$this->cv_file_path) {
+        if (! $this->cv_file_path) {
             return null;
         }
 
-        return asset('storage/' . $this->cv_file_path);
+        return asset('storage/'.$this->cv_file_path);
     }
 
     /**
@@ -395,7 +401,7 @@ class PublicPerson extends Model
      */
     public function shouldPublishCompensation(): bool
     {
-        return in_array($this->category, ['politician', 'manager', 'consultant']) 
+        return in_array($this->category, ['politician', 'manager', 'consultant'])
             && $this->is_public;
     }
 
@@ -444,8 +450,8 @@ class PublicPerson extends Model
 
         // Genera slug se mancante
         static::creating(function ($model) {
-            if (empty($model->slug) && !empty($model->first_name) && !empty($model->last_name)) {
-                $model->slug = Str::slug($model->first_name . ' ' . $model->last_name);
+            if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
+                $model->slug = Str::slug($model->first_name.' '.$model->last_name);
             }
         });
 
@@ -455,7 +461,7 @@ class PublicPerson extends Model
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug . '-' . $counter;
+                $model->slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
         });
