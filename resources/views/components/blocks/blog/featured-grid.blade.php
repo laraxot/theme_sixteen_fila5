@@ -132,7 +132,7 @@
         {{-- View All Button --}}
         @if(count($articles) > 0)
             <div class="text-center mt-12">
-                <a href="/it/pages/blog" class="inline-flex items-center justify-center bg-[#1E5A96] hover:bg-[#164575] text-white text-lg px-8 py-4 rounded-lg font-semibold shadow-lg transition-all">
+                <a href="/it/blog" class="inline-flex items-center justify-center bg-[#1E5A96] hover:bg-[#164575] text-white text-lg px-8 py-4 rounded-lg font-semibold shadow-lg transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                     </svg>
