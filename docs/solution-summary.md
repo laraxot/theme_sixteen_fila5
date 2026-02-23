@@ -178,4 +178,3 @@
 - [Login Page](resources/views/pages/auth/login.blade.php)
 - [Layout Guest](resources/views/layouts/guest.blade.php)
 
-*Ultimo aggiornamento: 2025-01-06* 

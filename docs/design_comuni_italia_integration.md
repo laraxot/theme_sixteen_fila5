@@ -1,5 +1,6 @@
 # 🇮🇹 Design Comuni Italia - Integration Analysis
 
+**Date:** 2025-10-02  
 **Theme:** Sixteen (AGID Bootstrap Italia)  
 **Status:** Analysis & Implementation Plan
 

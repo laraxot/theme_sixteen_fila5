@@ -296,4 +296,3 @@ document.addEventListener('DOMContentLoaded', function() {
 - [Layout Usage Patterns](layout-usage-patterns.md)
 - [Vite Theme Integration](vite-theme-integration.md)
 
-*Ultimo aggiornamento: 2025-01-06* 

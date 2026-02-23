@@ -159,4 +159,3 @@ View [pub_theme::layouts.auth-agid] not found
 - [Documentazione Tema One](../../../laravel/Themes/One/app/Providers/ThemeServiceProvider.php)
 - [Configurazione Temi](../../../laravel/config/xot.php)
 
-*Ultimo aggiornamento: 2025-01-06* 

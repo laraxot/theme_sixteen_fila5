@@ -185,4 +185,3 @@ I seguenti testi sono **intenzionalmente hardcoded** per garantire conformità A
 - [Layout Guest](resources/views/layouts/guest.blade.php)
 - [Login Component](../../../laravel/Modules/User/app/Http/Livewire/Auth/Login.php)
 
-*Ultimo aggiornamento: 2025-01-06*

@@ -231,4 +231,3 @@ Una pagina di login **pulita**, **accessibile**, **performante** e **conforme al
 - [Layout Usage Patterns](layout-usage-patterns.md)
 - [Vite Theme Integration](vite-theme-integration.md)
 
-*Ultimo aggiornamento: 2025-01-06* 

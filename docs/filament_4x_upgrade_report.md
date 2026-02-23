@@ -216,5 +216,4 @@ ls -lh public/assets/  # Verify assets
 - [x] No breaking changes required
 - [x] Documentation updated
 
-*Ultimo aggiornamento: 2025-09-30*
 *Tema Sixteen pienamente compatibile con Filament 4.0.20*

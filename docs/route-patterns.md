@@ -217,4 +217,3 @@ foreach ($pages as $page) {
 - [Route File](resources/views/pages/pages/[slug].blade.php)
 - [CMS Module](../../../laravel/Modules/Cms/)
 
-*Ultimo aggiornamento: 2025-01-06* 

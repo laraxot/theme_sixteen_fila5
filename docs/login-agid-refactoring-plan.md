@@ -640,4 +640,3 @@ name('login');
 
 **Questo piano garantisce una trasformazione completa della pagina di login da un approccio ibrido a una soluzione nativa AGID-compliant al 100%.**
 
-*Ultimo aggiornamento: 31 luglio 2025*
