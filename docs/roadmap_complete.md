@@ -296,14 +296,14 @@ Themes/Sixteen/
 
 ### Development
 ```bash
-cd /var/www/_bases/base_fixcity_fila4_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
 npm install
 npm run dev
 ```
 
 ### Production
 ```bash
-cd /var/www/_bases/base_fixcity_fila4_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
 npm run build
 npm run copy  # Copy to main Laravel public/
 ```

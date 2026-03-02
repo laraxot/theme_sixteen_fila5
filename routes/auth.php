@@ -182,3 +182,4 @@ if (app()->environment(['local', 'development', 'testing'])) {
                     
             })->name('cie.simulate');
         });
+}

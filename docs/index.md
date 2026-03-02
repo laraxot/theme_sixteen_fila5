@@ -178,7 +178,7 @@ Questo indice organizza tutta la documentazione del tema Sixteen per facilitare 
 ### Setup Sviluppo
 ```bash
 # Installazione dipendenze
-cd /var/www/html/_bases/base_predict_fila3_mono/laravel/Themes/Sixteen
+cd /var/www/html/_bases/base_predict_fila5_mono/laravel/Themes/Sixteen
 npm install
 
 # Build sviluppo

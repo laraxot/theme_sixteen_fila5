@@ -13,7 +13,7 @@ significa che gli asset Vite non sono stati pubblicati correttamente nella carte
 Portarsi nella cartella del tema:
 
 ```bash
-cd /var/www/html/_bases/base_fixcity_fila3_mono/laravel/Themes/Sixteen
+cd /var/www/html/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
 npm run copy
 ```
 

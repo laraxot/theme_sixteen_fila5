@@ -233,7 +233,7 @@ Unable to locate file in Vite manifest: resources/css/app.css
 1. Correggere la direttiva Vite aggiungendo il secondo parametro
 2. Eseguire il build degli asset del tema:
    ```bash
-   cd /var/www/html/_bases/base_<nome progetto>_fila3_mono/laravel/Themes/Sixteen
+   cd /var/www/html/_bases/base_<nome progetto>_fila5_mono/laravel/Themes/Sixteen
    npm run build
    # oppure
    npm run copy

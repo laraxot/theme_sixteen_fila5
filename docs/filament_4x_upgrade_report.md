@@ -69,7 +69,7 @@
 ### Comandi Aggiornati
 ```bash
 # Build assets
-cd /var/www/_bases/base_fixcity_fila4_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
 npm run build
 
 # Deploy assets
