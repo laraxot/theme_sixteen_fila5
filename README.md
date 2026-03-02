@@ -1,9 +1,9 @@
 # Tema Sixteen - Bootstrap Italia per Laravel
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laraxot/theme_sixteen_fila3.svg?style=flat-square)](https://packagist.org/packages/laraxot/theme_sixteen_fila3)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/laraxot/theme_sixteen_fila3/run-tests?label=tests)](https://github.com/laraxot/theme_sixteen_fila3/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/laraxot/theme_sixteen_fila3/Check%20&%20fix%20styling?label=code%20style)](https://github.com/laraxot/theme_sixteen_fila3/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/laraxot/theme_sixteen_fila3.svg?style=flat-square)](https://packagist.org/packages/laraxot/theme_sixteen_fila3)
-[![Bootstrap Italia Components](https://img.shields.io/badge/components-190%2B-Categorized-brightgreen.svg?style=flat-square)](https://github.com/laraxot/theme_sixteen_fila3)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laraxot/theme_sixteen_fila5.svg?style=flat-square)](https://packagist.org/packages/laraxot/theme_sixteen_fila5)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/laraxot/theme_sixteen_fila5/run-tests?label=tests)](https://github.com/laraxot/theme_sixteen_fila5/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/laraxot/theme_sixteen_fila5/Check%20&%20fix%20styling?label=code%20style)](https://github.com/laraxot/theme_sixteen_fila5/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/laraxot/theme_sixteen_fila5.svg?style=flat-square)](https://packagist.org/packages/laraxot/theme_sixteen_fila5)
+[![Bootstrap Italia Components](https://img.shields.io/badge/components-190%2B-Categorized-brightgreen.svg?style=flat-square)](https://github.com/laraxot/theme_sixteen_fila5)
 [![AGID Compliance](https://img.shields.io/badge/AGID-Compliant-blue.svg?style=flat-square)](https://designers.italia.it/)
 
 ## 🎯 Panoramica
@@ -52,7 +52,7 @@ Il **Tema Sixteen** è un tema Laravel completo che implementa il design system 
 
 ### Installazione via Composer
 ```bash
-composer require laraxot/theme_sixteen_fila3
+composer require laraxot/theme_sixteen_fila5
 ```
 
 ### Pubblicazione Assets
@@ -208,8 +208,8 @@ npm run test:performance
 
 ### Setup Sviluppo
 ```bash
-git clone https://github.com/laraxot/theme_sixteen_fila3.git
-cd theme_sixteen_fila3
+git clone https://github.com/laraxot/theme_sixteen_fila5.git
+cd theme_sixteen_fila5
 composer install
 npm install
 npm run dev
