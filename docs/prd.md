@@ -76,7 +76,7 @@ Senza Sixteen:
 ## 9. References
 
 - [agid/complete-agid-compliance-analysis.md](agid/complete-agid-compliance-analysis.md)
-- [PRD Indice Centrale](../../../project_docs/PRD_INDEX_2026_03_12.md)
+- [PRD Indice Centrale](../../../../docs/project/PRD_INDEX_2026_03_12.md)
 
 ## Testing & Coverage
 
