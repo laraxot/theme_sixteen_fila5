@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
+use Illuminate\Support\Facades\Blade;
+use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
 use Themes\Sixteen\Console\Commands\SixteenPublishCommand;
@@ -11,7 +13,9 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
 use Themes\Sixteen\Filters\ActiveMenuFilter;
 use Themes\Sixteen\Filters\GateMenuFilter;
 use Themes\Sixteen\Filters\HrefMenuFilter;
+use Themes\Sixteen\Services\CieAuthService;
 use Themes\Sixteen\Services\MenuBuilder;
+use Themes\Sixteen\Services\SpidAuthService;
 use Themes\Sixteen\Services\ThemeService;
 use Themes\Sixteen\View\Composers\SixteenComposer;
 
@@ -151,18 +155,18 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerAuthServices(): void
     {
         // Register SPID Auth Service
-        $this->app->singleton(\Themes\Sixteen\Services\SpidAuthService::class, function ($app) {
-            return new \Themes\Sixteen\Services\SpidAuthService();
+        $this->app->singleton(SpidAuthService::class, function ($app) {
+            return new SpidAuthService;
         });
 
         // Register CIE Auth Service
-        $this->app->singleton(\Themes\Sixteen\Services\CieAuthService::class, function ($app) {
-            return new \Themes\Sixteen\Services\CieAuthService();
+        $this->app->singleton(CieAuthService::class, function ($app) {
+            return new CieAuthService;
         });
 
         // Aliases for easier access
-        $this->app->alias(\Themes\Sixteen\Services\SpidAuthService::class, 'sixteen.spid');
-        $this->app->alias(\Themes\Sixteen\Services\CieAuthService::class, 'sixteen.cie');
+        $this->app->alias(SpidAuthService::class, 'sixteen.spid');
+        $this->app->alias(CieAuthService::class, 'sixteen.cie');
     }
 
     /**
@@ -226,19 +230,19 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $componentNamespace = $this->module_ns.'\View\Components';
 
         // Register with sixteen namespace (parent)
-        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespace, 'sixteen');
+        Blade::componentNamespace($componentNamespace, 'sixteen');
 
         // Register with pub_theme namespace (for theme compatibility)
-        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespace, 'pub_theme');
+        Blade::componentNamespace($componentNamespace, 'pub_theme');
 
         // Register anonymous components for pub_theme
         $componentsPath = realpath(__DIR__.'/../../resources/views/components');
         if ($componentsPath !== false) {
-            \Illuminate\Support\Facades\Blade::anonymousComponentPath($componentsPath, 'pub_theme');
+            Blade::anonymousComponentPath($componentsPath, 'pub_theme');
         }
 
         // Register class-based components
-        app(\Modules\Xot\Actions\Blade\RegisterBladeComponentsAction::class)
+        app(RegisterBladeComponentsAction::class)
             ->execute($this->module_dir.'/../View/Components', $this->module_ns);
     }
 
