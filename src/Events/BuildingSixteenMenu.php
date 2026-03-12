@@ -9,7 +9,7 @@ use Themes\Sixteen\Services\MenuBuilder;
 
 /**
  * Event che viene lanciato durante la costruzione del menu del tema Sixteen
- * 
+ *
  * Questo event permette di modificare il menu prima che venga renderizzato,
  * seguendo il pattern dell'official Italia Design Theme
  */
@@ -20,8 +20,7 @@ class BuildingSixteenMenu
     public function __construct(
         public MenuBuilder $menuBuilder,
         public string $location
-    ) {
-    }
+    ) {}
 
     /**
      * Aggiunge elementi al menu corrente in base alla location

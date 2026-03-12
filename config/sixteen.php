@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+use Themes\Sixteen\Filters\ActiveMenuFilter;
+use Themes\Sixteen\Filters\GateMenuFilter;
+use Themes\Sixteen\Filters\HrefMenuFilter;
 
 return [
     /*
@@ -384,9 +387,9 @@ return [
     |
     */
     'menu_filters' => [
-        \Themes\Sixteen\Filters\HrefMenuFilter::class,
-        \Themes\Sixteen\Filters\ActiveMenuFilter::class,
-        \Themes\Sixteen\Filters\GateMenuFilter::class,
+        HrefMenuFilter::class,
+        ActiveMenuFilter::class,
+        GateMenuFilter::class,
     ],
 
     /*

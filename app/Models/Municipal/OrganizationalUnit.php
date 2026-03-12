@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 /**
@@ -376,7 +377,7 @@ class OrganizationalUnit extends Model
     /**
      * Ottiene tutti gli antenati
      */
-    public function getAncestors(): \Illuminate\Support\Collection
+    public function getAncestors(): Collection
     {
         $ancestors = collect();
         $current = $this->parent;
@@ -392,7 +393,7 @@ class OrganizationalUnit extends Model
     /**
      * Ottiene tutti i discendenti (recursivo)
      */
-    public function getAllDescendants(): \Illuminate\Support\Collection
+    public function getAllDescendants(): Collection
     {
         $descendants = collect();
 
