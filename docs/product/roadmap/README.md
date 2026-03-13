@@ -6,7 +6,6 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
 ## Current Status
 - **Status**: Active theme
 - **Version**: v1.0.0
-- **Last Updated**: 2026-03-12
 
 ## Roadmap Phases
 

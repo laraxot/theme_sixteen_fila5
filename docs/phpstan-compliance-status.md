@@ -1,6 +1,5 @@
 # PHPStan Level 10 Compliance Status
 
-**Last Updated**: 2025-12-10  
 **Status**: ✅ NOT APPLICABLE (Theme)
 
 ## Summary

@@ -202,4 +202,3 @@ The theme fully implements Bootstrap Italia design system:
 ---
 
 *Analysis performed by: Super Mucca 🐮*  
-*Last Updated: 2025-10-01*
