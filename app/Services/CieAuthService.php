@@ -173,7 +173,7 @@ class CieAuthService
         $parts = explode('.', $idToken);
 
         if (count($parts) !== 3) {
-            throw new \Exception('Invalid JWT format');
+            throw new Exception('Invalid JWT format');
         }
 
         // Decodifica header e payload
@@ -305,7 +305,7 @@ class CieAuthService
                     'client_id' => $this->clientId,
                     'client_secret' => $this->clientSecret,
                 ]);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 Log::warning('CIE token revocation failed', ['error' => $e->getMessage()]);
             }
         }
@@ -364,7 +364,7 @@ class CieAuthService
 
                 return $tokenData;
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::warning('CIE token refresh failed', ['error' => $e->getMessage()]);
         }
 
