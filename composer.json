@@ -20,10 +20,6 @@
         "filament/widgets": "^5.0",
         "filament/notifications": "^5.0",
         "filament/infolists": "^5.0"
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     },
     "authors": [
         {
