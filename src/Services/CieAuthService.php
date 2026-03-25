@@ -174,10 +174,6 @@ class CieAuthService
 
         if (count($parts) !== 3) {
             throw new Exception('Invalid JWT format');
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         }
 
         // Decodifica header e payload
@@ -310,10 +306,6 @@ class CieAuthService
                     'client_secret' => $this->clientSecret,
                 ]);
             } catch (Exception $e) {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                 Log::warning('CIE token revocation failed', ['error' => $e->getMessage()]);
             }
         }
@@ -373,10 +365,6 @@ class CieAuthService
                 return $tokenData;
             }
         } catch (Exception $e) {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             Log::warning('CIE token refresh failed', ['error' => $e->getMessage()]);
         }
 
