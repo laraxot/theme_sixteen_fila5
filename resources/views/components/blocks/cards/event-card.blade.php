@@ -75,15 +75,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-calendar class="w-4 h-4 mr-2"" />
+                    <x-icon name="heroicon-o-calendar class="w-4 h-4 mr-2"" />
 =======
-                    <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-calendar" class="w-4 h-4 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-calendar" class="w-4 h-4 mr-2" />
 =======
-                    <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-calendar" class="w-4 h-4 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <time datetime="{{ $startDate->format('Y-m-d\TH:i:s') }}">
@@ -120,15 +120,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-map-pin class="w-4 h-4 mr-2"" />
+                    <x-icon name="heroicon-o-map-pin class="w-4 h-4 mr-2"" />
 =======
-                    <x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
 =======
-                    <x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
+                    <x-icon name="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <span>{{ $location }}</span>
@@ -144,15 +144,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-tag class="w-4 h-4 mr-1"" />
+                        <x-icon name="heroicon-o-tag class="w-4 h-4 mr-1"" />
 =======
-                        <x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
+                        <x-icon name="heroicon-o-tag" class="w-4 h-4 mr-1" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
+                        <x-icon name="heroicon-o-tag" class="w-4 h-4 mr-1" />
 =======
-                        <x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
+                        <x-icon name="heroicon-o-tag" class="w-4 h-4 mr-1" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         {{ $category }}
@@ -170,15 +170,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+                <x-icon name="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
 =======
-                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 =======
-                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
             </a>

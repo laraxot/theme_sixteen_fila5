@@ -88,15 +88,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-            <x-filament::icon icon="heroicon-o-arrow-path class="animate-spin h-4 w-4 mr-2"" />
+            <x-icon name="heroicon-o-arrow-path class="animate-spin h-4 w-4 mr-2"" />
 =======
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 =======
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
         @elseif($icon && $icon-position === 'left')
@@ -120,15 +120,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-            <x-filament::icon icon="heroicon-o-arrow-path class="animate-spin h-4 w-4 mr-2"" />
+            <x-icon name="heroicon-o-arrow-path class="animate-spin h-4 w-4 mr-2"" />
 =======
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 =======
-            <x-filament::icon icon="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
+            <x-icon name="heroicon-o-arrow-path" class="animate-spin h-4 w-4 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
         @elseif($icon && $icon-position === 'left')

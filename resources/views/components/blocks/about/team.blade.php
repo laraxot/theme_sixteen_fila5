@@ -41,7 +41,7 @@
                             <div class="flex flex-wrap gap-2">
                                 @foreach($member['certifications'] as $cert)
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand-blue/10 text-brand-blue">
-                                        <x-filament::icon icon="heroicon-o-check-badge" class="w-3 h-3 mr-1" />
+                                        <x-icon name="heroicon-o-check-badge" class="w-3 h-3 mr-1" />
                                         {{ $cert }}
                                     </span>
                                 @endforeach

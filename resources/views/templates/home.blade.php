@@ -49,15 +49,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-building-office-2 class="w-24 h-24 mx-auto mb-4"" />
+                            <x-icon name="heroicon-o-building-office-2 class="w-24 h-24 mx-auto mb-4"" />
 =======
-                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+                            <x-icon name="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+                            <x-icon name="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
 =======
-                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+                            <x-icon name="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                             <p class="text-sm">Servizi digitali per i cittadini</p>
@@ -226,15 +226,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-exclamation-triangle class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0"" />
+                            <x-icon name="heroicon-o-exclamation-triangle class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0"" />
 =======
-                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                            <x-icon name="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                            <x-icon name="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
 =======
-                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                            <x-icon name="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                             <div>

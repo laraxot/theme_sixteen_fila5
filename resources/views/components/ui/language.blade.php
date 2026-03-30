@@ -5,15 +5,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-			<x-filament::icon icon="heroicon-o-language class="size-5""/>
+			<x-icon name="heroicon-o-language class="size-5""/>
 =======
-			<x-filament::icon icon="heroicon-o-language" class="size-5"/>
+			<x-icon name="heroicon-o-language" class="size-5"/>
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-			<x-filament::icon icon="heroicon-o-language" class="size-5"/>
+			<x-icon name="heroicon-o-language" class="size-5"/>
 =======
-			<x-filament::icon icon="heroicon-o-language" class="size-5"/>
+			<x-icon name="heroicon-o-language" class="size-5"/>
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
 			<span class="hidden sm:block">English</span>
@@ -21,15 +21,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-			<x-filament::icon icon="heroicon-o-chevron-down class="hidden size-4 sm:block""/>
+			<x-icon name="heroicon-o-chevron-down class="hidden size-4 sm:block""/>
 =======
-			<x-filament::icon icon="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
+			<x-icon name="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-			<x-filament::icon icon="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
+			<x-icon name="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
 =======
-			<x-filament::icon icon="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
+			<x-icon name="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
 		</div>

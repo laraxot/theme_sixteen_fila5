@@ -98,7 +98,7 @@ new class extends Component {
                                     <p class="card-text">{{ $service['description'] }}</p>
                                     <a href="{{ $service['url'] }}" class="read-more">
                                         <span class="text">Leggi di più</span>
-                                        <x-filament::icon icon="heroicon-o-arrow-right" class="icon icon-sm" />
+                                        <x-icon name="heroicon-o-arrow-right" class="icon icon-sm" />
                                     </a>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@ new class extends Component {
                                     <p class="card-text">{{ $news['excerpt'] }}</p>
                                     <a href="{{ $news['url'] }}" class="read-more">
                                         <span class="text">Leggi di più</span>
-                                        <x-filament::icon icon="heroicon-o-arrow-right" class="icon icon-sm" />
+                                        <x-icon name="heroicon-o-arrow-right" class="icon icon-sm" />
                                     </a>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@ new class extends Component {
                                     <p class="card-text">{{ $event['description'] }}</p>
                                     <a href="{{ $event['url'] }}" class="read-more">
                                         <span class="text">Scopri di più</span>
-                                        <x-filament::icon icon="heroicon-o-arrow-right" class="icon icon-sm" />
+                                        <x-icon name="heroicon-o-arrow-right" class="icon icon-sm" />
                                     </a>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ new class extends Component {
                                     <p class="card-text">{{ $topic['description'] }}</p>
                                     <a href="{{ $topic['url'] }}" class="read-more">
                                         <span class="text">Esplora</span>
-                                        <x-filament::icon icon="heroicon-o-arrow-right" class="icon icon-sm" />
+                                        <x-icon name="heroicon-o-arrow-right" class="icon icon-sm" />
                                     </a>
                                 </div>
                             </div>

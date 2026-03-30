@@ -69,7 +69,7 @@
             class="ml-1.5 -mr-1 h-4 w-4 rounded-full inline-flex items-center justify-center {$variantClasses['text']} hover:bg-white hover:bg-opacity-20 focus:outline-none focus:bg-white focus:bg-opacity-20"
             aria-label="{{ __('sixteen::badges.dismiss') }}"
         >
-            <x-filament::icon name="heroicon-o-x-mark" class="h-3 w-3" />
+            <x-icon name="heroicon-o-x-mark" class="h-3 w-3" />
         </button>
     @endif
 </span> 
