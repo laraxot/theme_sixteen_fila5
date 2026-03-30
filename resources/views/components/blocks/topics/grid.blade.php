@@ -18,11 +18,6 @@
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card card-teaser rounded shadow-sm p-3 h-100">
                             <div class="card-body">
-                                @if(!empty($topic['icon']))
-                                    <svg class="icon icon-primary me-2" aria-hidden="true">
-                                        <use xlink:href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#' . $topic['icon']) }}"></use>
-                                    </svg>
-                                @endif
                                 @if(!empty($topic['title']))
                                     <h3 class="card-title text-primary font-weight-semibold">
                                         @if(!empty($topic['url']))
