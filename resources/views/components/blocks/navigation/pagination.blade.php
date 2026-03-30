@@ -51,6 +51,20 @@
                     aria-label="Prima pagina"
                 >
                     <x-heroicon-o-chevron-double-left class="h-4 w-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-left class="h-4 w-4"" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -63,6 +77,20 @@
                     aria-label="Pagina precedente"
                 >
                     <x-heroicon-o-chevron-left class="h-4 w-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-left class="h-4 w-4"" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -95,6 +123,20 @@
                     aria-label="Pagina successiva"
                 >
                     <x-heroicon-o-chevron-right class="h-4 w-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-right class="h-4 w-4"" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -107,6 +149,20 @@
                     aria-label="Ultima pagina"
                 >
                     <x-heroicon-o-chevron-double-right class="h-4 w-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-right class="h-4 w-4"" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+=======
+                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </a>
             </li>
         @endif
