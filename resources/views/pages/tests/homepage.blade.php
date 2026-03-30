@@ -191,6 +191,6 @@ new class extends Component {
     
     {{-- Footer --}}
     <x-section slug="footer" :data="$footerData ?? []" tpl="full" />
-    </div>
+    </div><!-- /.homepage-container -->
     @endvolt
 </x-layouts.app>
