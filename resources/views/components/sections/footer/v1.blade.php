@@ -22,17 +22,17 @@
                 <div class="flex space-x-4" role="list" aria-label="Link ai social media">
                     @if($social['linkedin'] ?? null)
                         <a href="{{ $social['linkedin'] ?? '#' }}" class="p-2 bg-white/10 rounded-lg hover:bg-white/20 agid-transition agid-focus focus:outline-2 focus:outline-white focus:outline-offset-2" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn - si apre in una nuova finestra">
-                            <x-heroicon-o-briefcase class="w-5 h-5 text-current" aria-hidden="true" />
+                            <x-filament::icon icon="ui-brands.linkedin" class="w-5 h-5 text-current" aria-hidden="true" />
                         </a>
                     @endif
                     @if($social['facebook'] ?? null)
                         <a href="{{ $social['facebook'] ?? '#' }}" class="p-2 bg-white/10 rounded-lg hover:bg-white/20 agid-transition agid-focus focus:outline-2 focus:outline-white focus:outline-offset-2" target="_blank" rel="noopener noreferrer" aria-label="Facebook - si apre in una nuova finestra">
-                            <x-heroicon-o-facebook class="w-5 h-5 text-current" aria-hidden="true" />
+                            <x-filament::icon icon="ui-brands.facebook" class="w-5 h-5 text-current" aria-hidden="true" />
                         </a>
                     @endif
                     @if($social['instagram'] ?? null)
                         <a href="{{ $social['instagram'] ?? '#' }}" class="p-2 bg-white/10 rounded-lg hover:bg-white/20 agid-transition agid-focus focus:outline-2 focus:outline-white focus:outline-offset-2" target="_blank" rel="noopener noreferrer" aria-label="Instagram - si apre in una nuova finestra">
-                            <x-heroicon-o-camera class="w-5 h-5 text-current" aria-hidden="true" />
+                            <x-filament::icon icon="ui-brands.instagram" class="w-5 h-5 text-current" aria-hidden="true" />
                         </a>
                     @endif
                 </div>
