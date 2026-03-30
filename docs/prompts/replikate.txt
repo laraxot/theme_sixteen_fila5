@@ -1,0 +1,230 @@
+per sapere quale tema utilizza questo progetto devi leggere laravel/.env  la variabile APP_URL  vedi un dominio , devi togliere http:// o https:// , togliere anche wwww. e lasciare solo il dominio, poi explodere la stringa da "."  poi invertire l'array e poi unire con "/"  questo e' il nome della configurazione percio' devi andare a leggere base_path('config/<nome>/xra.php');
+e qui trovi la variabile pub_theme  e qui c'e' scritto il nome del tema, che corrisponde al nome della cartella del tema in laravel/Themes/
+aggiorna le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills, utilizzando gli indici in ottica dry + kiss, utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm
+
+
+questo errore Vite manifest not found at: /var/www/_bases/base_fixcity_fila5/public_html/themes/<nome tema>/manifest.json 
+si risolve andando in 
+cd laravel/Themes/<nome tem>
+composer update -W 
+npm install
+npm run build
+npm run copy 
+capisci te i perche' 
+utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm
+
+
+
+studia a fondo 
+https://github.com/italia/design-comuni-pagine-statiche
+https://italia.github.io/design-comuni-pagine-statiche/
+e poi replichiamo le pagine 
+per esempio
+https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html
+dovra' vedersi in 
+http://fixcity.local/it/tests/argomenti
+
+la pagina 
+https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-06-conferma.html
+dovra' vedersi in 
+http://fixcity.local/it/tests/appuntamento-06-conferma
+
+dobbiamo replicare tutte le pagine statiche del progetto design-comuni-pagine-statiche
+e vederle perfettamente , 
+
+
+
+e aggiorna le cartelle docs dentro i moduli e dentro i temi e le tue rules, le tue memories e le tue skills, aggiorna tutto utilizzando gli indici, controllando la rindondanza e files doppi e tutto con ottica dry + kiss
+
+l'obiettivo di questo task e' anche creare componenti riutilizzabili e riconoscere i blocchi e documentarli 
+
+creare Themes/Sixteen/resources/views/pages/tests/argomenti.blade.php  e' sbagliato ! dovevi creare Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+
+ <script src="{{ asset('design-comuni/assets/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js') }}"></script>  sbagliato ! perche' noi rifacciamo quella grafica utilizzando tailwind e vite , molto lavoro e' gia' stato fatto ! vai a
+  studiare anche la cartella Main_files del tema 
+
+creati un piano di lavoro, poi crea le github issue e le github discussions, per vedere in quale repo fa git remote -v 
+
+fare <x-sixteen::blocks.navigation.header-main> e' sbagliato non c'e' un namespace per il tema in utilizzo , registriamo come namespace pub_theme , percio' doveva essere
+<x-pub_theme::blocks.navigation.header-main> , e ti ricordo che l'header e il footer son "sezioni" percio' li richiamiamo con <x-section slug="header" />  e <x-section slug="footer" />
+
+ti ricordo che non utilizziamo bootstrap, ma utilizziamo tailwind
+
+e' sbaliato salvare HTML in "All 38 HTML files are in `resources/design-comuni/dist/sito/`" utilizza una sottocartella adeguata di laravel/Themes/Sixteen/Main_files 
+//------------
+
+laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+doveva tramite folio + volt fare
+<?php
+
+declare(strict_types=1);
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+
+name('tests.view');
+middleware(PageSlugMiddleware::class);
+
+new class extends Component {
+    public string $slug = '';
+    public string $pageSlug = '';
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+
+    public function mount(string $slug): void
+    {
+        $this->slug = $slug;
+        $this->pageSlug = 'tests.'.$slug;
+        $this->data = [
+            'slug' => $slug
+        ];
+    }
+};
+?>
+<x-layouts.app >
+ @volt('tests.view')
+    <div>
+        <x-page side="content" :slug="$pageSlug" :data="$data" />
+    </div>
+    @endvolt
+</x-layouts.app >
+
+
+//-----------
+per uniformita' del progetto 
+laravel/Themes/Sixteen/resources/views/pages/tests/index.blade.php
+doveva tramite folio + volt fare
+<?php
+
+declare(strict_types=1);
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+
+name('tests.view');
+middleware(PageSlugMiddleware::class);
+
+new class extends Component {
+    public string $pageSlug = '';
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+
+    public function mount(): void
+    {
+        $this->pageSlug = 'tests.index';
+        $this->data = [
+            
+        ];
+    }
+};
+?>
+<x-layouts.app >
+ @volt('tests.index')
+    <div>
+        <x-page side="content" :slug="$pageSlug" :data="$data" />
+    </div>
+    @endvolt
+</x-layouts.app >
+
+
+devi capire il perche' la logica, la visione, la religione, la politica, la filosofia, lo zen e documentare tutto dentro le cartelle docs dentro i moduli e dentro i temi, aggiornare studiare e migliorare anche le tue rules, le tue memories, e le tue skills, aggiorna tutto utilizzando indici un controllo avanzato per la rindondanza e per i files doppi e dry + kiss
+utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm, ricorda che ogni task viene dato a piu' agenti ai, percio' comportati di conseguenza e cerca di unire le forze con gli altri agenti ai
+
+//----------
+fare  @includeIf('pub_theme::design-comuni.pages.'.$slug) e' sbagliato noi con <x-page side="content" :slug="$pageSlug" :data="$data" />  andiamo a leggere e mostrare i blocchi salavti dentro files .json 
+percio' la pagina /it/tests/appuntamento-06-conferma  deve andare a leggere laravel/config/local/fixcity/database/content/pages/tests.appuntamento-06-conferma.json  e questo json deve avere il nodo  "slug": "tests.appuntamento-06-conferma"
+
+
+
+percio' come minimo devi creare i files tipo laravel/config/local/fixcity/database/content/pages/tests.appuntamento-06-conferma.json per tutte le pagine statiche di https://italia.github.io/design-comuni-pagine-statiche/ da replicare 
+
+
+i json dentro laravel/config/local/fixcity/database/content/pages/ solo in casi rari possono contenere solo 1 blocco , ogni pagina per essere convertita di sicuro si puo' spezzare in piu' blocchi, ricorda che i blocchi in amministrazione vengono gestiti da  https://filamentphp.com/docs/5.x/forms/builder
+
+le cartelle docs dentro i moduli e dentro i temi devono essere agnostiche non puo' esserci ad esempio  [FixCity Pages Content Blocks](./fixcity-pages-content-blocks.md) 
+
+
+i blocchi se sono di tipo <tipo blocco> la view dentro data deve essere "pub_theme::components.blocks.<tipo blocco>.<blade del blocco>", 
+
+<<<<<<< HEAD
+||||||| 448c6141
+=======
+
+con git andiamo solo in avanti, non ripristiniamo mai versione vecchie, devi studiare le versioni vecchie e capire il perche' sono state fatte in quel modo e migliorare
+
+>>>>>>> 53d2eaa3
+devi capire il perche' la logica, la visione, la religione, la politica, la filosofia, lo zen e documentare tutto dentro le cartelle docs dentro i moduli e dentro i temi, aggiornare studiare e migliorare anche le tue rules, le tue memories, e le tue skills, aggiorna tutto utilizzando indici un controllo avanzato per la rindondanza e per i files doppi e dry + kiss
+utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm, ricorda che ogni task viene dato a piu' agenti ai, percio' comportati di conseguenza e cerca di unire le forze con gli altri agenti ai
+
+
+http://fixcity.local/it/tests/argomenti  ti sembra uguale a https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html ? utilizza gli screenshots, poi gli screenshots li devi salvare dentro una sottocartella delle cartelle docs dentro i moduli e dentro i temi, nello stesso percorso ti fai anche un file con lo stesso nome concatenato .md con la tua analisi delle differenze e anche di come risolvere , ricorda che i task li do a piu' agenti ai percio' comportati di conseguenza, e cerca di unire le forze con gli altri agenti ai , ti ricordo che puoi installarti e configurarti gli mcp ed i plugin che ti servono per svolgere il lavoro al meglio, sempre documentando 
+
+
+questo tipo di errore 
+Unable to locate a class or view for component [pub_theme::components.blocks.tests.argomenti.topics-grid].
+nasconde piu' errori perche' il prototipo e' "pub_theme::components.blocks.<tipo blocco>.<blade del blocco>"   e tests.argomenti non puo' essere un tipo di blocco , puoi prendere spunto dai tipi di blocchi da:
+ https://flowbite.com/blocks/ 
+ https://tailwindcss.com/plus/ui-blocks
+ https://daisyui.com/components/
+ https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/ (utilizziamo tailwind , ma come lista di componenti/blocchi puo' essere utile)
+
+flowbite, tailwindcss e daisyui sono anche i mattoni con cui facciamo i temi 
+ Principio Guida: Blocchi universali, riutilizzabili, non specifici per pagina.
+
+
+
+ concentrati sull'header di http://fixcity.local/it/tests/argomenti deve essere uguale all'header di https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html , ti ricordo che l'header e' una section e va chiamata con <x-section slug="header" /> se serve puoi passare anche parametri , aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali 
+
+
+ per facilitare il lavoro dentro il tag body ad esclusione degli script l' html di http://fixcity.local/it/tests/argomenti  deve esssere uguale a quello di  https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html e vale anche per tutte le altre pagine di  https://italia.github.io/design-comuni-pagine-statiche/
+
+ per fare un buon lavoro studia @/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/Main_files/five/src/style-apply.css e @laravel/Themes/Sixteen/Main_files/five/src/app1.js 
+
+
+ concentrati sul footer di https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html  devi replicarlo uguale su http://fixcity.local/it/tests/argomenti, ti ricordo che il footer e' una section e va chiamato con <x-section slug="footer" />  se in altre pagine ci sara' un footer "slim" potrai chiamarlo con <x-section slug="footer" tpl="slim" />  , aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali , utilizza openviking, bmad, gsd, notebooklm e ralph loop 
+
+
+ studiati, installatele a livello di progetto, configurati e documenta e rendi utilizzabile e controlla funzionamento :
+ https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+ https://github.com/Leonxlnx/taste-skill
+ https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051
+ https://ui-ux-pro-max-skill.nextlevelbuilder.io/
+ https://github.com/anthropics/skills.git
+ https://github.com/vercel-labs/agent-skills
+ https://github.com/bencium/bencium-claude-code-design-skill
+ https://github.com/accesslint/claude-marketplace
+ https://www.freecodecamp.org/news/how-to-improve-your-ui-ux-design-skills-as-a-developer-1fd96a49d807/
+ https://rosalie24.medium.com/the-future-of-product-design-how-ui-ux-principles-are-shaping-innovation-67655dc2ad07
+ https://smithery.ai/skills/vnzzzz/frontend-design
+ https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4
+ https://mcpmarket.com/tools/skills/frontend-design-codex
+ https://snyk.io/articles/top-claude-skills-ui-ux-engineers/
+
+ utilizza come sempre openviking installato globalmente, bmad, gsd, notebooklm, ralph loop 
+
+
+ questa pagina http://fixcity.local/it/tests/homepage deve essere uguale alla pagina https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , sia l'html dentro il tag body , che visivamente, 
+aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali , utilizza openviking, bmad, gsd, notebooklm e ralph loop 
+
+questa blade laravel/Themes/Sixteen/resources/views/components/blocks/tests/appuntamento-conferma/details.blade.php   non segue il prototipo
+laravel/Themes/Sixteen/resources/views/components/blocks/<tipo>/<blade>.blade.php 
+come gia' detto per <tipo> ti puoi ispirare studiando 
+https://flowbite.com/blocks/ 
+ https://tailwindcss.com/plus/ui-blocks
+ https://daisyui.com/components/
+ https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/ (utilizziamo tailwind , ma come lista di componenti/blocchi puo' essere utile)
+ come sempre utilizza openviking, bmad, gsd, notebooklm e ralph loop  
+
+
+ potresti anche creare facebook.svg dentro la cartella laravel/Modules/UI/resources/svg/brands  e poi richiamarlo con il nome registrato ui-brands.facebook meglio se utilizzi la filament way <x-filament::icon
+  https://filamentphp.com/docs/5.x/components/icon-button ​, ti ricordo che gli svg son registrati in automatico, percio' non sporcare il codice cercando di fare cose gia' fatte
+  non usare <x-icon ma <x-filament::icon
+
+
+  errore grave scrivere  [Filament Icons Documentation](https://filamentphp.com/docs/3.x/forms/fields/icon-picker)            noi utilizziamo filament 5 !
