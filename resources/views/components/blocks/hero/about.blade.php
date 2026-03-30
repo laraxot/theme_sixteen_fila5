@@ -42,14 +42,14 @@
                     @if($primaryCta)
                         <a href="{{ $primaryCta['url'] ?? '#' }}" 
                            class="inline-flex items-center justify-center bg-brand-green hover:bg-brand-green/90 text-white text-lg px-8 py-4 rounded-lg font-semibold shadow-xl transition-all group">
-                            <x-filament::icon icon="heroicon-o-users" class="w-5 h-5 mr-2" />
+                            <x-icon name="heroicon-o-users" class="w-5 h-5 mr-2" />
                             {{ $primaryCta['label'] ?? 'Scopri di più' }}
                         </a>
                     @endif
                     @if($secondaryCta)
                         <a href="{{ $secondaryCta['url'] ?? '#' }}" 
                            class="inline-flex items-center justify-center bg-white/10 text-white hover:bg-white hover:text-brand-blue border-2 border-white text-lg px-8 py-4 rounded-lg backdrop-blur-sm transition-all">
-                            <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+                            <x-icon name="heroicon-o-phone" class="w-5 h-5 mr-2" />
                             {{ $secondaryCta['label'] ?? 'Contattaci' }}
                         </a>
                     @endif

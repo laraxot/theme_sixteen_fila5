@@ -31,15 +31,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis class="w-8 h-8"" />
+                            <x-icon name="heroicon-o-chat-bubble-left-ellipsis class="w-8 h-8"" />
 =======
-                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+                            <x-icon name="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+                            <x-icon name="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
 =======
-                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+                            <x-icon name="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </div>

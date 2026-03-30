@@ -107,7 +107,7 @@
                         @click="show = false"
                         aria-label="{{ __('sixteen::alerts.dismiss') }}"
                     >
-                        <x-filament::icon name="heroicon-o-x-mark" class="h-4 w-4" />
+                        <x-icon name="heroicon-o-x-mark" class="h-4 w-4" />
                     </button>
                 </div>
             @endif

@@ -54,15 +54,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-double-left class="h-4 w-4"" />
+                    <x-icon name="heroicon-o-chevron-double-left class="h-4 w-4"" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                 </a>
@@ -80,15 +80,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-left class="h-4 w-4"" />
+                    <x-icon name="heroicon-o-chevron-left class="h-4 w-4"" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                 </a>
@@ -126,15 +126,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-right class="h-4 w-4"" />
+                    <x-icon name="heroicon-o-chevron-right class="h-4 w-4"" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                 </a>
@@ -152,15 +152,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-double-right class="h-4 w-4"" />
+                    <x-icon name="heroicon-o-chevron-double-right class="h-4 w-4"" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
 =======
-                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                 </a>

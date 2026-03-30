@@ -25,15 +25,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2"" />
+                    <x-icon name="heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2"" />
 =======
-                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+                    <x-icon name="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+                    <x-icon name="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
 =======
-                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+                    <x-icon name="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                 </div>
@@ -163,15 +163,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-user-circle class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-user-circle class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Anagrafe e Stato Civile</h3>
@@ -195,15 +195,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-currency-euro class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-currency-euro class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Tributi e Imposte</h3>
@@ -227,15 +227,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Urbanistica e Edilizia</h3>
@@ -259,15 +259,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-heart class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-heart class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Servizi Sociali</h3>
@@ -292,15 +292,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-leaf class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-leaf class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     --}}}
@@ -338,15 +338,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-computer-desktop class="w-8 h-8 text-primary-600"" />
+                        <x-icon name="heroicon-o-computer-desktop class="w-8 h-8 text-primary-600"" />
 =======
-                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
 =======
-                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </div>
@@ -368,15 +368,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-storefront class="w-8 h-8 text-primary-600"" />
+                        <x-icon name="heroicon-o-building-storefront class="w-8 h-8 text-primary-600"" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </div>
@@ -398,15 +398,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-phone class="w-8 h-8 text-primary-600"" />
+                        <x-icon name="heroicon-o-phone class="w-8 h-8 text-primary-600"" />
 =======
-                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
 =======
-                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+                        <x-icon name="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </div>
@@ -439,15 +439,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-lifebuoy class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-lifebuoy class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Assistenza Online
@@ -458,15 +458,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-phone class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-phone class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-phone" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-phone" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-phone" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Chiama: 06 1234567
@@ -477,15 +477,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Contatta URP
