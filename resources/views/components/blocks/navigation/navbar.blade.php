@@ -76,6 +76,20 @@
                 >
                     <span class="sr-only">Apri menu principale</span>
                     <x-heroicon-o-bars-3 class="h-6 w-6" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-bars-3 class="h-6 w-6"" />
+=======
+                    <x-filament::icon icon="heroicon-o-bars-3" class="h-6 w-6" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-bars-3" class="h-6 w-6" />
+=======
+                    <x-filament::icon icon="heroicon-o-bars-3" class="h-6 w-6" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </button>
             </div>
         </div>

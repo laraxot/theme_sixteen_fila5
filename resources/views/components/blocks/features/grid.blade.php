@@ -64,6 +64,20 @@
                             >
                                 Scopri di più
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-2"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-2" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                         @endif
                     </div>

@@ -18,14 +18,56 @@
                 <div class="flex flex-wrap justify-center gap-4 mt-8">
                     <a href="#tutte" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
                         <x-heroicon-o-newspaper class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-newspaper class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-newspaper" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-newspaper" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-newspaper" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Tutte le notizie
                     </a>
                     <a href="#comunicati" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
                         <x-heroicon-o-megaphone class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-megaphone class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-megaphone" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-megaphone" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-megaphone" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Comunicati Stampa
                     </a>
                     <a href="#avvisi" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
                         <x-heroicon-o-bell-alert class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-bell-alert class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-bell-alert" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-bell-alert" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-bell-alert" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Avvisi Pubblici
                     </a>
                 </div>
@@ -58,6 +100,20 @@
                             class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                         >
                         <x-heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+=======
+                        <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     </div>
                     
                     {{-- Filter Dropdown --}}
@@ -107,14 +163,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'nuovi-orari-uffici']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>
@@ -153,14 +251,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'raccolta-differenziata']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>
@@ -199,14 +339,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'bando-contributi-famiglie']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>
@@ -245,14 +427,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'evento-culturale-primavera']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>
@@ -291,14 +515,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'lavori-stradali-via-roma']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>
@@ -337,14 +603,56 @@
                             <a href="{{ route('pages.view', ['slug' => 'nuovi-servizi-digitali']) }}" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800">
                                 Leggi tutto
                                 <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+=======
+                                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </a>
                             
                             <div class="flex items-center space-x-2">
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Condividi">
                                     <x-heroicon-o-share class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-share" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                                 <button class="p-1 text-gray-400 hover:text-primary-600 transition-colors" aria-label="Salva">
                                     <x-heroicon-o-bookmark class="w-4 h-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark class="w-4 h-4"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+=======
+                                    <x-filament::icon icon="heroicon-o-bookmark" class="w-4 h-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 </button>
                             </div>
                         </div>

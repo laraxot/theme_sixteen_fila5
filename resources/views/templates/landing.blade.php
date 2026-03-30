@@ -15,6 +15,20 @@
                         <x-dynamic-component :component="$service->icon" class="w-8 h-8" />
                     @else
                         <x-heroicon-o-cog-6-tooth class="w-8 h-8" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-cog-6-tooth class="w-8 h-8"" />
+=======
+                        <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-8 h-8" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-8 h-8" />
+=======
+                        <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-8 h-8" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     @endif
                 </div>
                 <div>
@@ -23,10 +37,38 @@
                             <li><a href="{{ route('home') }}" class="hover:text-white">Home</a></li>
                             <li class="flex items-center">
                                 <x-heroicon-o-chevron-right class="w-4 h-4 mx-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-chevron-right class="w-4 h-4 mx-2"" />
+=======
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+=======
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 <a href="{{ route('services') }}" class="hover:text-white">Servizi</a>
                             </li>
                             <li class="flex items-center">
                                 <x-heroicon-o-chevron-right class="w-4 h-4 mx-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-chevron-right class="w-4 h-4 mx-2"" />
+=======
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+=======
+                                <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 mx-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                 <span class="text-white" aria-current="page">{{ $service->name }}</span>
                             </li>
                         </ol>
@@ -58,6 +100,20 @@
                                     <div class="flex items-center mb-4">
                                         <div class="bg-blue-100 p-2 rounded-lg mr-4">
                                             <x-heroicon-o-arrow-right-on-rectangle class="w-6 h-6 text-blue-600" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                            <x-filament::icon icon="heroicon-o-arrow-right-on-rectangle class="w-6 h-6 text-blue-600"" />
+=======
+                                            <x-filament::icon icon="heroicon-o-arrow-right-on-rectangle" class="w-6 h-6 text-blue-600" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                            <x-filament::icon icon="heroicon-o-arrow-right-on-rectangle" class="w-6 h-6 text-blue-600" />
+=======
+                                            <x-filament::icon icon="heroicon-o-arrow-right-on-rectangle" class="w-6 h-6 text-blue-600" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                         </div>
                                         <h3 class="text-lg font-semibold text-gray-900">{{ $action['title'] }}</h3>
                                     </div>
@@ -98,6 +154,20 @@
                                 @foreach($service->requirements as $requirement)
                                     <div class="flex items-start">
                                         <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                        <x-filament::icon icon="heroicon-o-check-circle class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"" />
+=======
+                                        <x-filament::icon icon="heroicon-o-check-circle" class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                        <x-filament::icon icon="heroicon-o-check-circle" class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+=======
+                                        <x-filament::icon icon="heroicon-o-check-circle" class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                         <span class="text-gray-700">{{ $requirement }}</span>
                                     </div>
                                 @endforeach
@@ -132,6 +202,20 @@
                             @if($service->cost)
                                 <div class="flex items-center">
                                     <x-heroicon-o-currency-euro class="w-5 h-5 text-gray-400 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-currency-euro class="w-5 h-5 text-gray-400 mr-3"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400 mr-3" />
+=======
+                                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <span class="text-gray-700">{{ $service->cost }}</span>
                                 </div>
                             @endif
@@ -139,6 +223,20 @@
                             @if($service->processing_time)
                                 <div class="flex items-center">
                                     <x-heroicon-o-clock class="w-5 h-5 text-gray-400 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-clock class="w-5 h-5 text-gray-400 mr-3"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-clock" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-clock" class="w-5 h-5 text-gray-400 mr-3" />
+=======
+                                    <x-filament::icon icon="heroicon-o-clock" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <span class="text-gray-700">{{ $service->processing_time }}</span>
                                 </div>
                             @endif
@@ -146,6 +244,20 @@
                             @if($service->availability)
                                 <div class="flex items-center">
                                     <x-heroicon-o-globe-alt class="w-5 h-5 text-gray-400 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-globe-alt class="w-5 h-5 text-gray-400 mr-3"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-globe-alt" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-globe-alt" class="w-5 h-5 text-gray-400 mr-3" />
+=======
+                                    <x-filament::icon icon="heroicon-o-globe-alt" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <span class="text-gray-700">{{ $service->availability }}</span>
                                 </div>
                             @endif
@@ -160,6 +272,20 @@
                             @if($service->contact_phone)
                                 <div class="flex items-center">
                                     <x-heroicon-o-phone class="w-5 h-5 text-gray-400 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-phone class="w-5 h-5 text-gray-400 mr-3"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 text-gray-400 mr-3" />
+=======
+                                    <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <a href="tel:{{ $service->contact_phone }}" class="text-blue-600 hover:text-blue-800">
                                         {{ $service->contact_phone }}
                                     </a>
@@ -169,6 +295,20 @@
                             @if($service->contact_email)
                                 <div class="flex items-center">
                                     <x-heroicon-o-envelope class="w-5 h-5 text-gray-400 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-envelope class="w-5 h-5 text-gray-400 mr-3"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-envelope" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-envelope" class="w-5 h-5 text-gray-400 mr-3" />
+=======
+                                    <x-filament::icon icon="heroicon-o-envelope" class="w-5 h-5 text-gray-400 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <a href="mailto:{{ $service->contact_email }}" class="text-blue-600 hover:text-blue-800">
                                         {{ $service->contact_email }}
                                     </a>
@@ -178,6 +318,20 @@
                             @if($service->office_hours)
                                 <div class="flex items-start">
                                     <x-heroicon-o-calendar-days class="w-5 h-5 text-gray-400 mr-3 mt-0.5" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-calendar-days class="w-5 h-5 text-gray-400 mr-3 mt-0.5"" />
+=======
+                                    <x-filament::icon icon="heroicon-o-calendar-days" class="w-5 h-5 text-gray-400 mr-3 mt-0.5" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                    <x-filament::icon icon="heroicon-o-calendar-days" class="w-5 h-5 text-gray-400 mr-3 mt-0.5" />
+=======
+                                    <x-filament::icon icon="heroicon-o-calendar-days" class="w-5 h-5 text-gray-400 mr-3 mt-0.5" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                                     <span class="text-gray-700">{{ $service->office_hours }}</span>
                                 </div>
                             @endif
@@ -248,6 +402,20 @@
                             <label class="cursor-pointer">
                                 <input type="radio" name="rating" value="{{ $i }}" class="sr-only">
                                 <x-heroicon-o-star class="w-8 h-8 text-gray-300 hover:text-yellow-400 peer-checked:text-yellow-500" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-star class="w-8 h-8 text-gray-300 hover:text-yellow-400 peer-checked:text-yellow-500"" />
+=======
+                                <x-filament::icon icon="heroicon-o-star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 peer-checked:text-yellow-500" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                                <x-filament::icon icon="heroicon-o-star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 peer-checked:text-yellow-500" />
+=======
+                                <x-filament::icon icon="heroicon-o-star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 peer-checked:text-yellow-500" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             </label>
                         @endfor
                     </div>

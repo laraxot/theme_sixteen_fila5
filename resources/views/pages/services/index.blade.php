@@ -22,6 +22,20 @@
                         class="w-full px-6 py-4 pr-12 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                     >
                     <x-heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2"" />
+=======
+                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+=======
+                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                 </div>
             </div>
         </div>
@@ -146,6 +160,20 @@
             <div id="anagrafe" class="mb-16">
                 <div class="flex items-center mb-8">
                     <x-heroicon-o-user-circle class="w-8 h-8 text-primary-600 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-user-circle class="w-8 h-8 text-primary-600 mr-3"" />
+=======
+                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+=======
+                    <x-filament::icon icon="heroicon-o-user-circle" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Anagrafe e Stato Civile</h3>
                 </div>
                 
@@ -164,6 +192,20 @@
             <div id="tributi" class="mb-16">
                 <div class="flex items-center mb-8">
                     <x-heroicon-o-currency-euro class="w-8 h-8 text-primary-600 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-currency-euro class="w-8 h-8 text-primary-600 mr-3"" />
+=======
+                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+=======
+                    <x-filament::icon icon="heroicon-o-currency-euro" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Tributi e Imposte</h3>
                 </div>
                 
@@ -182,6 +224,20 @@
             <div id="urbanistica" class="mb-16">
                 <div class="flex items-center mb-8">
                     <x-heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3"" />
+=======
+                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+=======
+                    <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Urbanistica e Edilizia</h3>
                 </div>
                 
@@ -200,6 +256,20 @@
             <div id="sociale" class="mb-16">
                 <div class="flex items-center mb-8">
                     <x-heroicon-o-heart class="w-8 h-8 text-primary-600 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-heart class="w-8 h-8 text-primary-600 mr-3"" />
+=======
+                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+=======
+                    <x-filament::icon icon="heroicon-o-heart" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     <h3 class="text-2xl font-semibold text-gray-900">Servizi Sociali</h3>
                 </div>
                 
@@ -219,6 +289,20 @@
                 <div class="flex items-center mb-8">
                     {{--  
                     <x-heroicon-o-leaf class="w-8 h-8 text-primary-600 mr-3" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-leaf class="w-8 h-8 text-primary-600 mr-3"" />
+=======
+                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+=======
+                    <x-filament::icon icon="heroicon-o-leaf" class="w-8 h-8 text-primary-600 mr-3" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     --}}}
                     <h3 class="text-2xl font-semibold text-gray-900">Ambiente e Verde</h3>
                 </div>
@@ -251,6 +335,20 @@
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
                     <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <x-heroicon-o-computer-desktop class="w-8 h-8 text-primary-600" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-computer-desktop class="w-8 h-8 text-primary-600"" />
+=======
+                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+=======
+                        <x-filament::icon icon="heroicon-o-computer-desktop" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Online</h3>
                     <p class="text-gray-600 mb-4">
@@ -267,6 +365,20 @@
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
                     <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <x-heroicon-o-building-storefront class="w-8 h-8 text-primary-600" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-building-storefront class="w-8 h-8 text-primary-600"" />
+=======
+                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+=======
+                        <x-filament::icon icon="heroicon-o-building-storefront" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Sportello</h3>
                     <p class="text-gray-600 mb-4">
@@ -283,6 +395,20 @@
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
                     <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <x-heroicon-o-phone class="w-8 h-8 text-primary-600" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-phone class="w-8 h-8 text-primary-600"" />
+=======
+                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+=======
+                        <x-filament::icon icon="heroicon-o-phone" class="w-8 h-8 text-primary-600" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Telefono</h3>
                     <p class="text-gray-600 mb-4">
@@ -310,16 +436,58 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('pages.view', ['slug' => 'assistenza']) }}" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
                         <x-heroicon-o-lifebuoy class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-lifebuoy class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-lifebuoy" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Assistenza Online
                     </a>
                     
                     <a href="tel:+390612345678" class="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-colors">
                         <x-heroicon-o-phone class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-phone class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-phone" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Chiama: 06 1234567
                     </a>
                     
                     <a href="{{ route('pages.view', ['slug' => 'urp']) }}" class="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-colors">
                         <x-heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2"" />
+=======
+                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+=======
+                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         Contatta URP
                     </a>
                 </div>

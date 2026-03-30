@@ -28,6 +28,20 @@
                         {{-- Quote Icon --}}
                         <div class="absolute top-6 right-6 text-blue-200">
                             <x-heroicon-o-chat-bubble-left-ellipsis class="w-8 h-8" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis class="w-8 h-8"" />
+=======
+                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+=======
+                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                         </div>
 
                         {{-- Rating --}}

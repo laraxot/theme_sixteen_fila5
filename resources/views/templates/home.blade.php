@@ -46,6 +46,20 @@
                     <div class="bg-white/20 rounded-lg p-8">
                         <div class="text-center">
                             <x-heroicon-o-building-office-2 class="w-24 h-24 mx-auto mb-4" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-building-office-2 class="w-24 h-24 mx-auto mb-4"" />
+=======
+                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+=======
+                            <x-filament::icon icon="heroicon-o-building-office-2" class="w-24 h-24 mx-auto mb-4" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             <p class="text-sm">Servizi digitali per i cittadini</p>
                         </div>
                     </div>
@@ -209,6 +223,20 @@
                     @foreach($emergencyNotices as $notice)
                         <div class="flex items-start">
                             <x-heroicon-o-exclamation-triangle class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+<<<<<<< HEAD
+||||||| parent of f7ac8eda (.)
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-exclamation-triangle class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0"" />
+=======
+                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+>>>>>>> f2e0249c (.)
+=======
+||||||| parent of f2e0249c (.)
+                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+=======
+                            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+>>>>>>> f2e0249c (.)
+>>>>>>> f7ac8eda (.)
                             <div>
                                 <p class="text-yellow-800 font-medium">{{ $notice->title }}</p>
                                 @if($notice->description)
