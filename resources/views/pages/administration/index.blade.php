@@ -21,15 +21,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-office class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-building-office class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-building-office" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-building-office" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-building-office" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Organizzazione
@@ -39,15 +39,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-document-text class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-document-text class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-document-text" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-document-text" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-document-text" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-document-text" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-document-text" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-document-text" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Documenti
@@ -57,15 +57,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-clipboard-document-list class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-clipboard-document-list class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-clipboard-document-list" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Bandi e Gare
@@ -75,15 +75,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chart-bar class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-chart-bar class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Dati e Statistiche
@@ -111,15 +111,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3"" />
+                        <x-icon name="heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                        <x-filament::icon icon="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-building-office" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         <h3 class="text-xl font-semibold text-gray-900">Uffici Comunali</h3>
@@ -133,15 +133,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+                        <x-icon name="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </a>
@@ -154,15 +154,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-user-group class="w-8 h-8 text-primary-600 mr-3"" />
+                        <x-icon name="heroicon-o-user-group class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                        <x-filament::icon icon="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                        <x-filament::icon icon="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-user-group" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         <h3 class="text-xl font-semibold text-gray-900">Organigramma</h3>
@@ -176,15 +176,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+                        <x-icon name="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </a>
@@ -197,15 +197,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-users class="w-8 h-8 text-primary-600 mr-3"" />
+                        <x-icon name="heroicon-o-users class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                        <x-filament::icon icon="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                        <x-filament::icon icon="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
+                        <x-icon name="heroicon-o-users" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         <h3 class="text-xl font-semibold text-gray-900">Personale</h3>
@@ -219,15 +219,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
+                        <x-icon name="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+                        <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </a>
@@ -258,15 +258,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -277,15 +277,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -296,15 +296,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -315,15 +315,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -341,15 +341,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -360,15 +360,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -379,15 +379,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -398,15 +398,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-arrow-down class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-arrow-down" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -421,15 +421,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-cloud-arrow-down class="w-8 h-8 text-primary-600 mr-3"" />
+                    <x-icon name="heroicon-o-cloud-arrow-down class="w-8 h-8 text-primary-600 mr-3"" />
 =======
-                    <x-filament::icon icon="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
 =======
-                    <x-filament::icon icon="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
+                    <x-icon name="heroicon-o-cloud-arrow-down" class="w-8 h-8 text-primary-600 mr-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="text-xl font-semibold text-gray-900">Dati Aperti (Open Data)</h3>
@@ -443,15 +443,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-down-tray class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-arrow-down-tray class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-arrow-down-tray" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Scarica Open Data
@@ -461,15 +461,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-cpu-chip class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-cpu-chip class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-cpu-chip" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         API e Web Services
@@ -495,15 +495,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-wrench-screwdriver class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
+                    <x-icon name="heroicon-o-wrench-screwdriver class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
 =======
-                    <x-filament::icon icon="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 =======
-                    <x-filament::icon icon="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-wrench-screwdriver" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="font-semibold text-gray-900 mb-2">Lavori Pubblici</h3>
@@ -515,15 +515,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-truck class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
+                    <x-icon name="heroicon-o-truck class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
 =======
-                    <x-filament::icon icon="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 =======
-                    <x-filament::icon icon="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-truck" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="font-semibold text-gray-900 mb-2">Forniture</h3>
@@ -535,15 +535,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-briefcase class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
+                    <x-icon name="heroicon-o-briefcase class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
 =======
-                    <x-filament::icon icon="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 =======
-                    <x-filament::icon icon="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-briefcase" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="font-semibold text-gray-900 mb-2">Servizi</h3>
@@ -555,15 +555,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-megaphone class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
+                    <x-icon name="heroicon-o-megaphone class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700"" />
 =======
-                    <x-filament::icon icon="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                    <x-filament::icon icon="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 =======
-                    <x-filament::icon icon="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
+                    <x-icon name="heroicon-o-megaphone" class="w-12 h-12 text-primary-600 mx-auto mb-4 group-hover:text-primary-700" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     <h3 class="font-semibold text-gray-900 mb-2">Avvisi Pubblici</h3>
@@ -581,15 +581,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-exclamation-triangle class="w-6 h-6 text-yellow-600 mr-2"" />
+                        <x-icon name="heroicon-o-exclamation-triangle class="w-6 h-6 text-yellow-600 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
+                        <x-icon name="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
+                        <x-icon name="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
+                        <x-icon name="heroicon-o-exclamation-triangle" class="w-6 h-6 text-yellow-600 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         <span class="font-semibold text-yellow-800">Nessun bando in scadenza</span>
@@ -624,15 +624,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-user-group class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-user-group class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-user-group" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -643,15 +643,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-currency-euro class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-currency-euro class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-currency-euro" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -662,15 +662,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-map class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-map class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-map" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-map" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-map" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-map" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-map" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-map" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -681,15 +681,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-chart-bar class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-document-chart-bar class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-document-chart-bar" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -707,15 +707,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-chart-bar class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-chart-bar class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-chart-bar" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -726,15 +726,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-face-smile class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-face-smile class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-face-smile" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -745,15 +745,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-shield-check class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-shield-check class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-shield-check" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -764,15 +764,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-cog-6-tooth class="w-5 h-5 text-gray-400"" />
+                            <x-icon name="heroicon-o-cog-6-tooth class="w-5 h-5 text-gray-400"" />
 =======
-                            <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                            <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
 =======
-                            <x-filament::icon icon="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
+                            <x-icon name="heroicon-o-cog-6-tooth" class="w-5 h-5 text-gray-400" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         </a>
@@ -797,15 +797,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-chat-bubble-left-right" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Contatta URP
@@ -816,15 +816,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-question-mark-circle class="w-5 h-5 mr-2"" />
+                        <x-icon name="heroicon-o-question-mark-circle class="w-5 h-5 mr-2"" />
 =======
-                        <x-filament::icon icon="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
 =======
-                        <x-filament::icon icon="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
+                        <x-icon name="heroicon-o-question-mark-circle" class="w-5 h-5 mr-2" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                         Consulta le FAQ

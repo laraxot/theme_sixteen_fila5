@@ -87,15 +87,15 @@
 <<<<<<< HEAD
 ||||||| parent of f7ac8eda (.)
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right class="ml-1 h-3 w-3"" />
+                        <x-icon name="heroicon-o-arrow-right class="ml-1 h-3 w-3"" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
+                        <x-icon name="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
 >>>>>>> f2e0249c (.)
 =======
 ||||||| parent of f2e0249c (.)
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
+                        <x-icon name="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
 =======
-                        <x-filament::icon icon="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
+                        <x-icon name="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
 >>>>>>> f2e0249c (.)
 >>>>>>> f7ac8eda (.)
                     </a>
