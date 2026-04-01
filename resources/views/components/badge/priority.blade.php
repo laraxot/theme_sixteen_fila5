@@ -39,7 +39,7 @@ $badge = $badges[$priority] ?? [
 
 <span class="badge {{ $badge['class'] }}" {{ $attributes }}>
     <svg class="icon icon-white icon-sm">
-        <use href="/bootstrap-italia/svg/sprites.svg#{{ $badge['icon'] }}"></use>
+        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/svg/sprites.svg#{{ $badge['icon'] }}"></use>
     </svg>
     {{ $badge['label'] }}
 </span>

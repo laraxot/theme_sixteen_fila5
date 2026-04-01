@@ -70,7 +70,7 @@
                 class="p-1 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 :aria-label="__('pub_theme::accessibility.close_accessibility_bar')"
             >
-                <x-icon name="heroicon-o-x-mark" class="w-4 h-4" />
+                <x-filament::icon icon="heroicon-o-x-mark" class="w-4 h-4" />
             </button>
         </div>
     </div>

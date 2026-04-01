@@ -17,7 +17,7 @@
 |
 | Icon Convention:
 |   Use <x-filament::icon> for Filament icon rendering
-|   Format: <x-icon name="heroicon-o-check-circle" class="..." />
+|   Format: <x-filament::icon icon="heroicon-o-check-circle" class="..." />
 |
 | References:
 |   - Flowbite: Alert components
@@ -45,23 +45,23 @@
         
         {{-- Check Icon --}}
         @if($icon === 'check')
-            <x-icon name="heroicon-o-check-circle" class="w-8 h-8 text-green-600" />
+            <x-filament::icon icon="heroicon-o-check-circle" class="w-8 h-8 text-green-600" />
         
         {{-- Info Icon --}}
         @elseif($icon === 'info')
-            <x-icon name="heroicon-o-information-circle" class="w-8 h-8 text-blue-600" />
+            <x-filament::icon icon="heroicon-o-information-circle" class="w-8 h-8 text-blue-600" />
         
         {{-- Warning Icon --}}
         @elseif($icon === 'warning')
-            <x-icon name="heroicon-o-exclamation-triangle" class="w-8 h-8 text-yellow-600" />
+            <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-8 h-8 text-yellow-600" />
         
         {{-- Error Icon --}}
         @elseif($icon === 'error')
-            <x-icon name="heroicon-o-x-circle" class="w-8 h-8 text-red-600" />
+            <x-filament::icon icon="heroicon-o-x-circle" class="w-8 h-8 text-red-600" />
         
         {{-- Default Icon --}}
         @else
-            <x-icon name="heroicon-o-check-circle" class="w-8 h-8 text-gray-600" />
+            <x-filament::icon icon="heroicon-o-check-circle" class="w-8 h-8 text-gray-600" />
         @endif
     </div>
     

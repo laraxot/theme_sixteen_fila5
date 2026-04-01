@@ -21,7 +21,7 @@
 					    class="size-5"
 				    />
                     <span class="hidden sm:block">{{ $locales[$lang] }}</span>
-                    <x-heroicon-o-chevron-down class="hidden size-4 sm:block"/>
+                    <x-filament::icon icon="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>
                 </div>
             </button>
         </x-slot>
