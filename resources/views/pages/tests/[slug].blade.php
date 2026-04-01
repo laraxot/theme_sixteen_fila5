@@ -13,12 +13,19 @@ middleware(PageSlugMiddleware::class);
 new class extends Component {
     public string $slug = '';
     public string $pageSlug = '';
+<<<<<<< HEAD
     public array $blocks = [];
+=======
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+>>>>>>> 4a11dcf (.)
 
     public function mount(string $slug): void
     {
         $this->slug = $slug;
         $this->pageSlug = 'tests.'.$slug;
+<<<<<<< HEAD
         
         // Load blocks from JSON
         $jsonPath = config_path('local/fixcity/database/content/pages/'.$this->pageSlug.'.json');
@@ -54,6 +61,18 @@ new class extends Component {
 
         {{-- Footer --}}
         <x-section slug="footer" tpl="full" />
+=======
+        $this->data = [
+            'slug' => $slug,
+        ];
+    }
+};
+?>
+<x-layouts.app>
+    @volt('tests.view')
+    <div>
+        <x-page side="content" :slug="$pageSlug" :data="$data" />
+>>>>>>> 4a11dcf (.)
     </div>
     @endvolt
 </x-layouts.app>
