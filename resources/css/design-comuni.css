@@ -1,0 +1,534 @@
+/**
+ * Design Comuni - Tailwind CSS Implementation
+ * Replicates Bootstrap Italia Design Comuni template using ONLY Tailwind CSS
+ * NO Bootstrap Italia imports - ALL Tailwind utilities
+ */
+
+/* ========================================
+   TAILWIND CSS 4.x BASE
+======================================== */
+@import "tailwindcss";
+
+/* ========================================
+   DESIGN COMUNI THEME CONFIGURATION
+======================================== */
+@theme {
+  /* Official Design Comuni Colors */
+  --color-italia: #0066B3;
+  --color-italia-dark: #003366;
+  --color-italia-darker: #002244;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-light: #E5E7EB;
+  
+  /* Typography */
+  --font-family-sans: 'Titillium Web', sans-serif;
+  --font-family-mono: 'Roboto Mono', monospace;
+  
+  /* Spacing */
+  --spacing-container: 75rem; /* 1200px */
+}
+
+/* ========================================
+   GOOGLE FONTS
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ========================================
+   LAYOUT UTILITIES
+======================================== */
+
+/* Container - Max width 1200px */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1200px;
+}
+
+/* Row - Flexbox grid */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+/* Columns */
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .col-md-3 { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-9 { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (min-width: 992px) {
+  .col-lg-3 { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-6 { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-9 { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; padding-left: 1rem; padding-right: 1rem; }
+  
+  .order-lg-1 { order: 1; }
+  .order-lg-2 { order: 2; }
+  .px-lg-3 { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* ========================================
+   HEADER - Design Comuni Style
+======================================== */
+
+/* Header Slim - Institutional Blue (#0066B3) */
+.it-header-slim-wrapper {
+  background-color: #0066B3;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.it-header-slim-wrapper a,
+.it-header-slim-wrapper .nav-link {
+  color: #FFFFFF;
+  transition: color 0.2s;
+}
+
+.it-header-slim-wrapper a:hover,
+.it-header-slim-wrapper .nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header Center - White Background */
+.it-header-center-wrapper {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 1.5rem 0;
+}
+
+.it-header-center-wrapper .it-brand-title {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.it-header-center-wrapper a {
+  color: #000000;
+  transition: color 0.2s;
+}
+
+.it-header-center-wrapper a:hover {
+  color: #0066B3;
+}
+
+/* Header Navbar - Dark Blue (#003366) */
+.it-header-navbar-wrapper {
+  background-color: #003366;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 0;
+}
+
+.it-header-navbar-wrapper a,
+.it-header-navbar-wrapper .nav-link {
+  color: #FFFFFF;
+  transition: color 0.2s;
+}
+
+.it-header-navbar-wrapper a:hover,
+.it-header-navbar-wrapper .nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   FOOTER - Design Comuni Style
+======================================== */
+
+/* Footer Main - Dark Blue (#003366) */
+.it-footer {
+  background-color: #003366;
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+
+.it-footer a,
+.it-footer .footer-heading-title,
+.it-footer .footer-info {
+  color: #FFFFFF;
+  transition: color 0.2s;
+}
+
+.it-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer Secondary - Darker Blue (#002244) */
+.it-footer-secondary {
+  background-color: #002244;
+  color: #FFFFFF;
+  padding: 1.5rem 0;
+}
+
+.it-footer-secondary a,
+.it-footer-secondary p {
+  color: #FFFFFF;
+}
+
+/* ========================================
+   CARDS - Design Comuni Style
+======================================== */
+
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.card-text {
+  color: #4B5563;
+}
+
+.card-date {
+  font-size: 0.875rem;
+  color: #6B7280;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card-bg {
+  background-color: #FFFFFF;
+}
+
+.card-teaser {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.card-teaser:hover {
+  background-color: #0066B3;
+}
+
+.card-teaser .card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-teaser .card-title a:hover {
+  color: #FFFFFF !important;
+}
+
+/* ========================================
+   BUTTONS - Design Comuni Style
+======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #0066B3;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #003366;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #0066B3;
+  border: 2px solid #0066B3;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0066B3;
+  color: #FFFFFF;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   TYPOGRAPHY - Design Comuni Style
+======================================== */
+
+.title-xxlarge {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .title-xxlarge {
+    font-size: 2.5rem;
+  }
+}
+
+.title-xlarge {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .title-xlarge {
+    font-size: 2rem;
+  }
+}
+
+.title-large {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .title-large {
+    font-size: 1.75rem;
+  }
+}
+
+.title-xsmall-semi-bold {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+/* ========================================
+   ICONS - Design Comuni Style
+======================================== */
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.icon-sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-xs {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-primary {
+  color: #0066B3;
+}
+
+.icon-white {
+  color: #FFFFFF;
+}
+
+/* ========================================
+   CHIPS - Design Comuni Style
+======================================== */
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.chip-simple {
+  background-color: transparent;
+  color: #0066B3;
+}
+
+.chip-simple:hover {
+  background-color: #0066B3;
+  color: #FFFFFF;
+}
+
+.chip-label {
+  color: inherit;
+}
+
+/* ========================================
+   LINKS - Design Comuni Style
+======================================== */
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0066B3;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: #003366;
+}
+
+/* ========================================
+   UTILITIES - Design Comuni Style
+======================================== */
+
+.visually-hidden,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border: 0;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.text-center { text-align: center; }
+.text-end { text-align: right; }
+.text-start { text-align: left; }
+
+/* Spacing */
+.mb-0 { margin-bottom: 0; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-5 { margin-bottom: 1.25rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.25rem; }
+.mt-8 { margin-top: 2rem; }
+
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+.pb-3 { padding-bottom: 0.75rem; }
+.pb-5 { padding-bottom: 1.25rem; }
+.pt-3 { padding-top: 0.75rem; }
+
+/* Gap */
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+
+/* Grid gaps */
+.g-0 { gap: 0; }
+.g-2 { gap: 0.5rem; }
+.g-4 { gap: 1rem; }
+
+/* Order */
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+
+/* Responsive display */
+@media (min-width: 992px) {
+  .d-lg-block { display: block; }
+  .d-lg-none { display: none; }
+}
+
+@media (max-width: 991px) {
+  .d-lg-block { display: none; }
+}
+
+/* ========================================
+   SECTIONS - Design Comuni Style
+======================================== */
+
+#head-section {
+  padding: 3rem 0;
+}
+
+.contact-section .quick-link {
+  color: #0066B3;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.contact-section .quick-link:hover {
+  color: #003366;
+}

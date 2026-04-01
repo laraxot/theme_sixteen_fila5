@@ -33,7 +33,7 @@
                             <span class="text-decoration-none">
                                 {{ __('sixteen::common.labels.learn_more.label', ['default' => 'Scopri di più']) }}
                             </span>
-                            <x-icon name="heroicon-o-arrow-down" class="icon icon-sm ms-1" />
+                            <x-filament::icon icon="heroicon-o-arrow-down" class="icon icon-sm ms-1" />
                         </a>
                     @endif
                 </div>

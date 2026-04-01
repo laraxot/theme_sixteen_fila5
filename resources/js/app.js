@@ -1,12 +1,22 @@
-import "./flowbite.js";
-import "./swiper.js";
-//import "./cookie-consent.js";
-import "./custom.js";
-import "./filament-4x.js";
-// Bootstrap Italia JS bundle (for header/nav components, dropdowns, etc.)
-import "bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js";
-import "./agid-enforcer.js";
-// PWA Manager
-import "./pwa.js";
-// Performance Manager
-import "./performance.js";
+/**
+ * Sixteen Theme - App JavaScript
+ * 
+ * Design Comuni replicated with Tailwind CSS + Alpine.js
+ * NO Bootstrap Italia - Pure Tailwind + Alpine implementation
+ */
+
+// Import Alpine.js for interactivity
+import Alpine from 'alpinejs';
+
+// Make Alpine available globally
+window.Alpine = Alpine;
+
+// Start Alpine
+Alpine.start();
+
+// Custom theme JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize custom components
+    // Add custom functionality here
+    console.log('Sixteen theme loaded - Tailwind + Alpine.js');
+});

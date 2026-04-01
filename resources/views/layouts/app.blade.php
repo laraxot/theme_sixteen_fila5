@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    
+    {{-- Bootstrap Italia CSS - CDN (EXACT match with Design Comuni) --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css" />
+</head>
+<body>
+    {{-- Skip Links - EXACT Bootstrap Italia Structure --}}
+    <div class="skiplink">
+        <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
+        <a class="visually-hidden-focusable" href="#footer">Vai al
+            footer</a>
+    </div><!-- /skiplink -->
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- Header - Bootstrap Italia EXACT Structure --}}
+    <x-section slug="header" />
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    {{-- Main Content --}}
+    <main id="main-container">
+        @yield('content')
+        <x-page side="content" :slug="$slug ?? ''" :data="$data ?? []" />
+    </main>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
+    {{-- Footer - Bootstrap Italia EXACT Structure --}}
+    <x-section slug="footer" />
 
-        <!-- Filament Styles -->
-        @filamentStyles
-        
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-layout.sections.banner />
-
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-
-        @stack('modals')
-
-        @livewireScripts
-        
-        <!-- Filament Scripts -->
-        @filamentScripts
-    </body>
+    {{-- Scripts --}}
+    @stack('scripts')
+</body>
 </html>

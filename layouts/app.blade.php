@@ -6,10 +6,10 @@
     <title>@yield('title', 'Comune di ' . config('comune.nome', 'Nome Comune'))</title>
     
     <!-- Bootstrap Italia CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0/dist/css/bootstrap-italia.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link href="{{ theme_asset('css/design-comuni.css') }}" rel="stylesheet">
@@ -20,18 +20,18 @@
 <body>
     @include('sixteen::components.header-comune')
     
-    <main>
+    <main id="main-content">
         @yield('content')
     </main>
     
     @include('sixteen::components.footer-comune')
     
     <!-- Bootstrap Italia JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0/dist/js/bootstrap-italia.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/js/bootstrap-italia.bundle.min.js"></script>
     
     <!-- Leaflet JS per le mappe -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <!-- Custom JS -->
     <script src="{{ theme_asset('js/design-comuni.js') }}"></script>
@@ -40,5 +40,6 @@
     @stack('scripts')
 </body>
 </html>
+
 
 

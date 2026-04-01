@@ -34,6 +34,9 @@ e vederle perfettamente ,
 
 
 
+
+
+
 e aggiorna le cartelle docs dentro i moduli e dentro i temi e le tue rules, le tue memories e le tue skills, aggiorna tutto utilizzando gli indici, controllando la rindondanza e files doppi e tutto con ottica dry + kiss
 
 l'obiettivo di questo task e' anche creare componenti riutilizzabili e riconoscere i blocchi e documentarli 
@@ -152,13 +155,9 @@ le cartelle docs dentro i moduli e dentro i temi devono essere agnostiche non pu
 
 i blocchi se sono di tipo <tipo blocco> la view dentro data deve essere "pub_theme::components.blocks.<tipo blocco>.<blade del blocco>", 
 
-<<<<<<< HEAD
-||||||| 448c6141
-=======
 
 con git andiamo solo in avanti, non ripristiniamo mai versione vecchie, devi studiare le versioni vecchie e capire il perche' sono state fatte in quel modo e migliorare
 
->>>>>>> 53d2eaa3
 devi capire il perche' la logica, la visione, la religione, la politica, la filosofia, lo zen e documentare tutto dentro le cartelle docs dentro i moduli e dentro i temi, aggiornare studiare e migliorare anche le tue rules, le tue memories, e le tue skills, aggiorna tutto utilizzando indici un controllo avanzato per la rindondanza e per i files doppi e dry + kiss
 utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm, ricorda che ogni task viene dato a piu' agenti ai, percio' comportati di conseguenza e cerca di unire le forze con gli altri agenti ai
 
@@ -228,3 +227,140 @@ https://flowbite.com/blocks/
 
 
   errore grave scrivere  [Filament Icons Documentation](https://filamentphp.com/docs/3.x/forms/fields/icon-picker)            noi utilizziamo filament 5 !
+
+
+  fare 
+   create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/amministrazione.blade.php
+ create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/documenti-dati.blade.php
+ create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/novita-dettaglio.blade.php
+ create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/segnalazione-area-personale.blade.php
+ create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/segnalazioni-elenco.blade.php
+ e' sbagliato ! 
+ dovevi usare sempre 
+ laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+
+
+
+fare la blade laravel/Themes/Sixteen/resources/views/pages/tests/homepage.blade.php  e' sbagliato ! si usa 
+laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+doveva tramite folio + volt fare
+<?php
+
+declare(strict_types=1);
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+
+name('tests.view');
+middleware(PageSlugMiddleware::class);
+
+new class extends Component {
+    public string $slug = '';
+    public string $pageSlug = '';
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+
+    public function mount(string $slug): void
+    {
+        $this->slug = $slug;
+        $this->pageSlug = 'tests.'.$slug;
+        $this->data = [
+            'slug' => $slug
+        ];
+    }
+};
+?>
+<x-layouts.app >
+ @volt('tests.view')
+    <div>
+        <x-page side="content" :slug="$pageSlug" :data="$data" />
+    </div>
+    @endvolt
+</x-layouts.app >
+
+utilizza i superpowers (https://github.com/obra/superpowers)
+
+
+ > "UNO [slug].blade.php per TUTTE le pagine."
+
+    > "MAI file specifici. SEMPRE dinamico."
+
+    > "JSON per contenuti. Blade per struttura."
+
+    > "DRY: Don't Repeat Yourself."
+
+
+l'html dentro il tag body di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html deve essere lo stesso di http://fixcity.local/it/tests/homepage , ti ricordo che viene servita dalla blade 
+laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php  e dal json laravel/config/local/fixcity/database/content/pages/tests.homepage.json utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve 
+
+ Noi usiamo Tailwind CSS con @apply per replicare le classi Bootstrap Italia. Le classi nel HTML sono quelle Bootstrap Italia, ma lo styling è fatto con Tailwind @apply in style-apply.css.
+
+
+ aiutati con screenshots http://fixcity.local/it/tests/homepage deve essere uguale a https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , crea gli screenshots e le analisi delle differenze e come fare , poi le metti dentro
+  le cartelle docs dentro i moduli e dentro i temi ,  utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop
+  (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve ​
+
+  FERMATI SOLO QUANDO SEI AL 100% DEI TUOI TASK utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop
+    (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve ​
+
+
+ http://fixcity.local/it/tests/homepage e' ancora molto diverso da https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html utilizza gli screenshots inizia dal header e dal footer che non rispettano neanche i colori ..  ​ti ricordo che l'html dentro il tag body di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html deve essere lo stesso di http://fixcity.local/it/tests/homepage 
+
+ non fare rm -rf /var/www/_bases/base_fixcity_fila5/laravel/storage/framework/views/*  , cosi' facendo cancelli anche il file .gitignore che c'e' dentro, per svuotare le cache utilizza i comandi appositi di laravel o createne uno ad hoc 
+
+ nei css non puoi fare @import url('https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css'); ma devi usare tailwind @apply per replicare le classi Bootstrap Italia.
+
+ the goal is to use Tailwind CSS (not Bootstrap Italia) to replicate the Design Comuni template
+
+
+ l'header di http://fixcity.local/it/tests/homepage  e' troppo diverso dal header di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , aiutati con screenshots, aiutati con mcp, con plugin , non si vede il logo , non si legge il nome, non si legge lo slogan, i colori son diversi, gli spazi son diversi .. 
+
+
+ Goal: Design Comuni look con Tailwind utilities
+
+
+ ripeto l'html all'interno del tag body, tag body compreso deve essere uguale , tranne per gli scripts,
+ quello da replicare nelle prime righe e'   
+ <body>
+    <div class="skiplink">
+      <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
+      <a class="visually-hidden-focusable" href="#footer">Vai al
+        footer</a>
+      
+    </div><!-- /skiplink -->
+            <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
+              <div class="it-header-slim-wrapper">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="it-header-slim-wrapper-content">
+il nostro e' diverso.. ma che cosa e' che non capisci ? ma che controlli fai ? che cose cosi' semplici non le hai ancora raggiunte in giorni di lavoro ?
+
+view-source:https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  view-source:http://fixcity.local/it/tests/homepage
+
+
+in laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+utilizzare <x-layouts.design-comuni> o <x-pub_theme::layouts.design-comuni>  e' sbagliato devi utilizzare <x-layouts.app>
+
+ "Use <x-layouts.app>. NOT <x-pub_theme::...>"
+
+    > "Keep it simple. Use correct component."
+
+mettere <link rel="stylesheet" href="/themes/sixteen/bootstrap-italia/dist/css/bootstrap-italia.min.css" />  dentro laravel/Themes/Sixteen/resources/views/components/layouts/app.blade.php  e' la soluzione peggiore che potevi fare 
+poi non e'  @vite(['Themes/Sixteen/resources/css/app.css'])  ma  @vite(['Themes/Sixteen/resources/css/app.css'],'themes/Sixteen')
+
+
+poi dentro laravel/Themes/Sixteen/resources/views/components/layouts/app.blade.php  hai scritto il codice dell'header al posto di utilizzare <x-section slug="header" 
+utilizza https://github.com/bmad-code-org/BMAD-METHOD
+
+
+in laravel/Themes/Sixteen/resources/js/app.js  fare import "bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js";  e' sbagliato capiscilo da solo 
+
+
+sbaliato "Bootstrap Italia JS is loaded via CDN in the layout." noi stiamo rifacendo bootstrap italia con tailwind e alpine !! 
+
+
+controlla se dentro il tag body compreso se l'html e' uguale fra http://fixcity.local/it/tests/homepage e https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html ​

@@ -233,7 +233,7 @@
             <ol class="flex items-center space-x-2 text-sm">
                 <li>
                     <a href="{{ route('home') }}" class="text-blue-600 hover:text-blue-800 transition-colors">
-                        <x-icon name="heroicon-o-home" class="w-4 h-4 inline mr-1" />
+                        <x-filament::icon icon="heroicon-o-home" class="w-4 h-4 inline mr-1" />
                         Home
                     </a>
                 </li>

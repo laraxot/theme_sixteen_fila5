@@ -1,6 +1,6 @@
 <div class="alert alert-info" role="alert">
     <div class="d-flex align-items-start">
-        <x-icon name="heroicon-o-information-circle" class="icon icon-sm me-2 flex-shrink-0" />
+        <x-filament::icon icon="heroicon-o-information-circle" class="icon icon-sm me-2 flex-shrink-0" />
         <div>
             <strong>{{ __('sixteen::alerts.info.title', ['default' => 'Informazione']) }}</strong>
             <p class="mb-0 mt-1">

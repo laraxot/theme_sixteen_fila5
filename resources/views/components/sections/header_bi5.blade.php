@@ -11,7 +11,7 @@
                     <span class="visually-hidden">Lingua attiva:</span>
                     <span>ITA</span>
                     <svg class="icon">
-                      <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                      <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
                     </svg>
                   </button>
                   <div class="dropdown-menu">
@@ -30,7 +30,7 @@
                 <a class="btn btn-primary btn-icon btn-full" href="../servizi/accesso-servizio.html" data-element="personal-area-login">
                   <span class="rounded-icon" aria-hidden="true">
                     <svg class="icon icon-primary">
-                      <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                      <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
                     </svg>
                   </span>
                   <span class="d-none d-lg-block">Accedi all'area personale</span>
@@ -66,42 +66,42 @@
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                           </svg>
                           <span class="visually-hidden">Twitter</span></a>
                       </li>
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                           </svg>
                           <span class="visually-hidden">Facebook</span></a>
                       </li>
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                           </svg>
                           <span class="visually-hidden">YouTube</span></a>
                       </li>
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                           </svg>
                           <span class="visually-hidden">Telegram</span></a>
                       </li>
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                           </svg>
                           <span class="visually-hidden">Whatsapp</span></a>
                       </li>
                       <li>
                         <a href="#" target="_blank">
                           <svg class="icon icon-sm icon-white align-top">
-                            <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                            <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                           </svg>
                           <span class="visually-hidden">RSS</span></a>
                       </li>
@@ -111,7 +111,7 @@
                     <span class="d-none d-md-block">Cerca</span>
                     <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
                       <svg class="icon">
-                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+                        <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
                       </svg>
                     </button>
                   </div>
@@ -129,7 +129,7 @@
               <div class="navbar navbar-expand-lg has-megamenu">
                 <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
                   <svg class="icon">
-                    <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                    <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                   </svg>
                 </button>
                 <div class="navbar-collapsable" id="nav4">
@@ -138,14 +138,14 @@
                     <button class="btn close-menu" type="button">
                       <span class="visually-hidden">Nascondi la navigazione</span>
                       <svg class="icon">
-                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
+                        <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
                       </svg>
                     </button>
                   </div>
                   <div class="menu-wrapper">
                     <a href="homepage.html" class="logo-hamburger">
                       <svg class="icon" aria-hidden="true">
-                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
+                        <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                       </svg>
                       <div class="it-brand-text">
                         <div class="it-brand-title">Nome del Comune</div>
@@ -190,7 +190,7 @@
                           <a class="nav-link" href="argomenti.html" data-element="all-topics">
                             <span>Tutti gli argomenti 
                               <svg class="icon icon-sm">
-                                <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
+                                <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
                               </svg>
                             </span>
                           </a>
@@ -203,42 +203,42 @@
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                             </svg>
                             <span class="visually-hidden">Twitter</span></a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                             </svg>
                             <span class="visually-hidden">Facebook</span></a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                             </svg>
                             <span class="visually-hidden">YouTube</span></a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                             </svg>
                             <span class="visually-hidden">Telegram</span></a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                             </svg>
                             <span class="visually-hidden">Whatsapp</span></a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
                             <svg class="icon icon-sm icon-white align-top">
-                              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                              <use xlink:href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                             </svg>
                             <span class="visually-hidden">RSS</span></a>
                         </li>
