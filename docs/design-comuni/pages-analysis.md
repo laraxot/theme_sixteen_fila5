@@ -4,6 +4,10 @@
 **Source:** [Design Comuni Pagine Statiche v2.4.0](https://italia.github.io/design-comuni-pagine-statiche/)  
 **Purpose:** Document HTML structure, identify blocks needed, and map to CMS JSON structure for implementation
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4a11dcf (.)
 ---
 
 ## Table of Contents

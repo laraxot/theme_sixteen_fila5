@@ -363,4 +363,34 @@ in laravel/Themes/Sixteen/resources/js/app.js  fare import "bootstrap-italia/dis
 sbaliato "Bootstrap Italia JS is loaded via CDN in the layout." noi stiamo rifacendo bootstrap italia con tailwind e alpine !! 
 
 
+<<<<<<< HEAD
 controlla se dentro il tag body compreso se l'html e' uguale fra http://fixcity.local/it/tests/homepage e https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html ​
+=======
+controlla se dentro il tag body compreso se l'html e' uguale fra http://fixcity.local/it/tests/homepage e https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html ​
+
+
+
+non puoi fare @vite(['resources/css/app.css', 'resources/js/app.js'])  perche' per noi il tema e' una cosa a se stante infatti andiamo nella cartella laravel/Themes/Sixteen/ facciamo composer update, npm install, npm run build e npm run copy , percio' corretto era @vite(['resources/css/app.css', 'resources/js/app.js'],'themes/Sixteen')
+
+Themes/Sixteen/resources/views/components/layouts/app.blade.php  che corrisponde a <x-layouts.app , deve estendere <x-layouts.main che corrisponde a Themes/Sixteen/resources/views/components/layouts/main.blade.php
+
+capisci da solo il perche' e documentalo utilizzando gli inidici e i collegamenti bidirezionali anche fra piu' documenti 
+
+questo errore Vite manifest not found at: /var/www/_bases/base_fixcity_fila5/public_html/themes/Sixteen/manifest.json lo risolvi andando in laravel/Themes/Sixteen facendo da questa cartella 
+composer update -W 
+npm install
+npm run build
+npm run copy 
+
+
+in laravel/Themes/Sixteen/vite.config.js
+deve essere outDir: './public',
+percio' dentro 
+laravel/Themes/Sixteen/package.json
+ci deve essere 
+"copy": "cp -rv ./public/* ../../../public_html/themes/Sixteen/",
+
+capisci da solo il perche' e aggiorna, studia e migliora le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills, aggiorna tutto utilizzando indici e collegamenti bidirezionali 
+
+
+>>>>>>> 4a11dcf (.)

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Sixteen Theme - Minimal App CSS
  * 
@@ -294,6 +293,6 @@
 [x-cloak] {
   display: none !important;
 }
-=======
+
+
 @import './style-apply.css';
->>>>>>> 4a11dcf (.)

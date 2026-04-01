@@ -17,8 +17,13 @@ export default defineConfig({
         tailwindcss(),
     ],
     build: {
+<<<<<<< HEAD
         outDir: '../../public_html/build',
         emptyOutDir: false,
+=======
+        outDir: './public',
+        emptyOutDir: true,
+>>>>>>> 4a11dcf (.)
         manifest: 'manifest.json',
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',

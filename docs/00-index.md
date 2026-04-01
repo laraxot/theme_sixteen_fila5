@@ -12,10 +12,31 @@
 3. [Design Comuni Implementation](./design-comuni-implementation.md) - Main implementation guide for Municipality Design
 
 ### 🏗️ Architecture & Standards
+<<<<<<< HEAD
 - [Agid Layout Usage Rules](./agid-layout-usage-rules.md) - How to use Agid-compliant layouts
 - [Sixteen Theme Naming Rules](./sixteen-theme-naming-rules.md) - Naming conventions for this theme
 - [Vite Configuration Rules](./vite-configuration-rules.md) - Asset loading optimization
 - [SVG Icon Convention](./svg-icon-convention.md) - Rules for using SVG icons
+=======
+- **[Layout Hierarchy](./layout-hierarchy.md)** ✅ - `x-layouts.app` extends `x-layouts.main`
+  - Base structure → Public frontend → Specialized layouts
+  - DRY + KISS compliant architecture
+  - See: [[components-directory-structure]], [[vite-configuration-guide]]
+- **[Components Directory Structure](./components-directory-structure.md)** ✅ - Complete component organization
+  - Layouts, Sections, Blocks, AGID components
+  - Block types (hero, topics, events, news, etc.)
+  - Naming conventions
+- **[Vite Configuration Guide](./vite-configuration-guide.md)** ✅ - Build configuration
+  - `outDir: './public'` explained (NOT `../../public_html/themes/Sixteen/`)
+  - Manifest generation and Laravel integration
+  - Development vs Production builds
+- **[Build Commands Guide](./build-commands-guide.md)** ✅ - Complete build process
+  - `composer update -W` → `npm install` → `npm run build` → `npm run copy`
+  - Troubleshooting Vite manifest errors
+  - Development vs Production builds
+- [Agid Layout Usage Rules](./agid-layout-usage-rules.md) - How to use Agid-compliant layouts
+- [Sixteen Theme Naming Rules](./sixteen-theme-naming-rules.md) - Naming conventions for this theme
+>>>>>>> 4a11dcf (.)
 
 ### 🎨 Design Comuni Italia (Agid Compliance)
 - [Design Comuni Implementation Guide](./design-comuni-implementation.md) - **Primary Technical Reference**
