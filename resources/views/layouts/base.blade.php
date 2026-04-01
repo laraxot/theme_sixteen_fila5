@@ -12,18 +12,14 @@
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
+        {{-- Bootstrap Italia CSS - CDN (EXACT match with Design Comuni reference) --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css" />
+
         <style>
             [x-cloak] {
                 display: none !important;
             }
         </style>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        <!-- Font Awesome for icon classes used in theme (fas/fa-*) -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfGw1ZrYJ24lF+qvQ4qzC2Q8Q2G3Kf0QfQwY2Z6YvGZrj4qk5j8V+KQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        @filamentStyles
-        @vite(['resources/css/app.css'], 'themes/Sixteen')
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -32,9 +28,7 @@
     <body>
         @yield('body')
 
-        @livewire('notifications')
-
-        @filamentScripts
-        @vite(['resources/js/app.js'], 'themes/Sixteen')
+        {{-- Bootstrap Italia JS - CDN --}}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/js/bootstrap-italia.bundle.min.js"></script>
     </body>
 </html>

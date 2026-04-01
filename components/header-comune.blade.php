@@ -1,17 +1,82 @@
-<header class="it-header-wrapper">
-    <div class="it-nav-wrapper">
-        <div class="it-header-center-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="it-header-center-content-wrapper">
-                            <div class="it-brand-wrapper">
-                                <a href="{{ route('comune.homepage') }}">
-                                    <img src="{{ theme_asset('images/logo-comune.png') }}" alt="Logo Comune" class="icon">
-                                    <div class="it-brand-text">
-                                        <h2>{{ config('comune.nome', 'Nome Comune') }}</h2>
-                                        <h3>Comune di {{ config('comune.nome', 'Nome Comune') }}</h3>
+<header class="it-header-wrapper" id="header" data-bs-toggle="sticky" data-bs-sticky-limit="0" data-bs-sticky-offset="0">
+    <!-- Slim Header -->
+    <div class="it-header-slim-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="it-header-slim-wrapper-content">
+                        <a class="d-none d-lg-block navbar-brand" href="#">Regione {{ config('comune.regione', 'Sicilia') }}</a>
+                        <div class="it-header-slim-wrapper-device">
+                            <span class="navbar-brand">Regione {{ config('comune.regione', 'Sicilia') }}</span>
+                        </div>
+                        <div class="it-header-slim-right-zone">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span>ITA</span>
+                                    <svg class="icon d-none d-lg-block">
+                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-expand"></use>
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <div class="link-list-wrapper">
+                                        <ul class="link-list">
+                                            <li><a class="dropdown-item list-item" href="#"><span>ITA</span></a></li>
+                                            <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
+                                        </ul>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="it-access-wrapper">
+                                <a class="btn btn-primary btn-sm" href="#">Accedi all'area personale</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Center Header -->
+    <div class="it-header-center-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="it-header-center-content-wrapper">
+                        <div class="it-brand-wrapper">
+                            <a href="{{ route('comune.homepage') }}">
+                                <img src="{{ theme_asset('images/logo-comune.png') }}" alt="Logo Comune" class="icon">
+                                <div class="it-brand-text">
+                                    <div class="it-brand-title">Comune di {{ config('comune.nome', 'Nome Comune') }}</div>
+                                    <div class="it-brand-tagline d-none d-md-block">{{ config('comune.tagline', 'Sito istituzionale') }}</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="it-right-zone">
+                            <div class="it-socials d-none d-md-flex">
+                                <span>Seguici su</span>
+                                <ul>
+                                    <li>
+                                        <a href="#" aria-label="Facebook" target="_blank">
+                                            <svg class="icon">
+                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-facebook"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" aria-label="Twitter" target="_blank">
+                                            <svg class="icon">
+                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-twitter"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="it-search-wrapper">
+                                <span class="d-none d-md-block">Cerca</span>
+                                <a class="search-link" href="#" aria-label="Cerca nel sito">
+                                    <svg class="icon">
+                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-search"></use>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -19,41 +84,55 @@
                 </div>
             </div>
         </div>
-        
-        <div class="it-header-navbar-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <button class="custom-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            
-                            <div class="collapse navbar-collapse" id="navbarNav">
+    </div>
+
+    <!-- Navbar Header -->
+    <div class="it-header-navbar-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg has-megamenu">
+                        <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav10" data-bs-toggle="navbarcollapsible">
+                            <svg class="icon">
+                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-burger"></use>
+                            </svg>
+                        </button>
+                        <div class="navbar-collapsible" id="nav10">
+                            <div class="overlay"></div>
+                            <div class="close-div">
+                                <button class="btn close-menu" type="button">
+                                    <span class="visually-hidden">Chiudi navigazione</span>
+                                    <svg class="icon">
+                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-close-big"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="menu-wrapper">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->routeIs('comune.homepage') ? 'active' : '' }}" href="{{ route('comune.homepage') }}">Home</a>
+                                        <a class="nav-link {{ request()->routeIs('comune.homepage') ? 'active' : '' }}" href="{{ route('comune.homepage') }}"><span>Home</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->routeIs('comune.servizi*') ? 'active' : '' }}" href="{{ route('comune.servizi') }}">Servizi</a>
+                                        <a class="nav-link {{ request()->routeIs('comune.servizi*') ? 'active' : '' }}" href="{{ route('comune.servizi') }}"><span>Servizi</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->routeIs('comune.novita*') ? 'active' : '' }}" href="{{ route('comune.novita') }}">Novità</a>
+                                        <a class="nav-link {{ request()->routeIs('comune.novita*') ? 'active' : '' }}" href="{{ route('comune.novita') }}"><span>Novità</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->routeIs('comune.contatti') ? 'active' : '' }}" href="{{ route('comune.contatti') }}">Contatti</a>
+                                        <a class="nav-link {{ request()->routeIs('comune.contatti') ? 'active' : '' }}" href="{{ route('comune.contatti') }}"><span>Contatti</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->routeIs('fixcity.*') ? 'active' : '' }}" href="{{ route('fixcity.tickets.index') }}">Segnalazioni</a>
+                                        <a class="nav-link {{ request()->routeIs('fixcity.*') ? 'active' : '' }}" href="{{ route('fixcity.tickets.index') }}"><span>Segnalazioni</span></a>
                                     </li>
                                 </ul>
                             </div>
-                        </nav>
-                    </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 
 

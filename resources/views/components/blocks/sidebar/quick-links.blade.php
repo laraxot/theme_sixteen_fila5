@@ -40,21 +40,8 @@
                         </span>
 
                         {{-- Arrow --}}
-                        <x-heroicon-o-chevron-right class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                        <x-icon name="heroicon-o-chevron-right class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600"" />
-=======
-                        <x-icon name="heroicon-o-chevron-right" class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                        <x-icon name="heroicon-o-chevron-right" class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
-=======
-                        <x-icon name="heroicon-o-chevron-right" class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                        <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
+f7ac8eda (.)
                     </a>
                 </li>
             @endforeach

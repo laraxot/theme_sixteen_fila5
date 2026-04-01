@@ -44,7 +44,7 @@
                 {{-- Icon (if provided) --}}
                 @if(isset($item['icon']))
                 <div class="timeline-icon mb-2">
-                    <x-icon name="$item['icon']" class="icon-md icon-primary" />
+                    <x-filament::icon icon="$item['icon']" class="icon-md icon-primary" />
                 </div>
                 @endif
                 

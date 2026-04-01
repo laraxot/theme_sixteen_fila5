@@ -226,42 +226,42 @@
                             @if($social['twitter'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['twitter'] }}" class="text-white-50 hover-white transition-colors" aria-label="Twitter">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use></svg>
                                     </a>
                                 </li>
                             @endif
                             @if($social['facebook'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['facebook'] }}" class="text-white-50 hover-white transition-colors" aria-label="Facebook">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use></svg>
                                     </a>
                                 </li>
                             @endif
                             @if($social['youtube'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['youtube'] }}" class="text-white-50 hover-white transition-colors" aria-label="YouTube">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use></svg>
                                     </a>
                                 </li>
                             @endif
                             @if($social['telegram'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['telegram'] }}" class="text-white-50 hover-white transition-colors" aria-label="Telegram">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use></svg>
                                     </a>
                                 </li>
                             @endif
                             @if($social['whatsapp'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['whatsapp'] }}" class="text-white-50 hover-white transition-colors" aria-label="Whatsapp">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use></svg>
                                     </a>
                                 </li>
                             @endif
                             @if($social['rss'] ?? null)
                                 <li class="list-inline-item">
                                     <a href="{{ $social['rss'] }}" class="text-white-50 hover-white transition-colors" aria-label="RSS">
-                                        <svg class="icon icon-sm"><use href="/themes/sixteen/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use></svg>
+                                        <svg class="icon icon-sm"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use></svg>
                                     </a>
                                 </li>
                             @endif

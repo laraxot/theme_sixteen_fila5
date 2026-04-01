@@ -174,6 +174,170 @@ export default {
         typography,
         daisyui,
         require("flowbite/plugin"),
+        // Bootstrap Italia Components - @apply classes
+        function({ addComponents, addUtilities, theme }) {
+            addComponents({
+                // Header Slim
+                '.it-header-slim-wrapper': {
+                    '@apply bg-[#0066CC]': {},
+                },
+                '.it-header-slim': {
+                    '@apply py-2': {},
+                },
+                '.it-header-slim-region a': {
+                    '@apply text-white text-[14px] font-semibold no-underline hover:underline': {},
+                },
+                '.it-header-slim-language': {
+                    '@apply text-white text-[14px] flex items-center gap-3': {},
+                },
+                '.it-header-slim-language-active': {
+                    '@apply text-white font-bold no-underline': {},
+                },
+                '.it-header-slim-language-item': {
+                    '@apply text-white opacity-70 no-underline hover:opacity-100': {},
+                },
+                '.it-header-slim-login': {
+                    '@apply inline-flex items-center gap-2 bg-white text-[#0066CC] px-3 py-1.5 rounded text-[14px] font-semibold no-underline hover:bg-[#F0F0F0] hover:text-[#0052A3] transition-all': {},
+                },
+                
+                // Footer
+                '.it-footer': {
+                    '@apply font-sans': {},
+                },
+                '.it-footer-main': {
+                    '@apply bg-[#003D73] text-white': {},
+                },
+                '.it-footer-secondary': {
+                    '@apply bg-[#000000] border-t border-[#333]': {},
+                },
+                '.footer-heading-title': {
+                    '@apply text-white text-[16px] font-bold uppercase mb-4': {},
+                },
+                '.footer-list': {
+                    '@apply list-none p-0 m-0': {},
+                },
+                '.footer-list li': {
+                    '@apply mb-2': {},
+                },
+                '.footer-list li a': {
+                    '@apply text-white no-underline text-[14px] opacity-80 hover:opacity-100 hover:no-underline transition-opacity': {},
+                },
+                
+                // Cards
+                '.card': {
+                    '@apply bg-white rounded-lg border border-gray-200 shadow-sm': {},
+                },
+                '.card-teaser': {
+                    '@apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow': {},
+                },
+                '.card-bg': {
+                    '@apply bg-white': {},
+                },
+                '.card-body': {
+                    '@apply p-4': {},
+                },
+                '.card-title': {
+                    '@apply text-base font-semibold mb-2': {},
+                },
+                '.card-text': {
+                    '@apply text-sm text-gray-600': {},
+                },
+                '.card-date': {
+                    '@apply text-[#0066CC] text-sm': {},
+                },
+                '.card-category': {
+                    '@apply text-[#5C6F82] text-xs uppercase tracking-wide mb-2': {},
+                },
+                '.card-list': {
+                    '@apply list-none p-0 m-0 text-sm': {},
+                },
+                '.card-list li': {
+                    '@apply mb-1': {},
+                },
+                
+                // Sections
+                '.section-title': {
+                    '@apply text-2xl lg:text-3xl font-semibold text-gray-900 mb-4': {},
+                },
+                
+                // Calendar
+                '.calendar-list': {
+                    '@apply space-y-4': {},
+                },
+                '.calendar-event': {
+                    '@apply border-b border-gray-200 pb-3 mb-3': {},
+                },
+                '.calendar-date': {
+                    '@apply text-[#0066CC] text-3xl font-bold block leading-none': {},
+                },
+                '.calendar-day': {
+                    '@apply text-[#5C6F82] text-xs uppercase block mt-1': {},
+                },
+                '.event-list': {
+                    '@apply list-none p-0 m-0': {},
+                },
+                '.event-list li': {
+                    '@apply mb-2': {},
+                },
+                '.event-list li a': {
+                    '@apply text-gray-700 no-underline hover:text-[#0066CC] hover:no-underline transition-colors': {},
+                },
+                
+                // Buttons
+                '.btn': {
+                    '@apply inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed no-underline': {},
+                },
+                '.btn-primary': {
+                    '@apply bg-[#0066CC] text-white hover:bg-[#0052A3] focus:ring-[#0066CC]': {},
+                },
+                '.btn-outline-primary': {
+                    '@apply bg-transparent text-[#0066CC] border border-[#0066CC] hover:bg-[#0066CC] hover:text-white': {},
+                },
+                '.btn-sm': {
+                    '@apply px-3 py-1.5 text-xs': {},
+                },
+                '.btn-link': {
+                    '@apply text-[#0066CC] no-underline hover:underline bg-transparent border-0 p-0': {},
+                },
+                
+                // Icons
+                '.icon': {
+                    '@apply inline-block w-4 h-4 align-middle': {},
+                },
+                '.icon-xs': {
+                    '@apply w-3 h-3': {},
+                },
+                '.icon-sm': {
+                    '@apply w-4 h-4': {},
+                },
+                '.icon-lg': {
+                    '@apply w-6 h-6': {},
+                },
+                '.icon-primary': {
+                    '@apply text-[#0066CC]': {},
+                },
+                '.icon-white': {
+                    '@apply text-white': {},
+                },
+                
+                // Utilities
+                '.text-primary': {
+                    '@apply text-[#0066CC]': {},
+                },
+                '.text-muted': {
+                    '@apply text-[#5C6F82]': {},
+                },
+                '.text-uppercase': {
+                    '@apply uppercase': {},
+                },
+                '.shadow-sm': {
+                    '@apply shadow-[0_2px_4px_rgba(0,0,0,0.1)]': {},
+                },
+                '.shadow-md': {
+                    '@apply shadow-[0_4px_8px_rgba(0,0,0,0.15)]': {},
+                },
+            });
+        },
         // Plugin personalizzato per Filament 4.x con AGID Design System
         function({ addComponents, addUtilities, theme }) {
             // Componenti Filament con AGID styling

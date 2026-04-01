@@ -1,0 +1,216 @@
+/* ==========================================================================
+   Design Comuni Components - Tailwind CSS
+   Uses @apply for Bootstrap Italia-like classes
+   ========================================================================== */
+
+/* Top Bar Component
+   ========================================================================== */
+.it-header-slim-wrapper {
+    background-color: #003D73 !important; /* EXACT Design Comuni color */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.it-header-slim-wrapper .language-selector button {
+    @apply px-3 py-1 text-sm transition-colors;
+}
+
+/* Header Center Component
+   ========================================================================== */
+.it-header-center-wrapper {
+    @apply bg-white border-b border-gray-200;
+}
+
+.it-header-center-wrapper .search-form .input-group {
+    @apply flex items-center gap-2;
+}
+
+.it-header-center-wrapper .social-links a {
+    color: #0066CC; transition: color 0.2s;
+}
+
+/* Navigation Component
+   ========================================================================== */
+.it-nav-wrapper {
+    @apply bg-white border-b border-gray-200;
+}
+
+.it-nav-wrapper .navbar-nav {
+    @apply flex gap-4;
+}
+
+.it-nav-wrapper .nav-item {
+    @apply relative;
+}
+
+.it-nav-wrapper .nav-link {
+    @apply px-3 py-3 hover:text-[#0066CC] transition-colors;
+}
+
+.it-nav-wrapper .nav-item.highlighted .nav-link {
+    font-weight: 700; color: #0066CC;
+}
+
+.it-nav-wrapper .submenu-wrapper {
+    @apply absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all;
+}
+
+.it-nav-wrapper .submenu-list {
+    @apply flex flex-col;
+}
+
+.it-nav-wrapper .submenu-list li a {
+    @apply px-4 py-2 hover:bg-gray-100 transition-colors block;
+}
+
+/* Hero Component
+   ========================================================================== */
+.it-hero-wrapper {
+    background-color: #0066CC; color: #FFFFFF; padding: 3rem 0;
+}
+
+.it-hero-wrapper .title-xxxlarge {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+}
+
+/* Featured News Component
+   ========================================================================== */
+.featured-news {
+    @apply py-8 bg-gray-50;
+}
+
+.featured-news .card-bg {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden;
+}
+
+.featured-news .card-body {
+    @apply p-6;
+}
+
+.featured-news .card-title {
+    font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;
+}
+
+/* Government Bodies Component
+   ========================================================================== */
+.government-bodies {
+    @apply py-8 bg-gray-50;
+}
+
+.government-bodies .card-bg {
+    @apply bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.government-bodies .card-body {
+    @apply p-6;
+}
+
+/* Events Calendar Component
+   ========================================================================== */
+.events-calendar {
+    @apply py-8;
+}
+
+.events-calendar .calendar-grid {
+    @apply border border-gray-200 rounded-lg overflow-hidden;
+}
+
+.events-calendar .calendar-header {
+    @apply grid grid-cols-7 bg-gray-100 border-b;
+}
+
+.events-calendar .calendar-day-header {
+    @apply text-center py-2 text-sm font-semibold;
+}
+
+.events-calendar .calendar-day {
+    @apply border-r border-b border-gray-200 p-2 min-h-24 hover:bg-gray-50 transition-colors;
+}
+
+/* Topics Highlight Component
+   ========================================================================== */
+.topics-highlight {
+    @apply py-8 bg-gray-50;
+}
+
+.topics-highlight .topic-card {
+    @apply block p-6 bg-white border border-gray-200 rounded-lg hover:border-[#0066CC] hover:shadow-md transition-all text-center;
+}
+
+/* Thematic Sites Component
+   ========================================================================== */
+.thematic-sites {
+    @apply py-8;
+}
+
+.thematic-sites .site-card {
+    @apply block p-6 border-2 border-gray-200 rounded-lg hover:border-[#0066CC] hover:shadow-md transition-all;
+}
+
+/* Feedback Section Component - FIXED (no btn-link)
+   ========================================================================== */
+.feedback-section {
+    @apply py-8 bg-gray-50;
+}
+
+.feedback-section .rating-stars button {
+    @apply p-0 text-3xl text-[#FFB300] hover:text-[#FFA000] transition-colors bg-transparent border-0 cursor-pointer;
+}
+
+.feedback-section .feedback-options {
+    @apply flex flex-wrap gap-2 justify-center;
+}
+
+.feedback-section .feedback-options button {
+    @apply px-4 py-2 text-sm border-2 border-[#0066CC] text-[#0066CC] bg-white rounded-lg cursor-pointer;
+    @apply hover:bg-[#0066CC] hover:text-white transition-colors;
+}
+
+/* Contact Section Component
+   ========================================================================== */
+.contact-section {
+    @apply py-8;
+}
+
+.contact-section .contact-option {
+    @apply block p-4 border border-gray-200 rounded-lg hover:border-[#0066CC] hover:shadow-sm transition-all text-center;
+}
+
+.contact-section .quick-link {
+    @apply text-[#0066CC] hover:text-[#003D73] hover:underline inline-flex items-center gap-2;
+}
+
+/* Footer Component
+   ========================================================================== */
+.it-footer {
+    background-color: #003D73; color: #FFFFFF; padding: 3rem 0 2rem;
+}
+
+.it-footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.it-footer a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.it-footer .footer-heading-title {
+    @apply text-lg font-semibold mb-4 text-white;
+}
+
+.it-footer .footer-list {
+    @apply list-none p-0 m-0 space-y-2;
+}
+
+.it-footer .footer-list li a {
+    @apply text-white/80 text-sm;
+}
+
+.it-footer .it-social-list {
+    @apply mt-8 pt-8 border-t border-white/20;
+}
+
+.it-footer .ue-logo {
+    @apply h-12 w-auto mb-4;
+}

@@ -129,7 +129,7 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ $dropdownItem['href'] ?? '#' }}">
                                             @if(!empty($dropdownItem['icon']))
-                                                <x-heroicon-o-{{ $dropdownItem['icon'] }} class="me-2" />
+                                                <x-filament::icon icon="heroicon-o-{{" $dropdownItem['icon'] }} class="me-2" />
                                             @endif
                                             {{ $dropdownItem['text'] }}
                                         </a>
@@ -151,7 +151,7 @@
                                 @endif
                             >
                                 @if(!empty($item['icon']))
-                                    <x-heroicon-o-{{ $item['icon'] }} class="me-1" />
+                                    <x-filament::icon icon="heroicon-o-{{" $item['icon'] }} class="me-1" />
                                 @endif
                                 {{ $item['text'] }}
                             </a>
@@ -181,21 +181,8 @@
                                     x-on:click="performSearch()"
                                     aria-label="Esegui ricerca"
                                 >
-                                    <x-heroicon-o-magnifying-glass class="w-4 h-4" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                                    <x-icon name="heroicon-o-magnifying-glass class="w-4 h-4"" />
-=======
-                                    <x-icon name="heroicon-o-magnifying-glass" class="w-4 h-4" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                                    <x-icon name="heroicon-o-magnifying-glass" class="w-4 h-4" />
-=======
-                                    <x-icon name="heroicon-o-magnifying-glass" class="w-4 h-4" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                                    <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-4 h-4" />
+f7ac8eda (.)
                                 </button>
                             </div>
                         </form>
@@ -229,7 +216,7 @@
                                 <li>
                                     <a class="dropdown-item" href="{{ $userItem['href'] ?? '#' }}">
                                         @if(!empty($userItem['icon']))
-                                            <x-heroicon-o-{{ $userItem['icon'] }} class="me-2" />
+                                            <x-filament::icon icon="heroicon-o-{{" $userItem['icon'] }} class="me-2" />
                                         @endif
                                         {{ $userItem['text'] }}
                                     </a>

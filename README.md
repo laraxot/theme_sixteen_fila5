@@ -188,21 +188,24 @@ npm run test:a11y
 npm run test:performance
 ```
 
-## 📚 Documentazione
+## 📚 Documentazione (AGID compliant)
 
-### Documenti Principali
-- [Complete Theme Analysis](docs/complete-theme-analysis.md) - Detailed theme analysis
-- [Implemented Components Update](docs/implemented-components-update.md) - Components update
-- [Component Structure Reorganization](docs/component-structure-reorganization.md) - New component organization
-- [Migration Guide](docs/migration-guide.md) - Guide to migrate from old structure
-- [Sixteen Theme Completion](docs/sixteen-theme-completion.md) - Theme completion celebration
-- [Usage Guide](docs/usage-guide.md) - Complete usage guide
-- [Customization](docs/customization.md) - Customization guide
+Per una guida completa all'implementazione e all'uso del tema Sixteen secondo le linee guida AGID, consultare:
+
+- **[INDICE DOCUMENTAZIONE GENERALE](docs/00-index.md)** - Punto di partenza per tutta la documentazione
+- **[GUIDA IMPLEMENTAZIONE DESIGN COMUNI](docs/design-comuni-implementation.md)** - La guida tecnica principale per il design dei comuni
+
+### Documenti di Approfondimento
+- [Complete Theme Analysis](docs/complete-theme-analysis.md) - Analisi dettagliata del tema
+- [Implemented Components Update](docs/implemented-components-update.md) - Stato aggiornamento componenti
+- [Component Structure Reorganization](docs/component-structure-reorganization.md) - Nuova organizzazione dei componenti
+- [Migration Guide](docs/migration-guide.md) - Guida alla migrazione
+- [Sixteen Theme Completion](docs/sixteen-theme-completion.md) - Celebrazione completamento tema
 
 ### Esempi e Tutorial
-- [Esempi Componenti](docs/esempi-componenti.md) - Esempi pratici
-- [Best Practices](docs/best-practices.md) - Migliori pratiche
-- [Troubleshooting](docs/troubleshooting.md) - Risoluzione problemi
+- [Esempi Componenti](docs/esempi-componenti.md) - Esempi pratici d'uso
+- [Best Practices](docs/best-practices.md) - Migliori pratiche di sviluppo
+- [Troubleshooting](docs/troubleshooting.md) - Risoluzione dei problemi comuni
 
 ## 🤝 Contribuire
 
@@ -265,7 +268,7 @@ Questo progetto è rilasciato sotto licenza [MIT](LICENSE).
 
 ---
 
-**Versione**: 2.2.0  
-**Ultimo aggiornamento**: Gennaio 2025  
-**Stato**: Production Ready - OBIETTIVO SUPERATO! 🎉  
+**Versione**: 2.3.0  
+**Ultimo aggiornamento**: {{ \Carbon\Carbon::now()->format('Y-m-d') }}
+**Stato**: Production Ready - OBIETTIVO SUPERATO! 🎉 (Marzo 2026)  
 **Componenti**: 55/54 (102%)

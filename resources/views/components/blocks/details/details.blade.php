@@ -60,7 +60,7 @@
                     <div class="detail-item flex justify-between py-2 border-b border-gray-200">
                         @if(isset($item['icon']))
                         <dt class="flex items-center gap-2 text-sm font-medium text-gray-700">
-                            <x-icon name="$item['icon']" class="icon-sm icon-primary" />
+                            <x-filament::icon icon="$item['icon']" class="icon-sm icon-primary" />
                             {{ $item['label'] }}
                         </dt>
                         @else

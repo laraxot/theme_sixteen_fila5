@@ -50,21 +50,8 @@
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     aria-label="Prima pagina"
                 >
-                    <x-heroicon-o-chevron-double-left class="h-4 w-4" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-double-left class="h-4 w-4"" />
-=======
-                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
-=======
-                    <x-icon name="heroicon-o-chevron-double-left" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
+f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -76,21 +63,8 @@
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     aria-label="Pagina precedente"
                 >
-                    <x-heroicon-o-chevron-left class="h-4 w-4" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-left class="h-4 w-4"" />
-=======
-                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
-=======
-                    <x-icon name="heroicon-o-chevron-left" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                    <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
+f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -122,21 +96,8 @@
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     aria-label="Pagina successiva"
                 >
-                    <x-heroicon-o-chevron-right class="h-4 w-4" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-right class="h-4 w-4"" />
-=======
-                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
-=======
-                    <x-icon name="heroicon-o-chevron-right" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                    <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
+f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -148,21 +109,8 @@
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     aria-label="Ultima pagina"
                 >
-                    <x-heroicon-o-chevron-double-right class="h-4 w-4" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-double-right class="h-4 w-4"" />
-=======
-                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
-=======
-                    <x-icon name="heroicon-o-chevron-double-right" class="h-4 w-4" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                    <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
+f7ac8eda (.)
                 </a>
             </li>
         @endif

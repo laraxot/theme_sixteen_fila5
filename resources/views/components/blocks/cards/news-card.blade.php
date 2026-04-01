@@ -94,21 +94,8 @@
             <div class="news-card-meta flex items-center space-x-4 text-sm text-gray-500">
                 @if($author)
                     <span class="flex items-center">
-                        <x-heroicon-o-user class="w-4 h-4 mr-1" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                        <x-icon name="heroicon-o-user class="w-4 h-4 mr-1"" />
-=======
-                        <x-icon name="heroicon-o-user" class="w-4 h-4 mr-1" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                        <x-icon name="heroicon-o-user" class="w-4 h-4 mr-1" />
-=======
-                        <x-icon name="heroicon-o-user" class="w-4 h-4 mr-1" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                        <x-filament::icon icon="heroicon-o-user" class="w-4 h-4 mr-1" />
+f7ac8eda (.)
                         {{ $author }}
                     </span>
                 @endif
@@ -120,21 +107,8 @@
                 aria-label="Leggi l'articolo completo: {{ $title }}"
             >
                 Leggi tutto
-                <x-heroicon-o-arrow-right class="w-4 h-4 ml-1" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                <x-icon name="heroicon-o-arrow-right class="w-4 h-4 ml-1"" />
-=======
-                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
-=======
-                <x-icon name="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+f7ac8eda (.)
             </a>
         </div>
     </div>

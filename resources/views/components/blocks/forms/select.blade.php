@@ -131,21 +131,8 @@
 
         @if($searchable)
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                <x-heroicon-o-magnifying-glass class="h-5 w-5 text-gray-400" />
-<<<<<<< HEAD
-||||||| parent of f7ac8eda (.)
-||||||| parent of f2e0249c (.)
-                <x-icon name="heroicon-o-magnifying-glass class="h-5 w-5 text-gray-400"" />
-=======
-                <x-icon name="heroicon-o-magnifying-glass" class="h-5 w-5 text-gray-400" />
->>>>>>> f2e0249c (.)
-=======
-||||||| parent of f2e0249c (.)
-                <x-icon name="heroicon-o-magnifying-glass" class="h-5 w-5 text-gray-400" />
-=======
-                <x-icon name="heroicon-o-magnifying-glass" class="h-5 w-5 text-gray-400" />
->>>>>>> f2e0249c (.)
->>>>>>> f7ac8eda (.)
+                <x-filament::icon icon="heroicon-o-magnifying-glass" class="h-5 w-5 text-gray-400" />
+f7ac8eda (.)
             </div>
         @endif
     </div>
