@@ -1,23 +1,35 @@
-@props([
-    'title' => '',
-    'subtitle' => '',
-    'content' => '',
-    'background_color' => 'bg-white',
-    'text_color' => 'text-gray-900',
-])
+@props(['data' => []])
 
-@if($title)
-<section class="py-12 {{ $background_color }}">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="{{ $text_color }}">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ $title }}</h1>
-            @if($subtitle)
-                <p class="text-xl opacity-80 mb-4">{{ $subtitle }}</p>
-            @endif
-            @if($content)
-                <div class="text-lg opacity-70">{!! $content !!}</div>
-            @endif
+{{-- Hero Section - Bootstrap Italia Exact Replica --}}
+@php
+    $title = $data['title'] ?? 'NOME DEL COMUNE';
+    $subtitle = $data['subtitle'] ?? 'CONTENUTI IN EVIDENZA';
+    $backgroundImage = $data['backgroundImage'] ?? null;
+    $overlay = $data['overlay'] ?? true;
+    $theme = $data['theme'] ?? 'dark';
+@endphp
+
+<div class="it-hero-wrapper it-{{ $theme }} @if($overlay) it-overlay @endif">
+    @if($backgroundImage)
+    <div class="img-responsive-wrapper">
+        <div class="img-responsive">
+            <div class="img-wrapper">
+                <img src="{{ $backgroundImage }}" alt="{{ $title }}">
+            </div>
         </div>
     </div>
-</section>
-@endif
+    @endif
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-hero-text-wrapper bg-{{ $theme }}">
+                    <h1 class="no_toc">{{ $title }}</h1>
+                    @if($subtitle)
+                    <p class="d-none d-lg-block">{{ $subtitle }}</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

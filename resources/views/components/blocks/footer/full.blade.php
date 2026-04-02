@@ -128,7 +128,7 @@
                     <li class="list-inline-item">
                         <a href="#" class="text-link" aria-label="{{ ucfirst($network) }}">
                             <svg class="icon icon-sm">
-                                <use href="#it-{{ $network }}"></use>
+                                <use xlink:href="#it-{{ $network }}"></use>
                             </svg>
                         </a>
                     </li>

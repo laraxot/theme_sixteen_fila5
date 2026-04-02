@@ -90,7 +90,7 @@
         {{-- Success state indicator --}}
         <div class="upload-dragdrop-success">
             <svg class="icon" aria-hidden="true">
-                <use href="#it-check"></use>
+                <use xlink:href="#it-check"></use>
             </svg>
         </div>
     </div>
@@ -99,7 +99,7 @@
         @if($fileInfo)
             <p class="upload-dragdrop-weight">
                 <svg class="icon icon-xs" aria-hidden="true">
-                    <use href="#it-file"></use>
+                    <use xlink:href="#it-file"></use>
                 </svg>
                 {{ $fileInfo }}
             </p>
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const fileType = file.name.split('.').pop().toUpperCase();
                 weightElement.innerHTML = `
                     <svg class="icon icon-xs" aria-hidden="true">
-                        <use href="#it-file"></use>
+                        <use xlink:href="#it-file"></use>
                     </svg>
                     ${fileType} (${fileSize}MB)
                 `;

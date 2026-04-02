@@ -51,20 +51,20 @@ html, body {
 /* Bootstrap Italia design converted to Tailwind CSS with @apply */
 /* Colors based on Bootstrap Italia: Primary Green #007a52, Blue #006cc6, Gray #5d7083 */
 
-/* CSS Custom Properties for Bootstrap Italia colors */
+/* CSS Custom Properties - Design Comuni (Blu Italia, non verde BI) */
 :root {
-  --bs-primary: #007a52;
-  --bs-primary-dark: #00614a;
-  --bs-secondary: #5d7083;
-  --bs-success: #008055;
-  --bs-blue: #006cc6;
-  --bs-dark: #17334f;
-  --bs-light: #f8f9fa;
-  --bs-gray-100: #f8f9fa;
-  --bs-gray-200: #e9ecef;
-  --bs-gray-300: #dee2e6;
-  --bs-gray-600: #6c757d;
-  --bs-gray-900: #212529;
+  --bs-primary: #0066CC;
+  --bs-primary-dark: #0052A3;
+  --bs-secondary: #5C6F82;
+  --bs-success: #00B373;
+  --bs-blue: #0066CC;
+  --bs-dark: #17334F;
+  --bs-light: #F5F6F7;
+  --bs-gray-100: #F5F6F7;
+  --bs-gray-200: #E5E7EB;
+  --bs-gray-300: #DEE2E6;
+  --bs-gray-600: #5C6F82;
+  --bs-gray-900: #1A1A1A;
 }
 
 /* Header styling - Bootstrap Italia style with @apply */

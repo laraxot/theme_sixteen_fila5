@@ -2,15 +2,16 @@
     Topics Highlight - Argomenti in evidenza + Siti tematici
     Reference: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs .evidence-section
 --}}
-@props([
-    'title'            => 'Argomenti in evidenza',
-    'background_image' => '',
-    'items'            => [],
-    'other_topics'     => [],
-    'show_all_url'     => '#',
-    'show_all_label'   => 'Mostra tutti',
-    'thematic_sites'   => [],
-])
+@props(['data' => []])
+@php
+    $title            = $data['title'] ?? 'Argomenti in evidenza';
+    $background_image = $data['background_image'] ?? '';
+    $items            = $data['items'] ?? [];
+    $other_topics     = $data['other_topics'] ?? [];
+    $show_all_url     = $data['show_all_url'] ?? '#';
+    $show_all_label   = $data['show_all_label'] ?? 'Mostra tutti';
+    $thematic_sites   = $data['thematic_sites'] ?? [];
+@endphp
 
 <section class="evidence-section">
     <div class="section py-5 pb-lg-80 px-lg-5 position-relative"

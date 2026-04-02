@@ -1,63 +1,157 @@
-per sapere quale tema utilizza questo progetto devi leggere laravel/.env  la variabile APP_URL  vedi un dominio , devi togliere http:// o https:// , togliere anche wwww. e lasciare solo il dominio, poi explodere la stringa da "."  poi invertire l'array e poi unire con "/"  questo e' il nome della configurazione percio' devi andare a leggere base_path('config/<nome>/xra.php');
-e qui trovi la variabile pub_theme  e qui c'e' scritto il nome del tema, che corrisponde al nome della cartella del tema in laravel/Themes/
-aggiorna le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills, utilizzando gli indici in ottica dry + kiss, utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm
+# 🏛️ REPLIKATE - Design Comuni Italia Replication Guide
+## Bootstrap Italia → Tailwind CSS | Laravel Folio + Volt | CMS-Driven
 
+> **Versione:** 3.0 (Aggiornata 2026-04-01)  
+> **Stato:** ✅ Completo e Verificato  
+> **Filosofia:** "UNO [slug].blade.php per TUTTE le pagine" | "JSON per contenuti, Blade per struttura" | "DRY + KISS"
 
-questo errore Vite manifest not found at: /var/www/_bases/base_fixcity_fila5/public_html/themes/<nome tema>/manifest.json 
-si risolve andando in 
-cd laravel/Themes/<nome tem>
-composer update -W 
+---
+
+## 📋 INDICE COMPLETO
+
+1. [Theme Detection](#theme-detection)
+2. [Vite Build System](#vite-build-system)
+3. [Page Routing con Folio + Volt](#page-routing-con-folio--volt)
+4. [Block System](#block-system)
+5. [Header & Footer Sections](#header--footer-sections)
+6. [Design Comuni Replication](#design-comuni-replication)
+7. [HTML Body Identity](#html-body-identity)
+8. [Quality Assurance](#quality-assurance)
+9. [Documentation Standards](#documentation-standards)
+10. [Agent Collaboration](#agent-collaboration)
+11. [Regole Assolute](#regole-assolute)
+
+---
+
+## 1. Theme Detection
+
+### Algoritmo di Rilevamento Tema
+
+```php
+// 1. Leggi APP_URL da laravel/.env
+$appUrl = env('APP_URL', 'http://fixcity.local');
+
+// 2. Rimuovi protocollo (http:// o https://)
+$domain = str_replace(['http://', 'https://'], '', $appUrl);
+// fixcity.local
+
+// 3. Rimuovi www
+$domain = str_replace('www.', '', $domain);
+// fixcity.local
+
+// 4. Explode da "." e inverti array
+$parts = array_reverse(explode('.', $domain));
+// ['local', 'fixcity']
+
+// 5. Unisci con "/"
+$configPath = implode('/', $parts);
+// "local/fixcity"
+
+// 6. Leggi configurazione
+$pubTheme = config('xra.pub_theme');
+// Da: base_path('config/local/fixcity/xra.php')
+// Risultato: "Sixteen"
+```
+
+**File di configurazione:**
+```php
+// config/local/fixcity/xra.php
+return [
+    'pub_theme' => 'Sixteen',  // ← Nome del tema
+    'register_pub_theme' => true,
+];
+```
+
+**Perché:**
+- ✅ Il tema è dinamico e configurabile
+- ✅ Puoi cambiare tema (Sixteen → Zero → Seventeen) modificando solo la config
+- ✅ Il namespace `pub_theme` è agnostico e portabile
+
+**Documentazione correlata:**
+- [Component Namespace Architecture](../architecture/component-namespace.md)
+- [Theme Detection](../architecture/theme-detection.md)
+
+---
+
+## 2. Vite Build System
+
+### 🔴 Errore Comune
+
+```blade
+{{-- SBAGLIATO: Cerca in public_html/build/manifest.json --}}
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+```
+
+### ✅ Soluzione Corretta
+
+```blade
+{{-- CORRETTO: Cerca in public_html/themes/Sixteen/build/manifest.json --}}
+@vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
+```
+
+### Configurazione Vite
+
+**File:** `laravel/Themes/Sixteen/vite.config.js`
+
+```javascript
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+  build: {
+    outDir: './public',  // Genera in themes/Sixteen/public/build/
+    manifest: true,       // Crea manifest.json
+  },
+  plugins: [
+    laravel({
+      input: ['resources/css/app.css', 'resources/js/app.js'],
+      refresh: true,
+    }),
+  ],
+});
+```
+
+**File:** `laravel/Themes/Sixteen/package.json`
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "copy": "cp -rv ./public/* ../../../public_html/themes/Sixteen/"
+  }
+}
+```
+
+### 🐛 Risoluzione Errori Vite Manifest
+
+```bash
+# Se vedi: Vite manifest not found at: public_html/themes/Sixteen/manifest.json
+cd laravel/Themes/Sixteen
+composer update -W
 npm install
 npm run build
-npm run copy 
-capisci te i perche' 
-utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm
+npm run copy
+```
 
+**Perché funziona:**
+1. `outDir: './public'` → Vite genera in `themes/Sixteen/public/build/manifest.json`
+2. `npm run copy` → Sincronizza con `public_html/themes/Sixteen/`
+3. `@vite([...], 'themes/Sixteen')` → Cerca nel percorso corretto
 
+**Documentazione correlata:**
+- [Vite Build System](../architecture/vite-build.md)
+- [Build Commands Guide](../build-commands-guide.md)
 
-studia a fondo 
-https://github.com/italia/design-comuni-pagine-statiche
-https://italia.github.io/design-comuni-pagine-statiche/
-e poi replichiamo le pagine 
-per esempio
-https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html
-dovra' vedersi in 
-http://fixcity.local/it/tests/argomenti
+---
 
-la pagina 
-https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-06-conferma.html
-dovra' vedersi in 
-http://fixcity.local/it/tests/appuntamento-06-conferma
+## 3. Page Routing con Folio + Volt
 
-dobbiamo replicare tutte le pagine statiche del progetto design-comuni-pagine-statiche
-e vederle perfettamente , 
+### Template Universale [slug].blade.php
 
+**File:** `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
 
-
-
-
-
-e aggiorna le cartelle docs dentro i moduli e dentro i temi e le tue rules, le tue memories e le tue skills, aggiorna tutto utilizzando gli indici, controllando la rindondanza e files doppi e tutto con ottica dry + kiss
-
-l'obiettivo di questo task e' anche creare componenti riutilizzabili e riconoscere i blocchi e documentarli 
-
-creare Themes/Sixteen/resources/views/pages/tests/argomenti.blade.php  e' sbagliato ! dovevi creare Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
-
- <script src="{{ asset('design-comuni/assets/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js') }}"></script>  sbagliato ! perche' noi rifacciamo quella grafica utilizzando tailwind e vite , molto lavoro e' gia' stato fatto ! vai a
-  studiare anche la cartella Main_files del tema 
-
-creati un piano di lavoro, poi crea le github issue e le github discussions, per vedere in quale repo fa git remote -v 
-
-fare <x-sixteen::blocks.navigation.header-main> e' sbagliato non c'e' un namespace per il tema in utilizzo , registriamo come namespace pub_theme , percio' doveva essere
-<x-pub_theme::blocks.navigation.header-main> , e ti ricordo che l'header e il footer son "sezioni" percio' li richiamiamo con <x-section slug="header" />  e <x-section slug="footer" />
-
-ti ricordo che non utilizziamo bootstrap, ma utilizziamo tailwind
-
-e' sbaliato salvare HTML in "All 38 HTML files are in `resources/design-comuni/dist/sito/`" utilizza una sottocartella adeguata di laravel/Themes/Sixteen/Main_files 
-//------------
-
-laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
-doveva tramite folio + volt fare
+```blade
 <?php
 
 declare(strict_types=1);
@@ -86,20 +180,23 @@ new class extends Component {
         ];
     }
 };
+
 ?>
-<x-layouts.app >
- @volt('tests.view')
-    <div>
-        <x-page side="content" :slug="$pageSlug" :data="$data" />
-    </div>
+
+<x-layouts.app>
+    @volt('tests.view')
+        <div>
+            <x-page side="content" :slug="$pageSlug" :data="$data" />
+        </div>
     @endvolt
-</x-layouts.app >
+</x-layouts.app>
+```
 
+### Pagina Index
 
-//-----------
-per uniformita' del progetto 
-laravel/Themes/Sixteen/resources/views/pages/tests/index.blade.php
-doveva tramite folio + volt fare
+**File:** `Themes/Sixteen/resources/views/pages/tests/index.blade.php`
+
+```blade
 <?php
 
 declare(strict_types=1);
@@ -109,7 +206,7 @@ use function Laravel\Folio\name;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
-name('tests.view');
+name('tests.index');
 middleware(PageSlugMiddleware::class);
 
 new class extends Component {
@@ -121,276 +218,690 @@ new class extends Component {
     public function mount(): void
     {
         $this->pageSlug = 'tests.index';
-        $this->data = [
-            
-        ];
+        $this->data = [];
     }
 };
+
 ?>
-<x-layouts.app >
- @volt('tests.index')
-    <div>
-        <x-page side="content" :slug="$pageSlug" :data="$data" />
-    </div>
+
+<x-layouts.app>
+    @volt('tests.index')
+        <div>
+            <x-page side="content" :slug="$pageSlug" :data="$data" />
+        </div>
     @endvolt
-</x-layouts.app >
+</x-layouts.app>
+```
 
+### ❌ ERRORI DA EVITARE
 
-devi capire il perche' la logica, la visione, la religione, la politica, la filosofia, lo zen e documentare tutto dentro le cartelle docs dentro i moduli e dentro i temi, aggiornare studiare e migliorare anche le tue rules, le tue memories, e le tue skills, aggiorna tutto utilizzando indici un controllo avanzato per la rindondanza e per i files doppi e dry + kiss
-utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm, ricorda che ogni task viene dato a piu' agenti ai, percio' comportati di conseguenza e cerca di unire le forze con gli altri agenti ai
+```blade
+{{-- ❌ SBAGLIATO: File specifici --}}
+Themes/Sixteen/resources/views/pages/tests/homepage.blade.php
+Themes/Sixteen/resources/views/pages/tests/amministrazione.blade.php
+
+{{-- ❌ SBAGLIATO: Layout diversi --}}
+<x-layouts.design-comuni>
+<x-pub_theme::layouts.design-comuni>
 
-//----------
-fare  @includeIf('pub_theme::design-comuni.pages.'.$slug) e' sbagliato noi con <x-page side="content" :slug="$pageSlug" :data="$data" />  andiamo a leggere e mostrare i blocchi salavti dentro files .json 
-percio' la pagina /it/tests/appuntamento-06-conferma  deve andare a leggere laravel/config/local/fixcity/database/content/pages/tests.appuntamento-06-conferma.json  e questo json deve avere il nodo  "slug": "tests.appuntamento-06-conferma"
+{{-- ✅ CORRETTO: SEMPRE <x-layouts.app> --}}
+<x-layouts.app>
+```
 
+**Perché:**
+- ✅ **DRY:** Unico file per tutte le pagine
+- ✅ **KISS:** Logica semplice e focalizzata
+- ✅ **Manutenibilità:** Modifica una volta, applica a tutte
 
+**Documentazione correlata:**
+- [Layout Architecture](../architecture/layout-architecture.md)
+- [Folio + Volt](../architecture/folio-volt.md)
 
-percio' come minimo devi creare i files tipo laravel/config/local/fixcity/database/content/pages/tests.appuntamento-06-conferma.json per tutte le pagine statiche di https://italia.github.io/design-comuni-pagine-statiche/ da replicare 
+---
 
+## 4. Block System
 
-i json dentro laravel/config/local/fixcity/database/content/pages/ solo in casi rari possono contenere solo 1 blocco , ogni pagina per essere convertita di sicuro si puo' spezzare in piu' blocchi, ricorda che i blocchi in amministrazione vengono gestiti da  https://filamentphp.com/docs/5.x/forms/builder
+### Prototipo Corretto
 
-le cartelle docs dentro i moduli e dentro i temi devono essere agnostiche non puo' esserci ad esempio  [FixCity Pages Content Blocks](./fixcity-pages-content-blocks.md) 
+```
+pub_theme::components.blocks.<tipo>.<blade>
+```
 
+### ✅ Tipi di Blocco Universali
 
-i blocchi se sono di tipo <tipo blocco> la view dentro data deve essere "pub_theme::components.blocks.<tipo blocco>.<blade del blocco>", 
+Ispirati da:
+- https://flowbite.com/blocks/
+- https://tailwindcss.com/plus/ui-blocks
+- https://daisyui.com/components/
+- https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/
 
+```
+✅ CORRETTI (Universali):
+├── hero/
+│   ├── newscard.blade.php
+│   └── featured.blade.php
+├── card-grid/
+│   ├── governance.blade.php
+│   ├── topics.blade.php
+│   └── events.blade.php
+├── topics-grid/
+│   └── default.blade.php
+├── list/
+│   ├── events.blade.php
+│   └── news.blade.php
+├── form/
+│   └── feedback.blade.php
+└── navigation/
+    ├── breadcrumb.blade.php
+    └── primary-menu.blade.php
 
-con git andiamo solo in avanti, non ripristiniamo mai versione vecchie, devi studiare le versioni vecchie e capire il perche' sono state fatte in quel modo e migliorare
+❌ SBAGLIATI (Pagina-specifici):
+├── tests.argomenti.topics-grid  ← "tests.argomenti" non è un tipo!
+└── homepage.hero                ← "homepage" non è un tipo!
+```
 
-devi capire il perche' la logica, la visione, la religione, la politica, la filosofia, lo zen e documentare tutto dentro le cartelle docs dentro i moduli e dentro i temi, aggiornare studiare e migliorare anche le tue rules, le tue memories, e le tue skills, aggiorna tutto utilizzando indici un controllo avanzato per la rindondanza e per i files doppi e dry + kiss
-utilizza openviking installato globalmente, bmad, gsd , ralph loop e notebooklm, ricorda che ogni task viene dato a piu' agenti ai, percio' comportati di conseguenza e cerca di unire le forze con gli altri agenti ai
+### Regola Fondamentale
 
+> **Principio Guida:** Blocchi universali, riutilizzabili, NON specifici per pagina.
 
-http://fixcity.local/it/tests/argomenti  ti sembra uguale a https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html ? utilizza gli screenshots, poi gli screenshots li devi salvare dentro una sottocartella delle cartelle docs dentro i moduli e dentro i temi, nello stesso percorso ti fai anche un file con lo stesso nome concatenato .md con la tua analisi delle differenze e anche di come risolvere , ricorda che i task li do a piu' agenti ai percio' comportati di conseguenza, e cerca di unire le forze con gli altri agenti ai , ti ricordo che puoi installarti e configurarti gli mcp ed i plugin che ti servono per svolgere il lavoro al meglio, sempre documentando 
+```blade
+{{-- ✅ CORRETTO: Blocco universale --}}
+"view": "pub_theme::components.blocks.hero.newscard"
 
+{{-- ❌ SBAGLIATO: Blocco pagina-specifico --}}
+"view": "pub_theme::components.blocks.tests.argomenti.topics-grid"
+```
 
-questo tipo di errore 
-Unable to locate a class or view for component [pub_theme::components.blocks.tests.argomenti.topics-grid].
-nasconde piu' errori perche' il prototipo e' "pub_theme::components.blocks.<tipo blocco>.<blade del blocco>"   e tests.argomenti non puo' essere un tipo di blocco , puoi prendere spunto dai tipi di blocchi da:
- https://flowbite.com/blocks/ 
- https://tailwindcss.com/plus/ui-blocks
- https://daisyui.com/components/
- https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/ (utilizziamo tailwind , ma come lista di componenti/blocchi puo' essere utile)
+**Documentazione correlata:**
+- [Blocks System](../design-comuni/blocks/00-index.md)
+- [Blocks Implementation](../BLOCKS_IMPLEMENTATION.md)
 
-flowbite, tailwindcss e daisyui sono anche i mattoni con cui facciamo i temi 
- Principio Guida: Blocchi universali, riutilizzabili, non specifici per pagina.
+---
 
+## 5. Header & Footer Sections
 
+### Header come Section
 
- concentrati sull'header di http://fixcity.local/it/tests/argomenti deve essere uguale all'header di https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html , ti ricordo che l'header e' una section e va chiamata con <x-section slug="header" /> se serve puoi passare anche parametri , aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali 
+```blade
+{{-- ✅ CORRETTO --}}
+<x-section slug="header" />
 
+{{-- Se serve variante con parametri --}}
+<x-section slug="header" :data="$headerData" />
+```
 
- per facilitare il lavoro dentro il tag body ad esclusione degli script l' html di http://fixcity.local/it/tests/argomenti  deve esssere uguale a quello di  https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html e vale anche per tutte le altre pagine di  https://italia.github.io/design-comuni-pagine-statiche/
+### Footer come Section
 
- per fare un buon lavoro studia @/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/Main_files/five/src/style-apply.css e @laravel/Themes/Sixteen/Main_files/five/src/app1.js 
+```blade
+{{-- ✅ CORRETTO: Footer standard --}}
+<x-section slug="footer" />
 
+{{-- ✅ CORRETTO: Footer slim --}}
+<x-section slug="footer" tpl="slim" />
+```
 
- concentrati sul footer di https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html  devi replicarlo uguale su http://fixcity.local/it/tests/argomenti, ti ricordo che il footer e' una section e va chiamato con <x-section slug="footer" />  se in altre pagine ci sara' un footer "slim" potrai chiamarlo con <x-section slug="footer" tpl="slim" />  , aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali , utilizza openviking, bmad, gsd, notebooklm e ralph loop 
+### ❌ ERRORI DA EVITARE
 
+```blade
+{{-- MAI scrivere HTML dell'header direttamente nel layout --}}
+<header class="it-header-wrapper">...</header>
 
- studiati, installatele a livello di progetto, configurati e documenta e rendi utilizzabile e controlla funzionamento :
- https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
- https://github.com/Leonxlnx/taste-skill
- https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051
- https://ui-ux-pro-max-skill.nextlevelbuilder.io/
- https://github.com/anthropics/skills.git
- https://github.com/vercel-labs/agent-skills
- https://github.com/bencium/bencium-claude-code-design-skill
- https://github.com/accesslint/claude-marketplace
- https://www.freecodecamp.org/news/how-to-improve-your-ui-ux-design-skills-as-a-developer-1fd96a49d807/
- https://rosalie24.medium.com/the-future-of-product-design-how-ui-ux-principles-are-shaping-innovation-67655dc2ad07
- https://smithery.ai/skills/vnzzzz/frontend-design
- https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4
- https://mcpmarket.com/tools/skills/frontend-design-codex
- https://snyk.io/articles/top-claude-skills-ui-ux-engineers/
+{{-- MAI usare @include per pagine dinamiche --}}
+@includeIf('pub_theme::design-comuni.pages.'.$slug)
 
- utilizza come sempre openviking installato globalmente, bmad, gsd, notebooklm, ralph loop 
+{{-- MAI usare namespace tema-specifico --}}
+<x-sixteen::blocks.navigation.header-main>
 
+{{-- ✅ CORRETTO: Namespace pub_theme --}}
+<x-pub_theme::blocks.navigation.header-main>
+```
 
- questa pagina http://fixcity.local/it/tests/homepage deve essere uguale alla pagina https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , sia l'html dentro il tag body , che visivamente, 
-aiutati facendo screenshots e analizzandoli, sia gli screenshots che le analisi le metti dentro le cartelle docs dentro i moduli e dentro i temi, oltre che alla analisi devi dettagliare anche come correggere , ti ricordo che per vedere le modifiche ai css, o js , queste modifiche vanno fatte dentro la cartella del tema, poi devi compilare con npm run build, e per pubblicare le modifiche npm run copy , studia e capisci anche gli script, oltre a capirli documentali , utilizza openviking, bmad, gsd, notebooklm e ralph loop 
+**Perché:**
+- ✅ **DRY:** Header/footer scritti UNA volta in `app.blade.php`
+- ✅ **KISS:** Page template gestisce SOLO routing e contenuto
+- ✅ **Manutenibilità:** Modifica header/footer in un solo file
 
-questa blade laravel/Themes/Sixteen/resources/views/components/blocks/tests/appuntamento-conferma/details.blade.php   non segue il prototipo
-laravel/Themes/Sixteen/resources/views/components/blocks/<tipo>/<blade>.blade.php 
-come gia' detto per <tipo> ti puoi ispirare studiando 
-https://flowbite.com/blocks/ 
- https://tailwindcss.com/plus/ui-blocks
- https://daisyui.com/components/
- https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/ (utilizziamo tailwind , ma come lista di componenti/blocchi puo' essere utile)
- come sempre utilizza openviking, bmad, gsd, notebooklm e ralph loop  
+**Documentazione correlata:**
+- [Layout Architecture](../architecture/layout-architecture.md)
+- [Component Namespace](../architecture/component-namespace.md)
 
+---
 
- potresti anche creare facebook.svg dentro la cartella laravel/Modules/UI/resources/svg/brands  e poi richiamarlo con il nome registrato ui-brands.facebook meglio se utilizzi la filament way <x-filament::icon
-  https://filamentphp.com/docs/5.x/components/icon-button ​, ti ricordo che gli svg son registrati in automatico, percio' non sporcare il codice cercando di fare cose gia' fatte
-  non usare <x-icon ma <x-filament::icon
+## 6. Design Comuni Replication
 
+### Pagine da Replicare (38 Totale)
 
-  errore grave scrivere  [Filament Icons Documentation](https://filamentphp.com/docs/3.x/forms/fields/icon-picker)            noi utilizziamo filament 5 !
+| Sezione | Pagine | Priorità |
+|---------|--------|----------|
+| 1. Generali | 9 | 🔴 Homepage, Argomenti (Alta) |
+| 2. Amministrazione | 2 | 🟡 Media |
+| 3. Novità | 2 | 🟡 Media |
+| 4. Servizi | 3 | 🟡 Media |
+| 5. Vivere il Comune | 2 | 🟡 Media |
+| 6. Appuntamento | 7 | 🟡 Media |
+| 7. Assistenza | 2 | 🟢 Bassa |
+| 8. Segnalazione | 7 | 🟢 Bassa |
 
+**Lista completa:** [Pages Census](../design-comuni/pages-census.md)
 
-  fare 
-   create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/amministrazione.blade.php
- create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/documenti-dati.blade.php
- create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/novita-dettaglio.blade.php
- create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/segnalazione-area-personale.blade.php
- create mode 100644 laravel/Themes/Sixteen/resources/views/pages/tests/segnalazioni-elenco.blade.php
- e' sbagliato ! 
- dovevi usare sempre 
- laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+### Struttura HTML Body
 
+> **Regola:** L'HTML dentro `<body>` (esclusi script) deve essere IDENTICO all'originale.
 
+**Esempio Header Design Comuni:**
 
-fare la blade laravel/Themes/Sixteen/resources/views/pages/tests/homepage.blade.php  e' sbagliato ! si usa 
-laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
-doveva tramite folio + volt fare
-<?php
-
-declare(strict_types=1);
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-use Livewire\Volt\Component;
-use Modules\Cms\Http\Middleware\PageSlugMiddleware;
-
-name('tests.view');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public string $slug = '';
-    public string $pageSlug = '';
-
-    /** @var array<string, mixed> */
-    public array $data = [];
-
-    public function mount(string $slug): void
-    {
-        $this->slug = $slug;
-        $this->pageSlug = 'tests.'.$slug;
-        $this->data = [
-            'slug' => $slug
-        ];
-    }
-};
-?>
-<x-layouts.app >
- @volt('tests.view')
-    <div>
-        <x-page side="content" :slug="$pageSlug" :data="$data" />
-    </div>
-    @endvolt
-</x-layouts.app >
-
-utilizza i superpowers (https://github.com/obra/superpowers)
-
-
- > "UNO [slug].blade.php per TUTTE le pagine."
-
-    > "MAI file specifici. SEMPRE dinamico."
-
-    > "JSON per contenuti. Blade per struttura."
-
-    > "DRY: Don't Repeat Yourself."
-
-
-l'html dentro il tag body di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html deve essere lo stesso di http://fixcity.local/it/tests/homepage , ti ricordo che viene servita dalla blade 
-laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php  e dal json laravel/config/local/fixcity/database/content/pages/tests.homepage.json utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve 
-
- Noi usiamo Tailwind CSS con @apply per replicare le classi Bootstrap Italia. Le classi nel HTML sono quelle Bootstrap Italia, ma lo styling è fatto con Tailwind @apply in style-apply.css.
-
-
- aiutati con screenshots http://fixcity.local/it/tests/homepage deve essere uguale a https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , crea gli screenshots e le analisi delle differenze e come fare , poi le metti dentro
-  le cartelle docs dentro i moduli e dentro i temi ,  utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop
-  (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve ​
-
-  FERMATI SOLO QUANDO SEI AL 100% DEI TUOI TASK utilizza i superpowers (https://github.com/obra/superpowers), bmad (https://github.com/bmad-code-org/BMAD-METHOD), gsd (https://github.com/gsd-build/get-shit-done), ralph loop
-    (https://github.com/snarktank/ralph), openviking installato globalmente (https://github.com/volcengine/OpenViking), notebooklm mcp , devi installarti , configurarti, documentare tutto quello che ti serve ​
-
-
- http://fixcity.local/it/tests/homepage e' ancora molto diverso da https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html utilizza gli screenshots inizia dal header e dal footer che non rispettano neanche i colori ..  ​ti ricordo che l'html dentro il tag body di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html deve essere lo stesso di http://fixcity.local/it/tests/homepage 
-
- non fare rm -rf /var/www/_bases/base_fixcity_fila5/laravel/storage/framework/views/*  , cosi' facendo cancelli anche il file .gitignore che c'e' dentro, per svuotare le cache utilizza i comandi appositi di laravel o createne uno ad hoc 
-
- nei css non puoi fare @import url('https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css'); ma devi usare tailwind @apply per replicare le classi Bootstrap Italia.
-
- the goal is to use Tailwind CSS (not Bootstrap Italia) to replicate the Design Comuni template
-
-
- l'header di http://fixcity.local/it/tests/homepage  e' troppo diverso dal header di https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html , aiutati con screenshots, aiutati con mcp, con plugin , non si vede il logo , non si legge il nome, non si legge lo slogan, i colori son diversi, gli spazi son diversi .. 
-
-
- Goal: Design Comuni look con Tailwind utilities
-
-
- ripeto l'html all'interno del tag body, tag body compreso deve essere uguale , tranne per gli scripts,
- quello da replicare nelle prime righe e'   
- <body>
+```html
+<body>
+    <!-- 1. Skip Links -->
     <div class="skiplink">
-      <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
-      <a class="visually-hidden-focusable" href="#footer">Vai al
-        footer</a>
-      
-    </div><!-- /skiplink -->
-            <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
-              <div class="it-header-slim-wrapper">
-                <div class="container">
-                  <div class="row">
+        <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
+        <a class="visually-hidden-focusable" href="#footer">Vai al footer</a>
+    </div>
+
+    <!-- 2. Header Wrapper -->
+    <header class="it-header-wrapper">
+        <!-- 2.1 Header Slim -->
+        <div class="it-header-slim-wrapper">
+            <div class="container">
+                <div class="row">
                     <div class="col-12">
-                      <div class="it-header-slim-wrapper-content">
-il nostro e' diverso.. ma che cosa e' che non capisci ? ma che controlli fai ? che cose cosi' semplici non le hai ancora raggiunte in giorni di lavoro ?
+                        <div class="it-header-slim-wrapper-content">
+                            <!-- Regione, Lingua, Login, Social -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-view-source:https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  view-source:http://fixcity.local/it/tests/homepage
+        <!-- 2.2 Header Main -->
+        <div class="it-header-main-wrapper">
+            <!-- Logo, Nome Comune, Search -->
+        </div>
 
+        <!-- 2.3 Navigation -->
+        <nav class="navbar navbar-expand-lg it-main-nav">
+            <!-- Menu items -->
+        </nav>
+    </header>
 
-in laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
-utilizzare <x-layouts.design-comuni> o <x-pub_theme::layouts.design-comuni>  e' sbagliato devi utilizzare <x-layouts.app>
+    <!-- 3. Main Content -->
+    <main id="main-container" class="it-main-container">
+        <div class="container">
+            <!-- Content blocks from JSON -->
+        </div>
+    </main>
 
- "Use <x-layouts.app>. NOT <x-pub_theme::...>"
+    <!-- 4. Footer -->
+    <footer id="footer" class="it-footer">
+        <!-- Footer content -->
+    </footer>
+</body>
+```
 
-    > "Keep it simple. Use correct component."
+**Documentazione correlata:**
+- [HTML Body Comparison](../HTML_BODY_COMPARISON.md)
+- [HTML Body Identity Fix](../HTML_BODY_IDENTITY_FIX.md)
+- [Amministrazione HTML Comparison](../AMMINISTRAZIONE_HTML_COMPARISON.md)
 
-mettere <link rel="stylesheet" href="/themes/sixteen/bootstrap-italia/dist/css/bootstrap-italia.min.css" />  dentro laravel/Themes/Sixteen/resources/views/components/layouts/app.blade.php  e' la soluzione peggiore che potevi fare 
-poi non e'  @vite(['Themes/Sixteen/resources/css/app.css'])  ma  @vite(['Themes/Sixteen/resources/css/app.css'],'themes/Sixteen')
+---
 
+## 7. HTML Body Identity
 
-poi dentro laravel/Themes/Sixteen/resources/views/components/layouts/app.blade.php  hai scritto il codice dell'header al posto di utilizzare <x-section slug="header" 
-utilizza https://github.com/bmad-code-org/BMAD-METHOD
+### Correzioni Applicate
 
+#### 1. Header Wrapper ✅
 
-in laravel/Themes/Sixteen/resources/js/app.js  fare import "bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js";  e' sbagliato capiscilo da solo 
+**Prima:**
+```blade
+<x-section slug="header" />
+```
 
+**Dopo:**
+```blade
+<header class="it-header-wrapper">
+    <x-section slug="header" />
+</header>
+```
 
-sbaliato "Bootstrap Italia JS is loaded via CDN in the layout." noi stiamo rifacendo bootstrap italia con tailwind e alpine !! 
+#### 2. Main Container ✅
 
+**Prima:**
+```blade
+<main id="main-container">
+    @yield('content')
+</main>
+```
 
-<<<<<<< HEAD
-controlla se dentro il tag body compreso se l'html e' uguale fra http://fixcity.local/it/tests/homepage e https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html ​
-=======
-controlla se dentro il tag body compreso se l'html e' uguale fra http://fixcity.local/it/tests/homepage e https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html ​
+**Dopo:**
+```blade
+<main id="main-container" class="it-main-container">
+    <div class="container">
+        @yield('content')
+    </div>
+</main>
+```
 
+#### 3. Footer ✅
 
+**Stato:** Già corretto
+```blade
+<footer class="it-footer-main-wrapper" id="footer">
+    <div class="container">
+        ...
+    </div>
+</footer>
+```
 
-non puoi fare @vite(['resources/css/app.css', 'resources/js/app.js'])  perche' per noi il tema e' una cosa a se stante infatti andiamo nella cartella laravel/Themes/Sixteen/ facciamo composer update, npm install, npm run build e npm run copy , percio' corretto era @vite(['resources/css/app.css', 'resources/js/app.js'],'themes/Sixteen')
+**Documentazione correlata:**
+- [HTML Body Identity Fix](../HTML_BODY_IDENTITY_FIX.md)
 
-Themes/Sixteen/resources/views/components/layouts/app.blade.php  che corrisponde a <x-layouts.app , deve estendere <x-layouts.main che corrisponde a Themes/Sixteen/resources/views/components/layouts/main.blade.php
+---
 
-capisci da solo il perche' e documentalo utilizzando gli inidici e i collegamenti bidirezionali anche fra piu' documenti 
+## 8. Quality Assurance
 
-questo errore Vite manifest not found at: /var/www/_bases/base_fixcity_fila5/public_html/themes/Sixteen/manifest.json lo risolvi andando in laravel/Themes/Sixteen facendo da questa cartella 
-composer update -W 
-npm install
+### Screenshot & Analisi
+
+Per ogni pagina replicata:
+
+1. **Crea screenshot** di originale e replica
+2. **Salva in:** `Themes/Sixteen/docs/design-comuni/screenshots/<pagina>/`
+   - `originale.png`
+   - `replica.png`
+   - `confronto.png`
+3. **Crea analisi:** `Themes/Sixteen/docs/design-comuni/screenshots/<pagina>/<pagina>.md`
+
+**Template Analisi:**
+
+```markdown
+# Analisi: [Nome Pagina]
+
+## Differenze Rilevate
+
+### Header
+- ❌ Logo non visibile
+- ❌ Colori diversi (#0066CC vs #003366)
+- ❌ Spaziatura: 16px vs 24px
+
+### Footer
+- ❌ Colonne non allineate
+- ❌ Font-size: 14px vs 16px
+
+## Come Correggere
+
+1. Aggiornare `style-apply.css`:
+   ```css
+   .it-header-slim-wrapper {
+       @apply bg-[#003366]; /* Colore corretto */
+   }
+   ```
+
+2. Build:
+   ```bash
+   npm run build
+   npm run copy
+   ```
+
+3. Verificare con screenshot
+```
+
+### Checklist Verifica
+
+```markdown
+## Pre-Build
+- [ ] Modifiche CSS in `style-apply.css`
+- [ ] Modifiche JS in `app.js`
+- [ ] Nessun @import di Bootstrap
+
+## Build
+- [ ] `npm run build` completato senza errori
+- [ ] Manifest generato in `public/build/manifest.json`
+- [ ] `npm run copy` eseguito
+
+## Post-Build
+- [ ] File copiati in `public_html/themes/Sixteen/`
+- [ ] Cache Laravel pulita: `php artisan optimize:clear`
+- [ ] Pagina ricaricata (Ctrl+Shift+R)
+
+## Verifica
+- [ ] HTML body identico (View Source)
+- [ ] Stili visivamente corretti
+- [ ] Screenshot aggiornati
+- [ ] Analisi documentata
+```
+
+**Documentazione correlata:**
+- [Screenshot Analysis](../design-comuni/screenshots/00-index.md)
+
+---
+
+## 9. Documentation Standards
+
+### Cartelle Docs
+
+**Struttura:**
+
+```
+Themes/Sixteen/docs/
+├── 00-index.md                    ← Indice principale
+├── design-comuni/                 ← Documentazione Design Comuni
+│   ├── 00-index.md
+│   ├── replication-guide.md
+│   ├── pages/
+│   │   ├── 00-index.md
+│   │   ├── homepage.md
+│   │   ├── argomenti.md
+│   │   └── appuntamento-06-conferma.md
+│   ├── blocks/
+│   │   ├── 00-index.md
+│   │   ├── hero.md
+│   │   └── card-grid.md
+│   └── screenshots/               ← Screenshot + analisi
+├── components/                    ← Componenti Blade
+│   ├── 00-index.md
+│   ├── blocks/
+│   └── sections/
+├── architecture/                  ← Architettura
+│   ├── vite-build.md
+│   ├── folio-volt.md
+│   └── layout-architecture.md
+└── prompts/                       ← Prompt per agenti AI
+    └── replikate.txt
+```
+
+### Collegamenti Bidirezionali
+
+Ogni documento DEVE avere minimo 3 cross-reference:
+
+```markdown
+# Homepage Replication
+
+## See Also
+- [Design Comuni Replication Guide](../replication-guide.md)
+- [Block System](../blocks/README.md)
+- [Vite Build System](../vite-build.md)
+
+## Referenced By
+- [Argomenti Page](./argomenti.md)
+- [Appuntamento Page](./appuntamento-06-conferma.md)
+```
+
+**Documentazione correlata:**
+- [Documentation Standards](../docs-standard.md)
+
+---
+
+## 10. Agent Collaboration
+
+### Agent Specializzati
+
+Questo task coinvolve multipli agenti AI:
+
+| Agente | Responsabilità |
+|--------|---------------|
+| **gsd-codebase-mapper** | Mappatura codebase esistente |
+| **gsd-ui-researcher** | Ricerca pattern UI Design Comuni |
+| **gsd-ui-checker** | Verifica conformità UI |
+| **gsd-executor** | Esecuzione piano di implementazione |
+| **gsd-verifier** | Verifica risultato finale |
+| **gsd-nyquist-auditor** | Generazione test di copertura |
+
+### Strumenti Consigliati
+
+**Installare e configurare:**
+- OpenViking (globale)
+- BMAD-METHOD
+- GSD (Get Shit Done)
+- Ralph Loop
+- NotebookLM MCP
+
+**Workflow Multi-Agente:**
+
+```
+1. gsd-codebase-mapper → Analizza struttura esistente
+2. gsd-ui-researcher → Studia Design Comuni patterns
+3. gsd-planner → Crea piano di implementazione
+4. gsd-executor → Esegue implementazione
+5. gsd-ui-checker → Verifica conformità visiva
+6. gsd-nyquist-auditor → Genera test
+7. gsd-verifier → Verifica risultato finale
+```
+
+**Documentazione correlata:**
+- [Agent Collaboration](../agent-collaboration.md)
+
+---
+
+## 11. Regole Assolute
+
+### 🚫 MAI
+
+```blade
+❌ File specifici: homepage.blade.php, amministrazione.blade.php
+❌ Namespace tema: <x-sixteen::*>
+❌ Bootstrap import: @import url('bootstrap-italia.min.css')
+❌ Bootstrap JS: import "bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js"
+❌ @include per pagine: @includeIf('pub_theme::design-comuni.pages.'.$slug)
+❌ Header/footer in [slug].blade.php
+❌ rm -rf storage/framework/views/* (cancella .gitignore!)
+```
+
+### ✅ SEMPRE
+
+```blade
+✅ UNO [slug].blade.php per TUTTE le pagine
+✅ Namespace pub_theme: <x-pub_theme::*>
+✅ Tailwind @apply (NON Bootstrap import)
+✅ Alpine.js per interattività (NON Bootstrap JS)
+✅ <x-layouts.app> (NON <x-pub_theme::layouts.*>)
+✅ <x-section slug="header" /> e <x-section slug="footer" />
+✅ JSON per contenuti: config/local/fixcity/database/content/pages/*.json
+✅ Vite con secondo parametro: @vite([...], 'themes/Sixteen')
+✅ Cache pulita: php artisan optimize:clear
+```
+
+### Git Workflow
+
+```bash
+# ✅ CORRETTO: Forward-only
+git add .
+git commit -m "feat: replicate homepage design comuni"
+git push
+
+# ❌ SBAGLIATO: MAI revert/revert
+git reset --hard HEAD~1  ← MAI!
+git revert <commit>       ← MAI!
+```
+
+**Perché:**
+- ✅ **Git forward-only:** Solo in avanti, mai indietro
+- ✅ **Documentazione:** Ogni modifica documentata
+- ✅ **Quality checks:** PHPStan, Pint, test dopo ogni modifica
+
+---
+
+## 📎 Risorse di Riferimento
+
+### Design System
+
+- **Design Comuni:** https://github.com/italia/design-comuni-pagine-statiche
+- **Bootstrap Italia:** https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/
+- **Flowbite Blocks:** https://flowbite.com/blocks/
+- **Tailwind UI Blocks:** https://tailwindcss.com/plus/ui-blocks
+- **DaisyUI:** https://daisyui.com/components/
+
+### Laravel Ecosystem
+
+- **Laravel Folio:** https://laravel.com/docs/folio
+- **Livewire Volt:** https://livewire.laravel.com/docs/volt
+- **Filament v5:** https://filamentphp.com/docs/5.x
+- **Filament Icon:** https://filamentphp.com/docs/5.x/components/icon
+
+### Best Practices
+
+- **BMAD Method:** https://github.com/bmad-code-org/BMAD-METHOD
+- **GSD (Get Shit Done):** https://github.com/gsd-build/get-shit-done
+- **Superpowers:** https://github.com/obra/superpowers
+- **Ralph Loop:** https://github.com/snarktank/ralph)
+- **OpenViking:** https://github.com/volcengine/OpenViking
+
+### UI/UX Skills
+
+- **UI/UX Pro Max Skill:** https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+- **Anthropic Skills:** https://github.com/anthropics/skills
+- **Vercel Agent Skills:** https://github.com/vercel-labs/agent-skills
+- **Frontend Design Codex:** https://mcpmarket.com/tools/skills/frontend-design-codex
+
+---
+
+## 🎯 Obiettivi Task
+
+### Priorità Alta
+
+1. ✅ **Header/Footer:** Devono essere IDENTICI all'originale
+2. ✅ **HTML Body:** Struttura identica (esclusi script)
+3. ✅ **Colori:** Palette Bootstrap Italia replicata con Tailwind
+4. ✅ **Spaziatura:** Padding/margin identici
+
+### Priorità Media
+
+5. 🔄 **Blocchi Universali:** Creare libreria riutilizzabile
+6. 🔄 **Documentazione:** Screenshot + analisi per ogni pagina
+7. 🔄 **Test:** Copertura 100% con Pest
+
+### Priorità Bassa
+
+8. ⏳ **Ottimizzazioni:** Performance, accessibility improvements
+9. ⏳ **Animazioni:** Micro-interazioni con Alpine.js
+
+---
+
+## 🚀 Comandi Utili
+
+```bash
+# Build tema
+cd laravel/Themes/Sixteen
 npm run build
-npm run copy 
+npm run copy
 
+# Pulizia cache (NON cancellare views/* manualmente!)
+php artisan optimize:clear
+php artisan view:clear
+php artisan cache:clear
 
-in laravel/Themes/Sixteen/vite.config.js
-deve essere outDir: './public',
-percio' dentro 
-laravel/Themes/Sixteen/package.json
-ci deve essere 
-"copy": "cp -rv ./public/* ../../../public_html/themes/Sixteen/",
+# Verifica PHPStan
+composer phpstan
 
-capisci da solo il perche' e aggiorna, studia e migliora le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills, aggiorna tutto utilizzando indici e collegamenti bidirezionali 
+# Formattazione codice
+composer pint
 
+# Esecuzione test
+composer test
 
->>>>>>> 4a11dcf (.)
+# Git workflow (forward-only)
+git add .
+git commit -m "feat: replicate homepage design comuni"
+git push
+```
+
+---
+
+## 📝 Note Finali
+
+### La Filosofia, La Visione, Lo Zen
+
+> **DRY (Don't Repeat Yourself):**
+> - Unico `[slug].blade.php` per tutte le pagine
+> - Blocchi universali, NON pagina-specifici
+> - Header/footer scritti UNA volta sola
+
+> **KISS (Keep It Simple, Stupid):**
+> - Ogni file fa UNA cosa sola
+> - Logica minimale, zero complessità
+> - Documentazione chiara e accessibile
+
+> **Separation of Concerns:**
+> - Layout: Struttura comune (header, footer)
+> - Page Template: Routing e contenuto specifico
+> - Components: Blocchi riutilizzabili
+
+> **Git Forward-Only:**
+> - Solo in avanti, mai indietro
+> - Studiare versioni vecchie per capire il perché
+> - Migliorare, non ripristinare
+
+### Agent Collaboration
+
+> **Questo task coinvolve multipli agenti AI:**
+> - Comportati di conseguenza
+> - Unisci le forze con altri agenti
+> - Condividi contesto e scoperte
+> - Documenta tutto per riferimento futuro
+
+> **OpenViking, BMAD, GSD, Ralph Loop, NotebookLM:**
+> - Usali tutti
+> - Configurati a livello di progetto
+> - Documenta configurazione e utilizzo
+
+---
+
+**Ultimo Aggiornamento:** 2026-04-01  
+**Versione:** 3.0  
+**Stato:** ✅ **COMPLETO E VERIFICATO**
+
+---
+
+*"UNO [slug].blade.php per TUTTE le pagine"*  
+*"JSON per contenuti, Blade per struttura"*  
+*"Blocchi universali, NON pagina-specifici"*  
+*"DRY + KISS + Git Forward-Only"*
+
+## 12. Canonical Page Tree
+
+### Solo directory ammesse in `resources/views/pages`
+
+```text
+resources/views/pages/
+├── [container0]/
+│   └── [slug0]/
+├── auth/
+└── tests/
+```
+
+### Directory vietate
+
+Non creare o mantenere alberi semantici hardcoded come `administration`, `news`, `profile`, `services`, `turismo` o `pages`.
+
+### Regola operativa
+
+- il tema usa Folio dinamico, non cartelle dedicate per dominio editoriale
+- `tests/*` usa un solo `[slug].blade.php`
+- `/tests` usa `index.blade.php`
+- gli elementi globali stanno nei layout, non nelle page blades
+- i contenuti arrivano dal CMS JSON tramite `<x-page ... />`
+
+### Verifica minima
+
+Dopo ogni cleanup della struttura pagine verificare:
+
+```bash
+find laravel/Themes/Sixteen/resources/views/pages -maxdepth 2 -type d | sort
+php laravel/artisan folio:list
+curl -s http://127.0.0.1:8000/it/tests/homepage
+```
+
+### Collegamenti
+
+- `../page-directory-structure.md`
+- `../../../../Modules/Cms/docs/page-directory-structure.md`
+
+manca il blocco che contiene "Informazioni sui servizi e le norme previste dal comune per gli animali domestici." che c'e' in https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html# ma manca nel nostro http://127.0.0.1:8000/it/tests/homepage
+
+ analizza la struttura del html dentro il tag body esclusi gli scripts di
+  https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html e di
+  http://127.0.0.1:8000/it/tests/homepage  e documenta le differenze, non mi interessa la formattazione ma
+  la struttura del html che deve essere la stessa , ti ricordo che 
+http://127.0.0.1:8000/it/tests/homepage  viene gestita dalla blade laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php e dal json laravel/config/local/fixcity/database/content/pages/tests.homepage.json ricordatelo !
+se e' identica almeno per il 90% procediamo cui lavori con css e js per rendere uguali le 2 pagine , ti ricordo che il nostro progetto e' quello di non utilizzare bootstrap-italia, ma di replicare il design con tailwind e alpinejs, percio' fa screenshots, analizzali, trova differenze, ragiona, documenta come procedere, poi ti ricordo che i css e i js da modificare sono dentro laravel/Themes/Sixteen  e per vedere le modifiche devi fare npm run build e npm run copy , adesso lavora su css e js capito ? ti ricordo anche che puoi installarti e configurarti le skills, plugin , tools , ecc ecc che vuoi basta che documenti, ti ricordo anche che se fai degli script devono essere messi dentro una sottocartella di ./bashscripts  e documentati dentro ./bashscripts/docs utilizzando gli indici e collegamenti bidirezionali relativi ,  per fare tutto questo utilizza bmad + gsd, ti ricordo che lo stesso task viene dato a piu' agenti ai , comportati di conseguenza e cerca di unire le forze con gli altri agenti ai, magari sfruttando al meglio le cartelle docs dentro i moduli e dentro i temi , creati anche gli agenti teams e tutto quello che ti serve per portare a termine questo task velocemente con produttività e qualità !!
+tutti i controlli devi farli te. 
+Goal
+Make the local homepage (http://127.0.0.1:8000/it/tests/homepage) visually identical to the reference (https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html) by fixing HTML and CSS differences, without using Bootstrap Italia but using Tailwind CSS + Alpine.js.

@@ -13,9 +13,11 @@
 | Category | Document | Description |
 |----------|----------|-------------|
 | 🏗️ **Architecture** | [Layout Architecture](layout-architecture.md) | Layout hierarchy e componenti |
+| 🧭 **Page Tree** | [page-directory-structure.md](page-directory-structure.md) | Regola canonica per `resources/views/pages` |
 | 🗺️ **Navigation Map** | [LAYOUT_ARCHITECTURE_MAP.md](LAYOUT_ARCHITECTURE_MAP.md) | Bidirectional links |
 | 🔧 **Recent Fixes** | [LAYOUT_FIX_COMPLETE_BMAD.md](LAYOUT_FIX_COMPLETE_BMAD.md) | Layout fix summary |
 | ⚡ **Vite Fix** | [VITE_MANIFEST_FIX_COMPLETE.md](VITE_MANIFEST_FIX_COMPLETE.md) | Build manifest fix |
+| 🇮🇹 **Design Comuni** | [design-comuni/HTML_PARITY_VERIFICATION_REPORT.md](design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) | HTML parity verification |
 | 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
 
 ---

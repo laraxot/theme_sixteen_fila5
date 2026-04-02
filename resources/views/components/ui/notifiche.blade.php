@@ -104,7 +104,7 @@
         @if($showIcon && $iconToUse)
             <div class="me-3">
                 <svg class="icon icon-{{ $size === 'sm' ? 'sm' : 'md' }} text-{{ $type === 'info' ? 'primary' : $type }}">
-                    <use href="#it-{{ $iconToUse }}"></use>
+                    <use xlink:href="#it-{{ $iconToUse }}"></use>
                 </svg>
             </div>
         @endif
@@ -134,7 +134,7 @@
                 onclick="dismissNotification('{{ $notificationId }}')"
             >
                 <svg class="icon icon-sm">
-                    <use href="#it-close"></use>
+                    <use xlink:href="#it-close"></use>
                 </svg>
             </button>
         @endif
@@ -320,7 +320,7 @@ function showDynamicNotification(type, title, message, timeout = 5000) {
                 ${message ? '<p class="mb-0">' + message + '</p>' : ''}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Chiudi notifica">
-                <svg class="icon icon-sm"><use href="#it-close"></use></svg>
+                <svg class="icon icon-sm"><use xlink:href="#it-close"></use></svg>
             </button>
         </div>
     `;

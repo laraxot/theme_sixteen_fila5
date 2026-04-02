@@ -112,7 +112,7 @@
         <div class="hero-scroll-indicator" aria-hidden="true">
             <a href="#main-content" class="scroll-down">
                 <svg class="icon icon-sm" aria-hidden="true">
-                    <use href="#it-chevron-down"></use>
+                    <use xlink:href="#it-chevron-down"></use>
                 </svg>
                 <span class="sr-only">Scorri verso il contenuto principale</span>
             </a>

@@ -93,7 +93,7 @@
                             <button type="button" class="nav-link dropdown-toggle text-white bg-transparent border-0 cursor-pointer flex items-center gap-1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Lingua attiva:</span>
                                 <span>ITA</span>
-                                <svg class="icon icon-sm icon-white"><use href="#it-expand"></use></svg>
+                                <svg class="icon icon-sm icon-white"><use xlink:href="#it-expand"></use></svg>
                             </button>
                             <div class="dropdown-menu">
                                 <div class="link-list-wrapper">
@@ -106,7 +106,7 @@
                         </div>
                         <a class="btn btn-primary btn-icon btn-full" href="#" data-element="personal-area-login">
                             <span class="rounded-icon" aria-hidden="true">
-                                <svg class="icon icon-primary"><use href="#it-user"></use></svg>
+                                <svg class="icon icon-primary"><use xlink:href="#it-user"></use></svg>
                             </span>
                             <span class="d-none d-lg-block">Accedi all'area personale</span>
                         </a>
@@ -134,18 +134,18 @@
                         <div class="it-socials d-none d-lg-flex">
                             <span>Seguici su</span>
                             <ul>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-twitter"></use></svg><span class="visually-hidden">Twitter</span></a></li>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-facebook"></use></svg><span class="visually-hidden">Facebook</span></a></li>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-youtube"></use></svg><span class="visually-hidden">YouTube</span></a></li>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-telegram"></use></svg><span class="visually-hidden">Telegram</span></a></li>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-whatsapp"></use></svg><span class="visually-hidden">Whatsapp</span></a></li>
-                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use href="#it-rss"></use></svg><span class="visually-hidden">RSS</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-twitter"></use></svg><span class="visually-hidden">Twitter</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-facebook"></use></svg><span class="visually-hidden">Facebook</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-youtube"></use></svg><span class="visually-hidden">YouTube</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-telegram"></use></svg><span class="visually-hidden">Telegram</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-whatsapp"></use></svg><span class="visually-hidden">Whatsapp</span></a></li>
+                                <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white"><use xlink:href="#it-rss"></use></svg><span class="visually-hidden">RSS</span></a></li>
                             </ul>
                         </div>
                         <div class="it-search-wrapper">
                             <span class="d-none d-md-block">Cerca</span>
                             <button class="search-link" type="button" aria-label="Cerca nel sito">
-                                <svg class="icon"><use href="#it-search"></use></svg>
+                                <svg class="icon"><use xlink:href="#it-search"></use></svg>
                             </button>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
             <div class="container">
                 <div class="navbar navbar-expand-lg">
                     <button class="navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="collapse">
-                        <svg class="icon text-white"><use href="#it-burger"></use></svg>
+                        <svg class="icon text-white"><use xlink:href="#it-burger"></use></svg>
                     </button>
                     <div class="collapse navbar-collapse" id="nav4">
                         <div class="menu-wrapper">

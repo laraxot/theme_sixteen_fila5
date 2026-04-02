@@ -7,17 +7,10 @@ use function Laravel\Folio\name;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
-name('tests.index');
+name('tests.view');
 middleware(PageSlugMiddleware::class);
 
 new class extends Component {
-<<<<<<< HEAD
-    public string $pageSlug = 'tests.index';
-    public array $data = [];
-};
-?>
-
-=======
     public string $pageSlug = '';
 
     /** @var array<string, mixed> */
@@ -26,19 +19,15 @@ new class extends Component {
     public function mount(): void
     {
         $this->pageSlug = 'tests.index';
-        $this->data = [];
+        $this->data = [
+        ];
     }
 };
 ?>
->>>>>>> 4a11dcf (.)
 <x-layouts.app>
-    @volt('tests.index')
+ @volt('tests.index')
     <div>
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>
     @endvolt
-<<<<<<< HEAD
 </x-layouts.app>
-=======
-</x-layouts.app>
->>>>>>> 4a11dcf (.)

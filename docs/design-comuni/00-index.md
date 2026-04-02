@@ -22,6 +22,7 @@ design-comuni/
 ├── QUICK_START.md                   ← Guida rapida
 ├── product-brief.md                 ← BMAD Product Brief ✅
 ├── pages-census.md                  ← Censimento 38 pagine ✅
+├── HTML_PARITY_VERIFICATION_REPORT.md ← Verifica HTML parity ✅ NEW
 ├── replication-guide.md             ← Guida completa (link a prompts/replikate.txt)
 ├── pages/                           ← Documentazione pagine
 │   ├── 00-index.md

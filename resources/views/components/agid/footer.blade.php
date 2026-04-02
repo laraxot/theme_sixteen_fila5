@@ -19,7 +19,7 @@
                         <a href="{{ url('/') }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
                             <svg class="icon" role="img" aria-labelledby="footer-logo-title">
                                 <title id="footer-logo-title">{{ config('app.name') }}</title>
-                                <use href="#it-pa"></use>
+                                <use xlink:href="#it-pa"></use>
                             </svg>
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ config('app.name') }}</h2>
@@ -106,7 +106,7 @@
                             <a href="https://www.facebook.com/fixcity" target="_blank" rel="noopener noreferrer" 
                                aria-label="{{ __('Facebook - si apre in una nuova finestra') }}" title="Facebook">
                                 <svg class="icon icon-sm icon-white align-top">
-                                    <use href="#it-facebook"></use>
+                                    <use xlink:href="#it-facebook"></use>
                                 </svg>
                                 <span class="visually-hidden">Facebook</span>
                             </a>
@@ -115,7 +115,7 @@
                             <a href="https://twitter.com/fixcity" target="_blank" rel="noopener noreferrer"
                                aria-label="{{ __('Twitter - si apre in una nuova finestra') }}" title="Twitter">
                                 <svg class="icon icon-sm icon-white align-top">
-                                    <use href="#it-twitter"></use>
+                                    <use xlink:href="#it-twitter"></use>
                                 </svg>
                                 <span class="visually-hidden">Twitter</span>
                             </a>
@@ -124,7 +124,7 @@
                             <a href="https://www.linkedin.com/company/fixcity" target="_blank" rel="noopener noreferrer"
                                aria-label="{{ __('LinkedIn - si apre in una nuova finestra') }}" title="LinkedIn">
                                 <svg class="icon icon-sm icon-white align-top">
-                                    <use href="#it-linkedin"></use>
+                                    <use xlink:href="#it-linkedin"></use>
                                 </svg>
                                 <span class="visually-hidden">LinkedIn</span>
                             </a>
@@ -133,7 +133,7 @@
                             <a href="https://www.instagram.com/fixcity" target="_blank" rel="noopener noreferrer"
                                aria-label="{{ __('Instagram - si apre in una nuova finestra') }}" title="Instagram">
                                 <svg class="icon icon-sm icon-white align-top">
-                                    <use href="#it-instagram"></use>
+                                    <use xlink:href="#it-instagram"></use>
                                 </svg>
                                 <span class="visually-hidden">Instagram</span>
                             </a>
@@ -175,7 +175,7 @@
        class="back-to-top shadow" 
        title="{{ __('Torna su') }}">
         <svg class="icon icon-light">
-            <use href="#it-arrow-up"></use>
+            <use xlink:href="#it-arrow-up"></use>
         </svg>
         <span class="visually-hidden">{{ __('Torna all\'inizio della pagina') }}</span>
     </a>
