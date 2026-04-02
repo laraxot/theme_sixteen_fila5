@@ -106,7 +106,7 @@
         <h2 id="{{ $titleId }}" class="h5">
             @if($withIcon && $iconToUse)
                 <svg class="icon" aria-hidden="true">
-                    <use href="#{{ $iconToUse }}"></use>
+                    <use xlink:href="#{{ $iconToUse }}"></use>
                 </svg>
             @endif
             {{ $title }}
@@ -359,7 +359,7 @@ function showToast(title, message, type = 'info', autoHide = true) {
         <div class="notification with-icon ${type} mb-2" role="alert" id="${notificationId}">
             <h2 class="h5">
                 <svg class="icon" aria-hidden="true">
-                    <use href="#it-${getIconForType(type)}"></use>
+                    <use xlink:href="#it-${getIconForType(type)}"></use>
                 </svg>
                 ${title}
             </h2>

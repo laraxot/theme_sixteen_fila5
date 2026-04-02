@@ -36,7 +36,7 @@ Vertical timeline for displaying chronological events with Bootstrap Italia styl
                 @if($showIcons && isset($item['icon']))
                     <div class="timeline-icon bg-{{ $item['color'] ?? 'primary' }}">
                         <svg class="icon icon-sm text-white">
-                            <use href="#it-{{ $item['icon'] }}"></use>
+                            <use xlink:href="#it-{{ $item['icon'] }}"></use>
                         </svg>
                     </div>
                 @else
@@ -94,7 +94,7 @@ Vertical timeline for displaying chronological events with Bootstrap Italia styl
                                 >
                                     @if(isset($action['icon']))
                                         <svg class="icon icon-xs me-1">
-                                            <use href="#it-{{ $action['icon'] }}"></use>
+                                            <use xlink:href="#it-{{ $action['icon'] }}"></use>
                                         </svg>
                                     @endif
                                     {{ $action['label'] }}

@@ -25,7 +25,7 @@
     >
         @if($icon)
             <svg class="icon {{ $iconClass }}" aria-hidden="true">
-                <use href="#{{ $icon }}"></use>
+                <use xlink:href="#{{ $icon }}"></use>
             </svg>
         @endif
         {{ $label }}

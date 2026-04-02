@@ -87,7 +87,7 @@
                                 <li class="list-inline-item">
                                     <a href="{{ $platform['url'] }}" class="footer-social-link" aria-label="{{ ucfirst($platform['platform']) }}">
                                         <svg class="icon icon-sm">
-                                            <use href="#it-{{ $platform['platform'] }}"></use>
+                                            <use xlink:href="#it-{{ $platform['platform'] }}"></use>
                                         </svg>
                                     </a>
                                 </li>
@@ -109,6 +109,30 @@
                     </ul>
                 </div>
                 @endif
+            </div>
+        </div>
+
+        {{-- Footer Small Prints - EXACT Bootstrap Italia Structure --}}
+        <div class="it-footer-small-prints mt-4 pt-3 border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="footer-small-prints-list list-inline text-center mb-0">
+                            <li class="list-inline-item me-3">
+                                <a href="/it/amministrazione-trasparente" class="footer-small-print-link">Amministrazione trasparente</a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a href="/it/informativa-privacy" class="footer-small-print-link">Informativa privacy</a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a href="/it/note-legali" class="footer-small-print-link">Note legali</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="/it/dichiarazione-accessibilita" class="footer-small-print-link">Dichiarazione di accessibilità</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

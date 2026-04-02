@@ -94,6 +94,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'pub_theme');
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'pub_theme');
 
+        // Register 'sixteen' namespace for backward compatibility
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'sixteen');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'sixteen');
+
         // Caricamento delle configurazioni del tema
         $this->loadConfigFrom(__DIR__.'/../../config', 'sixteen');
     }

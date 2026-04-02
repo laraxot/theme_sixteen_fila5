@@ -435,15 +435,15 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav>
     <x-slot name="links">
         <a href="#" class="nav-link active">
-            <svg class="icon"><use href="#it-home"></use></svg>
+            <svg class="icon"><use xlink:href="#it-home"></use></svg>
             <span class="bottom-nav-label">Home</span>
         </a>
         <a href="#" class="nav-link">
-            <svg class="icon"><use href="#it-search"></use></svg>
+            <svg class="icon"><use xlink:href="#it-search"></use></svg>
             <span class="bottom-nav-label">Search</span>
         </a>
         <a href="#" class="nav-link">
-            <svg class="icon"><use href="#it-user"></use></svg>
+            <svg class="icon"><use xlink:href="#it-user"></use></svg>
             <span class="bottom-nav-label">Profile</span>
         </a>
     </x-slot>
@@ -453,7 +453,7 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav :fixed="true">
     <x-slot name="links">
         <a href="#" class="nav-link active">
-            <svg class="icon"><use href="#it-home"></use></svg>
+            <svg class="icon"><use xlink:href="#it-home"></use></svg>
             <span class="bottom-nav-label">Home</span>
         </a>
     </x-slot>
@@ -463,7 +463,7 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav variant="minimal">
     <x-slot name="links">
         <a href="#" class="nav-link active">
-            <svg class="icon"><use href="#it-home"></use></svg>
+            <svg class="icon"><use xlink:href="#it-home"></use></svg>
             <span class="bottom-nav-label">Home</span>
         </a>
     </x-slot>
@@ -473,7 +473,7 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav background="dark">
     <x-slot name="links">
         <a href="#" class="nav-link active">
-            <svg class="icon"><use href="#it-home"></use></svg>
+            <svg class="icon"><use xlink:href="#it-home"></use></svg>
             <span class="bottom-nav-label">Home</span>
         </a>
     </x-slot>
@@ -483,7 +483,7 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav :show-labels="false">
     <x-slot name="links">
         <a href="#" class="nav-link active">
-            <svg class="icon"><use href="#it-home"></use></svg>
+            <svg class="icon"><use xlink:href="#it-home"></use></svg>
         </a>
     </x-slot>
 </x-pub_theme::navigation.bottom-nav>
@@ -492,7 +492,7 @@ Usage Examples:
 <x-pub_theme::navigation.bottom-nav>
     <x-slot name="links">
         <a href="#" class="nav-link">
-            <svg class="icon"><use href="#it-bell"></use></svg>
+            <svg class="icon"><use xlink:href="#it-bell"></use></svg>
             <span class="bottom-nav-label">Notifications</span>
             <span class="badge bg-danger">3</span>
         </a>

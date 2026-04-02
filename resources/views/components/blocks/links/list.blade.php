@@ -1,12 +1,40 @@
-@props(['title' => '', 'links' => []])
-@if(!empty($links))
-<div class="space-y-2">
-    @if($title)<h3 class="text-xl font-bold text-gray-900 mb-4">{{ $title }}</h3>@endif
-    @foreach($links as $link)
-        <a href="{{ $link['url'] ?? '#' }}" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-            <span class="font-medium text-blue-600">{{ $link['label'] ?? '' }}</span>
-            <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 text-gray-400" />
-        </a>
-    @endforeach
-</div>
-@endif
+@props(['data' => []])
+
+{{-- Links List - Bootstrap Italia Exact Replica --}}
+@php
+    $title = $data['title'] ?? '';
+    $links = $data['links'] ?? [];
+    $description = $data['description'] ?? '';
+@endphp
+
+<section class="py-5 bg-it-gray-50">
+    <div class="container">
+        @if($title)
+        <h2 class="mb-3">{{ $title }}</h2>
+        @endif
+        
+        @if($description)
+        <p class="mb-4">{{ $description }}</p>
+        @endif
+        
+        <div class="link-list-wrapper">
+            <ul class="link-list">
+                @foreach($links as $link)
+                <li>
+                    <a href="{{ $link['url'] ?? '#' }}" @if($link['active'] ?? false) aria-current="page" @endif>
+                        <span>{{ $link['label'] ?? '' }}</span>
+                        
+                        @if($link['description'] ?? false)
+                        <p class="small text-muted mb-0">{{ $link['description'] }}</p>
+                        @endif
+                        
+                        @if($link['badge'] ?? false)
+                        <span class="badge badge-pill badge-outline-primary ms-2">{{ $link['badge'] }}</span>
+                        @endif
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</section>
