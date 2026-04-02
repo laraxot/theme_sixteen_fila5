@@ -17,7 +17,7 @@
                         <span class="visually-hidden">Lingua attiva:</span>
                         {{ $language }}
                         <svg class="icon icon-xs">
-                            <use href="#it-chevron-down"></use>
+                            <use xlink:href="#it-chevron-down"></use>
                         </svg>
                     </button>
                     <ul class="dropdown-menu">
@@ -26,7 +26,7 @@
                                 <span>ITA</span>
                                 @if($language === 'ITA')
                                     <svg class="icon icon-xs ms-2">
-                                        <use href="#it-check"></use>
+                                        <use xlink:href="#it-check"></use>
                                     </svg>
                                 @endif
                             </a>
@@ -36,7 +36,7 @@
                                 <span>ENG</span>
                                 @if($language === 'ENG')
                                     <svg class="icon icon-xs ms-2">
-                                        <use href="#it-check"></use>
+                                        <use xlink:href="#it-check"></use>
                                     </svg>
                                 @endif
                             </a>
@@ -47,7 +47,7 @@
                 {{-- Login Button --}}
                 <a href="{{ $login_url }}" class="btn btn-primary btn-sm">
                     <svg class="icon icon-sm">
-                        <use href="#it-user"></use>
+                        <use xlink:href="#it-user"></use>
                     </svg>
                     <span>Accedi all'area personale</span>
                 </a>
@@ -59,9 +59,13 @@
                     <ul class="list-inline mb-0">
                         @foreach($social as $network)
                         <li class="list-inline-item">
-                            <a href="#" class="text-link" aria-label="{{ ucfirst($network) }}">
+                            @php
+                                $platform = is_array($network) ? $network['platform'] : $network;
+                                $url = is_array($network) ? $network['url'] : '#';
+                            @endphp
+                            <a href="{{ $url }}" class="text-link" aria-label="{{ ucfirst($platform) }}">
                                 <svg class="icon icon-sm">
-                                    <use href="#it-{{ $network }}"></use>
+                                    <use xlink:href="#it-{{ $platform }}"></use>
                                 </svg>
                             </a>
                         </li>

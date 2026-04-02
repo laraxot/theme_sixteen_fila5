@@ -1,66 +1,100 @@
 {{--
-    Governance Cards Block - Organi di governo
-    Reference: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs #calendario section (card-wrapper)
+    Governance Cards + Events Calendar
+    Reference: design-comuni-pagine-statiche/sito/homepage.html #calendario
 --}}
-@props([
-    'title' => 'Organi di governo',
-    'items' => [],
-])
+@props(['data' => []])
+@php
+    $cards  = $data['cards'] ?? [];
+    $month  = $data['month'] ?? '';
+    $slides = $data['slides'] ?? [];
+@endphp
 
-<div class="section section-muted pb-90 pb-lg-50 px-lg-5 pt-0">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="card-wrapper px-0 card-overlapping card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
-                @foreach($items as $item)
-
-                @if(!empty($item['image']))
-                {{-- Card con immagine (es. Sindaco) --}}
-                <div class="card card-teaser card-teaser-image card-flex no-after rounded shadow-sm border border-light mb-0">
-                    <div class="card-image-wrapper with-read-more">
-                        <div class="card-body p-3 pb-5">
-                            <div class="category-top">
-                                <span class="title-xsmall-semi-bold fw-semibold">{{ $item['category'] ?? $title }}</span>
+<section id="calendario">
+    <div class="section section-muted pb-90 pb-lg-50 px-lg-5 pt-0">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="card-wrapper px-0 card-overlapping card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
+                    @foreach($cards as $i => $card)
+                    @if($i === 0)
+                    <div class="card card-teaser card-teaser-image card-flex no-after rounded shadow-sm border border-light mb-0">
+                        <div class="card-image-wrapper with-read-more">
+                            <div class="card-body p-3 pb-5">
+                                <div class="category-top">
+                                    <span class="title-xsmall-semi-bold fw-semibold">{{ $card['category'] ?? 'Organi di governo' }}</span>
+                                </div>
+                                <h3 class="card-title text-paragraph-medium u-grey-light">{{ $card['title'] ?? '' }}</h3>
+                                <p class="card-text text-paragraph-card u-grey-light m-0">{{ $card['role'] ?? '' }}</p>
                             </div>
-                            @if(!empty($item['name']))
-                            <h3 class="card-title text-paragraph-medium u-grey-light">{{ $item['name'] }}</h3>
-                            @endif
-                            <p class="text-paragraph-card u-grey-light m-0">{{ $item['title'] ?? '' }}</p>
+                            <div class="card-image card-image-rounded pb-5">
+                                <img src="{{ $card['image'] ?? 'https://picsum.photos/150/200' }}" alt="{{ $card['title'] ?? '' }}">
+                            </div>
                         </div>
-                        <div class="card-image card-image-rounded pb-5">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['name'] ?? ($item['title'] ?? '') }}" />
+                        <a class="read-more ps-3" href="{{ $card['url'] ?? '#' }}">
+                            <span class="text">Vai alla pagina</span>
+                            <svg class="icon"><use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use></svg>
+                        </a>
+                    </div>
+                    @else
+                    <div class="card card-teaser no-after rounded shadow-sm mb-0 border border-light">
+                        <div class="card-body pb-5">
+                            <div class="category-top">
+                                <span class="title-xsmall-semi-bold fw-semibold">{{ $card['category'] ?? 'Organi di governo' }}</span>
+                            </div>
+                            <h3 class="card-title text-paragraph-medium u-grey-light">{{ $card['title'] ?? '' }}</h3>
+                            <p class="card-text text-paragraph-card u-grey-light m-0">{{ $card['description'] ?? '' }}</p>
+                        </div>
+                        <a class="read-more" href="{{ $card['url'] ?? '#' }}">
+                            <span class="text">Vai alla pagina</span>
+                            <svg class="icon ms-0"><use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use></svg>
+                        </a>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Events Calendar --}}
+            <div class="row row-title pt-5 pt-lg-60 pb-3">
+                <div class="col-12 d-lg-flex justify-content-between">
+                    <h2>Eventi</h2>
+                </div>
+            </div>
+            <div class="row row-calendar">
+                <div class="it-carousel-wrapper it-carousel-landscape-abstract-four-cols it-calendar-wrapper splide" data-bs-carousel-splide>
+                    <div class="it-header-block">
+                        <div class="it-header-block-title">
+                            <h3 class="mb-0 text-center home-carousel-title">{{ $month }}</h3>
                         </div>
                     </div>
-                    <a class="read-more ps-3" href="{{ $item['url'] ?? '#' }}">
-                        <span class="text">Vai alla pagina</span>
-                        <svg class="icon">
-                            <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
-                        </svg>
-                    </a>
-                </div>
-
-                @else
-                {{-- Card senza immagine (es. Giunta, Consiglio) --}}
-                <div class="card card-teaser no-after rounded shadow-sm mb-0 border border-light">
-                    <div class="card-body pb-5">
-                        <div class="category-top">
-                            <span class="title-xsmall-semi-bold fw-semibold">{{ $item['category'] ?? $title }}</span>
-                        </div>
-                        <h3 class="card-title text-paragraph-medium u-grey-light">{{ $item['title'] ?? '' }}</h3>
-                        @if(!empty($item['description']))
-                        <p class="text-paragraph-card u-grey-light m-0">{{ $item['description'] }}</p>
-                        @endif
+                    <div class="splide__track">
+                        <ul class="splide__list it-carousel-all">
+                            @foreach($slides as $slide)
+                            <li class="splide__slide">
+                                <div class="it-single-slide-wrapper h-100">
+                                    <div class="card-wrapper h-100">
+                                        <div class="card card-bg">
+                                            <div class="card-body">
+                                                <h4 class="card-title pb-4 mb-10 text-secondary">{{ $slide['day'] }}<span>{{ $slide['weekday'] }}</span></h4>
+                                                @foreach($slide['events'] ?? [] as $event)
+                                                @if(!empty($event['image']))
+                                                <p class="card-text px-2 pb-10 mb-10 d-flex">
+                                                    <img src="{{ $event['image'] }}" alt="random image" class="me-3 rounded">
+                                                    <a href="{{ $event['url'] ?? '#' }}">{{ $event['title'] }}</a>
+                                                </p>
+                                                @else
+                                                <p class="card-text px-2 pb-10 mb-10"><a href="{{ $event['url'] ?? '#' }}">{{ $event['title'] }}</a></p>
+                                                @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <a class="read-more" href="{{ $item['url'] ?? '#' }}">
-                        <span class="text">Vai alla pagina</span>
-                        <svg class="icon ms-0">
-                            <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
-                        </svg>
-                    </a>
                 </div>
-                @endif
-
-                @endforeach
             </div>
         </div>
     </div>
-</div>
+</section>

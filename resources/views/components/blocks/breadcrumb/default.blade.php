@@ -1,24 +1,33 @@
-{{-- Breadcrumb Component - Bootstrap Italia Style --}}
-@props([
-    'items' => [],
-])
+@props(['data' => []])
 
-<nav class="cmp-breadcrumbs mt-4" aria-label="Breadcrumb">
-    <ol class="breadcrumb">
-        @foreach($items as $index => $item)
-            @if($index === count($items) - 1)
-                {{-- Last item (current page) --}}
-                <li class="breadcrumb-item active" aria-current="page">
-                    {{ $item['label'] }}
-                </li>
-            @else
-                {{-- Link item --}}
-                <li class="breadcrumb-item">
-                    <a href="{{ $item['url'] }}" class="text-decoration-none">
-                        {{ $item['label'] }}
-                    </a>
-                </li>
-            @endif
-        @endforeach
-    </ol>
-</nav>
+{{-- Breadcrumb - Bootstrap Italia Exact Replica --}}
+@php
+    $items = $data['items'] ?? [];
+@endphp
+
+<div class="breadcrumb-container" aria-label="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        @foreach($items as $item)
+                        @php
+                            $isLast = $loop->last;
+                            $label = $item['label'] ?? '';
+                            $url = $item['url'] ?? '#';
+                        @endphp
+                        <li class="breadcrumb-item @if($isLast) active @endif" @if($isLast) aria-current="page" @endif>
+                            @if($isLast)
+                                {{ $label }}
+                            @else
+                                <a href="{{ $url }}">{{ $label }}</a>
+                            @endif
+                        </li>
+                        @endforeach
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
