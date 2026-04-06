@@ -1,6 +1,12 @@
 {
+  "node_modules/@splidejs/splide/dist/js/splide.esm.js": {
+    "file": "assets/splide.esm-BWa4TFV4.js",
+    "name": "splide.esm",
+    "src": "node_modules/@splidejs/splide/dist/js/splide.esm.js",
+    "isDynamicEntry": true
+  },
   "resources/css/app.css": {
-    "file": "assets/app-DJXBJAVu.css",
+    "file": "assets/app-vCQpDlDS.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -9,9 +15,12 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CWXwhwtf.js",
+    "file": "assets/app-DoRf-Me2.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/@splidejs/splide/dist/js/splide.esm.js"
+    ]
   }
 }

@@ -27,7 +27,7 @@
 <section id="head-section">
     <h2 class="visually-hidden">Contenuti in evidenza</h2>
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center min-vh-lg-50">
             <div class="col-lg-6 order-2 order-lg-1">
                 <div class="card mb-5">
                     <div class="card-body pb-5 px-0">
@@ -52,6 +52,24 @@
                             </svg>
                         </a>
                     </div>
+                </div>
+                <div class="cmp-search">
+                    <form action="{{ $data['action'] ?? '/it/ricerca' }}" method="get" role="search">
+                        <div class="form-group autocomplete-wrapper">
+                            <div class="input-group">
+                                <span class="input-group-text" id="mainSearch">
+                                    <svg class="icon icon-sm" aria-hidden="true">
+                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+                                    </svg>
+                                </span>
+                                <label for="search2" class="visually-hidden">Cerca nel sito</label>
+                                <input type="search" class="form-control" id="search2" placeholder="Cerca nel sito" name="search">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="visually-hidden">Cerca</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 px-0 px-lg-3">

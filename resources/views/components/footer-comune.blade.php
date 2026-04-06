@@ -1,4 +1,35 @@
 <footer class="it-footer" role="contentinfo">
+    {{-- EU Logo Section --}}
+    <div class="it-footer-small-helper py-4 py-lg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img class="ue-logo" src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg') }}" alt="logo Unione Europea" style="height: 60px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {{-- Brand Section --}}
+    <div class="it-footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="it-brand-wrapper py-4">
+                        <a href="/">
+                            <svg width="82" height="82" class="icon" aria-hidden="true">
+                                <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
+                            </svg>
+                            <div class="it-brand-text">
+                                <div class="it-brand-title">Nome del Comune</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- Top Section: Main Footer --}}
     <div class="it-footer-main">
         <div class="container">
