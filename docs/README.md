@@ -1,291 +1,71 @@
-# Sixteen Theme Documentation Index
+# Homepage Parity Analysis & Implementation Index
+## FixCity Sixteen Theme - Design Comuni Italia Replication
 
-**Theme:** Sixteen  
-**Version:** 1.0  
-**Last Updated:** 2026-04-01  
-**Status:** ✅ Active  
-**Total Files:** 325+
+**Project Goal**: Make local homepage (http://127.0.0.1:8000/it/tests/homepage) visually identical to reference (https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html) using Tailwind CSS + Alpine.js (no Bootstrap Italia)
 
 ---
 
-## 🎯 Quick Navigation
+## 📋 Analysis & Implementation Documents
 
-| Category | Document | Description |
-|----------|----------|-------------|
-| 🏗️ **Architecture** | [Layout Architecture](layout-architecture.md) | Layout hierarchy e componenti |
-| 🧭 **Page Tree** | [page-directory-structure.md](page-directory-structure.md) | Regola canonica per `resources/views/pages` |
-| 🗺️ **Navigation Map** | [LAYOUT_ARCHITECTURE_MAP.md](LAYOUT_ARCHITECTURE_MAP.md) | Bidirectional links |
-| 🔧 **Recent Fixes** | [LAYOUT_FIX_COMPLETE_BMAD.md](LAYOUT_FIX_COMPLETE_BMAD.md) | Layout fix summary |
-| ⚡ **Vite Fix** | [VITE_MANIFEST_FIX_COMPLETE.md](VITE_MANIFEST_FIX_COMPLETE.md) | Build manifest fix |
-| 🇮🇹 **Design Comuni** | [design-comuni/HTML_PARITY_VERIFICATION_REPORT.md](design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) | HTML parity verification |
-| 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
+| Document | Purpose | Status |
+|----------|---------|--------|
+| **[HOMEPAGE-VISUAL-ANALYSIS.md](HOMEPAGE-VISUAL-ANALYSIS.md)** | Complete visual comparison + Bootstrap→Tailwind mappings | ✅ 99.5% HTML match confirmed |
+| **[HOMEPAGE-CSS-JS-FIXES-COMPLETE.md](HOMEPAGE-CSS-JS-FIXES-COMPLETE.md)** | CSS Phase 1 completion report | ✅ 63 mappings added, build working |
 
 ---
 
-## 🏗️ Architecture Documents
+## 🎯 Current Status
 
-### Layout Architecture
-
-**Main Document:** [`layout-architecture.md`](layout-architecture.md)
-
-**Hierarchy:**
-```
-x-layouts.main (Base)
-    ├── x-layouts.app (Public Frontend)
-    ├── x-layouts.guest (Authentication)
-    ├── x-layouts.auth (Dashboard)
-    └── x-layouts.admin (Filament Admin)
-```
-
-**Files:**
-| File | Component | Extends | Description |
-|------|-----------|---------|-------------|
-| [`main.blade.php`](../resources/views/components/layouts/main.blade.php) | `x-layouts.main` | None | Base HTML structure |
-| [`app.blade.php`](../resources/views/components/layouts/app.blade.php) | `x-layouts.app` | `main` | Public frontend wrapper |
-| [`guest.blade.php`](../resources/views/components/layouts/guest.blade.php) | `x-layouts.guest` | `main` | Authentication pages |
-| [`auth.blade.php`](../resources/views/components/layouts/auth.blade.php) | `x-layouts.auth` | `main` | Protected dashboard |
-| [`admin.blade.php`](../resources/views/components/layouts/admin.blade.php) | `x-layouts.admin` | `main` | Filament admin panel |
-
-**Cross-References:**
-- → [UI Spec](_bmad-output/ui-spec.md) - Component library
-- → [Architecture](_bmad-output/architecture.md) - System architecture
-- → [Cms Module](../../../Modules/Cms/docs/) - CMS sections integration
-- → [Filament](../../../Modules/Filament/docs/) - Admin panel
+| Phase | Task | Status |
+|-------|------|--------|
+| **1** | HTML Analysis | ✅ DONE - 99.5% match |
+| **1** | Bootstrap Class Mapping | ✅ DONE - 88/88 classes |
+| **1** | CSS Compilation | ✅ DONE - Builds successfully |
+| **1** | Asset Deployment | ✅ DONE - Copied to public_html |
+| **2** | Alpine.js Implementation | ⏳ NEXT - Mobile menu, modals, dropdowns |
+| **3** | Color Customization | ⏳ TODO - Design Comuni green theme |
 
 ---
 
-## 📦 Component Registry
+## 🚀 Quick Start
 
-### Layout Components
-
-| Component | File | Type | Description |
-|-----------|------|------|-------------|
-| `x-layouts.main` | `resources/views/components/layouts/main.blade.php` | Base | HTML structure |
-| `x-layouts.app` | `resources/views/components/layouts/app.blade.php` | Wrapper | Public frontend |
-| `x-layouts.guest` | `resources/views/components/layouts/guest.blade.php` | Wrapper | Auth pages |
-| `x-layouts.auth` | `resources/views/components/layouts/auth.blade.php` | Wrapper | Dashboard |
-| `x-layouts.admin` | `resources/views/components/layouts/admin.blade.php` | Wrapper | Admin panel |
-
-### UI Components
-
-| Component | File | Used In | Description |
-|-----------|------|---------|-------------|
-| `x-section` | `resources/views/components/section.blade.php` | app layout | CMS section wrapper |
-| `x-header` | `resources/views/components/header.blade.php` | app layout | Public header |
-| `x-footer` | `resources/views/components/footer.blade.php` | app layout | Public footer |
-| `x-nav` | `resources/views/components/nav.blade.php` | app, auth | Navigation bar |
-| `x-sidebar` | `resources/views/components/sidebar.blade.php` | auth layout | Sidebar navigation |
-
-**Component Documentation:** [`components/README.md`](components/README.md)
-
----
-
-## 🎨 Design System
-
-### Colors
-
-```css
---color-primary: #3b82f6;
---color-secondary: #64748b;
---color-success: #10b981;
---color-warning: #f59e0b;
---color-danger: #ef4444;
-```
-
-### Typography
-
-```css
---font-sans: 'Inter', sans-serif;
---font-mono: 'Fira Code', monospace;
-```
-
-**Design System Docs:** [`design-system.md`](design-system.md)
-
----
-
-## 🚀 Getting Started
-
-### Installation
-
+**Test the current CSS implementation**:
 ```bash
-# Install theme dependencies
-composer require laravel/themes
-
-# Activate theme
-php artisan theme:use sixteen
-
-# Build assets
-npm run build
+cd /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen
+npm run build && npm run copy
+# Open http://127.0.0.1:8000/it/tests/homepage
 ```
 
-**Installation Guide:** [`installation.md`](installation.md)
+**Compare with reference**:
+- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
+- Local: http://127.0.0.1:8000/it/tests/homepage
 
 ---
 
-## 📖 Guides Index
+## 📊 Metrics
 
-### For Developers
-
-1. **[Vite Configuration Guide](./vite-configuration-guide.md)** ✅ - Build configuration
-   - `outDir: './public'` explained
-   - Manifest generation and Laravel integration
-2. **[Build Commands Guide](./build-commands-guide.md)** ✅ - Complete build process
-   - `composer update -W` → `npm install` → `npm run build` → `npm run copy`
-3. [Creating New Layouts](guides/creating-layouts.md)
-4. [Adding Components](guides/adding-components.md)
-5. [Customizing Styles](guides/customizing-styles.md)
-6. [Dark Mode Implementation](guides/dark-mode.md)
-
-### For Designers
-
-1. [Design Tokens](guides/design-tokens.md)
-2. [Color Palette](guides/color-palette.md)
-3. [Typography Scale](guides/typography.md)
-4. [Component Patterns](guides/component-patterns.md)
-
-### For Content Editors
-
-1. [CMS Sections](guides/cms-sections.md)
-2. [Managing Blocks](guides/managing-blocks.md)
-3. [Menu Configuration](guides/menu-config.md)
-
-**All Guides:** [`guides/README.md`](guides/README.md)
+- **HTML Structural Match**: 99.5% ✅
+- **Bootstrap Classes Mapped**: 88/88 (100%) ✅
+- **CSS Compiled**: 161.87 kB ✅
+- **Build Time**: 916ms ✅
 
 ---
 
-## 📋 Module Integration
-
-### Connected Modules
-
-| Module | Integration Point | Documentation |
-|--------|------------------|---------------|
-| **Cms** | Sections, Blocks | [`Modules/Cms/docs/`](../../../Modules/Cms/docs/) |
-| **Blog** | Public pages | [`Modules/Blog/docs/`](../../../Modules/Blog/docs/) |
-| **User** | Auth pages | [`Modules/User/docs/`](../../../Modules/User/docs/) |
-| **Filament** | Admin panel | [`Modules/Filament/docs/`](../../../Modules/Filament/docs/) |
-| **Geo** | Maps integration | [`Modules/Geo/docs/`](../../../Modules/Geo/docs/) |
-| **Media** | Image handling | [`Modules/Media/docs/`](../../../Modules/Media/docs/) |
-
-### Integration Patterns
-
-```blade
-{{-- CMS Section in app layout --}}
-<x-layouts.app>
-    <x-section slug="header" />
-    <main>{{ $slot }}</main>
-    <x-section slug="footer" />
-</x-layouts.app>
-
-{{-- Filament Admin in admin layout --}}
-<x-layouts.admin>
-    <livewire:filament.resources />
-</x-layouts.admin>
-```
+**See detailed analysis in [HOMEPAGE-VISUAL-ANALYSIS.md](HOMEPAGE-VISUAL-ANALYSIS.md)**  
+**See Phase 1 completion in [HOMEPAGE-CSS-JS-FIXES-COMPLETE.md](HOMEPAGE-CSS-JS-FIXES-COMPLETE.md)**
 
 ---
 
-## 🔗 External References
+## Current Active Docs
 
-### BMad Documentation
+Per il lavoro attuale sulla homepage parity usare questi documenti canonici:
+- [design-comuni/homepage-parity-report.md](./design-comuni/homepage-parity-report.md)
+- [design-comuni/screenshots/homepage-parity/readmore-analysis.md](./design-comuni/screenshots/homepage-parity/readmore-analysis.md)
+- [../../../../bashscripts/docs/homepage-visual-parity/inspectors.md](../../../../bashscripts/docs/homepage-visual-parity/inspectors.md)
 
-| Document | Link | Relevance |
-|----------|------|-----------|
-| **PRD** | `_bmad-output/prd.md` | Product requirements |
-| **Architecture** | `_bmad-output/architecture.md` | System architecture |
-| **UI Spec** | `_bmad-output/ui-spec.md` | Component library |
-| **Epics** | `_bmad-output/epics-and-stories.md` | Feature backlog |
+I report storici nella root `docs/` restano utili come archivio, ma lo stato corrente va mantenuto nei file sopra.
 
-### Project Documentation
-
-| Document | Link | Relevance |
-|----------|------|-----------|
-| **Project Docs** | `docs/` | Project-wide documentation |
-| **Module Docs** | `Modules/*/docs/` | Module-specific guides |
-| **Quality** | `docs/quality/` | Quality standards |
-
----
-
-## 📊 Theme Statistics
-
-| Metric | Value |
-|--------|-------|
-| **Layout Files** | 5 |
-| **Components** | 15+ |
-| **Views** | 50+ |
-| **Lines of Code** | 2,500+ |
-| **Test Coverage** | 75% |
-| **PHPStan Level** | 10 |
-
----
-
-## 🎯 Quality Standards
-
-### Code Quality
-
-- ✅ PHPStan Level 10
-- ✅ Laravel Pint (PSR-12)
-- ✅ No N+1 queries
-- ✅ Proper typing
-- ✅ DRY + KISS principles
-
-### Documentation Quality
-
-- ✅ All components documented
-- ✅ Usage examples provided
-- ✅ Cross-references complete
-- ✅ Bidirectional links
-
-### Performance
-
-- ✅ Vite bundling
-- ✅ Lazy loading
-- ✅ Image optimization
-- ✅ Caching enabled
-
----
-
-## 📝 Document Maintenance
-
-### Update Frequency
-
-- **Architecture:** After major changes
-- **Components:** When adding/modifying
-- **Guides:** As needed
-- **Index:** Weekly review
-
-### Review Process
-
-1. Developer makes changes
-2. Updates relevant docs
-3. Updates index if needed
-4. Code review includes doc review
-
-### Version Control
-
-- Docs versioned with code
-- Changelog in each doc
-- Deprecation notices added
-
----
-
-## 🆘 Support
-
-### Getting Help
-
-1. Check guides first
-2. Review component docs
-3. Search architecture docs
-4. Ask in team chat
-
-### Reporting Issues
-
-- **Layout bugs:** Create GitHub issue
-- **Doc errors:** PR with fix
-- **Feature requests:** Discuss in planning
-
----
-
-**Last Index Update:** 2026-04-01  
-**Next Review:** 2026-04-08  
-**Owner:** Frontend Team  
-**Status:** ✅ Complete
+- [design-comuni/risultati-ricerca-parity-2026-04-03.md](./design-comuni/risultati-ricerca-parity-2026-04-03.md)
+- [design-comuni/argomenti-parity-2026-04-02.md](./design-comuni/argomenti-parity-2026-04-02.md)
+- [design-comuni/argomento-parity-2026-04-02.md](./design-comuni/argomento-parity-2026-04-02.md)
+- [design-comuni/design-comuni-batch-audit.md](./design-comuni/design-comuni-batch-audit.md)

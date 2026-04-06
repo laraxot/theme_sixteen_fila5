@@ -1,5 +1,7 @@
 @php
-    $renderRuntimeChrome = ! request()->routeIs('tests.*');
+    $isTestsRoute = request()->routeIs('tests.*');
+    $renderRuntimeChrome = ! $isTestsRoute;
+    $isHomepageParity = $isTestsRoute && request()->route('slug') === 'homepage';
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -23,18 +25,24 @@
                 display: none !important;
             }
         </style>
-        @filamentStyles
-        @vite(['resources/css/app.css'], 'themes/Sixteen')
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+        @unless($isTestsRoute)
+            @filamentStyles
+        @endunless
+        @if($isTestsRoute)
+            @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
+        @else
+            @vite(['resources/css/app.css'], 'themes/Sixteen')
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+        @endif
     </head>
-    <body>
+    <body @class(['dc-homepage-parity' => $isHomepageParity])>
         {{ $slot }}
         @if($renderRuntimeChrome)
             <livewire:toast />
             @livewire('notifications')
+            @filamentScripts
+            @vite(['resources/js/app.js'], 'themes/Sixteen')
         @endif
-        @filamentScripts
-        @vite(['resources/js/app.js'], 'themes/Sixteen')
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {

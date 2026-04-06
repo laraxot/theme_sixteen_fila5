@@ -1,64 +1,51 @@
-# Sixteen Theme - Documentation Index
+# Sixteen Theme Documentation Index
 
-**Last Update**: {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}
-**Status**: ✅ Active Theme  
-**Theme Version**: 1.0
+**Last verified**: 2026-04-03
+**Status**: Active theme
+**Focus area**: Design Comuni visual parity on `Sixteen`
 
-## 📚 Quick Navigation
+## Quick Navigation
 
-### 🎯 Essential Reading
-1. [README.md](./README.md) - Theme overview
-2. [Roadmap](./roadmap.md) - Project status and plan
-3. [Design Comuni Implementation](./design-comuni-implementation.md) - Main implementation guide for Municipality Design
+### Core references
+- [README.md](./README.md) - Theme overview
+- [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md) - Broader documentation map
+- [design-comuni/00-index.md](./design-comuni/00-index.md) - Active Design Comuni parity workspace
 
-### 🏗️ Architecture & Standards
-<<<<<<< HEAD
-- [Agid Layout Usage Rules](./agid-layout-usage-rules.md) - How to use Agid-compliant layouts
-- [Sixteen Theme Naming Rules](./sixteen-theme-naming-rules.md) - Naming conventions for this theme
-- [Vite Configuration Rules](./vite-configuration-rules.md) - Asset loading optimization
-- [SVG Icon Convention](./svg-icon-convention.md) - Rules for using SVG icons
-=======
-- **[Layout Hierarchy](./layout-hierarchy.md)** ✅ - `x-layouts.app` extends `x-layouts.main`
-  - Base structure → Public frontend → Specialized layouts
-  - DRY + KISS compliant architecture
-  - See: [[components-directory-structure]], [[vite-configuration-guide]]
-- **[Components Directory Structure](./components-directory-structure.md)** ✅ - Complete component organization
-  - Layouts, Sections, Blocks, AGID components
-  - Block types (hero, topics, events, news, etc.)
-  - Naming conventions
-- **[Vite Configuration Guide](./vite-configuration-guide.md)** ✅ - Build configuration
-  - `outDir: './public'` explained (NOT `../../public_html/themes/Sixteen/`)
-  - Manifest generation and Laravel integration
-  - Development vs Production builds
-- **[Build Commands Guide](./build-commands-guide.md)** ✅ - Complete build process
-  - `composer update -W` → `npm install` → `npm run build` → `npm run copy`
-  - Troubleshooting Vite manifest errors
-  - Development vs Production builds
-- [Agid Layout Usage Rules](./agid-layout-usage-rules.md) - How to use Agid-compliant layouts
-- [Sixteen Theme Naming Rules](./sixteen-theme-naming-rules.md) - Naming conventions for this theme
->>>>>>> 4a11dcf (.)
+### Active homepage parity docs
+- [design-comuni/homepage-structure-diff-2026-04-02.md](./design-comuni/homepage-structure-diff-2026-04-02.md) - Body structure comparison, scripts excluded
+- [design-comuni/work-plan.md](./design-comuni/work-plan.md) - Current BMAD + GSD operating plan
+- [design-comuni/bmad-gsd-status-2026-04-03.md](./design-comuni/bmad-gsd-status-2026-04-03.md) - Latest execution status
+- [design-comuni/screenshots/homepage-visual-pass-2026-04-02.md](./design-comuni/screenshots/homepage-visual-pass-2026-04-02.md) - Screenshot-driven visual log
 
-### 🎨 Design Comuni Italia (Agid Compliance)
-- [Design Comuni Implementation Guide](./design-comuni-implementation.md) - **Primary Technical Reference**
-- [Agid Checklist](./agid-checklist.md) - Compliance verification
-- [Agid Compliance Summary](./agid-compliance-summary.md) - Summary of work done
-- [Components Status](./components-status.md) - Current state of all components
+### Risultati Ricerca parity docs
+- [visual-comparison/RISULTATI-RICERCA-HTML-COMPARISON.md](./visual-comparison/RISULTATI-RICERCA-HTML-COMPARISON.md) - Full HTML/visual comparison with post-fix status (95%+ parity)
+- [screenshots/risultati-ricerca/reference-after-fix.png](./screenshots/risultati-ricerca/reference-after-fix.png) - Reference page screenshot
+- [screenshots/risultati-ricerca/local-after-fix.png](./screenshots/risultati-ricerca/local-after-fix.png) - Local page screenshot (post-fix)
 
-### 🔐 Authentication & Auth Widgets
-- [Agid Login Implementation Plans](./agid-login-implementation-plan.md) - Strategy for compliant login
-- [Login Agid Fix Complete](./login-agid-fix-complete.md) - Verification of login functionality
-- [Auth Best Practices](./auth-best-practices.md) - Security guidelines
+### Argomenti & Argomento parity docs
+- [visual-comparison/ARGOMENTI-ARGOMENTO-COMPARISON.md](./visual-comparison/ARGOMENTI-ARGOMENTO-COMPARISON.md) - Both topics pages comparison (90%+ parity)
+- [visual-comparison/reference-argomenti.html](./visual-comparison/reference-argomenti.html) - Reference HTML source
+- [visual-comparison/local-argomenti.html](./visual-comparison/local-argomenti.html) - Local HTML source
+- [visual-comparison/reference-argomento.html](./visual-comparison/reference-argomento.html) - Reference HTML source
+- [visual-comparison/local-argomento-v2.html](./visual-comparison/local-argomento-v2.html) - Local HTML source (post-fix)
 
-### 📧 Mail Layouts
-- [Christmas Email Template Implementation](./christmas-email-template-implementation.md) - Implementation guide
-- [Mail Layouts Natale](./mail-layouts-natale.md) - Full list of festive templates
-- [Luxury Email Design Masterclass](./luxury-email-design-masterclass.md) - Visual excellence for emails
+### Segnalazioni Elenco parity docs
+- [visual-comparison/SEGNALAZIONI-ELENCO-COMPARISON.md](./visual-comparison/SEGNALAZIONI-ELENCO-COMPARISON.md) - Reports listing page comparison (90%+ parity)
+- [visual-comparison/reference-segnalazioni-elenco.html](./visual-comparison/reference-segnalazioni-elenco.html) - Reference HTML source
+- [visual-comparison/local-segnalazioni-elenco-v2.html](./visual-comparison/local-segnalazioni-elenco-v2.html) - Local HTML source (post-fix)
 
-### 🔗 Related Resources
-- [Cms Module](../../Modules/Cms/docs/README.md) - Content management
-- [UI Module](../../Modules/UI/docs/README.md) - UI components
-- [Xot Module](../../Modules/Xot/docs/README.md) - Core framework
+### Theme implementation entrypoints
+- `resources/css/app.css` - Primary CSS entrypoint for visual parity overrides
+- `resources/js/app.js` - Primary JS entrypoint for homepage runtime normalization
+- `resources/views/pages/tests/[slug].blade.php` - Folio page entry for `/it/tests/*`
 
----
+### Related module docs
+- [../../Modules/Cms/docs/00-index.md](../../Modules/Cms/docs/00-index.md) - Cms module documentation index
+- [../../Modules/Cms/docs/design-comuni-homepage.md](../../Modules/Cms/docs/design-comuni-homepage.md) - Cms-side parity coordination note
+- [../../Modules/Cms/docs/architecture/homepage-structure.md](../../Modules/Cms/docs/architecture/homepage-structure.md) - Homepage runtime architecture
 
-*Theme documentation conforme agli standard Laraxot*
+## Notes
+
+- The active visual parity work is scoped to CSS/JS changes in the theme.
+- The homepage test route remains CMS-driven through the Cms module and the local JSON content source.
+- If this index diverges from the active parity docs, prefer the files under `docs/design-comuni/`.

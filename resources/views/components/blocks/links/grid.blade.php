@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h3 class="card-title h5">
                             <a href="{{ $link['url'] }}" class="text-decoration-none">
-                                {{ $link['label'] }}
+                                {{ $link['label'] ?? $link['title'] ?? '' }}
                             </a>
                         </h3>
                         @if(isset($link['description']))

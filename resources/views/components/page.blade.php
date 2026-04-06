@@ -9,6 +9,12 @@
 
 @if (!empty($blocks))
     @foreach ($blocks as $block)
-        @include($block->view, array_merge($data, $block->data, ['data' => $block->data]))
+        @php
+            $isActive = data_get($block, 'active', true);
+        @endphp
+
+        @if ($isActive)
+            @include($block->view, array_merge($data, $block->data, ['data' => $block->data]))
+        @endif
     @endforeach
 @endif

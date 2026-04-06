@@ -1,0 +1,168 @@
+{
+  "results": [
+    {
+      "page": "segnalazione-disservizio",
+      "status": "complete",
+      "localHeight": 1980,
+      "localStatus": "ok",
+      "refHeight": 474,
+      "refStatus": "ok",
+      "heightDiff": 1506,
+      "parity": -218
+    },
+    {
+      "page": "segnalazione-01-privacy",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 1938,
+      "refStatus": "ok",
+      "heightDiff": 240,
+      "parity": 88
+    },
+    {
+      "page": "segnalazione-02-dati",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 3064,
+      "refStatus": "ok",
+      "heightDiff": 1366,
+      "parity": 55
+    },
+    {
+      "page": "segnalazione-03-riepilogo",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 3115,
+      "refStatus": "ok",
+      "heightDiff": 1417,
+      "parity": 55
+    },
+    {
+      "page": "segnalazione-04-conferma",
+      "status": "complete",
+      "localHeight": 3538,
+      "localStatus": "ok",
+      "refHeight": 2301,
+      "refStatus": "ok",
+      "heightDiff": 1237,
+      "parity": 46
+    },
+    {
+      "page": "segnalazione-area-personale",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 2854,
+      "refStatus": "ok",
+      "heightDiff": 1156,
+      "parity": 59
+    },
+    {
+      "page": "segnalazioni-elenco",
+      "status": "complete",
+      "localHeight": 2847,
+      "localStatus": "ok",
+      "refHeight": 3128,
+      "refStatus": "ok",
+      "heightDiff": 281,
+      "parity": 91
+    },
+    {
+      "page": "segnalazione-dettaglio",
+      "status": "complete",
+      "localHeight": 4753,
+      "localStatus": "ok",
+      "refHeight": 4425,
+      "refStatus": "ok",
+      "heightDiff": 328,
+      "parity": 93
+    }
+  ],
+  "completed": [
+    {
+      "page": "segnalazione-dettaglio",
+      "status": "complete",
+      "localHeight": 4753,
+      "localStatus": "ok",
+      "refHeight": 4425,
+      "refStatus": "ok",
+      "heightDiff": 328,
+      "parity": 93
+    },
+    {
+      "page": "segnalazioni-elenco",
+      "status": "complete",
+      "localHeight": 2847,
+      "localStatus": "ok",
+      "refHeight": 3128,
+      "refStatus": "ok",
+      "heightDiff": 281,
+      "parity": 91
+    },
+    {
+      "page": "segnalazione-01-privacy",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 1938,
+      "refStatus": "ok",
+      "heightDiff": 240,
+      "parity": 88
+    },
+    {
+      "page": "segnalazione-area-personale",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 2854,
+      "refStatus": "ok",
+      "heightDiff": 1156,
+      "parity": 59
+    },
+    {
+      "page": "segnalazione-02-dati",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 3064,
+      "refStatus": "ok",
+      "heightDiff": 1366,
+      "parity": 55
+    },
+    {
+      "page": "segnalazione-03-riepilogo",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 3115,
+      "refStatus": "ok",
+      "heightDiff": 1417,
+      "parity": 55
+    },
+    {
+      "page": "segnalazione-04-conferma",
+      "status": "complete",
+      "localHeight": 3538,
+      "localStatus": "ok",
+      "refHeight": 2301,
+      "refStatus": "ok",
+      "heightDiff": 1237,
+      "parity": 46
+    },
+    {
+      "page": "segnalazione-disservizio",
+      "status": "complete",
+      "localHeight": 1980,
+      "localStatus": "ok",
+      "refHeight": 474,
+      "refStatus": "ok",
+      "heightDiff": 1506,
+      "parity": -218
+    }
+  ],
+  "errors": [],
+  "generated": "2026-04-06T19:24:57.369Z"
+}

@@ -2,16 +2,15 @@
     Topics Grid Block - Universal reusable component
     
     USAGE:
-    <x-pub_theme::components.blocks.topics-grid.default :topics="$topics" title="Esplora per argomento" />
+    <x-pub_theme::components.blocks.topics-grid.default :data="['topics' => [...], 'title' => 'Title']" />
     
     DATA STRUCTURE:
     [
-        [
-            'title' => 'Agricoltura',
-            'url' => '#',
-            'description' => 'Lorem ipsum dolor sit amet...'
-        ],
-        ...
+        'title' => 'Esplora per argomento',
+        'topics' => [
+            ['title' => 'Agricoltura', 'url' => '#', 'description' => '...'],
+            ...
+        ]
     ]
     
     BLOCK TYPE: topics-grid (UNIVERSAL, NOT page-specific)
@@ -24,9 +23,14 @@
     - Description with text-secondary
 --}}
 
-@props(['topics' => [], 'title' => 'Esplora per argomento'])
+@props(['data' => []])
 
-<div class="container py-5" id="argomento">
+@php
+    $title = $data['title'] ?? 'Esplora per argomento';
+    $topics = $data['topics'] ?? [];
+@endphp
+
+<div class="py-5" id="argomento">
     @if($title)
         <h2 class="title-xxlarge mb-4">{{ $title }}</h2>
     @endif

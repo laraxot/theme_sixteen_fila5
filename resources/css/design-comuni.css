@@ -1,28 +1,29 @@
 /**
  * Design Comuni - Tailwind CSS Implementation
- * Replicates Bootstrap Italia Design Comuni template using ONLY Tailwind CSS
- * NO Bootstrap Italia imports - ALL Tailwind utilities
+ * Replicates Bootstrap Italia Design Comuni template using ONLY Tailwind CSS + Alpine.js
+ * NO Bootstrap Italia imports - ALL custom CSS with Tailwind utilities
+ *
+ * NOTE: This file is imported from app.css which already imports tailwindcss.
+ * Do NOT add @import "tailwindcss" here.
  */
-
-/* ========================================
-   TAILWIND CSS 4.x BASE
-======================================== */
-@import "tailwindcss";
 
 /* ========================================
    DESIGN COMUNI THEME CONFIGURATION
 ======================================== */
 @theme {
   /* Official Design Comuni Colors */
-  --color-italia: #0066B3;
-  --color-italia-dark: #003366;
-  --color-italia-darker: #002244;
+  --color-italia: #0066cc;
+  --color-italia-dark: #0059b3;
+  --color-italia-darker: #003366;
   --color-white: #FFFFFF;
   --color-black: #000000;
+  --color-text: #191919;
   --color-gray-light: #E5E7EB;
+  --color-gray-bg: #F2F2F2;
   
   /* Typography */
   --font-family-sans: 'Titillium Web', sans-serif;
+  --font-family-serif: 'Lora', serif;
   --font-family-mono: 'Roboto Mono', monospace;
   
   /* Spacing */
@@ -33,13 +34,12 @@
    GOOGLE FONTS
 ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 /* ========================================
    LAYOUT UTILITIES
 ======================================== */
 
-/* Container - Max width 1200px */
 .container {
   width: 100%;
   margin-left: auto;
@@ -49,7 +49,6 @@
   max-width: 1200px;
 }
 
-/* Row - Flexbox grid */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -57,45 +56,89 @@
   margin-right: -1rem;
 }
 
-/* Columns */
-.col-12 {
-  flex: 0 0 100%;
-  max-width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+.col { flex: 1 0 0%; padding-left: 1rem; padding-right: 1rem; }
+.col-12 { flex: 0 0 100%; max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+
+/* xs default: all cols full width */
+.col-sm-6, .col-md-3, .col-md-4, .col-md-6, .col-md-8, .col-md-9,
+.col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-8, .col-lg-9, .col-lg-10,
+.col-xl-3, .col-xl-4, .col-xl-6, .col-xl-8 {
+  flex: 0 0 100%; max-width: 100%;
+  padding-left: 0.75rem; padding-right: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
 }
 
 @media (min-width: 768px) {
-  .col-md-3 { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
-  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding-left: 1rem; padding-right: 1rem; }
-  .col-md-6 { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
-  .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding-left: 1rem; padding-right: 1rem; }
-  .col-md-9 { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-md-9 { flex: 0 0 75%; max-width: 75%; }
 }
 
 @media (min-width: 992px) {
-  .col-lg-3 { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
-  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding-left: 1rem; padding-right: 1rem; }
-  .col-lg-6 { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
-  .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding-left: 1rem; padding-right: 1rem; }
-  .col-lg-9 { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
-  .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; padding-left: 1rem; padding-right: 1rem; }
-  
+  .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .offset-lg-1 { margin-left: 8.333333%; }
+  .offset-xl-2 { margin-left: 16.666667%; }
   .order-lg-1 { order: 1; }
   .order-lg-2 { order: 2; }
   .px-lg-3 { padding-left: 1rem; padding-right: 1rem; }
+  .px-lg-5 { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-xl-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-xl-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+}
+
+/* Display utilities */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-lg-block { display: none; }
+.d-lg-none { display: block; }
+.d-lg-flex { display: none; }
+.d-lg-inline-flex { display: none; }
+.d-md-block { display: none; }
+.d-md-none { display: block; }
+.d-md-flex { display: none; }
+
+@media (min-width: 992px) {
+  .d-lg-block { display: block !important; }
+  .d-lg-none { display: none !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: 768px) {
+  .d-md-block { display: block !important; }
+  .d-md-none { display: none !important; }
+  .d-md-flex { display: flex !important; }
 }
 
 /* ========================================
    HEADER - Design Comuni Style
 ======================================== */
 
-/* Header Slim - Institutional Blue (#0066B3) */
+.it-header-wrapper { position: relative; }
+
+/* Header Slim - Dark Green (#00402B) - matches reference */
 .it-header-slim-wrapper {
-  background-color: #0066B3;
+  background-color: #00402B;
   color: #FFFFFF;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   font-size: 0.875rem;
 }
 
@@ -103,86 +146,220 @@
 .it-header-slim-wrapper .nav-link {
   color: #FFFFFF;
   transition: color 0.2s;
+  text-decoration: none;
 }
 
-.it-header-slim-wrapper a:hover,
-.it-header-slim-wrapper .nav-link:hover {
-  color: rgba(255, 255, 255, 0.8);
+.it-header-slim-wrapper a:hover { color: rgba(255, 255, 255, 0.8); }
+
+.it-header-slim-wrapper-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Header Center - White Background */
+.it-header-slim-right-zone {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Header Center - Medium Green (#007A52) - matches reference */
 .it-header-center-wrapper {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #E5E7EB;
-  padding: 1.5rem 0;
+  background-color: #007A52;
+  padding: 6px 0 0;
+  color: #191919;
 }
 
-.it-header-center-wrapper .it-brand-title {
-  color: #000000;
-  font-weight: 700;
-  font-size: 1.5rem;
+.it-header-center-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.it-header-center-wrapper a {
-  color: #000000;
-  transition: color 0.2s;
+.it-brand-wrapper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
-.it-header-center-wrapper a:hover {
-  color: #0066B3;
+.it-brand-title {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  color: #FFFFFF;
 }
 
-/* Header Navbar - Dark Blue (#003366) */
+.it-brand-tagline {
+  font-size: 0.875rem; /* 14px */
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.it-right-zone {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.it-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.it-socials span {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.it-socials ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.it-socials a {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.it-socials .icon {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem;
+  color: #007A52;
+  font-size: 1.125rem; /* 18px */
+  margin-left: 1rem; /* 16px */
+}
+
+.it-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.it-search-wrapper span {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.search-link {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+.search-link:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+/* Header Navbar - Medium Green (#007A52) - matches reference */
 .it-header-navbar-wrapper {
-  background-color: #003366;
+  background-color: #007A52;
   color: #FFFFFF;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.75rem 0;
 }
 
-.it-header-navbar-wrapper a,
-.it-header-navbar-wrapper .nav-link {
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.nav-item { position: relative; }
+
+.nav-link {
+  display: block;
+  padding: 12px 16px;
   color: #FFFFFF;
-  transition: color 0.2s;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
 }
 
-.it-header-navbar-wrapper a:hover,
-.it-header-navbar-wrapper .nav-link:hover {
-  color: rgba(255, 255, 255, 0.8);
+.nav-link:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+.navbar-secondary {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-/* ========================================
-   FOOTER - Design Comuni Style
-======================================== */
-
-/* Footer Main - Dark Blue (#003366) */
-.it-footer {
-  background-color: #003366;
+.custom-navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
   color: #FFFFFF;
-  padding: 3rem 0;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
-.it-footer a,
-.it-footer .footer-heading-title,
-.it-footer .footer-info {
-  color: #FFFFFF;
-  transition: color 0.2s;
-}
-
-.it-footer a:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* Footer Secondary - Darker Blue (#002244) */
-.it-footer-secondary {
-  background-color: #002244;
-  color: #FFFFFF;
-  padding: 1.5rem 0;
-}
-
-.it-footer-secondary a,
-.it-footer-secondary p {
-  color: #FFFFFF;
+@media (max-width: 991px) {
+  .custom-navbar-toggler { display: block; }
+  .navbar-collapsable {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #003366;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  .navbar-collapsable.show { transform: translateX(0); }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+  }
+  .overlay.show { display: block; }
+  .close-div { text-align: right; }
+  .close-menu {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .menu-wrapper { padding-top: 1rem; }
+  .logo-hamburger {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+  }
 }
 
 /* ========================================
@@ -192,56 +369,143 @@
 .card {
   background-color: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 calc(0.125rem * 2) 0 rgba(0, 0, 0, 0.05), 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
-  padding: 0;
-}
+.card-body { padding: 1.5rem; }
 
 .card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 2rem; /* 32px for hero section */
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #111827;
+  color: #007A52;
+  line-height: 1.3;
 }
 
-.card-text {
-  color: #4B5563;
-}
-
-.card-date {
-  font-size: 0.875rem;
-  color: #6B7280;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.card-bg {
-  background-color: #FFFFFF;
-}
-
-.card-teaser {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s;
-}
-
-.card-teaser:hover {
-  background-color: #0066B3;
-}
-
-.card-teaser .card-title a {
+.card-title a {
   color: inherit;
   text-decoration: none;
 }
 
-.card-teaser .card-title a:hover {
-  color: #FFFFFF !important;
+.card-title a:hover { color: #007A52; }
+
+.card-text {
+  color: #4B5563;
+  line-height: 1.5;
 }
+
+.card-bg { background-color: #FFFFFF; }
+.card-bg-blue { background-color: #0066cc; color: #FFFFFF; }
+.card-bg-warning { background-color: #ffb81c; color: #191919; }
+.card-bg-dark { background-color: #191919; color: #FFFFFF; }
+
+.card-bg-blue .card-title,
+.card-bg-blue .card-text { color: #FFFFFF; }
+
+.card-bg-warning .card-title,
+.card-bg-warning .card-text { color: #191919; }
+
+.card-bg-dark .card-title,
+.card-bg-dark .card-text { color: #FFFFFF; }
+
+/* Card Teaser */
+.card-teaser {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 calc(0.125rem * 2) 0 rgba(0, 0, 0, 0.05), 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-teaser:hover {
+  box-shadow: 0 0 calc(0.25rem * 2) 0 rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.15);
+}
+
+.card-teaser .card-body { flex: 1; }
+
+.card-teaser-image {
+  position: relative;
+}
+
+.card-teaser-image .card-image {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  transform: translateY(50%);
+  z-index: 2;
+}
+
+.card-teaser-image .card-image-wrapper {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.card-image-rounded {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.card-image-rounded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlapping {
+  margin-bottom: 2rem;
+}
+
+.card-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-teaser-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-teaser-wrapper-equal .card-teaser {
+  min-height: 100%;
+}
+
+.card-teaser-block-3 > div,
+.card-teaser-block-3 > a {
+  flex: 1;
+}
+
+@media (min-width: 992px) {
+  .card-teaser-block-3 {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.no-after { position: relative; }
+.no-after::after { display: none; }
+
+.rounded { border-radius: 0.25rem; }
+.shadow-sm { box-shadow: 0 0 calc(0.125rem * 2) 0 rgba(0, 0, 0, 0.05), 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.1); }
+.border { border: 1px solid #E5E7EB; }
+.border-light { border-color: #E5E7EB; }
+.border-0 { border: none; }
+.border-bottom { border-bottom: 1px solid #E5E7EB; }
 
 /* ========================================
    BUTTONS - Design Comuni Style
@@ -251,103 +515,105 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
   font-weight: 500;
+  font-size: 1rem;
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
   gap: 0.5rem;
+  border: 2px solid transparent;
+  line-height: 1.5;
 }
 
 .btn-primary {
-  background-color: #0066B3;
+  background-color: #007A52;
   color: #FFFFFF;
-  border: none;
+  border-color: #007A52;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0;
 }
 
 .btn-primary:hover {
-  background-color: #003366;
+  background-color: #005c43;
+  border-color: #005c43;
+}
+
+.btn-primary:hover {
+  background-color: #005c43;
+  border-color: #005c43;
 }
 
 .btn-outline-primary {
   background-color: transparent;
-  color: #0066B3;
-  border: 2px solid #0066B3;
+  color: #007A52;
+  border-color: #007A52;
 }
 
 .btn-outline-primary:hover {
-  background-color: #0066B3;
+  background-color: #007A52;
   color: #FFFFFF;
 }
 
-.btn-sm {
+.btn-outline-primary:hover {
+  background-color: #007A52;
+  color: #FFFFFF;
+}
+
+.btn-sm { padding: 0.375rem 0.75rem; font-size: 0.875rem; }
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+}
+
+.btn-full { width: 100%; }
+
+.rounded-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ========================================
    TYPOGRAPHY - Design Comuni Style
 ======================================== */
 
-.title-xxlarge {
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
+.title-xxlarge { font-size: 2.25rem; font-weight: 700; line-height: 1.2; }
+.title-xlarge { font-size: 1.875rem; font-weight: 700; line-height: 1.2; }
+.title-large { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+.title-medium-2-semi-bold { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+.title-medium-2-bold { font-size: 1.25rem; font-weight: 700; line-height: 1.3; }
+.title-xsmall-semi-bold { font-size: 0.75rem; font-weight: 600; }
+.title-xsmall-bold { font-size: 0.75rem; font-weight: 700; }
 
-@media (min-width: 768px) {
-  .title-xxlarge {
-    font-size: 2.5rem;
-  }
-}
+.text-uppercase { text-transform: uppercase; }
 
-.title-xlarge {
-  font-size: 1.875rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
+.text-paragraph-medium { font-size: 1rem; line-height: 1.5; }
+.text-paragraph-card { font-size: 0.875rem; line-height: 1.4; }
+.text-paragraph-small-semi { font-size: 0.75rem; font-weight: 600; line-height: 1.4; }
+.text-sans-serif { font-family: 'Titillium Web', sans-serif; }
+.text-secondary { color: #5C6F82; }
+.text-white { color: #FFFFFF; }
+.text-success { color: #00875c; }
+.text-button-normal { font-size: 0.875rem; font-weight: 500; }
+.text-underline { text-decoration: underline; }
 
-@media (min-width: 768px) {
-  .title-xlarge {
-    font-size: 2rem;
-  }
-}
+.lora { font-family: 'Lora', serif; }
 
-.title-large {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
+.fw-semibold { font-weight: 600; }
+.fw-normal { font-weight: 400; }
+.fw-bold { font-weight: 700; }
 
-@media (min-width: 768px) {
-  .title-large {
-    font-size: 1.75rem;
-  }
-}
-
-.title-xsmall-semi-bold {
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.lead {
-  font-size: 1.125rem;
-  color: #4B5563;
-  line-height: 1.6;
-}
-
-.fw-semibold {
-  font-weight: 600;
-}
-
-.fw-normal {
-  font-weight: 400;
-}
-
-.fw-bold {
-  font-weight: 700;
-}
+.u-grey-light { color: #4B5563; }
 
 /* ========================================
    ICONS - Design Comuni Style
@@ -357,25 +623,16 @@
   width: 1.5rem;
   height: 1.5rem;
   fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.icon-sm {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.icon-xs {
-  width: 1rem;
-  height: 1rem;
-}
-
-.icon-primary {
-  color: #0066B3;
-}
-
-.icon-white {
-  color: #FFFFFF;
-}
+.icon-sm { width: 1.25rem; height: 1.25rem; }
+.icon-md { width: 1.5rem; height: 1.5rem; }
+.icon-xs { width: 1rem; height: 1rem; }
+.icon-primary { color: #007A52; }
+.icon-white { color: #FFFFFF; }
+.align-top { vertical-align: top; }
 
 /* ========================================
    CHIPS - Design Comuni Style
@@ -392,42 +649,546 @@
 
 .chip-simple {
   background-color: transparent;
-  color: #0066B3;
+  color: #0066cc;
+  border: 1px solid #0066cc;
 }
 
 .chip-simple:hover {
-  background-color: #0066B3;
+  background-color: #0066cc;
   color: #FFFFFF;
 }
 
-.chip-label {
-  color: inherit;
-}
+.chip-label { color: inherit; }
 
 /* ========================================
    LINKS - Design Comuni Style
 ======================================== */
 
-.text-decoration-none {
-  text-decoration: none !important;
-}
+.text-decoration-none { text-decoration: none !important; }
 
 .read-more {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #0066B3;
+  color: #0066cc;
   transition: color 0.2s;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
 }
 
-.read-more:hover {
-  color: #003366;
+.read-more:hover { color: #003366; }
+
+.read-more .icon { transition: transform 0.2s; }
+.read-more:hover .icon { transform: translateX(0.25rem); }
+
+/* ========================================
+   LINK LIST - Design Comuni Style
+======================================== */
+
+.link-list-wrapper { margin-top: 1rem; }
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-list li { margin-bottom: 0.5rem; }
+
+.link-list-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5C6F82;
+  margin-bottom: 0.75rem;
+}
+
+.list-item {
+  display: block;
+  padding: 0.5rem 0;
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.list-item:hover { color: #003366; }
+
+.list-item.active { color: #0066cc; }
+
+.list-item-title-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-left { padding-left: 0; }
+
+/* ========================================
+   CATEGORY TOP - Design Comuni Style
+======================================== */
+
+.category-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.category-top .icon { color: #5C6F82; }
+
+/* ========================================
+   AVATAR - Design Comuni Style
+======================================== */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar.size-lg { width: 3rem; height: 3rem; }
+.avatar.size-xl { width: 4rem; height: 4rem; }
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ========================================
-   UTILITIES - Design Comuni Style
+   SECTIONS - Design Comuni Style
 ======================================== */
+
+#head-section { padding: 3rem 0; }
+
+.section { padding: 3rem 0; }
+.section-muted { background-color: #F2F2F2; }
+.section.py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+.section.pb-lg-80 { padding-bottom: 5rem; }
+@media (min-width: 992px) { .section.pb-lg-80 { padding-bottom: 5rem; } }
+
+.pb-90 { padding-bottom: 5.625rem; }
+.pb-lg-50 { padding-bottom: 3.125rem; }
+@media (min-width: 992px) { .pb-lg-50 { padding-bottom: 3.125rem; } }
+
+.pt-0 { padding-top: 0; }
+.pt-30 { padding-top: 1.875rem; }
+.pt-5 { padding-top: 3rem; }
+.pt-4 { padding-top: 1.5rem; }
+.pt-lg-60 { padding-top: 3.75rem; }
+.pt-lg-80 { padding-top: 5rem; }
+@media (min-width: 992px) {
+  .pt-lg-60 { padding-top: 3.75rem; }
+  .pt-lg-80 { padding-top: 5rem; }
+}
+
+.pb-lg-80 { padding-bottom: 5rem; }
+@media (min-width: 992px) { .pb-lg-80 { padding-bottom: 5rem; } }
+
+.px-lg-5 { padding-left: 1.5rem; padding-right: 1.5rem; }
+@media (min-width: 992px) { .px-lg-5 { padding-left: 1.5rem; padding-right: 1.5rem; } }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-5 { margin-bottom: 1.25rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.25rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-40 { margin-top: 2.5rem; }
+
+.ms-0 { margin-left: 0; }
+.me-3 { margin-right: 0.75rem; }
+
+.ps-0 { padding-left: 0; }
+.ps-3 { padding-left: 0.75rem; }
+.ps-5 { padding-left: 1.5rem; }
+
+.pb-3 { padding-bottom: 0.75rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-5 { padding-bottom: 1.25rem; }
+.pb-10 { padding-bottom: 2.5rem; }
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+.row-title { margin-bottom: 1rem; }
+.row-title h2 { margin: 0; }
+
+/* Evidence Section - Blue background matching reference */
+.evidence-section {
+  position: relative;
+  background-color: #0066cc;
+  color: #FFFFFF;
+}
+
+.evidence-section > .section {
+  padding: 3rem 0;
+}
+
+.evidence-section h2 { color: #FFFFFF; }
+
+.evidence-section .card-teaser {
+  background-color: #FFFFFF;
+  color: #191919;
+}
+
+.evidence-section .card-teaser .card-title { color: #191919; }
+.evidence-section .card-teaser .card-text { color: #4B5563; }
+
+.evidence-section .read-more { color: #0066cc; }
+
+.evidence-section .card-bg-blue {
+  background-color: #0066cc;
+  color: #FFFFFF;
+}
+
+.evidence-section .card-bg-blue .card-title,
+.evidence-section .card-bg-blue .card-text {
+  color: #FFFFFF;
+}
+
+.evidence-section .card-bg-warning {
+  background-color: #ffb81c;
+  color: #191919;
+}
+
+.evidence-section .card-bg-warning .card-title,
+.evidence-section .card-bg-warning .card-text {
+  color: #191919;
+}
+
+.evidence-section .card-bg-dark {
+  background-color: #191919;
+  color: #FFFFFF;
+}
+
+.evidence-section .card-bg-dark .card-title,
+.evidence-section .card-bg-dark .card-text {
+  color: #FFFFFF;
+}
+
+/* Useful Links Section */
+.useful-links-section {
+  background-color: #F2F2F2;
+}
+
+/* Calendar Section */
+#calendario {
+  padding: 3rem 0;
+}
+
+/* ========================================
+   CAROUSEL / SPLIDE - Design Comuni Style
+======================================== */
+
+.it-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.it-carousel-wrapper .splide__track {
+  overflow: visible;
+}
+
+.it-carousel-wrapper .splide__list {
+  display: flex;
+  gap: 1rem;
+}
+
+.it-carousel-wrapper .splide__slide {
+  flex: 0 0 auto;
+}
+
+.it-carousel-landscape-abstract-four-cols .splide__slide {
+  width: calc(25% - 0.75rem);
+}
+
+@media (max-width: 991px) {
+  .it-carousel-landscape-abstract-four-cols .splide__slide {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .it-carousel-landscape-abstract-four-cols .splide__slide {
+    width: 100%;
+  }
+}
+
+.it-header-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.it-header-block-title h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.home-carousel-title { text-transform: uppercase; }
+
+.it-carousel-all {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.it-single-slide-wrapper {
+  height: 100%;
+}
+
+/* ========================================
+   SEARCH / AUTOCOMPLETE - Design Comuni Style
+======================================== */
+
+.cmp-input-search { margin-bottom: 1.5rem; }
+
+.autocomplete-wrapper { position: relative; }
+
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #191919;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+.input-group-append {
+  display: flex;
+  margin-left: -1px;
+}
+
+.input-group-append .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.autocomplete-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #0066cc;
+}
+
+.searches-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.searches-list-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* ========================================
+   RATING - Design Comuni Style
+======================================== */
+
+.cmp-rating {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cmp-rating__card-first {
+  background: #FFFFFF;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 calc(0.125rem * 2) 0 rgba(0, 0, 0, 0.05), 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rating-star {
+  cursor: pointer;
+  transition: color 0.2s;
+  color: #E5E7EB;
+  padding: 0;
+  margin: 0;
+}
+
+.rating-star svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
+.rating input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rating-star:hover,
+.rating-star:hover ~ .rating-star,
+.rating input[type="radio"]:checked ~ label {
+  color: #ffb81c;
+}
+
+/* ========================================
+   MODAL - Design Comuni Style
+======================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal.fade { opacity: 0; transition: opacity 0.15s ease-out; }
+.modal.show { display: block; opacity: 1; }
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 1.75rem auto;
+  pointer-events: none;
+}
+
+.modal-lg { max-width: 800px; }
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  outline: 0;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.5rem;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   DROPDOWN - Design Comuni Style
+======================================== */
+
+.dropdown { position: relative; }
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu.show { display: block; }
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: #191919;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover { background-color: #F2F2F2; }
+
+/* ========================================
+   SKIP LINKS - Accessibility
+======================================== */
+
+.skiplink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #003366;
+}
 
 .visually-hidden,
 .sr-only {
@@ -446,89 +1207,705 @@
   position: static;
   width: auto;
   height: auto;
-  padding: 0;
+  padding: 0.5rem 1rem;
   margin: 0;
   overflow: visible;
   clip: auto;
   white-space: normal;
   border: 0;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
-.img-fluid {
-  width: 100%;
-  height: auto;
-}
+/* ========================================
+   MISC UTILITIES
+======================================== */
+
+.img-fluid { max-width: 100%; height: auto; }
 
 .text-center { text-align: center; }
 .text-end { text-align: right; }
 .text-start { text-align: left; }
 
-/* Spacing */
-.mb-0 { margin-bottom: 0; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 0.75rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-5 { margin-bottom: 1.25rem; }
-.mb-8 { margin-bottom: 2rem; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-center { justify-content: center; }
+.align-items-center { align-items: center; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-column { flex-direction: column; }
 
-.mt-3 { margin-top: 0.75rem; }
-.mt-4 { margin-top: 1rem; }
-.mt-5 { margin-top: 1.25rem; }
-.mt-8 { margin-top: 2rem; }
-
-.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-
-.px-0 { padding-left: 0; padding-right: 0; }
-.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-
-.pb-3 { padding-bottom: 0.75rem; }
-.pb-5 { padding-bottom: 1.25rem; }
-.pt-3 { padding-top: 0.75rem; }
-
-/* Gap */
+.gap-1 { gap: 0.25rem; }
 .gap-2 { gap: 0.5rem; }
 .gap-4 { gap: 1rem; }
 
-/* Grid gaps */
-.g-0 { gap: 0; }
-.g-2 { gap: 0.5rem; }
-.g-4 { gap: 1rem; }
+.h-100 { height: 100%; }
+.min-vh-lg-50 { min-height: 50vh; }
+@media (min-width: 992px) { .min-vh-lg-50 { min-height: 50vh; } }
 
-/* Order */
-.order-1 { order: 1; }
-.order-2 { order: 2; }
+.position-relative { position: relative; }
 
-/* Responsive display */
-@media (min-width: 992px) {
-  .d-lg-block { display: block; }
-  .d-lg-none { display: none; }
+.bg-primary { background-color: #0066cc; }
+.bg-white { background-color: #FFFFFF; }
+
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-lg-0 { padding-top: 0; padding-bottom: 0; }
+@media (min-width: 992px) { .py-lg-0 { padding-top: 0; padding-bottom: 0; } }
+
+.with-read-more { position: relative; }
+
+.perfect-scrollbar { position: relative; }
+.variable-gutters { margin-bottom: 1.5rem; }
+.other-link-title { font-size: 0.875rem; font-weight: 600; color: #0066cc; }
+
+/* Input group text addon */
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  color: #191919;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.25rem;
 }
 
-@media (max-width: 991px) {
-  .d-lg-block { display: none; }
+.input-group .form-control:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Search component */
+.cmp-search {
+  margin-bottom: 1.5rem;
+}
+
+.cmp-search .autocomplete-wrapper {
+  position: relative;
+}
+
+/* Text paragraph medium */
+.text-paragraph-medium {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4B5563;
+}
+
+/* Card bg colors for evidence section */
+.card-bg-blue {
+  background-color: #0066cc;
+  color: #FFFFFF;
+}
+
+.card-bg-blue .card-title,
+.card-bg-blue .card-text {
+  color: #FFFFFF;
+}
+
+.card-bg-warning {
+  background-color: #ffb81c;
+  color: #191919;
+}
+
+.card-bg-warning .card-title,
+.card-bg-warning .card-text {
+  color: #191919;
+}
+
+.card-bg-dark {
+  background-color: #191919;
+  color: #FFFFFF;
+}
+
+.card-bg-dark .card-title,
+.card-bg-dark .card-text {
+  color: #FFFFFF;
+}
+
+/* Sito tematico card link */
+.card-teaser.card-bg-blue,
+.card-teaser.card-bg-warning,
+.card-teaser.card-bg-dark {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.card-teaser.card-bg-blue:hover {
+  background-color: #0059b3;
+}
+
+.card-teaser.card-bg-warning:hover {
+  background-color: #e6a600;
+}
+
+.card-teaser.card-bg-dark:hover {
+  background-color: #333333;
+}
+
+.sito-tematico {
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 /* ========================================
-   SECTIONS - Design Comuni Style
+   ALPINE.JS - Interactive Components
 ======================================== */
 
-#head-section {
+[x-cloak] { display: none !important; }
+
+/* Mobile nav overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+/* Search modal */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1055;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.search-modal-content {
+  background: #FFFFFF;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.input-group .form-control:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Search component */
+.cmp-search {
+  margin-bottom: 1.5rem;
+}
+
+.cmp-search .autocomplete-wrapper {
+  position: relative;
+}
+
+/* Text paragraph medium */
+.text-paragraph-medium {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4B5563;
+}
+
+/* Card bg colors for evidence section */
+.card-bg-blue {
+  background-color: #0066cc;
+  color: #FFFFFF;
+}
+
+.card-bg-blue .card-title,
+.card-bg-blue .card-text {
+  color: #FFFFFF;
+}
+
+.card-bg-warning {
+  background-color: #ffb81c;
+  color: #191919;
+}
+
+.card-bg-warning .card-title,
+.card-bg-warning .card-text {
+  color: #191919;
+}
+
+.card-bg-dark {
+  background-color: #191919;
+  color: #FFFFFF;
+}
+
+.card-bg-dark .card-title,
+.card-bg-dark .card-text {
+  color: #FFFFFF;
+}
+
+/* Sito tematico card link */
+.card-teaser.card-bg-blue,
+.card-teaser.card-bg-warning,
+.card-teaser.card-bg-dark {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.card-teaser.card-bg-blue:hover {
+  background-color: #0059b3;
+}
+
+.card-teaser.card-bg-warning:hover {
+  background-color: #e6a600;
+}
+
+.card-teaser.card-bg-dark:hover {
+  background-color: #333333;
+}
+
+.sito-tematico {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   ALPINE.JS - Interactive Components
+======================================== */
+
+[x-cloak] { display: none !important; }
+
+/* Mobile nav overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+/* Search modal */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1055;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.search-modal-content {
+  background: #FFFFFF;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   FOOTER - Design Comuni Style
+======================================== */
+
+.it-footer {
+  background-color: transparent;
+  color: #191919;
+  padding: 0;
+}
+
+.it-footer-main {
+  background-color: #17324d;
+  color: #FFFFFF;
   padding: 3rem 0;
 }
 
-.contact-section .quick-link {
-  color: #0066B3;
-  text-decoration: underline;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.it-footer a,
+.it-footer .footer-heading-title,
+.it-footer .footer-info {
+  color: #FFFFFF;
   transition: color 0.2s;
 }
 
-.contact-section .quick-link:hover {
-  color: #003366;
+.it-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.it-footer-secondary {
+  background-color: #1b2733;
+  color: #FFFFFF;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.it-footer-secondary a,
+.it-footer-secondary p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.it-footer-secondary a:hover {
+  color: #FFFFFF;
+}
+
+.it-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* ========================================
+   SECTION SPACING
+======================================== */
+
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.section-muted {
+  background-color: #F2F2F2;
+}
+
+.bg-grey-card {
+  background-color: #F2F2F2;
+}
+
+.shadow-contacts {
+  box-shadow: 0 -8px 18px rgba(23, 50, 77, 0.08);
+}
+
+/* ========================================
+   READ MORE LINKS
+======================================== */
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #007A52;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: #005c43;
+}
+
+/* ========================================
+   LINK LISTS
+======================================== */
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-list .list-item {
+  display: block;
+  padding: 0.5rem 0;
+  color: #007A52;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-list .list-item:hover {
+  color: #005c43;
+}
+
+.link-list-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5C6F82;
+  margin-bottom: 0.75rem;
+}
+
+/* ========================================
+   RATING COMPONENT
+======================================== */
+
+.cmp-rating {
+  padding: 2rem 0;
+}
+
+.cmp-rating .card-wrapper {
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(23, 50, 77, 0.08);
+}
+
+.cmp-rating__card-first {
+  background: #FFFFFF;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.rating-star {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-star svg {
+  fill: #ddd;
+  transition: fill 0.2s;
+}
+
+.rating-star:hover svg,
+.rating-star:hover ~ .rating-star svg,
+.rating input[type="radio"]:checked ~ label.rating-star svg {
+  fill: #ffb400;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+/* ========================================
+   CONTACTS / CMP
+======================================== */
+
+.cmp-contacts .card {
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(23, 50, 77, 0.08);
+}
+
+.cmp-contacts .card-body {
+  background: #FFFFFF;
+}
+
+.contact-list .list-item {
+  color: #007A52;
+}
+
+.contact-list .list-item:hover {
+  color: #005c43;
+}
+
+/* ========================================
+   RESPONSIVE HEADER
+======================================== */
+
+@media (max-width: 991px) {
+  .it-header-center-content-wrapper {
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .it-brand-wrapper a {
+    align-items: flex-start;
+  }
+
+  .navbar-collapsable {
+    background: #007A52 !important;
+  }
+
+  .menu-wrapper {
+    padding: 1.25rem;
+  }
+}
+
+/* ========================================
+   FOOTER - Design Comuni Style
+======================================== */
+
+.it-footer {
+  background-color: transparent;
+  color: #191919;
+  padding: 0;
+}
+
+.it-footer-main {
+  background-color: #17324d;
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+
+.it-footer a,
+.it-footer .footer-heading-title,
+.it-footer .footer-info {
+  color: #FFFFFF;
+  transition: color 0.2s;
+}
+
+.it-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.it-footer-secondary {
+  background-color: #1b2733;
+  color: #FFFFFF;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.it-footer-secondary a,
+.it-footer-secondary p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.it-footer-secondary a:hover {
+  color: #FFFFFF;
+}
+
+.it-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* ========================================
+   SECTION SPACING
+======================================== */
+
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.section-muted {
+  background-color: #F2F2F2;
+}
+
+.bg-grey-card {
+  background-color: #F2F2F2;
+}
+
+.shadow-contacts {
+  box-shadow: 0 -8px 18px rgba(23, 50, 77, 0.08);
+}
+
+/* ========================================
+   READ MORE LINKS
+======================================== */
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #007A52;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: #005c43;
+}
+
+/* ========================================
+   LINK LISTS
+======================================== */
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-list .list-item {
+  display: block;
+  padding: 0.5rem 0;
+  color: #007A52;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-list .list-item:hover {
+  color: #005c43;
+}
+
+.link-list-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5C6F82;
+  margin-bottom: 0.75rem;
+}
+
+/* ========================================
+   RATING COMPONENT
+======================================== */
+
+.cmp-rating {
+  padding: 2rem 0;
+}
+
+.cmp-rating .card-wrapper {
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(23, 50, 77, 0.08);
+}
+
+.cmp-rating__card-first {
+  background: #FFFFFF;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.rating-star {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-star svg {
+  fill: #ddd;
+  transition: fill 0.2s;
+}
+
+.rating-star:hover svg,
+.rating-star:hover ~ .rating-star svg,
+.rating input[type="radio"]:checked ~ label.rating-star svg {
+  fill: #ffb400;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+/* ========================================
+   CONTACTS / CMP
+======================================== */
+
+.cmp-contacts .card {
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(23, 50, 77, 0.08);
+}
+
+.cmp-contacts .card-body {
+  background: #FFFFFF;
+}
+
+.contact-list .list-item {
+  color: #007A52;
+}
+
+.contact-list .list-item:hover {
+  color: #005c43;
+}
+
+/* ========================================
+   RESPONSIVE HEADER
+======================================== */
+
+@media (max-width: 991px) {
+  .it-header-center-content-wrapper {
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .it-brand-wrapper a {
+    align-items: flex-start;
+  }
+
+  .navbar-collapsable {
+    background: #007A52 !important;
+  }
+
+  .menu-wrapper {
+    padding: 1.25rem;
+  }
 }

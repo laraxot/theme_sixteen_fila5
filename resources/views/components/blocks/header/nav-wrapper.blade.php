@@ -1,5 +1,6 @@
 @props(['municipality' => '', 'subtitle' => '', 'logo' => '', 'social' => [], 'search' => [], 'items' => []])
 
+<!-- DEBUG: nav-wrapper.blade.php v2 with Alpine.js -->
 <div class="it-nav-wrapper">
     {{-- Header Center --}}
     <div class="it-header-center-wrapper">
@@ -40,7 +41,12 @@
                             @endif
                             <div class="it-search-wrapper">
                                 <span class="d-none d-md-block">Cerca</span>
-                                <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
+                                <button 
+                                    class="search-link rounded-icon" 
+                                    type="button" 
+                                    @click="$nextTick(() => document.getElementById('search-modal')?._x_data?.open())"
+                                    aria-label="Cerca nel sito"
+                                >
                                     <svg class="icon">
                                         <use href="#it-search"></use>
                                     </svg>
@@ -54,20 +60,38 @@
     </div>
 
     {{-- Navbar --}}
-    <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+    <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="mobileMenu()" @keydown.escape="close()">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="navbar navbar-expand-lg has-megamenu">
-                        <button class="custom-navbar-toggler" type="button" aria-controls="nav-main" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav-main" data-bs-toggle="navbarcollapsible">
+                        <button 
+                            class="custom-navbar-toggler md:hidden" 
+                            type="button" 
+                            @click="toggle()"
+                            :aria-expanded="isOpen"
+                            aria-controls="nav-main" 
+                            aria-label="Mostra/Nascondi la navigazione" 
+                            data-bs-target="#nav-main" 
+                            data-bs-toggle="navbarcollapsible"
+                        >
                             <svg class="icon">
                                 <use href="#it-burger"></use>
                             </svg>
                         </button>
-                        <div class="navbar-collapsable" id="nav-main">
+                        <div 
+                            class="navbar-collapsable transition-all duration-300" 
+                            id="nav-main"
+                            x-show="isOpen || !isMobile()"
+                            @click.outside="close()"
+                        >
                             <div class="overlay" style="display: none;"></div>
                             <div class="close-div">
-                                <button class="btn close-menu" type="button">
+                                <button 
+                                    class="btn close-menu" 
+                                    type="button"
+                                    @click="close()"
+                                >
                                     <span class="visually-hidden">Nascondi la navigazione</span>
                                     <svg class="icon">
                                         <use href="#it-close-big"></use>
@@ -75,7 +99,7 @@
                                 </button>
                             </div>
                             <div class="menu-wrapper">
-                                <a href="/" class="logo-hamburger">
+                                <a href="/" class="logo-hamburger" @click="closeOnItemClick()">
                                     <svg class="icon" aria-hidden="true">
                                         <use href="#it-pa"></use>
                                     </svg>
@@ -87,7 +111,11 @@
                                     <ul class="navbar-nav">
                                         @foreach($items as $item)
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ $item['url'] ?? '#' }}">
+                                            <a 
+                                                class="nav-link" 
+                                                href="{{ $item['url'] ?? '#' }}"
+                                                @click="closeOnItemClick()"
+                                            >
                                                 <span>{{ $item['label'] ?? '' }}</span>
                                             </a>
                                         </li>
@@ -104,12 +132,25 @@
 </div>
 
 {{-- Search Modal --}}
-<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="search-modal-label" aria-hidden="true">
+<div 
+    class="modal fade" 
+    id="search-modal" 
+    tabindex="-1" 
+    x-data="modal()"
+    @keydown.escape="close()"
+    aria-labelledby="search-modal-label" 
+    aria-hidden="true"
+>
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="search-modal-label">Cerca nel sito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                <button 
+                    type="button" 
+                    class="btn-close" 
+                    @click="close()"
+                    aria-label="Chiudi"
+                ></button>
             </div>
             <div class="modal-body">
                 <form action="{{ $search['action'] ?? '/it/ricerca' }}" method="get">

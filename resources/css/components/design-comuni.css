@@ -65,11 +65,24 @@
 /* Hero Component
    ========================================================================== */
 .it-hero-wrapper {
-    background-color: #0066CC; color: #FFFFFF; padding: 3rem 0;
+    background-color: #FFFFFF; 
+    color: #191919; 
+    padding: 3rem 0;
 }
 
-.it-hero-wrapper .title-xxxlarge {
-    @apply text-4xl md:text-5xl font-bold mb-4;
+.it-hero-wrapper.bg-dark {
+    background-color: #0066CC !important;
+    color: #FFFFFF !important;
+}
+
+.it-hero-wrapper .title-xxxlarge,
+.it-hero-wrapper h1 {
+    color: #191919 !important;
+}
+
+.it-hero-wrapper.bg-dark .title-xxxlarge,
+.it-hero-wrapper.bg-dark h1 {
+    color: #FFFFFF !important;
 }
 
 /* Featured News Component
@@ -214,3 +227,530 @@
 .it-footer .ue-logo {
     @apply h-12 w-auto mb-4;
 }
+
+/* ==========================================================================
+   FAQ Components - Bootstrap Italia Exact Replica
+   Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/domande-frequenti.html
+   ========================================================================== */
+
+/* Breadcrumb Component
+   ========================================================================== */
+.cmp-breadcrumbs {
+    @apply py-4;
+}
+
+.cmp-breadcrumbs .breadcrumb {
+    @apply flex flex-wrap items-center text-sm;
+}
+
+.cmp-breadcrumbs .breadcrumb-item {
+    @apply flex items-center;
+}
+
+.cmp-breadcrumbs .breadcrumb-item a {
+    @apply text-[#0066CC] hover:underline;
+}
+
+.cmp-breadcrumbs .breadcrumb-item.active {
+    @apply text-gray-700;
+}
+
+.cmp-breadcrumbs .separator {
+    @apply mx-2 text-gray-400;
+}
+
+/* Hero Component (FAQ Style)
+   ========================================================================== */
+.cmp-hero {
+    @apply py-8;
+}
+
+.cmp-hero .it-hero-wrapper {
+    @apply bg-white;
+}
+
+.cmp-hero .it-hero-text-wrapper {
+    @apply pt-0 ps-0 pb-4 lg:pb-[60px];
+}
+
+.cmp-hero h1 {
+    @apply text-black text-4xl lg:text-5xl font-bold;
+}
+
+.cmp-hero .hero-text {
+    @apply mt-4 text-lg text-gray-700;
+}
+
+/* Search Input (FAQ Style)
+   ========================================================================== */
+.cmp-input-search {
+    @apply py-4;
+}
+
+.cmp-input-search .autocomplete-wrapper {
+    @apply relative;
+}
+
+.cmp-input-search .input-group {
+    @apply flex items-center relative;
+}
+
+.cmp-input-search .autocomplete {
+    @apply flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:border-[#0066CC] focus:ring-1 focus:ring-[#0066CC];
+}
+
+.cmp-input-search .input-group-append {
+    @apply relative;
+}
+
+.cmp-input-search .input-group-append .btn {
+    @apply h-full px-6 py-2 bg-[#0066CC] text-white font-medium rounded-r-lg hover:bg-[#003D73] transition-colors border border-[#0066CC];
+}
+
+.cmp-input-search .autocomplete-icon {
+    @apply absolute right-16 top-1/2 -translate-y-1/2 pointer-events-none;
+}
+
+.cmp-input-search .autocomplete-list {
+    @apply absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto z-10 hidden;
+}
+
+/* Accordion FAQ Component
+   ========================================================================== */
+.cmp-accordion.faq {
+    @apply mb-8;
+}
+
+.cmp-accordion.faq .accordion-item {
+    @apply border-b border-gray-200;
+}
+
+.cmp-accordion.faq .accordion-header {
+    @apply m-0;
+}
+
+.cmp-accordion.faq .accordion-button {
+    @apply w-full px-4 py-3 flex items-center justify-between text-left bg-white hover:bg-gray-50 transition-colors border-0;
+}
+
+.cmp-accordion.faq .accordion-button.collapsed {
+    @apply bg-white;
+}
+
+.cmp-accordion.faq .accordion-button:not(.collapsed) {
+    @apply bg-gray-50;
+}
+
+.cmp-accordion.faq .button-wrapper {
+    @apply flex items-center justify-between w-full gap-2;
+}
+
+.cmp-accordion.faq .icon-wrapper {
+    @apply flex items-center flex-shrink-0;
+}
+
+.cmp-accordion.faq .icon-wrapper svg {
+    @apply transition-transform duration-200;
+}
+
+/* Alpine.js rotate-180 for accordion icon */
+.cmp-accordion.faq .icon-wrapper svg.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* x-cloak for Alpine.js - prevents flash before Alpine loads */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Typography - typo "snall" is intentional from Bootstrap Italia reference */
+.cmp-accordion.faq .title-snall-semi-bold {
+    @apply text-base font-semibold leading-tight;
+}
+
+.cmp-accordion.faq .accordion-collapse {
+    @apply overflow-hidden;
+}
+
+.cmp-accordion.faq .accordion-collapse.p-0 {
+    @apply p-0;
+}
+
+.cmp-accordion.faq .accordion-body {
+    @apply px-4 py-4 text-gray-700;
+}
+
+.cmp-accordion.faq .accordion-body p {
+    @apply mb-3 last:mb-0;
+}
+
+.cmp-accordion.faq .title-snall-semi-bold {
+    @apply text-base font-semibold;
+}
+
+.cmp-accordion.faq .accordion-collapse {
+    @apply overflow-hidden;
+}
+
+.cmp-accordion.faq .accordion-collapse.p-0 {
+    @apply p-0;
+}
+
+.cmp-accordion.faq .accordion-body {
+    @apply px-4 py-4 text-gray-700;
+}
+
+.cmp-accordion.faq .accordion-body p {
+    @apply mb-3 last:mb-0;
+}
+
+/* CTA Section (Single Button Links)
+   ========================================================================== */
+.cmp-single-button-links {
+    @apply py-8;
+}
+
+.cmp-single-button-links .card {
+    @apply bg-gray-100 border-0 rounded-lg p-6;
+}
+
+.cmp-single-button-links .card-body {
+    @apply flex flex-col items-start gap-4;
+}
+
+.cmp-single-button-links .title-small-semi-bold {
+    @apply text-xl font-semibold text-gray-900 mb-0;
+}
+
+.cmp-single-button-links .card-body p {
+    @apply mb-4 text-gray-700;
+}
+
+.cmp-single-button-links .btn-primary {
+    @apply px-6 py-2 bg-[#0066CC] text-white font-medium rounded-lg hover:bg-[#003D73] transition-colors;
+}
+
+/* ==========================================================================
+   Segnalazioni Elenco - Visual Components
+   Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+   ========================================================================== */
+
+/* Sidebar Filters
+   ========================================================================== */
+.category-list__title {
+    @apply text-sm font-semibold uppercase tracking-wide text-gray-700 mb-3;
+}
+
+.checkbox-body {
+    @apply py-1;
+}
+
+.checkbox-body.border-light {
+    @apply border-gray-200;
+}
+
+.subtitle-small_semi-bold {
+    @apply text-sm font-semibold text-gray-800;
+}
+
+.category-list__list {
+    @apply cursor-pointer hover:text-[#0066CC] transition-colors;
+}
+
+/* Tabs Navigation
+   ========================================================================== */
+.nav-tabs {
+    @apply flex border-b border-gray-200 mb-10 mt-3;
+}
+
+.nav-tabs .nav-item {
+    @apply flex-1;
+}
+
+.nav-tabs .nav-link {
+    @apply block py-2 text-center font-semibold text-gray-600 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-800 transition-colors cursor-pointer;
+}
+
+.nav-tabs .nav-link.active {
+    @apply text-[#0066CC] border-[#0066CC];
+}
+
+.title-medium-semi-bold {
+    @apply text-base font-semibold;
+}
+
+/* Cards Segnalazione
+   ========================================================================== */
+.cmp-card {
+    @apply mb-4 lg:mb-8;
+}
+
+.card.has-bkg-grey {
+    @apply bg-gray-50;
+}
+
+.card.shadow-sm {
+    @apply shadow-sm;
+}
+
+.cmp-info-button-card .card {
+    @apply p-3 lg:p-4;
+}
+
+.medium-title {
+    @apply text-lg font-semibold text-gray-900 mb-0;
+}
+
+.card-info {
+    @apply text-sm text-gray-600 mt-1;
+}
+
+.card-info span {
+    @apply text-[#0066CC];
+}
+
+/* Accordion Dettagli
+   ========================================================================== */
+.accordion-button .button-wrapper {
+    @apply flex items-center justify-between w-full;
+}
+
+.accordion-button .icon-wrapper {
+    @apply flex items-center flex-shrink-0;
+}
+
+.accordion-button .icon-wrapper svg {
+    @apply transition-transform duration-200;
+}
+
+.accordion-button[aria-expanded="true"] .icon-wrapper svg {
+    transform: rotate(180deg);
+}
+
+.title-xsmall-semi-bold {
+    @apply text-xs font-semibold;
+}
+
+/* Single Line Info
+   ========================================================================== */
+.single-line-info {
+    @apply border-b border-gray-200 py-2;
+}
+
+.single-line-info.border-light {
+    @apply border-gray-200;
+}
+
+.text-paragraph-small {
+    @apply text-xs text-gray-500 font-medium mb-1;
+}
+
+.data-text {
+    @apply text-sm text-gray-800;
+}
+
+/* Info Summary Section
+   ========================================================================== */
+.cmp-info-summary {
+    @apply mt-4 bg-white border-0;
+}
+
+.cmp-info-summary .card {
+    @apply border-0;
+}
+
+.cmp-info-summary .card-header {
+    @apply border-b border-gray-200 p-0 mb-0 flex justify-end;
+}
+
+.cmp-info-summary .card-body {
+    @apply p-0;
+}
+
+.text-button-sm-semi {
+    @apply text-sm font-semibold;
+}
+
+.t-primary {
+    @apply text-[#0066CC];
+}
+
+/* Rating Section
+   ========================================================================== */
+.bg-primary {
+    background-color: #0066CC;
+}
+
+.cmp-rating {
+    @apply py-20 lg:py-32;
+}
+
+.cmp-rating .card-wrapper {
+    @apply shadow-lg;
+}
+
+.cmp-rating__card-first .card-header {
+    @apply border-0;
+}
+
+.title-medium-2-semi-bold {
+    @apply text-lg font-semibold text-white;
+}
+
+.rating {
+    @apply flex gap-2 justify-center;
+}
+
+.rating input[type="radio"] {
+    @apply sr-only;
+}
+
+.rating .full {
+    @apply cursor-pointer p-1;
+}
+
+.rating .full svg {
+    @apply w-8 h-8 fill-gray-400 transition-colors;
+}
+
+.rating .full:hover svg,
+.rating .full.active svg {
+    @apply fill-[#FFB300];
+}
+
+/* Steps Rating
+   ========================================================================== */
+.cmp-steps-rating {
+    @apply mt-4;
+}
+
+.iscrizioni-header {
+    @apply w-full;
+}
+
+.step-title {
+    @apply flex flex-col lg:flex-row flex-wrap items-center justify-between drop-shadow text-white;
+}
+
+.step {
+    @apply text-sm font-medium;
+}
+
+.cmp-radio-list ul {
+    @apply list-none p-0 m-0;
+}
+
+.cmp-radio-list__item {
+    @apply border-b border-gray-200 py-2;
+}
+
+.cmp-radio-list__item input[type="radio"] {
+    @apply mr-2;
+}
+
+.cmp-radio-list__item label {
+    @apply text-sm text-gray-800 cursor-pointer;
+}
+
+.cmp-radio-list__item label.active {
+    @apply text-[#0066CC];
+}
+
+/* Modal Styling
+   ========================================================================== */
+.modal-content {
+    @apply rounded-lg border-0 shadow-xl;
+}
+
+.modal-header {
+    @apply border-b border-gray-200 p-4;
+}
+
+.modal-title {
+    @apply text-sm font-semibold;
+}
+
+.btn-close {
+    @apply p-2 bg-transparent border-0 cursor-pointer;
+}
+
+.modal-body {
+    @apply p-4 text-black;
+}
+
+.modal-body .border-bottom {
+    @apply border-b border-gray-200 pt-2 pb-2;
+}
+
+.modal-body .border-light {
+    @apply border-gray-200;
+}
+
+.modal-body .title-xsmall {
+    @apply text-xs font-medium pt-2;
+}
+
+.modal-body .subtitle-small {
+    @apply text-sm text-gray-700 pb-2;
+}
+
+.modal-footer {
+    @apply border-t border-gray-200 p-4;
+}
+
+/* Map Box
+   ========================================================================== */
+.map-box {
+    @apply relative w-full;
+}
+
+.map-box .pin {
+    @apply absolute bg-transparent border-0 cursor-pointer;
+}
+
+/* Text Button CTA
+   ========================================================================== */
+.cmp-text-button {
+    @apply mt-0;
+}
+
+.cmp-text-button .title-xxlarge {
+    @apply text-2xl font-bold mb-0;
+}
+
+.cmp-text-button .text-wrapper {
+    @apply mb-3 mt-3;
+}
+
+.cmp-text-button .subtitle-small {
+    @apply text-sm text-gray-700 mb-3 mt-3;
+}
+
+.cmp-text-button .button-wrapper {
+    @apply mt-2 mb-4 lg:mb-0;
+}
+
+/* Search Results Count
+   ========================================================================== */
+.search-results {
+    @apply text-sm font-medium text-gray-700;
+}
+
+/* Filter Buttons
+   ========================================================================== */
+.btn.p-0 {
+    @apply py-0 px-0 bg-transparent border-0 cursor-pointer;
+}
+
+.rounded-icon {
+    @apply inline-flex items-center justify-center;
+}
+
+.t-primary {
+    @apply text-[#0066CC];
+}
+
+.title-xsmall-semi-bold {
+    @apply text-xs font-semibold;
+}
+

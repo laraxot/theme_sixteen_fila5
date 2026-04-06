@@ -1,35 +1,23 @@
 @props(['data' => []])
 
-{{-- Hero Section - Bootstrap Italia Exact Replica --}}
 @php
-    $title = $data['title'] ?? 'NOME DEL COMUNE';
-    $subtitle = $data['subtitle'] ?? 'CONTENUTI IN EVIDENZA';
-    $backgroundImage = $data['backgroundImage'] ?? null;
-    $overlay = $data['overlay'] ?? true;
-    $theme = $data['theme'] ?? 'dark';
+    $title = $data['title'] ?? '';
+    $subtitle = $data['subtitle'] ?? '';
 @endphp
 
-<div class="it-hero-wrapper it-{{ $theme }} @if($overlay) it-overlay @endif">
-    @if($backgroundImage)
-    <div class="img-responsive-wrapper">
-        <div class="img-responsive">
-            <div class="img-wrapper">
-                <img src="{{ $backgroundImage }}" alt="{{ $title }}">
-            </div>
-        </div>
-    </div>
-    @endif
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="it-hero-text-wrapper bg-{{ $theme }}">
-                    <h1 class="no_toc">{{ $title }}</h1>
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+        <div class="cmp-hero">
+            <section class="it-hero-wrapper bg-white align-items-start">
+                <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
+                    <h1 class="text-black" data-element="page-name">{{ $title }}</h1>
                     @if($subtitle)
-                    <p class="d-none d-lg-block">{{ $subtitle }}</p>
+                        <div class="hero-text">
+                            <p>{{ $subtitle }}</p>
+                        </div>
                     @endif
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </div>

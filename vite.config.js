@@ -31,7 +31,7 @@ export default defineConfig({
         },
         minify: 'esbuild',
         sourcemap: false,
-        target: 'es2015',
+        target: 'es2020',
         cssCodeSplit: true,
         assetsInlineLimit: 4096
     },

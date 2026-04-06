@@ -11,7 +11,8 @@
 ])
 
 {{-- Sezione principale con sfondo immagine --}}
-<section class="relative py-12 lg:py-20 bg-blue-900 text-white overflow-hidden">
+{{-- FIXED: Changed from bg-blue-900 to green gradient to match Design Comuni reference --}}
+<section class="relative py-12 lg:py-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white overflow-hidden">
 
     {{-- Background image overlay --}}
     @if($background_image)

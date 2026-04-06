@@ -6,13 +6,19 @@
         <a class="visually-hidden-focusable" href="#footer">Vai al footer</a>
     </div><!-- /skiplink -->
 
-    
-        <x-section slug="header" />
+    <x-section slug="header" />
 
-        <main>
+    <main
+        @if (request()->routeIs('tests.*'))
+            data-page="{{ request()->route('slug') }}"
+        @endif
+    >
+        <div class="container" id="main-container">
             {{ $slot }}
-        </main>
+        </div>
+    </main>
 
-        <x-section slug="footer" tpl="full" />
-    
+    @include('pub_theme::components.sections.search-modal')
+
+    <x-section slug="footer" tpl="full" />
 </x-layouts.main>

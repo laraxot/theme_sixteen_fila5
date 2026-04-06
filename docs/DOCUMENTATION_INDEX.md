@@ -98,10 +98,11 @@
 | [Roadmap](./roadmap/README.md) | 📁 | Project roadmap |
 | [Product Docs](./product/README.md) | 📁 | Product documentation |
 | [Design Comuni Screenshots](./screenshots/) | 📁 | Visual comparisons |
+| [FAQ Page Parity](./FAQ-PARITY.md) | ✅ | FAQ page visual parity |
+| [Homepage Parity](./homepage-parity-2026-04-02.md) | ✅ | Homepage visual parity |
+| [Visual Parity Analysis](./visual-parity/00-INDEX.md) | ✅ NEW | Cross-page visual comparison |
 
----
-
-## 🔗 Bidirectional Links
+### 🔗 Bidirectional Links
 
 All documentation files now include **bidirectional links** for easy navigation:
 
@@ -122,6 +123,10 @@ All documentation files now include **bidirectional links** for easy navigation:
 - [[layout-hierarchy]] - Layouts
 - [[blocks-system]] - Blocks
 - [[README]] - Theme overview
+
+### From FAQ Docs
+- [[faq-screenshots.md]] - Screenshot script docs
+- [[bashscripts/docs/faq-screenshots.md]] - External script docs
 
 ---
 
@@ -199,6 +204,8 @@ laravel/Themes/Sixteen/docs/
 
 | Date | Version | Change | Author |
 |------|---------|--------|--------|
+| 2026-04-03 | 2.3 | Added FAQ Page Parity docs + bidirectional links | AI Agent |
+| 2026-04-02 | 2.2 | Added Homepage visual parity docs | AI Agent |
 | 2026-04-01 | 2.0 | Complete documentation reorganization | AI Agent Team |
 | 2026-04-01 | 2.1 | Added architecture docs (NEW) | AI Agent Team |
 | 2026-04-01 | 2.2 | Added bidirectional links | AI Agent Team |
