@@ -1,0 +1,1022 @@
+/**
+ * Bootstrap Italia → Tailwind CSS Component Mapping
+ * 
+ * This file maps all Bootstrap Italia classes used in Design Comuni
+ * to Tailwind CSS @apply components.
+ * 
+ * NO Bootstrap Italia CSS imports - Pure Tailwind only
+ * 
+ * Location: laravel/Themes/Sixteen/resources/css/tailwind-bootstrap-mapping.css
+ * Imported in: app.css
+ */
+
+@layer components {
+  /* ============================================================
+     GRID SYSTEM - Bootstrap .container, .row, .col-*
+     ============================================================ */
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .row {
+    @apply flex flex-wrap -mx-4;
+  }
+  
+  .col-12,
+  .col-md-12,
+  .col-lg-12 {
+    @apply w-full px-4;
+  }
+  
+  .col-md-3 {
+    @apply w-full md:w-1/4 px-4;
+  }
+  
+  .col-md-4 {
+    @apply w-full md:w-1/3 px-4;
+  }
+  
+  .col-md-6 {
+    @apply w-full md:w-1/2 px-4;
+  }
+  
+  .col-md-9 {
+    @apply w-full md:w-3/4 px-4;
+  }
+  
+  .col-lg-3 {
+    @apply w-full lg:w-1/4 px-4;
+  }
+  
+  .col-lg-4 {
+    @apply w-full lg:w-1/3 px-4;
+  }
+  
+  .col-lg-5 {
+    @apply w-full lg:w-5/12 px-4;
+  }
+  
+  .col-lg-6 {
+    @apply w-full lg:w-1/2 px-4;
+  }
+  
+  .col-lg-9 {
+    @apply w-full lg:w-3/4 px-4;
+  }
+  
+  .col-lg-10 {
+    @apply w-full lg:w-10/12 px-4;
+  }
+  
+  .col-xl-6 {
+    @apply w-full xl:w-1/2 px-4;
+  }
+  
+  .col-xl-8 {
+    @apply w-full xl:w-2/3 px-4;
+  }
+  
+  /* ============================================================
+     CARD COMPONENTS
+     ============================================================ */
+  
+  .card {
+    @apply border border-gray-200 rounded-lg shadow-sm bg-white;
+  }
+  
+  .card-body {
+    @apply p-4;
+  }
+  
+  .card-header {
+    @apply border-b border-gray-200 p-4;
+  }
+  
+  .card-footer {
+    @apply border-t border-gray-200 p-4;
+  }
+  
+  .card-teaser {
+    @apply border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white;
+  }
+  
+  .card-teaser-image {
+    @apply relative flex flex-col h-full;
+  }
+  
+  .card-teaser-wrapper {
+    @apply flex flex-col h-full;
+  }
+  
+  .card-teaser-wrapper-equal {
+    @apply flex-1;
+  }
+  
+  .card-teaser-block-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+  
+  .card-image {
+    @apply w-full h-auto;
+  }
+  
+  .card-image-wrapper {
+    @apply relative overflow-hidden rounded-lg shadow-md h-48 bg-gray-200;
+  }
+  
+  .card-image-rounded {
+    @apply rounded-lg;
+  }
+  
+  .card-wrapper {
+    @apply h-full;
+  }
+  
+  .card-text {
+    @apply text-gray-700 text-sm;
+  }
+  
+  .card-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
+  }
+  
+  .card-bg {
+    @apply bg-blue-50;
+  }
+  
+  .card-bg-blue {
+    @apply bg-blue-600 text-white;
+  }
+  
+  .card-bg-dark {
+    @apply bg-gray-800 text-white;
+  }
+  
+  .card-flex {
+    @apply flex flex-col;
+  }
+  
+  .card-overlapping {
+    @apply relative -mb-8 z-10;
+  }
+  
+  /* Card variants for Bootstrap Italia */
+  .card-bg-primary {
+    @apply border-blue-600 bg-blue-50;
+  }
+  
+  .card-bg-danger {
+    @apply border-red-600 bg-red-50;
+  }
+  
+  .card-bg-warning {
+    @apply border-amber-500 bg-amber-50;
+  }
+  
+  /* ============================================================
+     BUTTON & COMPONENT CLASSES
+     ============================================================ */
+  
+  .btn {
+    @apply inline-block px-6 py-3 font-semibold text-base transition-colors rounded-none;
+  }
+  
+  .btn-primary {
+    @apply bg-[#007A52] text-white hover:bg-[#005c43];
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-600;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  
+  .btn-icon {
+    @apply inline-flex items-center justify-center;
+  }
+  
+  .btn-outline-primary {
+    @apply border-2 border-[#007A52] text-[#007A52] bg-transparent hover:bg-[#007A52] hover:text-white;
+  }
+  
+  .btn-primary {
+    @apply bg-[#007A52] text-white hover:bg-[#005c43];
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-600;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  
+  .btn-icon {
+    @apply inline-flex items-center justify-center;
+  }
+  
+  .btn-outline-primary {
+    @apply border-2 border-[#007A52] text-[#007A52] bg-transparent hover:bg-[#007A52] hover:text-white;
+  }
+  
+  .btn-full {
+    @apply w-full;
+  }
+  
+  .btn-back {
+    @apply inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium;
+  }
+  
+  .btn-next {
+    @apply inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium;
+  }
+  
+  .custom-navbar-toggler {
+    @apply inline-flex items-center justify-center p-2 border-2 border-gray-300 rounded-lg hover:border-gray-500;
+  }
+  
+  .chip,
+  .chip-simple {
+    @apply inline-block px-3 py-1 bg-gray-200 text-gray-800 rounded-full text-xs font-medium;
+  }
+  
+  .chip-label {
+    @apply font-semibold text-gray-700;
+  }
+  
+  .badge {
+    @apply inline-block px-2 py-1 text-xs font-semibold rounded-full;
+  }
+  
+  /* Footer styles */
+  /* ============================================================
+     FOOTER STYLING - Design Comuni Reference
+     https://italia.github.io/design-comuni-pagine-statiche/
+     ============================================================ */
+  
+  .it-footer {
+    @apply bg-slate-800 text-white;
+  }
+  
+  .it-footer-main {
+    @apply bg-slate-800 py-12;
+  }
+  
+  .it-footer-bottom {
+    @apply bg-slate-900 py-6 border-t border-slate-700;
+  }
+  
+  .footer-items-wrapper {
+    @apply mb-8;
+  }
+  
+  .logo-wrapper {
+    @apply flex items-start gap-6 mb-12 pb-8 border-b border-slate-700;
+  }
+  
+  .ue-logo {
+    @apply w-24 h-auto;
+  }
+  
+  .it-brand-wrapper {
+    @apply flex-1;
+  }
+  
+  .it-brand-wrapper a {
+    @apply flex items-center gap-3 text-white no-underline hover:opacity-80;
+  }
+  
+  .it-brand-wrapper .icon {
+    @apply w-12 h-12 text-white;
+  }
+  
+  .it-brand-text h2 {
+    @apply text-xl font-bold text-white m-0;
+  }
+  
+  .footer-heading-title {
+    @apply text-sm font-bold text-white mb-4 pb-3 border-b border-slate-600 uppercase tracking-wide;
+  }
+  
+  .footer-list {
+    @apply list-none p-0 m-0 space-y-2;
+  }
+  
+  .footer-list li {
+    @apply text-sm;
+  }
+  
+  .footer-list a {
+    @apply text-slate-300 hover:text-white underline-offset-2 hover:underline transition-colors;
+  }
+  
+  .footer-list address {
+    @apply not-italic;
+  }
+  
+  .footer-list-item {
+    @apply mb-3;
+  }
+  
+  .footer-list-item strong {
+    @apply text-white font-bold;
+  }
+  
+  .footer-list-item p {
+    @apply text-slate-300 text-sm m-0 mt-1;
+  }
+  
+  .social-wrapper {
+    @apply border-t border-slate-700 pt-6;
+  }
+  
+  .social-list {
+    @apply flex gap-4;
+  }
+  
+  .social-list a {
+    @apply text-slate-300 hover:text-white transition-colors;
+  }
+  
+  .social-list .icon {
+    @apply w-5 h-5;
+  }
+  
+  .footer-bottom-list {
+    @apply flex flex-wrap gap-4;
+  }
+  
+  .footer-bottom-list a {
+    @apply text-slate-300 hover:text-white text-sm underline-offset-2 hover:underline transition-colors;
+  }
+  
+  /* ============================================================
+     SPACING UTILITIES - Bootstrap margin/padding
+     ============================================================ */
+  
+  /* Margin Bottom */
+  .mb-0 { @apply mb-0; }
+  .mb-1 { @apply mb-1; }
+  .mb-2 { @apply mb-2; }
+  .mb-3 { @apply mb-3; }
+  .mb-4 { @apply mb-4; }
+  .mb-5 { @apply mb-6; }
+  .mb-10 { @apply mb-10; }
+  
+  /* Padding Bottom */
+  .pb-0 { @apply pb-0; }
+  .pb-1 { @apply pb-1; }
+  .pb-2 { @apply pb-2; }
+  .pb-3 { @apply pb-3; }
+  .pb-4 { @apply pb-4; }
+  .pb-5 { @apply pb-6; }
+  .pb-10 { @apply pb-10; }
+  
+  /* Padding Top */
+  .pt-0 { @apply pt-0; }
+  .pt-1 { @apply pt-1; }
+  .pt-2 { @apply pt-2; }
+  .pt-3 { @apply pt-3; }
+  .pt-4 { @apply pt-4; }
+  .pt-5 { @apply pt-6; }
+  
+  /* Horizontal Padding */
+  .px-0 { @apply px-0; }
+  .px-1 { @apply px-1; }
+  .px-2 { @apply px-2; }
+  .px-3 { @apply px-3; }
+  .px-4 { @apply px-4; }
+  .px-5 { @apply px-6; }
+  
+  /* Padding Start (Left) */
+  .ps-0 { @apply ps-0; }
+  .ps-1 { @apply ps-1; }
+  .ps-2 { @apply ps-2; }
+  .ps-3 { @apply ps-3; }
+  
+  /* Margin End (Right) */
+  .me-0 { @apply me-0; }
+  .me-1 { @apply me-1; }
+  .me-2 { @apply me-2; }
+  .me-3 { @apply me-3; }
+  
+  /* Margin Top */
+  .mt-0 { @apply mt-0; }
+  .mt-1 { @apply mt-1; }
+  .mt-2 { @apply mt-2; }
+  .mt-3 { @apply mt-3; }
+  
+  /* Margin Y (vertical) */
+  .my-0 { @apply my-0; }
+  .my-1 { @apply my-1; }
+  .my-2 { @apply my-2; }
+  .my-3 { @apply my-3; }
+  
+  /* Padding Y (vertical) */
+  .py-0 { @apply py-0; }
+  .py-1 { @apply py-1; }
+  .py-2 { @apply py-2; }
+  .py-3 { @apply py-3; }
+  .py-4 { @apply py-4; }
+  
+  /* ============================================================
+     DISPLAY UTILITIES
+     ============================================================ */
+  
+  .d-none { @apply hidden; }
+  .d-block { @apply block; }
+  .d-inline { @apply inline; }
+  .d-inline-block { @apply inline-block; }
+  .d-flex { @apply flex; }
+  .d-grid { @apply grid; }
+  
+  /* Responsive display variants */
+  .d-md-none { @apply md:hidden; }
+  .d-md-block { @apply md:block; }
+  .d-md-inline { @apply md:inline; }
+  .d-md-inline-block { @apply md:inline-block; }
+  .d-md-flex { @apply md:flex; }
+  
+  .d-lg-none { @apply lg:hidden; }
+  .d-lg-block { @apply lg:block; }
+  .d-lg-inline { @apply lg:inline; }
+  .d-lg-inline-block { @apply lg:inline-block; }
+  .d-lg-flex { @apply lg:flex; }
+  
+  /* ============================================================
+     FLEXBOX UTILITIES
+     ============================================================ */
+  
+  .flex-wrap { @apply flex-wrap; }
+  .flex-nowrap { @apply flex-nowrap; }
+  .flex-column { @apply flex-col; }
+  .flex-row { @apply flex-row; }
+  
+  .flex-lg-row {
+    @apply flex-col lg:flex-row;
+  }
+  
+  .justify-content-start { @apply justify-start; }
+  .justify-content-end { @apply justify-end; }
+  .justify-content-center { @apply justify-center; }
+  .justify-content-between { @apply justify-between; }
+  .justify-content-around { @apply justify-around; }
+  
+  .align-items-start { @apply items-start; }
+  .align-items-end { @apply items-end; }
+  .align-items-center { @apply items-center; }
+  .align-items-baseline { @apply items-baseline; }
+  .align-items-stretch { @apply items-stretch; }
+  
+  .align-top { @apply align-top; }
+  .align-middle { @apply align-middle; }
+  .align-bottom { @apply align-bottom; }
+  
+  .gap-1 { @apply gap-1; }
+  .gap-2 { @apply gap-2; }
+  .gap-3 { @apply gap-3; }
+  .gap-4 { @apply gap-4; }
+  
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  
+  .fw-light { @apply font-light; }
+  .fw-normal { @apply font-normal; }
+  .fw-semibold { @apply font-semibold; }
+  .fw-bold { @apply font-bold; }
+  
+  .text-start { @apply text-left; }
+  .text-center { @apply text-center; }
+  .text-end { @apply text-right; }
+  
+  .text-white { @apply text-white; }
+  .text-black { @apply text-black; }
+  .text-secondary { @apply text-gray-600; }
+  .text-muted { @apply text-gray-500; }
+  .text-success { @apply text-green-600; }
+  .text-danger { @apply text-red-600; }
+  .text-warning { @apply text-amber-500; }
+  .text-info { @apply text-blue-500; }
+  
+  .text-sans-serif { @apply font-sans; }
+  .text-monospace { @apply font-mono; }
+  
+  /* Custom text utilities for Design Comuni */
+  .title-xsmall-semi-bold { @apply text-xs font-semibold; }
+  .title-small-semi-bold { @apply text-sm font-semibold; }
+  .text-paragraph-medium { @apply text-base; }
+  .text-paragraph-small { @apply text-sm; }
+  .text-paragraph-card { @apply text-sm text-gray-700; }
+  .text-button-normal { @apply text-sm font-medium; }
+  
+  /* ============================================================
+     BORDER & COLORS
+     ============================================================ */
+  
+  .border { @apply border; }
+  .border-0 { @apply border-0; }
+  .border-light { @apply border-gray-200; }
+  .border-dark { @apply border-gray-800; }
+  .border-top { @apply border-t; }
+  .border-bottom { @apply border-b; }
+  .border-start { @apply border-s; }
+  .border-end { @apply border-e; }
+  
+  .rounded { @apply rounded; }
+  .rounded-sm { @apply rounded-sm; }
+  .rounded-lg { @apply rounded-lg; }
+  .rounded-full { @apply rounded-full; }
+  .rounded-0 { @apply rounded-none; }
+  
+  .shadow-sm { @apply shadow-sm; }
+  .shadow { @apply shadow; }
+  .shadow-lg { @apply shadow-lg; }
+  .shadow-none { @apply shadow-none; }
+  
+  .shadow-rating { @apply shadow-md; }
+  
+  .bg-white { @apply bg-white; }
+  .bg-light { @apply bg-gray-50; }
+  .bg-dark { @apply bg-gray-900; }
+  .bg-primary { @apply bg-blue-600; }
+  .bg-secondary { @apply bg-gray-500; }
+  .bg-success { @apply bg-green-600; }
+  .bg-danger { @apply bg-red-600; }
+  .bg-warning { @apply bg-amber-500; }
+  .bg-info { @apply bg-blue-500; }
+  
+  /* ============================================================
+     SIZE UTILITIES
+     ============================================================ */
+  
+  .h-100 { @apply h-full; }
+  .h-auto { @apply h-auto; }
+  .w-100 { @apply w-full; }
+  .w-auto { @apply w-auto; }
+  
+  /* ============================================================
+     ACCESSIBILITY
+     ============================================================ */
+  
+  .visually-hidden {
+    @apply absolute w-px h-px p-0 overflow-hidden border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .visually-hidden-focusable {
+    @apply absolute w-px h-px p-0 overflow-hidden border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .visually-hidden-focusable:active,
+  .visually-hidden-focusable:focus {
+    @apply static w-auto h-auto p-0 overflow-visible;
+    clip: auto;
+  }
+  
+  /* ============================================================
+     CUSTOM ITALIA CLASSES
+     ============================================================ */
+  
+  .no-after {
+    @apply after:hidden;
+  }
+  
+  .list-item {
+    @apply block;
+  }
+  
+  .icon {
+    @apply inline-block;
+  }
+  
+  .icon-sm {
+    @apply w-4 h-4 inline-block;
+  }
+  
+  .icon-white {
+    @apply text-white;
+  }
+  
+  .icon-primary {
+    @apply text-blue-600;
+  }
+  
+  .read-more {
+    @apply inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium;
+  }
+  
+  .active {
+    @apply opacity-100;
+  }
+  
+  /* Rating component classes */
+  .cmp-rating__card-first {
+    @apply flex-1;
+  }
+  
+  .cmp-rating__card-second {
+    @apply flex-1;
+  }
+  
+  .bg-grey-card {
+    @apply bg-gray-100;
+  }
+  
+  /* ============================================================
+     UTILITY OVERRIDES
+     ============================================================ */
+  
+  .order-1 { @apply order-1; }
+  .order-2 { @apply order-2; }
+  .order-3 { @apply order-3; }
+  
+  .order-lg-1 { @apply lg:order-1; }
+  .order-lg-2 { @apply lg:order-2; }
+  .order-lg-3 { @apply lg:order-3; }
+
+  /* ============================================================
+     ADDITIONAL BOOTSTRAP UTILITIES (from analysis)
+     ============================================================ */
+
+  /* Display utilities - missed variants */
+  .d-lg-inline-flex { @apply lg:inline-flex; }
+
+  /* Alignment utilities */
+  .align-items-lg-center { @apply lg:items-center; }
+
+  /* Form components */
+  .form-control {
+    @apply w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-check {
+    @apply flex items-center gap-2;
+  }
+
+  .form-text {
+    @apply text-xs text-gray-500 mt-1;
+  }
+
+  .input-group {
+    @apply flex items-center;
+  }
+
+  .input-group-append {
+    @apply ml-2;
+  }
+
+  /* Autocomplete components */
+  .autocomplete-wrapper {
+    @apply relative;
+  }
+
+  .autocomplete {
+    @apply absolute top-full left-0 right-0 bg-white border border-gray-200 rounded shadow-md z-10;
+  }
+
+  .autocomplete-icon {
+    @apply absolute right-2 top-2 text-gray-400;
+  }
+
+  /* Dropdown components */
+  .dropdown {
+    @apply relative inline-block;
+  }
+
+  .dropdown-toggle {
+    @apply cursor-pointer flex items-center gap-1;
+  }
+
+  .dropdown-menu {
+    @apply absolute top-full left-0 min-w-max bg-white border border-gray-200 rounded shadow-md z-20 hidden;
+  }
+
+  .dropdown-menu.show {
+    @apply block;
+  }
+
+  .dropdown-item {
+    @apply px-4 py-2 hover:bg-gray-100 cursor-pointer;
+  }
+
+  /* Icon sizing - additional sizes */
+  .icon-md {
+    @apply w-6 h-6 inline-block;
+  }
+
+  .icon-xs {
+    @apply w-3 h-3 inline-block;
+  }
+
+  .icon-left {
+    @apply mr-2 inline-block;
+  }
+
+  /* Image utilities */
+  .img-fluid {
+    @apply max-w-full h-auto;
+  }
+
+  /* Shadow effects */
+  .button-shadow {
+    @apply shadow-md;
+  }
+
+  .drop-shadow {
+    @apply drop-shadow-lg;
+  }
+
+  /* Gap utilities (Bootstrap 5) */
+  .g-4 {
+    @apply gap-4;
+  }
+
+  /* Utility classes */
+  .full {
+    @apply w-full;
+  }
+
+  .close-div,
+  .close-menu {
+    @apply hidden;
+  }
+
+  /* Heading classes */
+  .h5 {
+    @apply text-lg font-semibold;
+  }
+
+  /* Design Comuni custom components */
+  .dc-homepage-parity {
+    @apply w-full;
+  }
+
+  .cmp-radio-list {
+    @apply space-y-2;
+  }
+
+  .cmp-radio-list__item {
+    @apply flex items-center gap-2;
+  }
+
+  .cmp-input-search {
+    @apply relative;
+  }
+
+  .cmp-contacts {
+    @apply space-y-4;
+  }
+
+  .cmp-rating {
+    @apply space-y-2;
+  }
+
+  .cmp-steps-rating {
+    @apply space-y-1;
+  }
+
+  .cmp-steps-rating__body {
+    @apply flex items-center gap-2;
+  }
+
+  .it-brand-text {
+    @apply text-gray-700 font-semibold;
+  }
+
+  .it-brand-tagline {
+    @apply text-gray-600 text-sm;
+  }
+
+  .category-top {
+    @apply uppercase text-xs font-bold tracking-wide text-gray-600;
+  }
+
+  .evidence-section {
+    @apply py-8 px-4;
+  }
+
+  .home-carousel-title {
+    @apply text-xl font-semibold mb-4;
+  }
+
+  /* Social icons - visible on desktop, hidden on mobile/tablet */
+  .it-socials {
+    @apply lg:flex;
+  }
+
+  .has-megamenu {
+    @apply relative;
+  }
+
+  /* Transition effects */
+  .fade {
+    @apply transition-opacity duration-300;
+  }
+
+  /* Grid column - additional variant */
+  .col {
+    @apply flex-1 px-4;
+  }
+
+  .col-sm-6 {
+    @apply w-full sm:w-1/2 px-4;
+  }
+}
+
+/* Override Bootstrap container to match Design Comuni breakpoints */
+@layer components {
+  .container {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1320px;
+    }
+  }
+}
+
+/* ============================================================
+   MODAL COMPONENTS (Bootstrap)
+   ============================================================ */
+@layer components {
+  /* Modal base state - hidden by default */
+  .modal {
+    @apply hidden fixed inset-0 z-50 overflow-hidden;
+  }
+
+  /* Modal shown state */
+  .modal.show {
+    @apply flex items-center justify-center overflow-y-auto;
+  }
+
+  /* Modal backdrop (overlay) - darkens background */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  }
+
+  .modal-backdrop.show {
+    @apply block;
+  }
+
+  /* Modal dialog container */
+  .modal-dialog {
+    @apply relative w-auto pointer-events-none;
+  }
+
+  .modal.show .modal-dialog {
+    @apply pointer-events-auto;
+  }
+
+  /* Modal content box */
+  .modal-content {
+    @apply relative bg-white pointer-events-auto rounded-lg shadow-2xl;
+    max-width: 95%;
+  }
+
+  @media (min-width: 576px) {
+    .modal-content {
+      max-width: 500px;
+    }
+  }
+
+  /* Modal header - title area */
+  .modal-header {
+    @apply border-b border-gray-200 px-6 py-4 flex items-center justify-between;
+  }
+
+  .modal-header .modal-title {
+    @apply text-xl font-semibold text-gray-900;
+  }
+
+  .modal-header .btn-close {
+    @apply text-2xl font-bold text-gray-600 hover:text-gray-900 cursor-pointer;
+    @apply bg-transparent border-0 p-0;
+  }
+
+  /* Modal body - content area */
+  .modal-body {
+    @apply relative p-6 text-gray-700;
+  }
+
+  /* Modal footer - action buttons */
+  .modal-footer {
+    @apply border-t border-gray-200 px-6 py-4 flex justify-end gap-2;
+  }
+
+  /* Modal fade animation */
+  .modal.fade {
+    @apply opacity-0 transition-opacity duration-200;
+  }
+
+  .modal.show.fade {
+    @apply opacity-100;
+  }
+
+  /* Scrollable body */
+  .modal-dialog-scrollable .modal-body {
+    @apply overflow-y-auto;
+  }
+
+  /* Centered modal */
+  .modal-dialog-centered {
+    @apply flex items-center justify-center min-h-full;
+  }
+
+  /* Extra large modal */
+  .modal-xl {
+    max-width: 1140px;
+  }
+
+  /* Large modal */
+  .modal-lg {
+    max-width: 800px;
+  }
+
+  /* Small modal */
+  .modal-sm {
+    max-width: 300px;
+  }
+
+  /* Fullscreen modal */
+  .modal-fullscreen {
+    @apply w-full h-full max-w-none;
+  }
+
+  @media (max-width: 575.98px) {
+    .modal-fullscreen-sm-down {
+      @apply w-full h-full max-w-none;
+    }
+  }
+
+  /* Modal static (no close on backdrop click) */
+  .modal.modal-static .modal-dialog {
+    @apply shake;
+  }
+
+  /* Search modal specific */
+  .modal-search {
+    @apply bg-white;
+  }
+
+  .modal-search .modal-body {
+    @apply p-0;
+  }
+
+  .modal-search .search-input {
+    @apply w-full px-6 py-4 border-0;
+  }
+
+  /* Button styling in modals */
+  .modal .btn {
+    @apply inline-block px-4 py-2 rounded transition-colors;
+  }
+
+  .modal .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+
+  .modal .btn-secondary {
+    @apply bg-gray-200 text-gray-900 hover:bg-gray-300;
+  }
+
+  .modal .btn-close {
+    @apply text-gray-600 hover:text-gray-900 text-2xl font-bold;
+  }
+
+  /* Modal prevent scroll on body */
+  body.modal-open {
+    @apply overflow-hidden;
+  }
+}

@@ -67,23 +67,44 @@
                   <h4 class="sr-only">Seguici su</h4>
                   <ul class="list-inline m-0">
                     <li class="list-inline-item">
-                      <a href="#" aria-label="Facebook" target="_blank">
-                        <svg class="icon">
-                          <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
-                        </svg>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
                       <a href="#" aria-label="Twitter" target="_blank">
-                        <svg class="icon">
+                        <svg class="icon icon-sm">
                           <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                         </svg>
                       </a>
                     </li>
                     <li class="list-inline-item">
+                      <a href="#" aria-label="Facebook" target="_blank">
+                        <svg class="icon icon-sm">
+                          <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
                       <a href="#" aria-label="YouTube" target="_blank">
-                        <svg class="icon">
+                        <svg class="icon icon-sm">
                           <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" aria-label="Telegram" target="_blank">
+                        <svg class="icon icon-sm">
+                          <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" aria-label="WhatsApp" target="_blank">
+                        <svg class="icon icon-sm">
+                          <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" aria-label="RSS" target="_blank">
+                        <svg class="icon icon-sm">
+                          <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                         </svg>
                       </a>
                     </li>
@@ -127,8 +148,8 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/it/tests/argomenti">
-                        <span>Argomenti</span>
+                      <a class="nav-link" href="/it/tests/amministrazione">
+                        <span>Amministrazione</span>
                       </a>
                     </li>
                     <li class="nav-item">
@@ -142,17 +163,34 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/it/tests/amministrazione">
-                        <span>Amministrazione</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="/it/tests/eventi">
-                        <span>Eventi</span>
+                        <span>Vivere il Comune</span>
                       </a>
                     </li>
                   </ul>
                 </div>
+                <nav aria-label="Navigazione secondaria" class="d-none d-lg-block">
+                  <ul class="navbar-nav navbar-secondary">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Iscrizioni</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Estate in città</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Polizia locale</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/it/tests/argomenti" data-element="all-topics">
+                        <span>Tutti gli argomenti 
+                          <svg class="icon icon-sm">
+                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </nav>
             </div>
           </div>

@@ -11,7 +11,7 @@
         "build:filament": "vite build --mode filament",
         "build:filament:dev": "vite build --mode filament --watch",
         "preview": "vite preview",
-        "copy": "cp -rv ./public/* ../../../public_html/themes/Sixteen/",
+        "copy": "cp -rv ./public/. ../../../public_html/themes/Sixteen/ && mkdir -p ../../../public_html/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg ../../../public_html/themes/Sixteen/design-comuni/assets/images && cp -v ./node_modules/bootstrap-italia/dist/svg/sprites.svg ../../../public_html/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg && cp -v ./Main_files/five/assets/images/logo-comune.svg ../../../public_html/themes/Sixteen/design-comuni/assets/images/logo-comune.svg && cp -v ./Main_files/five/assets/images/logo-eu-inverted.svg ../../../public_html/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg && cp -v ./Main_files/five/assets/images/evidenza-header.png ../../../public_html/themes/Sixteen/design-comuni/assets/images/evidenza-header.png",
         "copy:filament": "cp -r ./public/* ../../../public_html/themes/Sixteen/ ",
         "copy:watch": "nodemon --watch ./public --exec 'npm run copy'",
         "lint": "eslint resources/js/**/*.js",

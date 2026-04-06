@@ -10,10 +10,14 @@
    Exact hex codes from design system
 ======================================== */
 :root {
-  /* Primary - Blu Italia */
-  --italia-blue: #0066CC;
-  --italia-blue-dark: #0052A3;
-  --italia-blue-darker: #003D73;
+  /* Primary - Bootstrap Italia GREEN */
+  --italia-green: #007a52;
+  --italia-green-dark: #005c40;
+  --italia-green-darker: #004030;
+  
+  /* Secondary - Blu Italia */
+  --italia-blue: #0073e6;
+  --italia-blue-dark: #005cb3;
   
   /* Secondary */
   --italia-green: #00B373;
@@ -55,16 +59,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .visually-hidden-focusable {
   @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 
-         focus:px-4 focus:py-2 focus:bg-[#0066CC] focus:text-white 
+         focus:px-4 focus:py-2 focus:bg-[#007a52] focus:text-white 
          focus:rounded focus:shadow-lg focus:z-[10000];
 }
 
 /* ========================================
    HEADER SLIM - Top Bar
-   Exact colors and spacing
+   Exact colors and spacing - GREEN per Bootstrap Italia
 ======================================== */
 .it-header-slim-wrapper {
-  @apply bg-[#0066CC] text-white py-2 border-b border-white/20;
+  @apply bg-[#007a52] text-white py-2 border-b border-white/20;
 }
 
 .it-header-slim-wrapper-content {
@@ -93,9 +97,9 @@ h1, h2, h3, h4, h5, h6 {
   @apply block px-4 py-2 text-sm text-gray-700 hover:bg-[#F5F6F7] no-underline;
 }
 
-/* Login Button */
+/* Login Button - GREEN per Bootstrap Italia */
 .it-header-slim-wrapper .btn-primary {
-  @apply inline-flex items-center gap-2 bg-white text-[#0066CC] 
+  @apply inline-flex items-center gap-2 bg-white text-[#007a52] 
          px-4 py-1.5 rounded text-xs font-semibold no-underline 
          hover:bg-[#F0F0F0] transition-colors;
 }
@@ -108,7 +112,8 @@ h1, h2, h3, h4, h5, h6 {
    HEADER CENTER - Logo + Brand
 ======================================== */
 .it-header-center-wrapper {
-  @apply bg-white py-6 border-b border-gray-200;
+  background-color: #007a52;
+  @apply py-6;
 }
 
 .it-brand-wrapper a {
@@ -116,15 +121,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .it-brand-wrapper .icon {
-  @apply w-20 h-20 text-[#0066CC];
+  @apply w-20 h-20 text-white;
 }
 
 .it-brand-title {
-  @apply text-2xl sm:text-3xl font-bold text-[#1A1A1A] m-0 leading-tight;
+  @apply text-2xl sm:text-3xl font-bold text-white m-0 leading-tight;
 }
 
 .it-brand-tagline {
-  @apply text-base text-[#5C6F82] m-0 mt-1;
+  color: rgba(255, 255, 255, 0.85);
+  @apply text-base m-0 mt-1;
 }
 
 /* Search Wrapper */
@@ -156,7 +162,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .it-socials > span {
-  @apply text-xs text-[#5C6F82] font-semibold;
+  color: rgba(255, 255, 255, 0.85);
+  @apply text-xs font-semibold;
 }
 
 .it-socials ul {
@@ -164,7 +171,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .it-socials a {
-  @apply text-[#5C6F82] hover:text-[#0066CC] transition-colors no-underline;
+  @apply text-white transition-colors no-underline;
+}
+
+.it-socials a:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .it-socials .icon {
@@ -175,13 +186,17 @@ h1, h2, h3, h4, h5, h6 {
    HEADER NAV - Navigation Bar
 ======================================== */
 .it-header-navbar-wrapper {
-  @apply bg-white border-b border-gray-200;
+  background-color: #007a52;
 }
 
 .it-header-navbar-wrapper .nav-link {
-  @apply px-4 py-3 text-sm font-semibold text-[#1A1A1A] 
-         hover:text-[#0066CC] hover:bg-[#F5F6F7] no-underline 
-         transition-colors;
+  color: #FFFFFF;
+  @apply px-4 py-3 text-sm font-semibold no-underline transition-colors;
+}
+
+.it-header-navbar-wrapper .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 /* Burger Menu */
@@ -280,6 +295,10 @@ h1, h2, h3, h4, h5, h6 {
   @apply w-full px-4;
 }
 
+@media (min-width: 576px) {
+  .col-sm-6 { @apply w-1/2 px-4; }
+}
+
 @media (min-width: 768px) {
   .col-md-3 { @apply w-1/4 px-4; }
   .col-md-4 { @apply w-1/3 px-4; }
@@ -295,25 +314,42 @@ h1, h2, h3, h4, h5, h6 {
   .col-lg-9 { @apply w-3/4 px-4; }
 }
 
+@media (min-width: 1200px) {
+  .col-xl-3 { @apply w-1/4 px-4; }
+  .col-xl-4 { @apply w-1/3 px-4; }
+  .col-xl-6 { @apply w-1/2 px-4; }
+  .col-xl-8 { @apply w-2/3 px-4; }
+}
+
 /* ========================================
    BUTTONS - Bootstrap Italia Style
 ======================================== */
 .btn {
   @apply inline-flex items-center justify-center gap-1.5 
-         px-4 py-2 text-sm font-semibold rounded-md 
+         px-6 py-3 text-base font-semibold rounded-none
          transition-all duration-200 no-underline 
          focus:outline-none focus:ring-2 focus:ring-offset-2 
          disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .btn-primary {
-  @apply bg-[#0066CC] text-white hover:bg-[#0052A3] 
-         focus:ring-[#0066CC] border-0;
+  @apply bg-[#007A52] text-white hover:bg-[#005c43] 
+         focus:ring-[#007A52] border-0;
 }
 
 .btn-outline-primary {
-  @apply bg-transparent text-[#0066CC] border border-[#0066CC] 
-         hover:bg-[#0066CC] hover:text-white;
+  @apply bg-transparent text-[#007A52] border border-[#007A52] 
+         hover:bg-[#007A52] hover:text-white;
+}
+
+.btn-primary {
+  @apply bg-[#007A52] text-white hover:bg-[#005c43] 
+         focus:ring-[#007A52] border-0;
+}
+
+.btn-outline-primary {
+  @apply bg-transparent text-[#007A52] border border-[#007A52] 
+         hover:bg-[#007A52] hover:text-white;
 }
 
 .btn-sm {
@@ -357,7 +393,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .icon-primary {
-  @apply text-[#0066CC];
+  @apply text-[#007a52];
 }
 
 .icon-white {
@@ -401,7 +437,7 @@ h1, h2, h3, h4, h5, h6 {
    LINKS - Bootstrap Italia Style
 ======================================== */
 a {
-  @apply text-[#0066CC] no-underline hover:underline transition-colors;
+  @apply text-[#007a52] no-underline hover:underline transition-colors;
 }
 
 .list-item {
@@ -438,7 +474,7 @@ a {
 }
 
 .card-title {
-  @apply text-base font-semibold mb-2 text-[#1A1A1A];
+  @apply text-2xl font-bold mb-2 text-[#007A52];
 }
 
 .card-text {
@@ -446,7 +482,7 @@ a {
 }
 
 .card-date {
-  @apply text-xs text-[#0066CC] font-semibold;
+  @apply text-xs text-[#007A52] font-semibold;
 }
 
 .card-category {
@@ -717,15 +753,15 @@ a {
   text-decoration: none;
 }
 .chip-simple {
-  border: 1px solid #0066CC;
+  border: 1px solid #007a52;
   border-radius: 100px;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
-  color: #0066CC;
+  color: #007a52;
   transition: background-color 0.2s, color 0.2s;
 }
 .chip-simple:hover {
-  background-color: #0066CC;
+  background-color: #007a52;
   color: #FFFFFF;
   text-decoration: none;
 }
@@ -741,31 +777,57 @@ a {
 }
 .card-bg-blue {
   background-color: #0066CC;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   border-color: #0066CC;
+  text-decoration: none;
 }
+.card-bg-blue,
+.card-bg-blue *,
 .card-bg-blue .card-title,
 .card-bg-blue .card-text,
 .card-bg-blue p,
 .card-bg-blue h3,
 .card-bg-blue h4 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
+.card-bg-blue:hover {
+  text-decoration: none;
+}
+
 .card-bg-warning {
   background-color: #F5A623;
-  color: #1A1A1A;
+  color: #FFFFFF !important;
   border-color: #F5A623;
+  text-decoration: none;
 }
+.card-bg-warning,
+.card-bg-warning *,
+.card-bg-warning .card-title,
+.card-bg-warning .card-text,
+.card-bg-warning p,
+.card-bg-warning h3 {
+  color: #FFFFFF !important;
+}
+.card-bg-warning:hover {
+  text-decoration: none;
+}
+
 .card-bg-dark {
   background-color: #17334F;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   border-color: #17334F;
+  text-decoration: none;
 }
+.card-bg-dark,
+.card-bg-dark *,
 .card-bg-dark .card-title,
 .card-bg-dark .card-text,
 .card-bg-dark p,
 .card-bg-dark h3 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
+}
+.card-bg-dark:hover {
+  text-decoration: none;
 }
 
 /* ========================================
@@ -793,17 +855,11 @@ a {
    Sfondo con immagine + overlay scuro
 ======================================== */
 .evidence-section .section {
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 300px;
+  background-position: top center;
   background-repeat: no-repeat;
+  background-color: #003d29;
   position: relative;
-}
-.evidence-section .section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 38, 82, 0.88);
-  z-index: 0;
 }
 .evidence-section .container {
   position: relative;
@@ -849,11 +905,11 @@ a {
   transition: color 0.2s;
 }
 .link-list .list-item:hover {
-  color: #0066CC;
+  color: #007a52;
   text-decoration: underline;
 }
 .link-list .list-item.active {
-  color: #0066CC;
+  color: #007a52;
   font-weight: 600;
 }
 .text-button-normal {
@@ -1018,20 +1074,20 @@ a {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 0;
-  color: #0066CC;
+  color: #007a52;
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.2s;
 }
 .contact-list .list-item:hover {
-  color: #0052A3;
+  color: #00402b;
   text-decoration: underline;
 }
 .contact-list .icon {
   width: 1.25rem;
   height: 1.25rem;
   flex-shrink: 0;
-  color: #0066CC;
+  color: #007a52;
 }
 
 /* ========================================
@@ -1081,6 +1137,28 @@ a {
 .it-single-slide-wrapper {
   height: 100%;
 }
+
+/* Calendar slide links - green like Design Comuni reference */
+.splide__slide a {
+  color: #007a52;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.splide__slide a:hover {
+  color: #00402b;
+}
+
+/* Evidence section - topic/argomenti links */
+.evidence-section .list-item,
+.evidence-section a.list-item {
+  color: #007a52;
+  text-decoration: none;
+}
+.evidence-section .list-item:hover {
+  color: #00402b;
+  text-decoration: underline;
+}
+
 .splide__arrow {
   position: absolute;
   top: 50%;
@@ -1166,19 +1244,54 @@ a {
 .position-absolute { position: absolute; }
 
 /* ========================================
+   DESIGN COMUNI - DISPLAY / VISIBILITY
+   .d-none must win over everything
+======================================== */
+.d-none { display: none !important; }
+.d-block { display: block; }
+.d-flex  { display: flex; }
+
+@media (min-width: 768px) {
+  .d-md-block   { display: block; }
+  .d-md-none    { display: none; }
+  .d-md-flex    { display: flex; }
+  .d-none.d-md-block { display: block !important; }
+}
+@media (min-width: 992px) {
+  .d-lg-block              { display: block; }
+  .d-lg-flex               { display: flex; }
+  .d-lg-inline-flex        { display: inline-flex; }
+  .d-none.d-lg-block       { display: block !important; }
+  .d-none.d-lg-flex        { display: flex !important; }
+  .d-none.d-md-block       { display: block !important; }
+}
+
+/* ========================================
+   DESIGN COMUNI - ORDER (flex ordering)
+   hero: card (order-lg-1) LEFT, image (order-lg-2) RIGHT
+======================================== */
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+@media (min-width: 992px) {
+  .order-lg-1 { order: 1; }
+  .order-lg-2 { order: 2; }
+  .order-lg-3 { order: 3; }
+}
+
+/* ========================================
    DESIGN COMUNI - FLEX UTILITIES
 ======================================== */
 .flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
 .align-top { vertical-align: top; }
 .justify-content-between { justify-content: space-between; }
 .justify-content-center  { justify-content: center; }
 .align-items-center     { align-items: center; }
-.align-items-lg-center  { }
 @media (min-width: 992px) {
   .align-items-lg-center { align-items: center; }
   .flex-lg-row { flex-direction: row; }
-  .d-none.d-lg-block { display: block; }
-  .d-none.d-md-block { display: block; }
+  .justify-content-lg-between { justify-content: space-between; }
 }
 @media (min-width: 768px) {
   .d-md-block { display: block; }
@@ -1186,12 +1299,108 @@ a {
 }
 .gap-1 { gap: 0.25rem; }
 
+/* ========================================
+   DESIGN COMUNI - SITI TEMATICI CARDS
+   Avatar LEFT + text RIGHT (flex row)
+======================================== */
+.card-teaser.card-bg-blue,
+.card-teaser.card-bg-warning,
+.card-teaser.card-bg-dark {
+  flex-direction: row;
+  align-items: center;
+}
+.card-teaser.card-bg-blue .card-body,
+.card-teaser.card-bg-warning .card-body,
+.card-teaser.card-bg-dark .card-body {
+  flex: 1;
+  padding: 0;
+}
+
 /* Sito tematico card title specifics */
 .sito-tematico {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.25rem;
+}
+
+/* ========================================
+   DESIGN COMUNI - CALENDAR DATE DISPLAY
+   Large day number + small weekday below
+======================================== */
+.card-bg .card-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #5C6F82;
+  line-height: 1;
+  padding-bottom: 1rem;
+  margin-bottom: 0.625rem;
+}
+.card-bg .card-title span {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #5C6F82;
+  margin-top: 0.25rem;
+}
+/* Calendar separator line under date */
+.card-bg .card-body {
+  padding: 1.5rem;
+}
+.card-bg .card-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #E5E7EB;
+  margin-top: 1rem;
+}
+.card-bg .card-text {
+  font-size: 0.875rem;
+  padding: 0.625rem 0.5rem;
+  margin-bottom: 0.625rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+.card-bg .card-text:last-child { border-bottom: none; }
+.card-bg .card-text a {
+  color: #1A1A1A;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+.card-bg .card-text a:hover {
+  color: #0066CC;
+  text-decoration: underline;
+}
+.card-bg .card-text.d-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.card-bg .card-text img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   DESIGN COMUNI - CALENDAR HEADER BAR
+   Dark bar with white month name
+======================================== */
+.it-header-block {
+  background-color: #005c40;
+  padding: 0.75rem 1rem;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 0;
+}
+.it-header-block-title h3,
+.home-carousel-title {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
 }
 
 /* ========================================

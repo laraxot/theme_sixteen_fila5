@@ -1,13 +1,9 @@
 /* Bootstrap Italia styles converted to Tailwind CSS with @apply */
 /* Based on: https://italia.github.io/design-comuni-pagine-statiche/ */
 
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import 'tailwindcss';
 
 /* Set DaisyUI theme */
-html {
-  data-theme: bootstrap_italia;
-}
 @import '../../vendor/filament/support/resources/css/index.css';
 @import '../../vendor/filament/actions/resources/css/index.css';
 @import '../../vendor/filament/forms/resources/css/index.css';
@@ -51,39 +47,46 @@ html, body {
 /* Bootstrap Italia design converted to Tailwind CSS with @apply */
 /* Colors based on Bootstrap Italia: Primary Green #007a52, Blue #006cc6, Gray #5d7083 */
 
-/* CSS Custom Properties - Design Comuni (Blu Italia, non verde BI) */
+/* CSS Custom Properties - Design Comuni (VERIFIED from reference 2026-04-02) */
 :root {
-  --bs-primary: #0066CC;
-  --bs-primary-dark: #0052A3;
-  --bs-secondary: #5C6F82;
-  --bs-success: #00B373;
-  --bs-blue: #0066CC;
-  --bs-dark: #17334F;
-  --bs-light: #F5F6F7;
-  --bs-gray-100: #F5F6F7;
-  --bs-gray-200: #E5E7EB;
-  --bs-gray-300: #DEE2E6;
-  --bs-gray-600: #5C6F82;
-  --bs-gray-900: #1A1A1A;
+  /* Bootstrap Italia primary - GREEN */
+  --bs-primary: #007A52;
+  --bs-primary-dark: #00402B;
+  --bs-primary-darker: #002244;
+  /* Secondary */
+  --bs-secondary: #5d7083;
+  --bs-success: #008055;
+  --bs-blue: #0073e6;
+  --bs-dark: #17334f;
+  --bs-light: #e9e6f2;
+  --bs-gray-100: #f5f5f5;
+  --bs-gray-200: #e6e6e6;
+  --bs-gray-300: #d4d4d4;
+  --bs-gray-600: #525252;
+  --bs-gray-900: #191919;
 }
 
-/* Header styling - Bootstrap Italia style with @apply */
+/* Header styling - VERIFIED from reference 2026-04-02 */
 .it-header-wrapper {
   background-color: var(--bs-primary);
-  @apply text-white relative;
+  @apply relative;
+  color: #191919;
 }
 
 .it-header-slim-wrapper {
   background-color: var(--bs-primary-dark);
-  @apply py-2 text-sm;
+  @apply py-0 text-base flex;
+  color: #191919;
 }
 
 .it-header-slim-wrapper-content {
   @apply flex justify-between items-center;
+  padding: 0 18px;
 }
 
 .it-header-slim-wrapper a {
-  @apply text-white no-underline text-sm;
+  @apply no-underline text-base;
+  color: #191919;
 }
 
 .it-header-slim-right-zone {
@@ -96,11 +99,16 @@ html, body {
 }
 
 .nav-link.dropdown-toggle {
-  @apply bg-transparent border-0 text-white flex items-center gap-1 px-2 py-1 text-sm cursor-pointer;
+  @apply bg-transparent border-0 flex items-center gap-1 px-2 py-1 text-base cursor-pointer;
+  color: #191919;
 }
 
 .nav-link.dropdown-toggle:hover {
-  @apply text-white/80;
+  @apply opacity-80;
+}
+
+.nav-link.dropdown-toggle:hover {
+  @apply opacity-80;
 }
 
 .dropdown-menu {
@@ -272,7 +280,8 @@ html, body {
 }
 
 .it-brand-wrapper a {
-  @apply flex items-center gap-3 no-underline text-white;
+  @apply flex items-center gap-3 no-underline;
+  color: #191919;
 }
 
 .it-brand-text {
@@ -284,11 +293,38 @@ html, body {
 }
 
 .it-brand-title {
-  @apply text-2xl font-semibold text-white mb-0;
+  @apply text-2xl font-semibold mb-0;
+  color: #FFFFFF;
 }
 
 .it-brand-tagline {
-  @apply text-sm text-white/90 mb-0;
+  @apply text-sm mb-0;
+  color: #FFFFFF;
+}
+
+.it-brand-tagline {
+  @apply text-sm mb-0;
+  color: #FFFFFF;
+}
+
+.it-brand-tagline {
+  @apply text-sm mb-0;
+  color: #FFFFFF;
+}
+
+.it-brand-tagline {
+  @apply text-sm mb-0;
+  color: #FFFFFF;
+}
+
+.it-brand-tagline {
+  @apply text-sm mb-0;
+  color: #FFFFFF;
+}
+
+.it-brand-tagline {
+  @apply text-sm mb-0;
+  color: #FFFFFF;
 }
 
 .it-right-zone {
@@ -300,7 +336,8 @@ html, body {
 }
 
 .it-socials span {
-  @apply text-sm text-white mr-3 font-normal;
+  @apply text-sm mr-3 font-normal;
+  color: #FFFFFF;
 }
 
 .it-socials ul {
@@ -308,11 +345,20 @@ html, body {
 }
 
 .it-socials li a {
-  @apply text-white p-1 inline-flex transition-opacity duration-200;
+  @apply p-1 inline-flex transition-opacity duration-200;
+  color: #007A52;
 }
 
 .it-socials li a .icon {
-  @apply w-7 h-7;
+  @apply w-6 h-6 text-[#007A52];
+}
+
+.it-socials li a .icon {
+  @apply w-6 h-6 text-[#007A52];
+}
+
+.it-socials li a .icon {
+  @apply w-6 h-6 text-[#007A52];
 }
 
 .it-socials li a:hover {
@@ -324,13 +370,10 @@ html, body {
   @apply flex items-center gap-6;
 }
 
-.d-none.d-lg-flex {
-  @apply flex;
-}
-
+/* .d-none.d-lg-flex: hidden on mobile, flex on desktop */
 @media (min-width: 992px) {
   .d-none.d-lg-flex {
-    @apply flex;
+    display: flex !important;
   }
 }
 
@@ -339,13 +382,14 @@ html, body {
 }
 
 .it-search-wrapper span {
-  @apply text-sm text-white;
+  @apply text-sm;
+  color: #FFFFFF;
 }
 
 .search-link {
-  background: white;
-  color: var(--bs-primary);
-  @apply p-3 rounded-full border-0 inline-flex items-center justify-center transition-colors duration-200 w-12 h-12;
+  background: transparent;
+  color: #FFFFFF;
+  @apply p-1 rounded-full border-0 inline-flex items-center justify-center transition-colors duration-200 ml-4;
 }
 
 .search-link .icon {
@@ -353,22 +397,25 @@ html, body {
 }
 
 .search-link:hover {
-  @apply bg-gray-100;
+  @apply bg-white/10;
 }
 
-/* Navigation - Bootstrap Italia style with @apply */
+/* Navigation - Design Comuni green */
 .it-nav-wrapper {
-  @apply bg-white shadow-sm;
+  background: #007A52 !important;
+  box-shadow: none;
 }
 
 .it-header-navbar-wrapper {
-  background: var(--bs-primary) !important;
-  @apply py-3 border-t-0;
+  background: #007A52 !important;
+  @apply py-0 border-t-0;
+  color: #FFFFFF;
 }
 
 .it-header-center-wrapper {
-  background: var(--bs-primary);
-  @apply py-4 text-white;
+    background: #007A52 !important;
+    @apply py-[6px] pb-0;
+    color: #FFFFFF;
 }
 
 .it-header-center-content-wrapper {
@@ -378,11 +425,11 @@ html, body {
 /* Navbar */
 .navbar {
   @apply p-0;
-  background: var(--bs-primary) !important;
+  background: #007A52 !important;
 }
 
 .navbar-expand-lg {
-  background: var(--bs-primary) !important;
+  background: #007A52 !important;
 }
 
 .navbar-nav {
@@ -394,11 +441,13 @@ html, body {
 }
 
 .navbar-nav .nav-link {
-  @apply text-white font-semibold text-base px-6 py-3 no-underline block transition-colors duration-200;
+  @apply font-semibold text-lg px-6 py-3 no-underline block transition-colors duration-200;
+  color: #FFFFFF;
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--bs-primary);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .navbar-secondary {
@@ -406,25 +455,30 @@ html, body {
 }
 
 .navbar-secondary .nav-link {
-  @apply text-sm text-white font-normal px-6 py-2 opacity-90;
+  @apply text-sm font-normal px-6 py-2 opacity-90;
+  color: #FFFFFF;
 }
 
 .navbar-secondary .nav-link:hover {
-  color: var(--bs-primary);
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 /* Navigation styling per desktop e mobile */
 .navbar-collapsable .navbar-nav .nav-link {
-  @apply text-white bg-transparent;
+  @apply bg-transparent;
+  color: #FFFFFF;
 }
 
 .navbar-collapsable .navbar-secondary .nav-link {
-  @apply text-white bg-transparent opacity-90;
+  @apply bg-transparent opacity-90;
+  color: #191919;
 }
 
 /* Mobile hamburger menu */
 .custom-navbar-toggler {
-  @apply border-0 bg-transparent p-2 text-white block;
+  @apply border-0 bg-transparent p-2 block;
+  color: #191919;
 }
 
 @media (min-width: 992px) {
@@ -519,11 +573,6 @@ html, body {
   }
 }
 
-/* Bootstrap grid system - Bootstrap Italia style with @apply */
-.container {
-  @apply w-full px-3 mx-auto;
-  max-width: 1200px;
-}
 
 .row {
   @apply flex flex-wrap -mx-3;
@@ -1058,15 +1107,14 @@ main,
   @apply mt-2;
 }
 
-/* Footer - Bootstrap Italia style with @apply */
+/* Footer - Design Comuni dark blue */
 .it-footer {
-  background-color: #212529 !important;
+  background-color: #17324D !important;
   color: white !important;
 }
 
-/* Ensure footer has black background */
 footer.it-footer {
-  background-color: #212529 !important;
+  background-color: #17324D !important;
   color: white !important;
 }
 
@@ -1200,9 +1248,9 @@ footer.it-footer {
   @apply fill-yellow-400;
 }
 
-/* Ensure all stars are visible and active by default */
+/* Active stars shown as gray (unselected default state - matches Design Comuni reference) */
 .rating .rating-star.active svg {
-  @apply fill-yellow-400;
+  @apply fill-slate-300;
 }
 
 .pt-lg-80 {
@@ -1413,7 +1461,188 @@ hr {
   background-color: var(--bs-gray-100);
 }
 
-/* Typography - Bootstrap Italia style with @apply */
+/* ============================================================================
+   CARD COMPONENTS - Bootstrap Italia Exact Mapping
+   Missing classes added to match reference implementation
+   ============================================================================ */
+
+/* Card Teaser - Main card style for listings */
+.card-teaser {
+  @apply bg-white rounded border border-gray-200 transition-all duration-200;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-teaser:hover {
+  @apply border-blue-600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.card-teaser .card-body {
+  @apply p-6;
+}
+
+.card-teaser .card-title {
+  @apply text-blue-600 text-lg font-semibold mb-2 leading-tight;
+}
+
+.card-teaser .card-title a {
+  @apply text-blue-600 no-underline hover:text-blue-800;
+}
+
+.card-teaser .card-text {
+  @apply text-gray-500 text-base leading-relaxed mt-0;
+}
+
+/* CMP Card Simple - Simple card component */
+.cmp-card-simple {
+  @apply bg-white rounded-lg;
+}
+
+.cmp-card-simple .card {
+  @apply border border-gray-200 rounded shadow-sm transition-all duration-200 h-full;
+}
+
+.cmp-card-simple .card:hover {
+  @apply border-blue-600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cmp-card-simple .card-body {
+  @apply p-6;
+}
+
+.cmp-card-simple .card-title {
+  @apply text-blue-600 text-base font-semibold mb-2 leading-tight;
+}
+
+.cmp-card-simple .card-title.t-primary,
+.cmp-card-simple h3.t-primary {
+  color: #0066cc !important;
+}
+
+.cmp-card-simple .description {
+  @apply text-gray-500 text-sm leading-relaxed;
+}
+
+/* ============================================================================
+   SECTION SPACING - Bootstrap Italia standard
+   ============================================================================ */
+
+/* Standard section spacing */
+section.py-5 {
+  @apply py-12;
+}
+
+section.py-4 {
+  @apply py-8;
+}
+
+/* ============================================================================
+   LINK LIST - Bootstrap Italia links list component
+   ============================================================================ */
+
+.link-list-wrapper {
+  @apply bg-white rounded-lg;
+}
+
+.link-list-wrapper ul {
+  @apply list-none p-0 m-0;
+}
+
+.link-list-wrapper .link-list {
+  @apply space-y-2;
+}
+
+.link-list-wrapper .list-item {
+  @apply border border-gray-200 rounded-lg p-4 transition-all duration-200;
+}
+
+.link-list-wrapper .list-item:hover {
+  @apply border-blue-600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.link-list-wrapper .list-item a {
+  @apply text-blue-600 text-lg font-semibold block mb-1 no-underline hover:underline;
+}
+
+.link-list-wrapper .list-item .description,
+.link-list-wrapper .list-item p {
+  @apply text-gray-500 text-sm leading-relaxed m-0;
+}
+
+/* ============================================================================
+   ACCORDION - Bootstrap Italia accordion component
+   ============================================================================ */
+
+.accordion {
+  @apply space-y-2;
+}
+
+.accordion .accordion-item {
+  @apply border border-gray-200 rounded-lg overflow-hidden;
+}
+
+.accordion .accordion-header {
+  @apply m-0;
+}
+
+.accordion .accordion-button {
+  @apply w-full px-6 py-4 bg-white text-gray-900 text-lg font-semibold text-left cursor-pointer border-0 transition-colors duration-200 flex justify-between items-center;
+}
+
+.accordion .accordion-button:hover {
+  @apply bg-blue-50;
+}
+
+.accordion .accordion-button:not(.collapsed)::after {
+  content: '−' !important;
+  @apply text-blue-600 text-2xl font-light;
+}
+
+.accordion .accordion-button.collapsed::after {
+  content: '+' !important;
+  @apply text-blue-600 text-2xl font-light;
+}
+
+.accordion .accordion-body {
+  @apply px-6 pb-4 text-gray-500 text-base leading-relaxed;
+}
+
+/* ============================================================================
+   RATING COMPONENT - Bootstrap Italia rating component
+   ============================================================================ */
+
+.cmp-rating {
+  @apply py-8;
+}
+
+.cmp-rating .card-wrapper {
+  @apply bg-blue-50 rounded-lg p-6 text-center;
+}
+
+.cmp-rating .card-header {
+  @apply mb-4;
+}
+
+.cmp-rating .title-medium-2-semi-bold {
+  @apply text-2xl font-semibold text-gray-900;
+}
+
+.cmp-rating__card-first,
+.cmp-rating__card-second {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full mx-1 cursor-pointer transition-transform duration-150;
+}
+
+.cmp-rating__card-first:hover,
+.cmp-rating__card-second:hover {
+  @apply scale-115;
+}
+
+/* ============================================================================
+   CONTACT LIST - Bootstrap Italia contact list component
+   ============================================================================ */
 .title-medium-2-semi-bold {
   @apply text-xl font-semibold text-gray-900;
   color: var(--bs-dark);
@@ -1479,6 +1708,27 @@ hr {
 
 .accordion-button {
   @apply w-full p-3 text-left flex items-center justify-between bg-white border-0 cursor-pointer transition-colors duration-200;
+}
+
+.accordion-button::after {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066cc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.accordion-button[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.accordion-button[aria-expanded="false"]::after {
+  transform: rotate(0deg);
 }
 
 .accordion-button:hover {
@@ -1737,4 +1987,167 @@ hr {
 
 .it-header-slim-wrapper .dropdown-menu .dropdown-item:hover span {
   color: #007a52 !important;
+}
+
+/* FAQ Page Specific Styles */
+
+/* Search Box - Design Comuni style */
+.cmp-input-search {
+  @apply my-8;
+}
+
+.cmp-input-search .search-header {
+  @apply mb-4;
+}
+
+.cmp-input-search .search-title {
+  @apply text-xl font-semibold text-gray-900;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.cmp-input-search .search-form .form-group {
+  @apply mb-0;
+}
+
+.cmp-input-search .input-group {
+  @apply flex border border-gray-300 rounded-lg overflow-hidden;
+}
+
+.cmp-input-search .input-group .form-control {
+  @apply flex-1 px-4 py-3 border-0 outline-none text-base;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.cmp-input-search .input-group .form-control::placeholder {
+  @apply text-gray-500;
+}
+
+.cmp-input-search .input-group .btn-primary {
+  @apply px-6 py-3 bg-[#0066cc] border-0 text-white font-semibold flex items-center gap-2 cursor-pointer transition-colors duration-200;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.cmp-input-search .input-group .btn-primary:hover {
+  @apply bg-[#0052a3];
+}
+
+.cmp-input-search .input-group .btn-primary .icon {
+  @apply w-5 h-5;
+}
+
+/* FAQ Accordion - Design Comuni style - Dark Teal */
+.cmp-accordion.faq .accordion-item {
+  @apply border-0 mb-0;
+}
+
+.cmp-accordion.faq .accordion-button {
+  @apply w-full px-4 py-4 text-left flex items-center justify-between cursor-pointer transition-colors duration-200 rounded-t-lg;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  background-color: #004445 !important;
+}
+
+.cmp-accordion.faq .accordion-button:hover {
+  background-color: #003334 !important;
+}
+
+.cmp-accordion.faq .accordion-button .button-wrapper {
+  @apply flex-1;
+}
+
+.cmp-accordion.faq .accordion-button .icon-wrapper {
+  @apply flex-shrink-0 ml-2;
+}
+
+.cmp-accordion.faq .accordion-button .icon {
+  @apply text-white;
+}
+
+.cmp-accordion.faq .accordion-button .icon.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.cmp-accordion.faq .accordion-button.collapsed {
+  background-color: #004445 !important;
+}
+
+.cmp-accordion.faq .accordion-button .icon {
+  @apply text-white;
+  color: #FFFFFF !important;
+}
+
+.cmp-accordion.faq .accordion-collapse {
+  @apply hidden;
+  background-color: #F2F9F9;
+}
+
+.cmp-accordion.faq .accordion-collapse.show {
+  @apply block rounded-b-lg;
+}
+
+.cmp-accordion.faq .accordion-body {
+  @apply px-4 pb-4 pt-2 text-base;
+  font-family: 'Titillium Web', sans-serif;
+  color: #334a52;
+  background-color: #F2F9F9;
+}
+
+.cmp-accordion.faq .accordion-body p {
+  @apply mb-0;
+}
+
+/* Link list section after FAQ */
+.link-list-block {
+  @apply mt-8 mb-8;
+}
+
+.link-list-block .link-list-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.link-list-block .link-list {
+  @apply flex flex-wrap gap-3;
+}
+
+.link-list-block .link-list a {
+  @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200;
+  font-family: 'Titillium Web', sans-serif;
+}
+/* FAQ Parity Styles */
+.dc-faq-hero-section {
+    @apply bg-white;
+}
+
+.it-rating-section {
+    @apply py-12;
+}
+
+.it-rating-wrapper {
+    @apply max-w-2xl mx-auto text-center;
+}
+
+.it-rating-label-container p {
+    @apply text-xl font-semibold text-gray-900 uppercase tracking-wider mb-6;
+}
+
+.it-rating-list {
+    @apply flex justify-center gap-2 list-none p-0;
+}
+
+.it-rating-list li button {
+    @apply p-2 transition-transform duration-200 hover:scale-110 border-0 bg-transparent cursor-pointer;
+}
+
+.it-rating-list .icon {
+    @apply w-10 h-10 transition-colors duration-200;
+}
+
+.fill-yellow-400 {
+    fill: #FFCC00;
+}
+
+.fill-gray-300 {
+    fill: #E0E0E0;
 }

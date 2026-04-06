@@ -45,19 +45,19 @@ export default {
             },
             colors: {
                 // Colori AGID ufficiali (Agenzia per l'Italia Digitale)
-                // PRIMARY = VERDE PA (come Design Comuni)
+                // PRIMARY = VERDE PA (Design Comuni Italia)
                 primary: {
                     50: '#e6f7f0',
                     100: '#b3e6d1',
                     200: '#80d5b2',
                     300: '#4dc493',
                     400: '#1ab374',
-                    500: '#00814A', // Primary GREEN PA (Design Comuni)
-                    600: '#006b3d',
-                    700: '#005530',
-                    800: '#003f23',
-                    900: '#002916',
-                    DEFAULT: '#00814A',
+                    500: '#007A52', // Primary GREEN Design Comuni Italia (updated)
+                    600: '#006945',
+                    700: '#005838',
+                    800: '#00472b',
+                    900: '#00361e',
+                    DEFAULT: '#007A52',
                 },
                 success: {
                     50: '#e6f7f0',
@@ -167,7 +167,28 @@ export default {
                 'agid-lg': '0 4px 8px rgba(0, 0, 0, 0.15)',
                 'agid-xl': '0 8px 16px rgba(0, 0, 0, 0.2)',
             },
+            container: {
+                center: true,
+                padding: {
+                    DEFAULT: '1rem',
+                    sm: '1rem',
+                    md: '1rem',
+                    lg: '1rem',
+                    xl: '1rem',
+                    '2xl': '1rem',
+                },
+                screens: {
+                    sm: '540px',
+                    md: '720px',
+                    lg: '960px',
+                    xl: '1320px',
+                    '2xl': '1320px',
+                },
+            },
         },
+    },
+    corePlugins: {
+        container: false,  // Disable Tailwind's built-in container - use custom CSS only
     },
     plugins: [
         forms,
