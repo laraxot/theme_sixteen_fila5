@@ -957,14 +957,21 @@ https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-
 <pagina>=assistenza-01-dati
 <pagina>=assistenza-02-conferma
 
+<<<<<<< HEAD
 <pagina>=segnalazione-disservizio
+=======
+<pagina>=segnalazione-dettaglio
+>>>>>>> d5fe1d2 (.)
 <pagina>=segnalazione-01-privacy
 <pagina>=segnalazione-02-dati
 <pagina>=segnalazione-03-riepilogo
 <pagina>=segnalazione-04-conferma
 <pagina>=segnalazione-area-personale
 <pagina>=segnalazioni-elenco
+<<<<<<< HEAD
 <pagina>=segnalazione-dettaglio
+=======
+>>>>>>> d5fe1d2 (.)
 
  analizza la struttura del html dentro il tag body esclusi gli scripts di
   https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html e di
