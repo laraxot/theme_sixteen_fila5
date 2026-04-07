@@ -5,6 +5,7 @@
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
     $currentStep = $data['current_step'] ?? 3;
     $totalSteps = $data['total_steps'] ?? 3;
+<<<<<<< HEAD
     $steps = $data['steps'] ?? ['Autorizzazioni e condizioni', 'Dati di segnalazione', 'Riepilogo'];
     $report = $data['report'] ?? [
         'address' => 'Via Solferino - 50100 Firenze (FI)',
@@ -20,6 +21,10 @@
         'email' => 'giulia.bianchi@gmail.com'
     ];
     $contacts = $data['contacts'] ?? [];
+=======
+    $steps = $data['steps'] ?? ['Informativa sulla privacy', 'Dati di segnalazione', 'Riepilogo'];
+    $summary = $data['summary'] ?? [];
+>>>>>>> 7b4aba8 (.)
 @endphp
 
 <div class="container" id="main-container">
@@ -38,7 +43,10 @@
                 <h1 class="title-xxxlarge">{{ $title }}</h1>
             </div>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b4aba8 (.)
         <div class="col-12">
             <div class="steppers">
                 <div class="steppers-header">
@@ -63,6 +71,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
             <div class="callout callout-highlight ps-3 warning">
@@ -149,11 +158,59 @@
                                         <div class="text-paragraph-small">Codice Fiscale</div>
                                         <div class="border-light">
                                             <p class="data-text">{{ $user['cf'] }}</p>
+=======
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="steppers-content" aria-live="polite">
+                <div class="it-page-sections-container">
+                    <section class="it-page-section">
+                        <div class="cmp-card mb-40">
+                            <div class="card has-bkg-grey shadow-sm p-big p-lg-4">
+                                <div class="card-header border-0 p-0 mb-lg-20 m-0">
+                                    <h2 class="title-xxlarge mb-3">Riepilogo segnalazione</h2>
+                                    <p class="subtitle-small mb-0">Controlla i dati inseriti prima di inviare la segnalazione</p>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="cmp-info-summary bg-white has-border mb-4">
+                                        <div class="card">
+                                            <div class="card-header border-bottom border-light p-3">
+                                                <h3 class="title-large-semi-bold mb-0">Luogo</h3>
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <p class="text-paragraph mb-0">{{ $summary['place'] ?? 'Via Roma, 1' }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="cmp-info-summary bg-white has-border mb-4">
+                                        <div class="card">
+                                            <div class="card-header border-bottom border-light p-3">
+                                                <h3 class="title-large-semi-bold mb-0">Dettagli disservizio</h3>
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <p class="text-paragraph mb-2"><strong>Tipo:</strong> {{ $summary['type'] ?? 'Danneggiamento proprietà pubblica' }}</p>
+                                                <p class="text-paragraph mb-2"><strong>Titolo:</strong> {{ $summary['title'] ?? 'Buca sulla strada' }}</p>
+                                                <p class="text-paragraph mb-0">{{ $summary['details'] ?? 'Presente una buca pericolosa sul manto stradale.' }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="cmp-info-summary bg-white has-border mb-4">
+                                        <div class="card">
+                                            <div class="card-header border-bottom border-light p-3">
+                                                <h3 class="title-large-semi-bold mb-0">Autore della segnalazione</h3>
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <p class="text-paragraph mb-2"><strong>Nome:</strong> {{ $summary['user_name'] ?? 'Giulia Bianchi' }}</p>
+                                                <p class="text-paragraph mb-0"><strong>Email:</strong> {{ $summary['user_email'] ?? 'giulia.bianchi@email.it' }}</p>
+                                            </div>
+>>>>>>> 7b4aba8 (.)
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="cmp-info-summary bg-white p-3 p-lg-4">
                             <div class="card">
                                 <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end">
@@ -223,6 +280,29 @@
                 <div class="modal-footer pb-70 pt-0">
                     <button class="btn btn-primary w-100 mx-0 fw-bold mb-4" type="submit" data-bs-toggle="modal" data-bs-target="#" form="">Conferma e invia</button>
                     <button class="btn btn-outline-primary w-100 mx-0" data-bs-dismiss="modal fw-bold" type="button">Annulla</button>
+=======
+                    </section>
+                </div>
+                
+                <div class="cmp-nav-steps">
+                    <nav class="steppers-nav" aria-label="Step">
+                        <button type="button" class="btn btn-sm steppers-btn-prev p-0">
+                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                <use href="{{ $sprite }}#it-chevron-left"></use>
+                            </svg>
+                            <span class="text-button-sm t-primary">Indietro</span>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary bg-white btn-sm steppers-btn-save d-none d-lg-block saveBtn">
+                            <span class="text-button-sm t-primary">Salva Richiesta</span>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm">
+                            <span class="text-button-sm">Conferma e invia</span>
+                            <svg class="icon icon-white icon-sm" aria-hidden="true">
+                                <use href="{{ $sprite }}#it-check"></use>
+                            </svg>
+                        </button>
+                    </nav>
+>>>>>>> 7b4aba8 (.)
                 </div>
             </div>
         </div>
@@ -231,8 +311,13 @@
 
 <div class="bg-grey-card shadow-contacts">
     <div class="container">
+<<<<<<< HEAD
         <div class="row">
             <div class="col-12 col-lg-6 offset-lg-3 p-contacts">
+=======
+        <div class="row d-flex justify-content-center p-contacts">
+            <div class="col-12 col-lg-5">
+>>>>>>> 7b4aba8 (.)
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">

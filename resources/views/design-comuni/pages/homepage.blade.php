@@ -43,7 +43,7 @@
                                 <span class="data fw-normal">18 mag 2026</span>
                             </div>
                             <a href="/it/tests/novita-dettaglio" class="text-decoration-none">
-                                <h3 class="card-title">
+                                <h3 class="card-title text-success">
                                     Parte l'estate con oltre 300 eventi in centro e nei quartieri, tutti gli eventi previsti
                                 </h3>
                             </a>
@@ -51,10 +51,10 @@
                                 <strong>Inaugurazione lunedì 2 luglio</strong> con il concerto
                                 gratuito in piazza XX Settembre degli Sweet Soul Music Revue. Sul palco 20 musicisti dal tutto il mondo
                             </p>
-                            <a class="chip chip-simple" href="/it/tests/novita-dettaglio">
+                            <a class="chip chip-simple chip-green" href="/it/tests/novita-dettaglio">
                                 <span class="chip-label">Estate in città</span>
                             </a>
-                            <a class="read-more pb-3" href="/it/tests/novita">
+                            <a class="read-more read-more-green pb-3" href="/it/tests/novita">
                                 <span class="text">Tutte le novità</span>
                                 <svg class="icon">
                                     <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>

@@ -24,19 +24,19 @@
 @endphp
 
 <h1 class="visually-hidden" id="main-container">{{ $title }}</h1>
-<section id="head-section">
+<section id="head-section" class="section">
     <h2 class="visually-hidden">Contenuti in evidenza</h2>
     <div class="container">
-        <div class="row align-items-center min-vh-lg-50">
-            <div class="col-lg-6 order-2 order-lg-1">
-                <div class="card mb-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
                     <div class="card-body pb-5 px-0">
-                        <div class="category-top">
+                        <div class="category-top mb-2">
                             <svg class="icon icon-sm" aria-hidden="true">
-                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
                             </svg>
                             <span class="title-xsmall-semi-bold fw-semibold">{{ $news['category'] ?? 'Notizie' }}</span>
-                            <span class="data fw-normal">{{ $news['date'] ?? '' }}</span>
+                            <span class="data fw-semibold ms-2">{{ $news['date'] ?? '' }}</span>
                         </div>
                         <a href="{{ $news['url'] ?? '#' }}" class="text-decoration-none">
                             <h3 class="card-title">{{ $news['title'] ?? '' }}</h3>
@@ -45,34 +45,18 @@
                         <a class="chip chip-simple" href="{{ $news['url'] ?? '#' }}">
                             <span class="chip-label">{{ $news['tag'] ?? 'Estate in città' }}</span>
                         </a>
-                        <a class="read-more pb-3" href="{{ $allNewsUrl }}">
-                            <span class="text">{{ $allNewsLabel }}</span>
-                            <svg class="icon">
-                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
-                            </svg>
-                        </a>
+                        <div class="d-block">
+                            <a class="read-more pb-3" href="{{ $allNewsUrl }}">
+                                <span class="text">{{ $allNewsLabel }}</span>
+                                <svg class="icon icon-sm ms-1">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="cmp-search">
-                    <form action="{{ $data['action'] ?? '/it/ricerca' }}" method="get" role="search">
-                        <div class="form-group autocomplete-wrapper">
-                            <div class="input-group">
-                                <span class="input-group-text" id="mainSearch">
-                                    <svg class="icon icon-sm" aria-hidden="true">
-                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
-                                    </svg>
-                                </span>
-                                <label for="search2" class="visually-hidden">Cerca nel sito</label>
-                                <input type="search" class="form-control" id="search2" placeholder="Cerca nel sito" name="search">
-                                <button type="submit" class="btn btn-primary">
-                                    <span class="visually-hidden">Cerca</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 px-0 px-lg-3">
+            <div class="col-lg-6 px-0">
                 <img src="{{ $image }}" title="titolo immagine" alt="descrizione immagine" class="img-fluid">
             </div>
         </div>
