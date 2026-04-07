@@ -2,10 +2,10 @@
     Contacts Block
     Reference: design-comuni-pagine-statiche/sito/homepage.html .bg-grey-card
 --}}
-@props(['data' => []])
 @php
-    $contact_links = $data['contact_links'] ?? [];
-    $report_links  = $data['report_links'] ?? [];
+    $data = $data ?? [];
+    $contact_links = isset($contact_links) && is_array($contact_links) ? $contact_links : ($data['contact_links'] ?? []);
+    $report_links  = isset($report_links) && is_array($report_links) ? $report_links : ($data['report_links'] ?? []);
 @endphp
 
 <div class="bg-grey-card shadow-contacts">

@@ -470,3 +470,51 @@ footer a:hover {
     grid-column: span 1 / span 1 !important;
   }
 }
+
+/* ============================================================================
+   FIX #10: Rating Stars - Match Reference Default State
+   Reference has all stars active by default, local uses Alpine.js dynamic
+   ============================================================================ */
+.cmp-rating .rating-star {
+  /* Make stars appear active by default like reference */
+  color: #FCDC3C !important;
+}
+
+.cmp-rating .rating-star svg {
+  fill: #FCDC3C !important;
+}
+
+/* When user hovers or clicks, use Alpine.js dynamic classes */
+.cmp-rating .rating-star.active {
+  color: #FCDC3C !important;
+}
+
+.cmp-rating .rating-star.active svg {
+  fill: #FCDC3C !important;
+}
+
+/* ============================================================================
+   FIX #11: Hero Row - Remove min-height
+   Reference has content-height only, local had min-vh-lg-50 (50vh)
+   Already fixed in blade template, but add CSS safeguard
+   ============================================================================ */
+#head-section .row {
+  min-height: 0 !important;
+}
+
+/* ============================================================================
+   FIX #12: Container Nesting - Compensate for double-nesting
+   Reference: <main> → <section> → <div.container>
+   Local: <main> → <div.container#main-container> → <section> → <div.container>
+   ============================================================================ */
+#main-container > section > .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (min-width: 992px) {
+  #main-container > section > .container {
+    max-width: 100% !important;
+  }
+}
+
