@@ -512,6 +512,100 @@
   .text-paragraph-small { @apply text-sm; }
   .text-paragraph-card { @apply text-sm text-gray-700; }
   .text-button-normal { @apply text-sm font-medium; }
+
+  /* Design Comuni Typography */
+  .title-xxxlarge { @apply text-4xl md:text-5xl font-bold text-gray-900; }
+  .title-xxlarge { @apply text-3xl md:text-4xl font-bold text-gray-900; }
+  .title-xlarge { @apply text-2xl md:text-3xl font-bold text-gray-900; }
+  .title-large { @apply text-xl md:text-2xl font-semibold text-gray-900; }
+  .title-medium { @apply text-lg md:text-xl font-semibold text-gray-900; }
+  .title-small { @apply text-base md:text-lg font-semibold text-gray-900; }
+  
+  .subtitle-small { @apply text-sm text-gray-600; }
+  .subtitle-large { @apply text-lg text-gray-600; }
+  
+  .text-paragraph { @apply text-base text-gray-700 leading-relaxed; }
+  .text-paragraph-small { @apply text-sm text-gray-700; }
+  .text-paragraph-medium { @apply text-base text-gray-700; }
+  .text-paragraph-card { @apply text-sm text-gray-700; }
+  
+  .text-button { @apply text-sm font-medium; }
+  .text-button-sm-semi { @apply text-xs font-semibold; }
+  
+  .data-text { @apply text-sm text-gray-800; }
+  
+  /* Lora font for body content */
+  .lora { font-family: 'Lora', Georgia, serif; }
+  
+  /* ============================================================
+     SPACING SPECIALI - Design Comuni
+     ============================================================ */
+  
+  .mb-30 { @apply mb-7.5; }
+  .mt-lg-80 { @apply mt-0 lg:mt-20; }
+  .mt-50 { @apply mt-12; }
+  .pt-lg-80 { @apply pt-0 lg:pt-20; }
+  .pb-lg-80 { @apply pb-0 lg:pb-20; }
+  .py-40 { @apply py-10; }
+  
+  /* ============================================================
+     BACKGROUND COLORS - Design Comuni
+     ============================================================ */
+  
+  .has-bg-grey { @apply bg-gray-100; }
+  .has-bkg-grey { @apply bg-gray-100; }
+  .bg-grey-card { @apply bg-gray-100; }
+  .bg-primary { @apply bg-[#007A52]; }
+  
+  /* ============================================================
+     CARD VARIANTS - Design Comuni
+     ============================================================ */
+  
+  .card-teaser-info { @apply border-l-4 border-l-blue-500; }
+  .avatar { @apply w-12 h-12 rounded-full overflow-hidden; }
+  .avatar.size-xl { @apply w-16 h-16; }
+  
+  /* ============================================================
+     COMPONENTI SPECIFICI - Design Comuni
+     ============================================================ */
+  
+  .cmp-heading { @apply mb-6; }
+  .cmp-breadcrumbs { @apply py-3; }
+  .cmp-navscroll { @apply z-10; }
+  .cmp-icon-link { @apply mt-3; }
+  .cmp-radio-list { @apply space-y-2; }
+  .cmp-radio-list__item { @apply flex items-center gap-3 p-3 border border-gray-200 rounded; }
+  .cmp-steps-rating { @apply space-y-4; }
+  .cmp-steps-rating__body { @apply mt-4; }
+  
+  /* Service Detail */
+  .dc-service-detail { @apply py-6; }
+  .dc-service-detail__content { @apply mt-8; }
+  .dc-service-detail__cta-group { @apply gap-6; }
+  .dc-service-detail__actions { @apply flex flex-col gap-3; }
+  .dc-service-detail__dropdown { @apply relative; }
+  .dc-service-detail__dropdown-menu { @apply absolute right-0 mt-2 w-48; }
+  .dc-service-detail__richtext { @apply text-base text-gray-700; }
+  .dc-service-detail__button-stack { @apply flex flex-col sm:flex-row gap-3 mt-4; }
+  
+  /* Page sections */
+  .it-page-section { @apply mb-8; }
+  .it-page-sections-container { @apply space-y-8; }
+  .it-page-section.has-bg-grey { @apply bg-gray-100 rounded-lg p-4; }
+  
+  /* Navscroll */
+  .it-navscroll-wrapper { @apply bg-white rounded-lg shadow-sm; }
+  .it-navscroll-progressbar { @apply h-1 bg-blue-500; }
+  
+  /* Service header */
+  .category-badge { @apply inline-block; }
+  .chip { @apply inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 rounded-full text-sm font-medium; }
+  .chip-simple { @apply chip; }
+  .chip-label { @apply chip; }
+  .badge-outline-primary { @apply border border-[#007A52] text-[#007A52] bg-transparent; }
+  
+  /* Border colors */
+  .border-light { @apply border-gray-200; }
   
   /* ============================================================
      BORDER & COLORS
