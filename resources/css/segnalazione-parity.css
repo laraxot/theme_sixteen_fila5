@@ -1,0 +1,1581 @@
+/**
+ * Segnalazione Pages - Visual Parity CSS
+ *
+ * Covers: segnalazione-dettaglio, segnalazione-01-privacy,
+ *         segnalazione-02-dati, segnalazione-03-riepilogo,
+ *         segnalazione-04-conferma, segnalazione-area-personale,
+ *         segnalazioni-elenco
+ *
+ * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/
+ * Strategy: Tailwind CSS + Alpine.js (NO Bootstrap Italia runtime)
+ *
+ * Created: 2026-04-07
+ */
+
+/* ============================================================================
+   1. BOOTSTRAP UTILITY CLASSES — Missing mappings
+   ============================================================================ */
+
+/* Flexbox */
+.d-flex          { display: flex !important; }
+.d-inline-flex   { display: inline-flex !important; }
+.d-block         { display: block !important; }
+.d-inline-block  { display: inline-block !important; }
+.d-inline        { display: inline !important; }
+.flex-wrap        { flex-wrap: wrap !important; }
+.flex-nowrap      { flex-wrap: nowrap !important; }
+.flex-column      { flex-direction: column !important; }
+.flex-row         { flex-direction: row !important; }
+.flex-grow-1      { flex-grow: 1 !important; }
+.flex-shrink-0    { flex-shrink: 0 !important; }
+.align-items-center    { align-items: center !important; }
+.align-items-start     { align-items: flex-start !important; }
+.align-items-end       { align-items: flex-end !important; }
+.align-self-center     { align-self: center !important; }
+.justify-content-center  { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-end     { justify-content: flex-end !important; }
+.justify-content-start   { justify-content: flex-start !important; }
+
+/* Gap */
+.gap-1  { gap: 0.25rem !important; }
+.gap-2  { gap: 0.5rem !important; }
+.gap-3  { gap: 1rem !important; }
+.gap-4  { gap: 1.5rem !important; }
+.gap-30 { gap: 30px !important; }
+
+/* Width/Height */
+.w-100  { width: 100% !important; }
+.w-50   { width: 50% !important; }
+.h-100  { height: 100% !important; }
+.mw-100 { max-width: 100% !important; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden !important; }
+.text-wrap       { overflow-wrap: break-word !important; word-wrap: break-word !important; }
+.text-truncate   { overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+
+/* Margins */
+.m-0    { margin: 0 !important; }
+.mt-0   { margin-top: 0 !important; }
+.mt-1   { margin-top: 0.25rem !important; }
+.mt-2   { margin-top: 0.5rem !important; }
+.mt-3   { margin-top: 1rem !important; }
+.mt-4   { margin-top: 1.5rem !important; }
+.mt-5   { margin-top: 3rem !important; }
+.mb-0   { margin-bottom: 0 !important; }
+.mb-1   { margin-bottom: 0.25rem !important; }
+.mb-2   { margin-bottom: 0.5rem !important; }
+.mb-3   { margin-bottom: 1rem !important; }
+.mb-4   { margin-bottom: 1.5rem !important; }
+.mb-5   { margin-bottom: 3rem !important; }
+.mb-30  { margin-bottom: 30px !important; }
+.mb-40  { margin-bottom: 40px !important; }
+.ms-0   { margin-left: 0 !important; }
+.ms-1   { margin-left: 0.25rem !important; }
+.ms-2   { margin-left: 0.5rem !important; }
+.ms-3   { margin-left: 1rem !important; }
+.ms-4   { margin-left: 1.5rem !important; }
+.me-1   { margin-right: 0.25rem !important; }
+.me-2   { margin-right: 0.5rem !important; }
+.me-3   { margin-right: 1rem !important; }
+.me-4   { margin-right: 1.5rem !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-3    { margin-top: 1rem !important; margin-bottom: 1rem !important; }
+.mr-lg-30 { margin-right: 30px; }
+
+/* Padding */
+.p-0    { padding: 0 !important; }
+.p-1    { padding: 0.25rem !important; }
+.p-2    { padding: 0.5rem !important; }
+.p-3    { padding: 1rem !important; }
+.p-4    { padding: 1.5rem !important; }
+.p-5    { padding: 3rem !important; }
+.px-0   { padding-left: 0 !important; padding-right: 0 !important; }
+.px-3   { padding-left: 1rem !important; padding-right: 1rem !important; }
+.px-4   { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+.py-1   { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
+.py-2   { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+.py-3   { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+.py-4   { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+.py-5   { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.pt-0   { padding-top: 0 !important; }
+.pt-1   { padding-top: 0.25rem !important; }
+.pt-2   { padding-top: 0.5rem !important; }
+.pt-3   { padding-top: 1rem !important; }
+.pt-4   { padding-top: 1.5rem !important; }
+.pt-5   { padding-top: 3rem !important; }
+.pb-0   { padding-bottom: 0 !important; }
+.pb-2   { padding-bottom: 0.5rem !important; }
+.pb-3   { padding-bottom: 1rem !important; }
+.pb-4   { padding-bottom: 1.5rem !important; }
+.pb-5   { padding-bottom: 3rem !important; }
+.ps-0   { padding-left: 0 !important; }
+.ps-3   { padding-left: 1rem !important; }
+.pe-0   { padding-right: 0 !important; }
+.pe-3   { padding-right: 1rem !important; }
+
+/* Responsive margins/paddings */
+@media (min-width: 992px) {
+  .mt-lg-0   { margin-top: 0 !important; }
+  .mt-lg-80  { margin-top: 80px !important; }
+  .mb-lg-0   { margin-bottom: 0 !important; }
+  .pb-lg-4   { padding-bottom: 1.5rem !important; }
+  .pt-lg-0   { padding-top: 0 !important; }
+  .mt-md-4   { margin-top: 1.5rem !important; }
+}
+
+/* Borders */
+.border         { border: 1px solid #dee2e6 !important; }
+.border-0       { border: 0 !important; }
+.border-bottom  { border-bottom: 1px solid #dee2e6 !important; }
+.border-top     { border-top: 1px solid #dee2e6 !important; }
+.border-light   { border-color: #e9ecef !important; }
+.border-start   { border-left: 1px solid #dee2e6 !important; }
+.rounded        { border-radius: 4px !important; }
+.rounded-0      { border-radius: 0 !important; }
+.rounded-circle { border-radius: 50% !important; }
+
+/* Text */
+.text-center    { text-align: center !important; }
+.text-start     { text-align: left !important; }
+.text-end       { text-align: right !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-none      { text-decoration: none !important; }
+.fw-bold        { font-weight: 700 !important; }
+.fw-semibold    { font-weight: 600 !important; }
+.fw-normal      { font-weight: 400 !important; }
+.fs-0           { font-size: 0.875rem !important; }
+.fst-italic     { font-style: italic !important; }
+.text-paragraph       { font-size: 1rem; line-height: 1.5; color: #191919; }
+.text-paragraph-small { font-size: 0.875rem; line-height: 1.5; color: #5c6f82; }
+
+/* Background */
+.bg-white   { background-color: #fff !important; }
+.bg-light   { background-color: #f5f6f7 !important; }
+.bg-primary { background-color: #007a52 !important; color: #fff; }
+
+/* Shadows */
+.shadow    { box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15) !important; }
+.shadow-sm { box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075) !important; }
+.shadow-lg { box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; }
+.drop-shadow { box-shadow: 0 2px 8px rgba(0,0,0,.1) !important; }
+
+/* Position */
+.position-relative { position: relative !important; }
+.position-sticky   { position: sticky !important; }
+.sticky-top        { position: sticky !important; top: 0; z-index: 1020; }
+
+/* Misc */
+.img-fluid { max-width: 100% !important; height: auto !important; }
+.list-inline { list-style: none; padding: 0; display: flex; flex-wrap: wrap; }
+.list-inline-item { margin-right: 0.5rem; }
+.no-gutters > .col, .no-gutters > [class*="col-"] { padding-right: 0; padding-left: 0; }
+.variable-gutters { margin-left: -12px; margin-right: -12px; }
+.variable-gutters > .col, .variable-gutters > [class*="col-"] { padding-left: 12px; padding-right: 12px; }
+
+
+/* ============================================================================
+   2. TYPOGRAPHY — Design Comuni specific classes
+   ============================================================================ */
+.title-xxxlarge {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #191919;
+}
+
+.title-xxlarge {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #191919;
+}
+
+.title-xlarge {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #191919;
+}
+
+.title-large {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.title-medium-2-semi-bold {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.title-small-semi-bold {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.subtitle-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #5c6f82;
+}
+
+.subtitle-small_semi-bold {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.text-button {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+
+/* ============================================================================
+   3. BREADCRUMBS
+   ============================================================================ */
+.cmp-breadcrumbs {
+  padding: 1rem 0;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+  gap: 0;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-item a {
+  color: #5c6f82 !important;
+  text-decoration: none !important;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline !important;
+}
+
+.breadcrumb-item.active {
+  color: #17324d;
+  font-weight: 600;
+}
+
+.breadcrumb-item .separator {
+  margin: 0 0.5rem;
+  color: #5c6f82;
+}
+
+.breadcrumb-item .icon {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* ============================================================================
+   4. PAGE HEADING (cmp-heading)
+   ============================================================================ */
+.cmp-heading {
+  padding-bottom: 1rem;
+}
+
+.cmp-heading h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #191919;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .cmp-heading h1 {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* ============================================================================
+   5. CHIP/BADGE Component
+   ============================================================================ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 16px;
+  border: 1px solid #5c6f82;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: transparent;
+  color: #191919;
+}
+
+.chip-simple {
+  border-color: #d9e1e8;
+}
+
+.chip-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.chip-lg {
+  padding: 8px 24px;
+  font-size: 1rem;
+}
+
+
+/* ============================================================================
+   6. SIDEBAR NAVIGATION (cmp-navscroll) — segnalazione-dettaglio
+   ============================================================================ */
+.row-column-menu-left {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.border-col {
+  border-right: 1px solid #d9e1e8;
+}
+
+@media (max-width: 991px) {
+  .border-col {
+    border-right: none;
+    border-bottom: 1px solid #d9e1e8;
+  }
+}
+
+.cmp-navscroll {
+  padding: 0;
+}
+
+.cmp-navscroll .navbar {
+  padding: 0;
+}
+
+.it-navscroll-wrapper .menu-wrapper {
+  padding: 0;
+}
+
+.it-navscroll-wrapper .link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.it-navscroll-wrapper .link-list a {
+  display: block;
+  padding: 0.625rem 1rem;
+  font-size: 0.9375rem;
+  color: #17324d;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.it-navscroll-wrapper .link-list a:hover,
+.it-navscroll-wrapper .link-list a.active {
+  color: #007a52;
+  border-left-color: #007a52;
+  background: rgba(0, 122, 82, 0.04);
+}
+
+
+/* ============================================================================
+   7. PAGE SECTIONS (it-page-section) — segnalazione-dettaglio
+   ============================================================================ */
+.it-page-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.it-page-section h2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #191919;
+  margin-bottom: 1rem;
+}
+
+.it-page-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #191919;
+  margin-bottom: 0.75rem;
+}
+
+
+/* ============================================================================
+   8. ACCORDION COMPONENT (Bootstrap Italia)
+   ============================================================================ */
+.accordion {
+  border: 0;
+}
+
+.accordion-item {
+  border: 1px solid #d9e1e8;
+  border-radius: 0;
+  margin-bottom: -1px;
+  background: #fff;
+}
+
+.accordion-item:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.accordion-item:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #17324d;
+  background: #fff;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.accordion-button:hover {
+  background: #f5f6f7;
+}
+
+.accordion-button::after {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
+}
+
+.accordion-button.collapsed {
+  color: #5c6f82;
+}
+
+.accordion-collapse {
+  display: none;
+  overflow: hidden;
+}
+
+.accordion-collapse.show {
+  display: block;
+}
+
+.accordion-body {
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #191919;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse.show {
+  display: block;
+}
+
+.fade {
+  opacity: 1;
+  transition: opacity 0.15s linear;
+}
+
+
+/* ============================================================================
+   9. FORM COMPONENTS
+   ============================================================================ */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label,
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #17324d;
+}
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #191919;
+  background: #fff;
+  border: 1px solid #5c6f82;
+  border-radius: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #007a52;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 122, 82, 0.25);
+}
+
+.form-control::placeholder {
+  color: #5c6f82;
+  opacity: 0.7;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group .form-control {
+  flex: 1;
+}
+
+.input-group-append,
+.input-group-text {
+  display: flex;
+  align-items: center;
+}
+
+.form-text,
+.form-check-description {
+  font-size: 0.8125rem;
+  color: #5c6f82;
+  margin-top: 0.25rem;
+}
+
+/* Checkbox & Radio */
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  border: 2px solid #5c6f82;
+  border-radius: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form-check-input:checked {
+  background-color: #007a52;
+  border-color: #007a52;
+}
+
+.form-check-input:checked::after {
+  content: '';
+  display: block;
+  width: 0.625rem;
+  height: 0.375rem;
+  margin: 0.25rem auto 0;
+  border: solid #fff;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}
+
+.form-check-input[type="radio"]:checked::after {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0.25rem auto 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  transform: none;
+}
+
+.form-check-label {
+  font-size: 1rem;
+  color: #191919;
+  cursor: pointer;
+}
+
+/* Radio body styling used on segnalazione pages */
+.cmp-radio-list__item {
+  padding: 1rem 1.25rem;
+  border: 1px solid #d9e1e8;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cmp-radio-list__item:hover {
+  border-color: #007a52;
+  background: rgba(0, 122, 82, 0.02);
+}
+
+.radio-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+
+/* ============================================================================
+   10. STEPPER COMPONENT (wizard progress for segnalazione flow)
+   ============================================================================ */
+.steppers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #d9e1e8;
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.steppers-header li,
+.steppers-header .step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #5c6f82;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.steppers-header .step.active {
+  color: #007a52;
+  font-weight: 700;
+}
+
+.steppers-header .step.confirmed {
+  color: #007a52;
+}
+
+.steppers-header .step-title {
+  font-size: 0.875rem;
+}
+
+.steppers-header .step .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.steppers-header .step.active .icon {
+  color: #007a52;
+}
+
+.steppers-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #d9e1e8;
+}
+
+
+/* ============================================================================
+   11. RATING STARS — Fix oversized SVG issue
+   ============================================================================ */
+.cmp-rating {
+  text-align: center;
+}
+
+.cmp-rating .card {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.cmp-rating .card-header {
+  border-bottom: 0;
+  background: transparent;
+  padding-bottom: 0;
+}
+
+.rating,
+fieldset.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  direction: rtl;
+  padding: 0;
+  margin: 0.5rem 0;
+  border: 0;
+}
+
+.rating-star,
+.rating label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* CRITICAL: Fix the oversized star SVGs */
+.rating-star svg,
+.rating label svg,
+.rating svg,
+fieldset.rating svg,
+.cmp-rating svg {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  fill: #d9e1e8;
+  transition: fill 0.15s;
+}
+
+.rating-star:hover svg,
+.rating-star.active svg,
+.rating input:checked ~ label svg,
+.rating label:hover svg,
+.rating label:hover ~ label svg {
+  fill: #ffb400 !important;
+}
+
+.rating input {
+  display: none;
+}
+
+
+/* ============================================================================
+   12. CARDS in segnalazione context
+   ============================================================================ */
+.card-header {
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-footer {
+  padding: 1rem 1.25rem;
+  background: #f5f6f7;
+  border-top: 1px solid #e9ecef;
+}
+
+.card-space {
+  margin-bottom: 1rem;
+}
+
+.card-bg {
+  background: #fff;
+}
+
+.card-body__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-body__list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9375rem;
+}
+
+.card-body__list li:last-child {
+  border-bottom: 0;
+}
+
+/* Single-line info items used in detail pages */
+.single-line-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.single-line-info .data-text {
+  font-size: 0.9375rem;
+  color: #191919;
+}
+
+.data-text {
+  font-size: 0.9375rem;
+  color: #191919;
+}
+
+
+/* ============================================================================
+   13. SPLIDE/CAROUSEL (used in segnalazione-dettaglio)
+   ============================================================================ */
+.cmp-carousel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cmp-carousel__header-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.splide__slide {
+  padding: 0 0.5rem;
+}
+
+
+/* ============================================================================
+   14. CONTATTA IL COMUNE / CONTACTS (shared bottom section)
+   ============================================================================ */
+.cmp-contacts {
+  padding: 2rem 0;
+}
+
+.cmp-contacts .card {
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cmp-contacts .card-body {
+  padding: 1.5rem;
+}
+
+.cmp-contacts .card-body .list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.cmp-contacts .icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #007a52;
+}
+
+
+/* ============================================================================
+   15. ICON GLOBAL — Fix oversized SVGs in all contexts
+   ============================================================================ */
+.icon,
+svg.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  display: inline-block;
+  fill: currentColor;
+}
+
+.icon-xs, svg.icon-xs { width: 16px; height: 16px; }
+.icon-sm, svg.icon-sm { width: 20px; height: 20px; }
+.icon-lg, svg.icon-lg { width: 32px; height: 32px; }
+.icon-xl, svg.icon-xl { width: 48px; height: 48px; }
+
+/* Prevent any SVG from being absurdly large */
+main svg:not(.leaflet-zoom-animated):not([width]):not([class*="icon"]) {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Icon containers — prevent icons from taking huge space */
+.icon-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.list-item-title-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* ============================================================================
+   16. SEGNALAZIONE SPECIFIC: Detail page layout
+   ============================================================================ */
+/* Sidebar + content layout */
+.row-column-menu-left > .col-lg-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.row-column-menu-left > .col-lg-8,
+.row-column-menu-left > .col-lg-9 {
+  flex: 0 0 66.667%;
+  max-width: 66.667%;
+}
+
+@media (max-width: 991px) {
+  .row-column-menu-left > .col-lg-3,
+  .row-column-menu-left > .col-lg-8,
+  .row-column-menu-left > .col-lg-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* ============================================================================
+   17. SEGNALAZIONE SPECIFIC: Elenco page
+   ============================================================================ */
+/* Tabs for map/list toggle */
+.nav-tabs,
+.cmp-nav-tab {
+  display: flex;
+  border-bottom: 2px solid #d9e1e8;
+  margin-bottom: 1.5rem;
+}
+
+.nav-tabs .nav-link,
+.cmp-nav-tab a {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5c6f82;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-tabs .nav-link:hover,
+.cmp-nav-tab a:hover {
+  color: #007a52;
+}
+
+.nav-tabs .nav-link.active,
+.cmp-nav-tab a.active {
+  color: #007a52;
+  border-bottom-color: #007a52;
+}
+
+/* Category filter sidebar on elenco */
+.cmp-category-filter {
+  padding-right: 1rem;
+}
+
+.cmp-category-filter label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0;
+  font-size: 0.875rem;
+  color: #191919;
+  cursor: pointer;
+}
+
+/* Map container */
+.cmp-map-container,
+#map-container,
+[data-element="map-container"] {
+  width: 100%;
+  min-height: 400px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+/* ============================================================================
+   18. SEGNALAZIONE AREA PERSONALE
+   ============================================================================ */
+/* Tab navigation */
+.nav-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-pills .nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5c6f82;
+  border: 1px solid #d9e1e8;
+  background: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-pills .nav-link:hover {
+  background: #f5f6f7;
+}
+
+.nav-pills .nav-link.active {
+  background: #007a52;
+  color: #fff;
+  border-color: #007a52;
+}
+
+
+/* ============================================================================
+   19. CTA / CALL TO ACTION SECTION
+   ============================================================================ */
+.cmp-hero-cta {
+  padding: 3rem 0;
+  background: #f5f6f7;
+  text-align: center;
+}
+
+.cmp-hero-cta h2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cmp-hero-cta .btn {
+  margin-top: 1rem;
+}
+
+
+/* ============================================================================
+   20. CHECKBOX/RADIO BODY STYLING (privacy page, dati page)
+   ============================================================================ */
+.checkbox-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+}
+
+
+/* ============================================================================
+   21. RESPONSIVE OVERRIDES
+   ============================================================================ */
+@media (max-width: 991px) {
+  .d-lg-flex { display: flex !important; }
+  .d-lg-block { display: block !important; }
+  .d-none.d-lg-block { display: none !important; }
+  .d-none.d-lg-flex { display: none !important; }
+
+  .row-column-menu-left {
+    flex-direction: column;
+  }
+
+  .title-xxxlarge {
+    font-size: 1.75rem;
+  }
+
+  .title-xxlarge {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-flex  { display: flex !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-none  { display: none !important; }
+  .d-none.d-lg-block { display: block !important; }
+  .d-none.d-lg-flex  { display: flex !important; }
+
+  .col-lg-3  { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-4  { flex: 0 0 33.333%; max-width: 33.333%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-5  { flex: 0 0 41.667%; max-width: 41.667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-6  { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-7  { flex: 0 0 58.333%; max-width: 58.333%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-8  { flex: 0 0 66.667%; max-width: 66.667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-9  { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
+  .col-lg-10 { flex: 0 0 83.333%; max-width: 83.333%; padding-left: 1rem; padding-right: 1rem; }
+  .offset-lg-1 { margin-left: 8.333%; }
+}
+
+@media (min-width: 768px) {
+  .d-md-block { display: block !important; }
+  .d-md-flex  { display: flex !important; }
+  .d-none.d-md-block { display: block !important; }
+
+  .col-md-3  { flex: 0 0 25%; max-width: 25%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-4  { flex: 0 0 33.333%; max-width: 33.333%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-5  { flex: 0 0 41.667%; max-width: 41.667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-6  { flex: 0 0 50%; max-width: 50%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-8  { flex: 0 0 66.667%; max-width: 66.667%; padding-left: 1rem; padding-right: 1rem; }
+  .col-md-9  { flex: 0 0 75%; max-width: 75%; padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (max-width: 575px) {
+  .steppers-header {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+/* ============================================================================
+   22. MOBILE MENU / NAVBAR COLLAPSABLE refinements
+   ============================================================================ */
+.navbar-collapsable {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: #007a52;
+}
+
+.navbar-collapsable.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-collapsable .overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.navbar-collapsable .menu-wrapper {
+  padding: 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.navbar-collapsable .close-div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapsable {
+    display: flex !important;
+    position: static;
+    background: transparent;
+    flex-direction: row;
+  }
+
+  .navbar-collapsable .overlay,
+  .navbar-collapsable .close-div,
+  .custom-navbar-toggler {
+    display: none !important;
+  }
+
+  .navbar-collapsable .menu-wrapper {
+    display: flex;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+
+/* ============================================================================
+   23. DROPDOWN refinements
+   ============================================================================ */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+  border-top: 0.3rem solid;
+  border-right: 0.3rem solid transparent;
+  border-left: 0.3rem solid transparent;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #191919;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f5f6f7;
+  color: #007a52;
+}
+
+.btn-dropdown {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+/* ============================================================================
+   24. SEARCH MODAL
+   ============================================================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-dialog {
+  background: #fff;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 640px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+.modal-content {
+  padding: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.btn-close {
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #5c6f82;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.btn-close::after {
+  content: '×';
+}
+
+.btn-close span {
+  display: none;
+}
+
+/* ============================================================================
+   25. SEGNALAZIONE FLOW PAGES — Additional classes for 01-privacy, 02-dati, 03-riepilogo
+   ============================================================================ */
+
+/* Alert/Warning boxes */
+.it-alert,
+.alert-warning {
+  background-color: #fff9f0 !important;
+  border-left: 4px solid #995C00 !important;
+  padding: 1.25rem 1.5rem !important;
+  border-radius: 4px !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.it-alert h2,
+.alert-warning h2 {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #191919 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.it-alert p,
+.alert-warning p {
+  font-size: 1rem !important;
+  color: #191919 !important;
+  margin-bottom: 0 !important;
+}
+
+.no_toc {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* Card wrapper for summary cards */
+.card-wrapper {
+  margin-bottom: 1.5rem !important;
+}
+
+.card-wrapper .card {
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card-wrapper .card-header {
+  background-color: #f5f6f7 !important;
+  padding: 1rem 1.25rem !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+  font-weight: 600 !important;
+}
+
+.card-wrapper .card-body {
+  padding: 1.25rem !important;
+}
+
+/* Definition list styling for summary */
+.it-list-wrapper {
+  margin: 0 !important;
+}
+
+.it-list-wrapper > div {
+  margin-bottom: 1rem !important;
+}
+
+.it-list-wrapper dt {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.it-list-wrapper dd {
+  font-size: 1rem !important;
+  color: #191919 !important;
+  margin-left: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Text color utilities */
+.t-primary {
+  color: #007A52 !important;
+}
+
+.t-secondary {
+  color: #5c6f82 !important;
+}
+
+/* Read more/terms links */
+.read-terms,
+a.read-terms {
+  color: #007A52 !important;
+  text-decoration: underline !important;
+  font-size: 0.9rem !important;
+}
+
+/* Actions wrapper */
+.actions-wrapper {
+  padding: 1.5rem 0 !important;
+  border-top: 1px solid #e8e8e8 !important;
+}
+
+/* Terms section */
+.terms-section {
+  margin-top: 2rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid #e8e8e8 !important;
+}
+
+/* File upload */
+.fileupload {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.fileupload-filename {
+  font-size: 0.875rem !important;
+  color: #5c6f82 !important;
+  padding: 0.5rem 0.75rem !important;
+  background-color: #f5f6f7 !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+}
+
+/* User card in dati form */
+.user-card {
+  background-color: #fff !important;
+}
+
+.user-card .contacts {
+  border-top: 1px solid #e8e8e8 !important;
+  padding-top: 1rem !important;
+}
+
+/* Stepper nav buttons */
+.steppers-nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1.5rem 0 !important;
+  margin-top: 2rem !important;
+  border-top: 1px solid #e8e8e8 !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+.steppers-nav .d-flex.gap-2 {
+  display: flex !important;
+  gap: 0.75rem !important;
+}
+
+/* Outline secondary button */
+.btn-outline-secondary {
+  background-color: #fff !important;
+  color: #5c6f82 !important;
+  border: 2px solid #5c6f82 !important;
+  border-radius: 4px !important;
+  padding: 0.625rem 1.5rem !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  cursor: pointer !important;
+  font-family: 'Titillium Web', sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f5f6f7 !important;
+  color: #191919 !important;
+}
+
+/* Danger outline button */
+.btn-outline-danger {
+  background-color: #fff !important;
+  color: #cc0000 !important;
+  border: 2px solid #cc0000 !important;
+  border-radius: 4px !important;
+  padding: 0.625rem 1.5rem !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  cursor: pointer !important;
+  font-family: 'Titillium Web', sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: #cc0000 !important;
+  color: #fff !important;
+}
+
+/* Form note */
+.form-note {
+  font-size: 0.875rem !important;
+  color: #5c6f82 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Text danger (for asterisk) */
+.text-danger {
+  color: #cc0000 !important;
+}
+
+/* Responsive: mobile full buttons */
+@media (max-width: 767px) {
+  .mobile-full,
+  .btn.mobile-full {
+    width: 100% !important;
+  }
+
+  .steppers-nav {
+    flex-direction: column !important;
+  }
+
+  .steppers-nav > *,
+  .steppers-nav .d-flex {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}

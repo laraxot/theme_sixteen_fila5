@@ -469,6 +469,39 @@
   flex-direction: column;
 }
 
+/* Governance cards - horizontal layout for card with image */
+.card-flex.row {
+  flex-direction: row;
+}
+
+.card-flex .card-body.d-flex.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.card-flex .card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-flex .card-image {
+  flex-shrink: 0;
+}
+
+.card-flex .card-image-rounded {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-flex .card-image-rounded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-wrapper {
   display: flex;
   flex-direction: column;
@@ -660,6 +693,22 @@
 
 .chip-label { color: inherit; }
 
+/* Chip Green Variant */
+.chip-green {
+  background-color: rgba(0, 122, 82, 0.1);
+  color: #007A52;
+  border: 1px solid #007A52;
+}
+
+.chip-green:hover {
+  background-color: #007A52;
+  color: #FFFFFF;
+}
+
+.chip-green .chip-label {
+  color: #007A52;
+}
+
 /* ========================================
    LINKS - Design Comuni Style
 ======================================== */
@@ -681,6 +730,25 @@
 
 .read-more .icon { transition: transform 0.2s; }
 .read-more:hover .icon { transform: translateX(0.25rem); }
+
+/* Read More Green Variant */
+.read-more-green {
+  color: #007A52 !important;
+}
+
+.read-more-green .icon {
+  fill: #007A52;
+  stroke: #007A52;
+}
+
+.read-more-green:hover {
+  color: #005c43 !important;
+}
+
+.read-more-green:hover .icon {
+  fill: #005c43;
+  stroke: #005c43;
+}
 
 /* ========================================
    LINK LIST - Design Comuni Style
@@ -888,6 +956,127 @@
 /* Calendar Section */
 #calendario {
   padding: 3rem 0;
+}
+
+/* Calendar Header - Green background */
+.it-header-block {
+  background-color: #007A52;
+  color: #FFFFFF;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.it-header-block-title h3 {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Calendar day styling */
+.it-single-slide-wrapper .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007A52;
+  line-height: 1;
+}
+
+.it-single-slide-wrapper .card-title span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #5C6F82;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.it-single-slide-wrapper .card-text a {
+  color: #007A52;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.it-single-slide-wrapper .card-text a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   RATING SECTION - Green Background + White Box
+======================================== */
+
+.rating-green-bg {
+  background-color: #007A52;
+  padding: 3rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.rating-green-bg .card-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.rating-green-bg .card-header {
+  background-color: transparent;
+  padding: 0 0 1rem 0;
+}
+
+.rating-green-bg .card-body {
+  padding: 1.5rem 0;
+}
+
+.rating-green-bg .title-medium-2-semi-bold {
+  color: #191919;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Rating Stars Styling */
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating-star {
+  cursor: pointer;
+  transition: color 0.2s;
+  color: #999999;
+}
+
+.rating-star.full {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.rating-star svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
+.rating-star:hover,
+.rating-star.active {
+  color: #0066CC;
+}
+
+.cmp-rating__card-second {
+  margin-top: 1rem;
+}
+
+.cmp-rating__card-second p {
+  color: #5C6F82;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 /* ========================================
@@ -1907,5 +2096,155 @@
 
   .menu-wrapper {
     padding: 1.25rem;
+  }
+}
+
+/* ========================================
+   CARD OVERLAPPING EFFECT
+   Creates visual overlap between adjacent cards
+======================================== */
+
+.card-overlapping {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .card-overlapping {
+    margin-right: -0.5rem;
+    z-index: 2;
+  }
+
+  .card-overlapping + .col-md-6 {
+    margin-left: -0.5rem;
+    z-index: 1;
+  }
+
+  .card-teaser-wrapper + .card-teaser-wrapper {
+    margin-left: -0.5rem;
+  }
+}
+
+/* ========================================
+   EVIDENCE SECTION BACKGROUND PATTERN
+   Geometric pattern overlay on green gradient
+======================================== */
+
+.evidence-section-header {
+  background-color: #0066cc;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+.evidence-section-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 122, 82, 0.9) 100%);
+  z-index: 0;
+}
+
+.evidence-section-header > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   EVENT CALENDAR NUMBER COLORS
+   Override blue to dark gray
+======================================== */
+
+.it-single-slide-wrapper .card-title {
+  color: #191919 !important;
+}
+
+.it-single-slide-wrapper .card-title span {
+  color: #5C6F82 !important;
+}
+
+/* ========================================
+   FEEDBACK MULTI-STEP FORM
+   Alpine.js powered step transitions
+======================================== */
+
+.form-rating {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.form-rating fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.form-rating legend {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #191919;
+  margin-bottom: 0.75rem;
+}
+
+.form-rating legend span {
+  font-size: 0.875rem;
+  color: #5C6F82;
+}
+
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+  margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+  float: left;
+  margin-left: -1.5em;
+  margin-top: 0.25rem;
+}
+
+.form-check-label {
+  font-size: 0.875rem;
+  color: #191919;
+  cursor: pointer;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #191919;
+  margin-bottom: 0.5rem;
+}
+
+.form-text {
+  font-size: 0.75rem;
+  color: #5C6F82;
+  margin-top: 0.25rem;
+}
+
+.btn-back {
+  color: #5C6F82 !important;
+}
+
+.btn-back:hover {
+  color: #007A52 !important;
+}
+
+/* ========================================
+   RESPONSIVE FIXES
+   Mobile-first adjustments
+======================================== */
+
+@media (max-width: 767px) {
+  .card-overlapping {
+    margin-right: 0;
+  }
+
+  .evidence-section-header::before {
+    display: none;
   }
 }
