@@ -2,13 +2,14 @@
     Hero Homepage Block
     Reference: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs #head-section
 --}}
-@props(['data' => []])
 @php
-    $title = $data['title'] ?? 'Nome del comune';
-    $news = $data['news'] ?? [];
-    $image = $data['image'] ?? 'https://picsum.photos/800/600';
-    $allNewsLabel = $data['all_news_label'] ?? 'Tutte le novità';
-    $allNewsUrl = $data['all_news_url'] ?? '#';
+    // Support both @include (direct vars) and @component (via $data)
+    $data = $data ?? [];
+    $title = isset($title) ? $title : ($data['title'] ?? 'Nome del comune');
+    $news = isset($news) && is_array($news) ? $news : ($data['news'] ?? []);
+    $image = isset($image) ? $image : ($data['image'] ?? 'https://picsum.photos/800/600');
+    $allNewsLabel = isset($all_news_label) ? $all_news_label : ($data['all_news_label'] ?? 'Tutte le novità');
+    $allNewsUrl = isset($all_news_url) ? $all_news_url : ($data['all_news_url'] ?? '#');
     $excerpt = $news['excerpt'] ?? '';
     $excerptLead = $excerpt;
     $excerptTail = '';
@@ -28,8 +29,13 @@
     <h2 class="visually-hidden">Contenuti in evidenza</h2>
     <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-lg-6">
                 <div class="card">
+=======
+            <div class="col-lg-6 order-2 order-lg-1">
+                <div class="card mb-5">
+>>>>>>> 4b74b32 (.)
                     <div class="card-body pb-5 px-0">
                         <div class="category-top mb-2">
                             <svg class="icon icon-sm" aria-hidden="true">

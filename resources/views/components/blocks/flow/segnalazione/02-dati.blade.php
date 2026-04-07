@@ -94,4 +94,27 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <div class="mt-6 flex justify-between">
+        <button 
+            type="button"
+            class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+            @click="currentStep--"
+            data-element="step-prev"
+        >
+            Indietro
+        </button>
+        <button 
+            type="button"
+            class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            :disabled="!nome || !cognome || !email"
+            @click="currentStep++"
+            data-element="step-next"
+        >
+            Continua
+        </button>
+    </div>
+>>>>>>> 4b74b32 (.)
 </div>

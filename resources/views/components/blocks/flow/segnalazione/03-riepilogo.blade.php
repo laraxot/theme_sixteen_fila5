@@ -92,6 +92,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <div class="bg-grey-card shadow-contacts">
     <div class="container">
@@ -102,3 +103,5 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> 4b74b32 (.)
