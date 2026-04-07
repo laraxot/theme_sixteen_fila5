@@ -2,14 +2,16 @@
 
 > Replica delle pagine Design Comuni nel tema Sixteen usando Tailwind CSS + Alpine.js, senza Bootstrap Italia runtime.
 
-**Last verified**: 2026-04-03
-**Stato**: ✅ 63.0% OK (34/54 pagine)
+**Last verified**: 2026-04-07
+**Stato**: ✅ Homepage HTML 99.6% match — CSS/JS fix in progress
 
 ## 📚 Index Completi
 
 - **[SKILLS_RULES.md](./SKILLS_RULES.md)** - Skills, rules e best practices
 - **[ALL_PAGES_ANALYSIS.md](./ALL_PAGES_ANALYSIS.md)** - Analisi completa 54 pagine
 - **[PROGRESS_REPORT.md](./PROGRESS_REPORT.md)** - Report progresso aggiornato
+- **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - Confronto strutturale HTML homepage (2026-04-07)
+- **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - Pattern strutturali Design Comuni
 - **[FAIL_PAGES_ANALYSIS.md](./FAIL_PAGES_ANALYSIS.md)** - Analisi pagine fail
 - **[SEGNALAZIONI_ELENCO_ANALISI.md](./SEGNALAZIONI_ELENCO_ANALISI.md)** - Analisi segnalazioni elenco
 - **[SEGNALAZIONI_ELENCO_REPORT.md](./SEGNALAZIONI_ELENCO_REPORT.md)** - Report segnalazioni elenco (95.7% - TARGET RAGGIUNTO)
@@ -25,6 +27,18 @@
 - **[FAIL_PAGES_DETAIL_REPORT.md](./FAIL_PAGES_DETAIL_REPORT.md)** - Analisi dettagliata 3 pagine fail
 - **[FAIL_PAGES_FIX_REPORT.md](./FAIL_PAGES_FIX_REPORT.md)** - Report fix pagine fail
 - **[css-js-pass-2026-04-04.md](./css-js-pass-2026-04-04.md)** - Pass operativo CSS/JS con screenshot aggiornati e blocker JSON/Blade
+<<<<<<< HEAD
+=======
+- **[HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md)** - Analisi dettagliata struttura HTML homepage (81% similarita, 2026-04-07)
+- **[HOMEPAGE_VISUAL_PARITY_SESSION.md](./HOMEPAGE_VISUAL_PARITY_SESSION.md)** - Sessione fix CSS/JS homepage (2026-04-07) ✅ Phase 1 Complete
+- **[HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md](./HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)** - 🔴 Analisi strutturale finale (85% structural, ~90% visual)
+- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md)** - Piano dettagliato per raggiungere 90% similarità
+- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)** - Sessione implementazione 90% (2026-04-07)
+- **[prompts/homepage/blocks/00-index.md](./prompts/homepage/blocks/00-index.md)** - 🔴 Documentazione completa 10 blocchi homepage
+- **[MERGE_CONFLICT_RESOLUTION_LOG.md](./MERGE_CONFLICT_RESOLUTION_LOG.md)** - Log risoluzione conflitti di merge
+- **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - Confronto strutturale HTML homepage (2026-04-07)
+- **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - Pattern strutturali Design Comuni
+>>>>>>> 4b74b32 (.)
 - **[segnalazione-flow/README.md](./segnalazione-flow/README.md)** - Stato parity CSS/JS flow 8 pagine segnalazione (2026-04-07)
 
 ## Current focus
@@ -78,6 +92,8 @@ Il lavoro visivo resta limitato a:
 
 ## Active audit documents
 
+- **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - 🔴 NUOVO: Confronto strutturale homepage (92% match)
+- **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - 🔴 NUOVO: Pattern strutturali Design Comuni
 - [segnalazioni-elenco/README.md](./segnalazioni-elenco/README.md) - Layout combinato mappa/elenco con filtro e tab Alpine
 - [segnalazione-dettaglio/README.md](./segnalazione-dettaglio/README.md) - Implementazione e verifica della scheda servizio segnalazione disservizio
 - [ALL_PAGES_ANALYSIS.md](./ALL_PAGES_ANALYSIS.md) - Audit completo 54 pagine
@@ -104,5 +120,9 @@ Il batch del 2026-04-03 mostra tre cluster operativi:
 ## Cross links
 
 - [../00-index.md](../00-index.md) - Indice generale docs del tema
+- [../prompts/replikate.txt](../prompts/replikate.txt) - 🔴 REPLIKATE Prompt v2.0.0 (BMAD+GSD, 2026-04-07)
 - [../../../Modules/Cms/docs/design-comuni-batch-parity.md](../../../Modules/Cms/docs/design-comuni-batch-parity.md) - Coordinamento lato Cms
 - [../../../bashscripts/docs/design-comuni-batch-body-parity.md](../../../bashscripts/docs/design-comuni-batch-body-parity.md) - Documentazione script batch
+- [../design-comuni/STATUS.md](STATUS.md) - Status report operativo
+- [../design-comuni/screenshots/](screenshots/) - Screenshots comparativi
+- [../design-comuni/pages/](pages/) - Documentazione per pagina

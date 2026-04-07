@@ -226,6 +226,7 @@ Both have identical footer structure with:
 
 ## CSS Fix Progress Report (2026-04-07)
 
+<<<<<<< HEAD
 ### Verified Fixes ✓
 1. **Hero section colors** - Title, chip, and read-more link are now green (#007A52) ✓
 2. **Body class** - `dc-homepage-parity` correctly applied ✓
@@ -237,6 +238,31 @@ Both have identical footer structure with:
 8. **Siti tematici** - Colored cards (blue/warning/dark) with white text ✓
 9. **Contacts section** - Green links with icons ✓
 10. **Footer** - Dark navy (#202A2E) background, white text ✓
+=======
+### Structural HTML Fixes ✓
+1. **Extra container wrapper removed** - `<div class="container">` was wrapping `{{ $slot }}` in `app.blade.php` ✓
+2. **Hero section class fixed** - `class="section"` → `class=""` matching reference ✓
+3. **Sections are now direct children of `<main>`** - No extra wrappers ✓
+4. **Body class** - `dc-homepage-parity` correctly applied ✓
+
+### Verified CSS Fixes ✓
+1. **Hero section colors** - Title, chip, and read-more link are now green (#007A52) ✓
+2. **Rating block** - White card on green background, proper star sizing (24px) ✓
+3. **Login button** - White background with green text/icon ✓
+4. **Evidence section** - Green links, proper card styling ✓
+5. **Governance cards** - 3-column layout, green "VAI ALLA PAGINA" ✓
+6. **Events carousel** - Visibility fixed, proper date card styling ✓
+7. **Siti tematici** - Colored cards (blue/warning/dark) with white text ✓
+8. **Contacts section** - Green links with icons ✓
+9. **Footer** - Dark navy (#202A2E) background, white text ✓
+
+### Content Verification ✓
+The "Animale domestico" topic card IS present with all 4 subordinate links:
+- "Come adottare un cane al Canile Municipale"
+- "Elenco delle aree per cani"
+- "Come segnalare una colonia felina e ricevere il tesserino"
+- "Come segnalare lo smarrimento del proprio animale"
+>>>>>>> 4b74b32 (.)
 
 ### Computed Style Verification
 | Element | Expected | Actual | Status |
@@ -245,6 +271,15 @@ Both have identical footer structure with:
 | Chip color | rgb(0, 122, 82) | rgb(0, 122, 82) | ✓ |
 | Read-more color | rgb(0, 122, 82) | rgb(0, 122, 82) | ✓ |
 | Body class | dc-homepage-parity | dc-homepage-parity page-tests page-tests-homepage | ✓ |
+<<<<<<< HEAD
+=======
+| Hero section class | "" (empty) | "" (empty) | ✓ |
+| Main > section structure | Direct child | Direct child | ✓ |
+
+### Files Modified
+- `resources/views/components/layouts/app.blade.php` - Removed extra container wrapper
+- `resources/views/components/blocks/hero/homepage.blade.php` - Fixed section class
+>>>>>>> 4b74b32 (.)
 
 ### Remaining Work
 - Fine-tune responsive breakpoints for mobile/tablet

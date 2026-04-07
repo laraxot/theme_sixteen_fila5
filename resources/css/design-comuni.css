@@ -444,6 +444,33 @@
 .card-teaser-image .card-image-wrapper {
   position: relative;
   padding-bottom: 3rem;
+/* Image overlaps bottom-right corner */
+.card-teaser-image .card-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-top: -2rem;
+  margin-bottom: -1rem;
+}
+
+.card-teaser-image .card-image {
+  position: relative;
+}
+
+.card-teaser-image .card-image-rounded {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.card-teaser-image .card-image-rounded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-image-rounded {
@@ -516,6 +543,13 @@
 
 .card-teaser-wrapper-equal .card-teaser {
   min-height: 100%;
+}
+
+/* Governance cards: vertical stack (NOT horizontal) */
+.card-teaser-block-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .card-teaser-block-3 > div,
@@ -971,6 +1005,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
+<<<<<<< HEAD
 }
 
 /* Calendar day styling */
@@ -979,6 +1014,31 @@
   font-weight: 700;
   color: #007A52;
   line-height: 1;
+=======
+  margin: 0;
+}
+
+/* Calendar day card */
+.it-single-slide-wrapper .card {
+  border: none;
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.it-single-slide-wrapper .card-body {
+  padding: 1rem;
+}
+
+.it-single-slide-wrapper .card-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #007A52;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  border-bottom: 2px solid #007A52;
+  padding-bottom: 0.5rem;
+>>>>>>> 4b74b32 (.)
 }
 
 .it-single-slide-wrapper .card-title span {
@@ -988,11 +1048,26 @@
   color: #5C6F82;
   text-transform: uppercase;
   margin-top: 0.25rem;
+<<<<<<< HEAD
+=======
+  letter-spacing: 0.05em;
+}
+
+.it-single-slide-wrapper .card-text {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #007A52;
+>>>>>>> 4b74b32 (.)
 }
 
 .it-single-slide-wrapper .card-text a {
   color: #007A52;
   text-decoration: none;
+<<<<<<< HEAD
+=======
+  font-size: 0.875rem;
+  line-height: 1.4;
+>>>>>>> 4b74b32 (.)
   font-weight: 500;
 }
 
@@ -1000,6 +1075,17 @@
   text-decoration: underline;
 }
 
+<<<<<<< HEAD
+=======
+.it-single-slide-wrapper .card-text img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+>>>>>>> 4b74b32 (.)
 /* ========================================
    RATING SECTION - Green Background + White Box
 ======================================== */
@@ -2248,3 +2334,209 @@
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* ========================================
+   GOVERNANCE CARDS - Reference Match
+======================================== */
+
+/* Card teaser governance - clean white cards */
+#calendario .card-teaser {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+#calendario .card-teaser .card-body {
+  padding: 1rem;
+}
+
+#calendario .card-teaser .card-footer {
+  border-top: 1px solid #E5E7EB;
+}
+
+/* Category label */
+#calendario .category-top .title-xsmall-semi-bold {
+  font-size: 0.75rem;
+  color: #5C6F82;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Card title - dark, no background */
+#calendario .card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #191919;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+/* Card text - gray, no background */
+#calendario .card-text {
+  font-size: 0.875rem;
+  color: #5C6F82;
+  line-height: 1.5;
+}
+
+/* First card thumb image */
+#calendario .card-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+#calendario .card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Read more link */
+#calendario .read-more {
+  font-size: 0.75rem;
+  color: #0066cc;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#calendario .read-more:hover {
+  color: #003366;
+}
+
+/* ========================================
+   EVENTS CALENDAR - Reference Match
+======================================== */
+
+/* Calendar header */
+#calendario .it-header-block {
+  background-color: #007A52;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+#calendario .it-header-block-title h3 {
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Calendar day title - large number, small day */
+#calendario .calendar-day-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #191919;
+  line-height: 1;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+#calendario .calendar-day-title span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #5C6F82;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* Event list */
+#calendario .calendar-events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#calendario .calendar-event {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+#calendario .calendar-event:last-child {
+  border-bottom: none;
+}
+
+#calendario .event-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+#calendario .event-link:hover {
+  text-decoration: underline;
+}
+
+/* Event thumb */
+#calendario .event-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* ========================================
+   REMOVE BAD CLASSES FROM PREVIOUS ATTEMPTS
+======================================== */
+
+/* Remove gray backgrounds from text elements */
+.u-grey-light {
+  background-color: transparent !important;
+  color: #4B5563 !important;
+}
+
+.text-paragraph-medium {
+  background-color: transparent !important;
+}
+
+.text-paragraph-card {
+  background-color: transparent !important;
+}
+
+/* Fix card overlapping - remove negative margins that break layout */
+.card-overlapping {
+  margin-right: 0 !important;
+  z-index: auto !important;
+}
+
+.card-overlapping + .col-md-6 {
+  margin-left: 0 !important;
+  z-index: auto !important;
+}
+
+.card-teaser-wrapper + .card-teaser-wrapper {
+  margin-left: 0 !important;
+}
+
+/* ========================================
+   FIX: Remove gray backgrounds from governance cards
+   Bootstrap Italia or other CSS adding unwanted backgrounds
+======================================== */
+
+#calendario .card-teaser .title-xsmall-semi-bold,
+#calendario .card-teaser .category-top span,
+#calendario .card-teaser .card-title,
+#calendario .card-teaser h3.card-title,
+#calendario .card-teaser .card-text,
+#calendario .card-teaser p.card-text {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+#calendario .category-top .title-xsmall-semi-bold {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #F5F6F7 !important;
+  border-radius: 0.125rem;
+  font-size: 0.75rem;
+  color: #5C6F82;
+}
+>>>>>>> 4b74b32 (.)

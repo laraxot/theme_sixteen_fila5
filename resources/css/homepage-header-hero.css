@@ -1,0 +1,412 @@
+/**
+ * Homepage Visual Parity Fixes - Homepage Header & Hero
+ * Critical fixes for header and hero section
+ */
+
+/* ========================================
+   HEADER - Ensure it displays correctly
+   ======================================== */
+.it-header-wrapper {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+.it-header-slim-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    background-color: #0066B3 !important;
+    color: #FFFFFF !important;
+    padding: 0.5rem 0 !important;
+}
+
+.it-header-slim-wrapper * {
+    visibility: visible !important;
+}
+
+/* Header Slim Content */
+.it-header-slim-wrapper-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Right zone */
+.it-header-slim-right-zone {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+/* Language dropdown */
+.it-header-slim-wrapper .dropdown {
+    position: relative !important;
+}
+
+.it-header-slim-wrapper .dropdown-toggle {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.875rem !important;
+}
+
+.it-header-slim-wrapper .dropdown-menu {
+    position: absolute !important;
+    z-index: 1050 !important;
+    background: #FFFFFF !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+
+/* Accedi button */
+.it-header-slim-wrapper .btn-primary {
+    background-color: #FFFFFF !important;
+    color: #0066B3 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 0.375rem 1rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/* Hero wrapper */
+.it-hero-wrapper {
+    position: relative !important;
+    background-color: #003366 !important;
+    min-height: 400px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Hero background pattern */
+.it-hero-wrapper::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: 
+        linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+        linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+        linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+        linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)) !important;
+    background-size: 80px 140px !important;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px !important;
+    pointer-events: none !important;
+}
+
+/* Hero content */
+.it-hero-wrapper .it-hero-content-wrapper {
+    position: relative !important;
+    z-index: 1 !important;
+    padding: 3rem 0 !important;
+}
+
+/* Hero title - "Benvenuti" */
+.it-hero-wrapper .hero-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 1rem !important;
+    font-family: 'Titillium Web', 'Roboto', sans-serif !important;
+}
+
+/* Hero subtitle */
+.it-hero-wrapper .hero-subtitle {
+    font-size: 1.125rem !important;
+    color: rgba(255,255,255,0.9) !important;
+    margin-bottom: 2rem !important;
+}
+
+/* ========================================
+   SERVICE CARDS - 3 column grid
+   ======================================== */
+
+/* Service cards container */
+.service-cards-wrapper,
+.card-teaser-wrapper-equal {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    margin: 2rem 0 !important;
+}
+
+@media (max-width: 992px) {
+    .service-cards-wrapper,
+    .card-teaser-wrapper-equal {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-cards-wrapper,
+    .card-teaser-wrapper-equal {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Service card */
+.service-cards-wrapper .card,
+.card-teaser-wrapper-equal .card {
+    background: #FFFFFF !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    padding: 1.5rem !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+.service-cards-wrapper .card:hover,
+.card-teaser-wrapper-equal .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+
+/* Card category label */
+.service-cards-wrapper .category-top,
+.card-teaser-wrapper-equal .category-top {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #006655 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Card icon */
+.service-cards-wrapper .card-icon,
+.card-teaser-wrapper-equal .card-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 1rem !important;
+}
+
+.service-cards-wrapper .card-icon svg,
+.card-teaser-wrapper-equal .card-icon svg {
+    width: 100% !important;
+    height: 100% !important;
+    color: #0066CC !important;
+}
+
+/* Card title */
+.service-cards-wrapper .card-title,
+.card-teaser-wrapper-equal .card-title {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Card text */
+.service-cards-wrapper .card-text,
+.card-teaser-wrapper-equal .card-text {
+    font-size: 0.875rem !important;
+    color: #4a4a4a !important;
+    line-height: 1.5 !important;
+}
+
+/* Read more link */
+.service-cards-wrapper .read-more,
+.card-teaser-wrapper-equal .read-more {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: #006655 !important;
+    text-decoration: none !important;
+    margin-top: 1rem !important;
+}
+
+/* ========================================
+   ARGOMENTI IN EVIDENZA
+   ======================================== */
+
+.evidence-section {
+    padding: 2rem 0 !important;
+}
+
+.evidence-section .section-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+}
+
+/* Evidence cards */
+.evidence-section .card {
+    min-height: 300px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    overflow: hidden !important;
+}
+
+.evidence-section .card-image-top {
+    width: 100% !important;
+    height: 160px !important;
+    object-fit: cover !important;
+}
+
+.evidence-section .card-body {
+    padding: 1.25rem !important;
+}
+
+.evidence-section .card-title {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+}
+
+.evidence-section .card-text {
+    font-size: 0.875rem !important;
+    color: #4a4a4a !important;
+}
+
+/* Pills */
+.evidence-section .other-topics,
+.evidence-section .pills-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin: 1.5rem 0 !important;
+}
+
+.evidence-section .badge {
+    padding: 0.375rem 0.75rem !important;
+    border: 1px solid #006655 !important;
+    border-radius: 20px !important;
+    color: #006655 !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    background: transparent !important;
+}
+
+.evidence-section .badge:hover {
+    background: #006655 !important;
+    color: #FFFFFF !important;
+}
+
+/* Show all button */
+.evidence-section .show-all-btn {
+    display: block !important;
+    width: fit-content !important;
+    margin: 1.5rem auto !important;
+    padding: 0.625rem 1.5rem !important;
+    background: #006655 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+.evidence-section .show-all-btn:hover {
+    background: #004d40 !important;
+}
+
+/* ========================================
+   SITI TEMATICI
+   ======================================== */
+
+.siti-tematici .card {
+    padding: 1.5rem !important;
+    border-radius: 8px !important;
+    color: #FFFFFF !important;
+}
+
+.siti-tematici .card.bg-primary {
+    background: #0066CC !important;
+}
+
+.siti-tematici .card.bg-warning {
+    background: #995C00 !important;
+}
+
+.siti-tematici .card.bg-dark {
+    background: #333333 !important;
+}
+
+.siti-tematici .card-title,
+.siti-tematici .card-text {
+    color: #FFFFFF !important;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.it-footer {
+    background: #003366 !important;
+    color: #FFFFFF !important;
+    padding: 3rem 0 !important;
+}
+
+.it-footer a {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.it-footer a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Footer links columns */
+.it-footer .footer-list h4 {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 1rem !important;
+}
+
+.it-footer .footer-list ul {
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+.it-footer .footer-list li {
+    margin-bottom: 0.5rem !important;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 992px) {
+    .it-header-slim-wrapper-content {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    .it-header-slim-right-zone {
+        justify-content: center !important;
+    }
+    
+    .it-hero-wrapper {
+        min-height: 300px !important;
+    }
+    
+    .it-hero-wrapper .hero-title {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .it-header-slim-wrapper .btn-primary span {
+        display: none !important;
+    }
+    
+    .it-hero-wrapper .hero-title {
+        font-size: 1.5rem !important;
+    }
+}

@@ -184,7 +184,12 @@ Le differenze sono:
 
 ---
 
-**Stato**: ✅ **HTML STRUTTURALMENTE IDENTICO**  
-**Match**: **100% struttura, 98% attributi**  
-**Accessibilità**: **MIGLIORE dell'originale**  
+**Stato**: ✅ **HTML STRUTTURALMENTE IDENTICO**
+**Match**: **100% struttura, 98% attributi**
+**Accessibilità**: **MIGLIORE dell'originale**
 **Rendering**: **IDENTICO**
+
+### 🔗 Documenti Correlati
+- [HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md) — Analisi HTML aggiornata con diff strutturale dettagliata (2026-04-07)
+- [homepage-structure-analysis.md](./homepage-structure-analysis.md) — Analisi struttura homepage
+- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md) — Diff strutturale precedente

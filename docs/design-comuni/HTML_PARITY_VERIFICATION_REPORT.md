@@ -316,11 +316,7 @@ final class Page extends Component
 **PRIMA** (❌ CONFLITTO):
 ```blade
 {{--
-<<<<<<< HEAD
     App Layout Component
-=======
-    App Layout - Public Frontend
->>>>>>> 4a11dcf (.)
 --}}
 ```
 

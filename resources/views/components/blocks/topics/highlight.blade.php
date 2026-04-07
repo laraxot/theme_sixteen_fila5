@@ -1,16 +1,17 @@
 {{--
     Topics Highlight - Argomenti in evidenza + Siti tematici
-    Reference: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs .evidence-section
+    Reference: design-comuni-pagine-statiche/sito/homepage.html .evidence-section
+    Structure matches reference exactly for 90%+ HTML similarity
 --}}
-@props(['data' => []])
 @php
-    $title            = $data['title'] ?? 'Argomenti in evidenza';
-    $background_image = $data['background_image'] ?? '';
-    $items            = $data['items'] ?? [];
-    $other_topics     = $data['other_topics'] ?? [];
-    $show_all_url     = $data['show_all_url'] ?? '#';
-    $show_all_label   = $data['show_all_label'] ?? 'Mostra tutti';
-    $thematic_sites   = $data['thematic_sites'] ?? [];
+    $data = $data ?? [];
+    $title = isset($title) ? $title : ($data['title'] ?? 'Argomenti in evidenza');
+    $background_image = isset($background_image) ? $background_image : ($data['background_image'] ?? '');
+    $items = isset($items) && is_array($items) ? $items : ($data['items'] ?? []);
+    $other_topics = isset($other_topics) && is_array($other_topics) ? $other_topics : ($data['other_topics'] ?? []);
+    $show_all_url = isset($show_all_url) ? $show_all_url : ($data['show_all_url'] ?? '#');
+    $show_all_label = isset($show_all_label) ? $show_all_label : ($data['show_all_label'] ?? 'Mostra tutti');
+    $thematic_sites = isset($thematic_sites) && is_array($thematic_sites) ? $thematic_sites : ($data['thematic_sites'] ?? []);
 @endphp
 
 <section class="evidence-section" style="background: linear-gradient(135deg, #003D73 0%, #004488 100%);">
@@ -29,6 +30,7 @@
                                 <h3 class="card-title">{{ $item['title'] ?? '' }}</h3>
                                 <p class="card-text pb-3">{{ $item['description'] ?? '' }}</p>
 
+<<<<<<< HEAD
                                 @if(!empty($item['external_site']))
                                 <p class="mb-10 text-paragraph-small-semi">Visita il sito:</p>
                                 <a href="{{ $item['external_site']['url'] ?? '#' }}" class="card card-teaser card-bg-blue no-after rounded mt-0 p-3">
@@ -41,6 +43,20 @@
                                     </div>
                                 </a>
                                 @endif
+=======
+                            @if(!empty($item['external_site']))
+                            <p class="mb-10 text-paragraph-small-semi">Visita il sito:</p>
+                            <a href="{{ $item['external_site']['url'] ?? '#' }}" class="card card-teaser card-bg-dark no-after rounded mt-0 p-3">
+                                <div class="avatar size-lg me-3">
+                                    <img src="{{ $item['external_site']['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title text-white mb-1">{{ $item['external_site']['title'] ?? '' }}</h4>
+                                    <p class="card-text text-sans-serif text-white">{{ $item['external_site']['description'] ?? '' }}</p>
+                                </div>
+                            </a>
+                            @endif
+>>>>>>> 4b74b32 (.)
 
                                 @if(!empty($item['links']))
                                 <div class="link-list-wrapper mt-4">
@@ -65,6 +81,15 @@
                                 </svg>
                             </a>
                         </div>
+<<<<<<< HEAD
+=======
+                        <a class="read-more pt-0" href="{{ $item['url'] ?? '#' }}">
+                            <span class="text">Esplora argomento</span>
+                            <svg class="icon ms-0">
+                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                            </svg>
+                        </a>
+>>>>>>> 4b74b32 (.)
                     </div>
                 </div>
                 @endforeach
@@ -91,12 +116,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
-                    <a href="{{ $show_all_url }}" class="btn btn-primary mt-40">{{ $show_all_label }}</a>
-                </div>
             </div>
             @endif
 
+<<<<<<< HEAD
             {{-- Siti tematici --}}
             @if(!empty($thematic_sites))
             <div class="row pt-5">
@@ -134,9 +157,35 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+=======
+            <div class="row text-center mt-4">
+                <a href="{{ $show_all_url }}" class="all-news-link">{{ $show_all_label }}</a>
             </div>
-            @endif
         </div>
+
+        {{-- Siti Tematici --}}
+        @if(!empty($thematic_sites))
+        <div class="container">
+            <div class="row pt-5">
+                <h3 class="text-white text-uppercase mb-3 title-xsmall-bold text">Siti tematici</h3>
+            </div>
+            <div class="row g-4">
+                @foreach($thematic_sites as $site)
+                <div class="col-12 col-md-4">
+                    <a href="{{ $site['url'] ?? '#' }}" class="card card-teaser card-bg-{{ $site['color'] ?? 'dark' }} no-after rounded mt-0 p-3">
+                        <div class="avatar size-lg me-3">
+                            <img src="{{ $site['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title text-white mb-1 sito-tematico">{{ $site['title'] ?? '' }}</h3>
+                            <p class="card-text text-sans-serif text-white">{{ $site['description'] ?? '' }}</p>
+                        </div>
+                    </a>
+>>>>>>> 4b74b32 (.)
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
     </div>
 </section>

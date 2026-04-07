@@ -2,11 +2,11 @@
     Search + Useful Links Section
     Reference: design-comuni-pagine-statiche/sito/homepage.html .useful-links-section
 --}}
-@props(['data' => []])
 @php
-    $placeholder  = $data['placeholder'] ?? 'Cerca una parola chiave';
-    $action       = $data['action'] ?? '/it/ricerca';
-    $useful_links = $data['useful_links'] ?? [];
+    $data = $data ?? [];
+    $placeholder  = isset($placeholder) ? $placeholder : ($data['placeholder'] ?? 'Cerca una parola chiave');
+    $action       = isset($action) ? $action : ($data['action'] ?? '/it/ricerca');
+    $useful_links = isset($useful_links) && is_array($useful_links) ? $useful_links : ($data['useful_links'] ?? []);
 @endphp
 
 <section class="useful-links-section">

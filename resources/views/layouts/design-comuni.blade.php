@@ -8,7 +8,10 @@
     
     <!-- Tailwind CSS -->
     @vite(['resources/css/app.css'], 'themes/Sixteen')
-    
+
+    <!-- Design Comuni CSS (Bootstrap Italia class mappings) -->
+    <link href="{{ asset('themes/Sixteen/design-comuni.css') }}" rel="stylesheet">
+
     <style>
         [x-cloak] { display: none !important; }
         

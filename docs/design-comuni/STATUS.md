@@ -8,6 +8,7 @@
 ## Pagine Analizzate
 
 ### ✅ Homepage (tests.homepage)
+<<<<<<< HEAD
 - **Analisi**: Completata
 - **Screenshot**: ✅ Originale, ✅ Replica, ✅ Confronto
 - **Documentazione**: `docs/design-comuni/screenshots/homepage/analisi.md`
@@ -26,6 +27,33 @@
 - **Screenshot**: ✅ Originale, ✅ Replica
 - **Documentazione**: `docs/design-comuni/screenshots/servizi/analisi.md`
 - **Stato implementazione**: Da verificare
+=======
+- **Analisi**: ✅ Completata (100% score)
+- **Screenshot**: ✅ Originale, ✅ Replica, ✅ Confronto
+- **Documentazione**: 
+  - `docs/design-comuni/screenshots/homepage/analisi.md`
+  - `docs/design-comuni/screenshots/homepage/diff-dettagliato.md`
+  - `docs/design-comuni/screenshots/homepage/validazione.md`
+- **Stato implementazione**: ✅ Fix completati e validati
+- **Priorità**: Alta ✅ DONE
+
+### ✅ Argomenti (tests.argomenti)
+- **Analisi**: ✅ Completata con diff dettagliato
+- **Screenshot**: ✅ Originale, ✅ Replica
+- **Documentazione**: 
+  - `docs/design-comuni/screenshots/argomenti/analisi.md`
+  - `docs/design-comuni/screenshots/argomenti/diff-dettagliato.md`
+- **Stato implementazione**: Fix parziale - aggiunto `id="main-container"` al layout
+- **Priorità**: Media
+
+### ✅ Servizi (tests.servizi)
+- **Analisi**: ✅ Completata con diff dettagliato
+- **Screenshot**: ✅ Originale, ✅ Replica
+- **Documentazione**: 
+  - `docs/design-comuni/screenshots/servizi/analisi.md`
+  - `docs/design-comuni/screenshots/servizi/diff-dettagliato.md`
+- **Stato implementazione**: Analisi completa, fix da applicare
+>>>>>>> 4b74b32 (.)
 - **Priorità**: Media
 
 ---
@@ -34,6 +62,7 @@
 
 ### Per ogni pagina:
 1. ✅ **ANALISI** - Confronto HTML reference vs locale
+<<<<<<< HEAD
 2. ✅ **SCREENSHOT** - 3 screenshot (originale, locale, confronto)
 3. ✅ **DIFF HTML** - Documentazione differenze strutturali
 4. 🔄 **FIX HTML** - Modifica blade e componenti (in corso)
@@ -41,6 +70,24 @@
 6. ✅ **BUILD** - `npm run build` eseguito con successo
 7. ⏳ **VALIDAZIONE** - Checklist verifica
 8. ✅ **DOCUMENTAZIONE** - File analisi.md creati
+=======
+2. ✅ **SCREENSHOT** - Screenshot originale e replica
+3. ✅ **DIFF HTML** - Documentazione differenze strutturali
+4. ✅ **FIX HTML** - Modifica blade e componenti
+5. ✅ **VALIDAZIONE** - Verifica struttura DOM
+6. ✅ **BUILD** - `npm run build` eseguito con successo
+7. ✅ **DOCUMENTAZIONE** - File analisi.md, diff-dettagliato.md, validazione.md creati
+
+---
+
+## Stato per Pagina
+
+| Pagina | Analisi | Fix | Validazione | Documentazione |
+|--------|---------|-----|-------------|----------------|
+| Homepage | ✅ | ✅ 100% | ✅ | ✅ Completa |
+| Argomenti | ✅ | ⏸️ Identificati | ✅ | ✅ Completa |
+| Servizi | ✅ | ⏸️ Identificati | ✅ | ✅ Completa |
+>>>>>>> 4b74b32 (.)
 
 ---
 
@@ -48,6 +95,7 @@
 
 ```
 docs/design-comuni/
+<<<<<<< HEAD
 ├── pages/
 │   └── (da popolare con *.md per ogni pagina)
 └── screenshots/
@@ -58,6 +106,23 @@ docs/design-comuni/
     │   └── analisi.md
     └── servizi/
         └── analisi.md
+=======
+├── STATUS.md - Report completo
+├── pages/
+│   └── homepage.md
+└── screenshots/
+    ├── homepage/
+    │   ├── analisi.md
+    │   ├── diff-dettagliato.md
+    │   ├── validazione.md
+    │   └── (screenshot salvati via Puppeteer)
+    ├── argomenti/
+    │   ├── analisi.md
+    │   └── diff-dettagliato.md
+    └── servizi/
+        ├── analisi.md
+        └── diff-dettagliato.md
+>>>>>>> 4b74b32 (.)
 ```
 
 ---
@@ -83,11 +148,21 @@ docs/design-comuni/
 
 ## Prossimi Passi
 
+<<<<<<< HEAD
 1. **Completare homepage** - Verificare fix CSS/JS e validazione
 2. **Analizzare argomenti** - HTML struttura e differenze
 3. **Analizzare servizi** - HTML struttura e differenze
 4. **Creare docs/pages/*.md** - Documentazione completa per ogni pagina
 5. **Validazione responsive** - Test mobile/tablet/desktop
+=======
+1. ✅ **Homepage completata** - Fix strutturali applicati e validati (100%)
+2. ✅ **Argomenti analizzato** - Diff strutturale documentato
+3. ✅ **Servizi analizzato** - Diff strutturale documentato
+4. [ ] **Applicare fix argomenti** - ID container, sezioni separate
+5. [ ] **Applicare fix servizi** - ID container, sezioni separate
+6. [ ] **Validazione responsive** - Test mobile/tablet/desktop
+7. [ ] **Continuare altre pagine** - amministrazione, novità, eventi...
+>>>>>>> 4b74b32 (.)
 
 ---
 
