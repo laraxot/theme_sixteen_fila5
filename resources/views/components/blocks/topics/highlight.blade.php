@@ -13,59 +13,61 @@
     $thematic_sites   = $data['thematic_sites'] ?? [];
 @endphp
 
-<section class="evidence-section">
-    <div class="section py-5 pb-lg-80 px-lg-5 position-relative"
+<section class="evidence-section" style="background: linear-gradient(135deg, #003D73 0%, #004488 100%);">
+    <div class="section py-5 pb-lg-80 px-lg-5 position-relative evidence-section-header" style="background: transparent;"
         @if($background_image) style="background-image: url({{ $background_image }})" @endif>
         <div class="container">
             <div class="row">
                 <h2 class="text-white">{{ $title }}</h2>
             </div>
-            <div>
-                <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
-                    @foreach($items as $item)
-                    <div class="card card-teaser no-after rounded shadow-sm border border-light">
-                        <div class="card-body pb-5">
-                            <h3 class="card-title">{{ $item['title'] ?? '' }}</h3>
-                            <p class="card-text pb-3">{{ $item['description'] ?? '' }}</p>
+            <div class="row g-4">
+                @foreach($items as $item)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
+                        <div class="card card-teaser no-after rounded shadow-sm border border-light h-100">
+                            <div class="card-body pb-5">
+                                <h3 class="card-title">{{ $item['title'] ?? '' }}</h3>
+                                <p class="card-text pb-3">{{ $item['description'] ?? '' }}</p>
 
-                            @if(!empty($item['external_site']))
-                            <p class="mb-10 text-paragraph-small-semi">Visita il sito:</p>
-                            <a href="{{ $item['external_site']['url'] ?? '#' }}" class="card card-teaser card-bg-blue no-after rounded mt-0 p-3">
-                                <div class="avatar size-lg me-3">
-                                    <img src="{{ $item['external_site']['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title text-white mb-1">{{ $item['external_site']['title'] ?? '' }}</h4>
-                                    <p class="card-text text-sans-serif text-white">{{ $item['external_site']['description'] ?? '' }}</p>
-                                </div>
-                            </a>
-                            @endif
+                                @if(!empty($item['external_site']))
+                                <p class="mb-10 text-paragraph-small-semi">Visita il sito:</p>
+                                <a href="{{ $item['external_site']['url'] ?? '#' }}" class="card card-teaser card-bg-blue no-after rounded mt-0 p-3">
+                                    <div class="avatar size-lg me-3">
+                                        <img src="{{ $item['external_site']['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title text-white mb-1">{{ $item['external_site']['title'] ?? '' }}</h4>
+                                        <p class="card-text text-sans-serif text-white">{{ $item['external_site']['description'] ?? '' }}</p>
+                                    </div>
+                                </a>
+                                @endif
 
-                            @if(!empty($item['links']))
-                            <div class="link-list-wrapper mt-4">
-                                <ul class="link-list">
-                                    @foreach($item['links'] as $link)
-                                    <li>
-                                        <a class="list-item active icon-left mb-2" href="{{ $link['url'] ?? '#' }}">
-                                            <span class="list-item-title-icon-wrapper">
-                                                <span class="text-success">{{ $link['label'] }}</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
+                                @if(!empty($item['links']))
+                                <div class="link-list-wrapper mt-4">
+                                    <ul class="link-list">
+                                        @foreach($item['links'] as $link)
+                                        <li>
+                                            <a class="list-item active icon-left mb-2" href="{{ $link['url'] ?? '#' }}">
+                                                <span class="list-item-title-icon-wrapper">
+                                                    <span class="text-success">{{ $link['label'] }}</span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                             </div>
-                            @endif
+                            <a class="read-more text-success pt-0" href="{{ $item['url'] ?? '#' }}">
+                                <span class="text">Esplora argomento</span>
+                                <svg class="icon ms-0">
+                                    <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
+                                </svg>
+                            </a>
                         </div>
-                        <a class="read-more pt-0" href="{{ $item['url'] ?? '#' }}">
-                            <span class="text">Esplora argomento</span>
-                            <svg class="icon ms-0">
-                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
-                            </svg>
-                        </a>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
 
             {{-- Altri argomenti --}}
@@ -98,10 +100,12 @@
             {{-- Siti tematici --}}
             @if(!empty($thematic_sites))
             <div class="row pt-5">
-                <h2>Siti tematici</h2>
+                <div class="col-12">
+                    <h2>Siti tematici</h2>
+                </div>
             </div>
             <div class="pt-4 pt-lg-30">
-                <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 pb-0">
+                <div class="row g-4">
                     @foreach($thematic_sites as $site)
                     @php
                         $colorClass = match($site['color'] ?? 'blue') {
@@ -110,19 +114,25 @@
                             default   => 'card-bg-blue',
                         };
                     @endphp
-                    <a href="{{ $site['url'] ?? '#' }}" class="card card-teaser {{ $colorClass }} rounded mt-0 p-3">
-                        <div class="avatar size-lg me-3">
-                            <img src="{{ $site['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 pb-0">
+                            <a href="{{ $site['url'] ?? '#' }}" class="card card-teaser {{ $colorClass }} rounded mt-0 p-3 h-100 text-decoration-none">
+                                <div class="d-flex align-items-start">
+                                    <div class="avatar size-lg me-3 flex-shrink-0">
+                                        <img src="{{ $site['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <h3 class="card-title {{ $site['color'] === 'warning' ? '' : 'text-white' }} sito-tematico">
+                                            {{ $site['title'] }}
+                                        </h3>
+                                        <p class="card-text text-sans-serif {{ $site['color'] === 'warning' ? '' : 'text-white' }} mb-0">
+                                            {{ $site['description'] }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title {{ $site['color'] === 'warning' ? '' : 'text-white' }} sito-tematico">
-                                {{ $site['title'] }}
-                            </h3>
-                            <p class="card-text text-sans-serif {{ $site['color'] === 'warning' ? '' : 'text-white' }}">
-                                {{ $site['description'] }}
-                            </p>
-                        </div>
-                    </a>
+                    </div>
                     @endforeach
                 </div>
             </div>

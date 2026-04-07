@@ -34,6 +34,14 @@
 - [visual-comparison/reference-segnalazioni-elenco.html](./visual-comparison/reference-segnalazioni-elenco.html) - Reference HTML source
 - [visual-comparison/local-segnalazioni-elenco-v2.html](./visual-comparison/local-segnalazioni-elenco-v2.html) - Local HTML source (post-fix)
 
+### Segnalazione Pages (2026-04-07)
+- [segnalazione-parity/README.md](./design-comuni/segnalazione-parity/README.md) - **Index** for all 7 segnalazione pages parity work
+- [segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md](./design-comuni/segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md) - Detailed HTML structure comparison
+- [segnalazione-parity/CSS_JS_PARITY_COMPLETE.md](./design-comuni/segnalazione-parity/CSS_JS_PARITY_COMPLETE.md) - CSS/JS parity completion report
+- [segnalazione-parity/reference-html/](./design-comuni/segnalazione-parity/reference-html/) - Reference HBS templates from official repo
+- [segnalazione-css-diff-2026-04-07.md](./segnalazione-css-diff-2026-04-07.md) - Previous CSS/JS differences analysis
+- [design-comuni/segnalazione-comparison-analysis.md](./segnalazione-comparison-analysis.md) - Earlier parity analysis report
+
 ### Theme implementation entrypoints
 - `resources/css/app.css` - Primary CSS entrypoint for visual parity overrides
 - `resources/js/app.js` - Primary JS entrypoint for homepage runtime normalization

@@ -8,10 +8,50 @@
     --comune-light: #f8f9fa;
 }
 
-/* Header */
+/* Header - AGID Blue */
 .it-header-wrapper {
-    background: linear-gradient(135deg, var(--comune-primary), var(--comune-secondary));
+    background: #0066CC;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.it-header-slim-wrapper {
+    background: #0066CC;
+}
+
+.it-header-slim {
+    background: transparent;
+    border-bottom: none;
+}
+
+/* Topics/Argomenti Section - Blue Background */
+.evidence-section {
+    background: #003D73;
+}
+
+.evidence-section-header {
+    background: #003D73;
+}
+
+/* Homepage Services Section */
+.servizi-homepage {
+    background: #f5f5f5;
+}
+
+.servizi-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.servizi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Homepage Administration Section */
+.amministrazione-homepage {
+    background: #f5f5f5;
 }
 
 .it-brand-text h2 {
@@ -153,11 +193,23 @@
     border-bottom: none;
 }
 
-/* Footer */
+/* Footer - AGID Compliant */
 .it-footer {
-    background-color: var(--comune-dark);
+    background-color: #003D73;
     color: white;
     margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.it-footer-main {
+    background: #003D73;
+    color: white;
+}
+
+.it-footer-secondary {
+    background: #002855;
+    padding: 1rem 0;
+    border-top: 1px solid #004080;
 }
 
 .it-footer h4 {

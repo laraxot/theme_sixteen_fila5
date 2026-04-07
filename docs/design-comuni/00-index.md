@@ -25,6 +25,7 @@
 - **[FAIL_PAGES_DETAIL_REPORT.md](./FAIL_PAGES_DETAIL_REPORT.md)** - Analisi dettagliata 3 pagine fail
 - **[FAIL_PAGES_FIX_REPORT.md](./FAIL_PAGES_FIX_REPORT.md)** - Report fix pagine fail
 - **[css-js-pass-2026-04-04.md](./css-js-pass-2026-04-04.md)** - Pass operativo CSS/JS con screenshot aggiornati e blocker JSON/Blade
+- **[segnalazione-flow/README.md](./segnalazione-flow/README.md)** - Stato parity CSS/JS flow 8 pagine segnalazione (2026-04-07)
 
 ## Current focus
 
@@ -84,6 +85,9 @@ Il lavoro visivo resta limitato a:
 - [FAIL_PAGES_ANALYSIS.md](./FAIL_PAGES_ANALYSIS.md) - Analisi pagine fail
 - [batch-body-parity-2026-04-03.md](./batch-body-parity-2026-04-03.md) - Audit batch della struttura del `body`
 - [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md) - Confronto strutturale homepage
+- [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](./HOMEPAGE-HTML-STRUCTURE-COMPARISON.md) - HTML structure comparison (remote vs local)
+- [VISUAL-COMPARISON-REPORT.md](./VISUAL-COMPARISON-REPORT.md) - Visual comparison with screenshots
+- [HOMEPAGE-PARITY-SUMMARY.md](./HOMEPAGE-PARITY-SUMMARY.md) - Homepage parity final summary (2026-04-07)
 - [work-plan.md](./work-plan.md) - Piano BMAD + GSD operativo
 - [bmad-gsd-status-2026-04-03.md](./bmad-gsd-status-2026-04-03.md) - Stato reale dell'ultimo loop
 - [screenshots/homepage-visual-pass-2026-04-02.md](./screenshots/homepage-visual-pass-2026-04-02.md) - Diario visuale homepage

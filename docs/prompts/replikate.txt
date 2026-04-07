@@ -1,906 +1,250 @@
-# 🏛️ REPLIKATE - Design Comuni Italia Replication Guide
-## Bootstrap Italia → Tailwind CSS | Laravel Folio + Volt | CMS-Driven
+# REPLIKATE — Design Comuni → Tailwind
 
-> **Versione:** 3.0 (Aggiornata 2026-04-01)  
-> **Stato:** ✅ Completo e Verificato  
-> **Filosofia:** "UNO [slug].blade.php per TUTTE le pagine" | "JSON per contenuti, Blade per struttura" | "DRY + KISS"
+## 🎯 GOAL
 
----
+Replica ogni pagina di Design Comuni rendendo:
 
-## 📋 INDICE COMPLETO
+- **URL Locale**: `http://127.0.0.1:8000/it/tests/<pagina>`
+- **VISIVAMENTE IDENTICA a**
+- **URL Reference**: `https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html`
 
-1. [Theme Detection](#theme-detection)
-2. [Vite Build System](#vite-build-system)
-3. [Page Routing con Folio + Volt](#page-routing-con-folio--volt)
-4. [Block System](#block-system)
-5. [Header & Footer Sections](#header--footer-sections)
-6. [Design Comuni Replication](#design-comuni-replication)
-7. [HTML Body Identity](#html-body-identity)
-8. [Quality Assurance](#quality-assurance)
-9. [Documentation Standards](#documentation-standards)
-10. [Agent Collaboration](#agent-collaboration)
-11. [Regole Assolute](#regole-assolute)
+### ⚠️ Vincolo assoluto:
+
+- **NO Bootstrap Italia**
+- **SI Tailwind + Alpine.js**
 
 ---
 
-## 1. Theme Detection
+## 🧠 PRINCIPI CORE
 
-### Algoritmo di Rilevamento Tema
+### DRY
+- UNA sola blade: `[slug].blade.php`
+- Contenuti SOLO da JSON
+- Blocchi riutilizzabili
 
-```php
-// 1. Leggi APP_URL da laravel/.env
-$appUrl = env('APP_URL', 'http://fixcity.local');
+### KISS
+- La blade gestisce SOLO struttura
+- Il JSON gestisce SOLO contenuto
+- CSS/JS fanno tutto il resto
 
-// 2. Rimuovi protocollo (http:// o https://)
-$domain = str_replace(['http://', 'https://'], '', $appUrl);
-// fixcity.local
+### HTML FIRST
+- Il `<body>` deve matchare ≥90% della reference
+- Niente refactor finché l'HTML non è corretto
 
-// 3. Rimuovi www
-$domain = str_replace('www.', '', $domain);
-// fixcity.local
-
-// 4. Explode da "." e inverti array
-$parts = array_reverse(explode('.', $domain));
-// ['local', 'fixcity']
-
-// 5. Unisci con "/"
-$configPath = implode('/', $parts);
-// "local/fixcity"
-
-// 6. Leggi configurazione
-$pubTheme = config('xra.pub_theme');
-// Da: base_path('config/local/fixcity/xra.php')
-// Risultato: "Sixteen"
-```
-
-**File di configurazione:**
-```php
-// config/local/fixcity/xra.php
-return [
-    'pub_theme' => 'Sixteen',  // ← Nome del tema
-    'register_pub_theme' => true,
-];
-```
-
-**Perché:**
-- ✅ Il tema è dinamico e configurabile
-- ✅ Puoi cambiare tema (Sixteen → Zero → Seventeen) modificando solo la config
-- ✅ Il namespace `pub_theme` è agnostico e portabile
-
-**Documentazione correlata:**
-- [Component Namespace Architecture](../architecture/component-namespace.md)
-- [Theme Detection](../architecture/theme-detection.md)
+### CSS LAST
+- Si lavora su CSS/JS SOLO dopo HTML corretto
 
 ---
 
-## 2. Vite Build System
-
-### 🔴 Errore Comune
-
-```blade
-{{-- SBAGLIATO: Cerca in public_html/build/manifest.json --}}
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-```
-
-### ✅ Soluzione Corretta
-
-```blade
-{{-- CORRETTO: Cerca in public_html/themes/Sixteen/build/manifest.json --}}
-@vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
-```
-
-### Configurazione Vite
-
-**File:** `laravel/Themes/Sixteen/vite.config.js`
-
-```javascript
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-
-export default defineConfig({
-  build: {
-    outDir: './public',  // Genera in themes/Sixteen/public/build/
-    manifest: true,       // Crea manifest.json
-  },
-  plugins: [
-    laravel({
-      input: ['resources/css/app.css', 'resources/js/app.js'],
-      refresh: true,
-    }),
-  ],
-});
-```
-
-**File:** `laravel/Themes/Sixteen/package.json`
-
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "copy": "cp -rv ./public/* ../../../public_html/themes/Sixteen/"
-  }
-}
-```
-
-### 🐛 Risoluzione Errori Vite Manifest
-
-```bash
-# Se vedi: Vite manifest not found at: public_html/themes/Sixteen/manifest.json
-cd laravel/Themes/Sixteen
-composer update -W
-npm install
-npm run build
-npm run copy
-```
-
-**Perché funziona:**
-1. `outDir: './public'` → Vite genera in `themes/Sixteen/public/build/manifest.json`
-2. `npm run copy` → Sincronizza con `public_html/themes/Sixteen/`
-3. `@vite([...], 'themes/Sixteen')` → Cerca nel percorso corretto
-
-**Documentazione correlata:**
-- [Vite Build System](../architecture/vite-build.md)
-- [Build Commands Guide](../build-commands-guide.md)
-
----
-
-## 3. Page Routing con Folio + Volt
-
-### Template Universale [slug].blade.php
-
-**File:** `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-
-```blade
-<?php
-
-declare(strict_types=1);
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-use Livewire\Volt\Component;
-use Modules\Cms\Http\Middleware\PageSlugMiddleware;
-
-name('tests.view');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public string $slug = '';
-    public string $pageSlug = '';
-
-    /** @var array<string, mixed> */
-    public array $data = [];
-
-    public function mount(string $slug): void
-    {
-        $this->slug = $slug;
-        $this->pageSlug = 'tests.'.$slug;
-        $this->data = [
-            'slug' => $slug
-        ];
-    }
-};
-
-?>
-
-<x-layouts.app>
-    @volt('tests.view')
-        <div>
-            <x-page side="content" :slug="$pageSlug" :data="$data" />
-        </div>
-    @endvolt
-</x-layouts.app>
-```
-
-### Pagina Index
-
-**File:** `Themes/Sixteen/resources/views/pages/tests/index.blade.php`
-
-```blade
-<?php
-
-declare(strict_types=1);
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-use Livewire\Volt\Component;
-use Modules\Cms\Http\Middleware\PageSlugMiddleware;
-
-name('tests.index');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public string $pageSlug = '';
-
-    /** @var array<string, mixed> */
-    public array $data = [];
-
-    public function mount(): void
-    {
-        $this->pageSlug = 'tests.index';
-        $this->data = [];
-    }
-};
-
-?>
-
-<x-layouts.app>
-    @volt('tests.index')
-        <div>
-            <x-page side="content" :slug="$pageSlug" :data="$data" />
-        </div>
-    @endvolt
-</x-layouts.app>
-```
-
-### ❌ ERRORI DA EVITARE
-
-```blade
-{{-- ❌ SBAGLIATO: File specifici --}}
-Themes/Sixteen/resources/views/pages/tests/homepage.blade.php
-Themes/Sixteen/resources/views/pages/tests/amministrazione.blade.php
-
-{{-- ❌ SBAGLIATO: Layout diversi --}}
-<x-layouts.design-comuni>
-<x-pub_theme::layouts.design-comuni>
-
-{{-- ✅ CORRETTO: SEMPRE <x-layouts.app> --}}
-<x-layouts.app>
-```
-
-**Perché:**
-- ✅ **DRY:** Unico file per tutte le pagine
-- ✅ **KISS:** Logica semplice e focalizzata
-- ✅ **Manutenibilità:** Modifica una volta, applica a tutte
-
-**Documentazione correlata:**
-- [Layout Architecture](../architecture/layout-architecture.md)
-- [Folio + Volt](../architecture/folio-volt.md)
-
----
-
-## 4. Block System
-
-### Prototipo Corretto
+## 🏗️ ARCHITETTURA
 
 ```
-pub_theme::components.blocks.<tipo>.<blade>
+Blade:
+laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+
+JSON:
+laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json
+
+CSS/JS:
+laravel/Themes/Sixteen/resources/assets/
 ```
-
-### ✅ Tipi di Blocco Universali
-
-Ispirati da:
-- https://flowbite.com/blocks/
-- https://tailwindcss.com/plus/ui-blocks
-- https://daisyui.com/components/
-- https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/
-
-```
-✅ CORRETTI (Universali):
-├── hero/
-│   ├── newscard.blade.php
-│   └── featured.blade.php
-├── card-grid/
-│   ├── governance.blade.php
-│   ├── topics.blade.php
-│   └── events.blade.php
-├── topics-grid/
-│   └── default.blade.php
-├── list/
-│   ├── events.blade.php
-│   └── news.blade.php
-├── form/
-│   └── feedback.blade.php
-└── navigation/
-    ├── breadcrumb.blade.php
-    └── primary-menu.blade.php
-
-❌ SBAGLIATI (Pagina-specifici):
-├── tests.argomenti.topics-grid  ← "tests.argomenti" non è un tipo!
-└── homepage.hero                ← "homepage" non è un tipo!
-```
-
-### Regola Fondamentale
-
-> **Principio Guida:** Blocchi universali, riutilizzabili, NON specifici per pagina.
-
-```blade
-{{-- ✅ CORRETTO: Blocco universale --}}
-"view": "pub_theme::components.blocks.hero.newscard"
-
-{{-- ❌ SBAGLIATO: Blocco pagina-specifico --}}
-"view": "pub_theme::components.blocks.tests.argomenti.topics-grid"
-```
-
-**Documentazione correlata:**
-- [Blocks System](../design-comuni/blocks/00-index.md)
-- [Blocks Implementation](../BLOCKS_IMPLEMENTATION.md)
-
----
-
-## 5. Header & Footer Sections
-
-### Header come Section
-
-```blade
-{{-- ✅ CORRETTO --}}
-<x-section slug="header" />
-
-{{-- Se serve variante con parametri --}}
-<x-section slug="header" :data="$headerData" />
-```
-
-### Footer come Section
-
-```blade
-{{-- ✅ CORRETTO: Footer standard --}}
-<x-section slug="footer" />
-
-{{-- ✅ CORRETTO: Footer slim --}}
-<x-section slug="footer" tpl="slim" />
-```
-
-### ❌ ERRORI DA EVITARE
-
-```blade
-{{-- MAI scrivere HTML dell'header direttamente nel layout --}}
-<header class="it-header-wrapper">...</header>
-
-{{-- MAI usare @include per pagine dinamiche --}}
-@includeIf('pub_theme::design-comuni.pages.'.$slug)
-
-{{-- MAI usare namespace tema-specifico --}}
-<x-sixteen::blocks.navigation.header-main>
-
-{{-- ✅ CORRETTO: Namespace pub_theme --}}
-<x-pub_theme::blocks.navigation.header-main>
-```
-
-**Perché:**
-- ✅ **DRY:** Header/footer scritti UNA volta in `app.blade.php`
-- ✅ **KISS:** Page template gestisce SOLO routing e contenuto
-- ✅ **Manutenibilità:** Modifica header/footer in un solo file
-
-**Documentazione correlata:**
-- [Layout Architecture](../architecture/layout-architecture.md)
-- [Component Namespace](../architecture/component-namespace.md)
-
----
-
-## 6. Design Comuni Replication
-
-### Pagine da Replicare (38 Totale)
-
-| Sezione | Pagine | Priorità |
-|---------|--------|----------|
-| 1. Generali | 9 | 🔴 Homepage, Argomenti (Alta) |
-| 2. Amministrazione | 2 | 🟡 Media |
-| 3. Novità | 2 | 🟡 Media |
-| 4. Servizi | 3 | 🟡 Media |
-| 5. Vivere il Comune | 2 | 🟡 Media |
-| 6. Appuntamento | 7 | 🟡 Media |
-| 7. Assistenza | 2 | 🟢 Bassa |
-| 8. Segnalazione | 7 | 🟢 Bassa |
-
-**Lista completa:** [Pages Census](../design-comuni/pages-census.md)
-
-### Struttura HTML Body
-
-> **Regola:** L'HTML dentro `<body>` (esclusi script) deve essere IDENTICO all'originale.
-
-**Esempio Header Design Comuni:**
-
-```html
-<body>
-    <!-- 1. Skip Links -->
-    <div class="skiplink">
-        <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
-        <a class="visually-hidden-focusable" href="#footer">Vai al footer</a>
-    </div>
-
-    <!-- 2. Header Wrapper -->
-    <header class="it-header-wrapper">
-        <!-- 2.1 Header Slim -->
-        <div class="it-header-slim-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="it-header-slim-wrapper-content">
-                            <!-- Regione, Lingua, Login, Social -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2.2 Header Main -->
-        <div class="it-header-main-wrapper">
-            <!-- Logo, Nome Comune, Search -->
-        </div>
-
-        <!-- 2.3 Navigation -->
-        <nav class="navbar navbar-expand-lg it-main-nav">
-            <!-- Menu items -->
-        </nav>
-    </header>
-
-    <!-- 3. Main Content -->
-    <main id="main-container" class="it-main-container">
-        <div class="container">
-            <!-- Content blocks from JSON -->
-        </div>
-    </main>
-
-    <!-- 4. Footer -->
-    <footer id="footer" class="it-footer">
-        <!-- Footer content -->
-    </footer>
-</body>
-```
-
-**Documentazione correlata:**
-- [HTML Body Comparison](../HTML_BODY_COMPARISON.md)
-- [HTML Body Identity Fix](../HTML_BODY_IDENTITY_FIX.md)
-- [Amministrazione HTML Comparison](../AMMINISTRAZIONE_HTML_COMPARISON.md)
-
----
-
-## 7. HTML Body Identity
-
-### Correzioni Applicate
-
-#### 1. Header Wrapper ✅
-
-**Prima:**
-```blade
-<x-section slug="header" />
-```
-
-**Dopo:**
-```blade
-<header class="it-header-wrapper">
-    <x-section slug="header" />
-</header>
-```
-
-#### 2. Main Container ✅
-
-**Prima:**
-```blade
-<main id="main-container">
-    @yield('content')
-</main>
-```
-
-**Dopo:**
-```blade
-<main id="main-container" class="it-main-container">
-    <div class="container">
-        @yield('content')
-    </div>
-</main>
-```
-
-#### 3. Footer ✅
-
-**Stato:** Già corretto
-```blade
-<footer class="it-footer-main-wrapper" id="footer">
-    <div class="container">
-        ...
-    </div>
-</footer>
-```
-
-**Documentazione correlata:**
-- [HTML Body Identity Fix](../HTML_BODY_IDENTITY_FIX.md)
-
----
-
-## 8. Quality Assurance
-
-### Screenshot & Analisi
-
-Per ogni pagina replicata:
-
-1. **Crea screenshot** di originale e replica
-2. **Salva in:** `Themes/Sixteen/docs/design-comuni/screenshots/<pagina>/`
-   - `originale.png`
-   - `replica.png`
-   - `confronto.png`
-3. **Crea analisi:** `Themes/Sixteen/docs/design-comuni/screenshots/<pagina>/<pagina>.md`
-
-**Template Analisi:**
-
-```markdown
-# Analisi: [Nome Pagina]
-
-## Differenze Rilevate
-
-### Header
-- ❌ Logo non visibile
-- ❌ Colori diversi (#0066CC vs #003366)
-- ❌ Spaziatura: 16px vs 24px
-
-### Footer
-- ❌ Colonne non allineate
-- ❌ Font-size: 14px vs 16px
-
-## Come Correggere
-
-1. Aggiornare `style-apply.css`:
-   ```css
-   .it-header-slim-wrapper {
-       @apply bg-[#003366]; /* Colore corretto */
-   }
-   ```
-
-2. Build:
-   ```bash
-   npm run build
-   npm run copy
-   ```
-
-3. Verificare con screenshot
-```
-
-### Checklist Verifica
-
-```markdown
-## Pre-Build
-- [ ] Modifiche CSS in `style-apply.css`
-- [ ] Modifiche JS in `app.js`
-- [ ] Nessun @import di Bootstrap
-
-## Build
-- [ ] `npm run build` completato senza errori
-- [ ] Manifest generato in `public/build/manifest.json`
-- [ ] `npm run copy` eseguito
-
-## Post-Build
-- [ ] File copiati in `public_html/themes/Sixteen/`
-- [ ] Cache Laravel pulita: `php artisan optimize:clear`
-- [ ] Pagina ricaricata (Ctrl+Shift+R)
-
-## Verifica
-- [ ] HTML body identico (View Source)
-- [ ] Stili visivamente corretti
-- [ ] Screenshot aggiornati
-- [ ] Analisi documentata
-```
-
-**Documentazione correlata:**
-- [Screenshot Analysis](../design-comuni/screenshots/00-index.md)
-
----
-
-## 9. Documentation Standards
-
-### Cartelle Docs
-
-**Struttura:**
-
-```
-Themes/Sixteen/docs/
-├── 00-index.md                    ← Indice principale
-├── design-comuni/                 ← Documentazione Design Comuni
-│   ├── 00-index.md
-│   ├── replication-guide.md
-│   ├── pages/
-│   │   ├── 00-index.md
-│   │   ├── homepage.md
-│   │   ├── argomenti.md
-│   │   └── appuntamento-06-conferma.md
-│   ├── blocks/
-│   │   ├── 00-index.md
-│   │   ├── hero.md
-│   │   └── card-grid.md
-│   └── screenshots/               ← Screenshot + analisi
-├── components/                    ← Componenti Blade
-│   ├── 00-index.md
-│   ├── blocks/
-│   └── sections/
-├── architecture/                  ← Architettura
-│   ├── vite-build.md
-│   ├── folio-volt.md
-│   └── layout-architecture.md
-└── prompts/                       ← Prompt per agenti AI
-    └── replikate.txt
-```
-
-### Collegamenti Bidirezionali
-
-Ogni documento DEVE avere minimo 3 cross-reference:
-
-```markdown
-# Homepage Replication
-
-## See Also
-- [Design Comuni Replication Guide](../replication-guide.md)
-- [Block System](../blocks/README.md)
-- [Vite Build System](../vite-build.md)
-
-## Referenced By
-- [Argomenti Page](./argomenti.md)
-- [Appuntamento Page](./appuntamento-06-conferma.md)
-```
-
-**Documentazione correlata:**
-- [Documentation Standards](../docs-standard.md)
-
----
-
-## 10. Agent Collaboration
-
-### Agent Specializzati
-
-Questo task coinvolve multipli agenti AI:
-
-| Agente | Responsabilità |
-|--------|---------------|
-| **gsd-codebase-mapper** | Mappatura codebase esistente |
-| **gsd-ui-researcher** | Ricerca pattern UI Design Comuni |
-| **gsd-ui-checker** | Verifica conformità UI |
-| **gsd-executor** | Esecuzione piano di implementazione |
-| **gsd-verifier** | Verifica risultato finale |
-| **gsd-nyquist-auditor** | Generazione test di copertura |
-
-### Strumenti Consigliati
-
-**Installare e configurare:**
-- OpenViking (globale)
-- BMAD-METHOD
-- GSD (Get Shit Done)
-- Ralph Loop
-- NotebookLM MCP
-
-**Workflow Multi-Agente:**
-
-```
-1. gsd-codebase-mapper → Analizza struttura esistente
-2. gsd-ui-researcher → Studia Design Comuni patterns
-3. gsd-planner → Crea piano di implementazione
-4. gsd-executor → Esegue implementazione
-5. gsd-ui-checker → Verifica conformità visiva
-6. gsd-nyquist-auditor → Genera test
-7. gsd-verifier → Verifica risultato finale
-```
-
-**Documentazione correlata:**
-- [Agent Collaboration](../agent-collaboration.md)
-
----
-
-## 11. Regole Assolute
-
-### 🚫 MAI
-
-```blade
-❌ File specifici: homepage.blade.php, amministrazione.blade.php
-❌ Namespace tema: <x-sixteen::*>
-❌ Bootstrap import: @import url('bootstrap-italia.min.css')
-❌ Bootstrap JS: import "bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js"
-❌ @include per pagine: @includeIf('pub_theme::design-comuni.pages.'.$slug)
-❌ Header/footer in [slug].blade.php
-❌ rm -rf storage/framework/views/* (cancella .gitignore!)
-```
-
-### ✅ SEMPRE
-
-```blade
-✅ UNO [slug].blade.php per TUTTE le pagine
-✅ Namespace pub_theme: <x-pub_theme::*>
-✅ Tailwind @apply (NON Bootstrap import)
-✅ Alpine.js per interattività (NON Bootstrap JS)
-✅ <x-layouts.app> (NON <x-pub_theme::layouts.*>)
-✅ <x-section slug="header" /> e <x-section slug="footer" />
-✅ JSON per contenuti: config/local/fixcity/database/content/pages/*.json
-✅ Vite con secondo parametro: @vite([...], 'themes/Sixteen')
-✅ Cache pulita: php artisan optimize:clear
-```
-
-### Git Workflow
-
-```bash
-# ✅ CORRETTO: Forward-only
-git add .
-git commit -m "feat: replicate homepage design comuni"
-git push
-
-# ❌ SBAGLIATO: MAI revert/revert
-git reset --hard HEAD~1  ← MAI!
-git revert <commit>       ← MAI!
-```
-
-**Perché:**
-- ✅ **Git forward-only:** Solo in avanti, mai indietro
-- ✅ **Documentazione:** Ogni modifica documentata
-- ✅ **Quality checks:** PHPStan, Pint, test dopo ogni modifica
-
----
-
-## 📎 Risorse di Riferimento
-
-### Design System
-
-- **Design Comuni:** https://github.com/italia/design-comuni-pagine-statiche
-- **Bootstrap Italia:** https://italia.github.io/bootstrap-italia/docs/componenti/introduzione/
-- **Flowbite Blocks:** https://flowbite.com/blocks/
-- **Tailwind UI Blocks:** https://tailwindcss.com/plus/ui-blocks
-- **DaisyUI:** https://daisyui.com/components/
-
-### Laravel Ecosystem
-
-- **Laravel Folio:** https://laravel.com/docs/folio
-- **Livewire Volt:** https://livewire.laravel.com/docs/volt
-- **Filament v5:** https://filamentphp.com/docs/5.x
-- **Filament Icon:** https://filamentphp.com/docs/5.x/components/icon
-
-### Best Practices
-
-- **BMAD Method:** https://github.com/bmad-code-org/BMAD-METHOD
-- **GSD (Get Shit Done):** https://github.com/gsd-build/get-shit-done
-- **Superpowers:** https://github.com/obra/superpowers
-- **Ralph Loop:** https://github.com/snarktank/ralph)
-- **OpenViking:** https://github.com/volcengine/OpenViking
-
-### UI/UX Skills
-
-- **UI/UX Pro Max Skill:** https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
-- **Anthropic Skills:** https://github.com/anthropics/skills
-- **Vercel Agent Skills:** https://github.com/vercel-labs/agent-skills
-- **Frontend Design Codex:** https://mcpmarket.com/tools/skills/frontend-design-codex
-
----
-
-## 🎯 Obiettivi Task
-
-### Priorità Alta
-
-1. ✅ **Header/Footer:** Devono essere IDENTICI all'originale
-2. ✅ **HTML Body:** Struttura identica (esclusi script)
-3. ✅ **Colori:** Palette Bootstrap Italia replicata con Tailwind
-4. ✅ **Spaziatura:** Padding/margin identici
-
-### Priorità Media
-
-5. 🔄 **Blocchi Universali:** Creare libreria riutilizzabile
-6. 🔄 **Documentazione:** Screenshot + analisi per ogni pagina
-7. 🔄 **Test:** Copertura 100% con Pest
-
-### Priorità Bassa
-
-8. ⏳ **Ottimizzazioni:** Performance, accessibility improvements
-9. ⏳ **Animazioni:** Micro-interazioni con Alpine.js
-
----
-
-## 🚀 Comandi Utili
-
-```bash
-# Build tema
+🔁 WORKFLOW (LOOP UNICO)
+
+Per ogni <pagina>:
+
+1. ANALISI
+Confronta:
+Reference HTML
+Local HTML (View Source)
+Ignora script
+Focalizzati su:
+struttura DOM
+gerarchia
+classi
+2. SCREENSHOT
+Fai 3 screenshot:
+originale
+locale
+confronto
+Salva in:
+docs/design-comuni/screenshots/<pagina>/
+3. DIFF HTML
+
+Documenta SOLO differenze strutturali:
+
+Esempio:
+
+header wrapper mancante
+container annidato diverso
+classi mancanti (it-*)
+ordine nodi diverso
+
+👉 NON parlare di colori o stile qui
+
+4. FIX HTML (PRIMA DI TUTTO)
+Modifica SOLO:
+blade
+componenti blocchi
+
+Obiettivo:
+✔ stessa struttura DOM
+✔ stessi wrapper
+✔ stessi livelli
+
+5. FIX CSS/JS (DOPO HTML OK)
+
+Lavora SOLO in:
+
+Tailwind (@apply)
+Alpine.js
+
+Replica:
+
+colori
+spacing
+layout
+interazioni
+6. BUILD
 cd laravel/Themes/Sixteen
 npm run build
 npm run copy
-
-# Pulizia cache (NON cancellare views/* manualmente!)
 php artisan optimize:clear
-php artisan view:clear
-php artisan cache:clear
+7. VALIDAZIONE
 
-# Verifica PHPStan
-composer phpstan
+Checklist:
 
-# Formattazione codice
-composer pint
+HTML match ≥90%
+Visual match (desktop)
+Responsive:
+mobile (375)
+tablet (768)
+No testo hardcoded
+No Bootstrap
+8. DOCUMENTAZIONE
 
-# Esecuzione test
-composer test
+Per ogni pagina:
 
-# Git workflow (forward-only)
-git add .
-git commit -m "feat: replicate homepage design comuni"
-git push
-```
+docs/design-comuni/
+├── pages/<pagina>.md
+├── screenshots/<pagina>/
+│   ├── originale.png
+│   ├── replica.png
+│   ├── confronto.png
+│   └── analisi.md
+🧩 BLOCK SYSTEM
+
+Regola:
+
+✔ blocchi GENERICI
+❌ blocchi pagina-specifici
+
+Esempio:
+
+✅ blocks.hero
+❌ homepage.hero
+🚫 DIVIETI
+❌ Bootstrap Italia (CSS o JS)
+❌ Blade per contenuti
+❌ Più file pagina
+❌ HTML hardcoded fuori blocchi
+❌ Refactor senza screenshot
+⚡ AUTOMAZIONE
+
+Se serve:
+
+script → bashscripts/
+docs → bashscripts/docs/
+🤝 MULTI-AI
+Non duplicare lavoro
+Leggi docs prima
+Aggiorna docs dopo
+Usa link bidirezionali
+🧭 PRIORITÀ
+HTML identico
+Layout identico
+Colori e spacing
+Responsive
+Micro-interazioni
+📌 REGOLA FINALE
+
+Se HTML ≠ reference → NON toccare CSS
+Se UI ≠ reference → NON toccare Blade
+
+🔥 PAGINE
+
+Lavora iterativamente su:
+
+homepage → argomenti → servizi → resto
+
+🧪 MENTAL MODEL
+
+Non stai “copiando una pagina”.
+
+Stai:
+
+separando struttura (Blade)
+contenuto (JSON)
+stile (CSS)
+
+e rendendoli indipendenti.
+
+OUTPUT ATTESO
+
+Per ogni pagina:
+
+HTML matchato
+UI matchata
+screenshot salvati
+differenze documentate
+commit fatto
+
 
 ---
 
-## 📝 Note Finali
+📊 STATUS UPDATE (2026-04-07)
 
-### La Filosofia, La Visione, Lo Zen
+## Completato
+- ✅ Analisi progetto Sixteen theme
+- ✅ Setup struttura documentazione
+- ✅ Screenshot homepage, argomenti, servizi (via Puppeteer)
+- ✅ Build eseguito con successo (vite v7.3.2)
+- ✅ Documentazione analisi.md creata per 3 pagine
+- ✅ File STATUS.md creato con report completo
 
-> **DRY (Don't Repeat Yourself):**
-> - Unico `[slug].blade.php` per tutte le pagine
-> - Blocchi universali, NON pagina-specifici
-> - Header/footer scritti UNA volta sola
+## In Corso
+- 🔄 Homepage fix CSS/JS (dettagli in docs/prompts/tests/homepage/homepage.txt)
+- 🔄 Validazione responsive
 
-> **KISS (Keep It Simple, Stupid):**
-> - Ogni file fa UNA cosa sola
-> - Logica minimale, zero complessità
-> - Documentazione chiara e accessibile
+## Prossimi Passi
+1. Completare validazione homepage
+2. Analizzare dettagli HTML argomenti
+3. Analizzare dettagli HTML servizi
+4. Procedere con resto delle pagine
 
-> **Separation of Concerns:**
-> - Layout: Struttura comune (header, footer)
-> - Page Template: Routing e contenuto specifico
-> - Components: Blocchi riutilizzabili
-
-> **Git Forward-Only:**
-> - Solo in avanti, mai indietro
-> - Studiare versioni vecchie per capire il perché
-> - Migliorare, non ripristinare
-
-### Agent Collaboration
-
-> **Questo task coinvolve multipli agenti AI:**
-> - Comportati di conseguenza
-> - Unisci le forze con altri agenti
-> - Condividi contesto e scoperte
-> - Documenta tutto per riferimento futuro
-
-> **OpenViking, BMAD, GSD, Ralph Loop, NotebookLM:**
-> - Usali tutti
-> - Configurati a livello di progetto
-> - Documenta configurazione e utilizzo
-
----
-
-**Ultimo Aggiornamento:** 2026-04-01  
-**Versione:** 3.0  
-**Stato:** ✅ **COMPLETO E VERIFICATO**
-
----
-
-*"UNO [slug].blade.php per TUTTE le pagine"*  
-*"JSON per contenuti, Blade per struttura"*  
-*"Blocchi universali, NON pagina-specifici"*  
-*"DRY + KISS + Git Forward-Only"*
-
-## 12. Canonical Page Tree
-
-### Solo directory ammesse in `resources/views/pages`
-
-```text
-resources/views/pages/
-├── [container0]/
-│   └── [slug0]/
-├── auth/
-└── tests/
+## Documentazione Creata
+```
+docs/design-comuni/
+├── STATUS.md - Report completo
+├── pages/ - (da popolare)
+└── screenshots/
+    ├── homepage/analisi.md
+    ├── argomenti/analisi.md
+    └── servizi/analisi.md
 ```
 
-### Directory vietate
-
-Non creare o mantenere alberi semantici hardcoded come `administration`, `news`, `profile`, `services`, `turismo` o `pages`.
-
-### Regola operativa
-
-- il tema usa Folio dinamico, non cartelle dedicate per dominio editoriale
-- `tests/*` usa un solo `[slug].blade.php`
-- `/tests` usa `index.blade.php`
-- gli elementi globali stanno nei layout, non nelle page blades
-- i contenuti arrivano dal CMS JSON tramite `<x-page ... />`
-
-### Verifica minima
-
-Dopo ogni cleanup della struttura pagine verificare:
-
-```bash
-find laravel/Themes/Sixteen/resources/views/pages -maxdepth 2 -type d | sort
-php laravel/artisan folio:list
-curl -s http://127.0.0.1:8000/it/tests/homepage
-```
-
-### Collegamenti
-
-- `../page-directory-structure.md`
-- `../../../../Modules/Cms/docs/page-directory-structure.md`
-
-manca il blocco che contiene "Informazioni sui servizi e le norme previste dal comune per gli animali domestici." che c'e' in https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html# ma manca nel nostro http://127.0.0.1:8000/it/tests/homepage
+## Riferimenti Rapidi
+- Local: http://127.0.0.1:8000/it/tests/<pagina>
+- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html
+- Homepage dettagli: docs/prompts/tests/homepage/homepage.txt
 
 
-studia a fondo
-https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
+
+
+poi aggiorna e migliora /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/prompts/replikate.txt
+
 
 <pagina>=homepage
+<<<<<<< HEAD
 <pagina>=domande-frequenti
 <pagina>=risultati-ricerca
 <pagina>=argomenti
@@ -994,3 +338,8 @@ aiutati con screenshots, che siamo distanti dal risultato desiderato, ti ricordo
 crea una github issue e github discussion per ogni singola pagina che dobbiamo convertire presente in https://italia.github.io/design-comuni-pagine-statiche/sito/, ti ricordo che devi prendere la repo con git remote -v , e utilizza gh e mcp, e puoi  installarti e configurarti tutto quello che vuoi per migliorare il tuo lavoro  , ogni github issue e github discussion che crei devi aggiornare le cartelle docs dentro i moduli e dentro i temi , utilizzando indici con link bidirezionali, relativi 
 
 
+=======
+l'html dentro il tag body compreso escluso gli scripts di https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html
+deve essere uguale a http://127.0.0.1:8000/it/tests/<pagina>
+non ci devono essere sezioni in piu' o sezioni in meno , solo il contenuto deve essere uguale con una tolleranza del 90% , non diamo peso alla formattazione del html ma alla struttura del html
+>>>>>>> 7b4aba8 (.)
