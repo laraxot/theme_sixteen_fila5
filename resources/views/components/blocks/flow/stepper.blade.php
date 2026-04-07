@@ -47,8 +47,8 @@
             </div>
         @endif
 
-        <x-stepper 
-            :steps="$steps"
+        <x-stepper
+            :steps="collect($steps)->pluck('title')->values()->toArray()"
             :current-step="$currentStep"
             :variant="$variant"
             :size="$size"

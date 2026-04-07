@@ -1,8 +1,8 @@
 # Visual Parity Report - 2026-04-06
 
-**Generated**: 2026-04-06T19:24:57.368Z
-**Total Pages**: 8
-**Successful**: 8
+**Generated**: 2026-04-06T19:43:36.326Z
+**Total Pages**: 2
+**Successful**: 2
 **Failed**: 0
 
 ## Parity Distribution
@@ -10,36 +10,24 @@
 | Category | Count | Examples |
 |----------|-------|----------|
 | 95-100% Excellent | 0 |  |
-| 90-94% Very Good | 2 | segnalazione-dettaglio, segnalazioni-elenco |
-| 85-89% Good | 1 | segnalazione-01-privacy |
+| 90-94% Very Good | 0 |  |
+| 85-89% Good | 2 | segnalazione-01-privacy, segnalazione-04-conferma |
 | 80-84% Fair | 0 |  |
-| <80% Needs Work | 5 | segnalazione-area-personale, segnalazione-02-dati, segnalazione-03-riepilogo |
+| <80% Needs Work | 0 |  |
 
 ## Top 15 Pages (Ready for CSS fixes)
 
 | Rank | Page | Local Height | Ref Height | Diff | Parity |
 |------|------|--------------|------------|------|--------|
-| 1 | segnalazione-dettaglio | 4753px | 4425px | 328px | 93% |
-| 2 | segnalazioni-elenco | 2847px | 3128px | 281px | 91% |
-| 3 | segnalazione-01-privacy | 1698px | 1938px | 240px | 88% |
-| 4 | segnalazione-area-personale | 1698px | 2854px | 1156px | 59% |
-| 5 | segnalazione-02-dati | 1698px | 3064px | 1366px | 55% |
-| 6 | segnalazione-03-riepilogo | 1698px | 3115px | 1417px | 55% |
-| 7 | segnalazione-04-conferma | 3538px | 2301px | 1237px | 46% |
-| 8 | segnalazione-disservizio | 1980px | 474px | 1506px | -218% |
+| 1 | segnalazione-01-privacy | 1698px | 1938px | 240px | 88% |
+| 2 | segnalazione-04-conferma | 2613px | 2301px | 312px | 86% |
 
 ## Bottom 10 Pages (Need Investigation)
 
 | Rank | Page | Local Height | Ref Height | Diff | Parity |
 |------|------|--------------|------------|------|--------|
-| 8 | segnalazione-disservizio | 1980px | 474px | 1506px | -218% |
-| 7 | segnalazione-04-conferma | 3538px | 2301px | 1237px | 46% |
-| 6 | segnalazione-03-riepilogo | 1698px | 3115px | 1417px | 55% |
-| 5 | segnalazione-02-dati | 1698px | 3064px | 1366px | 55% |
-| 4 | segnalazione-area-personale | 1698px | 2854px | 1156px | 59% |
-| 3 | segnalazione-01-privacy | 1698px | 1938px | 240px | 88% |
-| 2 | segnalazioni-elenco | 2847px | 3128px | 281px | 91% |
-| 1 | segnalazione-dettaglio | 4753px | 4425px | 328px | 93% |
+| 2 | segnalazione-04-conferma | 2613px | 2301px | 312px | 86% |
+| 1 | segnalazione-01-privacy | 1698px | 1938px | 240px | 88% |
 
 ## Errors
 

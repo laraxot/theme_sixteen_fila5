@@ -2,80 +2,157 @@
     'title' => 'Segnalazione inviata',
     'segnalazione' => [],
     'showActions' => true,
+    'email' => '',
+    'showRating' => true,
 ])
 
 @php
     $segnalazione = array_merge([
-        'codice_segnalazione' => '',
+        'codice_segnalazione' => 'AN4059281',
         'categoria' => '',
         'titolo' => '',
         'data_invio' => '',
     ], $segnalazione);
+    
+    $email = $email ?: 'giulia.bianchi@gmail.com';
 @endphp
 
-<div class="step-content mt-8">
-    @if($title)
-        <h3 class="text-lg font-semibold text-gray-900 mb-4" data-element="step-title">{{ $title }}</h3>
+<div class="container" id="main-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="cmp-heading p-0">
+                <div class="categoryicon-top d-flex">
+                    <svg class="icon icon-success mr-10 icon-md" aria-hidden="true">
+                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-check-circle"></use>
+                    </svg>
+                    <h1 class="title-xxxlarge">{{ $title }}</h1>
+                </div>
+                
+                <p class="subtitle-small">Grazie, abbiamo ricevuto la tua <strong>segnalazione {{ $segnalazione['codice_segnalazione'] }}.</strong></p>
+                <p class="subtitle-small">Sarà visibile sulla <a href="#" class="t-primary">lista di tutte le segnalazioni</a> una volta presa in carico dall'amministrazione.</p>
+                <p class="subtitle-small pt-3 pt-lg-4">Abbiamo inviato il riepilogo all'email:<br><strong>{{ $email }}</strong></p>
+                
+                <button type="button" class="btn btn-outline-primary bg-white fw-bold mt-4">
+                    <span class="rounded-icon">
+                        <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-download"></use>
+                        </svg>
+                    </span>
+                    <span class="">Scarica la ricevuta (PDF 100KB)</span>
+                </button>
+            </div>
+            
+            <p class="mt-3">
+                <a href="#" class="t-primary text-paragraph">Consulta la richiesta</a>
+                <span class="text-paragraph"> nella tua area riservata</span>
+            </p>
+        </div>
+    </div>
+    
+    <hr class="d-none d-lg-block mt-40 mb-0">
+    <div class="row justify-content-center mb-3 mb-md-5">
+        <div class="col-12 col-lg-10">
+            <div class="cmp-icon-list">
+                <h2 class="title-xxlarge mt-40 mb-2 mb-lg-4 mb-lg-4" id="related-service">Servizi correlati</h2>
+                <div class="link-list-wrapper">
+                    <ul class="link-list">
+                        <li class="shadow mb-4">
+                            <a class="list-item icon-left t-primary title-small-semi-bold" href="#">
+                                <span class="list-item-title-icon-wrapper">
+                                    <svg class="icon icon-sm align-self-start icon-color" aria-hidden="true">
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-settings"></use>
+                                    </svg>
+                                    <span class="list-item-title title-small-semi-bold">Richiesta appuntamento</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @if($showRating)
+    <div class="bg-primary">
+        <div class="container">
+            <div class="row d-flex justify-content-center bg-primary">
+                <div class="col-12 col-lg-6 p-lg-0 px-4">
+                    <div class="cmp-rating pt-lg-80 pb-lg-80" id="rating">
+                        <div class="card shadow card-wrapper" data-element="feedback">
+                            <div class="cmp-rating__card-first">
+                                <div class="card-header border-0">
+                                    <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">Quanto è stato facile usare questo servizio?</h2>
+                                </div>
+                                <div class="card-body">
+                                    <fieldset class="rating">
+                                        <legend class="visually-hidden">Valuta da 1 a 5 stelle la pagina</legend>
+                                        @for($i = 5; $i >= 1; $i--)
+                                        <input type="radio" id="star{{ $i }}a" name="ratingA" value="{{ $i }}">
+                                        <label class="full rating-star" for="star{{ $i }}a" data-element="feedback-rate-{{ $i }}">
+                                            <svg class="icon icon-sm" role="img" aria-hidden="true" viewBox="0 0 24 24">
+                                                <path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/>
+                                            </svg>
+                                            <span class="visually-hidden">Valuta {{ $i }} stelle su 5</span>
+                                        </label>
+                                        @endfor
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
-
-    <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
-        <div class="flex items-center mb-4">
-            <div class="flex-shrink-0">
-                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-            </div>
-            <div class="ml-4">
-                <h4 class="text-lg font-semibold text-green-800">Segnalazione inviata con successo!</h4>
-                <p class="text-green-700">Riceverai una conferma via email</p>
+    
+    <div class="bg-grey-card shadow-contacts">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3 p-contacts">
+                    <div class="cmp-contacts">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
+                                <ul class="contact-list p-0">
+                                    <li>
+                                        <a class="list-item" href="#">
+                                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-help-circle"></use>
+                                            </svg>
+                                            <span>Leggi le domande frequenti</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-item" href="#" data-element="contacts">
+                                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-mail"></use>
+                                            </svg>
+                                            <span>Richiedi assistenza</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-item" href="#">
+                                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-hearing"></use>
+                                            </svg>
+                                            <span>Chiama il numero verde 05 0505</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-item" href="#" data-element="appointment-booking">
+                                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                            </svg>
+                                            <span>Prenota appuntamento</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="border-t border-green-200 pt-4 mt-4">
-            <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <dt class="text-sm text-green-700">Codice segnalazione</dt>
-                    <dd class="text-lg font-bold text-green-800" data-element="report-code">{{ $segnalazione['codice_segnalazione'] ?: 'SEG-2025-005678' }}</dd>
-                </div>
-                <div>
-                    <dt class="text-sm text-green-700">Categoria</dt>
-                    <dd class="text-green-800" data-element="confirmed-category">{{ $segnalazione['categoria'] ?: 'Illuminazione pubblica' }}</dd>
-                </div>
-                <div class="md:col-span-2">
-                    <dt class="text-sm text-green-700">Oggetto</dt>
-                    <dd class="text-green-800" data-element="confirmed-title">{{ $segnalazione['titolo'] ?: 'Lampione spento in via Roma' }}</dd>
-                </div>
-            </dl>
-        </div>
     </div>
-
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-        <div class="flex">
-            <svg class="w-5 h-5 text-blue-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-            </svg>
-            <div class="ml-3">
-                <p class="text-sm text-blue-700">
-                    <strong>Nota:</strong> La tua segnalazione sarà verificata entro 5 giorni lavorativi. Puoi tracciare lo stato della segnalazione tramite il codice sopra riportato.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    @if($showActions)
-    <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            Nuova segnalazione
-        </a>
-        <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-            Invia altra segnalazione via email
-        </a>
-    </div>
-    @endif
 </div>
