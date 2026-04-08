@@ -5,26 +5,8 @@
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
     $currentStep = $data['current_step'] ?? 3;
     $totalSteps = $data['total_steps'] ?? 3;
-<<<<<<< HEAD
-    $steps = $data['steps'] ?? ['Autorizzazioni e condizioni', 'Dati di segnalazione', 'Riepilogo'];
-    $report = $data['report'] ?? [
-        'address' => 'Via Solferino - 50100 Firenze (FI)',
-        'type' => 'Danneggiamento proprietà pubblica',
-        'title' => 'Panchina danneggiata',
-        'details' => 'La seduta della panchina risulta inutilizzabile e pericolosa dato che ci sono molte schegge e parti appuntite',
-        'images' => ['6yhakandsahm413d8da.jpg']
-    ];
-    $user = $data['user'] ?? [
-        'name' => 'Giulia Bianchi',
-        'cf' => 'GLABNC72H25H501Y',
-        'phone' => '+39 331 1234567',
-        'email' => 'giulia.bianchi@gmail.com'
-    ];
-    $contacts = $data['contacts'] ?? [];
-=======
     $steps = $data['steps'] ?? ['Informativa sulla privacy', 'Dati di segnalazione', 'Riepilogo'];
     $summary = $data['summary'] ?? [];
->>>>>>> 7b4aba8 (.)
 @endphp
 
 <div class="container" id="main-container">
@@ -43,10 +25,6 @@
                 <h1 class="title-xxxlarge">{{ $title }}</h1>
             </div>
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b4aba8 (.)
         <div class="col-12">
             <div class="steppers">
                 <div class="steppers-header">
@@ -71,94 +49,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-8">
-            <div class="callout callout-highlight ps-3 warning">
-                <div class="callout-title mb-20 d-flex align-items-center">
-                    <svg class="icon icon-sm" aria-hidden="true">
-                        <use href="{{ $sprite }}#it-horn"></use>
-                    </svg>
-                    <span>Attenzione</span>
-                </div>
-                <p class="titillium text-paragraph">Le informazioni che hai fornito hanno valore di dichiarazione.<span class="d-lg-block"> Verifica che siano corrette.</span></p>
-            </div>
-            <h2 class="title-xxlarge mb-4 mt-40">Segnalazione</h2>
-
-            <div class="cmp-card mb-4">
-                <div class="card has-bkg-grey shadow-sm mb-0">
-                    <div class="card-header border-0 p-0 mb-lg-20 m-0">
-                        <div class="d-flex">
-                            <h3 class="subtitle-large mb-4">Disservizio</h3>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="cmp-info-summary bg-white p-3 p-lg-4">
-                            <div class="card">
-                                <div class="card-header border-bottom border-light p-0 mb-0 pb-2 d-flex justify-content-end">
-                                    <a href="#" class="text-decoration-none"><span class="text-button-sm-semi t-primary">Modifica</span></a>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="single-line-info border-light">
-                                        <div class="text-paragraph-small">Indirizzo</div>
-                                        <div class="border-light">
-                                            <p class="data-text">{{ $report['address'] }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-line-info border-light">
-                                        <div class="text-paragraph-small">Tipo di disservizio</div>
-                                        <div class="border-light">
-                                            <p class="data-text">{{ $report['type'] }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-line-info border-light">
-                                        <div class="text-paragraph-small">Titolo</div>
-                                        <div class="border-light">
-                                            <p class="data-text">{{ $report['title'] }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-line-info border-light">
-                                        <div class="text-paragraph-small">Dettagli</div>
-                                        <div class="border-light">
-                                            <p class="data-text">{{ $report['details'] }}</p>
-                                        </div>
-                                    </div>
-                                    @if(!empty($report['images']))
-                                        <div class="single-line-info border-light">
-                                            <div class="text-paragraph-small">Immagini</div>
-                                            <div class="border-light">
-                                                <p class="data-text">{{ implode(', ', $report['images']) }}</p>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="title-xxlarge mb-4 mt-40">Dati Generali</h2>
-
-            <div class="cmp-card mb-4">
-                <div class="card has-bkg-grey shadow-sm mb-0">
-                    <div class="card-header border-0 p-0 mb-lg-20 m-0">
-                        <div class="d-flex">
-                            <h3 class="subtitle-large mb-4">Autore della segnalazione</h3>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="cmp-info-summary bg-white mb-4 mb-lg-30 p-3 p-lg-4">
-                            <div class="card">
-                                <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end">
-                                    <h4 class="title-large-semi-bold mb-3">{{ $user['name'] }}</h4>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="single-line-info border-light">
-                                        <div class="text-paragraph-small">Codice Fiscale</div>
-                                        <div class="border-light">
-                                            <p class="data-text">{{ $user['cf'] }}</p>
-=======
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">
             <div class="steppers-content" aria-live="polite">
@@ -204,83 +94,11 @@
                                                 <p class="text-paragraph mb-2"><strong>Nome:</strong> {{ $summary['user_name'] ?? 'Giulia Bianchi' }}</p>
                                                 <p class="text-paragraph mb-0"><strong>Email:</strong> {{ $summary['user_email'] ?? 'giulia.bianchi@email.it' }}</p>
                                             </div>
->>>>>>> 7b4aba8 (.)
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <div class="cmp-info-summary bg-white p-3 p-lg-4">
-                            <div class="card">
-                                <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end">
-                                    <h4 class="title-large-semi-bold mb-3">Contatti</h4>
-                                </div>
-                                <div class="card-body p-0">
-                                    @if(!empty($user['phone']))
-                                        <div class="single-line-info border-light">
-                                            <div class="text-paragraph-small">Telefono</div>
-                                            <div class="border-light">
-                                                <p class="data-text">{{ $user['phone'] }}</p>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if(!empty($user['email']))
-                                        <div class="single-line-info border-light">
-                                            <div class="text-paragraph-small">Email</div>
-                                            <div class="border-light">
-                                                <p class="data-text">{{ $user['email'] }}</p>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cmp-nav-steps">
-                <nav class="steppers-nav" aria-label="Step">
-                    <button type="button" class="btn btn-sm steppers-btn-prev p-0">
-                        <svg class="icon icon-primary icon-sm" aria-hidden="true">
-                            <use href="{{ $sprite }}#it-chevron-left"></use>
-                        </svg>
-                        <span class="text-button-sm t-primary">Indietro</span>
-                    </button>
-                    <button type="button" class="btn btn-outline-primary bg-white btn-sm steppers-btn-save d-none d-lg-block saveBtn">
-                        <span class="text-button-sm t-primary">Salva Richiesta</span>
-                    </button>
-                    <button type="button" class="btn btn-outline-primary bg-white btn-sm steppers-btn-save d-block d-lg-none saveBtn center">
-                        <span class="text-button-sm t-primary">Salva</span>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm send" data-bs-toggle="modal" data-bs-target="#modal-terms">
-                        <span class="text-button-sm">Invia</span>
-                    </button>
-                </nav>
-                <div id="alert-message" class="alert alert-success cmp-disclaimer rounded d-none" role="alert">
-                    <span class="d-inline-block text-uppercase cmp-disclaimer__message">Richiesta salvata con successo</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="cmp-modal">
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal-terms" aria-labelledby="modal-terms-modal-title">
-        <div class="modal-dialog modal-dialog-centered small" role="document">
-            <div class="modal-content modal-dimensions">
-                <div class="cmp-modal__header modal-header pb-0">
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale"></button>
-                    <h2 class="cmp-modal__header-title title-mini" id="modal-terms-modal-title">Termini e condizioni</h2>
-                    <p class="cmp-modal__header-info header-font">Cliccando su Conferma e invia confermi di aver preso visione dei termini e delle condizioni di servizio.</p>
-                    <a href="#" class="cmp-modal__header-link text-success underline mt-1">Leggi termini e condizioni</a>
-                </div>
-                <div class="modal-body"></div>
-                <div class="modal-footer pb-70 pt-0">
-                    <button class="btn btn-primary w-100 mx-0 fw-bold mb-4" type="submit" data-bs-toggle="modal" data-bs-target="#" form="">Conferma e invia</button>
-                    <button class="btn btn-outline-primary w-100 mx-0" data-bs-dismiss="modal fw-bold" type="button">Annulla</button>
-=======
                     </section>
                 </div>
                 
@@ -302,7 +120,6 @@
                             </svg>
                         </button>
                     </nav>
->>>>>>> 7b4aba8 (.)
                 </div>
             </div>
         </div>
@@ -311,13 +128,8 @@
 
 <div class="bg-grey-card shadow-contacts">
     <div class="container">
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-3 p-contacts">
-=======
         <div class="row d-flex justify-content-center p-contacts">
             <div class="col-12 col-lg-5">
->>>>>>> 7b4aba8 (.)
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">
