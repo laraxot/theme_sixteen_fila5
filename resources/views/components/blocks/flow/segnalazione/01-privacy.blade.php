@@ -54,8 +54,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 
     <div class="mt-6 flex justify-end">
         <button 
@@ -68,5 +66,4 @@
             Continua
         </button>
     </div>
->>>>>>> 4b74b32 (.)
 </div>
