@@ -1,0 +1,103 @@
+/**
+ * Homepage Visual Parity V2 — Cleaned & Resolved
+ */
+
+/* ============================================================================
+   0. GOVERNANCE CARDS — FIX 3-COLUMN LAYOUT
+   ============================================================================ */
+
+.dc-homepage-parity #calendario .row.g-4 {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+
+.dc-homepage-parity #calendario .col-md-6.col-lg-4 {
+  flex: 0 0 auto !important;
+  max-width: 33.333% !important;
+}
+
+@media (max-width: 991.98px) {
+  .dc-homepage-parity #calendario .col-md-6.col-lg-4 {
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dc-homepage-parity #calendario .col-md-6.col-lg-4 {
+    max-width: 100% !important;
+  }
+}
+
+.dc-homepage-parity #calendario .card-teaser,
+.dc-homepage-parity #calendario .card {
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.dc-homepage-parity #calendario .card-title {
+  color: #007a52 !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================================
+   1. RATING BLOCK
+   ============================================================================ */
+
+.dc-homepage-parity .rating-green-bg,
+.dc-homepage-parity .cmp-rating-wrapper {
+  background-color: #006E47 !important;
+  padding: 3rem 1rem !important;
+  margin: 0 -15px !important;
+  width: calc(100% + 30px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.dc-homepage-parity .cmp-rating .card,
+.dc-homepage-parity .cmp-rating .card.shadow,
+.dc-homepage-parity .cmp-rating .card.card-wrapper {
+  background: #fff !important;
+  border-radius: 4px !important;
+  max-width: 640px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  color: #191919 !important;
+  display: block !important;
+}
+
+/* ============================================================================
+   2. HEADER SLIM — Login
+   ============================================================================ */
+
+.dc-homepage-parity .it-header-slim-wrapper a.btn {
+  background: #fff !important;
+  color: #007a52 !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  padding: 0.625rem 1.5rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  text-decoration: none !important;
+}
+
+/* ============================================================================
+   6. EVENTI CAROUSEL
+   ============================================================================ */
+
+.dc-homepage-parity .it-carousel-wrapper .splide__slide {
+  flex: 0 0 180px !important;
+  min-width: 180px !important;
+  max-width: 180px !important;
+}
+
+.dc-homepage-parity #calendario .card-bg .card-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #0066cc !important;
+}

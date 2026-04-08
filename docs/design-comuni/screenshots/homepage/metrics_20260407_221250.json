@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-04-07T22:12:51+02:00",
+  "url1": "https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html",
+  "url2": "http://127.0.0.1:8000/it/tests/homepage",
+  "metrics": {
+    "structure_lines_url1": 1635,
+    "structure_lines_url2": 3633,
+    "lines_only_in_url1": 1547,
+    "lines_only_in_url2": 3545,
+    "match_percentage": 3.3
+  },
+  "files": {
+    "raw_html_1": "page1_20260407_221250.html",
+    "raw_html_2": "page2_20260407_221250.html",
+    "structure_1": "struct1_20260407_221250.txt",
+    "structure_2": "struct2_20260407_221250.txt",
+    "diff": "diff_20260407_221250.txt",
+    "report": "report_20260407_221250.md",
+    "metrics": "metrics_20260407_221250.json"
+  }
+}

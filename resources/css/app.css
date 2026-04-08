@@ -1,0 +1,2513 @@
+/**
+ * Sixteen Theme - Design Comuni Italia
+ *
+ * Bootstrap Italia styles converted to Tailwind CSS with @apply
+ * Based on: https://italia.github.io/design-comuni-pagine-statiche/
+ */
+
+/* Google Fonts - MUST be first @import */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+/* ========================================
+   TAILWIND CSS 4.x LAYERS
+======================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   IMPORT STYLE-APPLY (Bootstrap Italia converted to Tailwind)
+======================================== */
+@import './style-apply.css';
+@import "./container-override.css";
+@import "./footer-override.css";
+@import "./bootstrap-italia.css";
+
+/* ========================================
+   IMPORT DESIGN COMUNI COMPONENT CLASSES
+   Bootstrap Italia classes → Tailwind CSS
+======================================== */
+@import './components/header-footer-colors.css';
+@import './components/bootstrap-italia-classes.css';
+@import './components/design-comuni.css';
+@import './design-comuni-visual-fix.css';
+@import './design-comuni-global.css';
+@import './faq-parity.css';
+@import './argomenti-parity.css';
+@import './homepage-visual-fix.css';
+@import './listing-parity.css';
+@import './servizi-parity-fix.css';
+@import './amministrazione-parity-fix.css';
+@import './segnalazione-parity.css';
+@import './homepage-parity-v2.css';
+/* ========================================
+   FINAL HOMEPAGE PARITY OVERRIDES
+   Colors VERIFIED from reference 2026-04-02
+======================================== */
+:root {
+  /* Reference colors from computed styles */
+  --dc-green: #007a52;       /* rgb(0, 122, 82) - header center/nav */
+  --dc-green-dark: #00402b;  /* rgb(0, 64, 43) - header slim */
+  --dc-blue: #0066cc;
+  --dc-blue-dark: #004b9a;
+  --dc-ink: #191919;         /* rgb(25, 25, 25) - text color */
+  --dc-muted: #5c6f82;
+  --dc-footer: #202a2e;      /* rgb(32,42,46) - reference footer bg */
+  --dc-footer-dark: #1b2733;
+  --dc-border: #d9e1e8;
+}
+
+html,
+body {
+  color: var(--dc-ink);
+  background: #fff;
+}
+
+.it-header-wrapper {
+  background: transparent;
+  color: var(--dc-ink);
+  box-shadow: none;
+}
+
+/* Header Slim - Dark Green #00402B */
+.it-header-slim-wrapper {
+  background: var(--dc-green-dark) !important;
+  display: flex !important;
+}
+
+.it-header-slim-wrapper-content {
+  padding: 0 18px !important;
+  gap: 0 !important;
+}
+
+/* Navbar brand in slim wrapper - reference: 14px, 400, 12px padding, 21px line-height */
+.navbar-brand {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding: 12px 0 !important;
+  line-height: 21px !important;
+  color: #fff !important;
+}
+
+.it-header-slim-wrapper-content {
+  padding: 0 18px !important;
+  gap: 0 !important;
+}
+
+/* Navbar brand in slim wrapper - reference: 14px, 400, 12px padding, 21px line-height */
+.navbar-brand {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding: 12px 0 !important;
+  line-height: 21px !important;
+  color: #fff !important;
+}
+
+.it-header-center-wrapper {
+  background: var(--dc-green) !important;
+  color: #fff !important;
+  padding: 6px 0 0 !important;
+  border-bottom: none !important;
+}
+
+.it-brand-wrapper {
+  display: block !important;
+  gap: 0 !important;
+}
+
+.it-brand-wrapper a,
+.it-brand-title {
+  color: #fff !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  line-height: 30.8px !important;
+}
+
+.it-brand-tagline {
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  margin: 0 !important;
+}
+
+.it-search-wrapper span,
+.it-socials > span {
+  color: #fff !important;
+  font-size: 14px !important;
+}
+
+.it-socials {
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  gap: 0 !important;
+}
+
+/* Social icon links - must be white on green header */
+.it-socials a {
+  color: #fff !important;
+}
+
+.it-socials a svg,
+.it-socials svg.icon {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+.it-brand-wrapper {
+  display: block !important;
+  gap: 0 !important;
+}
+
+.it-brand-wrapper a,
+.it-brand-title {
+  color: #fff !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  line-height: 30.8px !important;
+}
+
+.it-brand-tagline {
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  margin: 0 !important;
+}
+
+.it-search-wrapper span,
+.it-socials > span {
+  color: #fff !important;
+  font-size: 14px !important;
+}
+
+.it-socials {
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  gap: 0 !important;
+}
+
+.it-header-center-wrapper .it-brand-wrapper > a,
+.it-header-center-wrapper .it-brand-wrapper .it-brand-text,
+.it-header-center-wrapper .it-brand-wrapper .it-brand-title,
+.it-header-center-wrapper .it-brand-wrapper .it-brand-tagline {
+  color: #fff !important;
+}
+
+.it-header-center-wrapper .it-brand-wrapper .it-brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.search-link {
+  background: white !important;
+  border-color: white !important;
+  color: var(--dc-green) !important;
+}
+
+.search-link:hover {
+  background: #f0f0f0 !important;
+  border-color: #f0f0f0 !important;
+}
+
+/* ---- Nav Wrapper ---- */
+.it-nav-wrapper {
+  background: transparent !important;
+}
+
+/* Navbar */
+.it-header-navbar-wrapper {
+  background: var(--dc-green) !important;
+}
+
+.navbar-nav {
+  font-size: 18px !important;
+  line-height: normal !important;
+  gap: 0 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-size: 18px !important;
+  line-height: normal !important;
+  display: flex !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-secondary .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-secondary .nav-link,
+.navbar-collapsable .navbar-nav .nav-link,
+.navbar-collapsable .navbar-secondary .nav-link {
+  color: #fff !important;
+}
+
+.custom-navbar-toggler,
+.close-menu {
+  color: #fff;
+}
+
+.close-menu {
+  background: transparent;
+}
+
+/* ---- Container / Grid ---- */
+.container {
+  padding: 0 12px !important;
+  margin: 0 auto !important;
+}
+
+.row {
+  margin: 0 -12px !important;
+}
+
+/* ---- Evidence Cards ---- */
+/* ---- Evidence Cards ---- */
+.evidence-section .section::before {
+  background: linear-gradient(90deg, rgba(0, 122, 82, 0.96), rgba(0, 102, 204, 0.92));
+}
+
+.evidence-section .card {
+  padding: 16px 24px !important;
+  margin: 16px 0 !important;
+}
+
+.bg-primary {
+  background: var(--dc-green) !important;
+  color: #fff;
+}
+
+.evidence-section .card {
+  padding: 16px 24px !important;
+  margin: 16px 0 !important;
+}
+
+.bg-primary {
+  background: var(--dc-green) !important;
+  color: #fff;
+}
+
+.btn-primary,
+.input-group-append .btn {
+  background: var(--dc-green) !important;
+  border-color: var(--dc-green) !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover,
+.input-group-append .btn:hover {
+  background: var(--dc-green-dark) !important;
+  border-color: var(--dc-green-dark) !important;
+}
+
+/* ---- Rating ---- */
+.cmp-rating {
+  color: var(--dc-ink) !important;
+}
+
+.cmp-rating .card {
+  color: var(--dc-ink) !important;
+  padding: 24px !important;
+}
+
+/* ---- Rating ---- */
+.cmp-rating {
+  color: var(--dc-ink) !important;
+}
+
+.cmp-rating .card {
+  color: var(--dc-ink) !important;
+  padding: 24px !important;
+}
+
+.rating .rating-star svg,
+.rating .rating-star.active svg,
+.rating input:checked ~ label.rating-star svg {
+  fill: #ffb400;
+}
+
+/* Footer: dark navy matching reference */
+.it-footer,
+footer.it-footer {
+  background: #17324D !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 0 !important;
+}
+
+.it-footer-main {
+  background: #17324D !important;
+  padding: 0 !important;
+}
+
+.it-footer-secondary {
+  background: #0d1f2d !important;
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+
+.it-footer .it-brand-wrapper a,
+.it-footer .it-brand-text,
+.it-footer a,
+.it-footer p,
+.it-footer li,
+.it-footer span {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.it-footer .footer-heading-title {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.it-footer .footer-list li a,
+.it-footer .footer-info {
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-decoration: none;
+}
+
+.it-footer .footer-list li a:hover {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+.it-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* Compact feedback + contacts to match reference height */
+.bg-primary .cmp-rating {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Rating card: compact padding + layout matching reference */
+.cmp-rating .card-header {
+  padding: 1rem 1.5rem 0.5rem !important;
+  border-radius: 0 !important;
+}
+.cmp-rating .card-body {
+  padding: 0.5rem 1.5rem 1rem !important;
+}
+.cmp-rating .card,
+.cmp-rating .card.shadow {
+  border-radius: 4px !important;
+  max-width: 640px !important;
+}
+.cmp-rating .title-medium-2-semi-bold {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
+}
+/* Stars: left-aligned (flex-end with flex-row-reverse = visually left), compact spacing */
+.cmp-rating .rating,
+fieldset.rating {
+  justify-content: flex-end !important;
+  margin-top: 0.5rem !important;
+  gap: 0.25rem !important;
+}
+
+.p-contacts {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+/* Useful links: compact link item padding to match reference */
+.useful-links-section .link-list .list-item,
+.useful-links-section .link-list li a {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+}
+
+.cmp-contacts .card-body {
+  padding: 1.5rem !important;
+}
+
+.search-modal {
+  background: rgba(23, 50, 77, 0.56);
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.search-modal.show {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.search-modal .modal-dialog {
+  border-radius: 0;
+}
+
+.shadow-contacts {
+  box-shadow: 0 -8px 18px rgba(23, 50, 77, 0.08);
+}
+
+/* ========================================
+   HERO SECTION - Design Comuni parity
+======================================== */
+#head-section .card {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#head-section .card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dc-green) !important;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Read-more / all-news link: uppercase */
+.read-more {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--dc-green) !important;
+}
+
+.read-more svg { fill: var(--dc-green); }
+
+/* Government body cards: VAI ALLA PAGINA uppercase */
+.government-card .read-more,
+.card.border .read-more {
+  text-transform: uppercase;
+}
+
+/* Government body card: category label */
+.category-top .title-xsmall-semi-bold {
+  text-transform: uppercase;
+  color: var(--dc-muted) !important;
+}
+
+@media (max-width: 991px) {
+  .it-header-center-content-wrapper {
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .it-brand-wrapper a {
+    align-items: flex-start;
+  }
+
+  .navbar-collapsable {
+    background: var(--dc-green) !important;
+  }
+
+  .menu-wrapper {
+    padding: 1.25rem;
+  }
+}
+
+footer#footer,
+footer#footer .it-footer-main {
+  background: #17324D !important;
+}
+
+footer#footer .it-footer-secondary {
+  background: #0d1f2d !important;
+}
+
+footer#footer .container,
+footer#footer .row,
+footer#footer .footer-items-wrapper {
+  background: transparent !important;
+}
+
+footer#footer .it-brand-wrapper {
+  align-items: center;
+}
+
+footer#footer .icon,
+footer#footer svg {
+  color: #fff !important;
+  fill: currentColor;
+}
+
+/* ========================================
+   FOOTER PARITY HOTFIX
+   Reference: rgb(32,42,46) = #202a2e
+======================================== */
+:root {
+  --dc-footer: #202a2e;
+}
+
+footer#footer,
+footer#footer .it-footer-main {
+  background: #202a2e !important;
+  color: #fff !important;
+}
+
+footer#footer .container,
+footer#footer .row,
+footer#footer .footer-items-wrapper {
+  background: transparent !important;
+}
+
+footer#footer .footer-heading-title,
+footer#footer .it-brand-text h2,
+footer#footer .it-brand-wrapper a,
+footer#footer .footer-bottom a,
+footer#footer .footer-list a,
+footer#footer .footer-info,
+footer#footer .social a,
+footer#footer .icon,
+footer#footer svg,
+footer#footer span,
+footer#footer p,
+footer#footer li {
+  color: #fff !important;
+  fill: currentColor;
+}
+
+footer#footer .footer-list li a {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+footer#footer .footer-list li a:hover {
+  color: #fff !important;
+}
+
+footer#footer .footer-heading-title,
+footer#footer .it-brand-text h2 {
+  color: #fff !important;
+}
+
+footer#footer .footer-heading-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+footer#footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ========================================
+   HEADER PARITY HOTFIX
+======================================== */
+.it-header-center-wrapper .it-socials a,
+.it-header-center-wrapper .it-socials .icon,
+.it-header-center-wrapper .it-socials svg,
+.it-header-center-wrapper .it-socials use {
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+.dc-homepage-parity #head-section .cmp-search {
+  display: none !important;
+}
+
+/* ========================================
+   LOGO PARITY HOTFIX
+======================================== */
+.it-header-center-wrapper .it-brand-wrapper > a > svg {
+  display: none !important;
+}
+
+.it-header-center-wrapper .it-brand-wrapper > a::before {
+  content: '';
+  display: block;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
+  background: url('/themes/Sixteen/design-comuni/assets/images/logo-comune.svg') center center / contain no-repeat;
+}
+
+.it-header-center-wrapper .it-brand-wrapper > a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+/* ========================================
+   PARITY FIXES - 2026-04-02 Visual Analysis
+   Verified against reference screenshots
+======================================== */
+
+/* 1. Evidence section: background image 300px tall at top (reference behavior) */
+.evidence-section .section {
+  background-size: 100% 300px !important;
+  background-position: center top !important;
+}
+.evidence-section .section::before {
+  /* Limit gradient overlay to top 300px matching background image height */
+  bottom: auto !important;
+  height: 300px !important;
+}
+
+/* 2. Calendar Splide: hide prev/next arrows (reference has none) */
+#calendario .splide__arrows,
+#calendario .splide__arrow {
+  display: none !important;
+}
+
+/* 3. Rating stars: grey by default, yellow only when checked/hovered */
+.rating .rating-star svg {
+  fill: #BFC4C9 !important;
+}
+.rating input:checked ~ label.rating-star svg,
+.rating .rating-star:hover svg,
+.rating .rating-star.active svg {
+  fill: #ffb400 !important;
+}
+
+/* 4. Useful links section: link color green + underline */
+.useful-links-section .link-list li a,
+.useful-links-section .link-list-wrapper a,
+.section-muted .link-list li a {
+  color: var(--dc-green) !important;
+  text-decoration: underline !important;
+}
+.useful-links-section .link-list li a:hover,
+.section-muted .link-list li a:hover {
+  text-decoration: none !important;
+}
+
+/* 5. Slim header button: "Accedi all'area personale" compact style */
+.it-header-slim-wrapper .btn-full,
+.it-header-slim-wrapper .it-access-top-wrapper .btn {
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  padding: 6px 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* 6. Evidence section: "Altri argomenti" text/chip colors on gradient */
+.evidence-section .chip-simple {
+  border-color: var(--dc-green) !important;
+  color: var(--dc-green) !important;
+  background: #fff !important;
+}
+.evidence-section .title-xsmall-bold {
+  color: #5c6f82 !important;
+}
+
+/* 7. Evidence section topic card links: green colored */
+.evidence-section .card-teaser .card-body .list-item .text-success {
+  color: var(--dc-green) !important;
+  text-decoration: underline !important;
+}
+
+/* 8. Calendar section: h2 "Events" title — match reference 40px */
+#calendario .row-title h2,
+#calendario .section h2 {
+  font-size: 2.5rem !important;  /* 40px */
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: var(--dc-ink) !important;
+}
+
+/* 9. Calendar date cards: border-radius 4px to match reference, lighter border */
+#calendario .card {
+  border-radius: 4px !important;
+  border-color: rgb(233, 230, 242) !important;
+}
+
+/* Calendar "Settembre 2022" header bar: bold text matching reference */
+.it-header-block-title h3,
+.home-carousel-title,
+#calendario .it-header-block-title h3 {
+  font-weight: 700 !important;
+  font-style: normal !important;
+  letter-spacing: 0.02em !important;
+  font-size: 1rem !important;
+  color: #fff !important;
+}
+
+/* 10. Hero section: "Estate in città" tag pill green */
+#head-section .rounded-pill {
+  background: var(--dc-green) !important;
+  color: #fff !important;
+  border-color: var(--dc-green) !important;
+}
+
+/* 11. Hero section min-height parity */
+#head-section .row.min-vh-lg-50 {
+  min-height: 50vh !important;
+  align-items: center !important;
+}
+
+/* ========================================
+   HEADER + HERO RESIDUAL PARITY HOTFIX
+======================================== */
+.it-header-slim-wrapper {
+  min-height: 48px !important;
+}
+
+.it-header-slim-wrapper-content {
+  min-height: 48px !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+.it-header-slim-wrapper .btn-full,
+.it-header-slim-wrapper .it-access-top-wrapper .btn {
+  padding: 4px 12px !important;
+  min-height: 40px !important;
+}
+
+.it-header-center-wrapper {
+  padding: 18px 0 !important;
+  min-height: 120px !important;
+}
+
+.it-header-center-content-wrapper {
+  min-height: 84px !important;
+  align-items: center !important;
+}
+
+.it-header-navbar-wrapper {
+  min-height: 54px !important;
+}
+
+.it-header-navbar-wrapper .row {
+  margin: 0 !important;
+}
+
+.it-header-navbar-wrapper .col-12 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.it-header-navbar-wrapper .navbar {
+  min-height: 54px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link,
+.it-header-navbar-wrapper .navbar-secondary .nav-link {
+  min-height: 54px !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link:first-child {
+  padding-left: 30px !important;
+}
+
+#head-section {
+  padding: 3rem 0 0 !important;
+}
+
+#head-section .card-title {
+  font-size: 32px !important;
+  line-height: 40px !important;
+  margin-bottom: 8px !important;
+}
+
+#head-section .lora {
+  font-size: 18px !important;
+  line-height: 28px !important;
+  padding-top: 16px !important;
+  margin-bottom: 24px !important;
+}
+
+#head-section .img-fluid {
+  width: 556px !important;
+  max-width: 100% !important;
+  height: 417px !important;
+  object-fit: cover !important;
+}
+
+/* ========================================
+   HEADER WRAPPER NORMALIZATION HOTFIX
+======================================== */
+header.it-header-wrapper {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+}
+
+.it-brand-tagline {
+  font-weight: 400 !important;
+}
+
+/* ========================================
+   FINAL HEADER COLOR + SLIM BAR FIX
+======================================== */
+.it-header-slim-wrapper,
+.it-header-slim-wrapper .container,
+.it-header-slim-wrapper .row,
+.it-header-slim-wrapper .col-12,
+.it-header-slim-wrapper-content {
+  height: 48px !important;
+  min-height: 48px !important;
+}
+
+.it-header-navbar-wrapper a,
+.it-header-navbar-wrapper .nav-link,
+.it-header-navbar-wrapper .nav-link span,
+.it-header-navbar-wrapper .navbar-secondary .nav-link,
+.it-header-navbar-wrapper .navbar-secondary .nav-link span {
+  color: #fff !important;
+}
+
+/* ========================================
+   HERO LAYOUT FINAL TUNING
+======================================== */
+#head-section {
+  padding-top: 0 !important;
+}
+
+#head-section .row.align-items-center.min-vh-lg-50 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#head-section .col-lg-6.order-2.order-lg-1 {
+  padding-left: 64px !important;
+  padding-right: 28px !important;
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - 2026-04-02
+   Scoped adjustments for /it/tests/homepage
+======================================== */
+.dc-homepage-parity {
+  --dc-page-max-width: 1320px;
+}
+
+.dc-homepage-parity .container {
+  max-width: var(--dc-page-max-width) !important;
+}
+
+.dc-homepage-parity .it-header-center-wrapper {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  min-height: 108px !important;
+}
+
+.dc-homepage-parity .it-header-center-content-wrapper {
+  min-height: 76px !important;
+}
+
+.dc-homepage-parity .it-header-navbar-wrapper,
+.dc-homepage-parity .it-header-navbar-wrapper .navbar,
+.dc-homepage-parity .it-header-navbar-wrapper .navbar-nav .nav-link,
+.dc-homepage-parity .it-header-navbar-wrapper .navbar-secondary .nav-link {
+  min-height: 52px !important;
+}
+
+.dc-homepage-parity #head-section {
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.dc-homepage-parity #head-section .row.align-items-center.min-vh-lg-50 {
+  min-height: auto !important;
+  padding-top: 32px !important;
+  padding-bottom: 24px !important;
+  align-items: flex-start !important;
+}
+
+.dc-homepage-parity #head-section .card {
+  margin-bottom: 0 !important;
+}
+
+.dc-homepage-parity #head-section .card-body {
+  padding-top: 22px !important;
+  padding-right: 44px !important;
+  padding-bottom: 0 !important;
+}
+
+.dc-homepage-parity #head-section .category-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.dc-homepage-parity #head-section .category-top .icon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.dc-homepage-parity #head-section .card-title {
+  max-width: 560px !important;
+  font-size: 30px !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 12px !important;
+}
+
+.dc-homepage-parity #head-section .lora {
+  max-width: 560px !important;
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 22px !important;
+}
+
+.dc-homepage-parity #head-section .chip.chip-simple {
+  margin-bottom: 28px !important;
+}
+
+.dc-homepage-parity #head-section .read-more {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-bottom: 0 !important;
+}
+
+.dc-homepage-parity #head-section .col-lg-6.order-1.order-lg-2 {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.dc-homepage-parity #head-section .img-fluid {
+  display: block !important;
+  width: 100% !important;
+  height: 416px !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.dc-homepage-parity #calendario .section {
+  padding-top: 0 !important;
+}
+
+.dc-homepage-parity #calendario .card-overlapping {
+  margin-top: -8px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-wrapper-equal {
+  align-items: stretch !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-wrapper-equal > .card {
+  min-height: 278px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-body,
+.dc-homepage-parity #calendario .card-teaser .card-body {
+  padding: 18px 20px 28px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image {
+  padding-bottom: 28px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image img {
+  width: 100% !important;
+  max-width: 150px !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+}
+
+.dc-homepage-parity #calendario .row-title {
+  padding-top: 42px !important;
+  padding-bottom: 18px !important;
+}
+
+.dc-homepage-parity .evidence-section .section {
+  padding-top: 52px !important;
+  padding-bottom: 52px !important;
+}
+
+.dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > .card,
+.dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > a.card {
+  min-height: 100% !important;
+}
+
+.dc-homepage-parity .evidence-section .card-body {
+  padding: 22px 24px 26px !important;
+}
+
+.dc-homepage-parity .evidence-section .card-title {
+  margin-bottom: 12px !important;
+}
+
+.dc-homepage-parity .evidence-section .link-list-wrapper {
+  margin-top: 20px !important;
+}
+
+.dc-homepage-parity .evidence-section .row.pt-30 {
+  padding-top: 40px !important;
+}
+
+.dc-homepage-parity .evidence-section .btn.btn-primary {
+  min-width: 92px !important;
+  padding: 10px 18px !important;
+}
+
+.dc-homepage-parity .useful-links-section .section {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+
+.dc-homepage-parity .useful-links-section .input-group {
+  min-height: 48px !important;
+}
+
+.dc-homepage-parity .useful-links-section .btn.btn-primary {
+  padding: 10px 18px !important;
+}
+
+.dc-homepage-parity .bg-primary .cmp-rating {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+
+.dc-homepage-parity .p-contacts,
+.dc-homepage-parity .cmp-contacts {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+.dc-homepage-parity footer#footer .it-footer-main {
+  padding-top: 26px !important;
+}
+
+@media (max-width: 991px) {
+  .dc-homepage-parity #head-section .row.align-items-center.min-vh-lg-50 {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .dc-homepage-parity #head-section .card-body {
+    padding-right: 0 !important;
+  }
+
+  .dc-homepage-parity #head-section .card-title {
+    font-size: 2rem !important;
+  }
+
+  .dc-homepage-parity #head-section .img-fluid {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX
+======================================== */
+#calendario .card-teaser .read-more,
+.card-teaser .read-more {
+  color: var(--dc-green) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  padding-top: 16px !important;
+  padding-bottom: 0 !important;
+}
+
+#calendario .card-teaser .read-more .text,
+.card-teaser .read-more .text {
+  color: var(--dc-green) !important;
+}
+
+#calendario .card-teaser .read-more .icon,
+.card-teaser .read-more .icon {
+  color: var(--dc-green) !important;
+  fill: currentColor !important;
+  width: 32px !important;
+  height: 16px !important;
+  margin-left: 8px !important;
+  transform: translateY(2px) !important;
+}
+
+
+/* ========================================
+   GOVERNANCE READ-MORE HOTFIX - 2026-04-02
+======================================== */
+.dc-homepage-parity #calendario .card.card-teaser > .read-more {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.45rem !important;
+  width: auto !important;
+  margin-top: auto !important;
+  padding: 0.95rem 1.25rem 1rem !important;
+  border-top: 1px solid #e5e7eb !important;
+  color: var(--dc-green) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+.dc-homepage-parity #calendario .card.card-teaser > .read-more .text {
+  flex: 0 0 auto !important;
+}
+
+.dc-homepage-parity #calendario .card.card-teaser > .read-more .icon {
+  width: 1.05rem !important;
+  height: 1.05rem !important;
+  margin-left: 0 !important;
+  flex: 0 0 auto !important;
+  position: relative !important;
+  top: 1px !important;
+  color: var(--dc-green) !important;
+  fill: currentColor !important;
+}
+
+.dc-homepage-parity #calendario .card.card-teaser.card-teaser-image > .read-more {
+  padding-left: 1rem !important;
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX 2
+======================================== */
+#calendario .card-teaser > .read-more,
+#calendario .card-teaser .card-image-wrapper + .read-more {
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+}
+
+#calendario .card-teaser > .read-more .text,
+#calendario .card-teaser .card-image-wrapper + .read-more .text {
+  color: var(--dc-green) !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 700 !important;
+}
+
+#calendario .card-teaser > .read-more .icon,
+#calendario .card-teaser .card-image-wrapper + .read-more .icon {
+  width: 32px !important;
+  height: 16px !important;
+  flex: 0 0 32px !important;
+  margin-left: 8px !important;
+  transform: translateY(2px) !important;
+}
+
+
+/* ========================================
+   HOMEPAGE VISUAL PARITY BATCH - 2026-04-02
+======================================== */
+.dc-homepage-parity .evidence-section .section {
+  position: relative !important;
+  padding-top: 52px !important;
+  padding-bottom: 52px !important;
+  background: linear-gradient(to bottom, rgba(0,122,82,0.95) 0 308px, #ffffff 308px 100%) !important;
+}
+
+.dc-homepage-parity .evidence-section .section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 auto auto 0 !important;
+  width: 100% !important;
+  height: 308px !important;
+  background: linear-gradient(90deg, rgba(0,122,82,0.97) 0%, rgba(0,122,82,0.93) 56%, rgba(0,102,204,0.9) 100%) !important;
+  z-index: 0 !important;
+}
+
+.dc-homepage-parity .evidence-section .section::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 136px !important;
+  right: 0 !important;
+  width: 16.8% !important;
+  height: 258px !important;
+  background: #0066cc !important;
+  z-index: 0 !important;
+}
+
+.dc-homepage-parity .evidence-section .container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.dc-homepage-parity .evidence-section h2.text-white {
+  margin-bottom: 22px !important;
+}
+
+.dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 {
+  gap: 24px !important;
+}
+
+.dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > .card,
+.dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > a.card {
+  flex: 0 0 calc(33.333% - 16px) !important;
+  max-width: calc(33.333% - 16px) !important;
+}
+
+.dc-homepage-parity .evidence-section .card,
+.dc-homepage-parity .useful-links-section .card,
+.dc-homepage-parity .cmp-contacts .card {
+  border-radius: 0 !important;
+}
+
+.dc-homepage-parity .evidence-section .card-body {
+  padding: 20px 20px 24px !important;
+}
+
+.dc-homepage-parity .evidence-section .card-teaser.card-bg-blue,
+.dc-homepage-parity .evidence-section .card-teaser.card-bg-warning,
+.dc-homepage-parity .evidence-section .card-teaser.card-bg-dark {
+  min-height: 90px !important;
+  padding: 14px 16px !important;
+}
+
+.dc-homepage-parity .evidence-section .avatar.size-lg {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+}
+
+.dc-homepage-parity .evidence-section .row.pt-30 {
+  padding-top: 28px !important;
+}
+
+.dc-homepage-parity .evidence-section .row.pt-5 {
+  padding-top: 48px !important;
+}
+
+.dc-homepage-parity .useful-links-section .section {
+  background: #ffffff !important;
+  padding-top: 26px !important;
+  padding-bottom: 44px !important;
+}
+
+.dc-homepage-parity .useful-links-section .cmp-input-search {
+  margin-bottom: 20px !important;
+}
+
+.dc-homepage-parity .useful-links-section .input-group,
+.dc-homepage-parity .useful-links-section .form-control {
+  min-height: 44px !important;
+  height: 44px !important;
+}
+
+.dc-homepage-parity .useful-links-section .input-group-append .btn {
+  min-width: 44px !important;
+  padding: 0 12px !important;
+}
+
+.dc-homepage-parity .bg-primary .cmp-rating {
+  padding-top: 28px !important;
+  padding-bottom: 28px !important;
+}
+
+.dc-homepage-parity .cmp-rating .card.shadow {
+  max-width: 610px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14) !important;
+}
+
+.dc-homepage-parity .cmp-rating__card-first {
+  padding: 18px 24px 14px !important;
+}
+
+.dc-homepage-parity .rating {
+  padding-top: 8px !important;
+  padding-bottom: 0 !important;
+}
+
+.dc-homepage-parity .p-contacts {
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
+}
+
+.dc-homepage-parity .cmp-contacts .card-body {
+  padding: 22px 24px !important;
+}
+
+@media (max-width: 991px) {
+  .dc-homepage-parity .evidence-section .section::after {
+    display: none !important;
+  }
+
+  .dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > .card,
+  .dc-homepage-parity .evidence-section .card-wrapper.card-teaser-block-3 > a.card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX 3
+======================================== */
+#calendario .card-teaser > .read-more.ps-3,
+#calendario .card-teaser .read-more.ps-3,
+#calendario .card-teaser > .read-more,
+#calendario .card-teaser .read-more {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 16px 0 0 16px !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  overflow: hidden !important;
+}
+
+#calendario .card-teaser > .read-more .icon,
+#calendario .card-teaser .read-more .icon {
+  display: block !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  max-height: 16px !important;
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - HERO REFINEMENT
+======================================== */
+.dc-homepage-parity #head-section .container {
+  padding-top: 0 !important;
+}
+
+.dc-homepage-parity #head-section .row.align-items-center.min-vh-lg-50 {
+  padding-top: 12px !important;
+  padding-bottom: 18px !important;
+}
+
+.dc-homepage-parity #head-section .col-lg-6.order-2.order-lg-1 {
+  padding-left: 52px !important;
+  padding-right: 24px !important;
+}
+
+.dc-homepage-parity #head-section .card-body {
+  padding-top: 8px !important;
+}
+
+.dc-homepage-parity #head-section .card-title {
+  max-width: 590px !important;
+  font-size: 32px !important;
+  line-height: 1.18 !important;
+}
+
+.dc-homepage-parity #head-section .lora {
+  max-width: 610px !important;
+  margin-bottom: 18px !important;
+}
+
+.dc-homepage-parity #head-section .chip.chip-simple {
+  margin-bottom: 20px !important;
+}
+
+.dc-homepage-parity #head-section .img-fluid {
+  height: 414px !important;
+  object-position: center 44% !important;
+}
+
+@media (max-width: 991px) {
+  .dc-homepage-parity #head-section .col-lg-6.order-2.order-lg-1 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .dc-homepage-parity #head-section .card-body {
+    padding-top: 0 !important;
+  }
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - GOVERNANCE CARDS
+======================================== */
+.dc-homepage-parity #calendario .card-overlapping {
+  margin-top: 0 !important;
+}
+
+.dc-homepage-parity #calendario .card-wrapper.card-teaser-wrapper-equal.card-teaser-block-3 {
+  gap: 18px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-wrapper-equal > .card {
+  min-height: 248px !important;
+  border-radius: 4px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image.card-flex {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image-wrapper {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  align-items: stretch !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-body {
+  flex: 1 1 auto !important;
+  padding-bottom: 18px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  padding: 0 18px 18px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image img {
+  max-width: 112px !important;
+  max-height: 150px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser .read-more {
+  padding: 14px 16px 12px !important;
+  min-height: 34px !important;
+  height: auto !important;
+  align-items: center !important;
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - LOWER PAGE RHYTHM
+======================================== */
+.dc-homepage-parity .evidence-section .row.pt-5 {
+  padding-top: 36px !important;
+}
+
+.dc-homepage-parity .evidence-section .pt-4.pt-lg-30 {
+  padding-top: 20px !important;
+}
+
+.dc-homepage-parity .useful-links-section .section {
+  padding-top: 36px !important;
+  padding-bottom: 36px !important;
+}
+
+.dc-homepage-parity .useful-links-section .link-list-wrapper {
+  margin-top: 8px !important;
+}
+
+.dc-homepage-parity .useful-links-section .link-list li:last-child .list-item {
+  margin-bottom: 0 !important;
+}
+
+.dc-homepage-parity .bg-primary .cmp-rating {
+  padding-top: 44px !important;
+  padding-bottom: 44px !important;
+}
+
+.dc-homepage-parity .cmp-rating .card {
+  margin-bottom: 0 !important;
+}
+
+.dc-homepage-parity .cmp-rating .card-body {
+  padding-bottom: 18px !important;
+}
+
+.dc-homepage-parity .shadow-contacts {
+  margin-top: 0 !important;
+}
+
+.dc-homepage-parity .p-contacts,
+.dc-homepage-parity .cmp-contacts {
+  padding-top: 20px !important;
+  padding-bottom: 28px !important;
+}
+
+.dc-homepage-parity .cmp-contacts .card {
+  max-width: 476px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - GOVERNANCE + CONTACTS TUNING
+======================================== */
+.dc-homepage-parity #calendario .card-wrapper.card-teaser-wrapper-equal.card-teaser-block-3 {
+  gap: 12px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-wrapper-equal > .card {
+  min-height: 226px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser .card-body,
+.dc-homepage-parity #calendario .card-teaser-image .card-body {
+  padding: 16px 16px 18px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image {
+  padding: 0 16px 14px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image img {
+  max-width: 96px !important;
+  max-height: 128px !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser .read-more,
+.dc-homepage-parity #calendario .card-teaser-image .read-more {
+  font-size: 13px !important;
+  line-height: 18px !important;
+  padding: 10px 14px 10px !important;
+}
+
+.dc-homepage-parity .cmp-contacts {
+  padding-top: 14px !important;
+  padding-bottom: 22px !important;
+}
+
+.dc-homepage-parity .cmp-contacts .card {
+  max-width: 520px !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dc-homepage-parity .cmp-contacts .card-body {
+  padding: 20px 24px !important;
+}
+
+/* ========================================
+   HOMEPAGE PARITY PASS - FINAL HERO/GOVERNANCE LOOP
+======================================== */
+.dc-homepage-parity #head-section .row.align-items-center.min-vh-lg-50 {
+  padding-top: 18px !important;
+  padding-bottom: 22px !important;
+}
+
+.dc-homepage-parity #head-section .card-title {
+  font-size: 31px !important;
+  line-height: 1.2 !important;
+}
+
+.dc-homepage-parity #head-section .lora {
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-image img {
+  max-width: 88px !important;
+  max-height: 118px !important;
+  object-position: center top !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser-image .card-body {
+  padding-bottom: 12px !important;
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX 4
+======================================== */
+.dc-homepage-parity #calendario .card-teaser > .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser > .read-more,
+.dc-homepage-parity #calendario .card-teaser .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser .read-more {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: max-content !important;
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+  justify-content: normal !important;
+  gap: 0 !important;
+  padding: 16px 0 0 16px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser > .read-more .icon,
+.dc-homepage-parity #calendario .card-teaser .read-more .icon {
+  margin-left: 8px !important;
+  transform: none !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  max-height: 16px !important;
+  flex: 0 0 32px !important;
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX 5
+======================================== */
+.dc-homepage-parity #calendario .card-teaser > .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser > .read-more,
+.dc-homepage-parity #calendario .card-teaser .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser .read-more {
+  gap: 8px !important;
+  text-transform: uppercase !important;
+}
+
+.dc-homepage-parity #calendario .card-teaser > .read-more .icon,
+.dc-homepage-parity #calendario .card-teaser .read-more .icon {
+  margin-left: 0 !important;
+}
+
+/* ========================================
+   FAQ PAGE PARITY - domande-frequenti
+======================================== */
+main[data-page="domande-frequenti"] {
+  padding-bottom: 0 !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-breadcrumbs {
+  padding-top: 1rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-breadcrumbs .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+main[data-page="domande-frequenti"] .cmp-breadcrumbs .breadcrumb-item,
+main[data-page="domande-frequenti"] .cmp-breadcrumbs .breadcrumb-item a {
+  color: #5c6f82 !important;
+  text-decoration: none;
+}
+
+main[data-page="domande-frequenti"] .cmp-breadcrumbs .breadcrumb-item.active {
+  color: #1f2d3d !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-breadcrumbs .separator {
+  margin: 0 0.5rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-hero .it-hero-wrapper {
+  background: #fff !important;
+  min-height: auto !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-hero .it-hero-text-wrapper {
+  background: transparent !important;
+  padding-left: 0 !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-hero h1 {
+  color: #17324d !important;
+  font-size: 3rem !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-hero .hero-text {
+  max-width: 720px;
+}
+
+main[data-page="domande-frequenti"] .cmp-hero .hero-text p {
+  color: #5c6f82 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  margin: 0 0 0.75rem !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-input-search {
+  margin-bottom: 1.25rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-input-search .input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+
+main[data-page="domande-frequenti"] .cmp-input-search .form-control {
+  border: 1px solid #c5d0db !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  min-height: 56px;
+  padding: 0.875rem 1rem 0.875rem 2.75rem !important;
+  font-size: 1rem !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-input-search .autocomplete-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.95rem;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #0066cc;
+}
+
+main[data-page="domande-frequenti"] .cmp-input-search .btn {
+  min-width: 96px;
+  border-radius: 0 !important;
+  background: #0066cc !important;
+  border-color: #0066cc !important;
+  font-weight: 600 !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq {
+  margin-bottom: 3rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-item {
+  border: 0 !important;
+  border-bottom: 1px solid #d9e1e8 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-button {
+  width: 100%;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  color: #0059b3 !important;
+  padding: 1rem 0 !important;
+  text-align: left;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-button::after {
+  display: none !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .button-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .icon-wrapper .icon {
+  transition: transform 160ms ease;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-button:not(.collapsed) .icon-wrapper .icon {
+  transform: rotate(180deg);
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-collapse {
+  display: none;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-collapse.show {
+  display: block;
+}
+
+main[data-page="domande-frequenti"] .cmp-accordion.faq .accordion-body {
+  padding: 0 0 1rem 0 !important;
+  color: #17324d !important;
+}
+
+main[data-page="domande-frequenti"] .bg-primary {
+  background: #007a52 !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-rating {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+main[data-page="domande-frequenti"] .cmp-rating .card-wrapper {
+  border-radius: 0 !important;
+}
+
+main[data-page="domande-frequenti"] .faq-contacts-section {
+  background: #eceff1;
+  padding: 3rem 0 4rem;
+}
+
+main[data-page="domande-frequenti"] .faq-contacts-section .card {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+main[data-page="domande-frequenti"] .faq-contacts-section .contact-list {
+  list-style: none;
+  margin: 0;
+}
+
+main[data-page="domande-frequenti"] .faq-contacts-section .contact-list li + li {
+  margin-top: 0.75rem;
+}
+
+main[data-page="domande-frequenti"] .faq-contacts-section .list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #0066cc !important;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  main[data-page="domande-frequenti"] .cmp-hero h1 {
+    font-size: 2.25rem !important;
+  }
+
+  main[data-page="domande-frequenti"] .cmp-rating {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* FINAL CONTAINER FIX - Overrides all previous container definitions */
+/* This must be LAST to ensure max specificity */
+.container {
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 1399px) {
+  .container {
+    max-width: 1320px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .container {
+    max-width: 960px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 720px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 540px !important;
+  }
+}
+
+main[data-page="domande-frequenti"] .faq-rating-section .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+main[data-page="domande-frequenti"] .faq-rating-stars {
+  display: flex;
+  gap: 0.35rem;
+}
+
+main[data-page="domande-frequenti"] .faq-rating-star {
+  border: 0;
+  background: transparent;
+  color: #17324d;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+main[data-page="domande-frequenti"] .faq-rating-help {
+  color: #5c6f82;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   READ MORE PARITY HOTFIX 6
+======================================== */
+.dc-homepage-parity #calendario .card-teaser > .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser > .read-more,
+.dc-homepage-parity #calendario .card-teaser .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser .read-more,
+.dc-homepage-parity #calendario .card-teaser > .read-more .text,
+.dc-homepage-parity #calendario .card-teaser .read-more .text {
+  letter-spacing: 0.9px !important;
+}
+
+/* ========================================
+   HIDE GOVERNANCE CAROUSEL (WAVE 3)
+   Not present in reference design
+======================================== */
+main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-four-cols {
+  display: none !important;
+}
+
+.dc-service-detail .cmp-heading {
+  padding-top: 1rem;
+}
+
+.dc-service-detail__cta-group {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dc-service-detail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dc-service-detail__dropdown {
+  position: relative;
+}
+
+.dc-service-detail__dropdown-menu {
+  display: block;
+  position: static;
+  min-width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item,
+.dc-service-detail__content .cmp-navscroll .accordion-button,
+.dc-service-detail__content .cmp-navscroll .accordion-body {
+  background: #fff;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item {
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #17324d;
+  border: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .nav-link {
+  display: block;
+  padding: 0.6rem 0;
+  color: #17324d;
+  text-decoration: none;
+}
+
+.dc-service-detail__content .it-page-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dc-service-detail__content .it-page-section {
+  scroll-margin-top: 6rem;
+}
+
+.dc-service-detail__content .has-bg-grey {
+  background: #f2f7fc;
+  border-radius: 1rem;
+}
+
+.dc-service-detail__richtext p + p {
+  margin-top: 1rem;
+}
+
+.dc-service-detail__richtext ul {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+}
+
+.dc-service-detail__button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dc-service-detail .card-teaser-info {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-service-detail .avatar.size-xl img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+/* ========================================
+   HOMEPAGE PARITY FIXES - WAVE 3 (Visual Alignment)
+======================================== */
+
+/* Hide extra evidence card wrappers (show only 6 items - 3x2 grid) */
+.dc-homepage-parity .evidence-section .row > div > .card-wrapper:nth-of-type(n+7) {
+  display: none !important;
+}
+
+/* Adjust evidence section height to match grid of 6 items */
+.dc-homepage-parity .evidence-section {
+  max-height: 1102px !important;
+  overflow: hidden !important;
+}
+
+/* Header height adjustment */
+.dc-homepage-parity header {
+  min-height: 222px !important;
+  height: auto !important;
+}
+
+/* Social icons sizing */
+.dc-homepage-parity .it-socials {
+  height: 27px !important;
+  line-height: 27px !important;
+}
+
+/* Footer background must be transparent, not dark grey */
+.dc-homepage-parity footer,
+.dc-homepage-parity footer#footer {
+  background-color: transparent !important;
+  color: rgb(25, 25, 25) !important;
+}
+
+@media (min-width: 992px) {
+  .dc-service-detail__content .cmp-navscroll.sticky-top {
+    top: 2rem;
+  }
+
+  .dc-service-detail__dropdown-menu {
+    max-width: 16rem;
+  }
+}
+
+/* ========================================
+   PAGE PARITY FIXES - 2026-04-04
+   Focus pages: lista-risorse, segnalazioni-elenco, amministrazione
+======================================== */
+
+main[data-page="lista-risorse"] .cmp-breadcrumbs,
+main[data-page="amministrazione"] .cmp-breadcrumbs,
+main[data-page="segnalazioni-elenco"] .cmp-breadcrumbs {
+  margin-top: 1.25rem !important;
+}
+
+main[data-page="lista-risorse"] > section.section:not(.section-muted):not(.section-primary) {
+  background: #eceff1 !important;
+}
+
+main[data-page="lista-risorse"] .useful-links-section {
+  background: #eceff1 !important;
+  padding: 3rem 0 4rem !important;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top,
+main[data-page="lista-risorse"] .card-teaser-image-top.no-after {
+  border: 1px solid #d9e1e8 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .card-image-wrapper {
+  display: block !important;
+  aspect-ratio: 16 / 9;
+  background: #dfe7ec;
+  overflow: hidden;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .card-image-wrapper > .card-body {
+  display: block !important;
+  height: 100%;
+  padding: 0 !important;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .img-fluid {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 180px;
+  object-fit: cover !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .input-group {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .form-control {
+  min-height: 3rem;
+  border-radius: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .btn {
+  min-width: 4.5rem;
+  border-radius: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-pagination {
+  justify-content: center;
+  margin: 1.75rem 0 0;
+}
+
+main[data-page="lista-risorse"] .section-primary .cmp-rating {
+  padding-top: 2.75rem !important;
+  padding-bottom: 2.75rem !important;
+}
+
+main[data-page="lista-risorse"] .section-primary .cmp-rating .card,
+main[data-page="lista-risorse"] .section-primary .cmp-rating .card-wrapper {
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+main[data-page="lista-risorse"] .section-primary .button-shadow {
+  display: none !important;
+}
+
+main[data-page="lista-risorse"] .shadow-contacts,
+main[data-page="lista-risorse"] .cmp-contacts .card {
+  box-shadow: none !important;
+}
+
+main[data-page="segnalazioni-elenco"] .search-results {
+  font-size: 0.875rem;
+  color: #5c6f82;
+}
+
+
+main[data-page="segnalazioni-elenco"] .map-box {
+  margin-top: 1rem;
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  background: #fff;
+  padding: 0;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.08);
+}
+
+main[data-page="segnalazioni-elenco"] .map-box img {
+  display: block;
+  border-radius: 0;
+  height: 26rem;
+  object-fit: cover;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-text-button {
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 2rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-text-button h2 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-info-button-card,
+main[data-page="segnalazioni-elenco"] .cmp-info-summary {
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  background: #fff;
+  box-shadow: none;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-info-summary .card {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-card {
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  box-shadow: none;
+  background: #fff;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-card .card.has-bkg-grey {
+  border: none;
+  box-shadow: none;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-info-summary .cmp-info-summary__icon,
+main[data-page="segnalazioni-elenco"] .cmp-info-summary .single-line-info {
+  padding: 1rem 1.25rem;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-info-summary .card-body .single-line-info {
+  border-bottom: 1px solid #edf0f4;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-info-summary .single-line-info:last-child {
+  border-bottom: none;
+}
+
+main[data-page="segnalazioni-elenco"] .category-list__list {
+  color: #1f2d3d;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+main[data-page="segnalazioni-elenco"] .nav-tabs {
+  border: none !important;
+}
+
+main[data-page="segnalazioni-elenco"] .nav-tabs .nav-link {
+  border: none;
+  background: transparent;
+  padding-bottom: 0.5rem;
+}
+
+main[data-page="segnalazioni-elenco"] .nav-tabs .nav-link.active {
+  border-bottom: 2px solid #007a52;
+  color: #1f2d3d;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-rating {
+  background: #007a52;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 3rem 1rem;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-rating__card-first {
+  max-width: 34rem;
+  margin: 0 auto;
+  background: transparent;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-rating__card-first .card-body {
+  padding: 0;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-contacts {
+  margin-top: 2rem;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-contacts .cmp-contacts__container .card {
+  border: 1px solid #d9e1e8;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+main[data-page="amministrazione"] .cmp-hero .it-hero-text-wrapper {
+  padding-bottom: 2rem !important;
+}
+
+main[data-page="amministrazione"] .cmp-hero .hero-text p {
+  max-width: 36rem;
+  color: #5c6f82;
+}
+
+main[data-page="amministrazione"] .card,
+main[data-page="amministrazione"] .card-wrapper {
+  border-radius: 0 !important;
+}
+
+/* ========================================
+   LISTA RISORSE PARITY PASS - 2026-04-04
+   CSS-only fixes for the current shared listing markup
+======================================== */
+main[data-page="lista-risorse"] .cmp-heading {
+  padding-top: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-heading h1,
+main[data-page="lista-risorse"] .cmp-heading h2 {
+  color: #1f2d3d !important;
+  letter-spacing: -0.01em !important;
+}
+
+main[data-page="lista-risorse"] .cmp-heading h1 {
+  font-size: 2.5rem !important;
+  line-height: 1.12 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+main[data-page="lista-risorse"] .cmp-heading .lead {
+  max-width: 44rem !important;
+  color: #5c6f82 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.55 !important;
+}
+
+main[data-page="lista-risorse"] .section.section-muted {
+  background: #eceff1 !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.75rem !important;
+}
+
+main[data-page="lista-risorse"] section.section:has(> .container .cmp-input-search.mb-4) {
+  background: #eceff1 !important;
+  padding-top: 2.25rem !important;
+  padding-bottom: 3rem !important;
+}
+
+main[data-page="lista-risorse"] .section.section-muted .cmp-heading,
+main[data-page="lista-risorse"] section.section:has(> .container .cmp-input-search.mb-4) .cmp-heading {
+  padding-bottom: 1rem !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top {
+  border-radius: 0 !important;
+  border: 1px solid #d9e1e8 !important;
+  box-shadow: none !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-image-wrapper {
+  overflow: hidden !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-image-wrapper img {
+  width: 100% !important;
+  height: 12rem !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-body {
+  padding: 1rem !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-title {
+  margin-bottom: 0.625rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-title a {
+  color: #007a52 !important;
+}
+
+main[data-page="lista-risorse"] .card.card-teaser.card-teaser-image-top .card-text {
+  color: #5c6f82 !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+main[data-page="lista-risorse"] .category-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.625rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+main[data-page="lista-risorse"] .category-top .badge {
+  border-radius: 999px !important;
+  padding: 0.15rem 0.55rem !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  background: #007a52 !important;
+}
+
+main[data-page="lista-risorse"] .category-top .data {
+  color: #5c6f82 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .input-group {
+  min-height: 3rem !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .form-control {
+  min-height: 3rem !important;
+  border-radius: 0 !important;
+  border-color: #c5d0db !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .btn {
+  min-width: 3rem !important;
+  border-radius: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search + p {
+  color: #5c6f82 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary .cmp-rating + .cmp-rating {
+  display: none !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary .cmp-rating {
+  margin-bottom: 0 !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary .card-wrapper.card {
+  max-width: 25rem !important;
+  margin: 0 auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary .card-body {
+  padding: 1rem 1.25rem !important;
+}
+
+main[data-page="lista-risorse"] .section.section-primary .card-body h2 {
+  font-size: 1rem !important;
+  line-height: 1.35 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+main[data-page="lista-risorse"] .useful-links-section {
+  padding-top: 0 !important;
+}
+
+main[data-page="lista-risorse"] .useful-links-section .section.section-muted {
+  background: #f5f7f8 !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+@media (min-width: 992px) {
+  main[data-page="lista-risorse"] section.section:has(> .container .cmp-input-search.mb-4) .row.g-4 > .col-12.col-lg-6 {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+}
+/* ========================================
+   SEGNALAZIONI ELENCO MOBILE TUNING - 2026-04-06
+======================================== */
+main[data-page="segnalazioni-elenco"] .cmp-rating .cmp-rating__card-second,
+main[data-page="segnalazioni-elenco"] .cmp-rating .form-rating {
+  display: none;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-rating .button-wrapper,
+main[data-page="segnalazioni-elenco"] .cmp-rating button {
+  display: none;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-rating fieldset.rating {
+  justify-content: center !important;
+}
+
+main[data-page="segnalazioni-elenco"] .cmp-contacts .cmp-contacts__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 991px) {
+  main[data-page="segnalazioni-elenco"] .map-box img {
+    height: 22rem;
+  }
+
+  main[data-page="segnalazioni-elenco"] .cmp-contacts .cmp-contacts__container {
+    gap: 0.75rem;
+  }
+
+  main[data-page="segnalazioni-elenco"] .cmp-text-button {
+    padding: 1.5rem 1rem;
+  }
+}

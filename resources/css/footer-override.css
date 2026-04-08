@@ -1,0 +1,43 @@
+/* Footer spacing adjustments to match Design Comuni */
+
+/* Logo wrapper - needs top padding */
+.it-footer .col-12.footer-items-wrapper.logo-wrapper {
+  padding: 32px 12px 0 12px !important;
+  margin-bottom: 0 !important;
+  gap: 30px !important;
+}
+
+/* Standard footer columns - adjust horizontal padding */
+.it-footer .footer-items-wrapper {
+  padding: 0 12px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Override the 0 32px margin that was being applied */
+.it-footer .col-md-3.footer-items-wrapper,
+.it-footer .col-md-6.footer-items-wrapper {
+  margin-bottom: 0 !important;
+}
+
+/* Fix footer heading styles to match Design Comuni */
+.it-footer h4,
+.it-footer .footer-heading-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 16px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Fix footer list items font size */
+.it-footer ul li,
+.it-footer .footer-list li {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+/* Specific margin for first heading after logo section */
+.it-footer > div > div > div:nth-child(3) h4 {
+  margin-top: 40px !important;
+}

@@ -1,0 +1,98 @@
+/**
+ * Bootstrap Italia → Tailwind CSS Component Mapping
+ * 
+ * This file maps all Bootstrap Italia classes used in Design Comuni
+ * to Tailwind CSS @apply components.
+ * 
+ * NO Bootstrap Italia CSS imports - Pure Tailwind only
+ * 
+ * Location: laravel/Themes/Sixteen/resources/css/tailwind-bootstrap-mapping.css
+ * Imported in: app.css
+ */
+
+@layer components {
+  /* ============================================================
+     GRID SYSTEM - Bootstrap .container, .row, .col-*
+     ============================================================ */
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .row {
+    @apply flex flex-wrap -mx-4;
+  }
+  
+  .col-12, .col-md-12, .col-lg-12 { @apply w-full px-4; }
+  .col-md-3 { @apply w-full md:w-1/4 px-4; }
+  .col-md-4 { @apply w-full md:w-1/3 px-4; }
+  .col-md-6 { @apply w-full md:w-1/2 px-4; }
+  .col-md-9 { @apply w-full md:w-3/4 px-4; }
+  .col-lg-3 { @apply w-full lg:w-1/4 px-4; }
+  .col-lg-4 { @apply w-full lg:w-1/3 px-4; }
+  .col-lg-5 { @apply w-full lg:w-5/12 px-4; }
+  .col-lg-6 { @apply w-full lg:w-1/2 px-4; }
+  .col-lg-9 { @apply w-full lg:w-3/4 px-4; }
+  .col-lg-10 { @apply w-full lg:w-10/12 px-4; }
+  .col-xl-6 { @apply w-full xl:w-1/2 px-4; }
+  .col-xl-8 { @apply w-full xl:w-2/3 px-4; }
+  
+  /* ============================================================
+     CARD COMPONENTS
+     ============================================================ */
+  
+  .card { @apply border border-gray-200 rounded-lg shadow-sm bg-white; }
+  .card-body { @apply p-4; }
+  .card-header { @apply border-b border-gray-200 p-4; }
+  .card-footer { @apply border-t border-gray-200 p-4; }
+  .card-teaser { @apply border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white; }
+  .card-teaser-block-3 { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4; }
+  .card-title { @apply text-lg font-semibold text-gray-900 mb-2; }
+  
+  /* ============================================================
+     BUTTON & COMPONENT CLASSES
+     ============================================================ */
+  
+  .btn {
+    @apply inline-block px-6 py-3 font-semibold text-base transition-colors rounded-none;
+  }
+  
+  .btn-primary {
+    @apply bg-italia-green text-white hover:bg-italia-green-dark;
+  }
+  
+  .btn-outline-primary {
+    @apply border-2 border-italia-green text-italia-green bg-transparent hover:bg-italia-green hover:text-white;
+  }
+  
+  .btn-full { @apply w-full; }
+  
+  /* ============================================================
+     DISPLAY UTILITIES
+     ============================================================ */
+  
+  .d-none { @apply hidden; }
+  .d-block { @apply block; }
+  .d-flex { @apply flex; }
+  .d-md-none { @apply md:hidden; }
+  .d-md-block { @apply md:block; }
+  .d-lg-none { @apply lg:hidden; }
+  .d-lg-block { @apply lg:block; }
+  
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  
+  .fw-bold { @apply font-bold; }
+  .text-center { @apply text-center; }
+  .text-white { @apply text-white; }
+  .text-primary { @apply text-italia-blue; }
+  
+  /* ============================================================
+     MODAL COMPONENTS
+     ============================================================ */
+  .modal { @apply hidden fixed inset-0 z-50 overflow-hidden; }
+  .modal.show { @apply flex items-center justify-center overflow-y-auto; }
+  .modal-backdrop { @apply fixed inset-0 bg-black/50 z-40; }
+  .modal-content { @apply relative bg-white rounded-lg shadow-2xl; }
+}
