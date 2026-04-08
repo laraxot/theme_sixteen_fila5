@@ -53,7 +53,6 @@
     ];
 @endphp
 
-<<<<<<< HEAD
 <div class="bg-primary" id="rating" x-data="{ rating: 0, hover: 0, step: 1, answer: '', feedbackType: '' }">
     <div class="container">
         <div class="row d-flex justify-content-center bg-primary">
@@ -132,65 +131,13 @@
                             <path fill="none" d="M0 0h24v24H0z"/>
                         </svg>
                         <span class="visually-hidden" id="fifth-star">Valuta 1 stella su 5</span>
-=======
-<div class="cmp-rating pt-lg-80 pb-lg-80" id="rating" x-data="{ 
-    step: 0, 
-    rating: 0, 
-    hover: 0,
-    isPositive: true,
-    showStep(stepNum) {
-        this.step = stepNum;
-        document.querySelectorAll('[data-step]').forEach(el => {
-            el.classList.add('d-none');
-        });
-        const target = document.querySelector(`[data-step="${stepNum}"]`);
-        if (target) target.classList.remove('d-none');
-    }
-}">
-    <div class="card shadow card-wrapper" data-element="feedback">
-        {{-- Step 0: Star Rating --}}
-        <div class="cmp-rating__card-first" data-step="0">
-            <div class="card-header border-0">
-                <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $title }}</h2>
-            </div>
-            <div class="card-body">
-                <fieldset class="rating" id="fieldset-rating-one">
-                    <legend class="visually-hidden">{{ $starLegend }}</legend>
-
-                    {{-- Stars in reverse order for CSS rating pattern --}}
-                    @foreach([5, 4, 3, 2, 1] as $i)
-                    @php
-                        $labelMap = [5 => 'first', 4 => 'second', 3 => 'third', 2 => 'fourth', 1 => 'fifth'];
-                        $labelName = $labelMap[$i];
-                    @endphp
-                    <input type="radio" id="star{{ $i }}a" name="ratingA" value="{{ $i }}" x-model="rating">
-                    <label class="full rating-star active" for="star{{ $i }}a"
-                           data-element="feedback-rate-{{ $i }}"
-                           @click="rating = {{ $i }}; isPositive = {{ $i }} >= 3"
-                           @mouseenter="hover = {{ $i }}"
-                           @mouseleave="hover = 0"
-                           :class="{'active': hover >= {{ $i }} || rating >= {{ $i }}}">
-                        <svg class="icon icon-sm" role="img" aria-labelledby="{{ $labelName }}-star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/>
-                            <path fill="none" d="M0 0h24v24H0z"/>
-                        </svg>
-                        <span class="visually-hidden" id="{{ $labelName }}-star">{{ $starLabels[$i] }}</span>
->>>>>>> 4b74b32 (.)
                     </label>
                     @endforeach
                 </fieldset>
 
-<<<<<<< HEAD
                 {{-- Step 1: Rating selected, show follow-up --}}
                 <div class="cmp-rating__card-second" :class="{ 'd-none': step === 1 }">
                     <p class="text-wrap">{{ $subtitle }}</p>
-=======
-                {{-- Thank you message (shown after rating) --}}
-                <div class="cmp-rating__card-second d-none" data-step="3">
-                    <div class="card-header border-0 mb-0">
-                        <h2 class="title-medium-2-bold mb-0" id="rating-feedback">{{ $subtitle }}</h2>
-                    </div>
->>>>>>> 4b74b32 (.)
                 </div>
 
                 {{-- Step 2: Multi-step form --}}

@@ -8,18 +8,12 @@
 
     <x-section slug="header" />
 
-    <main
+    <main id="main-container"
         @if (request()->routeIs('tests.*'))
             data-page="{{ request()->route('slug') }}"
         @endif
     >
-<<<<<<< HEAD
-        <div class="container">
-            {{ $slot }}
-        </div>
-=======
         {{ $slot }}
->>>>>>> 4b74b32 (.)
     </main>
 
     @include('pub_theme::components.sections.search-modal')
