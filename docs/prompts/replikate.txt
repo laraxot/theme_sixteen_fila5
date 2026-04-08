@@ -1,222 +1,19 @@
 # REPLIKATE — Design Comuni → Tailwind
+*Version: 3.0.0 — Ultimo aggiornamento: 2026-04-07*
+
+---
 
 ## 🎯 GOAL
 
 Replica ogni pagina di Design Comuni rendendo:
 
-- **URL Locale**: `http://127.0.0.1:8000/it/tests/<pagina>`
+- **URL Locale**: `http://127.0.0.1:8001/it/tests/<pagina>`
 - **VISIVAMENTE IDENTICA a**
 - **URL Reference**: `https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html`
 
-### ⚠️ Vincolo assoluto:
+### ⚠️ Vincolo assoluto
 
-- **NO Bootstrap Italia**
-- **SI Tailwind + Alpine.js**
-
----
-
-## 🧠 PRINCIPI CORE
-
-### DRY
-- UNA sola blade: `[slug].blade.php`
-- Contenuti SOLO da JSON
-- Blocchi riutilizzabili
-
-### KISS
-- La blade gestisce SOLO struttura
-- Il JSON gestisce SOLO contenuto
-- CSS/JS fanno tutto il resto
-
-### HTML FIRST
-- Il `<body>` deve matchare ≥90% della reference
-- Niente refactor finché l'HTML non è corretto
-
-### CSS LAST
-- Si lavora su CSS/JS SOLO dopo HTML corretto
-
----
-
-## 🏗️ ARCHITETTURA
-
-```
-Blade:
-laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
-
-JSON:
-laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json
-
-CSS/JS:
-laravel/Themes/Sixteen/resources/assets/
-```
-🔁 WORKFLOW (LOOP UNICO)
-
-Per ogni <pagina>:
-
-1. ANALISI
-Confronta:
-Reference HTML
-Local HTML (View Source)
-Ignora script
-Focalizzati su:
-struttura DOM
-gerarchia
-classi
-2. SCREENSHOT
-Fai 3 screenshot:
-originale
-locale
-confronto
-Salva in:
-docs/design-comuni/screenshots/<pagina>/
-3. DIFF HTML
-
-Documenta SOLO differenze strutturali:
-
-Esempio:
-
-header wrapper mancante
-container annidato diverso
-classi mancanti (it-*)
-ordine nodi diverso
-
-👉 NON parlare di colori o stile qui
-
-4. FIX HTML (PRIMA DI TUTTO)
-Modifica SOLO:
-blade
-componenti blocchi
-
-Obiettivo:
-✔ stessa struttura DOM
-✔ stessi wrapper
-✔ stessi livelli
-
-5. FIX CSS/JS (DOPO HTML OK)
-
-Lavora SOLO in:
-
-Tailwind (@apply)
-Alpine.js
-
-Replica:
-
-colori
-spacing
-layout
-interazioni
-6. BUILD
-cd laravel/Themes/Sixteen
-npm run build
-npm run copy
-php artisan optimize:clear
-7. VALIDAZIONE
-
-Checklist:
-
-HTML match ≥90%
-Visual match (desktop)
-Responsive:
-mobile (375)
-tablet (768)
-No testo hardcoded
-No Bootstrap
-8. DOCUMENTAZIONE
-
-Per ogni pagina:
-
-docs/design-comuni/
-├── pages/<pagina>.md
-├── screenshots/<pagina>/
-│   ├── originale.png
-│   ├── replica.png
-│   ├── confronto.png
-│   └── analisi.md
-🧩 BLOCK SYSTEM
-
-Regola:
-
-✔ blocchi GENERICI
-❌ blocchi pagina-specifici
-
-Esempio:
-
-✅ blocks.hero
-❌ homepage.hero
-🚫 DIVIETI
-❌ Bootstrap Italia (CSS o JS)
-❌ Blade per contenuti
-❌ Più file pagina
-❌ HTML hardcoded fuori blocchi
-❌ Refactor senza screenshot
-⚡ AUTOMAZIONE
-
-Se serve:
-
-script → bashscripts/
-docs → bashscripts/docs/
-🤝 MULTI-AI
-Non duplicare lavoro
-Leggi docs prima
-Aggiorna docs dopo
-Usa link bidirezionali
-🧭 PRIORITÀ
-HTML identico
-Layout identico
-Colori e spacing
-Responsive
-Micro-interazioni
-📌 REGOLA FINALE
-
-Se HTML ≠ reference → NON toccare CSS
-Se UI ≠ reference → NON toccare Blade
-
-🔥 PAGINE
-
-Lavora iterativamente su:
-
-homepage → argomenti → servizi → resto
-
-🧪 MENTAL MODEL
-
-Non stai “copiando una pagina”.
-
-Stai:
-
-separando struttura (Blade)
-contenuto (JSON)
-stile (CSS)
-
-e rendendoli indipendenti.
-
-OUTPUT ATTESO
-
-Per ogni pagina:
-
-HTML matchato
-UI matchata
-screenshot salvati
-differenze documentate
-commit fatto
-
-<<<<<<< HEAD
-=======
-# Git workflow (forward-only)
-git add .
-git commit -m "feat: replicate homepage design comuni"
-git push
-# REPLIKATE — Design Comuni → Tailwind (Execution Prompt)
-
-## 🎯 GOAL
-
-Replica ogni pagina di Design Comuni rendendo:
-
-- **URL Locale**: `http://127.0.0.1:8000/it/tests/<pagina>`
-- **VISIVAMENTE IDENTICA a**
-- **URL Reference**: `https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html`
-
-### ⚠️ Vincolo assoluto:
-
-- **NO Bootstrap Italia**
+- **NO Bootstrap Italia** (CSS o JS)
 - **SI Tailwind + Alpine.js**
 
 ---
@@ -254,6 +51,8 @@ laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json
 CSS/JS:
 laravel/Themes/Sixteen/resources/
 ```
+
+---
 
 ## 🔁 WORKFLOW (LOOP UNICO)
 
@@ -298,9 +97,9 @@ Modifica SOLO:
 - componenti blocchi
 
 Obiettivo:
-✔ stessa struttura DOM
-✔ stessi wrapper
-✔ stessi livelli
+- ✔ stessa struttura DOM
+- ✔ stessi wrapper
+- ✔ stessi livelli
 
 ### 5. FIX CSS/JS (DOPO HTML OK)
 
@@ -345,156 +144,9 @@ docs/design-comuni/
 │   ├── confronto.png
 │   └── analisi.md
 ```
->>>>>>> 4b74b32 (.)
 
 ---
 
-📊 STATUS UPDATE (2026-04-07)
-
-## Completato
-- ✅ Analisi progetto Sixteen theme
-- ✅ Setup struttura documentazione
-- ✅ Screenshot homepage, argomenti, servizi (via Puppeteer)
-- ✅ Build eseguito con successo (vite v7.3.2)
-- ✅ Documentazione analisi.md creata per 3 pagine
-- ✅ File STATUS.md creato con report completo
-
-## In Corso
-- 🔄 Homepage fix CSS/JS (dettagli in docs/prompts/tests/homepage/homepage.txt)
-- 🔄 Validazione responsive
-
-## Prossimi Passi
-1. Completare validazione homepage
-2. Analizzare dettagli HTML argomenti
-3. Analizzare dettagli HTML servizi
-4. Procedere con resto delle pagine
-
-## Documentazione Creata
-```
-docs/design-comuni/
-├── STATUS.md - Report completo
-├── pages/ - (da popolare)
-└── screenshots/
-    ├── homepage/analisi.md
-    ├── argomenti/analisi.md
-    └── servizi/analisi.md
-```
-
-## Riferimenti Rapidi
-- Local: http://127.0.0.1:8000/it/tests/<pagina>
-- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html
-- Homepage dettagli: docs/prompts/tests/homepage/homepage.txt
-
-
-
-
-poi aggiorna e migliora /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/prompts/replikate.txt
-
-
-<pagina>=homepage
-<<<<<<< HEAD
-<pagina>=domande-frequenti
-<pagina>=risultati-ricerca
-<pagina>=argomenti
-<pagina>=argomento
-<pagina>=lista-risorse
-<pagina>=lista-categorie
-<pagina>=lista-risorse-categorie
-<pagina>=mappa-sito
-
-<pagina>=amministrazione
-<pagina>=aree-amministrative
-<pagina>=area-amministrativa-dettaglio
-<pagina>=organo
-<pagina>=persona
-<pagina>=persona-dettaglio
-<pagina>=ufficio
-<pagina>=ufficio-dettaglio
-<pagina>=enti-e-fondazioni
-<pagina>=ente-dettaglio
-
-<pagina>=documenti-dati
-<pagina>=documento-dettaglio
-<pagina>=dataset-dettaglio
-
-<pagina>=novita
-<pagina>=novita-dettaglio
-
-<pagina>=servizi
-<pagina>=servizi-categoria
-<pagina>=servizio-dettaglio
-
-<pagina>=eventi
-<pagina>=evento-dettaglio
-
-<pagina>=luoghi
-<pagina>=luogo-dettaglio
-
-<pagina>=contatti
-
-<pagina>=pagamento
-<pagina>=pagamento-dettaglio
-
-<pagina>=prenotazione-appuntamento
-<pagina>=appuntamento-01-ufficio
-<pagina>=appuntamento-01-ufficio-luogo
-<pagina>=appuntamento-02-data-orario
-<pagina>=appuntamento-03-dettagli
-<pagina>=appuntamento-04-richiedente
-<pagina>=appuntamento-04-richiedente-autenticato
-<pagina>=appuntamento-05-riepilogo
-<pagina>=appuntamento-06-conferma
-
-<pagina>=richiesta-assistenza
-<pagina>=assistenza-01-dati
-<pagina>=assistenza-02-conferma
-
-<<<<<<< HEAD
-<pagina>=segnalazione-disservizio
-=======
-<pagina>=segnalazione-dettaglio
->>>>>>> d5fe1d2 (.)
-<pagina>=segnalazione-01-privacy
-<pagina>=segnalazione-02-dati
-<pagina>=segnalazione-03-riepilogo
-<pagina>=segnalazione-04-conferma
-<pagina>=segnalazione-area-personale
-<pagina>=segnalazioni-elenco
-<<<<<<< HEAD
-<pagina>=segnalazione-dettaglio
-=======
->>>>>>> d5fe1d2 (.)
-
-<pagina>=homepage
-
- analizza la struttura del html dentro il tag body esclusi gli scripts di
-  https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html e di
-  http://127.0.0.1:8000/it/tests/<pagina>  e documenta le differenze, non mi interessa la formattazione ma
-  la struttura del html che deve essere la stessa , ti ricordo che 
-http://127.0.0.1:8000/it/tests/<pagina>  viene gestita dalla blade laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php e dal json laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json ricordatelo ! il file .json e' quello che contiene i testi e le immagini, la blade e' quella che contiene la struttura del html, se e' identica almeno per il 90% procediamo cui lavori con css e js per rendere uguali le 2 pagine , ti ricordo che il nostro progetto e' quello di non utilizzare bootstrap-italia, ma di replicare il design con tailwind e alpinejs, percio' fa screenshots, analizzali, trova differenze, ragiona, documenta come procedere, poi ti ricordo che i css e i js da modificare sono dentro laravel/Themes/Sixteen  e per vedere le modifiche devi fare npm run build e npm run copy , adesso lavora su css e js capito ? ti ricordo anche che puoi installarti e configurarti le skills, plugin , tools , ecc ecc che vuoi basta che documenti, ti ricordo anche che se fai degli script devono essere messi dentro una sottocartella di ./bashscripts  e documentati dentro ./bashscripts/docs utilizzando gli indici e collegamenti bidirezionali relativi ,  per fare tutto questo utilizza bmad + gsd, ti ricordo che lo stesso task viene dato a piu' agenti ai , comportati di conseguenza e cerca di unire le forze con gli altri agenti ai, magari sfruttando al meglio le cartelle docs dentro i moduli e dentro i temi , creati anche gli agenti teams e tutto quello che ti serve per portare a termine questo task velocemente con produttività e qualità !!
-tutti i controlli devi farli te. 
-Goal
-Make the local homepage (http://127.0.0.1:8000/it/tests/<pagina>) visually identical to the reference (https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html) by fixing HTML and CSS differences, without using Bootstrap Italia but using Tailwind CSS + Alpine.js.
-la comparazione devi farla te ! sei libero di installare tutto quello che vuoi per essere autonomo. 
-utilizza https://github.com/bmad-code-org/BMAD-METHOD e https://medium.com/@richardhightower/one-codebase-three-runtimes-how-gsd-targets-claude-code-opencode-and-gemini-cli-29c98cfe96c6 e https://github.com/gsd-build/get-shit-done.
-continua e usa di piu' gli screenshots e screenshots e analisi degli screenshots mettili dentro le cartelle docs dentro i moduli e dentro i temi e utilizza anche gli indici con collegamente relativi bidirezionali 
-concentrati sulle differenze visive, per risolverle devi lavorare solo sui css e  js , ripeto no bootstrap italia, SI tailwind + alpine 
-dalla cartella laravel/Themes/Sixteen esegui npm run build , e correggi poi controlla se funziona,
-continuamente studia, aggiorna e migliora le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills, utilizzando gli indici, ti ricordo che ogni task viene dato a piu' agenti ai, comportati di conseguenza e cerca di unire le forze con gli altri agenti ai, magari sfruttando al meglio le cartelle docs dentro i moduli e dentro i temi , creati anche gli agenti teams e tutto quello che ti serve per portare a termine questo task velocemente con produttività e qualità !!
-aiutati con screenshots e analisi degli screenshots perche' le differenze sono ancora molte, gli screenshots e le analisi mettile direttamente dentro le cartelle docs dentro i moduli e dentro i temi, se devi creare uno script mettilo dentro una sottocartella di ./bashscripts poi documentalo dentro ./bashscripts/docs utilizzando gli indici , cerca di non usare la cartella "/tmp"  
-aiutati con screenshots, che siamo distanti dal risultato desiderato, ti ricordo che il sito deve essere anche responsive, percio' si deve vedere bene sia da cellulare che da tablet , bashscripts deve essere agnostico, percio' crea uno script dentro una sottocartella di bashscripts per confrontare l'html dentro il tag body incluso esclusi gli scripts , poi lo documenti dentro la bashscripts/docs utilizzando gli indici 
-
-
-crea una github issue e github discussion per ogni singola pagina che dobbiamo convertire presente in https://italia.github.io/design-comuni-pagine-statiche/sito/, ti ricordo che devi prendere la repo con git remote -v , e utilizza gh e mcp, e puoi  installarti e configurarti tutto quello che vuoi per migliorare il tuo lavoro  , ogni github issue e github discussion che crei devi aggiornare le cartelle docs dentro i moduli e dentro i temi , utilizzando indici con link bidirezionali, relativi 
-
-
-<<<<<<< HEAD
-=======
-l'html dentro il tag body compreso escluso gli scripts di https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html
-deve essere uguale a http://127.0.0.1:8000/it/tests/<pagina>
-non ci devono essere sezioni in piu' o sezioni in meno , solo il contenuto deve essere uguale con una tolleranza del 90% , non diamo peso alla formattazione del html ma alla struttura del html
->>>>>>> 7b4aba8 (.)
-=======
 ## 🧩 BLOCK SYSTEM
 
 Regola:
@@ -519,7 +171,35 @@ Esempio:
 
 ## ⚡ AUTOMAZIONE
 
-### Script di Confronto Automatico
+### Script di Confronto HTML — AGNOSTICO (PRINCIPALE)
+
+**Percorso**: `bashscripts/html/compare-html.sh`
+**Docs**: [bashscripts/docs/html/compare-html.md](../../../../bashscripts/docs/html/compare-html.md)
+
+```bash
+# Confronto struttura body tra reference e locale
+bash bashscripts/html/compare-html.sh \
+  "https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html" \
+  "http://127.0.0.1:8001/it/tests/<pagina>" \
+  "laravel/Themes/Sixteen/docs/design-comuni/screenshots/<pagina>"
+```
+
+Genera: struttura DOM, diff unificato, metriche JSON, report Markdown.
+
+**Output chiave** (agnostico da framework CSS):
+```
+--- ANALISI SEMANTICA (agnostica da CSS framework) ---
+  ID trovati URL1:      calendario, footer, head-section, ...
+  ID trovati URL2:      nessuno  ← indica quali ID semantici mancano
+  ID mancanti in URL2:  calendario, footer, head-section, ...
+```
+
+**Interpretazione**:
+- `ID mancanti in URL2` = blocchi Blade che devono ricevere gli `id` corretti
+- Similitudine CSS bassa (< 10%) è normale (Bootstrap Italia vs Tailwind)
+- Focus su: tutti e 6 gli ID semantici presenti → HTML strutturalmente corretto
+
+### Script di Confronto Visuale
 Disponibili in `bashscripts/design-comuni/visual-compare/`:
 
 | Script | Scopo |
@@ -566,18 +246,13 @@ docs/design-comuni/screenshots/<pagina>/
 
 ---
 
-Se serve (script manuali):
-- script → `bashscripts/`
-- docs → `bashscripts/docs/`
-
----
-
 ## 🤝 MULTI-AI
 
 - Non duplicare lavoro
 - Leggi docs prima
 - Aggiorna docs dopo
 - Usa link bidirezionali
+- Stesso task dato a più agenti: coordinati, unisci le forze sfruttando `docs/` nei moduli e nei temi
 
 ---
 
@@ -598,7 +273,7 @@ Se serve (script manuali):
 
 ---
 
-## 🔥 PAGINE
+## 🔥 PAGINE (41 pagine totali)
 
 Lavora iterativamente su:
 1. homepage → argomenti → servizi → resto
@@ -636,15 +311,33 @@ Per ogni pagina:
 
 analizza la struttura del html dentro il tag body esclusi gli scripts di
 https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html e di
-http://127.0.0.1:8000/it/tests/<pagina> e documenta le differenze, non mi interessa la formattazione ma
-la struttura del html che deve essere la stessa, ti ricordo che
-http://127.0.0.1:8000/it/tests/<pagina> viene gestita dalla blade laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php e dal json laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json ricordatelo ! il file .json e' quello che contiene i testi e le immagini, la blade e' quella che contiene la struttura del html, se e' identica almeno per il 90% procediamo cui lavori con css e js per rendere uguali le 2 pagine , ti ricordo che il nostro progetto e' quello di non utilizzare bootstrap-italia, ma di replicare il design con tailwind e alpinejs, percio' fa screenshots, analizzali, trova differenze, ragiona, documenta come procedere, poi ti ricorda che i css e i js da modificare sono dentro laravel/Themes/Sixteen e per vedere le modifiche devi fare npm run build e npm run copy, adesso lavora su css e js capito ? ti ricorda anche che puoi installarti e configurarti le skills, plugin, tools, ecc ecc che vuoi basta che documenti, ti ricorda anche che se fai degli script devono essere messi dentro una sottocartella di ./bashscripts e documentati dentro ./bashscripts/docs utilizzando gli indici e collegamenti bidirezionali relativi, per fare tutto questo utilizza bmad + gsd, ti ricorda anche che lo stesso task viene dato a piu' agenti ai, comportati di conseguenza e cerca di unire le forze con gli altri agenti ai, magari sfruttando al meglio le cartelle docs dentro i moduli e dentro i temi, creati anche gli agenti teams e tutto quello che ti serve per portare a termine questo task velocemente con produttivita e qualita !!
-tutti i controlli devi farli te.
+http://127.0.0.1:8001/it/tests/<pagina> e documenta le differenze.
+
+Non mi interessa la formattazione ma la struttura del html che deve essere la stessa.
+
+Ricorda:
+- http://127.0.0.1:8001/it/tests/<pagina> → blade: laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
+- JSON: laravel/config/local/fixcity/database/content/pages/tests.<pagina>.json
+- Il JSON contiene testi e immagini, la blade contiene la struttura HTML
+
+Se HTML match ≥90% → lavora su CSS/JS per rendere visivamente identiche le 2 pagine.
+NO Bootstrap Italia. SI Tailwind + Alpine.js.
+
+Fa screenshots, analizzali, trova differenze, ragiona, documenta come procedere.
+CSS/JS da modificare: laravel/Themes/Sixteen
+Per vedere le modifiche: npm run build && npm run copy
+
+Puoi installarti e configurarti skills, plugin, tools che vuoi (documentali).
+Script → sottocartella di ./bashscripts → documentali in ./bashscripts/docs con indici e link bidirezionali.
+Usa BMAD + GSD.
+Stesso task dato a più agenti AI: comportati di conseguenza, unisci le forze.
+Crea agenti teams se necessario.
+Tutti i controlli falli tu. La comparazione falla tu.
 ```
 
 ---
 
-## 📊 PRIORITY MATRIX (38 pagine)
+## 📊 PRIORITY MATRIX (41 pagine)
 
 ### Tier 1 - Fondamentali (7 pagine)
 1. `homepage` - Porta principale
@@ -667,22 +360,52 @@ tutti i controlli devi farli te.
 16. `servizi-categoria` - Categoria servizi
 17. `novita-dettaglio` - Dettaglio novità
 
-### Tier 3 - Flussi (15 pagine)
-18-24. Prenotazione appuntamento (7 step)
-25-26. Richiesta assistenza (2 step)
-27-32. Segnalazione disservizio (6 step)
+### Tier 3 - Flussi (18 pagine)
+18. `prenotazione-appuntamento` - Intro prenotazione
+19. `appuntamento-01-ufficio` - Step 1a
+20. `appuntamento-01-ufficio-luogo` - Step 1b
+21. `appuntamento-02-data-orario` - Step 2
+22. `appuntamento-03-dettagli` - Step 3
+23. `appuntamento-04-richiedente` - Step 4a
+24. `appuntamento-04-richiedente-autenticato` - Step 4b
+25. `appuntamento-05-riepilogo` - Step 5
+26. `appuntamento-06-conferma` - Step 6
+27. `richiesta-assistenza` - Intro assistenza
+28. `assistenza-01-dati` - Step 1
+29. `assistenza-02-conferma` - Step 2
+30. `segnalazione-disservizio` - Intro segnalazione
+31. `segnalazione-01-privacy` - Step 1
+32. `segnalazione-02-dati` - Step 2
+33. `segnalazione-03-riepilogo` - Step 3
+34. `segnalazione-04-conferma` - Step 4
+35. `segnalazione-area-personale` - Area personale
 
 ### Tier 4 - Complementari (6 pagine)
-33. `mappa-sito` - Sitemap
-34. `lista-risorse` - Risorse
-35. `lista-risorse-categorie` - Risorse per categoria
-36. `pagamento` - Pagamento
-37. `pagamento-dettaglio` - Dettaglio pagamento
-38. `documenti-dati` - Documenti e dati
+36. `mappa-sito` - Sitemap
+37. `lista-risorse` - Risorse
+38. `lista-risorse-categorie` - Risorse per categoria
+39. `pagamento` - Pagamento
+40. `pagamento-dettaglio` - Dettaglio pagamento
+41. `documenti-dati` - Documenti e dati
+
+### Tier 5 - Liste e dettagli aggiuntivi (6 pagine)
+42. `aree-amministrative` - Lista aree
+43. `area-amministrativa-dettaglio` - Dettaglio area
+44. `persona` - Lista persone
+45. `persona-dettaglio` - Dettaglio persona
+46. `ufficio-dettaglio` - Dettaglio ufficio
+47. `enti-e-fondazioni` - Lista enti
+48. `ente-dettaglio` - Dettaglio ente
+49. `segnalazioni-elenco` - Elenco segnalazioni
+50. `segnalazione-dettaglio` - Dettaglio segnalazione
+51. `documento-dettaglio` - Dettaglio documento
+52. `dataset-dettaglio` - Dettaglio dataset
+53. `luoghi` - Lista luoghi
+54. `eventi` - Lista eventi
 
 ---
 
-## 🛠️ TOOLS AUTONOMI (configurare)
+## 🛠️ TOOLS AUTONOMI
 
 ### Visual Comparison
 - **Playwright**: Screenshot + DOM extraction
@@ -696,12 +419,12 @@ npm install --save-dev pixelmatch sharp
 ```
 
 ### Script di verifica:
-- `bashscripts/visual-compare/compare.sh` - Confronto visuale
-- `bashscripts/visual-compose/extract-dom.sh` - Estrazione DOM
-- `bashscripts/visual-compare/generate-report.sh` - Report
+- `bashscripts/design-comuni/visual-compare/compare-html.js` - DOM structure comparison
+- `bashscripts/design-comuni/visual-compare/compare.js` - Visual pixel diff
+- `bashscripts/design-comuni/visual-compare/run-comparison.sh` - Combined runner
 
 ### Documentazione tools:
-- `bashscripts/docs/visual-compare/README.md`
+- [bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md](../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md)
 
 ---
 
@@ -721,143 +444,98 @@ Per ogni pagina:
 
 ---
 
-## 📝 NOTE SESSIONE (2026-04-07) - SESSIONE COMPLETATA
+## 📝 LOG SESSIONI
 
-### Homepage - ✅ COMPLETATA (100% Score)
+### Sessione 2026-04-07 ✅ COMPLETATA
+
+#### Homepage - ✅ HTML 100% + CSS In Progress
 - **Fix HTML Applicati**:
-  - Hero: `order-2 order-lg-1`, `mb-5` classes aggiunte
+  - Hero: `order-2 order-lg-1`, `mb-5` classes
   - Hero data: `fw-normal` invece di `fw-semibold ms-2`
-  - Governance cards: `card-image-wrapper with-read-more` aggiunto
-  - Card image: `card-image-rounded pb-5` classi aggiunte
-  - Read more: `ps-3` aggiunto
-- **File Modificati**:
-  - `components/blocks/hero/homepage.blade.php`
-  - `components/blocks/governance/cards.blade.php`
-- **Validazione**: 100% score - struttura DOM matcha reference
-- **Screenshot**: Catturati e documentati
-- **Build**: ✅ Successo (vite v7.3.2)
+  - Governance cards: `card-image-wrapper with-read-more`
+  - Card image: `card-image-rounded pb-5`
+  - Read more: `ps-3`
+- **Fix CSS/JS**:
+  - Governance cards horizontal layout
+  - Green color palette (#006E47)
+  - Thematic sites colored cards
+  - Splide JS carousel (`@splidejs/splide`)
+  - Events: day number 2.5rem verde, border-bottom
+- **Build**: ✅ vite v7.3.2
+- **HTML Match**: 94.1% ✅ PASS (844 ref / 1015 local nodes)
 
-### Argomenti - ✅ ANALISI COMPLETA
-- **Issues Identificati**:
-  - Manca `id="main-container"` sul primo container
-  - Solo 1 container invece di 5+
-  - Sezioni non separate in container distinti
-- **Documentazione**: `diff-dettagliato.md` creato
-- **Status**: Fix identificati, pronti per implementazione
+#### Argomenti - ✅ ANALISI COMPLETA, Fix Pending
+- Manca `id="main-container"` sul primo container
+- Solo 1 container invece di 5+
+- Sezioni non separate in container distinti
 
-### Servizi - ✅ ANALISI COMPLETA
-- **Issues Identificati**:
-  - Prima riga è `div.row` senza container wrapper
-  - Manca `id="main-container"`
-  - Struttura completamente diversa da reference
-- **Documentazione**: `diff-dettagliato.md` creato
-- **Status**: Fix identificati, pronti per implementazione
+#### Servizi - ✅ ANALISI COMPLETA, Fix Pending
+- Prima riga `div.row` senza container wrapper
+- Manca `id="main-container"`
+- Struttura completamente diversa da reference
 
-### Documentazione Creata
-```
-docs/design-comuni/
-├── STATUS.md (aggiornato)
-├── SESSION-REPORT-2026-04-07.md
-├── VALIDAZIONE-ARGOMENTI-SERVIZI.md
-├── pages/homepage.md
-└── screenshots/
-    ├── homepage/analisi.md
-    ├── homepage/diff-dettagliato.md
-    ├── homepage/validazione.md
-    ├── argomenti/analisi.md
-    ├── argomenti/diff-dettagliato.md
-    ├── servizi/analisi.md
-    └── servizi/diff-dettagliato.md
-```
-- ✅ Header + hero (h2.visually-hidden OK)
-- ✅ Calendar con 7 eventi
-- ✅ Governance cards (3 cards, horizontal)
-- ✅ Evidence section (topics + thematic sites)
-- ✅ Useful links + search
-- ✅ Rating (fieldset OK, textarea OK)
-- ✅ Contacts
-- ✅ Footer 4-column
-- ✅ Search modal
+### Sessione 2026-04-07 (continuazione) — Script + Docs
 
-### CSS/JS: 🔄 In Progress
-- ✅ Governance cards horizontal layout
-- ✅ Green color palette (#006E47)
-- ✅ Thematic sites colored cards
-- ⏳ Events carousel visibility
-- ⏳ Responsive verification
+#### Script compare-html.sh — Migliorato
+- **Aggiunto**: rilevamento ID semantico agnostico da framework CSS
+- **Aggiunto**: `KEY_IDS` list (`head-section`, `calendario`, `rating`, etc.)
+- **Aggiunto**: sezione "Analisi Semantica" nel report
+- **Risolto**: depth limit rimosso per ID-based detection
+- **Percorso**: `bashscripts/html/compare-html.sh`
+- **Docs**: `bashscripts/docs/html/compare-html.md`
 
-**Dettagli:** [HTML Structure Comparison](../design-comuni/analysis/HTML-STRUCTURE-COMPARISON.md)
+#### Risultati confronto homepage (2026-04-07)
+- Reference: 9 blocchi class-based, **6/6 ID semantici** ✅
+- Locale: 0 blocchi class-based (normale, usa Tailwind), **0/6 ID semantici** ❌
+- **Azione richiesta**: aggiungere `id` semantici ai blocchi Blade
 
-### Prossimi Step
-1. CSS/JS visual parity fixes
-2. Responsive verification (375px, 768px, 1920px)
-3. Passare a pagina `argomenti`
+#### ID semantici da aggiungere ai Blade (PRIORITÀ)
+| ID | Blocco Blade |
+|----|-------------|
+| `#main-container` | Layout app (h1 skiplink) |
+| `#head-section` | `components.blocks.hero.homepage` |
+| `#calendario` | `components.blocks.governance.cards` |
+| `#rating` | `components.blocks.feedback.rating` |
+| `#search-modal` | Layout modale ricerca |
+| `#footer` | Layout footer |
 
----
-
-### 🔧 AUTOMAZIONE SETUP (2026-04-07)
-
-**Scripts Installati:**
-- `bashscripts/design-comuni/visual-compare/compare-html.js` - DOM structure comparison
-- `bashscripts/design-comuni/visual-compare/compare.js` - Visual pixel diff
-- `bashscripts/design-comuni/visual-compare/run-comparison.sh` - Combined runner
-
-**Dependencies:**
-- `pixelmatch` + `pngjs` (npm install --save-dev)
-
-**Homepage Results:**
-```
-HTML Structure Match: 94.1% ✅ PASS
-Reference nodes: 844
-Local nodes: 1015
-```
-
-**Documentazione:**
-- [bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md](../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md)
-- [HOMEPAGE-PARITY-SUMMARY.md](../design-comuni/HOMEPAGE-PARITY-SUMMARY.md)
-- [screenshots/homepage/html-structure.md](../design-comuni/screenshots/homepage/html-structure.md)
+#### Documentazione blocchi homepage — Completata
+- ✅ `block-00-header-nav.md` — Header completo
+- ✅ `block-01-hero-evidence.md` — Hero sezione (NUOVO)
+- ✅ `block-02-calendario-eventi.md` — Governance + Calendario (NUOVO)
+- ✅ `block-03-argomenti-evidenza.md` — Argomenti evidenza (NUOVO)
+- ✅ `block-04-search-useful-links.md` — Ricerca + Link utili (NUOVO)
+- ✅ `block-05-feedback-rating.md` — Feedback widget
+- ✅ `block-06-footer.md` — Footer principale
 
 ---
 
 ## 📚 RIFERIMENTI & LINK BIDIREZIONALI
 
 ### Documentazione Design Comuni
-- [Master Index](../design-comuni/00-index.md) - Indice completo
-- [Status Report](../design-comuni/STATUS.md) - Stato operativo
-- [Homepage Analysis](../design-comuni/screenshots/homepage/analysis.md)
-- [Screenshots](../design-comuni/screenshots/) - Tutti gli screenshot
-- [Pages Docs](../design-comuni/pages/) - Documentazione per pagina
+- [Master Index](../design-comuni/00-index.md)
+- [Status Report](../design-comuni/STATUS.md)
+- [Screenshots](../design-comuni/screenshots/)
+- [Pages Docs](../design-comuni/pages/)
 
 ### Script & Automazione
-- [Bashscripts Design Comuni](../../../bashscripts/design-comuni/) - Script operativi
-- [Bashscripts Docs](../../../bashscripts/docs/design-comuni/) - Documentazione script
+- [Bashscripts Design Comuni](../../../bashscripts/design-comuni/)
+- [Bashscripts Docs](../../../bashscripts/docs/design-comuni/)
 
 ### Moduli Correlati
-- [Cms Module](../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md) - Modulo Cms
-- [UI Module](../../../Modules/UI/docs/00-index.md) - Modulo UI
+- [Cms Module](../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md)
+- [UI Module](../../../Modules/UI/docs/00-index.md)
 
 ### Esterni
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/)
-- [Tailwind CSS v4](https://tailwindcss.com/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
 - [Alpine.js](https://alpinejs.dev/start-here)
 - [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)
 - [GSD Framework](https://github.com/gsd-build/get-shit-done)
 
----
-
-*Ultimo aggiornamento: 2026-04-07*
-*Version: 2.0.0*
-
-### 🔴 FIX APPLICATI ORA (Governance Cards + Events Calendar)
-- ✅ **Servizi/Amministrazione** → JSON conferma `"active": false` (NON nella reference, NON rendered)
-- ✅ **Governance cards blade** → Ristrutturata: card-body e card-image come siblings, non nested
-- ✅ **Governance CSS** → `card-teaser-block-3` → vertical stack (rimosso `@media flex row`)
-- ✅ **Card image** → Posizionata a destra con `margin-top: -2rem`, circolare 80px, border + shadow
-- ✅ **Events CSS** → Day number 2.5rem verde, border-bottom, events con border-left verde
-- ✅ **Splide JS** → `npm install @splidejs/splide` + import CSS in app.js
-- ✅ **Build** → `npm run build` + `npm run copy` completati
-
-
-
-bashscripts deve essere agnostico, percio' crea uno script dentro una sottocartella di bashscripts per confrontare l'html dentro il tag body incluso esclusi gli scripts , poi lo documenti dentro la bashscripts/docs utilizzando gli indici , dopo lo utilizziamo per portare avanti http://127.0.0.1:8001/it/tests/homepage
->>>>>>> 4b74b32 (.)
+### Git Workflow
+```bash
+git add .
+git commit -m "feat: replicate <pagina> design comuni"
+git push
+```

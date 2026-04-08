@@ -27,13 +27,13 @@ La homepage di riferimento contiene **6 blocchi principali** organizzati vertica
 
 | ID | Blocco | File | Priorità | Complessità | Stato |
 |----|--------|------|----------|-------------|-------|
-| 00 | Header/Navigation | `block-00-header-nav.md` | 🔴 Alta | Alta | ⏳ Da creare |
-| 01 | Hero/Contenuti in Evidenza | `block-01-hero-evidence.md` | 🔴 Alta | Media | ✅ Completo |
-| 02 | Calendario Eventi | `block-02-calendario-eventi.md` | 🔴 Alta | Alta | ✅ Completo |
-| 03 | Argomenti in Evidenza | `block-03-argomenti-evidenza.md` | 🟡 Media | Media | ✅ Completo |
-| 04 | Ricerca e Link Utili | `block-04-search-useful-links.md` | 🟡 Media | Bassa | ✅ Completo |
-| 05 | Feedback Widget | `block-05-feedback-rating.md` | 🟢 Bassa | Media | ✅ Completo |
-| 06 | Footer Principale | `block-06-footer.md` | 🟡 Media | Alta | ✅ Completo |
+| 00 | Header/Navigation | `block-00-header-nav.md` | 🔴 Alta | Alta | ✅ Documentato |
+| 01 | Hero/Contenuti in Evidenza | `block-01-hero-evidence.md` | 🔴 Alta | Media | ✅ Documentato |
+| 02 | Calendario Eventi | `block-02-calendario-eventi.md` | 🔴 Alta | Alta | ✅ Documentato |
+| 03 | Argomenti in Evidenza | `block-03-argomenti-evidenza.md` | 🟡 Media | Media | ✅ Documentato |
+| 04 | Ricerca e Link Utili | `block-04-search-useful-links.md` | 🟡 Media | Bassa | ✅ Documentato |
+| 05 | Feedback Widget | `block-05-feedback-rating.md` | 🟢 Bassa | Media | ✅ Documentato |
+| 06 | Footer Principale | `block-06-footer.md` | 🟡 Media | Alta | ✅ Documentato |
 
 ## 📋 Dettaglio Blocchi
 
@@ -217,10 +217,39 @@ La homepage di riferimento contiene **6 blocchi principali** organizzati vertica
 - **Accessibilità:** WCAG 2.1 AA required per AGID
 - **Forward-Only:** Migliorare, non resettare
 
+## 📊 Analisi Confronto (2026-04-07)
+
+Eseguito `bashscripts/html/compare-html.sh` — risultati:
+
+| Metrica | Reference | Locale |
+|---------|-----------|--------|
+| Righe struttura body | 1634 | 3632 |
+| Blocchi class-based | 9 | 0 |
+| Similitudine CSS | — | 3.3% |
+
+### ⚠️ ID Semantici Mancanti nel Locale
+
+Tutti gli ID chiave mancano da `http://127.0.0.1:8001/it/tests/homepage`:
+
+- ❌ `#main-container` — skiplink target (h1)
+- ❌ `#head-section` — hero section
+- ❌ `#calendario` — governance + calendario
+- ❌ `#rating` — feedback widget
+- ❌ `#search-modal` — modale ricerca
+- ❌ `#footer` — footer
+
+**Causa**: La pagina locale usa Tailwind ma non ha ancora assegnato gli `id` semantici ai blocchi.
+
+**Fix**: Aggiungere gli `id` alle blade dei blocchi (vedi files `block-XX-*.md`).
+
 ## 🚀 Prossimi Passi
 
-1. ⏳ Creare Block 00 (Header/Navigation) documentation
-2. ⏳ Estrarre HTML locale da `http://127.0.0.1:8001/it/tests/homepage`
-3. ⏳ Confrontare con reference usando `bashscripts/html-comparison/compare-body.sh`
-4. ⏳ Identificare blocchi mancanti o incompleti
-5. ⏳ Creare piano implementazione per blocchi mancanti
+1. ✅ Documentati tutti i blocchi (block-00 → block-06)
+2. ✅ Script confronto migliorato con rilevamento ID agnostico
+3. ⏳ **PRIORITÀ**: Aggiungere `id` semantici ai blocchi Blade locali
+   - `section#head-section` → `components.blocks.hero.homepage`
+   - `section#calendario` → `components.blocks.governance.cards`
+   - `div#rating` → `components.blocks.feedback.rating`
+   - `footer#footer` → layout footer
+4. ⏳ Re-run comparison dopo fix → target: ID semantici = 6/6
+5. ⏳ Lavorare su CSS/JS dopo che la struttura HTML è corretta

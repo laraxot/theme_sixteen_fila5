@@ -348,40 +348,6 @@
     5. ORGANI DI GOVERNO — 3-column side-by-side, "VAI ALLA PAGINA" green
     ============================================================================ */
 
-<<<<<<< HEAD
-/* Ensure cards are side-by-side (horizontal) NOT stacked */
-.dc-homepage-parity .section-muted .card-teaser-wrapper-equal,
-.dc-homepage-parity .card-teaser-wrapper-equal {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  gap: 1rem !important;
-}
-
-/* Each governance card should have equal width */
-.dc-homepage-parity .section-muted .card-teaser-wrapper-equal > .card,
-.dc-homepage-parity .card-teaser-wrapper-equal > .card {
-  flex: 1 !important;
-  min-width: calc(33.333% - 1rem) !important;
-  max-width: calc(33.333% - 1rem) !important;
-}
-
-/* Mobile: stack vertically */
-@media (max-width: 991px) {
-  .dc-homepage-parity .section-muted .card-teaser-wrapper-equal,
-  .dc-homepage-parity .card-teaser-wrapper-equal {
-    flex-direction: column !important;
-  }
-  
-  .dc-homepage-parity .section-muted .card-teaser-wrapper-equal > .card,
-  .dc-homepage-parity .card-teaser-wrapper-equal > .card {
-    min-width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-.dc-homepage-parity #calendario .read-more,
-.dc-homepage-parity .section-muted .read-more {
-=======
 /* Governance card wrapper - let Bootstrap grid handle layout */
 .dc-homepage-parity #calendario .row.mb-2 .card-teaser-wrapper-equal {
   display: block !important;
@@ -393,7 +359,6 @@
 }
 /* "VAI ALLA PAGINA" link - green, uppercase */
 .dc-homepage-parity #calendario .row.mb-2 .read-more {
->>>>>>> 4b74b32 (.)
   color: #007a52 !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -403,22 +368,11 @@
   align-items: center !important;
   gap: 0.375rem !important;
   text-decoration: none !important;
-<<<<<<< HEAD
-  padding: 0.5rem 1rem !important;
-  position: absolute !important;
-  bottom: 1rem !important;
-  left: 1rem !important;
-}
-
-.dc-homepage-parity #calendario .read-more svg,
-.dc-homepage-parity .section-muted .read-more svg {
-=======
   padding: 0 !important;
   position: static !important;
 }
 
 .dc-homepage-parity #calendario .row.mb-2 .read-more svg {
->>>>>>> 4b74b32 (.)
   fill: #007a52 !important;
   width: 16px !important;
   height: 16px !important;
@@ -430,22 +384,13 @@
 @media (min-width: 992px) {
   .dc-homepage-parity #calendario .row.mb-2 {
     display: flex !important;
-<<<<<<< HEAD
-    flex-wrap: nowrap !important;
-=======
     flex-wrap: wrap !important;
->>>>>>> 4b74b32 (.)
     gap: 1.5rem !important;
     margin: 0 !important;
   }
   .dc-homepage-parity #calendario .row.mb-2 > [class*="col-"] {
-<<<<<<< HEAD
-    flex: 1 1 0 !important;
-    max-width: none !important;
-=======
     flex: 0 0 calc(33.333% - 1rem) !important;
     max-width: calc(33.333% - 1rem) !important;
->>>>>>> 4b74b32 (.)
     min-width: 0 !important;
     padding: 0 !important;
   }
@@ -1044,21 +989,14 @@ body.dc-homepage-parity .it-carousel-wrapper,
   padding-bottom: 1rem !important;
 }
 
-<<<<<<< HEAD
-/* Individual event card */
-.dc-homepage-parity #calendario .card-teaser,
-=======
 /* Individual event card - ONLY slides in carousel, NOT governance cards */
 .dc-homepage-parity .it-carousel-wrapper .splide__slide .card-teaser,
->>>>>>> 4b74b32 (.)
 .dc-homepage-parity .it-carousel-wrapper .splide__slide {
   flex: 0 0 180px !important;
   min-width: 180px !important;
   max-width: 180px !important;
 }
 
-<<<<<<< HEAD
-=======
 /* Governance cards - proper width, NOT carousel slides */
 .dc-homepage-parity #calendario .row.mb-2 .card-teaser {
   flex: none !important;
@@ -1068,7 +1006,6 @@ body.dc-homepage-parity .it-carousel-wrapper,
   height: auto !important;
 }
 
->>>>>>> 4b74b32 (.)
 /* Event date - large and bold */
 .dc-homepage-parity #calendario .card-bg .card-title,
 .dc-homepage-parity #calendario .card-title {

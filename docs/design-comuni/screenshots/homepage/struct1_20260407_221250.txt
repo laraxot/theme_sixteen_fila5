@@ -1,0 +1,1635 @@
+<body>
+  <div class="skiplink">
+    <a class="visually-hidden-focusable" href="#main-container">
+    </a>
+    <a class="visually-hidden-focusable" href="#footer">
+    </a>
+  </div>
+  <header class="it-header-wrapper">
+    <div class="it-header-slim-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-slim-wrapper-content">
+              <a class="d-lg-block navbar-brand" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda">
+              </a>
+              <div class="it-header-slim-right-zone" role="navigation">
+                <div class="dropdown nav-item">
+                  <button type="button" class="dropdown-toggle nav-link">
+                    <span class="visually-hidden">
+                    </span>
+                    <span>
+                    </span>
+                    <svg class="icon">
+                      <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-expand">
+                      </use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="link-list-wrapper">
+                          <ul class="link-list">
+                            <li>
+                              <a class="dropdown-item list-item" href="#">
+                                <span>
+                                  <span class="visually-hidden">
+                                  </span>
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#">
+                                <span>
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a class="btn btn-full btn-icon btn-primary" href="../servizi/accesso-servizio.html" data-element="personal-area-login">
+                  <span class="rounded-icon">
+                    <svg class="icon icon-primary">
+                      <use>
+                      </use>
+                    </svg>
+                  </span>
+                  <span class="d-lg-block d-none">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="it-nav-wrapper">
+      <div class="it-header-center-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="it-header-center-content-wrapper">
+                <div class="it-brand-wrapper">
+                  <a href="homepage.html">
+                    <svg class="icon">
+                      <image>
+                      </image>
+                    </svg>
+                    <div class="it-brand-text">
+                      <div class="it-brand-title">
+                      </div>
+                      <div class="d-md-block d-none it-brand-tagline">
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="it-right-zone">
+                  <div class="d-lg-flex d-none it-socials">
+                    <span>
+                    </span>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="align-top icon icon-sm icon-white">
+                            <use>
+                            </use>
+                          </svg>
+                          <span class="visually-hidden">
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="it-search-wrapper">
+                    <span class="d-md-block d-none">
+                    </span>
+                    <button class="rounded-icon search-link" type="button" aria-label="Cerca nel sito">
+                      <svg class="icon">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search">
+                        </use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="has-megamenu navbar navbar-expand-lg">
+                <button class="custom-navbar-toggler" type="button" aria-label="Mostra/Nascondi la navigazione">
+                  <svg class="icon">
+                    <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-burger">
+                    </use>
+                  </svg>
+                </button>
+                <div class="navbar-collapsable" id="nav4">
+                  <div class="overlay">
+                  </div>
+                  <div class="close-div">
+                    <button class="btn close-menu" type="button">
+                      <span class="visually-hidden">
+                      </span>
+                      <svg class="icon">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big">
+                        </use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="menu-wrapper">
+                    <a href="homepage.html" class="logo-hamburger">
+                      <svg class="icon">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-pa">
+                        </use>
+                      </svg>
+                      <div class="it-brand-text">
+                        <div class="it-brand-title">
+                        </div>
+                      </div>
+                    </a>
+                    <nav aria-label="Principale">
+                      <ul class="navbar-nav" data-element="main-navigation">
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/amministrazione.html" data-element="management">
+                            <span>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/novita.html" data-element="news">
+                            <span>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/servizi.html" data-element="all-services">
+                            <span>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/eventi.html" data-element="live">
+                            <span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <nav aria-label="Secondaria">
+                      <ul class="navbar-nav navbar-secondary">
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/argomento.html">
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/argomento.html">
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="../sito/argomento.html">
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="argomenti.html" data-element="all-topics">
+                            <span>
+                              <svg class="icon icon-sm">
+                                <use>
+                                </use>
+                              </svg>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <div class="it-socials">
+                      <span>
+                      </span>
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <svg class="align-top icon icon-sm icon-white">
+                              <use>
+                              </use>
+                            </svg>
+                            <span class="visually-hidden">
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <h1 class="visually-hidden" id="main-container">
+    </h1>
+    <section id="head-section">
+      <h2 class="visually-hidden">
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="card mb-5">
+              <div class="card-body pb-5 px-0">
+                <div class="category-top">
+                  <svg class="icon icon-sm">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="fw-semibold title-xsmall-semi-bold">
+                  </span>
+                  <span class="data fw-normal">
+                  </span>
+                </div>
+                <a href="#" class="text-decoration-none">
+                  <h3 class="card-title">
+                  </h3>
+                </a>
+                <p class="lora mb-4 pt-3">
+                  <strong>
+                  </strong>
+                </p>
+                <a class="chip chip-simple" href="#">
+                  <span class="chip-label">
+                  </span>
+                </a>
+                <a class="pb-3 read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 px-0 px-lg-3">
+            <img src="https://picsum.photos/800/600" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="calendario">
+      <div class="pb-90 pb-lg-50 pt-0 px-lg-5 section section-muted">
+        <div class="container">
+          <div class="mb-2 row">
+            <div class="card-overlapping card-teaser-block-3 card-teaser-wrapper card-teaser-wrapper-equal card-wrapper px-0">
+              <div class="border border-light card card-flex card-teaser card-teaser-image mb-0 no-after rounded shadow-sm">
+                <div class="card-image-wrapper with-read-more">
+                  <div class="card-body p-3 pb-5">
+                    <div class="category-top">
+                      <span class="fw-semibold title-xsmall-semi-bold">
+                      </span>
+                    </div>
+                    <h3 class="card-title text-paragraph-medium u-grey-light">
+                    </h3>
+                    <p class="m-0 text-paragraph-card u-grey-light">
+                    </p>
+                  </div>
+                  <div class="card-image card-image-rounded pb-5">
+                    <img src="https://picsum.photos/150/200">
+                  </div>
+                </div>
+                <a class="ps-3 read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+              <div class="border border-light card card-teaser mb-0 no-after rounded shadow-sm">
+                <div class="card-body pb-5">
+                  <div class="category-top">
+                    <span class="fw-semibold title-xsmall-semi-bold">
+                    </span>
+                  </div>
+                  <h3 class="card-title text-paragraph-medium u-grey-light">
+                  </h3>
+                  <p class="m-0 text-paragraph-card u-grey-light">
+                  </p>
+                </div>
+                <a class="read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon ms-0">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+              <div class="border border-light card card-teaser mb-0 no-after rounded shadow-sm">
+                <div class="card-body pb-5">
+                  <div class="category-top">
+                    <span class="fw-semibold title-xsmall-semi-bold">
+                    </span>
+                  </div>
+                  <h3 class="card-title text-paragraph-medium u-grey-light">
+                  </h3>
+                  <p class="m-0 text-paragraph-card u-grey-light">
+                  </p>
+                </div>
+                <a class="read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon ms-0">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pb-3 pt-5 pt-lg-60 row row-title">
+            <div class="col-12 d-lg-flex justify-content-between">
+              <h2>
+              </h2>
+            </div>
+          </div>
+          <div class="row row-calendar">
+            <div class="it-calendar-wrapper it-carousel-landscape-abstract-four-cols it-carousel-wrapper splide">
+              <div class="it-header-block">
+                <div class="it-header-block-title">
+                  <h3 class="home-carousel-title mb-0 text-center">
+                  </h3>
+                </div>
+              </div>
+              <div class="splide__track">
+                <ul class="it-carousel-all splide__list">
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4 text-secondary">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text d-flex mb-10 pb-10 px-2">
+                              <img src="https://picsum.photos/200" class="me-3 rounded">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4 text-secondary">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text d-flex mb-10 pb-10 px-2">
+                              <img src="https://picsum.photos/200" class="me-3 rounded">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4 text-secondary">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4 text-secondary">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text d-flex mb-10 pb-10 px-2">
+                              <img src="https://picsum.photos/200" class="me-3 rounded">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="h-100 it-single-slide-wrapper">
+                      <div class="card-wrapper h-100">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text d-flex mb-10 pb-10 px-2">
+                              <img src="https://picsum.photos/200" class="me-3 rounded">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide">
+                    <div class="it-single-slide-wrapper">
+                      <div class="card-wrapper">
+                        <div class="card card-bg">
+                          <div class="card-body">
+                            <h4 class="card-title mb-10 pb-4">
+                              <span>
+                              </span>
+                            </h4>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text d-flex mb-10 pb-10 px-2">
+                              <img src="https://picsum.photos/200" class="me-3 rounded">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text mb-10 pb-10 px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                            <p class="card-text px-2">
+                              <a href="#">
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="evidence-section">
+      <div class="pb-lg-80 position-relative px-lg-5 py-5 section">
+        <div class="container">
+          <div class="row">
+            <h2 class="text-white">
+            </h2>
+          </div>
+          <div>
+            <div class="card-teaser-block-3 card-teaser-wrapper card-teaser-wrapper-equal card-wrapper">
+              <div class="border border-light card card-teaser no-after rounded shadow-sm">
+                <div class="card-body pb-5">
+                  <h3 class="card-title">
+                  </h3>
+                  <p class="card-text pb-3">
+                  </p>
+                  <p class="mb-10 text-paragraph-small-semi">
+                  </p>
+                  <a href="#" class="card card-bg-blue card-teaser mt-0 no-after p-3 rounded">
+                    <div class="avatar me-3 size-lg">
+                      <img src="https://picsum.photos/200/200">
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title mb-1 text-white">
+                      </h4>
+                      <p class="card-text text-sans-serif text-white">
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <a class="pt-0 read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon ms-0">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+              <div class="border border-light card card-teaser no-after rounded shadow-sm">
+                <div class="card-body pb-5">
+                  <h3 class="card-title">
+                  </h3>
+                  <p class="card-text">
+                  </p>
+                  <div class="link-list-wrapper mt-4">
+                    <ul class="link-list">
+                      <li>
+                        <a class="active icon-left list-item mb-2" href="#">
+                          <span class="list-item-title-icon-wrapper">
+                            <span class="text-success">
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="active icon-left list-item mb-2" href="#">
+                          <span class="list-item-title-icon-wrapper">
+                            <span class="text-success">
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="active icon-left list-item mb-2" href="#">
+                          <span class="list-item-title-icon-wrapper">
+                            <span class="text-success">
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="active icon-left list-item" href="#">
+                          <span class="text-success">
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <a class="pt-0 read-more" href="#">
+                  <span class="list-item-title-icon-wrapper">
+                    <span class="text">
+                    </span>
+                    <svg class="icon">
+                      <use>
+                      </use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="border border-light card card-teaser no-after rounded shadow-sm">
+                <div class="card-body pb-5">
+                  <h3 class="card-title">
+                  </h3>
+                  <p class="card-text">
+                  </p>
+                  <div class="link-list-wrapper mt-4">
+                    <ul class="link-list">
+                      <li>
+                        <a class="active icon-left list-item mb-2" href="#">
+                          <span class="text-underline">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="active icon-left list-item mb-2" href="#">
+                          <span class="text-underline">
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="active icon-left list-item" href="#">
+                          <span class="text-underline">
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <a class="pt-0 read-more" href="#">
+                  <span class="text">
+                  </span>
+                  <svg class="icon">
+                    <use>
+                    </use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pt-30 row">
+            <div class="col-lg-10 col-xl-6 offset-lg-1 offset-xl-2">
+              <div class="d-lg-inline-flex row">
+                <div class="col-lg-3">
+                  <h3 class="mb-3 text text-secondary text-uppercase title-xsmall-bold">
+                  </h3>
+                </div>
+                <div class="col-lg-9">
+                  <ul class="d-flex flex-wrap gap-1">
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="chip chip-simple" href="#">
+                        <span class="chip-label">
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
+              <a href="#" class="btn btn-primary mt-40">
+              </a>
+            </div>
+          </div>
+          <div class="pt-5 row">
+            <h2>
+            </h2>
+          </div>
+          <div class="pt-4 pt-lg-30">
+            <div class="card-teaser-block-3 card-teaser-wrapper card-teaser-wrapper-equal card-wrapper pb-0">
+              <a href="#" class="card card-bg-blue card-teaser mt-0 p-3 rounded">
+                <div class="avatar me-3 size-lg">
+                  <img src="https://picsum.photos/200/200">
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title sito-tematico text-white">
+                  </h3>
+                  <p class="card-text text-sans-serif text-white">
+                  </p>
+                </div>
+              </a>
+              <a href="#" class="card card-bg-warning card-teaser mt-0 p-3 rounded">
+                <div class="avatar me-3 size-lg">
+                  <img src="https://picsum.photos/200/200">
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title sito-tematico">
+                  </h3>
+                  <p class="card-text text-sans-serif">
+                  </p>
+                </div>
+              </a>
+              <a href="#" class="card card-bg-dark card-teaser mt-0 p-3 rounded">
+                <div class="avatar me-3 size-lg">
+                  <img src="https://picsum.photos/200/200">
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title sito-tematico">
+                  </h3>
+                  <p class="card-text text-sans-serif">
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="useful-links-section">
+      <div class="p-0 py-5 section section-muted">
+        <div class="container">
+          <div class="d-flex justify-content-center row">
+            <div class="col-12 col-lg-6">
+              <div class="cmp-input-search">
+                <div class="autocomplete-wrapper form-group mb-2 mb-lg-4">
+                  <div class="input-group">
+                    <label for="autocomplete-autocomplete-three" class="visually-hidden">
+                    </label>
+                    <input type="search" class="autocomplete form-control" placeholder="Cerca una parola chiave" id="autocomplete-autocomplete-three" name="autocomplete-three">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="button-3">
+                      </button>
+                    </div>
+                    <span class="autocomplete-icon">
+                      <svg class="icon icon-primary icon-sm">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search">
+                        </use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="link-list-wrapper">
+                <div class="link-list-heading mb-3 ps-0 text-secondary text-uppercase">
+                </div>
+                <ul class="link-list">
+                  <li>
+                    <a class="active list-item mb-3 ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active list-item mb-3 ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active list-item mb-3 ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active list-item mb-3 ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active list-item mb-3 ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active list-item ps-0" href="#">
+                      <span class="text-button-normal">
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="bg-primary">
+      <div class="container">
+        <div class="bg-primary d-flex justify-content-center row">
+          <div class="col-12 col-lg-6">
+            <div class="cmp-rating pb-lg-80 pt-lg-80" id="rating">
+              <div class="card card-wrapper shadow" data-element="feedback">
+                <div class="cmp-rating__card-first">
+                  <div class="border-0 card-header">
+                    <h2 class="mb-0 title-medium-2-semi-bold" data-element="feedback-title">
+                    </h2>
+                  </div>
+                  <div class="card-body">
+                    <fieldset class="rating">
+                      <legend class="visually-hidden">
+                      </legend>
+                      <input type="radio" id="star5a" name="ratingA">
+                      <label class="active full rating-star" for="star5a" data-element="feedback-rate-5">
+                        <svg class="icon icon-sm" role="img">
+                          <path>
+                          </path>
+                          <path>
+                          </path>
+                        </svg>
+                        <span class="visually-hidden" id="first-star">
+                        </span>
+                      </label>
+                      <input type="radio" id="star4a" name="ratingA">
+                      <label class="active full rating-star" for="star4a" data-element="feedback-rate-4">
+                        <svg class="icon icon-sm" role="img">
+                          <path>
+                          </path>
+                          <path>
+                          </path>
+                        </svg>
+                        <span class="visually-hidden" id="second-star">
+                        </span>
+                      </label>
+                      <input type="radio" id="star3a" name="ratingA">
+                      <label class="active full rating-star" for="star3a" data-element="feedback-rate-3">
+                        <svg class="icon icon-sm" role="img">
+                          <path>
+                          </path>
+                          <path>
+                          </path>
+                        </svg>
+                        <span class="visually-hidden" id="third-star">
+                        </span>
+                      </label>
+                      <input type="radio" id="star2a" name="ratingA">
+                      <label class="active full rating-star" for="star2a" data-element="feedback-rate-2">
+                        <svg class="icon icon-sm" role="img">
+                          <path>
+                          </path>
+                          <path>
+                          </path>
+                        </svg>
+                        <span class="visually-hidden" id="fourth-star">
+                        </span>
+                      </label>
+                      <input type="radio" id="star1a" name="ratingA">
+                      <label class="active full rating-star" for="star1a" data-element="feedback-rate-1">
+                        <svg class="icon icon-sm" role="img">
+                          <path>
+                          </path>
+                          <path>
+                          </path>
+                        </svg>
+                        <span class="visually-hidden" id="fifth-star">
+                        </span>
+                      </label>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="cmp-rating__card-second d-none">
+                  <div class="border-0 card-header mb-0">
+                    <h2 class="mb-0 title-medium-2-bold" id="rating-feedback">
+                    </h2>
+                  </div>
+                </div>
+                <div class="d-none form-rating">
+                  <div class="d-none">
+                    <div class="cmp-steps-rating">
+                      <fieldset class="d-none fieldset-rating-one" data-element="feedback-rating-positive">
+                        <legend class="iscrizioni-header w-100">
+                          <h3 class="align-items-lg-center d-flex drop-shadow flex-column flex-lg-row justify-content-between step-title">
+                            <span class="d-block text-wrap" data-element="feedback-rating-question">
+                            </span>
+                            <span class="step">
+                            </span>
+                          </h3>
+                        </legend>
+                        <div class="cmp-steps-rating__body">
+                          <div class="cmp-radio-list">
+                            <div class="card card-teaser shadow-rating">
+                              <div class="card-body">
+                                <div class="form-check m-0">
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating1" type="radio" id="radio-1">
+                                    <label for="radio-1" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating1" type="radio" id="radio-2">
+                                    <label for="radio-2" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating1" type="radio" id="radio-3">
+                                    <label for="radio-3" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating1" type="radio" id="radio-4">
+                                    <label for="radio-4" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating1" type="radio" id="radio-5">
+                                    <label for="radio-4" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                      <fieldset class="d-none fieldset-rating-two" data-element="feedback-rating-negative">
+                        <legend class="iscrizioni-header w-100">
+                          <h3 class="align-items-lg-center d-flex drop-shadow flex-column flex-lg-row flex-wrap justify-content-between step-title">
+                            <span class="d-block text-wrap" data-element="feedback-rating-question">
+                            </span>
+                            <span class="step">
+                            </span>
+                          </h3>
+                        </legend>
+                        <div class="cmp-steps-rating__body">
+                          <div class="cmp-radio-list">
+                            <div class="card card-teaser shadow-rating">
+                              <div class="card-body">
+                                <div class="form-check m-0">
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating2" type="radio" id="radio-6">
+                                    <label for="radio-6" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating2" type="radio" id="radio-7">
+                                    <label for="radio-7" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating2" type="radio" id="radio-8">
+                                    <label for="radio-8" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating2" type="radio" id="radio-9">
+                                    <label for="radio-9" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                  <div class="border-bottom border-light cmp-radio-list__item radio-body">
+                                    <input name="rating2" type="radio" id="radio-10">
+                                    <label for="radio-10" class="active" data-element="feedback-rating-answer">
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <div class="d-none">
+                    <div class="cmp-steps-rating">
+                      <fieldset>
+                        <legend class="iscrizioni-header w-100">
+                          <h3 class="align-items-lg-center d-flex drop-shadow flex-column flex-lg-row flex-wrap justify-content-between step-title">
+                            <span class="d-block text-wrap">
+                            </span>
+                            <span class="step">
+                            </span>
+                          </h3>
+                        </legend>
+                        <div class="cmp-steps-rating__body">
+                          <div class="form-group">
+                            <label for="formGroupExampleInputWithHelp" class>
+                            </label>
+                            <input type="text" class="form-control" id="formGroupExampleInputWithHelp" data-element="feedback-input-text">
+                            <small id="formGroupExampleInputWithHelpDescription" class="form-text">
+                            </small>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <div class="button-shadow d-flex flex-nowrap justify-content-center pt-4 w-100">
+                    <button class="btn btn-back btn-outline-primary fw-bold me-4" type="button">
+                    </button>
+                    <button class="btn btn-next btn-primary fw-bold" type="submit">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-grey-card shadow-contacts">
+      <div class="container">
+        <div class="d-flex justify-content-center p-contacts row">
+          <div class="col-12 col-lg-6">
+            <div class="cmp-contacts">
+              <div class="card w-100">
+                <div class="card-body">
+                  <h2 class="title-medium-2-semi-bold">
+                  </h2>
+                  <ul class="contact-list p-0">
+                    <li>
+                      <a class="list-item" href="#">
+                        <svg class="icon icon-primary icon-sm">
+                          <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-help-circle">
+                          </use>
+                        </svg>
+                        <span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="list-item" href="#" data-element="contacts">
+                        <svg class="icon icon-primary icon-sm">
+                          <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-mail">
+                          </use>
+                        </svg>
+                        <span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="list-item" href="#">
+                        <svg class="icon icon-primary icon-sm">
+                          <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-hearing">
+                          </use>
+                        </svg>
+                        <span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="list-item" href="#" data-element="appointment-booking">
+                        <svg class="icon icon-primary icon-sm">
+                          <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar">
+                          </use>
+                        </svg>
+                        <span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                  <h2 class="mt-4 title-medium-2-semi-bold">
+                  </h2>
+                  <ul class="contact-list p-0">
+                    <li>
+                      <a class="list-item" href="#">
+                        <svg class="icon icon-primary icon-sm">
+                          <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-map-marker-circle">
+                          </use>
+                        </svg>
+                        <span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="fade modal search-modal" id="search-modal" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content perfect-scrollbar">
+        <div class="modal-body">
+          <form>
+            <div class="container">
+              <div class="row variable-gutters">
+                <div class="col">
+                  <div class="modal-title">
+                    <button class="d-md-none search-link" type="button" aria-label="Chiudi e torna alla pagina precedente">
+                      <svg class="icon icon-md">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-left">
+                        </use>
+                      </svg>
+                    </button>
+                    <h2>
+                    </h2>
+                    <button class="d-md-block d-none search-link" type="button" aria-label="Chiudi e torna alla pagina precedente">
+                      <svg class="icon icon-md">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big">
+                        </use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="autocomplete-wrapper form-group">
+                    <label for="autocomplete-two" class="visually-hidden">
+                    </label>
+                    <input type="search" class="autocomplete ps-5" placeholder="Cerca nel sito" id="autocomplete-two" name="autocomplete-two">
+                    <span class="autocomplete-icon">
+                      <svg class="icon">
+                        <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search">
+                        </use>
+                      </svg>
+                    </span>
+                    <button type="button" class="btn btn-primary">
+                      <span class>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="row variable-gutters">
+                <div class="col-lg-5">
+                  <div class="searches-list-wrapper">
+                    <div class="other-link-title">
+                    </div>
+                    <ul class="searches-list">
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="it-footer" id="footer">
+    <div class="it-footer-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 footer-items-wrapper logo-wrapper">
+            <img class="ue-logo" src="../assets/images/logo-eu-inverted.svg">
+            <div class="it-brand-wrapper">
+              <a href="#">
+                <svg class="icon">
+                  <use>
+                  </use>
+                </svg>
+                <div class="it-brand-text">
+                  <h2 class="no_toc">
+                  </h2>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 footer-items-wrapper">
+            <h4 class="footer-heading-title">
+            </h4>
+            <ul class="footer-list">
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 footer-items-wrapper">
+            <h4 class="footer-heading-title">
+            </h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="footer-list">
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="footer-list">
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 footer-items-wrapper">
+            <h4 class="footer-heading-title">
+            </h4>
+            <ul class="footer-list">
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+            </ul>
+            <h4 class="footer-heading-title">
+            </h4>
+            <ul class="footer-list">
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9 footer-items-wrapper mt-md-4">
+            <h4 class="footer-heading-title">
+            </h4>
+            <div class="row">
+              <div class="col-md-4">
+                <p class="footer-info">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <a href="#">
+                  </a>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </p>
+              </div>
+              <div class="col-md-4">
+                <ul class="footer-list">
+                  <li>
+                    <a href="#" data-element="faq">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-element="report-inefficiency">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="footer-list">
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-element="privacy-policy-link">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-element="legal-notes">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-element="accessibility-link">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 footer-items-wrapper mt-md-4">
+            <h4 class="footer-heading-title">
+            </h4>
+            <ul class="list-inline social text-start">
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-1 text-white" href="#">
+                  <svg class="align-top icon icon-sm icon-white">
+                    <use>
+                    </use>
+                  </svg>
+                  <span class="visually-hidden">
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 footer-items-wrapper">
+            <div class="footer-bottom">
+              <a href="#">
+              </a>
+              <a href="#">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>

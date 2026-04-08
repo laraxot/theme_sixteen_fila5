@@ -8,71 +8,46 @@
 
 | Metrica | Reference | Locale |
 |---------|-----------|--------|
-| Nodi totali | 844 | 1015 |
-| Differenza | - | +171 |
+| Nodi totali | 844 | 9025 |
+| Differenza | - | +8181 |
 
 ## Risultato Confronto
 
 | Metrica | Valore |
 |---------|--------|
-| Match stimato | 94.1% |
-| Problemi strutturali | 50 |
+| Match stimato | 98.9% |
+| Problemi strutturali | 9 |
 | Stato | ✅ PASS |
 
 ## Differenze Strutturali
 
-- Extra classes on <body>: dc-homepage-parity, page-tests, page-tests-homepage
--   └   └   └   └   └   └   └   └ Missing classes on <a>: btn-full, btn-primary
--   └   └   └   └   └   └   └   └ Extra classes on <a>: btn-outline-light
--   └   └   └   └   └   └   └   └ Children count mismatch on <a>: 2 vs 1
--   └   └   └   └   └   └   └   └   └ Tag mismatch: <span> vs <svg>
--   └   └   └   └   └   └   └   └   └ Missing classes on <span>: rounded-icon
--   └   └   └   └   └   └   └   └   └ Extra classes on <svg>: icon, icon-white
--   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <svg> vs <use>
--   └   └   └   └   └   └   └   └   └   └ Missing classes on <svg>: icon, icon-primary
--   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <svg>: 1 vs 0
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <use> but local doesn't
--   └   └   └   └   └   └   └   └   └ Reference has <span> but local doesn't
--   └   └   └   └   └   └   └ Children count mismatch on <div>: 2 vs 3
--   └   └   └   └   └   └   └   └ Tag mismatch: <div> vs <button>
--   └   └   └   └   └   └   └   └ Missing classes on <div>: it-brand-wrapper
--   └   └   └   └   └   └   └   └ Extra classes on <button>: custom-navbar-toggler, d-lg-none, me-3
--   └   └   └   └   └   └   └   └   └ Tag mismatch: <a> vs <svg>
--   └   └   └   └   └   └   └   └   └ Extra classes on <svg>: icon
--   └   └   └   └   └   └   └   └   └ Children count mismatch on <a>: 2 vs 1
--   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <svg> vs <use>
--   └   └   └   └   └   └   └   └   └   └ Missing classes on <svg>: icon
--   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <svg>: 1 vs 0
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <image> but local doesn't
--   └   └   └   └   └   └   └   └   └   └ Reference has <div> but local doesn't
--   └   └   └   └   └   └   └   └ Missing classes on <div>: it-right-zone
--   └   └   └   └   └   └   └   └ Extra classes on <div>: it-brand-wrapper
--   └   └   └   └   └   └   └   └ Children count mismatch on <div>: 2 vs 1
--   └   └   └   └   └   └   └   └   └ Tag mismatch: <div> vs <a>
--   └   └   └   └   └   └   └   └   └ Missing classes on <div>: d-lg-flex, d-none, it-socials
--   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <span> vs <svg>
--   └   └   └   └   └   └   └   └   └   └ Extra classes on <svg>: icon
--   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <span>: 0 vs 1
--   └   └   └   └   └   └   └   └   └   └   └ Local has <image> but reference doesn't
--   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <ul> vs <div>
--   └   └   └   └   └   └   └   └   └   └ Extra classes on <div>: it-brand-text
--   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <ul>: 6 vs 2
--   └   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <li> vs <div>
--   └   └   └   └   └   └   └   └   └   └   └ Extra classes on <div>: it-brand-title
--   └   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <li>: 1 vs 0
--   └   └   └   └   └   └   └   └   └   └   └   └ Reference has <a> but local doesn't
--   └   └   └   └   └   └   └   └   └   └   └ Tag mismatch: <li> vs <div>
--   └   └   └   └   └   └   └   └   └   └   └ Extra classes on <div>: d-md-block, d-none, it-brand-tagline
--   └   └   └   └   └   └   └   └   └   └   └ Children count mismatch on <li>: 1 vs 0
--   └   └   └   └   └   └   └   └   └   └   └   └ Reference has <a> but local doesn't
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <li> but local doesn't
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <li> but local doesn't
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <li> but local doesn't
--   └   └   └   └   └   └   └   └   └   └   └ Reference has <li> but local doesn't
--   └   └   └   └   └   └   └   └   └ Reference has <div> but local doesn't
--   └   └   └   └   └   └   └   └ Local has <div> but reference doesn't
+- Extra classes on <body>: antialiased, bg-neutral-50, dark:bg-neutral-900, dark:text-white, font-sans...
+- Children count mismatch on <body>: 5 vs 1
+-   └ Missing classes on <div>: skiplink
+-   └ Extra classes on <div>: min-h-dvh
+-   └ Children count mismatch on <div>: 2 vs 9
+-   └   └ Tag mismatch: <a> vs <section>
+-   └   └ Missing classes on <a>: visually-hidden-focusable
+-   └   └ Extra classes on <section>: border-dashed, border-neutral-300, border-x, dark:border-white/[9%], max-w-7xl...
+-   └   └ Children count mismatch on <a>: 0 vs 1
+-   └   └   └ Local has <div> but reference doesn't
+-   └   └ Tag mismatch: <a> vs <div>
+-   └   └ Missing classes on <a>: visually-hidden-focusable
+-   └   └ Extra classes on <div>: h-0, relative, w-full
+-   └   └ Children count mismatch on <a>: 0 vs 1
+-   └   └   └ Local has <div> but reference doesn't
+-   └   └ Local has <section> but reference doesn't
+-   └   └ Local has <div> but reference doesn't
+-   └   └ Local has <section> but reference doesn't
+-   └   └ Local has <div> but reference doesn't
+-   └   └ Local has <section> but reference doesn't
+-   └   └ Local has <div> but reference doesn't
+-   └   └ Local has <section> but reference doesn't
+-   └ Reference has <header> but local doesn't
+-   └ Reference has <main> but local doesn't
+-   └ Reference has <div> but local doesn't
+-   └ Reference has <footer> but local doesn't
 
-... e altri 47 dettagli
 
 ## File Generati
 
