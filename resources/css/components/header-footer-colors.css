@@ -1,0 +1,116 @@
+/**
+ * Design Comuni - Header & Footer Colors Fix
+ * Bootstrap Italia Official Colors
+ */
+
+/* ========================================
+   BOOTSTRAP ITALIA OFFICIAL COLORS
+======================================== */
+
+/* Primary Colors */
+:root {
+  --color-italia: #0066B3;
+  --color-italia-dark: #003366;
+  --color-italia-darker: #002244;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+}
+
+/* ========================================
+   HEADER COLORS
+======================================== */
+
+/* Header Slim - Blu istituzionale (#0066B3) */
+.it-header-slim-wrapper {
+  background-color: #0066B3 !important;
+  color: #FFFFFF !important;
+}
+
+.it-header-slim-wrapper a,
+.it-header-slim-wrapper .nav-link {
+  color: #FFFFFF !important;
+}
+
+/* Header Center - Bianco (#FFFFFF) */
+.it-header-center-wrapper {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+.it-header-center-wrapper .it-brand-title,
+.it-header-center-wrapper a {
+  color: #000000 !important;
+}
+
+/* Header Navbar - Blu scuro (#003366) */
+.it-header-navbar-wrapper {
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+}
+
+.it-header-navbar-wrapper a,
+.it-header-navbar-wrapper .nav-link {
+  color: #FFFFFF !important;
+}
+
+/* ========================================
+   FOOTER COLORS
+======================================== */
+
+/* Footer Main - Blu scuro (#003366) */
+.it-footer {
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+}
+
+.it-footer a,
+.it-footer .footer-heading-title,
+.it-footer .footer-info {
+  color: #FFFFFF !important;
+}
+
+/* Footer Secondary - Blu più scuro (#002244) */
+.it-footer-secondary {
+  background-color: #002244 !important;
+  color: #FFFFFF !important;
+}
+
+.it-footer-secondary a,
+.it-footer-secondary p {
+  color: #FFFFFF !important;
+}
+
+/* ========================================
+   UTILITY CLASSES FOR COLORS
+======================================== */
+
+/* Background Colors */
+.bg-italia {
+  background-color: #0066B3 !important;
+}
+
+.bg-italia-dark {
+  background-color: #003366 !important;
+}
+
+.bg-italia-darker {
+  background-color: #002244 !important;
+}
+
+/* Text Colors */
+.text-italia {
+  color: #0066B3 !important;
+}
+
+.text-italia-dark {
+  color: #003366 !important;
+}
+
+/* Link Colors */
+.link-italia {
+  color: #0066B3 !important;
+}
+
+.link-italia:hover {
+  color: #003366 !important;
+}
