@@ -92,16 +92,3 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-
-<div class="bg-grey-card shadow-contacts">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-3 p-contacts">
-                @include('components.blocks.contacts.faq')
-            </div>
-        </div>
-    </div>
-</div>
-=======
->>>>>>> 4b74b32 (.)
