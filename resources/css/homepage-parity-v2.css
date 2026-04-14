@@ -1,82 +1,50 @@
 /**
- * Homepage Visual Parity V2 — 2026-04-07
- *
- * Comprehensive fixes based on screenshot comparison:
- * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
- * Local:     http://127.0.0.1:8000/it/tests/homepage
- *
- * Issues addressed:
- *  1. Rating block — green bg, centered white card, proper star sizing
- *  2. "Accedi all'area personale" — white text + white icon
- *  3. Hero "Estate in città" chip + "TUTTE LE NOVITÀ" — separate lines, green
- *  4. Notizie category/date — proper sizing and spacing
- *  5. Organi di governo — 3-col side-by-side, "VAI ALLA PAGINA" green
- *  6. Eventi carousel — visibility fix
- *  7. Argomenti in evidenza — 3-col layout, proper card heights
- *  8. Siti tematici — colored cards with text overlay
- *  9. Hamburger menu position
- * 10. Various spacing/typography fixes
+ * Homepage Visual Parity V2 — Cleaned & Resolved
  */
 
 /* ============================================================================
-   0. GOVERNANCE CARDS — FIX 3-COLUMN LAYOUT (Screenshot 8)
-   Problem: CSS .card-teaser-wrapper-equal forces flex-wrap: nowrap
-   Solution: Override with Bootstrap grid flex-wrap: wrap for proper 3-col layout
+   0. GOVERNANCE CARDS — FIX 3-COLUMN LAYOUT
    ============================================================================ */
 
-/* Fix: Allow wrapping instead of forcing single row */
 .dc-homepage-parity #calendario .row.g-4 {
   display: flex !important;
-  flex-wrap: wrap !important;  /* Allow multi-row layout */
+  flex-wrap: wrap !important;
   gap: 1rem !important;
 }
 
-/* Governance cards — Bootstrap grid col widths */
 .dc-homepage-parity #calendario .col-md-6.col-lg-4 {
-  flex: 0 0 auto !important;  /* Don't stretch */
-  max-width: 33.333% !important;  /* 3 columns on desktop (lg) */
+  flex: 0 0 auto !important;
+  max-width: 33.333% !important;
 }
 
-/* Tablet: 2 columns */
 @media (max-width: 991.98px) {
   .dc-homepage-parity #calendario .col-md-6.col-lg-4 {
-    max-width: 50% !important;  /* 2 columns on tablet (md) */
+    max-width: 50% !important;
   }
 }
 
-/* Mobile: 1 column */
 @media (max-width: 575.98px) {
   .dc-homepage-parity #calendario .col-md-6.col-lg-4 {
-    max-width: 100% !important;  /* 1 column on mobile */
+    max-width: 100% !important;
   }
 }
 
-/* Cards in governance section fill column width */
 .dc-homepage-parity #calendario .card-teaser,
 .dc-homepage-parity #calendario .card {
-  min-width: 0 !important;  /* Allow shrinking in flex container */
-  width: 100% !important;  /* Fill column width */
-  height: 100% !important;  /* Fill available height */
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-/* Governance card typography - MUST be GREEN per reference */
 .dc-homepage-parity #calendario .card-title {
-  color: #007a52 !important;  /* Green per reference */
+  color: #007a52 !important;
   font-weight: 600 !important;
 }
 
-.dc-homepage-parity #calendario .card-text {
-  color: #666666 !important;  /* Gray for descriptions */
-  font-weight: 400 !important;  /* Regular weight */
-}
-
 /* ============================================================================
-   1. RATING BLOCK — "Quanto sono chiare le informazioni su questa pagina?"
-   Reference: green (#007a52) full-width background, centered white card,
-   small gray stars in a row below the question, subtitle below stars
+   1. RATING BLOCK
    ============================================================================ */
 
-/* Green background wrapper — full viewport width */
 .dc-homepage-parity .rating-green-bg,
 .dc-homepage-parity .cmp-rating-wrapper {
   background-color: #006E47 !important;
@@ -88,176 +56,38 @@
   align-items: center !important;
 }
 
-/* White card container centered */
-.dc-homepage-parity .cmp-rating {
-  background-color: #ffffff !important;
-  border-radius: 4px !important;
-  padding: 2rem !important;
-  max-width: 640px !important;
-  margin: 0 auto !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* White card centered — CRITICAL: override .card base styles, ensure auto height */
 .dc-homepage-parity .cmp-rating .card,
 .dc-homepage-parity .cmp-rating .card.shadow,
 .dc-homepage-parity .cmp-rating .card.card-wrapper {
   background: #fff !important;
   border-radius: 4px !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
   max-width: 640px !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
   color: #191919 !important;
-  overflow: visible !important;
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
   display: block !important;
 }
-
-/* Card header — no border, clean padding */
-.dc-homepage-parity .cmp-rating .card-header {
-  border-bottom: 0 !important;
-  background: transparent !important;
-  padding: 1.5rem 1.5rem 0.5rem !important;
-  height: auto !important;
-}
-
-/* Title text */
-.dc-homepage-parity .cmp-rating .title-medium-2-semi-bold {
-  font-size: 1.125rem !important;
-  font-weight: 600 !important;
-  color: #191919 !important;
-  text-align: left !important;
-}
-
-/* Card body — auto height */
-.dc-homepage-parity .cmp-rating .card-body {
-  padding: 0 1.5rem 1.5rem !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* Card first section */
-.dc-homepage-parity .cmp-rating .cmp-rating__card-first {
-  display: block !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* Stars fieldset — horizontal, left-aligned, properly sized */
-.dc-homepage-parity .cmp-rating fieldset.rating,
-.dc-homepage-parity .cmp-rating .rating {
-  display: flex !important;
-  flex-direction: row-reverse !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  gap: 0.25rem !important;
-  padding: 0 !important;
-  margin: 0.5rem 0 0.75rem !important;
-  border: 0 !important;
-  height: auto !important;
-}
-
-/* Hide radio inputs */
-.dc-homepage-parity .cmp-rating .rating input[type="radio"] {
-  display: none !important;
-}
-
-/* Star labels */
-.dc-homepage-parity .cmp-rating .rating-star {
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* CRITICAL: Fix oversized star SVGs — must be 24px */
-.dc-homepage-parity .cmp-rating .rating-star svg,
-.dc-homepage-parity .cmp-rating .rating-star svg.icon,
-.dc-homepage-parity .cmp-rating .rating-star svg.icon-sm {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
-  fill: #b0b8c0 !important;
-  transition: fill 0.15s !important;
-}
-
-/* Active/hover star color */
-.dc-homepage-parity .cmp-rating .rating-star.active svg,
-.dc-homepage-parity .cmp-rating .rating-star:hover svg,
-.dc-homepage-parity .cmp-rating .rating-star:hover ~ .rating-star svg {
-  fill: #ffb400 !important;
-}
-
-/* Subtitle text below stars */
-.dc-homepage-parity .cmp-rating .cmp-rating__card-second {
-  margin-top: 0 !important;
-}
-
-.dc-homepage-parity .cmp-rating .cmp-rating__card-second p {
-  font-size: 0.875rem !important;
-  color: #5c6f82 !important;
-  margin: 0 !important;
-}
-
 
 /* ============================================================================
-   2. HEADER SLIM — "Accedi all'area personale" white + icon
+   2. HEADER SLIM — Login
    ============================================================================ */
 
-/* Login button — reference: green bg (#007a52), white text, icon LEFT of text
-   The button sits in the dark green header-slim bar */
-.dc-homepage-parity .it-header-slim-wrapper .btn-full,
-.dc-homepage-parity .it-header-slim-wrapper .btn-primary,
 .dc-homepage-parity .it-header-slim-wrapper a.btn {
-  background: #007a52 !important;
-  border: none !important;
-  color: #fff !important;
+  background: #fff !important;
+  color: #007a52 !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   padding: 0.625rem 1.5rem !important;
   border-radius: 4px !important;
   display: inline-flex !important;
-  flex-direction: row !important;
   align-items: center !important;
   gap: 0.5rem !important;
   text-decoration: none !important;
 }
 
-.dc-homepage-parity .it-header-slim-wrapper .btn-full:hover,
-.dc-homepage-parity .it-header-slim-wrapper .btn-primary:hover,
-.dc-homepage-parity .it-header-slim-wrapper a.btn:hover {
-  background: #006644 !important;
-}
-
-/* Icon inside the login button — white, BEFORE text (flex order) */
-.dc-homepage-parity .it-header-slim-wrapper .btn-full svg,
-.dc-homepage-parity .it-header-slim-wrapper .btn-primary svg,
-.dc-homepage-parity .it-header-slim-wrapper .btn-full .icon,
-.dc-homepage-parity .it-header-slim-wrapper .btn-primary .icon,
-.dc-homepage-parity .it-header-slim-wrapper .rounded-icon svg {
-  fill: #fff !important;
-  color: #fff !important;
-  width: 20px !important;
-  height: 20px !important;
-  order: -1 !important;
-}
-
-.dc-homepage-parity .it-header-slim-wrapper .rounded-icon {
-  background: transparent !important;
-  order: -1 !important;
-  margin-right: 0.25rem !important;
-}
-
-
 /* ============================================================================
-   3. HERO — "Estate in città" chip + "TUTTE LE NOVITÀ" on separate lines
+   6. EVENTI CAROUSEL
    ============================================================================ */
 
 /* Chip "Estate in città" — green border, on its own line */
@@ -990,7 +820,6 @@ body.dc-homepage-parity .it-carousel-wrapper,
 }
 
 /* Individual event card - ONLY slides in carousel, NOT governance cards */
-.dc-homepage-parity .it-carousel-wrapper .splide__slide .card-teaser,
 .dc-homepage-parity .it-carousel-wrapper .splide__slide {
   flex: 0 0 180px !important;
   min-width: 180px !important;
@@ -1012,225 +841,4 @@ body.dc-homepage-parity .it-carousel-wrapper,
   font-size: 2rem !important;
   font-weight: 700 !important;
   color: #0066cc !important;
-  line-height: 1 !important;
-}
-
-.dc-homepage-parity #calendario .card-bg .card-title span,
-.dc-homepage-parity #calendario .card-title span {
-  display: block !important;
-  font-size: 0.75rem !important;
-  text-transform: uppercase !important;
-  color: #5c6f82 !important;
-  font-weight: 400 !important;
-}
-
-/* Calendar section title */
-.dc-homepage-parity #calendario h2,
-.dc-homepage-parity .row-title h2 {
-  font-style: italic !important;
-  font-weight: 700 !important;
-  font-size: 1.5rem !important;
-  color: #191919 !important;
-}
-
-/* ============================================================================
-   HERO SECTION GREEN ACCENTS (chip, link)
-   ============================================================================ */
-
-/* Green chip styling for "Estate in città" */
-.chip-green,
-.chip.chip-green {
-  background-color: rgba(0, 110, 71, 0.15) !important;
-  color: #006E47 !important;
-  border: 1px solid rgba(0, 110, 71, 0.3) !important;
-}
-
-.chip-green:hover,
-.chip.chip-green:hover {
-  background-color: rgba(0, 110, 71, 0.25) !important;
-}
-
-/* Green link styling for "Tutte le novità" */
-.read-more-green,
-.read-more.read-more-green {
-  color: #006E47 !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-}
-
-.read-more-green .icon,
-.read-more.read-more-green .icon {
-  fill: #006E47 !important;
-  stroke: #006E47 !important;
-}
-
-.read-more-green:hover,
-.read-more.read-more-green:hover {
-  color: #004d31 !important;
-  text-decoration: underline !important;
-}
-
-.read-more-green .icon:hover {
-  fill: #004d31 !important;
-  stroke: #004d31 !important;
-}
-
-/* ============================================================================
-   USEFUL LINKS STYLING — Simple green text, no borders
-   ============================================================================ */
-
-.useful-links-section .link-list-wrapper {
-  list-style: none;
-  padding: 0;
-}
-
-.useful-links-section .link-list-item {
-  margin: 0.75rem 0;
-}
-
-.useful-links-section .link-list-item a,
-.useful-links-section .list-item {
-  color: #006E47 !important;
-  text-decoration: none !important;
-  font-weight: 400 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  background: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-}
-
-.useful-links-section .link-list-item a:hover,
-.useful-links-section .list-item:hover {
-  text-decoration: underline !important;
-}
-
-.useful-links-section .link-list-item a .icon,
-.useful-links-section .list-item .icon {
-  color: #006E47 !important;
-}
-
-/* ============================================================================
-   CONTACT LINKS STYLING — Green with underline
-   ============================================================================ */
-
-.contact-section .list-item {
-  color: #006E47 !important;
-  text-decoration: underline !important;
-}
-
-.contact-section .icon-primary {
-  color: #006E47 !important;
-  fill: #006E47 !important;
-}
-
-.contact-section .list-item:hover {
-  color: #004d31 !important;
-}
-
-/* Evidence section header specific styling */
-.evidence-section-header {
-  background: linear-gradient(135deg, #006E47 0%, #004d31 100%) !important;
-}
-
-
-/* ============================================================================
-    17. HEADER FIX - Login button enforcement
-    ============================================================================ */
-.dc-homepage-parity .it-header-slim-right-zone .btn-outline-light,
-.dc-homepage-parity .it-header-slim-wrapper .btn-outline-light {
-  background-color: #ffffff !important;
-  color: #007a52 !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.dc-homepage-parity .it-header-slim-right-zone .btn-outline-light:hover,
-.dc-homepage-parity .it-header-slim-wrapper .btn-outline-light:hover {
-  background-color: #f8f9fa !important;
-}
-
-.dc-homepage-parity .it-header-slim-right-zone .btn-outline-light svg,
-.dc-homepage-parity .it-header-slim-wrapper .btn-outline-light .icon {
-  fill: #007a52 !important;
-  width: 18px !important;
-  height: 18px !important;
-}
-
-
-/* ============================================================================
-    18. HERO SECTION - Full width and sizing
-    ============================================================================ */
-.dc-homepage-parity #head-section .card,
-.dc-homepage-parity #head-section .card.shadow {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-.dc-homepage-parity #head-section .card-body {
-  padding: 1.5rem !important;
-}
-
-
-/* ============================================================================
-    19. EVENTS - Force visibility
-    ============================================================================ */
-.dc-homepage-parity .section-muted,
-.dc-homepage-parity .it-calendar-wrapper,
-.dc-homepage-parity .it-carousel-wrapper {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.dc-homepage-parity .it-carousel-wrapper {
-  overflow-x: visible !important;
-}
-
-.dc-homepage-parity .it-carousel-wrapper .splide__track,
-.dc-homepage-parity .it-carousel-wrapper .splide__list {
-  overflow: visible !important;
-}
-
-/* ============================================================================
-   HERO SECTION — Screenshot 9 Typography Fixes
-   ============================================================================ */
-
-/* Hero description text — REMOVE ITALIC */
-.dc-homepage-parity .card-body p.lora {
-  font-style: normal !important;  /* Force normal, not italic */
-  font-weight: 400 !important;
-  line-height: 1.6 !important;
-}
-
-/* "TUTTE LE NOVITÀ" link — GREEN color and styling */
-.dc-homepage-parity .read-more-green {
-  color: #006E47 !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
-
-.dc-homepage-parity .read-more-green:hover {
-  color: #004d31 !important;
-  text-decoration: underline !important;
-}
-
-.dc-homepage-parity .read-more-green .icon {
-  fill: #006E47 !important;
-  stroke: #006E47 !important;
-  width: 1rem !important;
-  height: 1rem !important;
-}
-
-.dc-homepage-parity .read-more-green:hover .icon {
-  fill: #004d31 !important;
-  stroke: #004d31 !important;
 }

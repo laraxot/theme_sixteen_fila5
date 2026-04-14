@@ -87,7 +87,7 @@
                                 <li class="list-inline-item">
                                     <a href="{{ $platform['url'] }}" class="footer-social-link" aria-label="{{ ucfirst($platform['platform']) }}">
                                         <svg class="icon icon-sm">
-                                            <use xlink:href="#it-{{ $platform['platform'] }}"></use>
+                                            <use href="#it-{{ $platform['platform'] }}"></use>
                                         </svg>
                                     </a>
                                 </li>

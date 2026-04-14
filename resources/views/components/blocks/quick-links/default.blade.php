@@ -28,7 +28,7 @@
                         <a href="{{ $link['url'] }}" class="quick-link-card">
                             <div class="quick-link-icon">
                                 <svg class="icon">
-                                    <use xlink:href="#{{ $link['icon'] }}"></use>
+                                    <use href="#{{ $link['icon'] }}"></use>
                                 </svg>
                             </div>
                             <span class="quick-link-label">{{ $link['label'] }}</span>

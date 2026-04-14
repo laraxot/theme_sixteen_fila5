@@ -44,7 +44,7 @@
   
   {{-- Footer --}}
   <footer class="it-footer" id="footer">
-    <x-blocks.footer.exact />
+    <x-pub_theme::blocks.footer.exact-1to1 />
   </footer>
   
   {{-- Bootstrap Italia JS (via CDN for now) --}}

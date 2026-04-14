@@ -33,7 +33,7 @@ $tooltipText = $text ?? $title;
         @if($slot->isEmpty())
             <button type="button" class="btn btn-link p-0" style="text-decoration: none;">
                 <svg class="icon icon-sm text-primary">
-                    <use xlink:href="#it-info-circle"></use>
+                    <use href="#it-info-circle"></use>
                 </svg>
             </button>
         @else
@@ -65,7 +65,7 @@ Usage Examples:
 <!-- Tooltip with delay -->
 <x-tooltip text="Tooltip with delay" :delay="500">
     <svg class="icon icon-sm text-primary">
-        <use xlink:href="#it-info-circle"></use>
+        <use href="#it-info-circle"></use>
     </svg>
 </x-tooltip>
 

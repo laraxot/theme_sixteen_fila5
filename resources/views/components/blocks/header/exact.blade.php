@@ -26,7 +26,7 @@
                   <span class="visually-hidden">Lingua attiva:</span>
                   <span>{{ $language }}</span>
                   <svg class="icon icon-xs">
-                    <use xlink:href="#it-chevron-down"></use>
+                    <use href="#it-chevron-down"></use>
                   </svg>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="language-button">
@@ -34,7 +34,7 @@
                     <span>ITA</span>
                     @if($language === 'ITA')
                     <svg class="icon icon-xs ms-2">
-                      <use xlink:href="#it-check"></use>
+                      <use href="#it-check"></use>
                     </svg>
                     @endif
                   </a>
@@ -42,7 +42,7 @@
                     <span>ENG</span>
                     @if($language === 'ENG')
                     <svg class="icon icon-xs ms-2">
-                      <use xlink:href="#it-check"></use>
+                      <use href="#it-check"></use>
                     </svg>
                     @endif
                   </a>
@@ -52,7 +52,7 @@
               {{-- Login Button --}}
               <a class="btn btn-primary btn-sm" href="#">
                 <svg class="icon">
-                  <use xlink:href="#it-user"></use>
+                  <use href="#it-user"></use>
                 </svg>
                 <span>Accedi all'area personale</span>
               </a>
@@ -64,42 +64,42 @@
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="Twitter">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-twitter"></use>
+                        <use href="#it-twitter"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="Facebook">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-facebook"></use>
+                        <use href="#it-facebook"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="YouTube">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-youtube"></use>
+                        <use href="#it-youtube"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="Telegram">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-telegram"></use>
+                        <use href="#it-telegram"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="Whatsapp">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-whatsapp"></use>
+                        <use href="#it-whatsapp"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="RSS">
                       <svg class="icon icon-sm">
-                        <use xlink:href="#it-rss"></use>
+                        <use href="#it-rss"></use>
                       </svg>
                     </a>
                   </li>
@@ -135,7 +135,7 @@
             <div class="it-search-wrapper">
               <button class="search-link" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Cerca">
                 <svg class="icon icon-white">
-                  <use xlink:href="#it-search"></use>
+                  <use href="#it-search"></use>
                 </svg>
                 <span class="d-none d-lg-block">Cerca</span>
               </button>
@@ -215,14 +215,14 @@
               <li class="list-inline-item">
                 <a class="text-link" href="#" aria-label="Twitter">
                   <svg class="icon icon-sm">
-                    <use xlink:href="#it-twitter"></use>
+                    <use href="#it-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li class="list-inline-item">
                 <a class="text-link" href="#" aria-label="Facebook">
                   <svg class="icon icon-sm">
-                    <use xlink:href="#it-facebook"></use>
+                    <use href="#it-facebook"></use>
                   </svg>
                 </a>
               </li>

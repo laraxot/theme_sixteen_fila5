@@ -37,7 +37,7 @@
                             <a href="{{ $item['url'] }}" class="btn btn-link">
                                 Leggi di più
                                 <svg class="icon icon-primary icon-sm">
-                                    <use xlink:href="#it-arrow-right"></use>
+                                    <use href="#it-arrow-right"></use>
                                 </svg>
                             </a>
                         </div>

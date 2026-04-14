@@ -50,7 +50,7 @@
                             <a href="{{ $homeUrl }}" class="no-underline hover:no-underline">
                                 {{-- SVG Logo - EXACT size 82x82px --}}
                                 <svg width="82" height="82" class="icon" aria-hidden="true" style="width: 82px; height: 82px;">
-                                    <image xlink:href="{{ $logoUrl }}" style="width: 82px; height: 82px;"/>
+                                    <image href="{{ $logoUrl }}" style="width: 82px; height: 82px;"/>
                                 </svg>
                                 
                                 {{-- Brand Text - Title + Tagline --}}
@@ -93,7 +93,7 @@
                                                  width="16" height="16" 
                                                  style="width: 16px; height: 16px; vertical-align: top;"
                                                  aria-hidden="true">
-                                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#{{ $social['icon'] }}"></use>
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#{{ $social['icon'] }}"></use>
                                             </svg>
                                             <span class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">
                                                 {{ $social['label'] }}

@@ -134,7 +134,7 @@
                     @endforeach
                 </div>
             </div>
+            @endif
         </div>
-        @endif
     </div>
 </section>

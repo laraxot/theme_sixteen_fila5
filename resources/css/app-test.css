@@ -23,3 +23,9 @@
    Keep this last so it wins over duplicated legacy mappings.
 ======================================== */
 @import './overrides/homepage-parity.css';
+
+/* ========================================
+   FILAMENT WIZARD → BOOTSTRAP ITALIA VISUAL PARITY
+   Forces Filament runtime classes to look like Design Comuni
+======================================== */
+@import './components/filament-wizard-parity.css';

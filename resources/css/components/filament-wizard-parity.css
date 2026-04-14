@@ -1,0 +1,185 @@
+/**
+ * Filament Wizard → Bootstrap Italia Visual Parity
+ *
+ * Filosofia: markup Filament (Livewire), look Bootstrap Italia via CSS scoped.
+ * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+ */
+
+.ticket-wizard-root {
+    /* Scope root */
+}
+
+/* === STEPPER ORIZZONTALE parity === */
+.ticket-wizard-root .fi-wiz-steps {
+    display: none !important; /* Nascondi stepper laterale Filament */
+}
+
+.ticket-wizard-root .steppers {
+    @apply bg-white border-b border-gray-200;
+}
+
+.ticket-wizard-root .step-list {
+    @apply flex items-center list-none p-0 m-0;
+}
+
+.ticket-wizard-root .step-item {
+    @apply flex items-center flex-1;
+}
+
+.ticket-wizard-root .steppers-content {
+    @apply flex items-center gap-3 w-full py-3 px-4;
+}
+
+.ticket-wizard-root .step-icon {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-gray-200 text-gray-600;
+}
+
+.ticket-wizard-root .step-item.completed .step-icon {
+    @apply bg-green-600 text-white;
+}
+
+.ticket-wizard-root .step-item.active .step-icon {
+    @apply bg-blue-600 text-white;
+}
+
+.ticket-wizard-root .step-title {
+    @apply text-sm font-medium text-gray-700;
+}
+
+.ticket-wizard-root .step-item.active .step-title {
+    @apply text-blue-600 font-bold;
+}
+
+.ticket-wizard-root .step-item.disabled .step-title {
+    @apply text-gray-400;
+}
+
+.ticket-wizard-root .progress-step {
+    @apply h-1 bg-gray-200;
+}
+
+.ticket-wizard-root .progress-bar {
+    @apply h-full bg-blue-600 text-xs text-white text-center leading-5 transition-all duration-300;
+}
+
+/* === REQUIRED NOTE === */
+.ticket-wizard-root .segnalazione-required-legend {
+    @apply text-sm text-gray-600;
+}
+
+/* === SECTIONS → Card parity === */
+.ticket-wizard-root .fi-fo-section {
+    @apply mb-4 bg-white rounded-lg shadow-sm border border-gray-200;
+}
+
+.ticket-wizard-root .fi-fo-section-header {
+    @apply p-6 pb-4;
+}
+
+.ticket-wizard-root .fi-fo-section-header-heading {
+    @apply text-lg font-bold text-gray-900 uppercase mb-2 block;
+}
+
+.ticket-wizard-root .fi-fo-section-header-description {
+    @apply text-sm text-gray-600 mt-1;
+}
+
+/* === FORM GROUPS parity === */
+.ticket-wizard-root .fi-fo-field-wrp {
+    @apply mb-4 px-6;
+}
+
+.ticket-wizard-root .fi-fo-field-wrp-label {
+    @apply block text-sm font-semibold text-gray-800 mb-1;
+}
+
+.ticket-wizard-root .fi-fo-field-wrp-label .fi-fo-required-indicator {
+    @apply text-red-600 ml-1;
+}
+
+/* === INPUTS === */
+.ticket-wizard-root input[type="text"],
+.ticket-wizard-root input[type="email"],
+.ticket-wizard-root input[type="tel"],
+.ticket-wizard-root select,
+.ticket-wizard-root textarea {
+    @apply w-full px-3 py-2 text-base border border-gray-300 rounded bg-white text-gray-900;
+}
+
+.ticket-wizard-root input:focus,
+.ticket-wizard-root select:focus,
+.ticket-wizard-root textarea:focus {
+    @apply border-blue-600 outline-none;
+    box-shadow: 0 0 0 2px rgba(26, 116, 211, 0.15);
+}
+
+.ticket-wizard-root .fi-fo-field-wrp-helper-text,
+.ticket-wizard-root .fi-fo-field-wrp-description {
+    @apply text-xs text-gray-500 mt-1 block;
+}
+
+/* === SELECT === */
+.ticket-wizard-root select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    padding-right: 2.5rem;
+}
+
+/* === TEXTAREA === */
+.ticket-wizard-root textarea {
+    @apply min-h-[80px] resize-y;
+}
+
+/* === FILE UPLOAD === */
+.ticket-wizard-root .fi-fo-file-upload {
+    @apply px-6;
+}
+
+/* === TEXT ENTRY (read-only) === */
+.ticket-wizard-root .fi-in-text-item {
+    @apply text-sm text-gray-700 flex items-center gap-2;
+}
+
+.ticket-wizard-root .fi-in-text-item-icon {
+    @apply text-blue-600;
+}
+
+/* === ACTIONS (bottom buttons) === */
+.ticket-wizard-root .fi-fo-wizard-actions {
+    @apply flex flex-wrap items-center justify-end gap-3 mt-6 pt-4 border-t border-gray-200 px-6;
+}
+
+.ticket-wizard-root .fi-fo-wizard-actions button {
+    @apply px-5 py-2 text-base font-medium rounded transition-colors;
+}
+
+.ticket-wizard-root .fi-fo-wizard-actions button[type="submit"],
+.ticket-wizard-root .fi-fo-wizard-actions button[data-action="submit"] {
+    @apply bg-blue-600 text-white border-none hover:bg-blue-700;
+}
+
+/* === CHECKBOX === */
+.ticket-wizard-root .fi-fo-checkbox {
+    @apply rounded border-gray-300 text-blue-600;
+}
+
+.ticket-wizard-root .fi-fo-checkbox-label {
+    @apply text-sm text-gray-700;
+}
+
+/* === GRID parity inside sections === */
+.ticket-wizard-root .fi-fo-section .fi-fo-grid {
+    @apply px-0;
+}
+
+/* === WIDGET container — no extra padding === */
+.ticket-wizard-root .cmp-wizard-widget {
+    @apply bg-transparent;
+}
+
+.ticket-wizard-root .cmp-wizard-widget form {
+    @apply p-0;
+}

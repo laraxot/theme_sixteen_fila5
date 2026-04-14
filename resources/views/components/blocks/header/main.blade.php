@@ -8,7 +8,7 @@
                     <div class="it-brand-wrapper">
                         <a href="/">
                             <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image xlink:href="{{ $logo ?: '/themes/Sixteen/images/logo-comune.svg' }}"/>
+                                <image href="{{ $logo ?: '/themes/Sixteen/images/logo-comune.svg' }}"/>
                             </svg>
                             <div class="it-brand-text">
                                 <div class="it-brand-title">{{ $municipality ?: 'Il mio Comune' }}</div>
@@ -27,7 +27,7 @@
                                 <li>
                                     <a href="{{ $s['url'] ?? '#' }}" target="_blank">
                                         <svg class="icon icon-sm icon-white align-top">
-                                            <use xlink:href="#it-{{ $s['platform'] ?? '' }}"></use>
+                                            <use href="#it-{{ $s['platform'] ?? '' }}"></use>
                                         </svg>
                                         <span class="visually-hidden">{{ ucfirst($s['platform'] ?? '') }}</span>
                                     </a>

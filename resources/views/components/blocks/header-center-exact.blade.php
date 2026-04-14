@@ -40,7 +40,7 @@
                             <a href="{{ $homeUrl }}">
                                 {{-- SVG Logo - EXACT structure --}}
                                 <svg width="82" height="82" class="icon" aria-hidden="true">
-                                    <image xlink:href="{{ $logoUrl }}"/>
+                                    <image href="{{ $logoUrl }}"/>
                                 </svg>
                                 <div class="it-brand-text">
                                     {{-- EXACT classes: it-brand-title, it-brand-tagline --}}

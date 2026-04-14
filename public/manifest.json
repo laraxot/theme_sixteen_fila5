@@ -5,8 +5,17 @@
     "src": "node_modules/@splidejs/splide/dist/js/splide.esm.js",
     "isDynamicEntry": true
   },
+  "resources/css/app-test.css": {
+    "file": "assets/app-test-4gEIVCl_.css",
+    "src": "resources/css/app-test.css",
+    "isEntry": true,
+    "name": "app-test",
+    "names": [
+      "app-test.css"
+    ]
+  },
   "resources/css/app.css": {
-    "file": "assets/app-CGlhd50q.css",
+    "file": "assets/app-BKzLxN2Q.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -15,7 +24,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-B3JtV_Vh.js",
+    "file": "assets/app-DYvQ-VW5.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

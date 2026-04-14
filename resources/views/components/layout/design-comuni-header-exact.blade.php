@@ -67,7 +67,7 @@
                                data-element="personal-area-login">
                                 <span class="rounded-icon" aria-hidden="true">
                                     <svg class="icon icon-primary">
-                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
                                     </svg>
                                 </span>
                                 <span class="d-none d-lg-block">Accedi all'area personale</span>
@@ -92,7 +92,7 @@
                                 <a href="{{ route('home') }}">
                                     {{-- SVG Logo - EXACT size 82x82 --}}
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image xlink:href="{{ $logoUrl ?? asset('themes/sixteen/images/logo-comune.svg') }}"/>
+                                        <image href="{{ $logoUrl ?? asset('themes/sixteen/images/logo-comune.svg') }}"/>
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ $cityName ?? 'Il mio Comune' }}</div>
@@ -110,7 +110,7 @@
                                         <li>
                                             <a href="{{ $social['url'] }}" target="_blank" rel="noopener">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#{{ $social['icon'] }}"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#{{ $social['icon'] }}"></use>
                                                 </svg>
                                                 <span class="visually-hidden">{{ $social['label'] }}</span>
                                             </a>

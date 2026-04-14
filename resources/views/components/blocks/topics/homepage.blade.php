@@ -18,7 +18,7 @@
                                 <div class="card-body">
                                     <div class="category-top">
                                         <svg class="icon icon-primary" aria-hidden="true">
-                                            <use xlink:href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . ($item['icon'] ?? 'it-folder')) }}"></use>
+                                            <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . ($item['icon'] ?? 'it-folder')) }}"></use>
                                         </svg>
                                         <span class="text">Argomento</span>
                                     </div>
@@ -27,7 +27,7 @@
                                     <a href="{{ $item['url'] }}" class="read-more">
                                         <span class="text">Esplora</span>
                                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
-                                            <use xlink:href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
+                                            <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                         </svg>
                                     </a>
                                 </div>

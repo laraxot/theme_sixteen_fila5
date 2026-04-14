@@ -81,7 +81,7 @@
             {{-- Read-only version with spans instead of inputs --}}
             <span class="star {{ $i <= $value ? 'star-filled' : 'star-empty' }}">
                 <svg class="icon {{ $iconSizeClass }}" aria-hidden="true">
-                    <use xlink:href="#{{ $i <= $value ? 'it-star-full' : 'it-star-outline' }}"></use>
+                    <use href="#{{ $i <= $value ? 'it-star-full' : 'it-star-outline' }}"></use>
                 </svg>
                 <span class="visually-hidden">
                     {{ $i <= $value ? $labelText : '' }}
@@ -99,7 +99,7 @@
             />
             <label class="full" for="{{ $inputId }}">
                 <svg class="icon {{ $iconSizeClass }}" aria-hidden="true">
-                    <use xlink:href="#it-star-full"></use>
+                    <use href="#it-star-full"></use>
                 </svg>
                 <span class="visually-hidden">
                     {{ $labelText }}
