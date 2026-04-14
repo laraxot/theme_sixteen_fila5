@@ -104,7 +104,7 @@
             
             <div class="service-card-icon mb-3">
                 <svg class="icon icon-lg text-primary">
-                    <use xlink:href="#{{ $icon }}"></use>
+                    <use href="#{{ $icon }}"></use>
                 </svg>
             </div>
             
@@ -130,7 +130,7 @@
                 <div class="service-card-status">
                     <span class="service-card-status-badge badge bg-{{ $status === 'active' ? 'success' : ($status === 'maintenance' ? 'warning' : 'secondary') }}">
                         <svg class="icon icon-sm me-1">
-                            <use xlink:href="#{{ $statusIcons[$status] }}"></use>
+                            <use href="#{{ $statusIcons[$status] }}"></use>
                         </svg>
                         {{ $statusLabels[$status] }}
                     </span>
@@ -143,7 +143,7 @@
                 >
                     Accedi
                     <svg class="icon icon-sm ms-1">
-                        <use xlink:href="#it-arrow-right"></use>
+                        <use href="#it-arrow-right"></use>
                     </svg>
                 </a>
             </div>

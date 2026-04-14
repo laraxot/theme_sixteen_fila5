@@ -15,7 +15,7 @@
                         <div class="it-brand-wrapper">
                             <a href="{{ $data['home_url'] ?? '/it' }}">
                                 <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-pa') }}"></use>
+                                    <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-pa') }}"></use>
                                 </svg>
                                 <div class="it-brand-text">
                                     <h2 class="no_toc text-white text-lg">{{ $data['site_name'] ?? 'Nome del Comune' }}</h2>

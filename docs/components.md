@@ -165,6 +165,10 @@ Pulsante per azioni principali.
 </x-pub_theme::button.primary>
 ```
 
+### Loading Feedback Contract
+
+Per azioni asincrone avviate da click, il tema espone componenti di spinner/progress feedback riusabili, ma la proprietà dello stato resta nel componente di dominio che esegue il lavoro. Esempio: geolocalizzazione browser in `Geo::AddressInput` usa spinner del tema senza spostare la logica geo dentro Sixteen.
+
 **Varianti:**
 - `primary`: Azione principale (blu)
 - `secondary`: Azione secondaria (grigio)

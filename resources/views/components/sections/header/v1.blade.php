@@ -1,10 +1,14 @@
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
+{{--
+    Bootstrap Italia Header — EXACT match of Design Comuni reference
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+--}}
+<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
     <div class="it-header-slim-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
-                        <a class="d-lg-block navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
+                        <a class="navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
                         <div class="it-header-slim-right-zone" role="navigation">
                             <div class="nav-item dropdown">
                                 <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
@@ -27,10 +31,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-outline-light btn-icon" href="../servizi/accesso-servizio.html" data-element="personal-area-login" aria-label="Accedi all'area personale">
-                                <svg class="icon icon-white">
-                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
-                                </svg>
+                            <a class="btn btn-primary btn-icon btn-full" href="/it/tests/accesso-servizio" data-element="personal-area-login">
+                                <span class="rounded-icon" aria-hidden="true">
+                                    <svg class="icon icon-primary">
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                                    </svg>
+                                </span>
+                                <span class="d-none d-lg-block">Accedi all'area personale</span>
                             </a>
                         </div>
                     </div>
@@ -45,19 +52,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
-                            <button class="custom-navbar-toggler d-lg-none me-3" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
-                                <svg class="icon">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
-                                </svg>
-                            </button>
                             <div class="it-brand-wrapper">
-                                <a href="homepage.html">
+                                <a href="/">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image xlink:href="/themes/Sixteen/images/logo.svg"/>
+                                        <image href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">Il mio Comune</div>
-                                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere </div>
+                                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere</div>
                                     </div>
                                 </a>
                             </div>
@@ -68,49 +70,55 @@
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Twitter</span></a>
+                                                <span class="visually-hidden">Twitter</span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Facebook</span></a>
+                                                <span class="visually-hidden">Facebook</span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                                                 </svg>
-                                                <span class="visually-hidden">YouTube</span></a>
+                                                <span class="visually-hidden">YouTube</span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Telegram</span></a>
+                                                <span class="visually-hidden">Telegram</span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Whatsapp</span></a>
+                                                <span class="visually-hidden">Whatsapp</span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
-                                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                                                 </svg>
-                                                <span class="visually-hidden">RSS</span></a>
+                                                <span class="visually-hidden">RSS</span>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="it-search-wrapper">
-                                    <span class="d-none d-md-block">Cerca</span>
+                                <div class="it-search-wrapper d-flex align-items-center">
+                                    <span class="search-label me-2">Cerca</span>
                                     <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
                                         <svg class="icon">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
@@ -123,15 +131,22 @@
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <div class="navbar-collapsable" id="nav4">
-                                <div class="overlay" style="display: none;"></div>
+                            <button class="custom-navbar-toggler" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()">
+                                <svg class="icon">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                </svg>
+                            </button>
+                            <!-- Mobile overlay backdrop -->
+                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="navbar-overlay" style="display: none;"></div>
+                            <!-- Mobile menu panel -->
+                            <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
                                 <div class="close-div">
-                                    <button class="btn close-menu" type="button">
+                                    <button class="btn close-menu" type="button" @click="close()">
                                         <span class="visually-hidden">Nascondi la navigazione</span>
                                         <svg class="icon">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
@@ -139,7 +154,7 @@
                                     </button>
                                 </div>
                                 <div class="menu-wrapper">
-                                    <a href="homepage.html" class="logo-hamburger">
+                                    <a href="/" class="logo-hamburger">
                                         <svg class="icon" aria-hidden="true">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                                         </svg>
@@ -150,22 +165,22 @@
                                     <nav aria-label="Principale">
                                         <ul class="navbar-nav" data-element="main-navigation">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/amministrazione.html" data-element="management">
+                                                <a class="nav-link" href="/it/tests/amministrazione" data-element="management">
                                                     <span>Amministrazione</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/novita.html" data-element="news">
+                                                <a class="nav-link" href="/it/tests/novita" data-element="news">
                                                     <span>Novità</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/servizi.html" data-element="all-services">
+                                                <a class="nav-link active" href="/it/tests/servizi" data-element="all-services">
                                                     <span>Servizi</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/eventi.html" data-element="live">
+                                                <a class="nav-link" href="/it/tests/eventi" data-element="live">
                                                     <span>Vivere il Comune</span>
                                                 </a>
                                             </li>
@@ -174,19 +189,19 @@
                                     <nav aria-label="Secondaria">
                                         <ul class="navbar-nav navbar-secondary">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/argomento.html">Iscrizioni</a>
+                                                <a class="nav-link" href="#">Iscrizioni</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/argomento.html">Estate in città</a>
+                                                <a class="nav-link" href="#">Estate in città</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../sito/argomento.html">Polizia locale</a>
+                                                <a class="nav-link" href="#">Polizia locale</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="argomenti.html" data-element="all-topics">
-                                                    <span>Tutti gli argomenti 
+                                                <a class="nav-link" href="/it/tests/argomenti" data-element="all-topics">
+                                                    <span>Tutti gli argomenti
                                                         <svg class="icon icon-sm">
-                                                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
+                                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
                                                         </svg>
                                                     </span>
                                                 </a>
@@ -199,44 +214,50 @@
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Twitter</span></a>
+                                                    <span class="visually-hidden">Twitter</span>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Facebook</span></a>
+                                                    <span class="visually-hidden">Facebook</span>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">YouTube</span></a>
+                                                    <span class="visually-hidden">YouTube</span>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Telegram</span></a>
+                                                    <span class="visually-hidden">Telegram</span>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Whatsapp</span></a>
+                                                    <span class="visually-hidden">Whatsapp</span>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
-                                                        <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">RSS</span></a>
+                                                    <span class="visually-hidden">RSS</span>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

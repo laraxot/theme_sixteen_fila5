@@ -18,7 +18,7 @@
                     <div class="it-brand-wrapper py-4">
                         <a href="/">
                             <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
+                                <image href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                             </svg>
                             <div class="it-brand-text">
                                 <div class="it-brand-title">Nome del Comune</div>

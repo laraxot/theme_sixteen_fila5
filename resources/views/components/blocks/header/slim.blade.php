@@ -17,7 +17,7 @@
                         <span class="visually-hidden">Lingua attiva:</span>
                         {{ $language }}
                         <svg class="icon icon-xs">
-                            <use xlink:href="#it-chevron-down"></use>
+                            <use href="#it-chevron-down"></use>
                         </svg>
                     </button>
                     <ul class="dropdown-menu">
@@ -26,7 +26,7 @@
                                 <span>ITA</span>
                                 @if($language === 'ITA')
                                     <svg class="icon icon-xs ms-2">
-                                        <use xlink:href="#it-check"></use>
+                                        <use href="#it-check"></use>
                                     </svg>
                                 @endif
                             </a>
@@ -36,7 +36,7 @@
                                 <span>ENG</span>
                                 @if($language === 'ENG')
                                     <svg class="icon icon-xs ms-2">
-                                        <use xlink:href="#it-check"></use>
+                                        <use href="#it-check"></use>
                                     </svg>
                                 @endif
                             </a>
@@ -47,7 +47,7 @@
                 {{-- Login Button --}}
                 <a href="{{ $login_url }}" class="btn btn-primary btn-sm">
                     <svg class="icon icon-sm">
-                        <use xlink:href="#it-user"></use>
+                        <use href="#it-user"></use>
                     </svg>
                     <span>Accedi all'area personale</span>
                 </a>
@@ -65,7 +65,7 @@
                             @endphp
                             <a href="{{ $url }}" class="text-link" aria-label="{{ ucfirst($platform) }}">
                                 <svg class="icon icon-sm">
-                                    <use xlink:href="#it-{{ $platform }}"></use>
+                                    <use href="#it-{{ $platform }}"></use>
                                 </svg>
                             </a>
                         </li>

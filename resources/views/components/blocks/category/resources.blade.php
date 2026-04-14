@@ -25,7 +25,7 @@
                         @forelse($category['resources'] ?? [] as $resource)
                             <a href="{{ $resource['url'] ?? '#' }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                 <span>{{ $resource['title'] ?? '' }}</span>
-                                <svg class="icon icon-sm"><use xlink:href="#it-arrow-right"></use></svg>
+                                <svg class="icon icon-sm"><use href="#it-arrow-right"></use></svg>
                             </a>
                         @empty
                             <p class="text-muted">Nessuna risorsa in questa categoria</p>

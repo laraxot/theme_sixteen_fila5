@@ -5,7 +5,7 @@
     Body Length: 1331 righe HTML
 --}}
 
-@extends('pub_theme::layouts.bootstrap-italia')
+@extends('pub_theme::layouts.base')
 
 @section('title', 'Il mio Comune')
 
@@ -20,7 +20,6 @@
 </div>
 
 {{-- Header Component --}}
-@include('pub_theme::bootstrap-italia.header')
 
 {{-- Main Content --}}
 <main>
@@ -37,7 +36,7 @@
                         <div class="card-body pb-5 px-0">
                             <div class="category-top">
                                 <svg class="icon icon-sm" aria-hidden="true">
-                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
                                 </svg>
                                 <span class="title-xsmall-semi-bold fw-semibold">Notizie</span>
                                 <span class="data fw-normal">18 mag 2026</span>
@@ -57,7 +56,7 @@
                             <a class="read-more read-more-green pb-3" href="/it/tests/novita">
                                 <span class="text">Tutte le novità</span>
                                 <svg class="icon">
-                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                                 </svg>
                             </a>
                         </div>
@@ -153,7 +152,7 @@
                     <a class="btn btn-outline-primary" href="/it/tests/servizi">
                         Tutti i servizi
                         <svg class="icon icon-sm">
-                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                         </svg>
                     </a>
                 </div>
@@ -186,7 +185,7 @@
                     <a class="btn btn-outline-primary" href="/it/tests/amministrazione">
                         Tutta l'amministrazione
                         <svg class="icon icon-sm">
-                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                         </svg>
                     </a>
                 </div>
@@ -208,7 +207,7 @@
                                     <div class="card-body">
                                         <div class="category-top">
                                             <svg class="icon icon-sm" aria-hidden="true">
-                                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
                                             </svg>
                                             <span class="title-xsmall-semi-bold fw-semibold">{{ $notizia['categoria'] ?? 'Notizie' }}</span>
                                             <span class="data fw-normal">{{ $notizia['data'] ?? '' }}</span>
@@ -218,7 +217,7 @@
                                         <a class="read-more pb-3" href="{{ $notizia['url'] ?? '#' }}">
                                             <span class="text">Leggi tutto</span>
                                             <svg class="icon">
-                                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                                             </svg>
                                         </a>
                                     </div>
@@ -232,7 +231,7 @@
                     <a class="btn btn-outline-primary" href="/it/tests/novita">
                         Tutte le novità
                         <svg class="icon icon-sm">
-                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                         </svg>
                     </a>
                 </div>
@@ -254,7 +253,7 @@
                                     <div class="card-body">
                                         <div class="category-top">
                                             <svg class="icon icon-sm" aria-hidden="true">
-                                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
                                             </svg>
                                             <span class="title-xsmall-semi-bold fw-semibold">{{ $evento['categoria'] ?? 'Eventi' }}</span>
                                             <span class="data fw-normal">{{ $evento['data'] ?? '' }}</span>
@@ -272,7 +271,7 @@
                     <a class="btn btn-outline-primary" href="/it/tests/eventi">
                         Tutti gli eventi
                         <svg class="icon icon-sm">
-                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                         </svg>
                     </a>
                 </div>
@@ -483,5 +482,4 @@ $thematicSites = [
 
 @push('scripts')
 {{-- Bootstrap Italia JS --}}
-<script src="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js"></script>
 @endpush

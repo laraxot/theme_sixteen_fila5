@@ -1,9 +1,47 @@
-# Design Comuni - Homepage Replication Index
+# Design Comuni - Documentation Index
 
 ## 📚 Documentazione Principale
 
 - **[REPLIKATE Protocol](../prompts/replikate.txt)** - Protocollo di esecuzione generale
-- **[Homepage Structure Analysis](./homepage-structure-diff.md)** ← **STAI QUI**
+- **[Ticket Creation Wizard](./TICKET-CREATION-WIZARD.md)** - Wizard unificato creazione ticket
+- **[Wizard Governance Bridge](./wizard-governance-bridge.md)** - Confini tema/modulo/base e anti-duplicazione
+- **[CSS/JS Phase Status](./CSS-JS-PHASE-STATUS.md)** - Stato fase CSS/JS per tutte le pagine
+- **[CSS/JS Phase Blocker](./CSS-JS-PHASE-BLOCKER.md)** - Blocker database mancante
+- **[MCP Servers](./MCP_SERVERS.md)** - Server MCP configurati
+- **[Stepper Component](./stepper-component.md)** - Componente stepper responsive mobile-first
+- **[Body Plain Rule](./body-plain-rule.md)** - Regola: body tag senza classi/attributi
+
+---
+
+## 🎯 Ticket Creation Wizard
+
+### Pages Architecture
+
+| Page | Purpose | Status |
+|------|---------|--------|
+| `segnalazione-crea` | Unified wizard (3 steps) | ✅ Active |
+| `segnalazione-01-privacy` | Reference page | ✅ Kept |
+| `segnalazione-02-dati` | Reference page | ✅ Kept |
+| `segnalazione-03-riepilogo` | Reference page | ✅ Kept |
+| `segnalazione-04-conferma` | Post-submit confirmation | ✅ Kept |
+
+### Widget
+
+- **Class**: `CreateTicketWizardWidget` (NOT ~~CreateSegnalazioneWizardWidget~~)
+- **Location**: `Modules/Fixcity/app/Filament/Widgets/`
+- **Base class**: `Modules\Xot\Filament\Widgets\XotBaseWizardWidget`
+- **Steps**: 3 (Privacy → Data → Summary + Submit)
+- **Redirect**: After submit → `/it/tests/segnalazione-04-conferma`
+- **Latest parity follow-up**: [7-51 segnalazione-crea step2 columns header ultra parity](../../../../_bmad-output/implementation-artifacts/7-51-segnalazione-crea-step2-columns-header-ultra-parity.md)
+
+### Visual Parity
+
+| Element | Reference | Local | Status |
+|---------|-----------|-------|--------|
+| h1 font-size | 48px | 48px | ✅ |
+| stepper color | rgb(0,122,82) | rgb(0,122,82) | ✅ |
+| form-check margin | 40px | 40px | ✅ |
+| privacy label | 18px/#1a1a1a | 18px/#1a1a1a | ✅ |
 
 ---
 

@@ -20,6 +20,12 @@
 
 ---
 
+## Aggiornamento (story 7-3, 2026-04-09)
+
+- **CSS §27**: selettori allineati al Blade (`steppers-btn-*`, `.cmp-card`, `.upload-wrapper`); gli stili scoped ora corrispondono al DOM.
+- **Blade**: navigazione wizard e testi contatti da traduzioni `fixcity::segnalazione.*`; rimosso handler `confirmAndProceed()` inesistente.
+- Le sezioni sotto generate automaticamente il **2026-04-06** possono risultare obsolete rispetto al markup attuale (es. `data-element` già presenti nel blade).
+
 ## Missing data-element Attributes (in local but not in reference)
 
 - ❌ `breadcrumb`

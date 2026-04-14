@@ -10,7 +10,5 @@
 @props(['tpl' => 'full'])
 
 @if($tpl === 'slim')
-    @include('pub_theme::bootstrap-italia.footer-slim')
 @else
-    @include('pub_theme::bootstrap-italia.footer-full')
 @endif

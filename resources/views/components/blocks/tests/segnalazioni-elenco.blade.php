@@ -32,7 +32,7 @@
     $contacts = $data['contacts'] ?? [];
 @endphp
 
-<div class="container" id="main-container">
+<div class="container" id="main-container" x-data="{ activeTab: 'disservizio1', modalCategories: false, modalDisservizio: false, openAccordion: {} }">
     <div class="row justify-content-center mb-md-40 mb-lg-80">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
@@ -75,7 +75,7 @@
             <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
                 <span class="search-results">{{ $totalCount }} Risultati</span>
 
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-categories" class="btn p-0 pe-2 d-lg-none">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-categories" @click="modalCategories = true" class="btn p-0 pe-2 d-lg-none">
                     <span class="rounded-icon">
                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
                             <use href="{{ $sprite }}#it-funnel"></use>
@@ -90,24 +90,24 @@
 
             <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist">
                 <li class="nav-item w-100" role="tab">
-                    <a class="nav-link active title-medium-semi-bold pt-0" href="#data-ex-disservizio1" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio1" aria-selected="true">
+                    <a class="nav-link active title-medium-semi-bold pt-0" href="#data-ex-disservizio1" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio1" aria-selected="true" @click="activeTab = 'disservizio1'">
                         Mappa
                     </a>
                 </li>
                 <li class="nav-item w-100" role="tab">
-                    <a class="nav-link title-medium-semi-bold pt-0" href="#data-ex-disservizio2" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio2" aria-selected="true">
+                    <a class="nav-link title-medium-semi-bold pt-0" href="#data-ex-disservizio2" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio2" aria-selected="true" @click="activeTab = 'disservizio2'">
                         Elenco
                     </a>
                 </li>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="data-ex-disservizio1" role="tabpanel">
+                <div class="tab-pane" :class="{ 'fade show active': activeTab === 'disservizio1' }" id="data-ex-disservizio1" role="tabpanel" x-show="activeTab === 'disservizio1'">
                     <div class="row">
                         <div class="col-12">
                             <div class="map-box">
                                 <img src="/themes/Sixteen/design-comuni/assets/images/map-placeholder.svg" alt="Mappa" class="w-100">
-                                <button type="button" class="pin" data-bs-toggle="modal" data-bs-target="#modal-disservizio">
+                                <button type="button" class="pin" data-bs-toggle="modal" data-bs-target="#modal-disservizio" @click="modalDisservizio = true">
                                     <img src="/themes/Sixteen/design-comuni/assets/images/map-pin.svg" alt="Pin di geolocalizzazione" title="Pin di geolocalizzazione">
                                 </button>
                             </div>
@@ -119,7 +119,7 @@
                                     <p class="subtitle-small mb-3 mt-3">Se vuoi aggiungere una segnalazione, puoi farlo dopo esserti autenticato con le tue credenziali SPID o CIE.</p>
                                 </div>
                                 <div class="button-wrapper">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-disservizio" class="btn btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-disservizio" @click="modalDisservizio = true" class="btn btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                         <span class="">Segnala disservizio</span>
                                     </button>
                                 </div>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="data-ex-disservizio2" role="tabpanel">
+                <div class="tab-pane" :class="{ 'fade show active': activeTab === 'disservizio2' }" id="data-ex-disservizio2" role="tabpanel" x-show="activeTab === 'disservizio2'">
                     <div class="row">
                         @foreach($reports as $report)
                             <div class="cmp-card mb-4 mb-lg-30">
@@ -142,7 +142,7 @@
                                                         <span>{{ $report['type'] }}</span></p>
                                                     <div class="accordion-item">
                                                         <div class="accordion-header">
-                                                            <button class="collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $loop->index }}" aria-expanded="false" aria-controls="collapse-{{ $loop->index }}">
+                                                            <button class="collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $loop->index }}" @click="openAccordion[$loop.index] = !openAccordion[$loop.index]" aria-expanded="false" aria-controls="collapse-{{ $loop->index }}">
                                                                 <span class="d-flex align-items-center">
                                                                     Mostra tutto
                                                                     <svg class="icon icon-primary icon-sm">
@@ -211,7 +211,7 @@
                                     <p class="subtitle-small mb-3 mt-3">Se vuoi aggiungere una segnalazione, puoi farlo dopo esserti autenticato con le tue credenziali SPID o CIE.</p>
                                 </div>
                                 <div class="button-wrapper">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-disservizio" class="btn btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-disservizio" @click="modalDisservizio = true" class="btn btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                         <span class="">Segnala disservizio</span>
                                     </button>
                                 </div>

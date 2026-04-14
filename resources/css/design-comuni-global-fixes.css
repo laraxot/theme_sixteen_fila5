@@ -1,0 +1,352 @@
+/**
+ * Global CSS Fixes - All Design Comuni Pages
+ *
+ * Based on visual parity analysis of all 7 segnalazione pages.
+ * These fixes address the systemic font size and color differences
+ * found across ALL pages.
+ *
+ * Source: Visual parity analysis 2026-04-09
+ * Reference: https://italia.github.io/design-comuni-pagine-statiche/
+ */
+
+/* ============================================================================
+   FONT SIZE UTILITIES - Bootstrap Italia reference sizes
+   Missing in local: 18px, 16px, 14px on various elements
+   ============================================================================ */
+
+/* Nav links - reference uses 18px */
+.nav-link,
+.it-header-navbar-wrapper .nav-link,
+.navbar .nav-link {
+  font-size: 18px !important;
+  color: var(--bs-dark, #17334f) !important;
+}
+
+/* Nav links active */
+.nav-link.active,
+.it-header-navbar-wrapper .nav-link.active {
+  color: var(--bs-primary, #007a52) !important;
+  font-weight: 600 !important;
+}
+
+/* Skip links / "Vai ai contenuti" - reference uses 16px */
+.visually-hidden-focusable,
+.skiplink a {
+  font-size: 16px !important;
+  color: var(--bs-primary, #007a52) !important;
+}
+
+/* Breadcrumb items - reference uses 16px */
+.breadcrumb-item,
+.breadcrumb-item a,
+.cmp-breadcrumbs .breadcrumb-item a {
+  font-size: 16px !important;
+  color: var(--bs-primary, #007a52) !important;
+}
+
+.breadcrumb-item.active {
+  color: var(--bs-body-color, #1a1a1a) !important;
+}
+
+.breadcrumb .separator {
+  color: var(--bs-gray-600, #525252) !important;
+  font-size: 16px !important;
+}
+
+/* Steppers index "1/3" - reference uses 14px */
+.steppers-index {
+  font-size: 14px !important;
+  color: var(--bs-gray-600, #525252) !important;
+}
+
+/* Steppers header items - reference uses 18px */
+.steppers-header ul li {
+  font-size: 18px !important;
+  color: var(--bs-gray-600, #525252) !important;
+}
+
+.steppers-header ul li.active {
+  color: var(--bs-dark, #17334f) !important;
+  font-weight: 600 !important;
+}
+
+.steppers-header ul li.confirmed {
+  color: var(--bs-primary, #007a52) !important;
+  font-weight: 600 !important;
+}
+
+/* Brand text - reference uses 16px */
+.it-brand-text,
+.it-brand-title,
+.it-brand-tagline {
+  font-size: 16px !important;
+}
+
+.it-brand-title {
+  font-weight: 700 !important;
+  color: var(--bs-primary, #007a52) !important;
+}
+
+.it-brand-tagline {
+  font-size: 14px !important;
+  color: var(--bs-gray-secondary, #5d7083) !important;
+}
+
+/* Language selector - reference uses 14px */
+.dropdown .nav-link,
+.it-header-slim-wrapper .nav-link {
+  font-size: 14px !important;
+  color: var(--bs-white, #fff) !important;
+}
+
+/* Footer headings - reference uses 18px */
+.footer-heading-title {
+  font-size: 18px !important;
+  color: var(--bs-white, #fff) !important;
+}
+
+/* Footer links - reference uses 16px */
+.footer-list a,
+.footer-list .list-item {
+  font-size: 16px !important;
+  color: var(--bs-white, #fff) !important;
+}
+
+/* ============================================================================
+   COLOR FIXES - EXACT reference values from visual parity analysis
+   Reference uses: rgb(0,0,0), rgb(212,212,212), rgb(69,90,100), rgb(93,112,131)
+   ============================================================================ */
+
+/* Body text - reference uses rgb(26,26,26) = #1a1a1a for body, rgb(0,0,0) = #000000 for key text */
+body {
+  color: #1a1a1a !important;
+}
+
+/* Primary text - reference uses pure black for headings */
+h1, h2, h3, h4, h5, h6,
+.title-xxxlarge, .title-xxlarge, .title-xlarge,
+.title-large, .title-medium, .title-small {
+  color: #1a1a1a !important;
+}
+
+/* Secondary text - reference uses rgb(69,90,100) = #455a64 */
+.text-muted,
+.u-grey-dark,
+.subtitle-small,
+.title-xsmall {
+  color: #455a64 !important;
+}
+
+/* Tertiary text - reference uses rgb(93,112,131) = #5d7083 */
+.text-paragraph-small,
+.label-input,
+.title-xsmall-bold {
+  color: #5d7083 !important;
+}
+
+/* Border colors - reference uses rgb(212,212,212) = #d4d4d4 */
+.border-light,
+hr,
+.form-check .checkbox-body,
+.single-line-info.border-light,
+.accordion-header .accordion-button {
+  border-color: #d4d4d4 !important;
+}
+
+/* Link colors - reference uses Bootstrap Italia green */
+.t-primary,
+a.t-primary {
+  color: #007a52 !important;
+}
+
+.t-primary:hover {
+  color: #004d33 !important;
+}
+
+/* Header slim wrapper - reference uses dark blue #17334f */
+.it-header-slim-wrapper {
+  background-color: #17334f !important;
+}
+
+/* Header center wrapper - reference uses white */
+.it-header-center-wrapper {
+  background-color: #ffffff !important;
+}
+
+/* Header navbar wrapper - reference uses white with border */
+.it-header-navbar-wrapper {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+}
+
+/* Footer background - reference uses dark blue #17334f */
+.it-footer,
+footer.it-footer {
+  background-color: #17334f !important;
+  color: #ffffff !important;
+}
+
+/* Footer links - white text */
+.it-footer a,
+.it-footer .footer-list a,
+.it-footer .footer-heading-title {
+  color: #ffffff !important;
+}
+
+/* Grey card background - reference uses #ebeef0 */
+.bg-grey-card {
+  background-color: #ebeef0 !important;
+}
+
+/* Card backgrounds */
+.card.has-bkg-grey {
+  background-color: #ebeef0 !important;
+}
+
+/* Form backgrounds - white */
+.form-group.bg-white,
+.text-area-wrapper.bg-white,
+.cmp-text-area.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Select wrapper styling */
+.select-wrapper {
+  background-color: #ffffff !important;
+}
+
+/* Steppers styling */
+.steppers-header ul li {
+  font-size: 18px !important;
+  color: #5d7083 !important;
+}
+
+.steppers-header ul li.active {
+  color: #17334f !important;
+  font-weight: 600 !important;
+}
+
+.steppers-header ul li.confirmed {
+  color: #007a52 !important;
+  font-weight: 600 !important;
+}
+
+.steppers-index {
+  font-size: 14px !important;
+  color: #5d7083 !important;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #007a52 !important;
+  border-color: #007a52 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: #004d33 !important;
+  border-color: #004d33 !important;
+}
+
+.btn-outline-primary {
+  background-color: #ffffff !important;
+  border-color: #007a52 !important;
+  color: #007a52 !important;
+}
+
+/* Contact list items */
+.contact-list li,
+.contact-list li a {
+  color: #007a52 !important;
+}
+
+.contact-list .icon {
+  fill: #007a52 !important;
+}
+
+/* Callout/Warning box */
+.callout.callout-highlight.warning {
+  background-color: #fff4e5 !important;
+  border-left-color: #f90 !important;
+}
+
+.callout-title {
+  color: #17334f !important;
+}
+
+/* Card styling */
+.card {
+  border: none !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* Info summary */
+.cmp-info-summary {
+  background-color: #ffffff !important;
+}
+
+.single-line-info.border-light {
+  border-bottom: 1px solid #d4d4d4 !important;
+  padding: 0.5rem 0 !important;
+}
+
+.data-text {
+  color: #1a1a1a !important;
+  font-weight: 400 !important;
+}
+
+/* ============================================================================
+   SPACING FIXES - Match reference padding/margins
+   ============================================================================ */
+
+/* Breadcrumb spacing */
+.cmp-breadcrumbs {
+  margin-bottom: 1rem !important;
+}
+
+.breadcrumb {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Steppers spacing */
+.steppers {
+  margin-bottom: 2rem !important;
+}
+
+.steppers-content {
+  padding-bottom: 2rem !important;
+}
+
+/* Contact section spacing */
+.shadow-contacts {
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.cmp-contacts {
+  padding: 2rem 0 !important;
+}
+
+.cmp-contacts .card {
+  border: none !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* Contact list items */
+.contact-list li {
+  margin: 1rem 0 !important;
+  color: #007a52 !important;
+}
+
+.contact-list li a {
+  color: #007a52 !important;
+  text-decoration: none !important;
+}
+
+.contact-list li a:hover {
+  text-decoration: underline !important;
+}
+
+.contact-list .icon {
+  fill: #007a52 !important;
+}

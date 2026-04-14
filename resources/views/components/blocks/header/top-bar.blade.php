@@ -22,7 +22,7 @@
                 {{-- Login Button --}}
                 <a href="{{ $login_url }}" class="btn btn-sm btn-primary">
                     <svg class="icon icon-sm">
-                        <use xlink:href="#it-user"></use>
+                        <use href="#it-user"></use>
                     </svg>
                     <span class="d-none d-sm-inline">Accedi all'area personale</span>
                 </a>

@@ -18,7 +18,7 @@
                                 <div class="card-body">
                                     <div class="category-top">
                                         <svg class="icon icon-primary" aria-hidden="true">
-                                            <use xlink:href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . ($service['icon'] ?? 'it-services')) }}"></use>
+                                            <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . ($service['icon'] ?? 'it-services')) }}"></use>
                                         </svg>
                                         <span class="text">Servizio</span>
                                     </div>
@@ -27,7 +27,7 @@
                                     <a href="{{ $service['url'] }}" class="read-more">
                                         <span class="text">Leggi di più</span>
                                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
-                                            <use xlink:href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
+                                            <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                         </svg>
                                     </a>
                                 </div>
@@ -41,7 +41,7 @@
                 <a class="btn btn-outline-primary" href="/it/tests/servizi">
                     Tutti i servizi
                     <svg class="icon icon-sm">
-                        <use xlink:href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
+                        <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                     </svg>
                 </a>
             </div>

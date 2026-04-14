@@ -79,7 +79,7 @@
                             >
                             <button class="btn btn-outline-secondary" type="button" data-search-clear>
                                 <svg class="icon icon-sm">
-                                    <use xlink:href="#it-close"></use>
+                                    <use href="#it-close"></use>
                                 </svg>
                             </button>
                         </div>
@@ -137,7 +137,7 @@
                 <div class="col-12">
                     <div class="text-center py-5">
                         <svg class="icon icon-lg text-muted mb-3">
-                            <use xlink:href="#it-search"></use>
+                            <use href="#it-search"></use>
                         </svg>
                         <h4 class="text-muted">Nessun servizio trovato</h4>
                         <p class="text-muted">Prova a modificare i filtri di ricerca</p>

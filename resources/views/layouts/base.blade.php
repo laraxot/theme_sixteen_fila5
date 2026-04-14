@@ -12,8 +12,8 @@
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
-        {{-- Bootstrap Italia CSS - CDN (EXACT match with Design Comuni reference) --}}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css" />
+        {{-- Tailwind CSS (replicates Bootstrap Italia design tokens) --}}
+        @vite(['resources/css/app.css'], 'themes/Sixteen')
 
         <style>
             [x-cloak] {
@@ -28,7 +28,5 @@
     <body>
         @yield('body')
 
-        {{-- Bootstrap Italia JS - CDN --}}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/js/bootstrap-italia.bundle.min.js"></script>
     </body>
 </html>

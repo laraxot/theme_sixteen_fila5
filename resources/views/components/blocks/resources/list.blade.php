@@ -39,7 +39,7 @@
                             @if(!empty($resource['size']))
                                 <p class="card-text text-muted small mb-0">
                                     <svg class="icon icon-sm me-1" aria-hidden="true">
-                                        <use xlink:href="#it-file"></use>
+                                        <use href="#it-file"></use>
                                     </svg>
                                     {{ $resource['size'] }}
                                 </p>
@@ -48,7 +48,7 @@
                             @if(!empty($resource['url']))
                             <a class="read-more mt-3" href="{{ $resource['url'] }}">
                                 <span class="text">Scarica</span>
-                                <svg class="icon"><use xlink:href="#it-download"></use></svg>
+                                <svg class="icon"><use href="#it-download"></use></svg>
                             </a>
                             @endif
                         </div>

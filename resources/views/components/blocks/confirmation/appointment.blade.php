@@ -18,7 +18,7 @@
                 <div class="text-center mb-4">
                     <div class="icon-success mb-3">
                         <svg class="icon icon-lg text-success" aria-hidden="true">
-                            <use xlink:href="#it-check-circle"></use>
+                            <use href="#it-check-circle"></use>
                         </svg>
                     </div>
                     <h1 class="mb-2">{{ $title }}</h1>
@@ -31,7 +31,7 @@
                 @if($reference_number)
                 <div class="alert alert-info mb-4">
                     <div class="d-flex align-items-center">
-                        <svg class="icon icon-sm me-2"><use xlink:href="#it-info-circle"></use></svg>
+                        <svg class="icon icon-sm me-2"><use href="#it-info-circle"></use></svg>
                         <span>Codice di prenotazione: <strong>{{ $reference_number }}</strong></span>
                     </div>
                 </div>

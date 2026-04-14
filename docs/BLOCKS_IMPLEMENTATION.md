@@ -321,9 +321,11 @@
 - ✅ Props ben definiti con default
 - ✅ Commento con usage example
 - ✅ Link a documentazione
-- ✅ Classi Bootstrap Italia (per compatibilità)
+- ✅ Classi **TailwindCSS** (NO Bootstrap Italia)
+- ✅ Alpine.js per interattività (x-data, @click, x-show, x-transition)
 - ✅ Accessibilità (ARIA labels, semantic HTML)
 - ✅ Responsive ready
+- ✅ Stringhe multilingua tramite `__('namespace::context.collection.key.type')` - **NO testo hardcoded**
 
 ---
 

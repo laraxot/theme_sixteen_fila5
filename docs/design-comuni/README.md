@@ -61,10 +61,21 @@ All comparison screenshots are in the `screenshots/` subdirectory:
 ### Module Docs
 - [Cms Module - Page Component Architecture](../../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md)
 - [Theme - Page Routing Architecture](../architecture/PAGE_ROUTING_ARCHITECTURE.md)
+- [Fixcity - Ticket Wizard Frontoffice](../../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md)
+- [Fixcity - CreateTicketWizardWidget](../../../../Modules/Fixcity/docs/CreateTicketWizardWidget.md)
+- [Story 7-47 - Privacy notice parity nello step 1](../../../../../_bmad-output/implementation-artifacts/7-47-segnalazione-crea-step1-privacy-notice-design-comuni-parity.md)
 
 ### BMad Docs
 - [Design Comuni Block Analysis](../../../../_bmad-output/design-comuni-block-analysis.md)
 - [Design Comuni PRD](../../../../_bmad-output/design-comuni-prd.md)
+
+### HTML Structure Comparison Tools
+- [bashscripts/html/README.md](../../../bashscripts/html/README.md) — Tool documentation for compare-html-body.py and html-structure-compare.sh
+- [bashscripts/body/](../../../bashscripts/body/) — Bash orchestrator scripts (html-structure-compare.sh, compare-segnalazioni-elenco.sh)
+- [Body Structure Comparison Output](../body-structure-comparison/) — Generated reports and parity scores
+- [Segnalazioni Elenco Report](../body-structure-comparison/segnalazioni-elenco/report.md) — Structured diff output with BLOCK/FLAG/WARN severity
+- [Segnalazioni Elenco Parity Score](../body-structure-comparison/segnalazioni-elenco/parity-score.md) — Score card tracking parity over runs
+- [Segnalazioni Elenco Analysis](../prompts/segnalazione_disservizio/segnalazioni-elenco-html-parity-analysis.md) — Phase 1 parity summary (90%+ structural)
 
 ## Progress Status
 
@@ -90,3 +101,37 @@ All comparison screenshots are in the `screenshots/` subdirectory:
 - [ ] Remaining 37 pages replication
 - [ ] Performance optimization
 - [ ] Accessibility audit (WCAG 2.1 AA)
+
+## Frontend Filament Runtime
+
+Pages under `tests/*` normally avoid Filament runtime chrome for parity work, but any page that mounts a Filament widget on the public frontend must opt back into `@filamentStyles` and `@filamentScripts`.
+
+Current reference case:
+- `tests.segnalazione-crea`
+- widget: `Modules\\Fixcity\\Filament\\Widgets\\CreateTicketWizardWidget`
+- failure mode without runtime: Alpine errors such as `step is not defined`, `isLastStep is not defined`, and `filamentSchemaComponent is not defined`
+
+- `tests/segnalazione-crea` usa runtime Livewire frontoffice, non `@filamentScripts`: il widget e' Livewire puro e Filament iniettava Alpine duplicato.
+
+## Ticket Wizard Note
+
+Per `tests/segnalazione-crea`, la parity con `segnalazione-01-privacy` non e solo un tema di CSS. Se il reference espone un blocco GDPR esplicito prima del checkbox, il tema deve conservare spazio e gerarchia per quel contenuto, mentre la scelta del componente resta governata dal modulo Fixcity:
+
+- `summary/autore read-only` -> Infolist
+- `privacy notice editoriale/legale nel form wizard` -> contenuto read-only nel Form Schema
+
+Questa distinzione evita di usare Infolists come martello universale e impedisce parity solo cosmetica.
+
+## Docs-first + agenti concorrenti
+
+- Prima di modificare asset o Blade per `segnalazione-crea`, aggiornare i docs canonici del modulo Fixcity e del tema Sixteen invece di aprire nuovi file paralleli.
+- Assumere sempre concorrenza tra agenti AI: preferire patch locali, link bidirezionali e indici aggiornati.
+- Per lo step 2 (`segnalazione-02-dati`) la regola condivisa e:
+  - `Section` governa la gerarchia visiva e il ritmo della pagina.
+  - `Infolist` governa solo dati read-only strutturati.
+  - `Placeholder` / `Text` / `View` nel Form Schema restano legittimi quando servono contenuti di supporto e non description-list data-driven.
+
+Documenti canonici:
+- [Fixcity / Filament Wizard Rules](../../../../Modules/Fixcity/docs/rules/filament-wizard-rules.md)
+- [Fixcity / Ticket Wizard Frontoffice](../../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md)
+- [Story 7-48 - step 2 visual parity via sections and infolist](../../../../../_bmad-output/implementation-artifacts/7-48-segnalazione-crea-step2-visual-parity-via-sections-and-infolist.md)

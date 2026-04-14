@@ -63,7 +63,7 @@
     >
         <span>{{ $title }}</span>
         <svg class="icon icon-xs">
-            <use xlink:href="#it-expand"></use>
+            <use href="#it-expand"></use>
         </svg>
     </button>
     

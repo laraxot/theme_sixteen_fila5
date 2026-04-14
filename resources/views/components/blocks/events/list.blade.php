@@ -37,7 +37,7 @@
                             @if(!empty($event['location']))
                                 <p class="card-text text-muted mb-3">
                                     <svg class="icon icon-sm me-1" aria-hidden="true">
-                                        <use xlink:href="#it-map-marker"></use>
+                                        <use href="#it-map-marker"></use>
                                     </svg>
                                     {{ $event['location'] }}
                                 </p>
@@ -45,7 +45,7 @@
                             
                             <a class="read-more" href="{{ $event['url'] ?? '#' }}">
                                 <span class="text">Leggi tutto</span>
-                                <svg class="icon"><use xlink:href="#it-arrow-right"></use></svg>
+                                <svg class="icon"><use href="#it-arrow-right"></use></svg>
                             </a>
                         </div>
                     </article>

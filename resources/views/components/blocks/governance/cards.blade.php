@@ -34,7 +34,7 @@
                             <a class="read-more ps-3" href="{{ $card['url'] ?? '#' }}">
                                 <span class="text">Vai alla pagina</span>
                                 <svg class="icon">
-                                    <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                                 </svg>
                             </a>
                         </div>
@@ -52,7 +52,7 @@
                         <a class="read-more" href="{{ $card['url'] ?? '#' }}">
                             <span class="text">Vai alla pagina</span>
                             <svg class="icon ms-0">
-                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
+                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
                             </svg>
                         </a>
                     </div>

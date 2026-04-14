@@ -36,7 +36,7 @@
                         <a href="{{ $card['url'] ?? '#' }}" class="btn btn-outline-primary btn-sm mt-2">
                             {{ $card['link_text'] }}
                             <svg class="icon icon-sm">
-                                <use xlink:href="#it-arrow-right"></use>
+                                <use href="#it-arrow-right"></use>
                             </svg>
                         </a>
                         @endif

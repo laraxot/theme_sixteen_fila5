@@ -1,0 +1,131 @@
+/* Design Comuni parity for Filament wizard widgets */
+/* Note: Using direct CSS classes instead of @apply for Tailwind 4 compatibility */
+
+.cmp-wizard-widget {
+    /* Section headings - match Design Comuni title-xxlarge */
+    .fi-fo-section-header-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+
+    .fi-fo-section-header-description {
+        font-size: 0.875rem;
+        color: #5c6f82;
+        margin-bottom: 0;
+    }
+
+    /* Card-like sections - match cmp-card */
+    .fi-fo-section {
+        margin-bottom: 2.5rem;
+        background: #fff;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .fi-fo-section-content {
+        padding: 0;
+    }
+
+    /* Form groups - match Bootstrap Italia form-group */
+    .fi-fo-field-wrapper {
+        background: #fff;
+        padding: 1rem;
+        margin-bottom: 0;
+        margin-top: 1rem;
+    }
+
+    /* Labels */
+    .fi-fo-field-wrp-label {
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    /* Inputs - match form-control */
+    .fi-fo-text-input input,
+    .fi-fo-textarea textarea,
+    .fi-fo-select select {
+        border: 1px solid #5c6f82;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        width: 100%;
+    }
+
+    .fi-fo-text-input input:focus,
+    .fi-fo-textarea textarea:focus,
+    .fi-fo-select select:focus {
+        border-color: #0056b3;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,86,179,0.25);
+    }
+
+    /* Helper text */
+    .fi-fo-field-wrp-hint {
+        font-size: 0.75rem;
+        color: #5c6f82;
+        margin-top: 0.25rem;
+    }
+
+    /* Submit button - match btn-primary mobile-full */
+    .fi-fo-wizard-submit-btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        background: #0056b3;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+        .fi-fo-wizard-submit-btn {
+            width: auto;
+            display: inline-block;
+        }
+    }
+}
+
+/* Stepper navigation parity */
+.steppers {
+    margin-bottom: 1.5rem;
+}
+
+.steppers-header {
+    display: flex;
+    align-items: center;
+}
+
+.steppers-header ul {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.steppers-header li {
+    margin-right: 1rem;
+    font-size: 0.875rem;
+}
+
+.steppers-header li.confirmed {
+    color: #008c45;
+}
+
+.steppers-header li.active {
+    color: #0056b3;
+    font-weight: 700;
+}
+
+.steppers-index {
+    font-size: 0.875rem;
+    color: #5c6f82;
+    margin-left: auto;
+}

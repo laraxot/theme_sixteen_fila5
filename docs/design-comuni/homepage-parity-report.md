@@ -133,3 +133,12 @@ Stato corrente del primo CTA `VAI ALLA PAGINA`:
 - icona freccia riallineata a `32x16`
 - padding e altezza del wrapper riallineati a `16/0/0/16` e `40px`
 - residuo ancora aperto: il testo locale rende piu stretto del riferimento e il CTA occupa circa `159px` invece di `172.5px`
+
+## Segnalazione Privacy CSS/JS Phase
+
+For `tests/segnalazione-01-privacy` the HTML parity is already above the operational threshold, so the next refinement loop is CSS/JS only.
+
+Current rule for this phase:
+- freeze HTML for the target page
+- refine only theme assets in `Themes/Sixteen/resources/css` and `resources/js`
+- validate through rebuilt assets plus fresh screenshots against the official Design Comuni reference

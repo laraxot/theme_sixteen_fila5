@@ -1,14 +1,47 @@
 /**
  * Design Comuni - Global Visual Parity CSS
- * 
+ *
  * Applies to ALL Design Comuni pages replicated in Sixteen theme.
  * Tailwind CSS + Alpine.js (NO Bootstrap Italia runtime).
- * 
+ *
  * Based on: https://italia.github.io/design-comuni-pagine-statiche/
- * 
+ *
  * Last updated: 2026-04-03
  * Verified: 54 pages captured, CSS fixes applied globally
  */
+
+/* ============================================================================
+   GLOBAL: Font Family - FORCE Titillium Web everywhere
+   Override Tailwind defaults, Filament, Debugbar monospace contamination
+   
+   CRITICAL: Use `body, body *` (NOT `body *:not(...)`) because Tailwind v4 
+   strips complex :not() selectors. Must use !important to override Filament/Tailwind base.
+   ============================================================================ */
+body,
+body *,
+html body,
+main,
+main *,
+.container,
+.container *,
+.row,
+.row *,
+[class*="col-"],
+[class*="col-"] * {
+  font-family: "Titillium Web" !important;
+}
+
+/* Preserve monospace for code elements */
+pre, code, kbd, samp,
+pre *, code *, kbd *, samp * {
+  font-family: "Roboto Mono", ui-monospace, monospace !important;
+}
+
+/* Preserve monospace for Debugbar - it needs its own fonts */
+.phpdebugbar, .phpdebugbar *,
+.sf-dump, .sf-dump * {
+  /* Let Debugbar keep its fonts - don't override */
+}
 
 /* ============================================================================
    GLOBAL: Card Layout (Governance, Argomenti, Servizi, Amministrazione, etc.)
