@@ -99,7 +99,7 @@
                     <div class="it-brand-wrapper">
                         <a href="{{ $homeUrl }}">
                             <svg class="icon" aria-hidden="true">
-                                <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
+                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                             </svg>
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ $cityName }}</h2>

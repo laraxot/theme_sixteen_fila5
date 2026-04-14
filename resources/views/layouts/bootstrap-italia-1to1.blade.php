@@ -45,7 +45,7 @@
   
   {{-- Footer - EXACT from upstream --}}
   <footer class="it-footer" id="footer">
-    <x-blocks.footer.exact-1to1 />
+    <x-pub_theme::blocks.footer.exact-1to1 />
   </footer>
   
 </body>

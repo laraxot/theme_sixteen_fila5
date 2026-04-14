@@ -38,7 +38,7 @@
                                 >
                                     <span class="visually-hidden">{{ __('Lingua attuale:') }}</span>
                                     ITA
-                                    <svg class="icon d-none d-lg-block"><use xlink:href="#it-expand"></use></svg>
+                                    <svg class="icon d-none d-lg-block"><use href="#it-expand"></use></svg>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="languageDropdown">
                                     <div class="link-list-wrapper">
@@ -78,7 +78,7 @@
                             <a href="{{ url('/') }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
                                 <svg class="icon" role="img" aria-labelledby="logo-title">
                                     <title id="logo-title">{{ config('app.name') }}</title>
-                                    <use xlink:href="#it-pa"></use>
+                                    <use href="#it-pa"></use>
                                 </svg>
                                 <div class="it-brand-text">
                                     <h2 class="no_toc">{{ config('app.name') }}</h2>
@@ -99,7 +99,7 @@
                                     data-bs-target="#searchModal"
                                 >
                                     <svg class="icon">
-                                        <use xlink:href="#it-search"></use>
+                                        <use href="#it-search"></use>
                                     </svg>
                                 </button>
                             </div>
@@ -110,12 +110,12 @@
                                 <ul>
                                     <li>
                                         <a href="#" aria-label="{{ __('Facebook') }}" target="_blank" rel="noopener noreferrer">
-                                            <svg class="icon"><use xlink:href="#it-facebook"></use></svg>
+                                            <svg class="icon"><use href="#it-facebook"></use></svg>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" aria-label="{{ __('Twitter') }}" target="_blank" rel="noopener noreferrer">
-                                            <svg class="icon"><use xlink:href="#it-twitter"></use></svg>
+                                            <svg class="icon"><use href="#it-twitter"></use></svg>
                                         </a>
                                     </li>
                                 </ul>
@@ -143,7 +143,7 @@
                                 data-bs-toggle="navbarcollapsible"
                                 data-bs-target="#nav"
                             >
-                                <svg class="icon"><use xlink:href="#it-burger"></use></svg>
+                                <svg class="icon"><use href="#it-burger"></use></svg>
                             </button>
                             
                             <div class="navbar-collapsable" id="nav">
@@ -154,7 +154,7 @@
                                         type="button"
                                         aria-label="{{ __('Chiudi menu') }}"
                                     >
-                                        <svg class="icon"><use xlink:href="#it-close-big"></use></svg>
+                                        <svg class="icon"><use href="#it-close-big"></use></svg>
                                     </button>
                                 </div>
                                 
@@ -202,7 +202,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Chiudi ricerca') }}">
-                    <svg class="icon"><use xlink:href="#it-close"></use></svg>
+                    <svg class="icon"><use href="#it-close"></use></svg>
                 </button>
             </div>
             <div class="modal-body">

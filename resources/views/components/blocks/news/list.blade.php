@@ -36,7 +36,7 @@
                             
                             <a class="read-more" href="{{ $item['url'] ?? '#' }}">
                                 <span class="text">Leggi tutto</span>
-                                <svg class="icon"><use xlink:href="#it-arrow-right"></use></svg>
+                                <svg class="icon"><use href="#it-arrow-right"></use></svg>
                             </a>
                         </div>
                     </article>

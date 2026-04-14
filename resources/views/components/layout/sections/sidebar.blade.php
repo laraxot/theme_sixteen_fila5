@@ -54,7 +54,7 @@
             @if($headerIcon)
                 <div class="sidebar-icon">
                     <svg class="icon">
-                        <use xlink:href="#{{ $headerIcon }}"></use>
+                        <use href="#{{ $headerIcon }}"></use>
                     </svg>
                 </div>
             @endif
@@ -90,7 +90,7 @@
                             <span class="{{ $navLinkClasses->implode(' ') }}">
                                 @if(isset($link['icon']))
                                     <svg class="icon icon-sm">
-                                        <use xlink:href="#{{ $link['icon'] }}"></use>
+                                        <use href="#{{ $link['icon'] }}"></use>
                                     </svg>
                                 @endif
                                 <span>{{ $link['label'] }}</span>
@@ -105,7 +105,7 @@
                             >
                                 @if(isset($link['icon']))
                                     <svg class="icon icon-sm">
-                                        <use xlink:href="#{{ $link['icon'] }}"></use>
+                                        <use href="#{{ $link['icon'] }}"></use>
                                     </svg>
                                 @endif
                                 <span>{{ $link['label'] }}</span>
@@ -265,7 +265,7 @@ Usage Examples:
         <li class="list-item active">
             <a href="#" class="list-link">
                 <svg class="icon icon-sm">
-                    <use xlink:href="#it-star-outline"></use>
+                    <use href="#it-star-outline"></use>
                 </svg>
                 <span>Elemento personalizzato</span>
             </a>

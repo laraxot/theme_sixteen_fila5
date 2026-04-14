@@ -43,7 +43,7 @@
 ======================================== */
 body {
   @apply font-sans text-base text-[#1A1A1A];
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -677,7 +677,7 @@ a {
   font-weight: 600;
 }
 .text-sans-serif {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 .lora {
   font-style: italic;
@@ -1454,4 +1454,46 @@ a {
 }
 .ps-0 {
   padding-left: 0;
+}
+.ps-5 {
+  padding-left: 3rem;
+}
+
+/* ========================================
+   MISSING BOOTSTRAP ITALIA CLASSES
+   Added 2026-04-09
+======================================== */
+
+/* Navbar mega menu indicator */
+.has-megamenu {
+  position: static;
+}
+
+/* Mobile full-width utility */
+.mobile-fill {
+  width: 100%;
+}
+
+/* Custom scrollbar styling */
+.perfect-scrollbar {
+  position: relative;
+  overflow-y: auto;
+}
+
+.perfect-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.perfect-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.perfect-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.perfect-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
 }

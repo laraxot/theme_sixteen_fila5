@@ -42,7 +42,7 @@
                             @for($i = 1; $i <= 5; $i++)
                             <button type="button" class="btn btn-outline-warning btn-sm" data-rating="{{ $i }}">
                                 <svg class="icon icon-sm">
-                                    <use xlink:href="#it-star"></use>
+                                    <use href="#it-star"></use>
                                 </svg>
                             </button>
                             @endfor

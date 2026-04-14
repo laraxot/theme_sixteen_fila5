@@ -38,7 +38,7 @@
         <a class="read-more" href="{{ $url }}">
             <span class="text">Vai alla pagina</span>
             <svg class="icon">
-                <use xlink:href="#it-arrow-right"></use>
+                <use href="#it-arrow-right"></use>
             </svg>
             <span class="sr-only">Vai alla pagina</span>
         </a>
@@ -47,7 +47,7 @@
         <a class="read-more" href="{{ $url }}">
             <span class="text">Vai alla pagina</span>
             <svg class="icon">
-                <use xlink:href="#it-arrow-right"></use>
+                <use href="#it-arrow-right"></use>
             </svg>
             <span class="sr-only">Vai alla pagina</span>
         </a>

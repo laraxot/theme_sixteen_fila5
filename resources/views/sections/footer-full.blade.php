@@ -16,7 +16,7 @@
                     <div class="it-brand-wrapper">
                         <a href="{{ $data['home_url'] ?? '/it' }}">
                             <svg class="icon" aria-hidden="true">
-                                <use xlink:href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-pa') }}"></use>
+                                <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-pa') }}"></use>
                             </svg>
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ $data['site_name'] ?? 'Nome del Comune' }}</h2>
@@ -129,7 +129,7 @@
                         <li class="list-inline-item">
                             <a class="text-underline" href="{{ $social['url'] }}" aria-label="{{ $social['label'] }}">
                                 <svg class="icon icon-white" aria-hidden="true">
-                                    <use xlink:href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#' . $social['icon']) }}"></use>
+                                    <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#' . $social['icon']) }}"></use>
                                 </svg>
                             </a>
                         </li>
