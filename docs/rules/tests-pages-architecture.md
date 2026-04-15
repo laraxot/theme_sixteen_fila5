@@ -41,8 +41,13 @@ new class extends Component {
 
 ### 6. Single Root Element
 - Livewire/Volt components MUST have single root HTML element
-- Use wrapper div: `<div class="tests-view-wrapper">...</div>`
+- Use canonical root wrapper: `<div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">...</div>`
 
 ## Reference
 - See: `pages/[container0]/[slug].blade.php` for correct pattern
 - See: `docs/architecture/PAGE_ROUTING_ARCHITECTURE.md`
+
+### 7. HTML Parity Tooling
+- Use `bashscripts/html/html-structure-compare.sh` as the canonical parity script
+- Pass the output path explicitly; do not hardcode theme paths inside `bashscripts`
+- Canonical page output for this phase: `laravel/Themes/Sixteen/docs/prompts/<slug>/body-structure-comparison/`

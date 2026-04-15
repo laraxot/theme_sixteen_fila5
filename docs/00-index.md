@@ -1,75 +1,62 @@
-# Sixteen Theme Documentation Index
+# Sixteen Theme — Sprint Operativo (00-index.md)
 
-**Last verified**: 2026-04-03
+> **Questo file** = vista operativa corrente (stories, parity phase, regole attive).
+> **Indice completo** = [00-INDEX.md](./00-INDEX.md) (300+ docs, navigazione per topic).
+
+**Last verified**: 2026-04-09
 **Status**: Active theme
-**Focus area**: Design Comuni visual parity on `Sixteen`
+**Focus area**: Design Comuni HTML parity on `Sixteen`
 
 ## Quick Navigation
 
-### Core references
-- [README.md](./README.md) - Theme overview
-- [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md) - Broader documentation map
-- [design-comuni/00-index.md](./design-comuni/00-index.md) - Active Design Comuni parity workspace
+### BMAD method (workflow ai, repo-wide)
 
-### Active homepage parity docs
-- [design-comuni/homepage-structure-diff-2026-04-02.md](./design-comuni/homepage-structure-diff-2026-04-02.md) - Body structure comparison, scripts excluded
-- [design-comuni/work-plan.md](./design-comuni/work-plan.md) - Current BMAD + GSD operating plan
-- [design-comuni/bmad-gsd-status-2026-04-03.md](./design-comuni/bmad-gsd-status-2026-04-03.md) - Latest execution status
-- [design-comuni/screenshots/homepage-visual-pass-2026-04-02.md](./design-comuni/screenshots/homepage-visual-pass-2026-04-02.md) - Screenshot-driven visual log
+- [bmad-method.md](./bmad-method.md) — puntatori a `docs/bmad/` e a `prompts/bmad.txt`
+- Documentazione root: [../../../../docs/bmad/setup-guide.md](../../../../docs/bmad/setup-guide.md)
 
-### Risultati Ricerca parity docs
-- [visual-comparison/RISULTATI-RICERCA-HTML-COMPARISON.md](./visual-comparison/RISULTATI-RICERCA-HTML-COMPARISON.md) - Full HTML/visual comparison with post-fix status (95%+ parity)
-- [screenshots/risultati-ricerca/reference-after-fix.png](./screenshots/risultati-ricerca/reference-after-fix.png) - Reference page screenshot
-- [screenshots/risultati-ricerca/local-after-fix.png](./screenshots/risultati-ricerca/local-after-fix.png) - Local page screenshot (post-fix)
+### Unified Ticket Wizard
+- [../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md](../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md) — design e architettura del wizard unificato.
+- Base Filament multi-step: [../../../Modules/Xot/docs/filament/widgets/xot-base-wizard-widget.md](../../../Modules/Xot/docs/filament/widgets/xot-base-wizard-widget.md) (`XotBaseWizardWidget`, DRY su `?step=` e stato wizard).
+- Pannello admin (resource CRUD, **non** il wizard pubblico): [CreateRecord pipeline](../../../Modules/Xot/docs/filament/pages/create-record-page.md) — `Filament\Resources\Pages\CreateRecord` vs `XotBaseCreateRecord`; evitare di confondere con `CreateTicketWizardWidget`.
+- Story BMAD (parity step 1: label **Autorizzazioni e condizioni**, CTA `mobile-full`, header/search con 7-29): [7-32](../../../../_bmad-output/implementation-artifacts/7-32-segnalazione-crea-design-comuni-step1-cta-stepper-labels-header-parity.md)
+- Story BMAD (step 2: **Usa la tua posizione**, coordinate Ticket, `?step=2`): [7-33](../../../../_bmad-output/implementation-artifacts/7-33-segnalazione-crea-step2-geolocation-use-my-location-and-step-query.md)
+- Story BMAD (refactor **Filament Schema Wizard** v5 al posto del Blade monolitico): [7-34](../../../../_bmad-output/implementation-artifacts/7-34-create-ticket-wizard-filament-schema-wizard-refactor.md)
 
-### Argomenti & Argomento parity docs
-- [visual-comparison/ARGOMENTI-ARGOMENTO-COMPARISON.md](./visual-comparison/ARGOMENTI-ARGOMENTO-COMPARISON.md) - Both topics pages comparison (90%+ parity)
-- [visual-comparison/reference-argomenti.html](./visual-comparison/reference-argomenti.html) - Reference HTML source
-- [visual-comparison/local-argomenti.html](./visual-comparison/local-argomenti.html) - Local HTML source
-- [visual-comparison/reference-argomento.html](./visual-comparison/reference-argomento.html) - Reference HTML source
-- [visual-comparison/local-argomento-v2.html](./visual-comparison/local-argomento-v2.html) - Local HTML source (post-fix)
+### HTML parity — body minimale e scoping parity-safe
+- [BODY_CLASS_RULE.md](./BODY_CLASS_RULE.md) — il `<body>` deve restare plain, senza classi custom.
+- [architecture/CSS-SCOPING-RULE.md](./architecture/CSS-SCOPING-RULE.md) — usare hook strutturali reali (`#main-container`, `.steppers-*`, `.cmp-*`) o data attribute applicativi stabili.
+- [STEPPER_MOBILE_FIRST_RULE.md](./STEPPER_MOBILE_FIRST_RULE.md) — stepper responsive senza selector runtime.
+- Modulo Fixcity rule: [../../../Modules/Fixcity/docs/html-body-parity-rule.md](../../../Modules/Fixcity/docs/html-body-parity-rule.md)
+- Story 1-3: [Stepper Responsive + No Italian + Body Plain](../../../.planning/stories/1-3-segnalazione-02-dati-stepper-responsive-no-italian-body-plain.md)
+- Story 1-4: [segnalazione-crea Header Parity + Stepper Responsive](../../../.planning/stories/1-4-segnalazione-crea-header-parity-stepper-responsive.md)
+- Story 1-5: [Geolocalizzazione "Usa la tua posizione" + Step Navigation](../../../.planning/stories/1-5-geolocation-step-navigation-segnalazione-crea.md)
+- Story 1-6: [Refactor Wizard — NO Filament Schemas, NO hardcoded blade](../../../.planning/stories/1-6-refactor-wizard-no-filament-schemas-no-hardcoded-blade.md)
+- Story 1-7: [Token-Efficient Agent Setup](../../../.planning/stories/1-7-token-efficient-agent-setup.md)
+- Story 1-8: [Wizard Filament Schemas + XotBaseWidget + HTML Parity](../../../.planning/stories/1-8-wizard-filament-schemas-xotbasewidget-html-parity.md)
+- Story 1-9: [Segnalazione-Crea Visual Parity — Filament Wizard](../../../.planning/stories/1-9-segnalazione-crea-visual-parity-filament-wizard.md)
+- Story 1-10: [Extract AddressInput to Geo Module — DDD Bounded Context](../../../.planning/stories/1-10-extract-address-input-to-geo-module.md)
 
-### Segnalazioni Elenco parity docs
-- [visual-comparison/SEGNALAZIONI-ELENCO-COMPARISON.md](./visual-comparison/SEGNALAZIONI-ELENCO-COMPARISON.md) - Reports listing page comparison (90%+ parity)
-- [visual-comparison/reference-segnalazioni-elenco.html](./visual-comparison/reference-segnalazioni-elenco.html) - Reference HTML source
-- [visual-comparison/local-segnalazioni-elenco-v2.html](./visual-comparison/local-segnalazioni-elenco-v2.html) - Local HTML source (post-fix)
+### CSS/JS Parity Phase
+- Story BMAD (parity **segnalazione-02-dati** HTML/visual): [7-3 segnalazione-02-dati html visual parity](../../../../_bmad-output/implementation-artifacts/7-3-segnalazione-02-dati-html-visual-parity.md)
+- [css-js-parity.md](./css-js-parity.md) - CSS/JS visual parity plan, build process, checklist
+- [text-paragraph-font-fix.md](./text-paragraph-font-fix.md) - Font fix: Lora → Titillium Web for .text-paragraph
+- [segnalazione-css-diff.md](./segnalazione-css-diff.md) - Segnalazione CSS diff analysis
 
-### Segnalazione Pages (2026-04-07)
-- [segnalazione-parity/README.md](./design-comuni/segnalazione-parity/README.md) - **Index** for all 7 segnalazione pages parity work
-- [segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md](./design-comuni/segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md) - Detailed HTML structure comparison
-- [segnalazione-parity/CSS_JS_PARITY_COMPLETE.md](./design-comuni/segnalazione-parity/CSS_JS_PARITY_COMPLETE.md) - CSS/JS parity completion report
-- [segnalazione-parity/reference-html/](./design-comuni/segnalazione-parity/reference-html/) - Reference HBS templates from official repo
-- [segnalazione-css-diff-2026-04-07.md](./segnalazione-css-diff-2026-04-07.md) - Previous CSS/JS differences analysis
-- [design-comuni/segnalazione-comparison-analysis.md](./segnalazione-comparison-analysis.md) - Earlier parity analysis report
-
-### HTML Structure Comparison Tools
-- [body-structure-comparison/segnalazioni-elenco/report.md](./body-structure-comparison/segnalazioni-elenco/report.md) — Latest comparison report (**77.8% parity**, 2026-04-08)
-- [body-structure-comparison/segnalazioni-elenco/diff_details.json](./body-structure-comparison/segnalazioni-elenco/diff_details.json) — Structured diff details (JSON)
-- [prompts/tests/reference_segnalazioni-elenco.html](./prompts/tests/reference_segnalazioni-elenco.html) — Reference HTML source
-- [prompts/tests/local_segnalazioni-elenco.html](./prompts/tests/local_segnalazioni-elenco.html) — Local HTML source
-- [prompts/tests/local_segnalazioni.html](./prompts/tests/local_segnalazioni.html) — Earlier local HTML snapshot
-- [bashscripts/html/README.md](../../../bashscripts/html/README.md) — Tool documentation
-- [bashscripts/html/html-structure-compare.sh](../../../bashscripts/html/html-structure-compare.sh) — Shell wrapper (usage: `./html-structure-compare.sh <page_name>`)
-- [bashscripts/html/compare-html-body.py](../../../bashscripts/html/compare-html-body.py) — Python comparison engine
-
-### Translations
-- [../../Modules/Fixcity/lang/it/segnalazione.php](../../Modules/Fixcity/lang/it/segnalazione.php) — Italian translations for segnalazione pages
-- [../../Modules/Fixcity/lang/en/segnalazione.php](../../Modules/Fixcity/lang/en/segnalazione.php) — English translations for segnalazione pages
+### Active segnalazione-dettaglio phase
+- [prompts/segnalazione-dettaglio/index.md](./prompts/segnalazione-dettaglio/index.md) - Prompt index, phase rules, output location
+- [prompts/segnalazione-dettaglio/body-structure-comparison/](./prompts/segnalazione-dettaglio/body-structure-comparison/) - HTML structure comparison artifacts
+- [../../../../bashscripts/docs/html/compare-html.md](../../../bashscripts/docs/html/compare-html.md) - Agnostic comparison tool docs
 
 ### Theme implementation entrypoints
-- `resources/css/app.css` - Primary CSS entrypoint for visual parity overrides
-- `resources/js/app.js` - Primary JS entrypoint for homepage runtime normalization
 - `resources/views/pages/tests/[slug].blade.php` - Folio page entry for `/it/tests/*`
-
-### Related module docs
-- [../../Modules/Cms/docs/00-index.md](../../Modules/Cms/docs/00-index.md) - Cms module documentation index
-- [../../Modules/Cms/docs/design-comuni-homepage.md](../../Modules/Cms/docs/design-comuni-homepage.md) - Cms-side parity coordination note
-- [../../Modules/Cms/docs/architecture/homepage-structure.md](../../Modules/Cms/docs/architecture/homepage-structure.md) - Homepage runtime architecture
-- [../../Modules/Cms/docs/body-structure-comparison/README.md](../../Modules/Cms/docs/body-structure-comparison/README.md) - Body structure comparison methodology
+- `resources/views/pages/[container0]/[slug].blade.php` - Reference pattern for CMS-driven pages
+- `config/local/fixcity/database/content/pages/tests.segnalazione-crea.json` - Ticket wizard entrypoint
 
 ## Notes
 
-- The active visual parity work is scoped to CSS/JS changes in the theme.
-- The homepage test route remains CMS-driven through the Cms module and the local JSON content source.
-- If this index diverges from the active parity docs, prefer the files under `docs/design-comuni/`.
-- HTML structure comparison tools live in `bashscripts/html/` (Python comparison) and `bashscripts/body/` (Bash orchestration).
+- HTML parity requires matching semantic tags, `id`s, and Bootstrap class names in the markup.
+- Bootstrap Italia CSS/JS must not be loaded; visual behavior remains `TailwindCSS + Alpine.js`.
+- Page-specific outputs belong in theme docs, not in `bashscripts`.
+- **CSS/JS Phase Rule**: Once HTML reaches 90%+ parity, ONLY CSS/JS are modified. HTML is frozen.
+- **Build Required**: After ANY CSS/JS change, run `npm run build && npm run copy` from `Themes/Sixteen/`.
+- **No dates in .md filenames**: Dates go inside document body, never in filename.

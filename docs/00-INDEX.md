@@ -34,6 +34,7 @@
 **Component System**:
 - [/blocks/](blocks/) - Block component documentation
 - [/components/](components/) - Blade component reference
+- [architecture/CSS-SCOPING-RULE.md](architecture/CSS-SCOPING-RULE.md) - Regola canonica: body plain, scoping solo su `page-content[data-slug][data-side]`, mai su `tests-view-wrapper`
 
 **Design System**:
 - Color palette & tokens → See PHASE-1-STRATEGY.md § "Design Tokens"
@@ -93,6 +94,8 @@
 
 **HTML Structure Comparison Tools**:
 - [bashscripts/docs/html/INDEX.md](../../bashscripts/docs/html/INDEX.md) - HTML comparison tools documentation
+- [Project MCP Servers](../../../docs/project/mcp-overview.md) - Memory and development MCP servers
+- [.qwen/mcp-servers/README.md](../../../.qwen/mcp-servers/README.md) - MCP servers detailed docs
 - [bashscripts/html/html-structure-compare.sh](../../bashscripts/html/html-structure-compare.sh) - Main comparison script
 - [bashscripts/html/extract-body-html.py](../../bashscripts/html/extract-body-html.py) - Body extraction helper
 - [bashscripts/html/compare-html-body.py](../../bashscripts/html/compare-html-body.py) - Structure comparison helper
@@ -488,4 +491,3 @@ Timeline: 90-150 minutes total (parallel execution)
 ```
 
 For detailed status, see: **PHASE-1-EXECUTION-STATUS.md**
-

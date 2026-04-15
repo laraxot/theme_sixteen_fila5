@@ -4,6 +4,16 @@ Canonical output area for HTML body structure comparisons between Design Comuni 
 
 ## Pages Compared
 
+### segnalazione-01-privacy
+
+**Parity Score: 93%** ✅ PASS (405/431 reference elements matched)
+
+Artifacts in [`./segnalazione-01-privacy/`](./segnalazione-01-privacy/):
+- [`report.md`](./segnalazione-01-privacy/report.md) — Detailed comparison report
+- [`reference.html`](./segnalazione-01-privacy/reference.html) — Reference HTML (cleaned)
+- [`local.html`](./segnalazione-01-privacy/local.html) — Local HTML (cleaned)
+- Full output: [`../../prompts/segnalazione-01-privacy/body-structure-comparison/`](../../prompts/segnalazione-01-privacy/body-structure-comparison/)
+
 ### segnalazioni-elenco
 
 **Parity Score: 77.8%** (603/775 elements identical)
@@ -27,6 +37,16 @@ Artifacts in [`./segnalazione-dettaglio/`](./segnalazione-dettaglio/):
 - [`local-body.html`](./segnalazione-dettaglio/local-body.html) — Local body (no `<script>`/`<style>`)
 - [`reference-structure.json`](./segnalazione-dettaglio/reference-structure.json) — Parsed reference tree
 - [`local-structure.json`](./segnalazione-dettaglio/local-structure.json) — Parsed local tree
+
+### segnalazione-02-dati
+
+**Parity Score: TBD%** (pending comparison)
+
+Artifacts in [`./segnalazione-02-dati/`](./segnalazione-02-dati/) *(to be generated)*:
+- Reference HTML: [`../../prompts/segnalazione-02-dati/reference_segnalazione-02-dati.html`](../../prompts/segnalazione-02-dati/reference_segnalazione-02-dati.html)
+- Analysis: [`../../prompts/segnalazione-02-dati/html-parity-analysis.md`](../../prompts/segnalazione-02-dati/html-parity-analysis.md)
+
+Run: `bashscripts/html/html-structure-compare.sh segnalazione-02-dati`
 
 ## Tooling
 

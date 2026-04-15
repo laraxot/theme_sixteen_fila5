@@ -40,8 +40,8 @@ main *:not(.d-none) {
 }
 
 html, body {
-  @apply m-0 p-0 w-full h-auto font-sans leading-normal;
-  font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
+  @apply m-0 p-0 w-full h-auto leading-normal;
+  font-family: "Titillium Web";
 }
 
 /* Bootstrap Italia design converted to Tailwind CSS with @apply */
@@ -475,10 +475,76 @@ html, body {
   color: #191919;
 }
 
-/* Mobile hamburger menu */
+/* Mobile hamburger menu - centered vertically */
 .custom-navbar-toggler {
   @apply border-0 bg-transparent p-2 block;
   color: #191919;
+  align-self: center;
+}
+
+/* Hamburger menu icon vertical centering */
+.navbar .custom-navbar-toggler .icon {
+  @apply align-middle;
+  vertical-align: middle;
+}
+
+/* Slim wrapper: language selector + user button contrast */
+.it-header-slim-wrapper {
+  background-color: #00333A !important;
+}
+
+.it-header-slim-wrapper .nav-link {
+  @apply text-white;
+  color: #ffffff !important;
+}
+
+.it-header-slim-wrapper .nav-link .icon {
+  fill: #ffffff !important;
+}
+
+.it-header-slim-wrapper .btn-primary {
+  background-color: #0066CC !important;
+  border-color: #0066CC !important;
+}
+
+.it-header-slim-wrapper .btn-primary .icon {
+  fill: #ffffff !important;
+}
+
+.it-header-slim-wrapper .btn-primary span:not(.rounded-icon) {
+  @apply text-white;
+  color: #ffffff !important;
+}
+
+/* Slim wrapper right zone alignment */
+.it-header-slim-right-zone {
+  @apply flex items-center gap-2;
+}
+
+/* Language dropdown styling */
+.it-header-slim-wrapper .dropdown-menu {
+  @apply mt-2;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.it-header-slim-wrapper .dropdown-item {
+  @apply text-gray-800 hover:bg-gray-100;
+  color: #191919;
+}
+
+/* Search label visible at all breakpoints */
+.search-label {
+  @apply text-white text-sm;
+  color: #ffffff !important;
+}
+
+/* User button icon white */
+.btn-primary .icon-white,
+.it-header-slim-wrapper .btn .icon {
+  fill: #ffffff !important;
 }
 
 @media (min-width: 992px) {
@@ -694,8 +760,8 @@ main {
 
 /* Ensure main content is visible */
 body {
-  @apply m-0 p-0 w-full h-auto font-sans text-base leading-normal block;
-  font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
+  @apply m-0 p-0 w-full text-base leading-normal block;
+  font-family: "Titillium Web";
   color: var(--bs-dark);
   background: white;
 }
@@ -2002,7 +2068,7 @@ section.py-4 {
 
 .cmp-input-search .search-title {
   @apply text-xl font-semibold text-gray-900;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .cmp-input-search .search-form .form-group {
@@ -2015,7 +2081,7 @@ section.py-4 {
 
 .cmp-input-search .input-group .form-control {
   @apply flex-1 px-4 py-3 border-0 outline-none text-base;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .cmp-input-search .input-group .form-control::placeholder {
@@ -2024,7 +2090,7 @@ section.py-4 {
 
 .cmp-input-search .input-group .btn-primary {
   @apply px-6 py-3 bg-[#0066cc] border-0 text-white font-semibold flex items-center gap-2 cursor-pointer transition-colors duration-200;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .cmp-input-search .input-group .btn-primary:hover {
@@ -2042,7 +2108,7 @@ section.py-4 {
 
 .cmp-accordion.faq .accordion-button {
   @apply w-full px-4 py-4 text-left flex items-center justify-between cursor-pointer transition-colors duration-200 rounded-t-lg;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
   font-size: 1.125rem;
   font-weight: 600;
   color: #FFFFFF !important;
@@ -2089,7 +2155,7 @@ section.py-4 {
 
 .cmp-accordion.faq .accordion-body {
   @apply px-4 pb-4 pt-2 text-base;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
   color: #334a52;
   background-color: #F2F9F9;
 }
@@ -2113,7 +2179,7 @@ section.py-4 {
 
 .link-list-block .link-list a {
   @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 /* FAQ Parity Styles */
 .dc-faq-hero-section {
@@ -2157,9 +2223,179 @@ section.py-4 {
    Added: 2026-04-07
    ============================================ */
 
+/* ============================================
+   STEPPERS - Design Comuni Parity (Mobile-First)
+   Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+   Added: 2026-04-12
+   ============================================ */
+
+/* Steppers wrapper */
+.steppers {
+  @apply w-full mb-4;
+}
+
+/* Steppers header */
+.steppers-header {
+  @apply w-full;
+}
+
+/* Steppers list - horizontal on desktop, scrollable on mobile */
+.steppers-header ul {
+  @apply flex flex-nowrap overflow-x-auto gap-0 list-none p-0 m-0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.steppers-header ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Stepper item */
+.steppers-header li {
+  @apply flex items-center flex-shrink-0 pr-4 text-sm;
+  font-family: 'Titillium Web', sans-serif;
+  color: var(--bs-gray-500, #767676);
+  position: relative;
+}
+
+/* Stepper number circle */
+.steppers-number {
+  @apply inline-flex items-center justify-center w-6 h-6 rounded-full mr-2 text-xs font-semibold;
+  background-color: var(--bs-gray-300, #e6e6e6);
+  color: var(--bs-gray-700, #5c6f82);
+}
+
+/* Active step */
+.steppers-header li.active {
+  @apply font-semibold;
+  color: var(--bs-primary, #00695c);
+}
+
+.steppers-header li.active .steppers-number {
+  @apply bg-green-700 text-white;
+  background-color: var(--bs-primary, #00695c);
+}
+
+/* Completed step */
+.steppers-header li.confirmed {
+  @apply text-green-700;
+  color: var(--bs-primary, #00695c);
+}
+
+.steppers-header li.confirmed .steppers-number {
+  @apply hidden;
+}
+
+.steppers-header li.confirmed .steppers-success {
+  @apply w-6 h-6 mr-2;
+  fill: var(--bs-primary, #00695c);
+}
+
+/* Stepper success icon */
+.steppers-success {
+  @apply mr-2 flex-shrink-0;
+}
+
+/* Steppers index (e.g., "2/4") */
+.steppers-index {
+  @apply block text-xs text-gray-500 mt-1;
+  font-family: 'Titillium Web', sans-serif;
+}
+
 /* Steppers content */
 .steppers-content {
   @apply w-full;
+}
+
+/* Steppers nav buttons */
+.steppers-nav {
+  @apply flex items-center justify-between w-full mt-6 pt-4 border-t border-gray-200;
+}
+
+.steppers-btn-prev,
+.steppers-btn-confirm,
+.steppers-btn-save {
+  @apply inline-flex items-center gap-2 text-sm;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* ============================================
+   MOBILE (< 992px): Show ONLY active step + index
+   Reference shows: "Dati di segnalazione    2/3"
+   ============================================ */
+@media (max-width: 991px) {
+  /* Hide all non-active steps on mobile */
+  .steppers-header li:not(.active) {
+    @apply hidden;
+  }
+
+  /* Active step: show as single line with index on right */
+  .steppers-header ul {
+    @apply flex-row items-center justify-between overflow-visible;
+  }
+
+  .steppers-header li.active {
+    @apply flex items-center justify-between w-full pr-0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bs-primary, #00695c);
+  }
+
+  /* Hide number circle on mobile - show only text */
+  .steppers-header li.active .steppers-number {
+    @apply hidden;
+  }
+
+  /* Hide success icon on mobile */
+  .steppers-header li.active .steppers-success {
+    @apply hidden;
+  }
+
+  /* Show visually-hidden text as visible label on mobile */
+  .steppers-header li.active .visually-hidden {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+    clip-path: none;
+  }
+
+  /* Index on right side of active step */
+  .steppers-index {
+    @apply text-sm font-normal ml-4 mt-0;
+    color: var(--bs-gray-600, #5c6f82);
+  }
+}
+
+/* ============================================
+   DESKTOP (≥ 992px): Full horizontal stepper
+   ============================================ */
+@media (min-width: 992px) {
+  .steppers-header ul {
+    @apply overflow-visible;
+  }
+
+  .steppers-header li::after {
+    content: '';
+    @apply absolute top-1/2 right-0 w-8 h-px bg-gray-300 -translate-y-1/2;
+  }
+
+  .steppers-header li:last-child::after {
+    display: none;
+  }
+
+  .steppers-header li.confirmed::after {
+    @apply bg-green-700;
+    background-color: var(--bs-primary, #00695c);
+  }
+
+  .steppers-index {
+    @apply text-right mt-0;
+  }
 }
 
 /* Card wrapper bg-grey */
@@ -2180,58 +2416,60 @@ section.py-4 {
 /* Title typography */
 .title-xxxlarge {
   @apply text-3xl md:text-4xl font-semibold leading-tight mb-4;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-xxlarge {
   @apply text-2xl md:text-3xl font-semibold leading-tight mb-3;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-large {
   @apply text-xl font-semibold leading-snug;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-medium-semi-bold {
   @apply text-lg font-semibold leading-normal;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-medium-2-semi-bold {
   @apply text-lg font-semibold leading-normal;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-small-semi-bold {
   @apply text-sm font-semibold leading-normal;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-xsmall {
   @apply text-xs leading-normal;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .title-xsmall-bold {
   @apply text-xs font-semibold leading-normal;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 /* Subtitle and paragraph */
 .subtitle-small {
   @apply text-sm leading-relaxed text-gray-700;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .text-paragraph {
-  @apply text-base leading-relaxed text-gray-700;
-  font-family: 'Lora', serif;
+  @apply text-base leading-relaxed;
+  font-family: 'Titillium Web';
+  color: #191919;
+  line-height: 1.6;
 }
 
 .text-paragraph-small {
   @apply text-sm leading-relaxed text-gray-600;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 /* Link colors */
@@ -2268,7 +2506,7 @@ section.py-4 {
 .input-wrapper input,
 .form-control {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 text-base;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .select-wrapper {
@@ -2278,7 +2516,7 @@ section.py-4 {
 .select-wrapper select,
 .form-select {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 text-base bg-white;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .text-area-wrapper {
@@ -2287,13 +2525,13 @@ section.py-4 {
 
 .text-area-wrapper textarea {
   @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 text-base resize-y;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 /* Buttons */
 .btn {
   @apply inline-flex items-center justify-center px-4 py-2 font-semibold text-base rounded-lg border-2 transition-colors duration-200 cursor-pointer no-underline;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Titillium Web';
 }
 
 .btn-primary {

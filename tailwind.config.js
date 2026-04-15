@@ -7,6 +7,37 @@ import colors from 'tailwindcss/colors';
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: 'class',
+    safelist: [
+        // Filament Form component classes (runtime generated)
+        'fi-fo-section',
+        'fi-fo-section-header',
+        'fi-fo-section-header-heading',
+        'fi-fo-section-header-description',
+        'fi-fo-field-wrp',
+        'fi-fo-field-wrp-label',
+        'fi-fo-field-wrp-helper-text',
+        'fi-fo-field-wrp-description',
+        'fi-fo-required-indicator',
+        'fi-fo-select',
+        'fi-fo-file-upload',
+        'fi-fo-checkbox',
+        'fi-fo-checkbox-label',
+        'fi-fo-wizard-actions',
+        // Filament Infolist component classes (runtime generated)
+        'fi-in-text-item',
+        'fi-in-text-item-icon',
+        // Filament Wizard classes
+        'fi-wiz-steps',
+        'fi-wiz-step-actions',
+        'fi-wiz-step-indicator',
+        'fi-wiz-step-indicator-state-completed',
+        'fi-wiz-step-indicator-state-active',
+        'fi-wiz-step-indicator-state-inactive',
+        // Custom parity classes
+        'wizard-required-note',
+        // Select form-select
+        'form-select',
+    ],
     content: [
         // Theme resources
         './resources/**/*.blade.php',

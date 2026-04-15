@@ -1,65 +1,59 @@
-@props([
-    'title' => '',
-    'description' => '',
-    'steps' => [],
-    'currentStep' => 1,
-    'variant' => 'horizontal',
-    'size' => 'md',
-    'navigable' => false,
-    'showDescription' => true,
-    'showNumbers' => true,
-    'theme' => 'primary',
-    'nonLinear' => false,
-])
+@props(['data' => []])
 
 @php
-    $steps = collect($steps)->map(function ($step, $index) {
-        if (is_string($step)) {
-            return [
-                'title' => $step,
-                'description' => null,
-                'completed' => false,
-                'disabled' => false,
-                'optional' => false,
-            ];
-        }
-        
-        return array_merge([
-            'title' => 'Step ' . ($index + 1),
-            'description' => null,
-            'completed' => false,
-            'disabled' => false,
-            'optional' => false,
-        ], $step);
-    });
+    $title = (string) ($data['title'] ?? '');
+    $description = (string) ($data['description'] ?? '');
+    $steps = (array) ($data['steps'] ?? []);
+    $currentStep = (int) ($data['currentStep'] ?? 1);
+    $navigable = (bool) ($data['navigable'] ?? false);
+    $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
 @endphp
 
-<section class="stepper-flow-section py-8" x-data="{ currentStep: {{ $currentStep }} }">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        @if($title || $description)
-            <div class="mb-8">
-                @if($title)
-                    <h2 class="text-2xl font-bold text-gray-900" data-element="stepper-title">{{ $title }}</h2>
-                @endif
-                @if($description)
-                    <p class="mt-2 text-gray-600" data-element="stepper-description">{{ $description }}</p>
-                @endif
-            </div>
-        @endif
-
-        <x-stepper
-            :steps="collect($steps)->pluck('title')->values()->toArray()"
-            :current-step="$currentStep"
-            :variant="$variant"
-            :size="$size"
-            :navigable="$navigable"
-            :show-description="$showDescription"
-            :show-numbers="$showNumbers"
-            :theme="$theme"
-            :non-linear="$nonLinear"
-            x-model="currentStep"
-        >
-            {{ $slot }}
-        </x-stepper>
+<div class="cmp-heading pb-3 pb-lg-4">
+    <div class="categoryicon-top d-flex">
+        <svg class="icon icon-primary mr-10 icon-md" aria-hidden="true">
+            <use href="{{ $sprite }}#it-warning"></use>
+        </svg>
+        <h1 class="title-xxxlarge">{{ $title }}</h1>
     </div>
-</section>
+    @if ($description !== '')
+        <p class="subtitle-small">{{ $description }}</p>
+    @endif
+</div>
+
+@if ($steps !== [])
+<div class="col-12">
+    <div class="steppers">
+        <div class="steppers-header">
+            <ul>
+                @foreach ($steps as $index => $step)
+                    @php
+                        $stepNum = $index + 1;
+                        $isCompleted = $stepNum < $currentStep;
+                        $isActive = $stepNum === $currentStep;
+                        $stepClass = $isCompleted ? 'confirmed' : ($isActive ? 'active' : '');
+                    @endphp
+                    <li class="{{ $stepClass }}">
+                        @if ($isCompleted)
+                            <svg class="icon steppers-success" aria-hidden="true">
+                                <use href="{{ $sprite }}#it-check"></use>
+                            </svg>
+                        @else
+                            <span class="steppers-number">{{ $stepNum }}</span>
+                        @endif
+                        <span class="visually-hidden">
+                            {{ $isCompleted ? __('fixcity::segnalazione.steps.confirmed.label') : ($isActive ? __('fixcity::segnalazione.steps.active.label') : __('fixcity::segnalazione.steps.step_number.label', ['number' => $stepNum])) }}: {{ $step['title'] ?? '' }}
+                        </span>
+                    </li>
+                @endforeach
+            </ul>
+            <span class="steppers-index">
+                {{ $currentStep }}/{{ count($steps) }}
+            </span>
+        </div>
+    </div>
+</div>
+<p class="title-xsmall d-lg-none my-5">
+    {{ __('fixcity::segnalazione.steps.current_of_total.label', ['current' => $currentStep, 'total' => count($steps)]) }}: {{ $steps[$currentStep - 1]['title'] ?? '' }}
+</p>
+@endif

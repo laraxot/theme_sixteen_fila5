@@ -16,7 +16,7 @@
 
     @stack('styles')
 </head>
-<body class="@yield('body_class')">
+<body>
     @yield('content')
 
     {{-- Splide JS for carousels --}}

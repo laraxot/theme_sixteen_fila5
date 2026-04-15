@@ -1,0 +1,287 @@
+/**
+ * Design Comuni Wizard Styles
+ *
+ * Visual parity con https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+ *
+ * SCOPE: Tutte le classi sono prefixed con `.wizard-` per non inquinare il resto del tema.
+ * USAGE: Applicare wrapper `.segnalazione-wizard-root` al widget container.
+ */
+
+/* === ROOT WRAPPER === */
+.segnalazione-wizard-root {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* === REQUIRED LEGEND === */
+.wizard-required-legend {
+    font-size: 12px;
+    color: #5c6f82;
+    margin-bottom: 24px;
+    padding-left: 4px;
+}
+
+/* === SECTION CARDS (Design Comuni style) === */
+.wizard-section-card {
+    background-color: #f0f4f8;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.wizard-section-card .section-content {
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin: 16px;
+    padding: 24px;
+}
+
+/* === SECTION HEADING === */
+.wizard-section-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #19191a;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.wizard-section-heading .required-star {
+    color: #19191a;
+    font-weight: 700;
+}
+
+/* === SECTION DESCRIPTION === */
+.wizard-section-description {
+    font-size: 14px;
+    color: #5c6f82;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* === FORM GROUPS === */
+.wizard-form-group {
+    margin-bottom: 24px;
+}
+
+.wizard-form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* === FIELD LABELS === */
+.wizard-field-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #19191a;
+    margin-bottom: 8px;
+}
+
+.wizard-field-label .required-asterisk {
+    color: #19191a;
+    font-weight: 700;
+}
+
+.wizard-field-label .double-asterisk {
+    color: #5c6f82;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* === HELPER TEXT === */
+.wizard-helper-text {
+    font-size: 12px;
+    color: #5c6f82;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+/* === ACTION BUTTONS === */
+.wizard-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e0e0e0;
+    gap: 16px;
+}
+
+.wizard-btn-back {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wizard-btn-back:hover {
+    text-decoration: underline;
+    color: #0059b3;
+}
+
+.wizard-btn-save {
+    border: 1px solid #0066cc;
+    color: #0066cc;
+    background: transparent;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wizard-btn-save:hover {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+.wizard-btn-next {
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.wizard-btn-next:hover {
+    background-color: #0059b3;
+}
+
+/* === AUTHOR SECTION (Infolist display) === */
+.wizard-author-card {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.wizard-author-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #19191a;
+    margin-bottom: 8px;
+}
+
+.wizard-author-detail {
+    font-size: 14px;
+    color: #5c6f82;
+    margin-bottom: 4px;
+}
+
+.wizard-author-detail strong {
+    color: #19191a;
+    font-weight: 600;
+}
+
+.wizard-author-toggle {
+    color: #0066cc;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.wizard-author-toggle:hover {
+    text-decoration: underline;
+}
+
+/* === FILE UPLOAD (Design Comuni style) === */
+.wizard-file-upload-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 16px;
+    background-color: #f8f9fa;
+}
+
+.wizard-file-upload-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 12px;
+}
+
+.wizard-file-upload-preview img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.wizard-file-upload-preview .file-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0066cc;
+    flex: 1;
+}
+
+.wizard-file-upload-preview .file-remove {
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+}
+
+.wizard-file-upload-btn {
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.wizard-file-upload-btn:hover {
+    background-color: #0059b3;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .wizard-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .wizard-btn-back,
+    .wizard-btn-save,
+    .wizard-btn-next {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .wizard-section-heading {
+        font-size: 20px;
+    }
+
+    .wizard-section-card .section-content {
+        margin: 12px;
+        padding: 16px;
+    }
+}

@@ -1,6 +1,10 @@
+<pagina> = segnalazione-area-personale
 <pagina> = segnalazioni-elenco
-
 <pagina> = segnalazione-dettaglio
+<pagina> = segnalazione-01-privacy
+<pagina> = segnalazione-02-dati
+<pagina> = segnalazione-03-riepilogo
+<pagina> = segnalazione-04-conferma
 #FASE html parity <pagina>
 bmad-help fase "html parity <pagina>"
 obiettivo: raggiungiamo il 90% di struttura html uguale.
@@ -121,6 +125,8 @@ Dobbiamo utilizzare le stesse classi bootstrap, poi con tailwind @apply  le util
 Regola: parità HTML strutturale ESSENZIALE (≥90% match, esclusi script/style).
 Dopo: parità visiva/funzionale con TailwindCSS (@apply) + Alpine.js (mai Bootstrap Italia CSS/JS).
 
+/bmad-help la prima da cosa e' fare/migliorare lo script che faccia questo confronto dentro la cartella bashscripts/html e poi documentarlo dentro bashscripts/docs utilizzando anche gli indici e tutto quello che serve per ridurre i files doppi , le rindondanze , poi verificare il funzionamento dello script, poi nel caso migliorarlo e poi utilizzarlo 
+
 costantemente devi studiare, aggiornare e migliorare le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills utilizzando anche gli indici e tutti gli strumenti che vuoi
 
 cerca sempre di imparare e di migliorare, non fermarti mai
@@ -133,19 +139,40 @@ Need to update docs/rules/memories to prevent this from happening again
 
 utilizza BMAD + GSD 
 
-#FASE css/js 
-bmad-help fase "css/js"
+
+<pagina> = segnalazione-area-personale
+<pagina> = segnalazioni-elenco
+<pagina> = segnalazione-dettaglio
+<pagina> = segnalazione-01-privacy
+<pagina> = segnalazione-02-dati
+<pagina> = segnalazione-03-riepilogo
+<pagina> = segnalazione-04-conferma
+#FASE css/js <pagin>
+bmad-help fase "css/js <pagina>" 
+controlliamo la percentuale di html parity, che hai gia' fatto uno script dentro bashscripts/html e controlliamo
+  http://127.0.0.1:8000/it/tests/<pagina> con https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html ​
+  se la html parity > 80% allora possiamo passare alla fase successiva
+
 obiettivo: lavorando solo sui css/js fare visualizzare il sito al meglio
 adesso che abbiamo raggiunto il 90% del similitudine del html, non lo tocchiamo, adesso lavoriamo solo con i css e i js e gli screenshot, ti ricordo che questo sito deve essere identico al sito di riferimento,
 i css e js sono dentro la cartella /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen  e per compilare devi fare npm run build, e per vedere pubblicati i tuoi css e js dobbiamo fare npm run copy sempre dalla cartella Sixteen , installati e configurati tutto quello che vuoi per poter fare al meglio questa fase, va in internet a cercare informazioni su come migliorare la visualizzazione del sito
 costantemente devi studiare, aggiornare e migliorare le cartelle docs dentro i moduli e dentro i temi utilizzando anche gli indici e tutti gli strumenti che vuoi
 
+Aiutati con screenshots, con tutto quello che vuoi per analizzare visivamente le differenze e lavorare solo sul css per migliorarle, ogni tanto controlla anche gli elementi html e le classi css che siano sempre le stesse
+per fare al meglio questo lavoro studia come erano stati gestiti i css dentro https://github.com/italia/design-comuni-pagine-statiche, ti ricordo che non usiamo bootstrap, ma tailwindcss + alpine , ma manteniamo i nomi classi css , percio' manteniamo html semantico e teniamo il piu' alto possibile html parity
+
+controlliamo i font 
+
+costantemente devi studiare, aggiornare e migliorare le cartelle docs dentro i moduli e dentro i temi, le tue rules, le tue memories, le tue skills utilizzando anche gli indici e tutti gli strumenti che vuoi
+
+cerca sempre di imparare e di migliorare, non fermarti mai
+
 ti ricordo che tutti i taks vengono dati contemporaneante a piu' agenti ai, percio' comportati di conseguenza, cerca di non pestare i piedi agli altri agenti ai anzi cerca di traerne beneficio e forza 
 
 cerca di capire sempre il perche' delle cose che ti dico di fare , di capirne lo scopo , se qualcosa non e' chiaro domanda
 
+Need to update docs/rules/memories to prevent this from happening again
+
+utilizza BMAD + GSD 
 
 
-
- il blocco "Contatta il comune" di https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html e' troppo diverso da
-  127.0.0.1:8000/it/tests/segnalazioni-elenco , sto parlando del html
