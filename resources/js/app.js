@@ -17,6 +17,7 @@ import { governanceCarousel } from './components/carousel';
 import './components/bootstrap-italia.js';
 import '@modules/Geo/resources/js/components/my-map-lit.js';
 import '@modules/Geo/resources/js/components/geo-latlng-input.js';
+import '@modules/Geo/resources/js/components/map-picker-lit.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
