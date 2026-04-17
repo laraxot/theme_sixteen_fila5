@@ -254,7 +254,7 @@ html, body {
 }
 
 .rounded-icon {
-  @apply inline-flex items-center justify-center w-6 h-6 bg-white/20 rounded-full;
+  @apply inline-flex items-center justify-center w-6 h-6 bg-white rounded-full;
 }
 
 /* SVG Icons styling */

@@ -29,6 +29,10 @@
                 display: none !important;
             }
         </style>
+        @if($isTestsRoute)
+        <!-- Bootstrap Italia CSS for test routes -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.0/dist/css/bootstrap-italia.min.css">
+        @endif
         @if(! $isTestsRoute)
             @filamentStyles
         @elseif($usesFrontendLivewire)
@@ -37,14 +41,20 @@
         @endif
         @if($isTestsRoute && ! $usesFrontendLivewire)
             @vite(['resources/css/app.css'], 'themes/Sixteen')
+            <link rel="stylesheet" href="/themes/Sixteen/css/header-fix.css">
+    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-header-fix.css">
+    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-map-fix.css">
         @elseif($isTestsRoute)
             @vite(['resources/css/app.css'], 'themes/Sixteen')
+            <link rel="stylesheet" href="/themes/Sixteen/css/header-fix.css">
+    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-header-fix.css">
+    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-map-fix.css">
         @else
             @vite(['resources/css/app.css'], 'themes/Sixteen')
             <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
         @endif
     </head>
-    <body>
+    <body class="{{$isTestsRoute ? 'tests-route' : ''}}">
         {{ $slot }}
         @if($renderRuntimeChrome)
             <livewire:toast />

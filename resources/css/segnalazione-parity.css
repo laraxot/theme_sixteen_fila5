@@ -1,4 +1,3 @@
-/**
 /* ============================================================================
    Segnalazione Pages - Visual Parity CSS
  *
@@ -29,9 +28,6 @@ html, body {
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
- *   - Spacing: mb h1=24px, h2=8px, p=24px
- *   - Container: max-width + padding match
- */
 
 /* ============================================================================
    0. BOOTSTRAP ITALIA REFERENCE COLORS
@@ -3218,7 +3214,7 @@ select:focus {
 }
 
 /* 27.17 Filament schema parity (wizard step 2) */
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section {
+.ticket-wizard-root .fi-section {
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -3229,25 +3225,25 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-se
   margin-bottom: 1.75rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-header {
+.ticket-wizard-root .fi-section .fi-section-header {
   padding: 0 !important;
   margin-bottom: 0.75rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-header-heading {
+.ticket-wizard-root .fi-section .fi-section-header-heading {
   font-size: 2rem !important;
   font-weight: 700 !important;
   color: #191919 !important;
   line-height: 1.25 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-header-description {
+.ticket-wizard-root .fi-section .fi-section-header-description {
   font-size: 1rem !important;
   color: #5c6f82 !important;
   margin-top: 0.35rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-content-ctn {
+.ticket-wizard-root .fi-section .fi-section-content-ctn {
   background: #f5f7f9 !important;
   border-radius: 4px !important;
   padding: 1.5rem 1.5rem 1.25rem !important;
@@ -3255,71 +3251,71 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-se
   max-width: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-content {
+.ticket-wizard-root .fi-section .fi-section-content {
   row-gap: 1.1rem !important;
   width: 100% !important;
   max-width: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-sc-text {
+.ticket-wizard-root .fi-section .fi-sc-text {
   color: #17324d !important;
   font-size: 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-wizard-widget {
+.ticket-wizard-root .cmp-wizard-widget {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-label,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-label-content {
+.ticket-wizard-root .fi-fo-field-label,
+.ticket-wizard-root .fi-fo-field-label-content {
   color: #17324d !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-input,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-select-input,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root textarea {
+.ticket-wizard-root .fi-input,
+.ticket-wizard-root .fi-select-input,
+.ticket-wizard-root textarea {
   font-size: 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-input-wrp,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-select,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-textarea {
+.ticket-wizard-root .fi-input-wrp,
+.ticket-wizard-root .fi-fo-select,
+.ticket-wizard-root .fi-fo-textarea {
   background: #fff !important;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field {
+.ticket-wizard-root .fi-fo-field {
   display: block !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-label-col,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-content-col {
+.ticket-wizard-root .fi-fo-field-label-col,
+.ticket-wizard-root .fi-fo-field-content-col {
   width: 100% !important;
   max-width: none !important;
   flex: 0 0 100% !important;
   padding: 0 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-content-col {
+.ticket-wizard-root .fi-fo-field-content-col {
   margin-top: 0.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-file-upload {
+.ticket-wizard-root .fi-fo-file-upload {
   background: #fff !important;
   border: 1px solid #d9e1e8 !important;
   padding: 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc {
+.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc {
   --cols-lg: repeat(3, minmax(0, 1fr));
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
+.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
   display: block !important;
   min-height: 4.5rem !important;
   background: #fff !important;
@@ -3327,50 +3323,50 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-se
   padding: 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index-mobile {
+.ticket-wizard-root .cmp-page-index,
+.ticket-wizard-root .cmp-page-index-mobile {
   display: none;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index {
+.ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index {
   display: block;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index-mobile {
+.ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index-mobile {
   display: block;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index {
+.ticket-wizard-root .cmp-page-index {
   top: 7rem;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-required-legend {
+.ticket-wizard-root .segnalazione-required-legend {
   margin-bottom: 1.5rem !important;
   color: #17324d !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-collapse-btn {
+.ticket-wizard-root .fi-section .fi-section-collapse-btn {
   color: #17324d !important;
 }
 
 /* Filament schema sections already render their own header:
    hide duplicate section labels generated by wrapper. */
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-section-label-ctn {
+.ticket-wizard-root .fi-sc-section-label-ctn {
   display: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-side-index {
+.ticket-wizard-root .wizard-side-index {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-side-index-box {
+.ticket-wizard-root .wizard-side-index-box {
   background: #fff !important;
   border: 1px solid #d9e1e8 !important;
   padding: 0.75rem 0.75rem 0.25rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-side-index-title {
+.ticket-wizard-root .wizard-side-index-title {
   color: #17324d !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
@@ -3378,12 +3374,12 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizar
   margin: 0 0 0.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-side-index .nav-item {
+.ticket-wizard-root .wizard-side-index .nav-item {
   list-style: none !important;
   border-bottom: 1px solid #d9e1e8 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-side-index .text-paragraph-small {
+.ticket-wizard-root .wizard-side-index .text-paragraph-small {
   color: #17324d !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
@@ -3391,7 +3387,7 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizar
 
 /* Step 2 — fallback mobile (AC2): indice orizzontale scrollabile sotto lg */
 @media (max-width: 991.98px) {
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-sidebar .wizard-side-index {
+  .ticket-wizard-root .wizard-sidebar .wizard-side-index {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -3401,7 +3397,7 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizar
     padding-bottom: 0.25rem !important;
   }
 
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .wizard-sidebar .wizard-side-index .nav-item {
+  .ticket-wizard-root .wizard-sidebar .wizard-side-index .nav-item {
     flex: 0 0 auto !important;
     border-bottom: none !important;
     border: 1px solid #d9e1e8 !important;
@@ -3815,7 +3811,7 @@ a {
 }
 
 /* Body text color - exact match */
-{
+body {
   color: rgb(25, 25, 25) !important;
   background-color: rgb(255, 255, 255) !important;
 }
@@ -5271,28 +5267,28 @@ textarea#details,
 }
 
 /* 29. Step 2 high parity hardening */
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-wizard-layout {
+.ticket-wizard-root .segnalazione-wizard-layout {
   align-items: flex-start !important;
   --bs-gutter-x: 2rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-side-column {
+.ticket-wizard-root .segnalazione-side-column {
   padding-right: 0.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-main-column {
+.ticket-wizard-root .segnalazione-main-column {
   padding-left: 0.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index {
+.ticket-wizard-root .cmp-page-index {
   max-width: 100% !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index .accordion-item {
+.ticket-wizard-root .cmp-page-index .accordion-item {
   border-color: #c5d0d9 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index .accordion-button {
+.ticket-wizard-root .cmp-page-index .accordion-button {
   min-height: 4rem !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
@@ -5300,7 +5296,7 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-p
   color: #17324d !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index .link-list a {
+.ticket-wizard-root .cmp-page-index .link-list a {
   padding: 0.875rem 1rem !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
@@ -5308,114 +5304,173 @@ div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-p
   color: #17324d !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index .link-list a span {
+.ticket-wizard-root .cmp-page-index .link-list a span {
   display: inline-block !important;
   max-width: 14rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-wizard-widget,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-step,
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-step > .fi-sc {
+.ticket-wizard-root .cmp-wizard-widget,
+.ticket-wizard-root .fi-sc-wizard,
+.ticket-wizard-root .fi-sc-wizard-step,
+.ticket-wizard-root .fi-sc-wizard-step > .fi-sc {
   width: 100% !important;
   max-width: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard {
+.ticket-wizard-root .fi-sc-wizard {
   row-gap: 1.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-header {
+.ticket-wizard-root .fi-sc-wizard-header {
   margin-bottom: 1.5rem !important;
 }
 
 /* Story 7-51: keep only Design Comuni stepper (remove duplicated Filament header above it). */
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-header {
+.ticket-wizard-root .fi-sc-wizard-header {
   display: none !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-step {
+.ticket-wizard-root .fi-sc-wizard-step {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-required-legend {
+.ticket-wizard-root .segnalazione-required-legend {
   margin-bottom: 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section {
+.ticket-wizard-root .fi-section {
   margin-bottom: 1.25rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-header {
+.ticket-wizard-root .fi-section .fi-section-header {
   margin-bottom: 0.5rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-content-ctn {
+.ticket-wizard-root .fi-section .fi-section-content-ctn {
   padding: 1.25rem 1.25rem 1rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-content {
+.ticket-wizard-root .fi-section .fi-section-content {
   row-gap: 0.875rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field {
+.ticket-wizard-root .fi-fo-field {
   margin-bottom: 0 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-fo-field-content-col {
+.ticket-wizard-root .fi-fo-field-content-col {
   margin-top: 0.375rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section[data-step-section="author"] .fi-section-content > .fi-grid {
+.ticket-wizard-root .fi-section[data-step-section="author"] .fi-section-content > .fi-grid {
   column-gap: 1rem !important;
   row-gap: 0.75rem !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
+.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
   min-height: 4rem !important;
   padding: 0.875rem 1rem !important;
   color: #17324d !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .btn-icon.btn-full {
+.it-header-slim-wrapper .btn-icon.btn-full {
   min-height: 2.75rem !important;
   padding: 0.25rem 1rem !important;
   border-radius: 0 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .btn-icon.btn-full span:not(.rounded-icon) {
+.it-header-slim-wrapper .btn-icon.btn-full span:not(.rounded-icon) {
   font-size: 0.9375rem !important;
   font-weight: 600 !important;
   line-height: 1.2 !important;
 }
 
-div.page-content[data-slug="tests.segnalazione-crea"] .it-header-center-content-wrapper .it-search-wrapper > span,
-div.page-content[data-slug="tests.segnalazione-crea"] .it-header-center-content-wrapper .search-label {
+.it-header-center-content-wrapper .it-search-wrapper > span,
+.it-header-center-content-wrapper .search-label {
   font-size: 1rem !important;
   font-weight: 600 !important;
 }
 
+/* --------------------------------------------------------------------------
+   33. Header CTA parity — "Accedi all'area personale"
+   Keep the real Design Comuni button geometry.
+   NOTE: .it-header-slim-wrapper is OUTSIDE .page-content — selectors must
+   target it globally (not scoped to page-content) to match.
+   -------------------------------------------------------------------------- */
+.it-header-slim-wrapper .btn-icon.btn-full {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.625rem !important;
+  width: auto !important;
+  min-width: fit-content !important;
+  height: 3rem !important;
+  min-height: 3rem !important;
+  padding: 0.75rem 1.5rem !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #007a52 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+}
+
+.it-header-slim-wrapper .btn-icon.btn-full:hover,
+.it-header-slim-wrapper .btn-icon.btn-full:focus-visible {
+  background: #00684a !important;
+  color: #fff !important;
+}
+
+.it-header-slim-wrapper .btn-icon.btn-full .rounded-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-width: 1.5rem !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0.75rem !important;
+  background: #fff !important;
+}
+
+.it-header-slim-wrapper .btn-icon.btn-full .icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  color: #007a52 !important;
+  fill: currentColor !important;
+}
+
+.it-header-slim-wrapper .btn-icon.btn-full span:not(.rounded-icon) {
+  display: inline-block !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: #fff !important;
+}
+
 @media (min-width: 992px) {
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .segnalazione-wizard-layout {
+  .ticket-wizard-root .segnalazione-wizard-layout {
     --bs-gutter-x: 2.5rem !important;
   }
 
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index .link-list a span {
+  .ticket-wizard-root .cmp-page-index .link-list a span {
     max-width: 100% !important;
   }
 }
 
 @media (max-width: 991.98px) {
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .cmp-page-index-mobile {
+  .ticket-wizard-root .cmp-page-index-mobile {
     margin-bottom: 1rem !important;
   }
 
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-header {
+  .ticket-wizard-root .fi-sc-wizard-header {
     margin-bottom: 1rem !important;
   }
 
-  div.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-section .fi-section-content-ctn {
+  .ticket-wizard-root .fi-section .fi-section-content-ctn {
     padding: 1rem !important;
   }
 }
