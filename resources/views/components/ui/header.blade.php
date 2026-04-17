@@ -52,12 +52,18 @@
                             
                             {{-- Area Personale / Login --}}
                             @auth
-                                <a class="btn btn-primary btn-sm" href="{{ route('filament.admin.pages.dashboard') }}" aria-label="{{ __('Area personale') }}">
-                                    {{ __('Area personale') }}
+                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.pages.dashboard') }}" data-element="personal-area-login" aria-label="{{ __('Area personale') }}">
+                                    <span class="rounded-icon" aria-hidden="true">
+                                        <svg class="icon icon-primary"><use href="#it-user"></use></svg>
+                                    </span>
+                                    <span class="d-none d-lg-block">{{ __('Accedi all'area personale') }}</span>
                                 </a>
                             @else
-                                <a class="btn btn-primary btn-sm" href="{{ route('filament.admin.auth.login') }}" aria-label="{{ __('Accedi') }}">
-                                    {{ __('Accedi') }}
+                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.auth.login') }}" data-element="personal-area-login" aria-label="{{ __('Accedi') }}">
+                                    <span class="rounded-icon" aria-hidden="true">
+                                        <svg class="icon icon-primary"><use href="#it-user"></use></svg>
+                                    </span>
+                                    <span class="d-none d-lg-block">{{ __('Accedi all'area personale') }}</span>
                                 </a>
                             @endauth
                         </div>

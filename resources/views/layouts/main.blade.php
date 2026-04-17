@@ -21,6 +21,8 @@
         </style>
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
+        <!-- Bootstrap Italia CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.0/dist/css/bootstrap-italia.min.css">
         @stack('styles')
     </head>
     <body class="min-h-screen antialiased bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">

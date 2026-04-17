@@ -261,6 +261,282 @@
     background-color: #0059b3;
 }
 
+/* === STORY 8.8 CONSOLIDATION === */
+.ticket-wizard-root {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.ticket-wizard-root .cmp-wizard-widget {
+    background: transparent;
+    box-shadow: none;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+.ticket-wizard-root .cmp-wizard-widget > form + .wizard-actions,
+.ticket-wizard-root .cmp-wizard-widget > .wizard-actions {
+    margin-top: 1.75rem;
+}
+
+.ticket-wizard-root .wizard-sidebar {
+    display: none;
+}
+
+.ticket-wizard-root .wizard-side-index-box {
+    position: sticky;
+    top: 1.5rem;
+    border-left: 4px solid #d9e1e8;
+    padding-left: 1rem;
+}
+
+.ticket-wizard-root .wizard-side-index-title {
+    margin: 0 0 0.875rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #17324d;
+}
+
+.ticket-wizard-root .wizard-side-index {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ticket-wizard-root .wizard-side-index .nav-item + .nav-item {
+    margin-top: 0.5rem;
+}
+
+.ticket-wizard-root .wizard-side-index .text-paragraph-small {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: #455a64;
+}
+
+.ticket-wizard-root .wizard-stepper {
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.ticket-wizard-root .step-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ticket-wizard-root .step-item {
+    min-width: 0;
+}
+
+.ticket-wizard-root .steppers-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.ticket-wizard-root .step-icon {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #dfe7ee;
+    color: #455a64;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.ticket-wizard-root .step-title {
+    min-width: 0;
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.25rem;
+    color: #455a64;
+    font-weight: 600;
+}
+
+.ticket-wizard-root .step-item.active .step-icon,
+.ticket-wizard-root .step-item.completed .step-icon {
+    background: #0066cc;
+    color: #fff;
+}
+
+.ticket-wizard-root .step-item.completed .step-title,
+.ticket-wizard-root .step-item.active .step-title {
+    color: #17324d;
+}
+
+.ticket-wizard-root .step-item.disabled .step-icon {
+    background: #eef2f6;
+    color: #7b8b99;
+}
+
+.ticket-wizard-root .step-item.disabled .step-title {
+    color: #7b8b99;
+}
+
+.ticket-wizard-root .progress-step {
+    margin-top: 0.875rem;
+    height: 0.375rem;
+    background: #d9e1e8;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.ticket-wizard-root .progress-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    background: #0066cc;
+    color: #fff;
+    font-size: 0.75rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.ticket-wizard-root .progress-bar-label {
+    display: none;
+}
+
+.ticket-wizard-root .segnalazione-required-legend {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #5c6f82;
+}
+
+.ticket-wizard-root .fi-sc-wizard-header {
+    display: none !important;
+}
+
+.ticket-wizard-root .fi-fo-section {
+    margin-bottom: 1.125rem;
+}
+
+.ticket-wizard-root .fi-fo-section-header {
+    padding-bottom: 0.375rem;
+}
+
+.ticket-wizard-root .fi-fo-section-header-description {
+    margin-bottom: 0;
+    margin-top: 0.125rem;
+}
+
+.ticket-wizard-root .fi-fo-section-content,
+.ticket-wizard-root .fi-section-content,
+.ticket-wizard-root .fi-section-content-ctn {
+    padding-top: 0 !important;
+}
+
+.ticket-wizard-root .fi-fo-field-wrp {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-fo-field-wrp,
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .geo-latlng-field {
+    margin-top: 0.125rem;
+}
+
+/* Ensure geo component is visible and properly rendered */
+.ticket-wizard-root .geo-latlng-field {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-fo-field-wrp.geo-latlng-field {
+    padding: 0 !important;
+}
+
+.ticket-wizard-root .latitude-longitude-map-shell {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    min-height: 340px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-fo-section-header,
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-section-header {
+    padding-bottom: 0.125rem;
+}
+
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-fo-section-header-description,
+.ticket-wizard-root .fi-fo-section[data-step-section="place"] .fi-section-header-description {
+    margin-top: 0;
+}
+
+.ticket-wizard-root .geo-latlng-field > .flex.gap-1 {
+    margin-bottom: 0.5rem;
+}
+
+.ticket-wizard-root .wizard-actions {
+    gap: 0.875rem;
+}
+
+.ticket-wizard-root .wizard-btn-back,
+.ticket-wizard-root .wizard-btn-next {
+    min-height: 2.75rem;
+}
+
+@media (min-width: 992px) {
+    .ticket-wizard-root .wizard-sidebar {
+        display: block;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .ticket-wizard-root .step-list {
+        gap: 0.5rem;
+    }
+
+    .ticket-wizard-root .step-title {
+        font-size: 0.875rem;
+        line-height: 1.15rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .ticket-wizard-root .step-list {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-wizard-root .steppers-content {
+        align-items: center;
+    }
+
+    .ticket-wizard-root .progress-bar-label {
+        display: inline;
+    }
+
+    .ticket-wizard-root .wizard-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ticket-wizard-root .wizard-btn-back,
+    .ticket-wizard-root .wizard-btn-next {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     .wizard-actions {

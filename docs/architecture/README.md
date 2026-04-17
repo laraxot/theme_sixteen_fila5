@@ -42,6 +42,29 @@
 - ✅ NEVER restore/revert old commits
 - ✅ Always move forward with improvements
 
+### 4. Frontend Dependency Resolution In Monorepo
+- ✅ `Sixteen` is the Vite root for the public frontend bundle
+- ✅ If the theme imports JS files from another module, bare imports inside those files must still resolve through the theme toolchain
+- ✅ For external packages like `lit` and `leaflet`, prefer explicit `resolve.alias` entries in `vite.config.js` when the importer is outside `laravel/Themes/Sixteen/`
+- ❌ Do not assume sibling modules can see `laravel/Themes/Sixteen/node_modules` automatically
+
+### Lit Rule
+- Lit official docs recommend installing the `lit` npm package and importing it directly from JavaScript modules
+- In this repository that installation boundary is the theme bundle actually running Vite
+- When a Geo-owned Lit component is imported by the Sixteen bundle, the theme must expose `lit` to Rollup/Vite even though the source file lives under `Modules/Geo`
+
+### Build And Publish Rule
+- `npm run build` generates the new theme manifest and hashed assets under `laravel/Themes/Sixteen/public/`
+- `npm run copy` must force-overwrite `public_html/themes/Sixteen/manifest.json` and the compiled assets, otherwise Laravel may keep serving an old JS entry even after a successful build
+- If the browser is still loading an older hashed bundle, inspect both manifests:
+  - `laravel/Themes/Sixteen/public/manifest.json`
+  - `public_html/themes/Sixteen/manifest.json`
+
+### Filament + Lit Rule
+- If a Geo Filament field selects a Lit renderer, the field still remains Filament-governed on the PHP side
+- The theme only bundles and publishes the Web Component assets
+- The field chooses the renderer; the theme does not choose field behavior
+
 ---
 
 ## 📁 Allowed Directory Structure

@@ -24,7 +24,7 @@
 
 ### HTML parity — body minimale e scoping parity-safe
 - [BODY_CLASS_RULE.md](./BODY_CLASS_RULE.md) — il `<body>` deve restare plain, senza classi custom.
-- [architecture/CSS-SCOPING-RULE.md](./architecture/CSS-SCOPING-RULE.md) — usare hook strutturali reali (`#main-container`, `.steppers-*`, `.cmp-*`) o data attribute applicativi stabili.
+- [architecture/CSS-SCOPING-RULE.md](./architecture/CSS-SCOPING-RULE.md) — usare hook strutturali reali (`#main-container`, `.steppers-*`, `.cmp-*`, `.ticket-wizard-root`) o data attribute applicativi stabili; evitare selettori fragili su slug runtime.
 - [STEPPER_MOBILE_FIRST_RULE.md](./STEPPER_MOBILE_FIRST_RULE.md) — stepper responsive senza selector runtime.
 - Modulo Fixcity rule: [../../../Modules/Fixcity/docs/html-body-parity-rule.md](../../../Modules/Fixcity/docs/html-body-parity-rule.md)
 - Story 1-3: [Stepper Responsive + No Italian + Body Plain](../../../.planning/stories/1-3-segnalazione-02-dati-stepper-responsive-no-italian-body-plain.md)
@@ -51,6 +51,12 @@
 - `resources/views/pages/tests/[slug].blade.php` - Folio page entry for `/it/tests/*`
 - `resources/views/pages/[container0]/[slug].blade.php` - Reference pattern for CMS-driven pages
 - `config/local/fixcity/database/content/pages/tests.segnalazione-crea.json` - Ticket wizard entrypoint
+
+### Vite + Lit Web Components Integration
+- [vite-lit-integration.md](./vite-lit-integration.md) — Vite configuration for building Lit Web Components (Lit 3.3.2, Leaflet 1.9.4)
+- [../../../Modules/Geo/docs/wiki/concepts/lit-web-components.md](../../../Modules/Geo/docs/wiki/concepts/lit-web-components.md) — Lit concepts, patterns, MyMap component
+- **Status**: ✅ Build working (2026-04-15)
+- **Key fix**: Added `@rollup/plugin-node-resolve` + `optimizeDeps` to resolve "lit" and "leaflet/dist/leaflet.css" imports
 
 ## Notes
 

@@ -6,7 +6,7 @@
     "isDynamicEntry": true
   },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-4gEIVCl_.css",
+    "file": "assets/app-test-C16CeGmt.css",
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -15,7 +15,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-BKzLxN2Q.css",
+    "file": "assets/app-D5QYBabW.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -24,7 +24,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DYvQ-VW5.js",
+    "file": "assets/app-DWM66l-T.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -32,7 +32,7 @@
       "node_modules/@splidejs/splide/dist/js/splide.esm.js"
     ],
     "css": [
-      "assets/app-BRKXMWAJ.css"
+      "assets/app-4obgQAYc.css"
     ]
   }
 }

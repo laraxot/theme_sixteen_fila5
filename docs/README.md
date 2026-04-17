@@ -134,3 +134,13 @@ I report storici nella root `docs/` restano utili come archivio, ma lo stato cor
 - [design-comuni/argomenti-parity-2026-04-02.md](./design-comuni/argomenti-parity-2026-04-02.md)
 - [design-comuni/argomento-parity-2026-04-02.md](./design-comuni/argomento-parity-2026-04-02.md)
 - [design-comuni/design-comuni-batch-audit.md](./design-comuni/design-comuni-batch-audit.md)
+
+## LLM Wiki Workflow
+
+- Canonical wiki layer: [../../../../docs/wiki/README.md](../../../../docs/wiki/README.md)
+- Theme synthesis entrypoint: [../../../../docs/wiki/index.md](../../../../docs/wiki/index.md)
+
+## LLM Wiki
+
+- [Sixteen Theme LLM Wiki](./llm-wiki.md)
+- [Sixteen Wiki README](./wiki/README.md)

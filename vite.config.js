@@ -1,8 +1,21 @@
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
+import nodeResolve from '@rollup/plugin-node-resolve';
+import path from 'path';
 
 export default defineConfig({
+    resolve: {
+        alias: {
+            '@modules': path.resolve(__dirname, '../../Modules'),
+            '@theme-lit': path.resolve(__dirname, 'node_modules/lit/index.js'),
+            '@theme-leaflet': path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet-src.js'),
+            '@theme-leaflet-css': path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet.css'),
+        },
+    },
+    optimizeDeps: {
+        include: ['leaflet', 'lit'],
+    },
     plugins: [
         laravel({
             input: [
@@ -34,7 +47,16 @@ export default defineConfig({
         sourcemap: false,
         target: 'es2020',
         cssCodeSplit: true,
-        assetsInlineLimit: 4096
+        assetsInlineLimit: 4096,
+        rollupOptions: {
+            plugins: [
+                nodeResolve({
+                    browser: true,
+                    preferBuiltins: false,
+                    extensions: ['.mjs', '.js', '.json', '.node', '.css'],
+                }),
+            ],
+        },
     },
     server: {
         hmr: { host: 'localhost' }

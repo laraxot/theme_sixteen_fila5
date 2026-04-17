@@ -35,6 +35,7 @@
 - [/blocks/](blocks/) - Block component documentation
 - [/components/](components/) - Blade component reference
 - [architecture/CSS-SCOPING-RULE.md](architecture/CSS-SCOPING-RULE.md) - Regola canonica: body plain, scoping solo su `page-content[data-slug][data-side]`, mai su `tests-view-wrapper`
+- [WEB-COMPONENTS-AND-BUILD-SYSTEM.md](WEB-COMPONENTS-AND-BUILD-SYSTEM.md) - Web Components (Lit.dev), build architecture, module vs theme assets, why module components must NOT be globally imported
 
 **Design System**:
 - Color palette & tokens → See PHASE-1-STRATEGY.md § "Design Tokens"

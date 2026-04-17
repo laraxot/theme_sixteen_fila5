@@ -1,6 +1,6 @@
 {
   "page": "segnalazione-crea",
-  "timestamp": "2026-04-09T12:38:09.617Z",
+  "timestamp": "2026-04-15T13:52:20.052Z",
   "viewport": {
     "name": "desktop",
     "width": 1440,
@@ -14,21 +14,21 @@
     "local": [
       {
         "fontFamily": "\"Titillium Web\"",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "color": "rgb(23, 51, 79)",
+        "lineHeight": "28px",
+        "count": 114,
+        "sample": "ITA selezionata"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
         "fontSize": "16px",
         "fontWeight": "400",
         "color": "rgb(0, 122, 82)",
         "lineHeight": "24px",
-        "count": 69,
+        "count": 73,
         "sample": "Vai ai contenuti"
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "18px",
-        "fontWeight": "400",
-        "color": "rgb(255, 255, 255)",
-        "lineHeight": "normal",
-        "count": 61,
-        "sample": "\n                                                \n"
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -36,16 +36,25 @@
         "fontWeight": "400",
         "color": "rgb(255, 255, 255)",
         "lineHeight": "21px",
-        "count": 45,
+        "count": 55,
         "sample": "Nome della Regione"
       },
       {
         "fontFamily": "\"Titillium Web\"",
-        "fontSize": "18px",
+        "fontSize": "16px",
         "fontWeight": "600",
-        "color": "rgb(255, 255, 255)",
-        "lineHeight": "normal",
-        "count": 17,
+        "color": "rgb(26, 26, 26)",
+        "lineHeight": "24.88px",
+        "count": 18,
+        "sample": "Nascondi la navigazione"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 122, 82)",
+        "lineHeight": "18px",
+        "count": 12,
         "sample": "\n                                                 "
       },
       {
@@ -54,35 +63,62 @@
         "fontWeight": "600",
         "color": "rgb(255, 255, 255)",
         "lineHeight": "18.6667px",
-        "count": 9,
+        "count": 11,
         "sample": "Seguici su"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "color": "rgb(255, 255, 255)",
+        "lineHeight": "normal",
+        "count": 8,
+        "sample": "\n                                                 "
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "color": "rgb(26, 26, 26)",
+        "lineHeight": "20px",
+        "count": 5,
+        "sample": "Dati della segnalazione"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "14px",
+        "fontWeight": "700",
+        "color": "rgb(26, 26, 26)",
+        "lineHeight": "20px",
+        "count": 4,
+        "sample": "1"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "color": "rgb(25, 25, 25)",
+        "lineHeight": "40px",
+        "count": 4,
+        "sample": "\n                            Luogo\n               "
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "22px",
+        "fontWeight": "700",
+        "color": "rgb(0, 122, 82)",
+        "lineHeight": "30px",
+        "count": 4,
+        "sample": "+"
       },
       {
         "fontFamily": "\"Titillium Web\"",
         "fontSize": "16px",
         "fontWeight": "500",
-        "color": "rgb(0, 102, 204)",
-        "lineHeight": "24px",
-        "count": 8,
-        "sample": "\n                                    \n            "
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "12px",
-        "fontWeight": "400",
-        "color": "rgb(0, 122, 82)",
-        "lineHeight": "17.1429px",
-        "count": 6,
-        "sample": "Rilascio Carta Identità Elettronica (CIE)"
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "16px",
-        "fontWeight": "600",
-        "color": "rgb(26, 26, 26)",
-        "lineHeight": "24.88px",
-        "count": 4,
-        "sample": "Nascondi la navigazione"
+        "color": "rgb(23, 50, 77)",
+        "lineHeight": "21.3333px",
+        "count": 3,
+        "sample": "\n                        \n  \n  \n\n        \n        "
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -95,6 +131,15 @@
       },
       {
         "fontFamily": "\"Titillium Web\"",
+        "fontSize": "15px",
+        "fontWeight": "600",
+        "color": "rgb(255, 255, 255)",
+        "lineHeight": "18px",
+        "count": 1,
+        "sample": "Accedi all'area personale"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
         "fontSize": "48px",
         "fontWeight": "700",
         "color": "rgb(25, 25, 25)",
@@ -104,19 +149,37 @@
       },
       {
         "fontFamily": "\"Titillium Web\"",
+        "fontSize": "28px",
+        "fontWeight": "700",
+        "color": "rgb(25, 25, 25)",
+        "lineHeight": "50px",
+        "count": 1,
+        "sample": "Luogo"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "16px",
+        "fontWeight": "700",
+        "color": "rgb(23, 50, 77)",
+        "lineHeight": "22.8571px",
+        "count": 1,
+        "sample": "\n        \n    "
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
         "fontSize": "20px",
         "fontWeight": "700",
         "color": "rgb(25, 25, 25)",
-        "lineHeight": "25px",
+        "lineHeight": "30px",
         "count": 1,
         "sample": "Contatta il comune"
       },
       {
         "fontFamily": "\"Titillium Web\"",
-        "fontSize": "40px",
-        "fontWeight": "700",
+        "fontSize": "24px",
+        "fontWeight": "600",
         "color": "rgb(26, 26, 26)",
-        "lineHeight": "50px",
+        "lineHeight": "30px",
         "count": 1,
         "sample": "Cerca"
       }
@@ -238,10 +301,10 @@
           "fontFamily": "\"Titillium Web\"",
           "fontSize": "18px",
           "fontWeight": "400",
-          "color": "rgb(255, 255, 255)",
-          "lineHeight": "normal",
-          "count": 61,
-          "sample": "\n                                                \n"
+          "color": "rgb(23, 51, 79)",
+          "lineHeight": "28px",
+          "count": 114,
+          "sample": "ITA selezionata"
         }
       },
       {
@@ -259,10 +322,10 @@
           "fontFamily": "\"Titillium Web\"",
           "fontSize": "18px",
           "fontWeight": "400",
-          "color": "rgb(255, 255, 255)",
-          "lineHeight": "normal",
-          "count": 61,
-          "sample": "\n                                                \n"
+          "color": "rgb(23, 51, 79)",
+          "lineHeight": "28px",
+          "count": 114,
+          "sample": "ITA selezionata"
         }
       },
       {
@@ -282,7 +345,7 @@
           "fontWeight": "400",
           "color": "rgb(0, 122, 82)",
           "lineHeight": "24px",
-          "count": 69,
+          "count": 73,
           "sample": "Vai ai contenuti"
         }
       },
@@ -303,7 +366,7 @@
           "fontWeight": "400",
           "color": "rgb(255, 255, 255)",
           "lineHeight": "21px",
-          "count": 45,
+          "count": 55,
           "sample": "Nome della Regione"
         }
       },
@@ -323,13 +386,13 @@
           "fontSize": "12px",
           "fontWeight": "400",
           "color": "rgb(0, 122, 82)",
-          "lineHeight": "17.1429px",
-          "count": 6,
-          "sample": "Rilascio Carta Identità Elettronica (CIE)"
+          "lineHeight": "18px",
+          "count": 12,
+          "sample": "\n                                                 "
         }
       },
       {
-        "type": "missing_in_local",
+        "type": "style_mismatch",
         "reference": {
           "fontFamily": "\"Titillium Web\"",
           "fontSize": "24px",
@@ -338,6 +401,15 @@
           "lineHeight": "30px",
           "count": 1,
           "sample": "Contatta il comune"
+        },
+        "local": {
+          "fontFamily": "\"Titillium Web\"",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(26, 26, 26)",
+          "lineHeight": "30px",
+          "count": 1,
+          "sample": "Cerca"
         }
       },
       {
@@ -377,7 +449,7 @@
           "fontSize": "20px",
           "fontWeight": "700",
           "color": "rgb(25, 25, 25)",
-          "lineHeight": "25px",
+          "lineHeight": "30px",
           "count": 1,
           "sample": "Contatta il comune"
         }
@@ -387,64 +459,64 @@
   "colors": {
     "local": [
       {
-        "color": "rgb(255, 255, 255)",
-        "count": 507
+        "color": "rgb(25, 25, 25)",
+        "count": 595
       },
       {
-        "color": "rgb(25, 25, 25)",
-        "count": 155
+        "color": "rgb(255, 255, 255)",
+        "count": 523
+      },
+      {
+        "color": "rgb(26, 26, 26)",
+        "count": 168
+      },
+      {
+        "color": "rgb(0, 122, 82)",
+        "count": 127
       },
       {
         "color": "rgba(255, 255, 255, 0.82)",
         "count": 70
       },
       {
-        "color": "rgb(0, 122, 82)",
-        "count": 63
-      },
-      {
-        "color": "rgb(26, 26, 26)",
-        "count": 46
+        "color": "rgb(23, 50, 77)",
+        "count": 56
       },
       {
         "color": "rgb(23, 51, 79)",
         "count": 26
       },
       {
-        "color": "rgb(0, 110, 71)",
+        "color": "oklch(0.414 0.112 45.904)",
+        "count": 20
+      },
+      {
+        "color": "rgb(93, 112, 131)",
         "count": 16
       },
       {
-        "color": "rgb(0, 102, 204)",
-        "count": 15
+        "color": "oklch(0.141 0.005 285.823)",
+        "count": 12
+      },
+      {
+        "color": "oklch(0.92 0.004 286.32)",
+        "count": 11
       },
       {
         "color": "rgb(92, 111, 130)",
+        "count": 10
+      },
+      {
+        "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(0, 0, 0, 0)",
         "count": 8
       },
       {
-        "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(255, 255, 255, 0.4)",
+        "color": "oklch(0.577 0.245 27.325)",
+        "count": 8
+      },
+      {
+        "color": "rgb(204, 0, 0)",
         "count": 6
-      },
-      {
-        "color": "rgba(255, 255, 255, 0.85)",
-        "count": 4
-      },
-      {
-        "color": "rgb(0, 102, 204) rgb(0, 102, 204) rgb(232, 232, 232)",
-        "count": 3
-      },
-      {
-        "color": "rgb(92, 111, 130) rgb(92, 111, 130) rgb(217, 227, 234)",
-        "count": 2
-      },
-      {
-        "color": "rgb(82, 82, 82)",
-        "count": 2
-      },
-      {
-        "color": "rgb(23, 50, 77)",
-        "count": 2
       }
     ],
     "reference": [
@@ -524,14 +596,6 @@
           "count": 14
         },
         {
-          "color": "rgb(93, 112, 131)",
-          "count": 8
-        },
-        {
-          "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(0, 0, 0, 0)",
-          "count": 7
-        },
-        {
           "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(255, 255, 255, 0.5)",
           "count": 6
         },
@@ -562,44 +626,36 @@
           "count": 70
         },
         {
+          "color": "rgb(23, 50, 77)",
+          "count": 56
+        },
+        {
           "color": "rgb(23, 51, 79)",
           "count": 26
         },
         {
-          "color": "rgb(0, 110, 71)",
-          "count": 16
+          "color": "oklch(0.414 0.112 45.904)",
+          "count": 20
         },
         {
-          "color": "rgb(0, 102, 204)",
-          "count": 15
+          "color": "oklch(0.141 0.005 285.823)",
+          "count": 12
+        },
+        {
+          "color": "oklch(0.92 0.004 286.32)",
+          "count": 11
         },
         {
           "color": "rgb(92, 111, 130)",
+          "count": 10
+        },
+        {
+          "color": "oklch(0.577 0.245 27.325)",
           "count": 8
         },
         {
-          "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(255, 255, 255, 0.4)",
+          "color": "rgb(204, 0, 0)",
           "count": 6
-        },
-        {
-          "color": "rgba(255, 255, 255, 0.85)",
-          "count": 4
-        },
-        {
-          "color": "rgb(0, 102, 204) rgb(0, 102, 204) rgb(232, 232, 232)",
-          "count": 3
-        },
-        {
-          "color": "rgb(92, 111, 130) rgb(92, 111, 130) rgb(217, 227, 234)",
-          "count": 2
-        },
-        {
-          "color": "rgb(82, 82, 82)",
-          "count": 2
-        },
-        {
-          "color": "rgb(23, 50, 77)",
-          "count": 2
         }
       ]
     }

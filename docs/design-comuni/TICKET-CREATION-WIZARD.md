@@ -146,7 +146,7 @@ All translations use: `fixcity::segnalazione.steps.<item>.<tipo>`
 
 ### CSS Fixes Applied
 
-1. **Parity scoping**: use page-scoped selectors on `div.page-content[data-slug="tests.segnalazione-crea"]`, not body classes
+1. **Parity scoping**: use stable wizard/theme hooks such as `.ticket-wizard-root` and `.tests-route`, not slug-coupled selectors
 2. **Stepper colors**: Fixed to green `#007A52` (not blue `#17334f`)
 3. **Form check margins**: Fixed to `40px` (was `24px/16px`)
 4. **Privacy label**: Fixed to `18px` (was `14px`)
