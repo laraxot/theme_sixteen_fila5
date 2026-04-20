@@ -62,9 +62,65 @@ return [
     'search_site' => 'Cerca',
     'search_site_aria' => 'Cerca nel sito',
     'open_close_menu' => 'Mostra/Nascondi la navigazione',
+    'header_mobile_nav' => [
+        'dialog_label' => 'Menu di navigazione del sito',
+    ],
     'hide_navigation' => 'Nascondi la navigazione',
     'skip_to_content' => 'Vai ai contenuti',
     'skip_to_footer' => 'Vai al footer',
+
+    // Header area personale (Design Comuni, utente autenticato) — chiavi a 5 elementi per label runtime
+    'header_area_personale' => [
+        'user_menu_toggle' => [
+            'label' => '',
+            'tooltip' => 'Apri o chiudi il menu del profilo utente',
+            'placeholder' => '',
+            'helper_text' => 'Comando mostra/nascondi dropdown nome utente',
+            'description' => 'Aria/UX menu utente header slim',
+        ],
+        'avatar_alt' => [
+            'label' => 'Avatar utente',
+            'tooltip' => 'Immagine profilo mostrata accanto al nome',
+            'placeholder' => '',
+            'helper_text' => 'Testo alternativo per accessibilità',
+            'description' => 'Alt immagine avatar nel pulsante utente',
+        ],
+        'my_services' => [
+            'label' => 'I miei servizi',
+            'tooltip' => 'Vai ai servizi personali del cittadino',
+            'placeholder' => '',
+            'helper_text' => 'Link alla pagina servizi di test CMS',
+            'description' => 'Voce menu dropdown area personale',
+        ],
+        'my_practices' => [
+            'label' => 'Le mie pratiche',
+            'tooltip' => 'Vai all’elenco delle tue pratiche',
+            'placeholder' => '',
+            'helper_text' => 'Link alla pagina area personale di test',
+            'description' => 'Voce menu dropdown area personale',
+        ],
+        'notifications' => [
+            'label' => 'Notifiche',
+            'tooltip' => 'Messaggi e aggiornamenti',
+            'placeholder' => '',
+            'helper_text' => 'Link alla sezione messaggi area personale',
+            'description' => 'Voce menu dropdown area personale',
+        ],
+        'settings' => [
+            'label' => 'Impostazioni',
+            'tooltip' => 'Preferenze e impostazioni account',
+            'placeholder' => '',
+            'helper_text' => 'Link alla pagina impostazioni o area personale',
+            'description' => 'Voce menu dropdown area personale',
+        ],
+        'logout' => [
+            'label' => 'Esci',
+            'tooltip' => 'Chiudi sessione e torna al sito pubblico',
+            'placeholder' => '',
+            'helper_text' => 'Azione POST logout applicativa',
+            'description' => 'Pulsante di logout nel menu utente',
+        ],
+    ],
 
     // Feedback/rating
     'feedback_rate_stars' => 'Valuta da 1 a 5 stelle la pagina',

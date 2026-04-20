@@ -76,7 +76,7 @@ Il tema implementa le pagine canoniche del modello Design Comuni Italia:
 
 | Componente | Priorità | Note |
 |-----------|---------|------|
-| Interactive Map (Leaflet.js) | CRITICA | Visualizzazione ticket su mappa |
+| Interactive Map (Leaflet.js) | IN CORSO | Runtime `MapPicker` attivo nel wizard segnalazioni, in hardening continuo su drag/fullscreen/layer |
 | Filter Components | ALTA | Ricerca avanzata servizi/documenti |
 | Timeline Component | MEDIA | Storico pratiche/atti |
 | Accordion AGID | MEDIA | FAQ e documenti espandibili |
@@ -121,6 +121,7 @@ x-sixteen::agid.card-news     → scheda notizia
 - [[../../../../../../laravel/Modules/UI/docs/wiki/overviews/ui-module|UI Module]] — design tokens di base (sovrascritta da Bootstrap Italia)
 - [[../../../../../../laravel/Modules/Lang/docs/wiki/overviews/lang-module|Lang Module]] — routing localizzato, traduzione componenti
 - [[../../../../../../laravel/Modules/Fixcity/docs/wiki/index|Fixcity Module]] — logica segnalazioni civiche (ticket system)
+- [[../../../../../../laravel/Modules/Geo/docs/wiki/concepts/map-picker-runtime-asset-governance.md|MapPicker Runtime Governance]] — regole runtime per marker, overlay controlli e stabilita mappa nel wizard
 - [[../../../../../../laravel/Themes/TwentyOne/docs/wiki/overviews/twentyone-theme|TwentyOne Theme]] — tema alternativo non-PA
 
 ## Raw Sources Prioritari

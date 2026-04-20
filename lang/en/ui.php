@@ -21,9 +21,65 @@ return [
     'search_site' => 'Search',
     'search_site_aria' => 'Search the site',
     'open_close_menu' => 'Show/Hide navigation',
+    'header_mobile_nav' => [
+        'dialog_label' => 'Site navigation menu',
+    ],
     'hide_navigation' => 'Hide navigation',
     'skip_to_content' => 'Skip to content',
     'skip_to_footer' => 'Skip to footer',
+
+    // Logged-in user header (Design Comuni pattern)
+    'header_area_personale' => [
+        'user_menu_toggle' => [
+            'label' => '',
+            'tooltip' => 'Open or close the user profile menu',
+            'placeholder' => '',
+            'helper_text' => 'Show/hide user dropdown',
+            'description' => 'User menu affordance in slim header',
+        ],
+        'avatar_alt' => [
+            'label' => 'User avatar',
+            'tooltip' => 'Profile image shown next to the name',
+            'placeholder' => '',
+            'helper_text' => 'Alternative text for accessibility',
+            'description' => 'Avatar alt text in header button',
+        ],
+        'my_services' => [
+            'label' => 'My services',
+            'tooltip' => 'Go to your personal services',
+            'placeholder' => '',
+            'helper_text' => 'Link to CMS tests services page',
+            'description' => 'Area personale dropdown item',
+        ],
+        'my_practices' => [
+            'label' => 'My cases',
+            'tooltip' => 'Go to your practices list',
+            'placeholder' => '',
+            'helper_text' => 'Link to personal area tests page',
+            'description' => 'Area personale dropdown item',
+        ],
+        'notifications' => [
+            'label' => 'Notifications',
+            'tooltip' => 'Messages and updates',
+            'placeholder' => '',
+            'helper_text' => 'Link to messages in personal area',
+            'description' => 'Area personale dropdown item',
+        ],
+        'settings' => [
+            'label' => 'Settings',
+            'tooltip' => 'Account preferences and settings',
+            'placeholder' => '',
+            'helper_text' => 'Link to settings or personal area hub',
+            'description' => 'Area personale dropdown item',
+        ],
+        'logout' => [
+            'label' => 'Sign out',
+            'tooltip' => 'End session and return to public site',
+            'placeholder' => '',
+            'helper_text' => 'POST logout application route',
+            'description' => 'Logout control in user menu',
+        ],
+    ],
 
     // Feedback/rating
     'feedback_rate_stars' => 'Rate this page from 1 to 5 stars',

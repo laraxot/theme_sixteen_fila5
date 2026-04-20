@@ -9,6 +9,20 @@
 - User-facing copy belongs in translations or CMS JSON.
 - For `/tests/[slug]` pages, keep route names stable and let content/config decide the slug value.
 
+## Geo Field Governance
+
+- Il tema `Sixteen` consuma i field Filament dei moduli; non ridefinisce la loro gerarchia PHP.
+- Gli SVG proprietari dei moduli restano nei moduli, sempre in `laravel/Modules/*/resources/svg/`; il tema li consuma via build/import, non li ricolloca.
+- Quando una pagina o un widget usa `Modules\Geo\Filament\Forms\Components\MapPicker`, la regola canonica e':
+  - `MapPicker` estende `Modules\Xot\Filament\Forms\Components\XotBaseField`;
+  - se `latitude` o `longitude` mancano, il runtime Geo tenta geolocalizzazione e usa la posizione corrente come coppia completa;
+  - il marker runtime deve essere custom e locale (`svg/png`), non il default marker Leaflet e non una URL `unpkg`;
+  - il tema puo' stilare o bundlare il runtime JS/CSS, ma non deve documentare pattern contrari (`extends Field`).
+- Riferimenti canonici:
+  - [../../../../docs/rules/xotbasefield-mandatory.md](../../../../docs/rules/xotbasefield-mandatory.md)
+  - [../../../Modules/Geo/docs/wiki/concepts/map-picker-filament-field.md](../../../Modules/Geo/docs/wiki/concepts/map-picker-filament-field.md)
+  - [../../../Modules/Geo/docs/wiki/index.md](../../../Modules/Geo/docs/wiki/index.md)
+
 ---
 
 ## 📋 Page Parity Analysis & Implementation
@@ -139,6 +153,7 @@ I report storici nella root `docs/` restano utili come archivio, ma lo stato cor
 
 - Canonical wiki layer: [../../../../docs/wiki/README.md](../../../../docs/wiki/README.md)
 - Theme synthesis entrypoint: [../../../../docs/wiki/index.md](../../../../docs/wiki/index.md)
+- Geo module local wiki for map/runtime rules: [../../../Modules/Geo/docs/wiki/index.md](../../../Modules/Geo/docs/wiki/index.md)
 
 ## LLM Wiki
 

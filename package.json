@@ -19,6 +19,7 @@
         "format": "prettier --write resources/**/*.{js,css,blade.php}",
         "test": "jest",
         "test:watch": "jest --watch",
+        "test:map-picker-smoke": "node scripts/map-picker-smoke.cjs",
         "analyze": "vite build --mode analyze",
         "analyze:serve": "npx serve dist",
         "bundle-report": "npm run analyze && open dist/stats.html",
