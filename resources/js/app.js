@@ -10,6 +10,7 @@
 
 import '@splidejs/splide/dist/css/splide.min.css';
 import '@theme-leaflet-css';
+import focus from '@alpinejs/focus';
 import { dropdownToggle } from './components/dropdown';
 import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
@@ -18,6 +19,10 @@ import './components/bootstrap-italia.js';
 import '@modules/Geo/resources/js/components/my-map-lit.js';
 import '@modules/Geo/resources/js/components/geo-latlng-input.js';
 import '@modules/Geo/resources/js/components/map-picker-lit.js';
+import '@modules/Geo/resources/js/components/location-picker-lit.js';
+import '@modules/Geo/resources/js/components/geo-map-widget.js';
+import '@modules/Geo/resources/js/components/place-picker-lit.js';
+import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -32,6 +37,8 @@ function registerAlpineComponents(AlpineInstance) {
     if (!AlpineInstance || document.documentElement.hasAttribute('data-sixteen-alpine-components')) {
         return;
     }
+
+    AlpineInstance.plugin(focus);
 
     AlpineInstance.data('dropdownToggle', dropdownToggle);
     AlpineInstance.data('modal', modal);
@@ -59,20 +66,32 @@ function registerAlpineComponents(AlpineInstance) {
     // Fixes inline x-data not being processed correctly by Livewire/Alpine
     AlpineInstance.data('headerMobileNav', () => ({
         mobileNavOpen: false,
+        _mq: null,
+        init() {
+            this._mq = window.matchMedia('(min-width: 992px)');
+            const onChange = () => {
+                if (this._mq.matches) {
+                    this.close();
+                }
+            };
+            this._mq.addEventListener('change', onChange);
+        },
         toggle() {
             this.mobileNavOpen = !this.mobileNavOpen;
             document.body.classList.toggle('nav-open', this.mobileNavOpen);
             if (this.mobileNavOpen) {
                 this.$nextTick(() => {
-                    const firstLink = document.querySelector('.navbar-collapsable .menu-wrapper a');
-                    if (firstLink) firstLink.focus();
+                    const firstLink = document.querySelector('#nav4 .menu-wrapper a');
+                    if (firstLink) {
+                        firstLink.focus();
+                    }
                 });
             }
         },
         close() {
             this.mobileNavOpen = false;
             document.body.classList.remove('nav-open');
-        }
+        },
     }));
 
     document.documentElement.setAttribute('data-sixteen-alpine-components', 'true');
@@ -87,6 +106,30 @@ if (window.Alpine) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const closeDropdownMenu = function(menu) {
+        if (!menu) {
+            return;
+        }
+
+        menu.classList.remove('show');
+        menu.style.removeProperty('display');
+        const openDropdown = menu.closest('.dropdown');
+        openDropdown?.classList.remove('is-open');
+        const openToggle = openDropdown?.querySelector('[data-bs-toggle="dropdown"]');
+        openToggle?.setAttribute('aria-expanded', 'false');
+    };
+
+    const openDropdownMenu = function(menu, dropdown, toggle) {
+        if (!menu || !toggle) {
+            return;
+        }
+
+        menu.classList.add('show');
+        menu.style.removeProperty('display');
+        dropdown?.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+    };
+
     const closeModal = function(modal) {
         if (!modal) {
             return;
@@ -142,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(toggle) {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
-            e.stopPropagation();
 
             const dropdown = this.closest('.dropdown');
             const menu = dropdown?.querySelector('.dropdown-menu');
@@ -150,16 +192,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
                 if (openMenu !== menu) {
-                    openMenu.classList.remove('show');
-                    const openToggle = openMenu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
-                    openToggle?.setAttribute('aria-expanded', 'false');
+                    closeDropdownMenu(openMenu);
                 }
             });
 
             if (menu) {
-                menu.classList.toggle('show', willOpen);
-                this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                if (willOpen) {
+                    openDropdownMenu(menu, dropdown, this);
+                } else {
+                    closeDropdownMenu(menu);
+                }
             }
+        });
+    });
+
+    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
     });
 
@@ -195,11 +244,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.addEventListener('click', function() {
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        if (target instanceof Element) {
+            if (target.closest('[data-bs-toggle="dropdown"]') || target.closest('.dropdown-menu')) {
+                return;
+            }
+        }
+
         document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
-            openMenu.classList.remove('show');
-            const openToggle = openMenu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
-            openToggle?.setAttribute('aria-expanded', 'false');
+            closeDropdownMenu(openMenu);
         });
     });
 
@@ -209,9 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
-            openMenu.classList.remove('show');
-            const openToggle = openMenu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
-            openToggle?.setAttribute('aria-expanded', 'false');
+            closeDropdownMenu(openMenu);
         });
 
         document.querySelectorAll('.modal.show').forEach(function(modal) {

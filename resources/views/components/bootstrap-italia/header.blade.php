@@ -9,36 +9,151 @@
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
                         <a class="navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
-                        <div class="it-header-slim-right-zone" role="navigation" x-data="{ langOpen: false }">
-                            <div class="nav-item dropdown" @click.outside="langOpen = false">
-                                <button type="button" class="nav-link dropdown-toggle" @click="langOpen = !langOpen" :aria-expanded="langOpen.toString()" aria-controls="languages" aria-haspopup="true">
+                        <div class="it-header-slim-right-zone" role="navigation">
+                            <div class="nav-item dropdown">
+                                <button type="button" class="nav-link dropdown-toggle" id="header-language-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="header-language-menu" aria-haspopup="true">
                                     <span class="visually-hidden">Lingua attiva:</span>
                                     <span>ITA</span>
                                     <svg class="icon">
                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
                                     </svg>
                                 </button>
-                                <div class="dropdown-menu" x-show="langOpen" x-transition x-cloak>
+                                <div class="dropdown-menu" id="header-language-menu" aria-labelledby="header-language-toggle">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="link-list-wrapper">
                                                 <ul class="link-list">
-                                                    <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-                                                    <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
+                                                    <li><a class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 flex items-center space-x-2" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
+                                                    <li><a class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 flex items-center space-x-2" href="#"><span>ENG</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-primary btn-icon btn-full" href="/it/tests/accesso-servizio" data-element="personal-area-login">
-                                <span class="rounded-icon" aria-hidden="true">
-                                    <svg class="icon icon-white">
-                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
-                                    </svg>
-                                </span>
-                                <span class="d-none d-lg-block">Accedi all'area personale</span>
-                            </a>
+                            @guest
+                                <a class="btn btn-primary btn-icon btn-full text-primary bg-white rounded-md" href="{{ route('login') }}" data-element="personal-area-login">
+                                    <span class="rounded-icon" aria-hidden="true">
+                                        <svg class="icon icon-white">
+                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="d-none d-lg-block">{{ __('pub_theme::ui.personal_area') }}</span>
+                                </a>
+                            @else
+                                @php
+                                    $authUser = auth()->user();
+                                    $headerProfile = $authUser?->profile;
+                                    $headerUserDisplayName = trim((string) ($headerProfile->user_name ?? ''));
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = trim((string) ($headerProfile->full_name ?? ''));
+                                    }
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = trim((string) ($authUser->user_name ?? ''));
+                                    }
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = trim((string) ($authUser->full_name ?? ''));
+                                    }
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = trim((string) (($authUser->first_name ?? '').' '.($authUser->last_name ?? '')));
+                                    }
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = (string) ($authUser->name ?? $authUser->email ?? 'Account');
+                                    }
+
+                                    $headerAvatarUrl = null;
+                                    if (\is_object($headerProfile) && method_exists($headerProfile, 'getAvatarUrl')) {
+                                        $headerAvatarUrl = $headerProfile->getAvatarUrl();
+                                    } elseif (filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
+                                        $headerAvatarUrl = $headerProfile->avatar_url;
+                                    } elseif (isset($authUser->profile_photo_url) && is_string($authUser->profile_photo_url) && $authUser->profile_photo_url !== '') {
+                                        $headerAvatarUrl = $authUser->profile_photo_url;
+                                    } elseif (! empty($authUser->profile_photo_path)) {
+                                        $p = $authUser->profile_photo_path;
+                                        if (\Illuminate\Support\Str::startsWith($p, ['http://', 'https://'])) {
+                                            $headerAvatarUrl = $p;
+                                        } elseif (\Illuminate\Support\Str::startsWith($p, '/')) {
+                                            $headerAvatarUrl = url($p);
+                                        } else {
+                                            $headerAvatarUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($p);
+                                        }
+                                    }
+                                @endphp
+                                <div class="it-user-wrapper nav-item dropdown">
+                                    <button
+                                        class="btn btn-primary btn-icon btn-full text-primary bg-white rounded-md"
+                                        type="button"
+                                        id="header-user-toggle"
+                                        data-bs-toggle="dropdown"
+                                        data-element="personal-area-login"
+                                        data-focus-mouse="false"
+                                        aria-expanded="false"
+                                        aria-controls="header-user-menu"
+                                        aria-haspopup="true"
+                                        title="{{ __('pub_theme::ui.header_area_personale.user_menu_toggle.tooltip') }}"
+                                    >
+                                        <span class="rounded-icon" aria-hidden="true">
+                                            @if ($headerAvatarUrl)
+                                                <img src="{{ $headerAvatarUrl }}" class="border rounded-circle icon-white" alt="{{ __('pub_theme::ui.header_area_personale.avatar_alt.label') }}" width="20" height="20">
+                                            @else
+                                                <svg class="icon icon-white">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                                                </svg>
+                                            @endif
+                                        </span>
+                                        <span class="d-none d-lg-block">{{ $headerUserDisplayName }}</span>
+                                        <svg class="icon icon-white d-none d-lg-block" aria-hidden="true">
+                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu" id="header-user-menu" aria-labelledby="header-user-toggle">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="link-list-wrapper">
+                                                    <ul class="link-list">
+                                                        <li>
+                                                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'servizi']) }}">
+                                                                <span>{{ __('pub_theme::ui.header_area_personale.my_services.label') }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
+                                                                <span>{{ __('pub_theme::ui.header_area_personale.my_practices.label') }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
+                                                                <span>{{ __('pub_theme::ui.header_area_personale.notifications.label') }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="divider"></span>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
+                                                                <span>{{ __('pub_theme::ui.header_area_personale.settings.label') }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <form method="POST" action="{{ route('logout') }}" class="mb-0">
+                                                                @csrf
+                                                                <button type="submit" class="list-item left-icon dropdown-item w-100 text-start border-0 bg-transparent p-0">
+                                                                    <span class="d-flex align-items-center gap-2 py-2 px-3">
+                                                                        <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-logout"></use>
+                                                                        </svg>
+                                                                        <span class="fw-bold">{{ __('pub_theme::ui.header_area_personale.logout.label') }}</span>
+                                                                    </span>
+                                                                </button>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endguest
                         </div>
                     </div>
                 </div>
@@ -144,7 +259,21 @@
                             <!-- Mobile overlay backdrop -->
                             <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="navbar-overlay" style="display: none;"></div>
                             <!-- Mobile menu panel -->
-                            <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
+                            <div
+                                x-show="mobileNavOpen"
+                                x-trap="mobileNavOpen"
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="translate-x-[-100%]"
+                                x-transition:enter-end="translate-x-0"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="translate-x-0"
+                                x-transition:leave-end="translate-x-[-100%]"
+                                class="navbar-collapsable"
+                                id="nav4"
+                                aria-label="{{ __('pub_theme::ui.header_mobile_nav.dialog_label') }}"
+                                @keydown.escape.window="close()"
+                                style="display: none;"
+                            >
                                 <div class="close-div">
                                     <button class="btn close-menu" type="button" @click="close()">
                                         <span class="visually-hidden">Nascondi la navigazione</span>
