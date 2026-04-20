@@ -1,5 +1,13 @@
 # Sixteen Wiki Log
 
+## [2026-04-20] rule | header SSoT del section layout
+- sources:
+  - `resources/views/components/sections/header/v1.blade.php`
+  - `../../../../docs/wiki/concepts/header-section-owner-rule.md`
+- summary:
+  - fissata come regola permanente del tema: se il layout usa `<x-section slug="header" />`, l'header owner e fonte di verita e' `components/sections/header/v1.blade.php`
+  - `bootstrap-italia/header.blade.php` non va assunto come owner automatico per `segnalazione-crea`
+
 ## [2026-04-20] implement | header slim segnalazione-crea fixato nel section owner reale
 - sources:
   - `resources/views/components/sections/header/v1.blade.php`

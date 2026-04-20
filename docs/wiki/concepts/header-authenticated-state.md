@@ -45,21 +45,19 @@ Regola pratica:
 Implementazione corrente consolidata per `segnalazione-crea`:
 
 - il file owner reale è `resources/views/components/sections/header/v1.blade.php`
-- i dropdown slim usano **Alpine.js** (`x-data`/`x-show`) — NON `data-bs-toggle`, NON vanilla JS in `app.js`
+- i dropdown slim usano `data-bs-toggle="dropdown"` e vengono gestiti dal runtime owner-side in `resources/js/app.js`
 - il resolver utente del section header privilegia il nome visibile e usa l'avatar solo come segnale secondario
 
-Logica: `@guest` / `@else`. Dropdown: **Alpine.js** con `x-data="{ langOpen: false }"` e `x-show="langOpen"`.
+Logica: `@guest` / `@else`. Dropdown: runtime theme owner-side, non Alpine inline.
 
 Meccanismo attivo:
 ```blade
-<div x-data="{ langOpen: false }" @click.away="langOpen = false">
-    <button @click="langOpen = !langOpen" :aria-expanded="langOpen">
-    <div class="dropdown-menu" x-show="langOpen" x-transition>
+<div class="dropdown">
+    <button data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="dropdown-menu">
 ```
 
-**VIETATO** aggiungere `data-bs-toggle="dropdown"` o un secondo sistema dropdown — il wiring Alpine è già presente.
-
-**Causa tipica dropdown non funzionanti**: Bootstrap Italia CSS ha `.dropdown-menu { display: none !important }` che sovrascrive Alpine `x-show`. Fix: aggiungere `!important` all'override CSS o usare `x-show` con `x-transition` che forza inline style.
+**VIETATO** reintrodurre Alpine inline o un secondo sistema dropdown dentro `v1.blade.php`.
 
 Traduzioni menu: namespace **`pub_theme`**, file `lang/{locale}/ui.php`, chiave radice **`header_area_personale`** (oggetti con `.label`, `.tooltip`, ecc., struttura estesa per i testi mostrati in UI).
 
@@ -92,13 +90,13 @@ Hub di contenuto su route Folio `tests.view`:
 
 ## Contratto dropdown funzionale (regola 2026-04-20)
 
-I dropdown lingua e utente slim usano **Alpine.js** (`x-data`/`x-show`) in `sections/header/v1.blade.php`. Devono essere **funzionalmente verificati**, non solo presenti nel DOM.
+I dropdown lingua e utente slim del section owner usano `data-bs-toggle="dropdown"` con runtime owner-side in `app.js`. Devono essere **funzionalmente verificati**, non solo presenti nel DOM.
 
 Checklist obbligatoria per ogni fix/story sull’header:
-- [ ] click sul toggle → dropdown si apre (`x-show` diventa true, Alpine aggiunge `display:block`)
-- [ ] secondo click o click fuori (`@click.away`) → dropdown si chiude
-- [ ] Alpine.js caricato nel layout usato dalla pagina
-- [ ] nessun Livewire `wire:navigate` o re-render che distrugge il contesto Alpine
+- [ ] click sul toggle → dropdown si apre (`.show` + `display:block` su `.dropdown-menu`)
+- [ ] secondo click o click fuori → dropdown si chiude
+- [ ] `app.js` caricato nel layout usato dalla pagina
+- [ ] nessun Livewire `wire:navigate` o re-render che distrugge i listener owner-side
 - [ ] z-index e overflow non bloccano il menu
 - [ ] avatar `<img>` ha classe `icon-white` (visibilità su barra slim scura)
 - [ ] nome utente `<span>` ha `d-none d-lg-block` (responsive, come reference)
@@ -107,9 +105,9 @@ Checklist obbligatoria per ogni fix/story sull’header:
 - [ ] screenshot prima/dopo salvati come evidenza
 
 Cause tipiche di dropdown non funzionanti:
-- Bootstrap Italia CSS: `.dropdown-menu { display: none !important }` sovrascrive Alpine `x-show` inline style
-- Alpine.js non caricato o inizializzato dopo il componente (`x-cloak` CSS mancante)
-- Livewire full-page re-render che distrugge il contesto Alpine
+- `app.js` non caricato nel layout specifico
+- doppio sistema di interazione tra Alpine inline e runtime owner-side
+- Livewire full-page re-render che distrugge i listener vanilla JS
 - z-index / overflow / stacking context bloccante
 
 ## Regola UX blocco utente slim — "Mario Rossi"
