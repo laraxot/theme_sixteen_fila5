@@ -115,11 +115,14 @@ body {
   background: var(--dc-blue-dark) !important;
   display: flex !important;
   padding-block: 0 !important; /* FIX: bootstrap-italia-classes.css adds py-2 (8px); reference header is exactly 48px with no padding */
+<<<<<<< HEAD
 }
 
 .it-header-slim-wrapper .it-header-slim-right-zone,
 .it-header-slim-wrapper .it-header-slim-right-zone .dropdown {
   overflow: visible !important;
+=======
+>>>>>>> 7aabf76 (.)
 }
 
 .it-header-slim-wrapper-content {
@@ -2917,7 +2920,11 @@ html body {
   padding: 0.75rem 1.5rem !important;
   border: 0 !important;
   border-radius: 0 !important;
+<<<<<<< HEAD
   background: var(--dc-blue-primary) !important;
+=======
+  background: #007a52 !important;
+>>>>>>> 7aabf76 (.)
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -2933,6 +2940,7 @@ html body {
   border: 0 !important;
   border-radius: 0.75rem !important;
   background: #fff !important;
+<<<<<<< HEAD
 }
 
 .it-header-slim-wrapper .it-user-wrapper .rounded-icon {
@@ -2953,12 +2961,18 @@ html body {
   height: 24px !important;
   border-radius: 9999px !important;
   object-fit: cover !important;
+=======
+>>>>>>> 7aabf76 (.)
 }
 
 .it-header-slim-wrapper .btn-icon.btn-full .icon {
   width: 1rem !important;
   height: 1rem !important;
+<<<<<<< HEAD
   color: #fff !important;
+=======
+  color: #007a52 !important;
+>>>>>>> 7aabf76 (.)
   fill: currentColor !important;
 }
 

@@ -5,7 +5,10 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import path from 'path';
 
 export default defineConfig({
+<<<<<<< HEAD
     base: '/themes/Sixteen/',
+=======
+>>>>>>> 7aabf76 (.)
     resolve: {
         alias: {
             '@modules': path.resolve(__dirname, '../../Modules'),
