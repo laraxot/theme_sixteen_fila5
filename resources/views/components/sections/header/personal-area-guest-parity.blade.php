@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 {{-- Guest personal area parity demo (for tests) --}}
-=======
->>>>>>> 92da240 (.)
 <div class="it-user-wrapper nav-item dropdown">
     <a
         href="#"
@@ -44,13 +41,9 @@
                                 <span>{{ __('pub_theme::ui.header_area_personale.notifications.label') }}</span>
                             </a>
                         </li>
-<<<<<<< HEAD
-                        <li><span class="divider"></span></li>
-=======
                         <li>
                             <span class="divider"></span>
                         </li>
->>>>>>> 92da240 (.)
                         <li>
                             <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
                                 <span>{{ __('pub_theme::ui.header_area_personale.settings.label') }}</span>
