@@ -1,11 +1,10 @@
 # Sixteen Wiki Log
 
-## [2026-04-21] fix | segnalazione-crea crash su component alias filament non risolto
+## [2026-04-21] story | 8-41 segnalazione-crea css dedup header-stepper-hamburger parity
 
-- **sources:** `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
-- **summary:** rimossa invocazione legacy
-  `x-filament-forms::field-wrapper.error-message` non disponibile nella versione Filament corrente; il crash bloccava il rendering del wizard in `/it/tests/segnalazione-crea`.
-- **artifact:** `../../Modules/Geo/docs/wiki/troubleshooting/filament-field-wrapper-error-message-missing.md`
+- **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
+- **summary:** creata story dedicata al cleanup dei blocchi CSS duplicati/conflittuali della pagina `tests/segnalazione-crea`, con focus su header link background, posizionamento hamburger, menu aperto mobile e artifact stepper.
+- **artifact:** `../../../../../_bmad-output/implementation-artifacts/8-41-segnalazione-crea-css-dedup-header-stepper-hamburger-parity.md`
 
 ## [2026-04-21] audit | parity segnalazione-privacy (header colori, cta, responsive)
 
@@ -13,14 +12,6 @@
 - **summary:** confronto visuale locale vs reference Design Comuni su mobile/tablet/desktop; colori header allineati (`slim` verde scuro, barra nav verde), rimossa CTA duplicata `Successivo`; `Accedi all'area personale` forzato al verde istituzionale.
 - **cta rule:** `Avanti` riposizionato sotto checkbox privacy su tutti i breakpoint.
 - **artifact:** `concepts/segnalazione-privacy-parity-audit.md`
-
-## [2026-04-21] governance | no docs/archive per nuova documentazione tema
-- **summary:** fissata regola locale: niente nuovi file in `Themes/Sixteen/docs/archive/`; nuova conoscenza solo in `docs/wiki/` e `docs/raw/`.
-- **artifact:** `concepts/no-docs-archive-rule.md`
-
-## [2026-04-21] governance | struttura wiki tema canonica e sacra
-- **summary:** recepita regola root sulla struttura wiki canonica, inclusi `_archive` e `_templates` come parti valide del wiki.
-- **artifact:** `../../../../docs/wiki/concepts/wiki-sacred-structure-rule.md`
 
 ## [2026-04-21] ui | segnalazione-crea cta parity (avanti unico)
 
@@ -36,6 +27,8 @@
 - **guardrail:** per frontoffice con Livewire, garantire disponibilità tabelle cache quando lo store runtime può risolvere su database.
 - **artifact:** `concepts/livewire-cache-table-rate-limiter.md`
 - **hardening:** resa idempotente la migrazione duplicata `2026_04_21_112114_create_cache_table` per prevenire regressioni su migrate completi.
+<<<<<<< HEAD
+=======
 
 ## [2026-04-21] fix | catena errori 404 + livewire/alpine bootstrap
 
@@ -53,6 +46,7 @@
 - **import:** aggiunto `@modules/Geo/resources/js/filament/map-picker.js` in `resources/js/app.js`.
 - **guardrail:** Blade = host/binding; LitElement = solo JS component module.
 
+>>>>>>> 792dd9de0 (refactor: migrate PageContent model to method-based casting and update module documentation status)
 ## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
 
 - **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/views/components/sections/header/personal-area-guest-cta.blade.php`, `resources/views/components/sections/header/personal-area-guest-parity.blade.php`, `resources/views/components/sections/header/user-dropdown.blade.php`

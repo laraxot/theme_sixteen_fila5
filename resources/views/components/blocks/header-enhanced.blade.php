@@ -6,9 +6,10 @@
     
     EXACT Design Comuni Colors:
     - Background: #FFFFFF (White)
-- City Name: #007A52 (Comune Green)
-    - Social Icons: #007A52 (Comune Green)
-    - Login Button: #007A52 (Comune Green)
+    - City Name: #0066CC (Blu Italia)
+    - Tagline: #666666 (Grigio Medio)
+    - Social Icons: #0066CC (Blu Italia)
+    - Login Button: #0066CC (Blu Italia)
 --}}
 
 @php

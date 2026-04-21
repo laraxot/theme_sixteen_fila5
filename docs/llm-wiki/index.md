@@ -8,8 +8,7 @@
 
 ## Concepts
 
-- [No docs archive rule](concepts/no-docs-archive-rule.md)
-- [Wiki sacred structure rule](concepts/wiki-sacred-structure-rule.md)
+_No concept pages created yet_
 
 ## Entities
 
@@ -35,8 +34,8 @@ _No troubleshooting pages created yet_
 
 ## Statistics
 
-- **Total Pages**: 2
-- **Last Ingestion**: 2026-04-21
+- **Total Pages**: 0
+- **Last Ingestion**: None yet
 - **Last Lint**: None yet
 
 ## Project Wiki Cross-References

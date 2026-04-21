@@ -16,8 +16,6 @@ You are the **Sixteen Wiki Maintainer**. Your job is to:
 
 - **raw/** = READ-ONLY (curated sources, NEVER modify)
 - **llm-wiki/** = WRITE-ALLOWED (LLM-generated knowledge)
-- **docs/archive/** = FORBIDDEN for new docs (legacy read-only)
-- **docs/wiki/_archive/** and **docs/wiki/_templates/** = canonical wiki folders, keep them intact
 - All pages MUST use YAML frontmatter schema
 
 ## Frontmatter Schema
