@@ -6,9 +6,13 @@ import path from 'path';
 
 export default defineConfig({
 <<<<<<< HEAD
+<<<<<<< HEAD
     base: '/themes/Sixteen/',
 =======
 >>>>>>> 7aabf76 (.)
+=======
+    base: '/themes/Sixteen/',
+>>>>>>> 92da240 (.)
     resolve: {
         alias: {
             '@modules': path.resolve(__dirname, '../../Modules'),
