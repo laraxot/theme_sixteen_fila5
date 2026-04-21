@@ -1,5 +1,5 @@
 # Sixteen Theme - Design Comuni Italia Documentation Index
-## FixCity Theme Documentation
+## [PROJECT_NAME] Theme Documentation
 
 **Project Goal**: Replicate Design Comuni static pages using Tailwind CSS + Alpine.js (no Bootstrap Italia runtime)
 
@@ -168,3 +168,10 @@ I report storici nella root `docs/` restano utili come archivio, ma lo stato cor
 
 - [Sixteen Theme LLM Wiki](./llm-wiki.md)
 - [Sixteen Wiki README](./wiki/README.md)
+
+
+## Standard Rules & Workflow
+
+- [[BMAD Method](../../../../docs/wiki/concepts/bmad-method.md)]
+- [[Context Engineering](../../../../docs/wiki/concepts/context-engineering.md)]
+- [[LLM Wiki Governance](../../../../docs/wiki/concepts/llm-wiki-governance.md)]

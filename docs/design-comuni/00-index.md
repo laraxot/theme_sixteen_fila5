@@ -27,8 +27,6 @@
 - **[FAIL_PAGES_DETAIL_REPORT.md](./FAIL_PAGES_DETAIL_REPORT.md)** - Analisi dettagliata 3 pagine fail
 - **[FAIL_PAGES_FIX_REPORT.md](./FAIL_PAGES_FIX_REPORT.md)** - Report fix pagine fail
 - **[css-js-pass-2026-04-04.md](./css-js-pass-2026-04-04.md)** - Pass operativo CSS/JS con screenshot aggiornati e blocker JSON/Blade
-<<<<<<< HEAD
-=======
 - **[HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md)** - Analisi dettagliata struttura HTML homepage (81% similarita, 2026-04-07)
 - **[HOMEPAGE_VISUAL_PARITY_SESSION.md](./HOMEPAGE_VISUAL_PARITY_SESSION.md)** - Sessione fix CSS/JS homepage (2026-04-07) ✅ Phase 1 Complete
 - **[HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md](./HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)** - 🔴 Analisi strutturale finale (85% structural, ~90% visual)
@@ -38,7 +36,6 @@
 - **[MERGE_CONFLICT_RESOLUTION_LOG.md](./MERGE_CONFLICT_RESOLUTION_LOG.md)** - Log risoluzione conflitti di merge
 - **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - Confronto strutturale HTML homepage (2026-04-07)
 - **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - Pattern strutturali Design Comuni
->>>>>>> 4b74b32 (.)
 - **[segnalazione-flow/README.md](./segnalazione-flow/README.md)** - Stato parity CSS/JS flow 8 pagine segnalazione (2026-04-07)
 
 ## Current focus

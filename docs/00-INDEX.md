@@ -21,6 +21,7 @@
 3. [PHASE-1-FINDINGS.md](PHASE-1-FINDINGS.md) - ⏳ Gap analysis (created after comparison)
 4. [PHASE-1-COMPLETION-REPORT.md](PHASE-1-COMPLETION-REPORT.md) - ⏳ Results (created after verification)
 5. [Directory Structure Rules](../../docs/directory-structure-rules.md) - vietati `lang/lang/` e `_docs/` nei temi
+6. [Merge Conflict Marker Cleanup](merge-conflict-marker-cleanup.md) - regola batch sparsi per cleanup `<<<<<<< HEAD`
 
 ---
 

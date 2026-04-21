@@ -10,27 +10,17 @@
 
 ## Executive Summary
 
-<<<<<<< HEAD
-**Structural Match: ~92%** — The local version faithfully reproduces the reference structure with high fidelity. All major sections are present with correct nesting. Key differences are in implementation details (Alpine.js additions, extra search section, inline styles) rather than missing structural elements.
-
-| Metric | Reference | Local | Match? |
-|--------|-----------|-------|--------|
-| Total sections | 4 | 5 | ⚠️ Extra section in local |
-=======
 **Structural Match: ~98%** — The local version faithfully reproduces the reference structure with high fidelity. All major sections are present with correct nesting. 4 of 5 reported issues verified as already fixed or false positives. 1 minor issue remains open (id="rating" placement).
 
 | Metric | Reference | Local | Match? |
 |--------|-----------|-------|--------|
 | Total sections | 4 | 4 | ✅ Match |
->>>>>>> 4b74b32 (.)
 | Header structure | `it-header-wrapper` | `it-header-wrapper` | ✅ |
 | Main wrapper | `<main>` | `<main>` | ✅ |
 | Footer structure | `it-footer` | `it-footer` | ✅ |
 | Search modal | Present | Present | ✅ |
 | Skiplinks | Present | Present | ✅ |
 
-<<<<<<< HEAD
-=======
 ### Verification Status (2026-04-07)
 | # | Issue | Status | Details |
 |---|-------|--------|---------|
@@ -40,7 +30,6 @@
 | 4 | `<textarea>` → `<input>` | ✅ FALSE POSITIVE | Reference uses `<textarea>` |
 | 5 | `id="rating"` placement | ⚠️ OPEN | Minor, cosmetic |
 
->>>>>>> 4b74b32 (.)
 ---
 
 ## 1. Overall Page Structure
@@ -313,50 +302,20 @@ This is a content difference, not structural. The `<div class="link-list-heading
 
 ### 3.1 Additional Search Section (`<section.section.section-muted>`)
 
-<<<<<<< HEAD
-**Location:** Between contacts component and `</main>`  
-=======
 **Location:** Between contacts component and `</main>`
->>>>>>> 4b74b32 (.)
 **Lines:** ~70 lines (local lines 1309-1378)
 
 ```html
 <section class="section section-muted">
-<<<<<<< HEAD
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
-                <div class="cmp-input-search">
-                    <h2>Cerca</h2>
-                    <form action="/it/ricerca" method="get">
-                        <!-- Search input -->
-                    </form>
-                    <div class="link-list-wrapper">
-                        <div class="link-list-heading">FORSE STAVI CERCANDO</div>
-                        <ul class="link-list">
-                            <!-- 6 quick links -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-=======
     <div class="cmp-input-search">
         <!-- Search input + quick links -->
->>>>>>> 4b74b32 (.)
     </div>
 </section>
 ```
 
-<<<<<<< HEAD
-**Impact:** This section does NOT exist in the reference. It appears to be a duplicate of the useful-links-section search functionality, placed AFTER the rating and contacts components.
-
-**Recommendation:** **Remove this section** — it duplicates functionality already present in `useful-links-section` and adds ~70 lines of unnecessary HTML.
-=======
 **Impact:** This section does NOT exist in the reference.
 
 **Status:** ✅ **VERIFIED FIXED (2026-04-07)** — JSON config has `"active": false` for `block-final-search`. The block is disabled and won't render.
->>>>>>> 4b74b32 (.)
 
 ### 3.2 Extra `<main>` Attributes
 
@@ -386,12 +345,7 @@ Local adds inline styles not present in reference:
 
 | # | Element | Location | Impact | Priority |
 |---|---------|----------|--------|----------|
-<<<<<<< HEAD
-| 1 | `<h2 class="visually-hidden">Contenuti in evidenza</h2>` | Inside `<section#head-section>` | Accessibility (screen readers) | **High** |
-| 2 | `<fieldset>` wrapper for rating groups | Inside rating component | Accessibility (form semantics) | **Medium** |
-=======
 | 1 | `<h2 class="visually-hidden">Contenuti in evidenza</h2>` | Inside `<section#head-section>` | Accessibility (screen readers) | ✅ **VERIFIED FIXED** — Present in `hero/homepage.blade.php` line 25 |
->>>>>>> 4b74b32 (.)
 
 ---
 
@@ -399,15 +353,9 @@ Local adds inline styles not present in reference:
 
 | # | Element | Reference | Local | Severity |
 |---|---------|-----------|-------|----------|
-<<<<<<< HEAD
-| 1 | Rating container ID | `id="rating"` on `.cmp-rating` | `id="rating"` on `.bg-primary` parent | Low |
-| 2 | Feedback detail input | `<input type="text">` | `<textarea>` | Low |
-| 3 | Feedback group containers | `<fieldset>` | `<div>` | Medium (a11y) |
-=======
 | 1 | Rating container ID | `id="rating"` on `.rating-wrapper` | `id="rating"` on `.bg-primary` parent | Low (cosmetic) |
 | 2 | Feedback detail input | `<textarea>` | `<textarea>` | ✅ **MATCH** — Both use textarea |
 | 3 | Feedback group containers | `<fieldset>` | `<fieldset>` | ✅ **MATCH** — Both use fieldset |
->>>>>>> 4b74b32 (.)
 | 4 | Rating thank-you card | `class="d-none"` static | Alpine.js `:class="{ 'd-none': step === 1 }"` | Low (functional) |
 | 5 | Form rating visibility | `class="d-none"` static | Alpine.js `x-show` | Low (functional) |
 
@@ -423,11 +371,7 @@ Local adds inline styles not present in reference:
 | Calendar (carousel) | 13 levels | 13 levels | ✅ |
 | Evidence section | 14 levels | 14 levels | ✅ |
 | Useful links | 12 levels | 12 levels | ✅ |
-<<<<<<< HEAD
-| Rating | 16 levels | 14 levels | ⚠️ Slightly flatter (fieldset→div) |
-=======
 | Rating | 16 levels | 16 levels | ✅ Match (both use fieldset) |
->>>>>>> 4b74b32 (.)
 | Contacts | 11 levels | 11 levels | ✅ |
 | Footer | 12 levels | 12 levels | ✅ |
 
@@ -450,11 +394,7 @@ Local adds inline styles not present in reference:
 | `cmp-contacts` | ✅ | ✅ | ✅ |
 | `search-modal` | ✅ | ✅ | ✅ |
 | `it-footer` | ✅ | ✅ | ✅ |
-<<<<<<< HEAD
-| **Extra search section** | ❌ | ✅ | ⚠️ Should be removed |
-=======
 | **Extra search section** | ❌ | ✅ (disabled) | ✅ JSON `"active": false` |
->>>>>>> 4b74b32 (.)
 
 ---
 
@@ -462,20 +402,6 @@ Local adds inline styles not present in reference:
 
 ### Priority 1: Accessibility Fixes
 1. **Add missing `h2.visually-hidden`** in head-section for screen reader navigation
-<<<<<<< HEAD
-2. **Change `<div id="fieldset-positive">` to `<fieldset>`** for proper form grouping semantics
-3. **Move `id="rating"`** from `.bg-primary` back to `.cmp-rating`
-
-### Priority 2: Remove Duplicate Content
-4. **Remove extra `<section.section.section-muted>`** at end of `<main>` — duplicates useful-links-section search
-
-### Priority 3: Element Consistency
-5. **Change `<textarea>` to `<input type="text">`** in rating feedback step to match reference
-6. **Remove inline gradient style** from evidence-section (should be CSS-managed)
-
-### Priority 4: Clean Up
-7. **Remove duplicate `style` attribute** on evidence-section's inner div (`style="background: transparent;"` overrides parent)
-=======
    - ✅ **VERIFIED FIXED (2026-04-07)** — `hero/homepage.blade.php` line 25 has `<h2 class="visually-hidden">Contenuti in evidenza</h2>`
 2. **Change `<div>` to `<fieldset>`** for proper form grouping semantics
    - ✅ **VERIFIED FIXED (2026-04-07)** — Already uses `<fieldset class="fieldset-rating-one">` and `<fieldset class="fieldset-rating-two">`
@@ -495,7 +421,6 @@ Local adds inline styles not present in reference:
    - ⚠️ **CSS issue** — Not structural, handled by CSS pass
 7. **Remove duplicate `style` attribute** on evidence-section's inner div
    - ⚠️ **CSS issue** — Not structural, handled by CSS pass
->>>>>>> 4b74b32 (.)
 
 ---
 
@@ -518,10 +443,6 @@ The JSON correctly drives:
 
 ---
 
-<<<<<<< HEAD
-*Comparison completed: 2026-04-07*  
-*Next step: CSS class comparison (styling analysis)*
-=======
 *Comparison completed: 2026-04-07*
 *Verification completed: 2026-04-07*
 *Structural Match: **98%** (4 of 5 issues verified fixed, 1 minor cosmetic open)*
@@ -535,4 +456,3 @@ The JSON correctly drives:
 - ✅ **Build** → `npm run build` + `npm run copy` completed
 
 *Next step: Visual verification of governance cards + events calendar*
->>>>>>> 4b74b32 (.)

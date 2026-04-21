@@ -92,7 +92,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 
 <div class="bg-grey-card shadow-contacts">
     <div class="container">
@@ -103,5 +102,3 @@
         </div>
     </div>
 </div>
-=======
->>>>>>> 36abb5a44 (.)
