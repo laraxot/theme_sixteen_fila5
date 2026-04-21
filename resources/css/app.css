@@ -125,6 +125,11 @@ body {
 >>>>>>> 7aabf76 (.)
 }
 
+.it-header-slim-wrapper .it-header-slim-right-zone,
+.it-header-slim-wrapper .it-header-slim-right-zone .dropdown {
+  overflow: visible !important;
+}
+
 .it-header-slim-wrapper-content {
   padding: 0 18px !important;
   gap: 0 !important;
@@ -2921,10 +2926,14 @@ html body {
   border: 0 !important;
   border-radius: 0 !important;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background: var(--dc-blue-primary) !important;
 =======
   background: #007a52 !important;
 >>>>>>> 7aabf76 (.)
+=======
+  background: var(--dc-blue-primary) !important;
+>>>>>>> 92da240 (.)
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -2965,14 +2974,38 @@ html body {
 >>>>>>> 7aabf76 (.)
 }
 
+.it-header-slim-wrapper .it-user-wrapper .rounded-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.it-header-slim-wrapper .it-user-wrapper .it-user-avatar {
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 9999px !important;
+  object-fit: cover !important;
+}
+
 .it-header-slim-wrapper .btn-icon.btn-full .icon {
   width: 1rem !important;
   height: 1rem !important;
+<<<<<<< HEAD
 <<<<<<< HEAD
   color: #fff !important;
 =======
   color: #007a52 !important;
 >>>>>>> 7aabf76 (.)
+=======
+  color: #fff !important;
+>>>>>>> 92da240 (.)
   fill: currentColor !important;
 }
 
