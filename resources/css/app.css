@@ -2951,7 +2951,10 @@ html body {
   padding: 0.75rem 1.5rem !important;
   border: 0 !important;
   border-radius: 0 !important;
+  background: #007a52 !important;
+=======
   background: var(--dc-blue-primary) !important;
+>>>>>>> 92da240 (.)
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -3013,6 +3016,9 @@ html body {
   width: 1rem !important;
   height: 1rem !important;
   color: #007a52 !important;
+=======
+  color: #fff !important;
+>>>>>>> 92da240 (.)
   fill: currentColor !important;
 }
 

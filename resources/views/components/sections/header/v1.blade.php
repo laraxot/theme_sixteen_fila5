@@ -99,6 +99,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()" form="__never_submit_header_nav">
+                                <svg class="icon">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                </svg>
+                            </button>
                             <div class="it-brand-wrapper">
                                 <a href="/">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
@@ -183,7 +188,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()" form="__never_submit_header_nav">
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
