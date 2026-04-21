@@ -7,6 +7,12 @@
   },
   "resources/css/app-test.css": {
 <<<<<<< HEAD
+=======
+<<<<<<< .merge_file_MC58g1
+    "file": "assets/app-test-BH4Z01vW.css",
+=======
+>>>>>>> 4b3e8ff (.)
+<<<<<<< HEAD
     "file": "assets/app-test-C16CeGmt.css",
 =======
     "file": "assets/app-test-46WBBdda.css",
@@ -14,6 +20,10 @@
 =======
     "file": "assets/app-test-B55ptULV.css",
 >>>>>>> 8d7e34c95 (llm-wiki)
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_iXSQXK
+>>>>>>> 4b3e8ff (.)
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -23,6 +33,12 @@
   },
   "resources/css/app.css": {
 <<<<<<< HEAD
+=======
+<<<<<<< .merge_file_MC58g1
+    "file": "assets/app-DXiQHjnB.css",
+=======
+>>>>>>> 4b3e8ff (.)
+<<<<<<< HEAD
     "file": "assets/app-D5QYBabW.css",
 =======
     "file": "assets/app-50jwtChs.css",
@@ -30,6 +46,10 @@
 =======
     "file": "assets/app-CiFV5llj.css",
 >>>>>>> 8d7e34c95 (llm-wiki)
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_iXSQXK
+>>>>>>> 4b3e8ff (.)
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -39,6 +59,12 @@
   },
   "resources/js/app.js": {
 <<<<<<< HEAD
+=======
+<<<<<<< .merge_file_MC58g1
+    "file": "assets/app-DDA7izf2.js",
+=======
+>>>>>>> 4b3e8ff (.)
+<<<<<<< HEAD
     "file": "assets/app-DWM66l-T.js",
 =======
     "file": "assets/app-CJmLfspS.js",
@@ -46,6 +72,10 @@
 =======
     "file": "assets/app-90YK5RTz.js",
 >>>>>>> 792dd9de0 (refactor: migrate PageContent model to method-based casting and update module documentation status)
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_iXSQXK
+>>>>>>> 4b3e8ff (.)
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

@@ -1,5 +1,23 @@
 # Sixteen Wiki Log
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< .merge_file_BCJnN8
+## [2026-04-21] fix | segnalazione-crea header/nav parity reale su section owner
+
+- **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/css/app.css`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
+- **summary:** applicata classe owner-side `is-segnalazione-crea` direttamente sull'header reale; rimosse override colore fragili nel widget wizard; forzati navbar/slim bar verdi con link trasparenti (niente background blu sui link); allineata posizione hamburger su mobile (sinistra logo, centrato verticalmente); nascosto header wizard Filament duplicato per eliminare linea verde centrale nello stepper.
+- **build:** `npm run build && npm run copy` eseguiti con successo.
+
+## [2026-04-21] fix | segnalazione-crea crash su component alias filament non risolto
+
+- **sources:** `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
+- **summary:** rimossa invocazione legacy
+  `x-filament-forms::field-wrapper.error-message` non disponibile nella versione Filament corrente; il crash bloccava il rendering del wizard in `/it/tests/segnalazione-crea`.
+- **artifact:** `../../Modules/Geo/docs/wiki/troubleshooting/filament-field-wrapper-error-message-missing.md`
+=======
+>>>>>>> 4b3e8ff (.)
 ## [2026-04-21] governance | forbidden folders zero tolerance recepita
 
 - **sources:** `../../../../docs/wiki/concepts/forbidden-folders-zero-tolerance-rule.md`
@@ -11,6 +29,10 @@
 - **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
 - **summary:** creata story dedicata al cleanup dei blocchi CSS duplicati/conflittuali della pagina `tests/segnalazione-crea`, con focus su header link background, posizionamento hamburger, menu aperto mobile e artifact stepper.
 - **artifact:** `../../../../../_bmad-output/implementation-artifacts/8-41-segnalazione-crea-css-dedup-header-stepper-hamburger-parity.md`
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_RoJaYO
+>>>>>>> 4b3e8ff (.)
 
 ## [2026-04-21] audit | parity segnalazione-privacy (header colori, cta, responsive)
 
@@ -19,6 +41,20 @@
 - **cta rule:** `Avanti` riposizionato sotto checkbox privacy su tutti i breakpoint.
 - **artifact:** `concepts/segnalazione-privacy-parity-audit.md`
 
+<<<<<<< HEAD
+=======
+<<<<<<< .merge_file_BCJnN8
+## [2026-04-21] governance | no docs/archive per nuova documentazione tema
+- **summary:** fissata regola locale: niente nuovi file in `Themes/Sixteen/docs/archive/`; nuova conoscenza solo in `docs/wiki/` e `docs/raw/`.
+- **artifact:** `concepts/no-docs-archive-rule.md`
+
+## [2026-04-21] governance | struttura wiki tema canonica e sacra
+- **summary:** recepita regola root sulla struttura wiki canonica, inclusi `_archive` e `_templates` come parti valide del wiki.
+- **artifact:** `../../../../docs/wiki/concepts/wiki-sacred-structure-rule.md`
+
+=======
+>>>>>>> .merge_file_RoJaYO
+>>>>>>> 4b3e8ff (.)
 ## [2026-04-21] ui | segnalazione-crea cta parity (avanti unico)
 
 - **sources:** `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`, `resources/css/app.css`
@@ -49,6 +85,29 @@
 - **summary:** eliminata definizione LitElement inline in Blade del map picker; runtime componente demandato al file JS modulo importato nel bundle tema.
 - **import:** aggiunto `@modules/Geo/resources/js/filament/map-picker.js` in `resources/js/app.js`.
 - **guardrail:** Blade = host/binding; LitElement = solo JS component module.
+<<<<<<< HEAD
+=======
+=======
+## [2026-04-21] governance | Blade extraction generale + header partials
+- sources:
+  - `../../../../docs/wiki/concepts/blade-component-extraction-governance.md`
+  - `../../../../docs/wiki/concepts/sixteen-header-composition-rule.md`
+  - `../../../../../memory/feedback_sixteen-header-v1-ssot.md`
+- summary:
+  - confermata la regola: cercare componenti riusabili in tutte le Blade del tema, non solo in `header/v1.blade.php`
+  - per blocchi locali a una section usare `partials/` sotto la directory owner
+  - per blocchi locali all'header Sixteen usare `resources/views/components/sections/header/partials/`; `v1.blade.php` resta owner
+
+## [2026-04-21] story | 8-37 Blade reusable extraction e header partials
+- sources:
+  - `../../../../../_bmad-output/implementation-artifacts/8-37-blade-reusable-components-extraction-and-header-partials-governance.md`
+  - `../../../../docs/wiki/concepts/sixteen-header-composition-rule.md`
+- summary:
+  - fissata la regola generale: cercare componenti riusabili in tutte le Blade del tema
+  - se un componente e' locale all'header `v1.blade.php`, va messo sotto `resources/views/components/sections/header/partials/`
+  - `v1.blade.php` resta owner/orchestratore; i partial non diventano owner
+>>>>>>> 3898c746b (.)
+>>>>>>> 4b3e8ff (.)
 
 ## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
 
@@ -84,7 +143,7 @@
 - summary:
   - creata story dedicata per estrarre blocchi riusabili dal section header mantenendo `v1.blade.php` come owner
   - candidati espliciti: language switcher, user dropdown, guest CTA e blocchi presentazionali affini
-  - regola DRY + KISS fissata: eventuali estrazioni solo sotto `resources/views/components/sections/header/`, mai come nuovo header parallelo
+  - regola DRY + KISS aggiornata da story 8-37: eventuali estrazioni locali all'header solo sotto `resources/views/components/sections/header/partials/`, mai come nuovo header parallelo
   - wiki root: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md); aggiornati README tema, AGENTS, MEMORY, `.cursor/rules/sixteen-header-v1-ssot.mdc`
 
 ## [2026-04-20] implement | header slim segnalazione-crea fixato nel section owner reale

@@ -1,4 +1,3 @@
-{{-- Language Switcher Component --}}
 <div class="nav-item dropdown">
     <button
         type="button"

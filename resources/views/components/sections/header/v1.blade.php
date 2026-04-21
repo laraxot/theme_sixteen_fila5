@@ -40,6 +40,7 @@
     $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
 
     $testsPath = (string) request()->path();
+    $isSegnalazioneCrea = str_contains($testsPath, 'tests/segnalazione-crea');
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
 @endphp
@@ -60,9 +61,15 @@
     - Authenticated user block prioritizes display name over decorative avatar
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
+<<<<<<< HEAD
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
     {{-- Slim Header: Comune Green (#007A52) - Same as logo background --}}
     <div class="it-header-slim-wrapper" style="background-color: #007A52;">
+=======
+<header class="it-header-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}" data-bs-target="#header-nav-wrapper">
+    {{-- Slim Header: background from theme tokens --}}
+    <div class="it-header-slim-wrapper">
+>>>>>>> 4b3e8ff (.)
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -71,15 +78,15 @@
                         <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
                         
                         <div class="it-header-slim-right-zone" role="navigation">
-                            @include('pub_theme::components.sections.header.language-switcher')
+                            @include('pub_theme::components.sections.header.partials.language-switcher')
                             @guest
                                 @if ($headerHtmlParityPersonalArea)
-                                    @include('pub_theme::components.sections.header.personal-area-guest-parity')
+                                    @include('pub_theme::components.sections.header.partials.personal-area-guest-parity')
                                 @else
-                                    @include('pub_theme::components.sections.header.personal-area-guest-cta')
+                                    @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
                                 @endif
                             @else
-                                @include('pub_theme::components.sections.header.user-dropdown', [
+                                @include('pub_theme::components.sections.header.partials.user-dropdown', [
                                     'avatarUrl' => $headerAvatarUrl,
                                     'displayName' => $headerUserDisplayName,
                                     'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,

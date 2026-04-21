@@ -40,7 +40,7 @@ Solo dopo si controllano eventuali partial secondari o file delegati.
 Regola pratica:
 
 - mai assumere direttamente `bootstrap-italia/header.blade.php` come owner senza verificare il percorso reale della section.
-- eventuali estrazioni DRY + KISS devono restare sotto `resources/views/components/sections/header/`, mantenendo `v1.blade.php` come entrypoint e owner del wiring.
+- eventuali estrazioni DRY + KISS locali all'header devono restare sotto `resources/views/components/sections/header/partials/`, mantenendo `v1.blade.php` come entrypoint e owner del wiring.
 
 Implementazione corrente consolidata per `segnalazione-crea`:
 

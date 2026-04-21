@@ -13,8 +13,15 @@
 
 - Se il layout usa `<x-section slug="header" />`, l'header SSoT e' `laravel/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php`.
 - `v1.blade.php` resta owner e orchestration layer.
-- Blocchi come language switcher, user dropdown o guest CTA possono essere estratti solo come sottocomponenti sotto `resources/views/components/sections/header/` (regola dettagliata: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md), story 8-36).
+- Blocchi come language switcher, user dropdown o guest CTA, se locali all'header, devono essere estratti come partial sotto `resources/views/components/sections/header/partials/` (regola dettagliata: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md), story 8-37).
 - Non trattare `bootstrap-italia/header.blade.php` come owner di default per i flussi section-based.
+
+## Blade Component Extraction Rule
+
+- Cercare sempre componenti riusabili in tutte le Blade, non solo nel file che si sta correggendo.
+- Se un blocco e' riusabile cross-page/cross-section, estrarlo nella tassonomia componenti esistente.
+- Se un blocco e' locale a un owner specifico, usare una cartella `partials/` sotto quell'owner.
+- Non estrarre per moda: DRY + KISS prima di tutto.
 
 ## Geo Field Governance
 
@@ -111,7 +118,7 @@ bash ../../bashscripts/html/compare-html.sh \
 | Document | Purpose |
 |----------|---------|
 | [Header section owner (wiki root)](../../../../docs/wiki/concepts/header-section-owner-rule.md) | **SSoT:** `<x-section slug="header" />` → `resources/views/components/sections/header/v1.blade.php` (story 8-35) |
-| [Header composition (wiki root)](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md) | Estrazione sottocomponenti sotto `sections/header/`; `v1` orchestratore (story 8-36) |
+| [Header composition (wiki root)](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md) | Estrazione riusabile da tutte le Blade; partial header sotto `sections/header/partials/`; `v1` orchestratore (story 8-37) |
 | [CSS/JS Parity Guide](css-js-parity/segnalazione-01-privacy-css-fix.md) | How to achieve visual parity |
 | [Bootstrap Italia Colors](bootstrap-italia-colors.md) | Color system documentation |
 | [Font System](font-system.md) | Typography guidelines |

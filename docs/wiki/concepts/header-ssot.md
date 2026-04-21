@@ -73,7 +73,7 @@ resources/views/components/sections/header/
                 
                 <div class="it-header-slim-right-zone">
                     {{-- Language dropdown --}}
-                    @include('pub_theme::components.sections.header.language-switcher')
+                    @include('pub_theme::components.sections.header.partials.language-switcher')
                     
                     {{-- User area --}}
                     @guest
