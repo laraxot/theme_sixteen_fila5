@@ -3610,6 +3610,63 @@ main #main-container .steppers-nav .steppers-btn-save {
   }
 }
 
+/* Segnalazione-crea parity fix on real header owner (outside page-content). */
+.it-header-wrapper.is-segnalazione-crea .it-header-slim-wrapper {
+  background: #00402b !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .container,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .row,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .col-12,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar {
+  background: #007a52 !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-nav .nav-link,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-nav .nav-link:hover,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link:hover,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .nav-item.active .nav-link {
+  background: transparent !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-slim-wrapper .btn-icon.btn-full,
+.it-header-wrapper.is-segnalazione-crea .it-header-slim-wrapper .it-access-top-wrapper .btn {
+  background: #007a52 !important;
+}
+
+/* Keep only one stepper: hide Filament wizard header line artifacts. */
+.page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-header {
+  display: none !important;
+}
+
+@media (max-width: 991.98px) {
+  .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar {
+    min-height: 5rem !important;
+    align-items: center !important;
+  }
+
+  .it-header-wrapper.is-segnalazione-crea .it-header-center-content-wrapper {
+    position: relative !important;
+    min-height: 5rem !important;
+    align-items: center !important;
+    padding-left: 2.75rem !important;
+  }
+
+  .it-header-wrapper.is-segnalazione-crea .it-header-center-content-wrapper .it-brand-wrapper {
+    margin-left: 0 !important;
+  }
+
+  .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .custom-navbar-toggler {
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+}
+
 @media (max-width: 767.98px) {
   .page-content[data-slug="tests.segnalazione-crea"] .it-header-center-content-wrapper .it-search-wrapper > span,
   .page-content[data-slug="tests.segnalazione-crea"] .it-header-center-content-wrapper .search-label {
