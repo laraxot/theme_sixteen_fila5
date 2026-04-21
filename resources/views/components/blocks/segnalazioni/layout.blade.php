@@ -77,9 +77,14 @@
         : [];
 
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
+
+    // Landmark ids (CMS JSON + Design Comuni reference): https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    $tabsSectionId = $tabsData['id'] ?? 'map-and-list';
+    $filtersSectionId = $mainContent['id'] ?? 'filter-and-cards';
 @endphp
 
-<section id="head-section">
+{{-- Structure aligned with static `main` > `#main-container` > sidebar row (col-lg-3 + col-lg-8): tabs live in the right column. Outer `<main>` is provided by `components/layouts/app`. --}}
+<div id="segnalazioni-elenco-root" class="segnalazioni-elenco" data-section-map="{{ $tabsSectionId }}" data-section-filters="{{ $filtersSectionId }}" role="region" aria-label="{{ $title }}">
     <div class="container" id="main-container">
         <div class="row justify-content-center mb-md-40 mb-lg-80">
             <div class="col-12 col-lg-10">
@@ -107,32 +112,10 @@
             </div>
             <hr class="d-none d-lg-block mt-30 mb-2">
         </div>
-    </div>
-</section>
 
-<section id="map-and-list">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist">
-                    @foreach ($tabs as $index => $tab)
-                        <li class="nav-item w-100" role="tab">
-                            <a class="nav-link{{ $tab['active'] ?? false ? ' active' : '' }} title-medium-semi-bold pt-0" href="#data-ex-disservizio{{ $index + 1 }}" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio{{ $index + 1 }}" aria-selected="{{ $tab['active'] ?? false ? 'true' : 'false' }}">
-                                {{ $tab['label'] }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="filter-and-cards">
-    <div class="container">
         <div class="row justify-content-center">
             @if (!empty($filters['items']))
-                <aside class="col-lg-3 d-none d-lg-block">
+                <aside class="col-lg-3 d-none d-lg-block" id="{{ $filtersSectionId }}" aria-label="{{ $filters['title'] }}">
                     <fieldset>
                         <legend class="h6 text-uppercase category-list__title">{{ $filters['title'] }}</legend>
                         <div class="categoy-list pb-4">
@@ -155,7 +138,7 @@
                 </aside>
             @endif
 
-            <article class="col-lg-8 offset-lg-1">
+            <div class="{{ !empty($filters['items']) ? 'col-lg-8 offset-lg-1' : 'col-12 col-lg-10 offset-lg-1' }}">
                 <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
                     <span class="search-results">{{ __($ns . '.results.count.text', ['count' => $resultsCount]) }}</span>
 
@@ -172,6 +155,18 @@
                         <span class="title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.remove.label') }}</span>
                     </button>
                 </div>
+
+                @if (!empty($tabs))
+                    <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist" data-section="{{ $tabsSectionId }}">
+                        @foreach ($tabs as $index => $tab)
+                            <li class="nav-item w-100" role="tab">
+                                <a class="nav-link{{ $tab['active'] ?? false ? ' active' : '' }} title-medium-semi-bold pt-0" href="#data-ex-disservizio{{ $index + 1 }}" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio{{ $index + 1 }}" aria-selected="{{ $tab['active'] ?? false ? 'true' : 'false' }}">
+                                    {{ $tab['label'] }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
 
                 <div class="tab-content">
                     <div class="tab-pane fade{{ isset($tabs[0]) && ($tabs[0]['active'] ?? false) ? ' show active' : '' }}" id="data-ex-disservizio1" role="tabpanel">
@@ -293,45 +288,45 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </div>
         </div>
     </div>
-</section>
 
-@include('pub_theme::components.blocks.feedback.rating', ['data' => $blockData['rating'] ?? []])
+    @include('pub_theme::components.blocks.feedback.rating', ['data' => $blockData['rating'] ?? []])
 
-<section id="info-contacts">
-    @if (!empty($contacts))
-        <div class="bg-grey-card shadow-contacts">
-            <div class="container">
-                <div class="row d-flex justify-content-center p-contacts">
-                    <div class="col-12 col-lg-5">
-                        <div class="cmp-contacts">
-                            <div class="card w-100">
-                                <div class="card-body">
-                                    <h2 class="title-medium-2-semi-bold">{{ $contacts['contact_title'] }}</h2>
-                                    <ul class="contact-list p-0">
-                                        @foreach ($contacts['contacts'] as $contact)
-                                            @php
-                                                $icon = $contact['icon'] ?? 'it-help-circle';
-                                                $dataElement = $contact['data_element'] ?? null;
-                                            @endphp
-                                            <li>
-                                                <a class="list-item" href="{{ $contact['url'] }}"@if ($dataElement) data-element="{{ $dataElement }}"@endif>
-                                                    <svg class="icon icon-primary icon-sm" aria-hidden="true">
-                                                        <use href="{{ $sprite }}#{{ $icon }}"></use>
-                                                    </svg>
-                                                    <span>{{ $contact['label'] }}</span>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+    <section id="info-contacts">
+        @if (!empty($contacts))
+            <div class="bg-grey-card shadow-contacts">
+                <div class="container">
+                    <div class="row d-flex justify-content-center p-contacts">
+                        <div class="col-12 col-lg-5">
+                            <div class="cmp-contacts">
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <h2 class="title-medium-2-semi-bold">{{ $contacts['contact_title'] }}</h2>
+                                        <ul class="contact-list p-0">
+                                            @foreach ($contacts['contacts'] as $contact)
+                                                @php
+                                                    $icon = $contact['icon'] ?? 'it-help-circle';
+                                                    $dataElement = $contact['data_element'] ?? null;
+                                                @endphp
+                                                <li>
+                                                    <a class="list-item" href="{{ $contact['url'] }}"@if ($dataElement) data-element="{{ $dataElement }}"@endif>
+                                                        <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                                            <use href="{{ $sprite }}#{{ $icon }}"></use>
+                                                        </svg>
+                                                        <span>{{ $contact['label'] }}</span>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
-</section>
+        @endif
+    </section>
+</div>

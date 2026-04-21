@@ -79,6 +79,13 @@ return [
             'helper_text' => 'POST logout application route',
             'description' => 'Logout control in user menu',
         ],
+        'parity_demo_user' => [
+            'label' => 'Giulia Rossi',
+            'tooltip' => 'Demo name for HTML parity (personal area test page, guest)',
+            'placeholder' => '',
+            'helper_text' => 'Matches tests/segnalazione-area-personale demo content',
+            'description' => 'Slim header chrome as Design Comuni kit without real session',
+        ],
     ],
 
     // Feedback/rating
