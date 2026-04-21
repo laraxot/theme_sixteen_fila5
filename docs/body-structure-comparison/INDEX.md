@@ -4,6 +4,10 @@ Canonical output area for HTML body structure comparisons between Design Comuni 
 
 ## Pages Compared
 
+### segnalazione-area-personale
+
+**Parity score (struttura `compare-html.sh`)**: **48.0%** (2026-04-20) — obiettivo progetto ≥90% non ancora raggiunto; vedi [`./segnalazione-area-personale/report.md`](./segnalazione-area-personale/report.md).
+
 ### segnalazione-01-privacy
 
 **Parity Score: 93%** ✅ PASS (405/431 reference elements matched)

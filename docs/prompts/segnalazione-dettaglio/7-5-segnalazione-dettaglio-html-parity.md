@@ -1,6 +1,6 @@
 # Story 7.5: HTML Parity — segnalazione-dettaglio
 
-Status: ready-for-dev
+Status: in-progress
 
 ## Story
 
@@ -46,7 +46,7 @@ così che la struttura semantica sia corretta prima di lavorare su CSS/JS.
 
 ## Tasks / Subtasks
 
-- [ ] Analizzare in dettaglio `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazione-dettaglio/report.md`
+- [x] Analizzare in dettaglio `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazione-dettaglio/report.md`
 - [ ] Confrontare HTML reference vs local per identificare sezioni intere mancanti
 - [ ] Scaricare reference HTML: `curl -sL "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-dettaglio.html" > /tmp/ref.html`
 - [ ] Aggiornare/creare blocchi per le sezioni mancanti
@@ -98,8 +98,19 @@ Con 45.5%, mancano sezioni intere. Procedura consigliata:
 
 ### Agent Model Used
 
+Composer (agente dev-story), sessione 2026-04-20.
+
 ### Debug Log References
+
+- `diff_details.json`: molti ID “mancanti” (es. `first-star`, `radio-1`) appartengono al blocco **feedback/rating** e al layout globale, non solo a `segnalazione-dettaglio.blade.php`.
+- La baseline 45.5% confronta **intero `<body>`** (header, footer, modali, form rating) vs pagina locale: raggiungere ≥90% richiede allineamento coordinato di **layout app**, blocchi CMS e JSON, non un singolo file.
 
 ### Completion Notes List
 
+- Allineati due `<use>` SVG nel blocco `tests/segnalazione-dettaglio`: `xlink:href` → `href` (standard HTML5, come da Dev Notes story).
+- **HALT (workflow step 5–7)**: non è possibile marcare la story “review” senza verifica quantitativa. Serve `php artisan serve` (o URL locale raggiungibile) + `./bashscripts/html/compare-html.sh` per misurare parity dopo ogni iterazione. Stima lavoro residuo: centinaia di nodi DOM (report 304 mancanti + 134 diversi) su più partial/blocchi — fuori portata di una singola esecuzione agente senza spezzare la story o fornire server live.
+
 ### File List
+
+- `laravel/Themes/Sixteen/resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php` (modificato)
+- `_bmad-output/implementation-artifacts/sprint-status.yaml` (7-5 → in-progress, last_updated)

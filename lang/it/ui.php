@@ -120,6 +120,13 @@ return [
             'helper_text' => 'Azione POST logout applicativa',
             'description' => 'Pulsante di logout nel menu utente',
         ],
+        'parity_demo_user' => [
+            'label' => 'Giulia Rossi',
+            'tooltip' => 'Nome dimostrato per parity HTML (pagina test area personale, ospite)',
+            'placeholder' => '',
+            'helper_text' => 'Allineato al contenuto della pagina tests/segnalazione-area-personale',
+            'description' => 'Chrome header slim come kit Design Comuni senza sessione reale',
+        ],
     ],
 
     // Feedback/rating

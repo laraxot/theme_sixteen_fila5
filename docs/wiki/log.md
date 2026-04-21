@@ -1,5 +1,23 @@
 # Sixteen Wiki Log
 
+## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
+
+- **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/views/components/sections/header/personal-area-guest-cta.blade.php`, `resources/views/components/sections/header/personal-area-guest-parity.blade.php`, `resources/views/components/sections/header/user-dropdown.blade.php`
+- **summary:** consolidati sotto il section owner i blocchi guest CTA, guest parity dropdown e user dropdown autenticato; `v1.blade.php` resta source of truth e orchestration layer dell'header.
+- **guardrail:** l'estrazione riduce il rumore ma non cambia l'owner runtime di `<x-section slug="header" />`.
+
+## [2026-04-20] governance | Story 8-35 — SSoT header = `components/sections/header/v1.blade.php`
+
+- **sources:** `../../../../docs/wiki/concepts/header-section-owner-rule.md`, `../../../../../memory/feedback_sixteen-header-v1-ssot.md`, artifact 8-35
+- **summary:** regola esplicita per LLM e sviluppatori: `<x-section slug="header" />` → unico blade owner `resources/views/components/sections/header/v1.blade.php`; allineati MEMORY, AGENTS, cursor rules, wiki root; corretto drift su `bootstrap-italia/header` come finta SSoT.
+- **index:** [wiki index](./index.md)
+
+## [2026-04-20] implement | Story 7-54 — dropdown slim senza Alpine inline su wizard Livewire
+
+- **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/js/app.js`, artifact `7-54-segnalazione-crea-header-slim-dropdowns-data-bs-toggle-unification.md`
+- **summary:** lingua e utente autenticato usano `data-bs-toggle="dropdown"` (stesso wiring del blocco guest parity e del polyfill `DOMContentLoaded` in `app.js`). Rimosso `x-data`/`x-show` che su `/tests/segnalazione-crea` potevano non inizializzarsi. Rimosso override `background-color: #0066CC` inline sulla slim bar; sfondo da `design-comuni-tokens.css`. Avatar con `img` arrotondato + bordo chiaro se URL presente.
+- **wiki:** [header-authenticated-state](./concepts/header-authenticated-state.md), [header-slim-dropdown-behavior](./concepts/header-slim-dropdown-behavior.md)
+
 ## [2026-04-20] rule | header SSoT del section layout
 - sources:
   - `resources/views/components/sections/header/v1.blade.php`
@@ -7,6 +25,17 @@
 - summary:
   - fissata come regola permanente del tema: se il layout usa `<x-section slug="header" />`, l'header owner e fonte di verita e' `components/sections/header/v1.blade.php`
   - `bootstrap-italia/header.blade.php` non va assunto come owner automatico per `segnalazione-crea`
+
+## [2026-04-20] story | 8-36 header subcomponents extraction sotto sections/header
+- sources:
+  - `resources/views/components/sections/header/v1.blade.php`
+  - `../../../../../_bmad-output/implementation-artifacts/8-36-header-section-v1-subcomponents-extraction-dry-kiss.md`
+  - `../../../../../.planning/stories/8-36-header-section-v1-subcomponents-extraction-dry-kiss.story.md`
+- summary:
+  - creata story dedicata per estrarre blocchi riusabili dal section header mantenendo `v1.blade.php` come owner
+  - candidati espliciti: language switcher, user dropdown, guest CTA e blocchi presentazionali affini
+  - regola DRY + KISS fissata: eventuali estrazioni solo sotto `resources/views/components/sections/header/`, mai come nuovo header parallelo
+  - wiki root: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md); aggiornati README tema, AGENTS, MEMORY, `.cursor/rules/sixteen-header-v1-ssot.mdc`
 
 ## [2026-04-20] implement | header slim segnalazione-crea fixato nel section owner reale
 - sources:

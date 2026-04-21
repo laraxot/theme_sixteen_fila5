@@ -50,7 +50,7 @@
                 <div class="dropdown" x-data="{ shareOpen: false }">
                     <button aria-label="{{ __($ns.'.detail.share.aria') }}" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="shareActions" data-bs-toggle="dropdown" @click="shareOpen = !shareOpen" aria-haspopup="true" :aria-expanded="shareOpen.toString()">
                         <svg class="icon" aria-hidden="true">
-                            <use xlink:href="{{ $sprite }}#it-share"></use>
+                            <use href="{{ $sprite }}#it-share"></use>
                         </svg>
                         <small>{{ __($ns.'.detail.share.label') }}</small>
                     </button>
@@ -77,7 +77,7 @@
                 <div class="dropdown" x-data="{ actionsOpen: false }">
                     <button aria-label="{{ __($ns.'.detail.actions.aria') }}" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="viewActions" data-bs-toggle="dropdown" @click="actionsOpen = !actionsOpen" aria-haspopup="true" :aria-expanded="actionsOpen.toString()">
                         <svg class="icon" aria-hidden="true">
-                            <use xlink:href="{{ $sprite }}#it-more-items"></use>
+                            <use href="{{ $sprite }}#it-more-items"></use>
                         </svg>
                         <small>{{ __($ns.'.detail.actions.label') }}</small>
                     </button>

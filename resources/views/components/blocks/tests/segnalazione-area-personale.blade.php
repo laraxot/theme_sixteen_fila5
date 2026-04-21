@@ -87,7 +87,7 @@
         <div class="tab-content">
             <div class="tab-pane fade show active" id="data-ex-tab1" role="tabpanel">
                 <div class="row">
-                    <div class="d-none d-sm-none d-lg-block col-lg-3">
+                    <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
                             <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="{{ $data['desk_index_title'] ?? '' }}" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">
@@ -190,7 +190,7 @@
 
             <div class="tab-pane" id="data-ex-tab3" role="tabpanel">
                 <div class="row">
-                    <div class="d-none d-sm-none d-lg-block col-lg-3">
+                    <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-Three">
                             <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="{{ $data['service_index_title'] ?? '' }}" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">

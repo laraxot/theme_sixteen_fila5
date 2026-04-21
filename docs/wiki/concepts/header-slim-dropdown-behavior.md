@@ -14,9 +14,11 @@ La slim bar è il micro-contesto **istituzionale** (Regione / accesso lingua / a
 
 ## Riferimenti
 
-- Codice: `resources/views/components/bootstrap-italia/header.blade.php`, `resources/js/app.js`, `resources/css/app.css` (`:root` + blocchi `.it-header-slim-wrapper`).
-- Story: `_bmad-output/implementation-artifacts/8-33-segnalazione-crea-header-language-and-user-dropdown-functional-color-parity.md`
+- Codice owner: `resources/views/components/sections/header/v1.blade.php`, `resources/js/app.js`, token `resources/css/components/design-comuni-tokens.css`.
+- Story: `_bmad-output/implementation-artifacts/7-54-segnalazione-crea-header-slim-dropdowns-data-bs-toggle-unification.md` (unificazione `data-bs-toggle` vs Alpine su wizard)
+- Story legacy: `_bmad-output/implementation-artifacts/8-33-segnalazione-crea-header-language-and-user-dropdown-functional-color-parity.md`
 - Parallelo auth: [header-authenticated-state](./header-authenticated-state.md)
+- Reference statico slim + utente: [graduatoria-area-personale](https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html)
 
 ## Backlink
 
