@@ -39,7 +39,7 @@
 }
 
 .ticket-wizard-root .step-item.active .step-icon {
-    @apply bg-blue-600 text-white;
+    @apply bg-[var(--dc-green)] text-white;
 }
 
 .ticket-wizard-root .step-title {
@@ -47,7 +47,7 @@
 }
 
 .ticket-wizard-root .step-item.active .step-title {
-    @apply text-blue-600 font-bold;
+    @apply text-[var(--dc-green)] font-bold;
 }
 
 .ticket-wizard-root .step-item.disabled .step-title {
@@ -59,7 +59,7 @@
 }
 
 .ticket-wizard-root .progress-bar {
-    @apply h-full bg-blue-600 text-xs text-white text-center leading-5 transition-all duration-300;
+    @apply h-full bg-[var(--dc-green)] text-xs text-white text-center leading-5 transition-all duration-300;
 }
 
 /* === REQUIRED NOTE === */
@@ -109,8 +109,8 @@
 .ticket-wizard-root input:focus,
 .ticket-wizard-root select:focus,
 .ticket-wizard-root textarea:focus {
-    @apply border-blue-600 outline-none;
-    box-shadow: 0 0 0 2px rgba(26, 116, 211, 0.15);
+    @apply border-[var(--dc-green)] outline-none;
+    box-shadow: 0 0 0 2px rgba(0, 122, 82, 0.15);
 }
 
 .ticket-wizard-root .fi-fo-field-wrp-helper-text,
@@ -144,7 +144,7 @@
 }
 
 .ticket-wizard-root .fi-in-text-item-icon {
-    @apply text-blue-600;
+    @apply text-[var(--dc-green)];
 }
 
 /* === ACTIONS (bottom buttons) === */
@@ -158,12 +158,12 @@
 
 .ticket-wizard-root .fi-fo-wizard-actions button[type="submit"],
 .ticket-wizard-root .fi-fo-wizard-actions button[data-action="submit"] {
-    @apply bg-blue-600 text-white border-none hover:bg-blue-700;
+    @apply bg-[var(--dc-green)] text-white border-none hover:bg-[var(--dc-green-dark)];
 }
 
 /* === CHECKBOX === */
 .ticket-wizard-root .fi-fo-checkbox {
-    @apply rounded border-gray-300 text-blue-600;
+    @apply rounded border-gray-300 text-[var(--dc-green)];
 }
 
 .ticket-wizard-root .fi-fo-checkbox-label {

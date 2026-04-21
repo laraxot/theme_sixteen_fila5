@@ -23,6 +23,8 @@ import '@modules/Geo/resources/js/components/location-picker-lit.js';
 import '@modules/Geo/resources/js/components/geo-map-widget.js';
 import '@modules/Geo/resources/js/components/place-picker-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
+import '@modules/Geo/resources/js/filament/map-picker.js';
+import geoMapPickerField from '@modules/Geo/resources/js/components/geo-map-picker-field.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -61,6 +63,8 @@ function registerAlpineComponents(AlpineInstance) {
         showModal: false,
         showFilterModal: false,
     }));
+
+    AlpineInstance.data('geoMapPickerField', geoMapPickerField);
 
     // Story 1.1.1-HEADER-RESPONSIVE: Mobile header navigation toggle
     // Fixes inline x-data not being processed correctly by Livewire/Alpine

@@ -41,14 +41,8 @@
         @endif
         @if($isTestsRoute && ! $usesFrontendLivewire)
             @vite(['resources/css/app.css'], 'themes/Sixteen')
-            <link rel="stylesheet" href="/themes/Sixteen/css/header-fix.css">
-    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-header-fix.css">
-    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-map-fix.css">
         @elseif($isTestsRoute)
             @vite(['resources/css/app.css'], 'themes/Sixteen')
-            <link rel="stylesheet" href="/themes/Sixteen/css/header-fix.css">
-    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-header-fix.css">
-    <link rel="stylesheet" href="/themes/Sixteen/css/mobile-map-fix.css">
         @else
             @vite(['resources/css/app.css'], 'themes/Sixteen')
             <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
