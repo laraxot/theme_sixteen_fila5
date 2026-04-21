@@ -61,8 +61,8 @@
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
-    {{-- Slim Header: Design System primary blue (#0066CC) --}}
-    <div class="it-header-slim-wrapper" style="background-color: #0066CC;">
+    {{-- Slim Header: Comune Green (#007A52) - Same as logo background --}}
+    <div class="it-header-slim-wrapper" style="background-color: #007A52;">
         <div class="container">
             <div class="row">
                 <div class="col-12">

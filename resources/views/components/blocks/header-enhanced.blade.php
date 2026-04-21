@@ -6,10 +6,9 @@
     
     EXACT Design Comuni Colors:
     - Background: #FFFFFF (White)
-    - City Name: #0066CC (Blu Italia)
-    - Tagline: #666666 (Grigio Medio)
-    - Social Icons: #0066CC (Blu Italia)
-    - Login Button: #0066CC (Blu Italia)
+- City Name: #007A52 (Comune Green)
+    - Social Icons: #007A52 (Comune Green)
+    - Login Button: #007A52 (Comune Green)
 --}}
 
 @php
@@ -55,7 +54,7 @@
                             aria-label="Cerca"
                             style="border: 1px solid #CCCCCC;"
                         />
-                        <button class="btn btn-primary" type="submit" style="background-color: #0066CC; border-color: #0066CC;">
+                        <button class="btn btn-primary" type="submit" style="background-color: #007A52; border-color: #007A52;">
                             <x-filament::icon icon="heroicon-m-magnifying-glass" class="w-5 h-5" />
                         </button>
                     </div>
@@ -65,27 +64,28 @@
             {{-- Social & Login --}}
             <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
                 <div class="d-flex justify-content-end align-items-center gap-3">
-                    {{-- Social Links - EXACT color #0066CC (Blu Italia) --}}
+{{-- Social Links - Comune Green (#007A52) --}}
                     <div class="social-links d-flex gap-2">
                         @foreach($socialLinks as $social)
                         <a
                             href="{{ $social['url'] }}"
-                            style="color: #0066CC;"
-                            class="hover:text-blue-800 transition-colors"
+                            style="color: #007A52;"
+                            class="hover:text-green-800 transition-colors"
                             aria-label="{{ ucfirst($social['platform']) }}"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <x-filament::icon :icon="$social['icon']" class="w-5 h-5" />
+
                         </a>
                         @endforeach
-                        <a href="#" style="color: #0066CC;" class="hover:text-blue-800 transition-colors" aria-label="RSS">
+                        <a href="#" style="color: #007A52;" class="hover:text-green-800 transition-colors" aria-label="RSS">
                             <x-filament::icon icon="heroicon-o-rss" class="w-5 h-5" />
                         </a>
                     </div>
 
-                    {{-- Login Button - EXACT color #0066CC (Blu Italia) --}}
-                    <a href="{{ $loginUrl }}" class="btn btn-primary btn-sm px-4" style="background-color: #0066CC; border-color: #0066CC; color: #FFFFFF;">
+                    {{-- Login Button - Comune Green (#007A52) --}}
+                    <a href="{{ $loginUrl }}" class="btn btn-primary btn-sm px-4" style="background-color: #007A52; border-color: #007A52; color: #FFFFFF;">
                         <x-filament::icon icon="heroicon-m-user" class="w-4 h-4 mr-2" />
                         Accedi
                     </a>

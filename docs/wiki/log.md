@@ -1,5 +1,58 @@
 # Sixteen Wiki Log
 
+## [2026-04-21] fix | segnalazione-crea crash su component alias filament non risolto
+
+- **sources:** `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
+- **summary:** rimossa invocazione legacy
+  `x-filament-forms::field-wrapper.error-message` non disponibile nella versione Filament corrente; il crash bloccava il rendering del wizard in `/it/tests/segnalazione-crea`.
+- **artifact:** `../../Modules/Geo/docs/wiki/troubleshooting/filament-field-wrapper-error-message-missing.md`
+
+## [2026-04-21] audit | parity segnalazione-privacy (header colori, cta, responsive)
+
+- **sources:** `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`, `resources/css/app.css`
+- **summary:** confronto visuale locale vs reference Design Comuni su mobile/tablet/desktop; colori header allineati (`slim` verde scuro, barra nav verde), rimossa CTA duplicata `Successivo`; `Accedi all'area personale` forzato al verde istituzionale.
+- **cta rule:** `Avanti` riposizionato sotto checkbox privacy su tutti i breakpoint.
+- **artifact:** `concepts/segnalazione-privacy-parity-audit.md`
+
+## [2026-04-21] governance | no docs/archive per nuova documentazione tema
+- **summary:** fissata regola locale: niente nuovi file in `Themes/Sixteen/docs/archive/`; nuova conoscenza solo in `docs/wiki/` e `docs/raw/`.
+- **artifact:** `concepts/no-docs-archive-rule.md`
+
+## [2026-04-21] governance | struttura wiki tema canonica e sacra
+- **summary:** recepita regola root sulla struttura wiki canonica, inclusi `_archive` e `_templates` come parti valide del wiki.
+- **artifact:** `../../../../docs/wiki/concepts/wiki-sacred-structure-rule.md`
+
+## [2026-04-21] ui | segnalazione-crea cta parity (avanti unico)
+
+- **sources:** `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`, `resources/css/app.css`
+- **summary:** eliminata la doppia percezione CTA nel wizard (`Successivo` + `Avanti`) mantenendo una sola CTA primaria visibile (`Avanti`) in linea con il pattern Design Comuni; risolti marker di merge residui in `resources/css/app.css`.
+- **build:** eseguiti `npm install`, `npm run build`, `npm run copy`.
+- **refinement:** allineate classi pulsanti navigazione wizard (`fw-bold`, `btn-next`, `btn-prev`) per miglior parity sui CTA.
+
+## [2026-04-21] fix | livewire queryexception su cache table
+
+- **sources:** `../../database/migrations/2026_04_21_111944_create_cache_table.php`
+- **summary:** risolto errore 500 `SQLSTATE[42S02]` su `POST /livewire-*/update` dovuto a tabella `cache` assente; creata anche `cache_locks` con migrazione mirata.
+- **guardrail:** per frontoffice con Livewire, garantire disponibilità tabelle cache quando lo store runtime può risolvere su database.
+- **artifact:** `concepts/livewire-cache-table-rate-limiter.md`
+- **hardening:** resa idempotente la migrazione duplicata `2026_04_21_112114_create_cache_table` per prevenire regressioni su migrate completi.
+
+## [2026-04-21] fix | catena errori 404 + livewire/alpine bootstrap
+
+- **sources:** `resources/views/components/layouts/main.blade.php`, `../../Modules/Geo/resources/views/filament/forms/components/map-picker.blade.php`
+- **summary:** rimossi `<link>` hardcoded verso `/themes/Sixteen/css/*` non presenti nel deploy; mantenuto solo bundle Vite.
+- **deploy:** pubblicato `themes/Geo/js/geo.js` nel webroot attivo (`public_html/themes/Geo/js/geo.js`).
+- **runtime:** riallineati asset Livewire/Filament (`livewire:publish --assets`, `filament:assets`) e pulita cache (`optimize:clear`).
+- **resilienza:** `geoMapPickerField` registrato sia in init immediata sia in hook `alpine:init`.
+- **artifact:** `concepts/segnalazione-runtime-asset-integrity.md`
+
+## [2026-04-21] refactor | lit component ownership fuori da blade
+
+- **sources:** `../../Modules/Geo/resources/views/filament/forms/components/map-picker.blade.php`, `resources/js/app.js`
+- **summary:** eliminata definizione LitElement inline in Blade del map picker; runtime componente demandato al file JS modulo importato nel bundle tema.
+- **import:** aggiunto `@modules/Geo/resources/js/filament/map-picker.js` in `resources/js/app.js`.
+- **guardrail:** Blade = host/binding; LitElement = solo JS component module.
+
 ## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
 
 - **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/views/components/sections/header/personal-area-guest-cta.blade.php`, `resources/views/components/sections/header/personal-area-guest-parity.blade.php`, `resources/views/components/sections/header/user-dropdown.blade.php`

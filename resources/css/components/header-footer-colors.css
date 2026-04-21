@@ -7,11 +7,11 @@
    BOOTSTRAP ITALIA OFFICIAL COLORS
 ======================================== */
 
-/* Primary Colors */
+/* Primary Colors - Laraxot Green Theme (Comune Logo Based) */
 :root {
-  --color-italia: #0066B3;
-  --color-italia-dark: #003366;
-  --color-italia-darker: #002244;
+  --color-italia: #007A52;      /* Comune Green */
+  --color-italia-dark: #00402B; /* Dark Green */
+  --color-italia-darker: #002216;
   --color-white: #FFFFFF;
   --color-black: #000000;
 }
@@ -20,9 +20,9 @@
    HEADER COLORS
 ======================================== */
 
-/* Header Slim - Blu istituzionale (#0066B3) */
+/* Header Slim - Verde Scuro (#00402B) */
 .it-header-slim-wrapper {
-  background-color: #0066B3 !important;
+  background-color: var(--color-italia-dark) !important;
   color: #FFFFFF !important;
 }
 
@@ -31,20 +31,20 @@
   color: #FFFFFF !important;
 }
 
-/* Header Center - Bianco (#FFFFFF) */
+/* Header Center - Verde (#007A52) per parità con sfondo Logo */
 .it-header-center-wrapper {
-  background-color: #FFFFFF !important;
-  color: #000000 !important;
+  background-color: var(--color-italia) !important;
+  color: #FFFFFF !important;
 }
 
 .it-header-center-wrapper .it-brand-title,
 .it-header-center-wrapper a {
-  color: #000000 !important;
+  color: #FFFFFF !important;
 }
 
-/* Header Navbar - Blu scuro (#003366) */
+/* Header Navbar - Verde (#007A52) */
 .it-header-navbar-wrapper {
-  background-color: #003366 !important;
+  background-color: var(--color-italia) !important;
   color: #FFFFFF !important;
 }
 
@@ -57,9 +57,9 @@
    FOOTER COLORS
 ======================================== */
 
-/* Footer Main - Blu scuro (#003366) */
+/* Footer Main - Dark Green (#00402B) */
 .it-footer {
-  background-color: #003366 !important;
+  background-color: var(--color-italia-dark) !important;
   color: #FFFFFF !important;
 }
 
@@ -69,9 +69,9 @@
   color: #FFFFFF !important;
 }
 
-/* Footer Secondary - Blu più scuro (#002244) */
+/* Footer Secondary - Darker Green (#002216) */
 .it-footer-secondary {
-  background-color: #002244 !important;
+  background-color: var(--color-italia-darker) !important;
   color: #FFFFFF !important;
 }
 
@@ -84,33 +84,22 @@
    UTILITY CLASSES FOR COLORS
 ======================================== */
 
-/* Background Colors */
 .bg-italia {
-  background-color: #0066B3 !important;
+  background-color: var(--color-italia) !important;
 }
 
 .bg-italia-dark {
-  background-color: #003366 !important;
+  background-color: var(--color-italia-dark) !important;
 }
 
-.bg-italia-darker {
-  background-color: #002244 !important;
-}
-
-/* Text Colors */
 .text-italia {
-  color: #0066B3 !important;
+  color: var(--color-italia) !important;
 }
 
-.text-italia-dark {
-  color: #003366 !important;
-}
-
-/* Link Colors */
 .link-italia {
-  color: #0066B3 !important;
+  color: var(--color-italia) !important;
 }
 
 .link-italia:hover {
-  color: #003366 !important;
+  color: var(--color-italia-dark) !important;
 }

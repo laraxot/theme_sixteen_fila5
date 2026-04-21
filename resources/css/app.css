@@ -85,12 +85,12 @@
 ======================================== */
 :root {
   /* Reference colors from computed styles */
-  --dc-green: #007a52;       /* rgb(0, 122, 82) - header center/nav */
-  --dc-green-dark: #00402b;  /* rgb(0, 64, 43) - comune green (center band) */
+  --dc-green: #007a52;       /* Comune Logo Green-Background */
+  --dc-green-dark: #00402b;  /* Darker Green for Slim-Header */
   --dc-blue: #0066cc;
-  --dc-blue-primary: #0066cc; /* link / CTA istituzionale */
-  --dc-blue-lighter: #e6f2ff; /* hover sfondo menu slim */
-  --dc-blue-dark: #003d73; /* top slim istituzionale (allineato a design-comuni-tokens) */
+  --dc-blue-primary: #007a52; /* Primary action is green */
+  --dc-blue-lighter: #e6f7f1; /* Light green for hover */
+  --dc-blue-dark: #00402b;    /* Institutional top bar is dark green */
   --dc-ink: #191919;         /* rgb(25, 25, 25) - text color */
   --dc-muted: #5c6f82;
   --dc-footer: #202a2e;      /* rgb(32,42,46) - reference footer bg */
@@ -110,9 +110,9 @@ body {
   box-shadow: none;
 }
 
-/* Header slim — top istituzionale Design Comuni (token: --dc-blue-dark, ref. statiche comuni) */
+/* Header slim — top istituzionale Design Comuni (token: --dc-green-dark, ref. statiche comuni) */
 .it-header-slim-wrapper {
-  background: var(--dc-blue-dark) !important;
+  background: var(--dc-green-dark) !important;
   display: flex !important;
   padding-block: 0 !important; /* FIX: bootstrap-italia-classes.css adds py-2 (8px); reference header is exactly 48px with no padding */
 }
@@ -167,6 +167,7 @@ body {
 }
 
 .it-header-center-wrapper {
+  /* Use Dark Green for center header as requested for visual parity (Comune logo background) */
   background: var(--dc-green) !important;
   color: #fff !important;
   padding: 6px 0 0 !important;
@@ -273,6 +274,29 @@ body {
   border-color: #f0f0f0 !important;
 }
 
+/* Header-scoped primary button mapping: use Comune green for header CTAs */
+.it-header-slim-wrapper .btn-primary,
+.it-header-center-wrapper .btn-primary,
+.it-header-navbar-wrapper .btn-primary,
+.it-header-wrapper .btn-primary {
+  background: var(--dc-green) !important;
+  border-color: var(--dc-green) !important;
+  color: #fff !important;
+}
+
+/* Ensure main "Avanti" button stacks under checkboxes and is full-width on mobile */
+.btn-next {
+  display: inline-block !important;
+  margin-top: 1rem !important;
+}
+
+@media (max-width: 767.98px) {
+  .btn-next {
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
 /* ---- Nav Wrapper ---- */
 .it-nav-wrapper {
   background: transparent !important;
@@ -281,6 +305,7 @@ body {
 
 /* Navbar */
 .it-header-navbar-wrapper {
+  /* Make navbar use Comune logo green instead of blue for nav background */
   background: var(--dc-green) !important;
 }
 
@@ -1082,9 +1107,13 @@ header.it-header-wrapper {
 .it-header-navbar-wrapper a,
 .it-header-navbar-wrapper .nav-link,
 .it-header-navbar-wrapper .nav-link span,
-.it-header-navbar-wrapper .navbar-secondary .nav-link,
-.it-header-navbar-wrapper .navbar-secondary .nav-link span {
+.it-header-navbar-wrapper .navbar-secondary .nav-link {
   color: #fff !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link:hover,
+.it-header-navbar-wrapper .navbar-secondary .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* ========================================
@@ -2922,10 +2951,7 @@ html body {
   padding: 0.75rem 1.5rem !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: #007a52 !important;
-=======
   background: var(--dc-blue-primary) !important;
->>>>>>> 92da240 (.)
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -2987,9 +3013,6 @@ html body {
   width: 1rem !important;
   height: 1rem !important;
   color: #007a52 !important;
-=======
-  color: #fff !important;
->>>>>>> 92da240 (.)
   fill: currentColor !important;
 }
 
@@ -3460,6 +3483,23 @@ main #main-container .steppers-nav .steppers-btn-save {
 
 .page-content[data-slug="tests.segnalazione-crea"] .ticket-wizard-root .fi-sc-wizard-footer > div:last-child .fi-btn svg {
   display: none;
+}
+
+/* Visual parity con Design Comuni: barre header verdi sul flusso segnalazione */
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .container,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .row,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .col-12,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .container,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .row,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .col-12,
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .navbar {
+  background: #007a52 !important;
+}
+
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper {
+  background: #00402b !important;
 }
 
 @media (max-width: 991.98px) {
