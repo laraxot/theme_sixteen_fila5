@@ -10,6 +10,7 @@
         aria-controls="header-user-menu-guest-parity"
         id="header-user-toggle-guest-parity"
         title="{{ __('pub_theme::ui.header_area_personale.user_menu_toggle.tooltip') }}"
+        style="background-color: #007A52; border-color: #007A52;"
     >
         <span class="rounded-icon" aria-hidden="true">
             <svg class="icon icon-white">
