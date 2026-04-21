@@ -1,5 +1,11 @@
 # Sixteen Wiki Log
 
+## [2026-04-21] governance | forbidden folders zero tolerance recepita
+
+- **sources:** `../../../../docs/wiki/concepts/forbidden-folders-zero-tolerance-rule.md`
+- **summary:** per tema Sixteen recepita regola strutturale: non devono esistere
+  `docs/archive`, `_docs`, `lang/lang`; mantenere solo percorsi canonici.
+
 ## [2026-04-21] story | 8-41 segnalazione-crea css dedup header-stepper-hamburger parity
 
 - **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
@@ -27,8 +33,6 @@
 - **guardrail:** per frontoffice con Livewire, garantire disponibilità tabelle cache quando lo store runtime può risolvere su database.
 - **artifact:** `concepts/livewire-cache-table-rate-limiter.md`
 - **hardening:** resa idempotente la migrazione duplicata `2026_04_21_112114_create_cache_table` per prevenire regressioni su migrate completi.
-<<<<<<< HEAD
-=======
 
 ## [2026-04-21] fix | catena errori 404 + livewire/alpine bootstrap
 
@@ -46,7 +50,6 @@
 - **import:** aggiunto `@modules/Geo/resources/js/filament/map-picker.js` in `resources/js/app.js`.
 - **guardrail:** Blade = host/binding; LitElement = solo JS component module.
 
->>>>>>> 792dd9de0 (refactor: migrate PageContent model to method-based casting and update module documentation status)
 ## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
 
 - **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/views/components/sections/header/personal-area-guest-cta.blade.php`, `resources/views/components/sections/header/personal-area-guest-parity.blade.php`, `resources/views/components/sections/header/user-dropdown.blade.php`
