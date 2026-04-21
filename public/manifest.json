@@ -6,7 +6,11 @@
     "isDynamicEntry": true
   },
   "resources/css/app-test.css": {
+<<<<<<< HEAD
     "file": "assets/app-test-46WBBdda.css",
+=======
+    "file": "assets/app-test-C16CeGmt.css",
+>>>>>>> 7aabf76 (.)
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -15,7 +19,11 @@
     ]
   },
   "resources/css/app.css": {
+<<<<<<< HEAD
     "file": "assets/app-50jwtChs.css",
+=======
+    "file": "assets/app-D5QYBabW.css",
+>>>>>>> 7aabf76 (.)
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -24,7 +32,11 @@
     ]
   },
   "resources/js/app.js": {
+<<<<<<< HEAD
     "file": "assets/app-CJmLfspS.js",
+=======
+    "file": "assets/app-DWM66l-T.js",
+>>>>>>> 7aabf76 (.)
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -32,7 +44,11 @@
       "node_modules/@splidejs/splide/dist/js/splide.esm.js"
     ],
     "css": [
+<<<<<<< HEAD
       "assets/app-B--hqVYu.css"
+=======
+      "assets/app-4obgQAYc.css"
+>>>>>>> 7aabf76 (.)
     ]
   }
 }
