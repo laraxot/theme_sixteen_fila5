@@ -61,13 +61,22 @@
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
+<<<<<<< HEAD
     {{-- Slim Header: background from theme tokens --}}
     <div class="it-header-slim-wrapper">
+=======
+    {{-- Slim Header: Design System primary blue (#0066CC) --}}
+    <div class="it-header-slim-wrapper" style="background-color: #0066CC;">
+>>>>>>> 92da240 (.)
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
+<<<<<<< HEAD
                         {{-- White text on slim header background --}}
+=======
+                        {{-- White text on primary blue background --}}
+>>>>>>> 92da240 (.)
                         <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
                         
                         <div class="it-header-slim-right-zone" role="navigation">

@@ -32,9 +32,7 @@ new class extends Component {
 ?>
 
 <x-layouts.app>
-    <my-map lat="41.9028" lng="12.4964" zoom="13"></my-map>
     @volt('tests.view')
-    
     <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         @foreach($blocks as $block)
             @include($block->view, array_merge($data, ['data' => $block->data]))

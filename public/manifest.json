@@ -7,10 +7,14 @@
   },
   "resources/css/app-test.css": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "file": "assets/app-test-46WBBdda.css",
 =======
     "file": "assets/app-test-C16CeGmt.css",
 >>>>>>> 7aabf76 (.)
+=======
+    "file": "assets/app-test-46WBBdda.css",
+>>>>>>> 92da240 (.)
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -20,10 +24,14 @@
   },
   "resources/css/app.css": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "file": "assets/app-50jwtChs.css",
 =======
     "file": "assets/app-D5QYBabW.css",
 >>>>>>> 7aabf76 (.)
+=======
+    "file": "assets/app-50jwtChs.css",
+>>>>>>> 92da240 (.)
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -33,10 +41,14 @@
   },
   "resources/js/app.js": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "file": "assets/app-CJmLfspS.js",
 =======
     "file": "assets/app-DWM66l-T.js",
 >>>>>>> 7aabf76 (.)
+=======
+    "file": "assets/app-CJmLfspS.js",
+>>>>>>> 92da240 (.)
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -45,10 +57,14 @@
     ],
     "css": [
 <<<<<<< HEAD
+<<<<<<< HEAD
       "assets/app-B--hqVYu.css"
 =======
       "assets/app-4obgQAYc.css"
 >>>>>>> 7aabf76 (.)
+=======
+      "assets/app-B--hqVYu.css"
+>>>>>>> 92da240 (.)
     ]
   }
 }
