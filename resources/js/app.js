@@ -23,7 +23,6 @@ import '@modules/Geo/resources/js/components/location-picker-lit.js';
 import '@modules/Geo/resources/js/components/geo-map-widget.js';
 import '@modules/Geo/resources/js/components/place-picker-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
-import '@modules/Geo/resources/js/filament/map-picker.js';
 import geoMapPickerField from '@modules/Geo/resources/js/components/geo-map-picker-field.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
@@ -64,6 +63,7 @@ function registerAlpineComponents(AlpineInstance) {
         showFilterModal: false,
     }));
 
+    // geoMapPickerField: legacy Alpine helper (map-picker.blade usa $wire.entangle + map-picker-lit).
     AlpineInstance.data('geoMapPickerField', geoMapPickerField);
 
     // Story 1.1.1-HEADER-RESPONSIVE: Mobile header navigation toggle

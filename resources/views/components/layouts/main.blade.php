@@ -47,6 +47,7 @@
             @vite(['resources/css/app.css'], 'themes/Sixteen')
             <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
         @endif
+        {{-- Segnalazione-crea header/nav: un solo posto — `Themes/Sixteen/resources/css/app.css` (`.it-header-wrapper.is-segnalazione-crea`) + `theme-light-desk` in `header/v1.blade.php`. Niente `<style>` inline (duplica app.css / anti-pattern “nav tutta verde”). Doc: `Themes/Sixteen/docs/wiki/concepts/header-color-parity.md`. --}}
     </head>
     <body class="{{$isTestsRoute ? 'tests-route' : ''}}">
         {{ $slot }}

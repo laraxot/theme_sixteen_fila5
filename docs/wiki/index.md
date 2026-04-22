@@ -2,7 +2,6 @@
 
 ## Karpathy LLM Wiki Standard
 
-<<<<<<< .merge_file_7WzEwW
 - [schema](./schema.md): rules for ingest, query, and lint inside the Sixteen wiki.
 - [geo map selector governance](../../../Modules/Geo/docs/wiki/concepts/leaflet-class-selector-governance.md): integrazione tema con picker multipli senza collisioni id-based
 - [latitudelongitudeinput xotbasefield rule](../../../Modules/Geo/docs/wiki/concepts/latitudelongitudeinput-xotbasefield-rule.md): allineamento architetturale del picker legacy ai wrapper XotBase
@@ -14,23 +13,16 @@
 - [header composition rule (root)](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md): estrazione componenti riusabili da tutte le Blade; per blocchi locali all'header usare `sections/header/partials/`; `v1.blade.php` resta orchestratore (story 8-37)
 - [header partials location rule](./concepts/header-partials-location-rule.md): partial locali header sempre in `sections/header/partials/`; mai allo stesso livello di `v1.blade.php`
 - [blade component extraction rule (local)](./concepts/blade-component-extraction-rule.md): quick-reference locale — classificazione blocchi blade (riusabile cross-section, partial di section, inline)
+- [header color parity — Design Comuni](./concepts/header-color-parity.md): slim verde vs navbar chiara nel flusso segnalazione; `theme-light-desk`; un solo CSS in `app.css`
 - [header authenticated state](./concepts/header-authenticated-state.md): comportamento guest vs autenticato (testi, menu); implementazione sempre nel file v1 sopra
 - [header slim dropdown behavior](./concepts/header-slim-dropdown-behavior.md): click-outside sicuro, niente inline `display` persistente, token blu slim vs verde center, z-index/overflow
 - [segnalazione wizard cta parity](./concepts/segnalazione-wizard-cta-parity.md): una sola CTA primaria (`Avanti`) nel wizard per ridurre confusione
 - [segnalazione privacy parity audit](./concepts/segnalazione-privacy-parity-audit.md): audit desktop/tablet/mobile con focus header colori e posizione CTA
 - [livewire cache table rate limiter](./concepts/livewire-cache-table-rate-limiter.md): prerequisito runtime per update Livewire in frontoffice
 - [segnalazione runtime asset integrity](./concepts/segnalazione-runtime-asset-integrity.md): regole anti-404 su asset tema/modulo in runtime
-<<<<<<< HEAD
 - [forbidden folders zero tolerance](../../../../docs/wiki/concepts/forbidden-folders-zero-tolerance-rule.md): vietati `docs/archive`, `_docs`, `lang/lang`
-=======
-- [no docs archive rule](./concepts/no-docs-archive-rule.md): nuova documentazione solo in wiki/raw, niente `docs/archived`
 - [wiki sacred structure rule](../../../../docs/wiki/concepts/wiki-sacred-structure-rule.md): struttura wiki canonica protetta, inclusi `_archive` e `_templates`
->>>>>>> 4b3e8ff (.)
 - [story 7-54 artifact](../../../../../_bmad-output/implementation-artifacts/7-54-segnalazione-crea-header-slim-dropdowns-data-bs-toggle-unification.md): fix wizard segnalazione-crea, dropdown slim solo `data-bs-toggle` + `app.js`
-=======
-- [forbidden-folders-rule](../../../../docs/wiki/concepts/forbidden-folders.md): Strict structural constraints.
-- [llm-wiki-standard](../../../../docs/wiki/concepts/karpathy-wiki.md): Repository mapping and knowledge lifecycle.
->>>>>>> .merge_file_gLgpOQ
 
 ## Sacred Hierarchy
 

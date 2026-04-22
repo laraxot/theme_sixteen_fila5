@@ -1,9 +1,20 @@
 # Sixteen Wiki Log
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< .merge_file_BCJnN8
+## [2026-04-21] governance | header segnalazione — una sola fonte CSS + wiki kit
+- **sources:** `laravel/Themes/Sixteen/resources/views/components/layouts/main.blade.php`, `laravel/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php`, `laravel/Themes/Sixteen/resources/css/app.css`, `laravel/Themes/Sixteen/docs/wiki/concepts/header-color-parity.md`, `docs/wiki/index.md`, `docs/wiki/concepts/header-section-owner-rule.md`
+- **summary:** eliminato `<style>` inline duplicato e link 404 a override esterni; regola Design Comuni (repo + GitHub Pages) e anti-pattern “navbar tutta verde” descritti in `header-color-parity.md`; commento SSoT in `app.css`.
+- **riferimento:** [italia/design-comuni-pagine-statiche](https://github.com/italia/design-comuni-pagine-statiche)
+
+## [2026-04-21] story | 8-40 segnalazione-crea — navbar bianca + bundle map
+- **sources:** `resources/css/app.css` (`.it-header-wrapper.is-segnalazione-crea …`), `resources/views/components/layouts/main.blade.php` (override fine `<head>` dopo CDN BI 2.18 + Vite), `resources/views/components/sections/header/v1.blade.php` (classe BI **`theme-light-desk`** su `.it-header-navbar-wrapper` quando `tests/segnalazione-crea` — default BI è `background:#06c`), `resources/js/app.js` (rimosso `filament/map-picker.js` duplicato).
+- **riferimento visivo:** [Design Comuni segnalazione-02-dati](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html).
+- **build:** `npm run build` tema Sixteen dopo modifiche Geo/JS.
+
+## [2026-04-21] fix | header nav links background — design-comuni-global.css
+
+- **sources:** `resources/css/design-comuni-global.css`
+- **summary:** `.it-header-center-wrapper` e `.it-header-navbar-wrapper` corretti da `#007a52` (verde) a `#fff`; `.navbar-nav .nav-link` e `.navbar-secondary .nav-link` corretti da `#fff` a `#0066CC` (blu istituzionale). Allineamento visuale con reference Design Comuni `segnalazione-02-dati.html`.
+
 ## [2026-04-21] fix | segnalazione-crea header/nav parity reale su section owner
 
 - **sources:** `resources/views/components/sections/header/v1.blade.php`, `resources/css/app.css`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
@@ -13,26 +24,19 @@
 ## [2026-04-21] fix | segnalazione-crea crash su component alias filament non risolto
 
 - **sources:** `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
-- **summary:** rimossa invocazione legacy
-  `x-filament-forms::field-wrapper.error-message` non disponibile nella versione Filament corrente; il crash bloccava il rendering del wizard in `/it/tests/segnalazione-crea`.
+- **summary:** rimossa invocazione legacy `x-filament-forms::field-wrapper.error-message` non disponibile nella versione Filament corrente; il crash bloccava il rendering del wizard in `/it/tests/segnalazione-crea`.
 - **artifact:** `../../Modules/Geo/docs/wiki/troubleshooting/filament-field-wrapper-error-message-missing.md`
-=======
->>>>>>> 4b3e8ff (.)
+
 ## [2026-04-21] governance | forbidden folders zero tolerance recepita
 
 - **sources:** `../../../../docs/wiki/concepts/forbidden-folders-zero-tolerance-rule.md`
-- **summary:** per tema Sixteen recepita regola strutturale: non devono esistere
-  `docs/archive`, `_docs`, `lang/lang`; mantenere solo percorsi canonici.
+- **summary:** per tema Sixteen recepita regola strutturale: non devono esistere `docs/archive`, `_docs`, `lang/lang`; mantenere solo percorsi canonici.
 
 ## [2026-04-21] story | 8-41 segnalazione-crea css dedup header-stepper-hamburger parity
 
 - **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`
 - **summary:** creata story dedicata al cleanup dei blocchi CSS duplicati/conflittuali della pagina `tests/segnalazione-crea`, con focus su header link background, posizionamento hamburger, menu aperto mobile e artifact stepper.
 - **artifact:** `../../../../../_bmad-output/implementation-artifacts/8-41-segnalazione-crea-css-dedup-header-stepper-hamburger-parity.md`
-<<<<<<< HEAD
-=======
->>>>>>> .merge_file_RoJaYO
->>>>>>> 4b3e8ff (.)
 
 ## [2026-04-21] audit | parity segnalazione-privacy (header colori, cta, responsive)
 
@@ -41,20 +45,16 @@
 - **cta rule:** `Avanti` riposizionato sotto checkbox privacy su tutti i breakpoint.
 - **artifact:** `concepts/segnalazione-privacy-parity-audit.md`
 
-<<<<<<< HEAD
-=======
-<<<<<<< .merge_file_BCJnN8
 ## [2026-04-21] governance | no docs/archive per nuova documentazione tema
+
 - **summary:** fissata regola locale: niente nuovi file in `Themes/Sixteen/docs/archive/`; nuova conoscenza solo in `docs/wiki/` e `docs/raw/`.
 - **artifact:** `concepts/no-docs-archive-rule.md`
 
 ## [2026-04-21] governance | struttura wiki tema canonica e sacra
+
 - **summary:** recepita regola root sulla struttura wiki canonica, inclusi `_archive` e `_templates` come parti valide del wiki.
 - **artifact:** `../../../../docs/wiki/concepts/wiki-sacred-structure-rule.md`
 
-=======
->>>>>>> .merge_file_RoJaYO
->>>>>>> 4b3e8ff (.)
 ## [2026-04-21] ui | segnalazione-crea cta parity (avanti unico)
 
 - **sources:** `../../Modules/Fixcity/resources/views/filament/widgets/ticket-create-wizard.blade.php`, `resources/css/app.css`
@@ -85,10 +85,14 @@
 - **summary:** eliminata definizione LitElement inline in Blade del map picker; runtime componente demandato al file JS modulo importato nel bundle tema.
 - **import:** aggiunto `@modules/Geo/resources/js/filament/map-picker.js` in `resources/js/app.js`.
 - **guardrail:** Blade = host/binding; LitElement = solo JS component module.
-<<<<<<< HEAD
-=======
-=======
+
+## [2026-04-21] governance | no absolute paths in git-tracked config (project-wide)
+
+- **sources:** `../../../../../laravel/.mcp.json`, `../../../../../docs/wiki/concepts/no-absolute-paths-in-config.md`
+- **summary:** recepita nel tema la regola di portabilita del progetto: file config tracciati da git non devono contenere path assoluti legati a una macchina locale; usare path relativi e variabili env.
+
 ## [2026-04-21] governance | Blade extraction generale + header partials
+
 - sources:
   - `../../../../docs/wiki/concepts/blade-component-extraction-governance.md`
   - `../../../../docs/wiki/concepts/sixteen-header-composition-rule.md`
@@ -99,6 +103,7 @@
   - per blocchi locali all'header Sixteen usare `resources/views/components/sections/header/partials/`; `v1.blade.php` resta owner
 
 ## [2026-04-21] story | 8-37 Blade reusable extraction e header partials
+
 - sources:
   - `../../../../../_bmad-output/implementation-artifacts/8-37-blade-reusable-components-extraction-and-header-partials-governance.md`
   - `../../../../docs/wiki/concepts/sixteen-header-composition-rule.md`
@@ -106,8 +111,6 @@
   - fissata la regola generale: cercare componenti riusabili in tutte le Blade del tema
   - se un componente e' locale all'header `v1.blade.php`, va messo sotto `resources/views/components/sections/header/partials/`
   - `v1.blade.php` resta owner/orchestratore; i partial non diventano owner
->>>>>>> 3898c746b (.)
->>>>>>> 4b3e8ff (.)
 
 ## [2026-04-21] implement | Story 8-36 — header v1 sottocomponenti DRY/KISS consolidati
 
@@ -128,6 +131,7 @@
 - **wiki:** [header-authenticated-state](./concepts/header-authenticated-state.md), [header-slim-dropdown-behavior](./concepts/header-slim-dropdown-behavior.md)
 
 ## [2026-04-20] rule | header SSoT del section layout
+
 - sources:
   - `resources/views/components/sections/header/v1.blade.php`
   - `../../../../docs/wiki/concepts/header-section-owner-rule.md`
@@ -136,6 +140,7 @@
   - `bootstrap-italia/header.blade.php` non va assunto come owner automatico per `segnalazione-crea`
 
 ## [2026-04-20] story | 8-36 header subcomponents extraction sotto sections/header
+
 - sources:
   - `resources/views/components/sections/header/v1.blade.php`
   - `../../../../../_bmad-output/implementation-artifacts/8-36-header-section-v1-subcomponents-extraction-dry-kiss.md`
@@ -147,6 +152,7 @@
   - wiki root: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md); aggiornati README tema, AGENTS, MEMORY, `.cursor/rules/sixteen-header-v1-ssot.mdc`
 
 ## [2026-04-20] implement | header slim segnalazione-crea fixato nel section owner reale
+
 - sources:
   - `resources/views/components/sections/header/v1.blade.php`
   - `resources/js/app.js`
@@ -159,6 +165,7 @@
   - build tema eseguita con successo; restano solo warning noti su asset logo risolti a runtime
 
 ## [2026-04-20] rule | dropdown slim header runtime-critical e color-parity
+
 - sources:
   - `./concepts/header-authenticated-state.md`
   - `https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html`
@@ -169,6 +176,7 @@
   - il quality gate corretto e' screenshot-driven su pagina reale come `segnalazione-crea`
 
 ## [2026-04-20] implement | header owner-side con display name e avatar fallback raffinati
+
 - sources:
   - `resources/views/components/bootstrap-italia/header.blade.php`
 - summary:
@@ -178,6 +186,7 @@
   - nickname e chevron del menu utente resi visibili anche fuori dal solo desktop largo
 
 ## [2026-04-20] wiki | header guest/auth — fonte di verità e anti-regressione
+
 - sources:
   - `./concepts/header-authenticated-state.md`
   - `../../../../../.planning/stories/5.0-header-logged-in-state.story.md`
@@ -188,6 +197,7 @@
   - screenshot: confrontare guest vs auth su stessa URL (es. `tests/segnalazione-crea`)
 
 ## [2026-04-20] ui | header slim area personale se autenticato (Design Comuni)
+
 - sources:
   - `resources/views/components/bootstrap-italia/header.blade.php`
   - `lang/it/ui.php`, `lang/en/ui.php`
@@ -197,6 +207,7 @@
   - testi menu da `pub_theme::ui.header_area_personale.*` (struttura a 5 elementi per label)
 
 ## [2026-04-20] i18n | login view without italian literal phrases
+
 - sources:
   - `resources/views/pages/auth/login.blade.php`
   - `../../../Modules/User/lang/it/auth.php`
@@ -207,6 +218,7 @@
   - mantenuta coerenza DRY: copy condivisa cross-theme nel modulo di dominio
 
 ## [2026-04-20] ui | login auth riallineata a design comuni con widget filament
+
 - sources:
   - `resources/views/pages/auth/login.blade.php`
   - `resources/views/filament/widgets/auth/login.blade.php`
@@ -217,6 +229,7 @@
   - semplificato il widget style per coerenza con componenti pubblici del tema
 
 ## [2026-04-20] ui | zoom mappa con svg standard e no underline
+
 - sources:
   - `../../Modules/Geo/resources/js/components/coordinate-picker-field.js`
   - `../../Modules/Fixcity/app/Filament/Widgets/CreateTicketWizardWidget.php`
@@ -225,6 +238,7 @@
   - aumentato zoom iniziale del `MapPicker` di test (`location1`) a 15
 
 ## [2026-04-20] ui | controlli zoom mappa allineati a toolbar custom
+
 - sources:
   - `../../Modules/Geo/resources/js/components/coordinate-picker-field.js`
 - summary:
@@ -232,6 +246,7 @@
   - aggiornate icone fullscreen/locate con simboli standard orientati all'abitudine utente
 
 ## [2026-04-20] build | rebuild tema dopo marker custom mappicker
+
 - sources:
   - `../../Modules/Geo/resources/js/components/map-picker-marker-config.js`
 - summary:
@@ -239,6 +254,7 @@
   - mantenuto fallback marker locale, senza introduzione di dipendenze esterne
 
 ## [2026-04-20] governance | mappicker runtime ux recepita nel tema
+
 - sources:
   - `../../Modules/Geo/resources/js/components/coordinate-picker-field.js`
   - `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
@@ -248,6 +264,7 @@
   - allineata la semantica di stato per evitare mappe inizializzate con coordinate spurie
 
 ## [2026-04-20] governance | mappicker xotbasefield recepito nel tema
+
 - sources:
   - `../../Modules/Geo/app/Filament/Forms/Components/MapPicker.php`
   - `../../Modules/Geo/docs/wiki/concepts/mappicker-xotbasefield-rule.md`
@@ -256,6 +273,7 @@
   - ridotto rischio di regressioni runtime nei wizard con piu varianti mappa
 
 ## [2026-04-20] build | rebuild tema dopo fix mappicker (overlay, address readout, marker, fullscreen)
+
 - sources:
   - `../../Modules/Geo/resources/views/filament/forms/components/coordinate-picker.blade.php`
   - `../../Modules/Geo/resources/js/components/coordinate-picker-field.js`
@@ -265,6 +283,7 @@
   - eliminato overlap tra layer control e toolbar custom, migliorata gestione fullscreen
 
 ## [2026-04-20] build | rebuild tema dopo fix visibilita mappa e fullscreen reattivo
+
 - sources:
   - `Modules/Geo/resources/js/components/geo-latlng-input.js`
   - `public/assets/app-V_uIqEqu.js`
@@ -274,6 +293,7 @@
   - riallineata reattivita pulsante fullscreen nel web component Lit in Light DOM
 
 ## [2026-04-20] build | rebuild tema dopo autolocate-on-init per latitudelongitudeinput
+
 - sources:
   - `Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input-lit.blade.php`
   - `Modules/Geo/resources/js/components/geo-latlng-input.js`
@@ -283,6 +303,7 @@
   - mantenuta visibilità controlli mappa (layer/fullscreen/locate) nel wizard
 
 ## [2026-04-20] fix | latitudelongitudeinput runtime ux allineata nel tema
+
 - sources:
   - `../../Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input-lit.blade.php`
   - `../../Modules/Geo/resources/js/components/geo-latlng-input.js`
@@ -291,6 +312,7 @@
   - confermata necessità di mantenere visibili i controlli layer/fullscreen/locate nel flusso wizard
 
 ## [2026-04-20] governance | latitudelongitudeinput allineato a xotbasefield
+
 - sources:
   - `../../Modules/Geo/app/Filament/Forms/Components/LatitudeLongitudeInput.php`
   - `../../Modules/Geo/docs/wiki/concepts/latitudelongitudeinput-xotbasefield-rule.md`
@@ -299,6 +321,7 @@
   - ridotto coupling tra picker sibling e migliorata stabilità evolutiva lato UI runtime
 
 ## [2026-04-20] build | rebuild tema dopo fix fullscreen/drag in geolatlnginput
+
 - sources:
   - `Modules/Geo/resources/js/components/geo-latlng-input.js`
   - `public/assets/app-bhwe-_Wn.js`
@@ -308,6 +331,7 @@
   - rimane warning ambiente Node (< 20.19) ma build completata con successo
 
 ## [2026-04-20] build | rebuild tema dopo dedup input lat/lng nel picker legacy
+
 - sources:
   - `Modules/Geo/resources/js/components/geo-latlng-input.js`
   - `public/assets/app-CXkgYcr7.js`
@@ -317,6 +341,7 @@
   - eseguito anche `npm run copy` per allineare runtime in `public_html/themes/Sixteen`
 
 ## [2026-04-20] governance | allineamento tema a class selector policy per mappe Geo
+
 - sources:
   - `../../Modules/Geo/docs/wiki/concepts/leaflet-class-selector-governance.md`
 - summary:
@@ -324,6 +349,7 @@
   - ridotto rischio collisioni quando lo stesso step contiene piu picker
 
 ## [2026-04-20] audit | tema incluso nello scan selector id-based
+
 - sources:
   - `resources/*`
   - `public/assets/*` (read-only audit)
@@ -332,6 +358,7 @@
   - confermata priorità di enforcement sui componenti mappa runtime del modulo Geo
 
 ## [2026-04-20] fix | wizard segnalazione runtime restore after latitudelongitudeinput getter mismatch
+
 - sources:
   - `Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input-lit.blade.php`
 - summary:
@@ -339,6 +366,7 @@
   - eliminata dipendenza lato view da getter legacy `getDefault*` non presenti nel wrapper attuale
 
 ## [2026-04-20] hotfix | ripristino rendering mappa legacy nello step wizard
+
 - sources:
   - `Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input.blade.php`
   - `public/assets/app-CoVltwNO.js`
@@ -347,6 +375,7 @@
   - preservati i blocchi mappa commentati nel widget Fixcity (nessuna rimozione)
 
 ## [2026-04-20] fix | wizard mappa legacy - toolbar layer/geoloc ripristinato
+
 - sources:
   - `Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input.blade.php`
   - `public/assets/app-4WPb1Mkc.js`
@@ -355,6 +384,7 @@
   - toolbar con layer switch e posizione corrente ora visibile/stabile anche nel layout wizard
 
 ## [2026-04-20] refactor | convergenza runtime picker geo nel bundle tema
+
 - sources:
   - `resources/js/app.js`
   - `public/assets/app-4WPb1Mkc.js`
@@ -364,6 +394,7 @@
   - allineata UX mappe nello scenario wizard `/it/tests/segnalazione-crea`
 
 ## [2026-04-20] fix | legacy latitudelongitudeinput toolbar e fullscreen runtime
+
 - sources:
   - `Modules/Geo/resources/views/filament/forms/components/latitude-longitude-input.blade.php`
   - `Modules/Geo/lang/it/latitude_longitude_input.php`
@@ -372,6 +403,7 @@
   - fullscreen del picker legacy allineato a copertura completa viewport (edge-to-edge)
 
 ## [2026-04-20] dev | coordinatepicker geo - rebuild asset tema
+
 - sources:
   - `resources/js/app.js`
   - `public/manifest.json`
@@ -381,6 +413,7 @@
   - verificata disponibilita runtime del custom element importato nel bundle tema
 
 ## [2026-04-20] dev | mappa wizard segnalazione - rebuild asset tema
+
 - sources:
   - `resources/js/app.js`
   - `public/manifest.json`
@@ -389,4 +422,10 @@
   - verificato runtime pagina `/it/tests/segnalazione-crea` con step mappa attivo
 
 ## [2026-04-15] init | wiki bootstrap
+
 - Added schema, index, and theme adoption guide.
+## [2026-04-21] rule | Header style layer, no inline parity CSS
+
+- Consolidata regola Design Comuni: `v1.blade.php` resta owner markup/composizione; colori e background header vanno nel CSS/token layer.
+- Rimosso l'anti-pattern dello `<style>` condizionale per `is-segnalazione-crea`.
+- Nuova pagina: `concepts/header-style-layer-rule.md`.

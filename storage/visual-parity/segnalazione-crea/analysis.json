@@ -1,6 +1,6 @@
 {
   "page": "segnalazione-crea",
-  "timestamp": "2026-04-15T13:52:20.052Z",
+  "timestamp": "2026-04-21T20:04:13.103Z",
   "viewport": {
     "name": "desktop",
     "width": 1440,
@@ -18,7 +18,7 @@
         "fontWeight": "400",
         "color": "rgb(23, 51, 79)",
         "lineHeight": "28px",
-        "count": 114,
+        "count": 104,
         "sample": "ITA selezionata"
       },
       {
@@ -27,7 +27,7 @@
         "fontWeight": "400",
         "color": "rgb(0, 122, 82)",
         "lineHeight": "24px",
-        "count": 73,
+        "count": 61,
         "sample": "Vai ai contenuti"
       },
       {
@@ -36,17 +36,35 @@
         "fontWeight": "400",
         "color": "rgb(255, 255, 255)",
         "lineHeight": "21px",
-        "count": 55,
+        "count": 59,
         "sample": "Nome della Regione"
       },
       {
         "fontFamily": "\"Titillium Web\"",
         "fontSize": "16px",
         "fontWeight": "600",
-        "color": "rgb(26, 26, 26)",
-        "lineHeight": "24.88px",
-        "count": 18,
-        "sample": "Nascondi la navigazione"
+        "color": "rgb(255, 255, 255)",
+        "lineHeight": "22.8571px",
+        "count": 16,
+        "sample": "Cerca"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "color": "rgb(255, 255, 255)",
+        "lineHeight": "18.6667px",
+        "count": 12,
+        "sample": "Seguici su"
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "color": "rgb(255, 255, 255)",
+        "lineHeight": "normal",
+        "count": 12,
+        "sample": "\n                                                 "
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -60,38 +78,11 @@
       {
         "fontFamily": "\"Titillium Web\"",
         "fontSize": "14px",
-        "fontWeight": "600",
-        "color": "rgb(255, 255, 255)",
-        "lineHeight": "18.6667px",
-        "count": 11,
-        "sample": "Seguici su"
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "18px",
-        "fontWeight": "600",
-        "color": "rgb(255, 255, 255)",
-        "lineHeight": "normal",
-        "count": 8,
-        "sample": "\n                                                 "
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "14px",
         "fontWeight": "500",
         "color": "rgb(26, 26, 26)",
         "lineHeight": "20px",
-        "count": 5,
-        "sample": "Dati della segnalazione"
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "14px",
-        "fontWeight": "700",
-        "color": "rgb(26, 26, 26)",
-        "lineHeight": "20px",
-        "count": 4,
-        "sample": "1"
+        "count": 6,
+        "sample": "\n                                    01\n          "
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -101,6 +92,15 @@
         "lineHeight": "40px",
         "count": 4,
         "sample": "\n                            Luogo\n               "
+      },
+      {
+        "fontFamily": "\"Titillium Web\"",
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "color": "rgb(26, 26, 26)",
+        "lineHeight": "19.4999px",
+        "count": 4,
+        "sample": " Street"
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -149,30 +149,12 @@
       },
       {
         "fontFamily": "\"Titillium Web\"",
-        "fontSize": "28px",
-        "fontWeight": "700",
-        "color": "rgb(25, 25, 25)",
-        "lineHeight": "50px",
-        "count": 1,
-        "sample": "Luogo"
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
         "fontSize": "16px",
         "fontWeight": "700",
         "color": "rgb(23, 50, 77)",
         "lineHeight": "22.8571px",
         "count": 1,
         "sample": "\n        \n    "
-      },
-      {
-        "fontFamily": "\"Titillium Web\"",
-        "fontSize": "20px",
-        "fontWeight": "700",
-        "color": "rgb(25, 25, 25)",
-        "lineHeight": "30px",
-        "count": 1,
-        "sample": "Contatta il comune"
       },
       {
         "fontFamily": "\"Titillium Web\"",
@@ -303,7 +285,7 @@
           "fontWeight": "400",
           "color": "rgb(23, 51, 79)",
           "lineHeight": "28px",
-          "count": 114,
+          "count": 104,
           "sample": "ITA selezionata"
         }
       },
@@ -324,7 +306,7 @@
           "fontWeight": "400",
           "color": "rgb(23, 51, 79)",
           "lineHeight": "28px",
-          "count": 114,
+          "count": 104,
           "sample": "ITA selezionata"
         }
       },
@@ -345,7 +327,7 @@
           "fontWeight": "400",
           "color": "rgb(0, 122, 82)",
           "lineHeight": "24px",
-          "count": 73,
+          "count": 61,
           "sample": "Vai ai contenuti"
         }
       },
@@ -366,7 +348,7 @@
           "fontWeight": "400",
           "color": "rgb(255, 255, 255)",
           "lineHeight": "21px",
-          "count": 55,
+          "count": 59,
           "sample": "Nome della Regione"
         }
       },
@@ -434,7 +416,7 @@
         }
       },
       {
-        "type": "style_mismatch",
+        "type": "missing_in_local",
         "reference": {
           "fontFamily": "\"Titillium Web\"",
           "fontSize": "20px",
@@ -443,15 +425,6 @@
           "lineHeight": "22px",
           "count": 1,
           "sample": "Nome del Comune"
-        },
-        "local": {
-          "fontFamily": "\"Titillium Web\"",
-          "fontSize": "20px",
-          "fontWeight": "700",
-          "color": "rgb(25, 25, 25)",
-          "lineHeight": "30px",
-          "count": 1,
-          "sample": "Contatta il comune"
         }
       }
     ]
@@ -460,19 +433,19 @@
     "local": [
       {
         "color": "rgb(25, 25, 25)",
-        "count": 595
+        "count": 606
       },
       {
         "color": "rgb(255, 255, 255)",
-        "count": 523
+        "count": 528
       },
       {
         "color": "rgb(26, 26, 26)",
-        "count": 168
+        "count": 160
       },
       {
         "color": "rgb(0, 122, 82)",
-        "count": 127
+        "count": 90
       },
       {
         "color": "rgba(255, 255, 255, 0.82)",
@@ -480,11 +453,7 @@
       },
       {
         "color": "rgb(23, 50, 77)",
-        "count": 56
-      },
-      {
-        "color": "rgb(23, 51, 79)",
-        "count": 26
+        "count": 66
       },
       {
         "color": "oklch(0.414 0.112 45.904)",
@@ -492,7 +461,15 @@
       },
       {
         "color": "rgb(93, 112, 131)",
-        "count": 16
+        "count": 18
+      },
+      {
+        "color": "rgb(23, 51, 79)",
+        "count": 15
+      },
+      {
+        "color": "rgb(92, 111, 130)",
+        "count": 14
       },
       {
         "color": "oklch(0.141 0.005 285.823)",
@@ -500,14 +477,6 @@
       },
       {
         "color": "oklch(0.92 0.004 286.32)",
-        "count": 11
-      },
-      {
-        "color": "rgb(92, 111, 130)",
-        "count": 10
-      },
-      {
-        "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(0, 0, 0, 0)",
         "count": 8
       },
       {
@@ -515,7 +484,11 @@
         "count": 8
       },
       {
-        "color": "rgb(204, 0, 0)",
+        "color": "rgb(255, 255, 255) rgb(255, 255, 255) rgba(0, 0, 0, 0)",
+        "count": 7
+      },
+      {
+        "color": "oklch(0.705 0.015 286.067)",
         "count": 6
       }
     ],
@@ -627,15 +600,19 @@
         },
         {
           "color": "rgb(23, 50, 77)",
-          "count": 56
-        },
-        {
-          "color": "rgb(23, 51, 79)",
-          "count": 26
+          "count": 66
         },
         {
           "color": "oklch(0.414 0.112 45.904)",
           "count": 20
+        },
+        {
+          "color": "rgb(23, 51, 79)",
+          "count": 15
+        },
+        {
+          "color": "rgb(92, 111, 130)",
+          "count": 14
         },
         {
           "color": "oklch(0.141 0.005 285.823)",
@@ -643,18 +620,14 @@
         },
         {
           "color": "oklch(0.92 0.004 286.32)",
-          "count": 11
-        },
-        {
-          "color": "rgb(92, 111, 130)",
-          "count": 10
+          "count": 8
         },
         {
           "color": "oklch(0.577 0.245 27.325)",
           "count": 8
         },
         {
-          "color": "rgb(204, 0, 0)",
+          "color": "oklch(0.705 0.015 286.067)",
           "count": 6
         }
       ]
