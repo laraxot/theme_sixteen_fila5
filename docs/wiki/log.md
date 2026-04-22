@@ -1,5 +1,24 @@
 # Sixteen Wiki Log
 
+## [2026-04-22] governance | No page-specific CSS — Design Comuni principle
+- **regola**: vietato `.ticket-wizard-root`, `[data-slug="..."]` o qualsiasi selettore CSS per pagina/widget specifico
+- **principio**: Design Comuni ufficiale usa solo selettori di componente (`.it-*`); un wizard è un componente, non "la pagina segnalazione-crea"
+- **varianti**: usare props/attributi sul componente, non il nome della pagina come discriminante CSS
+- **rule**: `bashscripts/ai/.claude/rules/no-page-specific-css.md`
+- **wiki concept**: `laravel/Themes/Sixteen/docs/wiki/concepts/no-page-specific-css.md`
+- **memory**: `memory/feedback_no_page_specific_css.md`
+
+## [2026-04-22] ops | context-mode + QMD per docs tema e story BMAD
+- **regola root**: `docs/wiki/concepts/context-compression-discipline.md`
+- **scope Sixteen**: per story su wizard/header/parity non caricare l'intero corpus tema; usare QMD/context-mode e passare allo skill solo indici, concetti wiki e snippet essenziali.
+- **verifica**: context-mode plugin/MCP connessi; QMD aggiorna `theme-sixteen` con 1005 file indicizzati.
+
+## [2026-04-22] governance | getSummarySchema wizard con Infolists
+- **regola**: i riepiloghi wizard Sixteen/Fixcity devono usare Filament Infolists in `getSummarySchema()`; `SchemaView` non e' ammesso per summary read-only strutturati.
+- **root wiki**: `docs/wiki/concepts/filament-summary-infolist-rule.md`
+- **fonte ufficiale**: https://filamentphp.com/docs/5.x/infolists/overview
+- **nota DRY + KISS**: linkare la regola root dagli indici locali, non duplicare esempi divergenti.
+
 ## [2026-04-21] governance | header segnalazione — una sola fonte CSS + wiki kit
 - **sources:** `laravel/Themes/Sixteen/resources/views/components/layouts/main.blade.php`, `laravel/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php`, `laravel/Themes/Sixteen/resources/css/app.css`, `laravel/Themes/Sixteen/docs/wiki/concepts/header-color-parity.md`, `docs/wiki/index.md`, `docs/wiki/concepts/header-section-owner-rule.md`
 - **summary:** eliminato `<style>` inline duplicato e link 404 a override esterni; regola Design Comuni (repo + GitHub Pages) e anti-pattern “navbar tutta verde” descritti in `header-color-parity.md`; commento SSoT in `app.css`.
@@ -429,3 +448,16 @@
 - Consolidata regola Design Comuni: `v1.blade.php` resta owner markup/composizione; colori e background header vanno nel CSS/token layer.
 - Rimosso l'anti-pattern dello `<style>` condizionale per `is-segnalazione-crea`.
 - Nuova pagina: `concepts/header-style-layer-rule.md`.
+# 2026-04-22
+
+- Ingestita decisione Design Comuni: lo step riepilogo segnalazione resta renderizzato dal widget Fixcity con entry Infolist; il tema governa layout/parity CSS e non reintroduce `SchemaView` come riepilogo primario.
+- Ingestita nota `context-compression-plugin-runtime`: Sixteen contiene corpus visuale ampio; consultare wiki/QMD e non caricare batch report completi se non necessario.
+- Ingestita regola `theme-css-only-parity-rule`: Sixteen e' owner unico del CSS Design Comuni per `segnalazione-crea`; le Blade dei moduli non devono contenere `<style>` o inline style JS per la parity.
+- Ingestita regola `filament5-schema-section-namespace-rule`: il tema non deve forkare la pagina Folio per casi singoli; renderizza lo schema widget corretto e lascia `Section` a Filament Schemas.
+- Ingestita regola `segnalazione-map-and-section-spacing-parity`: controlli mappa e spacing sezione Disservizio si governano dal CSS tema con build/copy.
+- Rafforzata regola CSS Design Comuni: niente selettori per-page tipo `.page-content[data-slug="tests.segnalazione-crea"]` per correzioni riusabili; usare selettori semantici component/site-level.
+# 2026-04-22 - CSS parity wizard owner tema
+
+- Aggiunta `concepts/theme-owned-wizard-css-parity-rule.md`.
+- Spostati gli override CSS del wizard segnalazione dal Blade Fixcity a `resources/css/app.css`.
+- Regola build: dopo CSS tema eseguire `npm run build` e `npm run copy` da `laravel/Themes/Sixteen`.
