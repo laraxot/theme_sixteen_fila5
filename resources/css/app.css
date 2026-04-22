@@ -2951,10 +2951,7 @@ html body {
   padding: 0.75rem 1.5rem !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: #007a52 !important;
-=======
   background: var(--dc-blue-primary) !important;
->>>>>>> 92da240 (.)
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -3012,13 +3009,15 @@ html body {
   object-fit: cover !important;
 }
 
+.it-header-slim-wrapper .btn-icon.btn-full .rounded-icon .icon {
+  color: var(--dc-blue-primary) !important;
+  fill: currentColor !important;
+}
+
 .it-header-slim-wrapper .btn-icon.btn-full .icon {
   width: 1rem !important;
   height: 1rem !important;
-  color: #007a52 !important;
-=======
   color: #fff !important;
->>>>>>> 92da240 (.)
   fill: currentColor !important;
 }
 
@@ -3491,16 +3490,11 @@ main #main-container .steppers-nav .steppers-btn-save {
   display: none;
 }
 
-/* Visual parity con Design Comuni: barre header verdi sul flusso segnalazione */
+/* Visual parity: slim bar verde sul flusso segnalazione — navbar delegata a `.it-header-wrapper.is-segnalazione-crea` (fondo bianco come fascia logo / kit statico). */
 .page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper,
 .page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .container,
 .page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .row,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .col-12,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .container,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .row,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .col-12,
-.page-content[data-slug="tests.segnalazione-crea"] .it-header-navbar-wrapper .navbar {
+.page-content[data-slug="tests.segnalazione-crea"] .it-header-slim-wrapper .col-12 {
   background: #007a52 !important;
 }
 
@@ -3610,25 +3604,43 @@ main #main-container .steppers-nav .steppers-btn-save {
   }
 }
 
-/* Segnalazione-crea parity fix on real header owner (outside page-content). */
+/*
+ * Segnalazione-crea — parity Design Comuni (kit statico segnalazione-02-dati).
+ * Unica fonte qui: niente duplicati in Blade <style> (vedi Themes/Sixteen/docs/wiki/concepts/header-color-parity.md).
+ */
 .it-header-wrapper.is-segnalazione-crea .it-header-slim-wrapper {
   background: #00402b !important;
 }
 
+/* Barra menu principale: stesso fondo chiaro della fascia logo (Design Comuni segnalazione-02-dati). */
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper,
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .container,
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .row,
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .col-12,
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar {
-  background: #007a52 !important;
+  background: #ffffff !important;
 }
 
 .it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-nav .nav-link,
-.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link,
-.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-nav .nav-link:hover,
-.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link:hover,
-.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .nav-item.active .nav-link {
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link {
   background: transparent !important;
+  color: #191919 !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-nav .nav-link:hover,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .navbar-secondary .nav-link:hover {
+  color: #007a52 !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .nav-item.active .nav-link,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .nav-link.active {
+  color: #007a52 !important;
+}
+
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .custom-navbar-toggler .icon,
+.it-header-wrapper.is-segnalazione-crea .it-header-navbar-wrapper .custom-navbar-toggler-navbar .icon {
+  color: #191919 !important;
+  fill: #191919 !important;
 }
 
 .it-header-wrapper.is-segnalazione-crea .it-header-slim-wrapper .btn-icon.btn-full,
