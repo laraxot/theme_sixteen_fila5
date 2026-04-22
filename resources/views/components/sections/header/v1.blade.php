@@ -63,7 +63,7 @@
 --}}
 <header class="it-header-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}" data-bs-target="#header-nav-wrapper">
     {{-- Slim Header: background from theme tokens --}}
-    <div class="it-header-slim-wrapper">
+    <div class="it-header-slim-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
