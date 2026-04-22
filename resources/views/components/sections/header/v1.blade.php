@@ -61,15 +61,9 @@
     - Authenticated user block prioritizes display name over decorative avatar
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
-<<<<<<< HEAD
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
-    {{-- Slim Header: Comune Green (#007A52) - Same as logo background --}}
-    <div class="it-header-slim-wrapper" style="background-color: #007A52;">
-=======
 <header class="it-header-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}" data-bs-target="#header-nav-wrapper">
     {{-- Slim Header: background from theme tokens --}}
     <div class="it-header-slim-wrapper">
->>>>>>> 4b3e8ff (.)
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -190,7 +184,8 @@
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
+        {{-- BI 2.18: default `.it-header-navbar-wrapper{background:#06c}`; `theme-light-desk` attiva fascia menu chiara (allineamento segnalazione-02-dati). --}}
+        <div class="it-header-navbar-wrapper{{ $isSegnalazioneCrea ? ' theme-light-desk' : '' }}" id="header-nav-wrapper" x-data="headerMobileNav">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
