@@ -53,6 +53,16 @@
   color: #FFFFFF !important;
 }
 
+/* Override navigation items background to match header green */
+.it-header-navbar-wrapper .navbar-nav .nav-link {
+  background-color: var(--color-italia) !important;
+  color: #FFFFFF !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active {
+  background-color: var(--color-italia-dark) !important;
+}
+
 /* ========================================
    FOOTER COLORS
 ======================================== */

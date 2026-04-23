@@ -1,5 +1,37 @@
 # Sixteen Wiki Log
 
+## [2026-04-23] fix | GeopointPicker JS missing from theme bundle
+- **problema**: `<geopoint-picker-lit>` non viene riconosciuto dal browser perché il JS non era importato in `app.js`
+- **fix**: aggiunto import in `resources/js/app.js` e rebuild tema
+- **wiki**: `concepts/geo-lit-components-must-be-imported-rule.md`
+- **modules wiki**: `Modules/Geo/docs/wiki/concepts/geopoint-picker-map-invisible-wizard-fix.md`
+
+## [2026-04-23] deletion | Removed redundant Folio page segnalazione-crea.blade.php
+- **file removed**: `resources/views/pages/segnalazione-crea.blade.php`
+- **reason**: duplicated CMS-driven page (`tests.segnalazione-crea.json` → block view → wizard). Shadowed Folio page with its own route name created confusion; the only production channel is CMS JSON blocks.
+- **wiki**: `concepts/no-cms-shadowed-folio-pages-rule.md`
+
+## [2026-04-23] discovery | CMS block architecture for segnalazione-crea
+- **sources**: `resources/views/pages/tests/[slug].blade.php`, `config/local/fixcity/database/content/pages/tests.segnalazione-crea.json`, `resources/views/components/blocks/tests/segnalazione-crea.blade.php`
+- **decision**: URL /it/tests/segnalazione-crea è CMS-driven (JSON → block view → widget), NON Folio hardcoded. Il tema Sixteen definisce block view come thin wrapper.
+- **wiki**: `concepts/theme-cms-block-architecture-segnalazione-crea.md`
+
+## [2026-04-22] contract | public wizard map stability without page css
+- **sources:** `Modules/Geo/resources/js/components/coordinate-picker-lit.js`, `docs/wiki/concepts/no-page-specific-css.md`
+- **decision:** la stabilita visuale della mappa nei wizard pubblici dipende da box/layout tema stabili e da runtime Geo debounced; il tema non deve introdurre CSS per pagina o workaround JS per compensare flicker runtime.
+- **wiki:** `concepts/leaflet-map-flicker-visual-contract.md`
+
+## [2026-04-23] fix | segnalazione-crea map flicker + geolocate when empty
+- **sources:** `Modules/Geo/resources/js/components/coordinate-picker-lit.js`, `Modules/Fixcity/app/Filament/Widgets/CreateTicketWizardWidget.php`, `Themes/Sixteen/resources/css/app.css`
+- **root cause:** refresh loop troppo aggressivo (invalidate + tile redraw + setView ripetuti) causava lampeggio; coordinate vuote senza `geolocateWhenEmpty()` non centravano sulla posizione corrente.
+- **decision:** refresh con invalidate differito, redraw tile solo su `tileerror`/fullscreen; `CoordinatePicker` dello step dati configurato con `->geolocateWhenEmpty()`.
+
+## [2026-04-23] fix | segnalazione-crea navbar green + map fullscreen contracts
+- **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `docs/wiki/concepts/segnalazione-crea-navbar-green-contract.md`, `docs/wiki/concepts/coordinate-picker-fullscreen-wizard-contract.md`, `Modules/Geo/docs/wiki/concepts/coordinate-picker-fullscreen-wizard-contract.md`, `Modules/Fixcity/docs/wiki/concepts/segnalazione-crea-map-fullscreen-contract.md`
+- **root cause header:** documentazione precedente indicava navbar chiara/theme-light-desk e `app.css` aveva blocchi header duplicati; cambiando un blocco intermedio il blu/bianco poteva vincere ancora.
+- **root cause map:** fullscreen solo CSS + `body.overflow=hidden` non bloccava sempre `html`/stacking context wizard; Leaflet richiede refresh dopo transizione.
+- **decision:** navbar `segnalazione-crea` verde `#007a52`; coordinate-picker fullscreen usa contratto browser fullscreen + classe document-level e refresh differiti.
+
 ## [2026-04-22] governance | No page-specific CSS — Design Comuni principle
 - **regola**: vietato `.ticket-wizard-root`, `[data-slug="..."]` o qualsiasi selettore CSS per pagina/widget specifico
 - **principio**: Design Comuni ufficiale usa solo selettori di componente (`.it-*`); un wizard è un componente, non "la pagina segnalazione-crea"
@@ -454,10 +486,19 @@
 - Ingestita nota `context-compression-plugin-runtime`: Sixteen contiene corpus visuale ampio; consultare wiki/QMD e non caricare batch report completi se non necessario.
 - Ingestita regola `theme-css-only-parity-rule`: Sixteen e' owner unico del CSS Design Comuni per `segnalazione-crea`; le Blade dei moduli non devono contenere `<style>` o inline style JS per la parity.
 - Ingestita regola `filament5-schema-section-namespace-rule`: il tema non deve forkare la pagina Folio per casi singoli; renderizza lo schema widget corretto e lascia `Section` a Filament Schemas.
+- Ingestita regola `filament5-schema-form-access-rule`: il tema renderizza `{{ $this->form }}`; il widget legge stato tramite `$this->form`, non `getForm('form')`.
 - Ingestita regola `segnalazione-map-and-section-spacing-parity`: controlli mappa e spacing sezione Disservizio si governano dal CSS tema con build/copy.
 - Rafforzata regola CSS Design Comuni: niente selettori per-page tipo `.page-content[data-slug="tests.segnalazione-crea"]` per correzioni riusabili; usare selettori semantici component/site-level.
+- Rafforzata regola CSS Design Comuni: niente `.ticket-wizard-root` per comportamenti comuni di wizard; usare hook site/component-level e non specializzare il ticket wizard rispetto agli altri wizard.
+- Aggiunto piano header-first per parity dello step riepilogo e submit canonico: `../../Modules/Fixcity/docs/stories/wizard-summary-step-header-and-submit-parity-plan.md`.
 # 2026-04-22 - CSS parity wizard owner tema
 
 - Aggiunta `concepts/theme-owned-wizard-css-parity-rule.md`.
 - Spostati gli override CSS del wizard segnalazione dal Blade Fixcity a `resources/css/app.css`.
 - Regola build: dopo CSS tema eseguire `npm run build` e `npm run copy` da `laravel/Themes/Sixteen`.
+
+# 2026-04-22 - Header navbar green component rule
+
+- Aggiunta `concepts/header-navbar-green-component-rule.md`.
+- Documentata la causa ricorsiva dei regressi blu/bianco: Bootstrap Italia ridefinisce colori a livello wrapper, container, navbar, link, stati e media query.
+- Regola: correggere sempre il componente header in `resources/css/app.css`, mai tramite selettori per pagina o `.ticket-wizard-root`.

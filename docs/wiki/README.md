@@ -1,11 +1,14 @@
-# Sixteen Docs Wiki
+# LLM Wiki: compiled knowledge
 
-This directory is the compiled knowledge layer for the Sixteen theme.
+Questo folder contiene la conoscenza 'compilata' dall'AI partendo dai documenti raw in ../docs.
 
-It exists to distill recurring theme work into durable pages instead of forcing the agent to re-read large parity report collections every time.
+## Struttura
+- `docs/`: Documenti raw (sorgenti, PDF, articoli, codice grezzo).
+- `docs/wiki/`: Pagine wiki generate dall'LLM, entità, concetti e indici.
 
-Start with:
+## Workflow
+1. L'LLM legge i documenti raw.
+2. L'LLM estrae entità e concetti.
+3. L'LLM aggiorna la Wiki e gli indici incrociati.
+4. QMD indicizza questa cartella per ricerche veloci.
 
-- [schema](./schema.md)
-- [index](./index.md)
-- [log](./log.md)

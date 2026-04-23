@@ -40,7 +40,6 @@
     $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
 
     $testsPath = (string) request()->path();
-    $isSegnalazioneCrea = str_contains($testsPath, 'tests/segnalazione-crea');
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
 @endphp
@@ -56,14 +55,14 @@
     - Area Personale menu (servizi, pratiche, notifiche, impostazioni, logout)
     
     Updated for Story 8-34: Real section owner fix
-    - Section header is the real runtime owner for segnalazione-crea
+    - Section header is the real runtime owner for Design Comuni header chrome
     - Slim dropdowns lingua + utente: data-bs-toggle + app.js (Story 7-54), no Alpine inline (Livewire/Filament)
     - Authenticated user block prioritizes display name over decorative avatar
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
-<header class="it-header-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}" data-bs-target="#header-nav-wrapper">
+<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
     {{-- Slim Header: background from theme tokens --}}
-    <div class="it-header-slim-wrapper{{ $isSegnalazioneCrea ? ' is-segnalazione-crea' : '' }}">
+    <div class="it-header-slim-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -184,8 +183,7 @@
                 </div>
             </div>
         </div>
-        {{-- BI 2.18: default `.it-header-navbar-wrapper{background:#06c}`; `theme-light-desk` attiva fascia menu chiara (allineamento segnalazione-02-dati). --}}
-        <div class="it-header-navbar-wrapper{{ $isSegnalazioneCrea ? ' theme-light-desk' : '' }}" id="header-nav-wrapper" x-data="headerMobileNav">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
