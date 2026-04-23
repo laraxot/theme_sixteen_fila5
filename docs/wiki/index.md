@@ -75,3 +75,5 @@
 
 - [wizard-summary-infolist-runtime-fix-2026-04-22](../design-comuni/wizard-summary-infolist-runtime-fix-2026-04-22.md): riepilogo segnalazione Design Comuni governato da entry Infolist nel widget Fixcity.
 - [context-compression-plugin-runtime](../context-compression-plugin-runtime.md): regola Sixteen per non caricare in blocco report/screenshot/raw HTML e usare LLM Wiki/QMD.
+
+- [context overflow compression rule](./concepts/context-overflow-compression-rule.md): workflow Sixteen anti overflow per audit visuali e Design Comuni

@@ -25,7 +25,6 @@ import '@modules/Geo/resources/js/components/place-picker-lit.js';
 import '@modules/Geo/resources/js/components/geopoint-picker-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-lit-stable.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
-import '@modules/Geo/resources/js/components/geopoint-picker-lit.js';
 import geoMapPickerField from '@modules/Geo/resources/js/components/geo-map-picker-field.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
