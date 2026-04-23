@@ -1,5 +1,14 @@
 # Sixteen Wiki Log
 
+## [2026-04-23] governance | Route target recheck nel runtime reale del tema
+- documentata la regola `route-target-recheck-rule`
+- per fix visuali/runtime Sixteen serve recheck della route finale reale dopo build/copy asset, non basta il controllo del componente isolato
+
+## [2026-04-23] governance | Theme bundle integration false friends
+- Documentate best practices, bad practices e false friends sull'integrazione bundle del tema con componenti Lit/modulari.
+- Regola centrale: il tag custom nel Blade non basta; import in `resources/js/app.js`, build, copy e verifica URL reale sono parte del contratto.
+- Nuova pagina: `concepts/theme-bundle-integration-false-friends.md`.
+
 ## [2026-04-23] fix | GeopointPicker JS missing from theme bundle
 - **problema**: `<geopoint-picker-lit>` non viene riconosciuto dal browser perché il JS non era importato in `app.js`
 - **fix**: aggiunto import in `resources/js/app.js` e rebuild tema
@@ -502,3 +511,8 @@
 - Aggiunta `concepts/header-navbar-green-component-rule.md`.
 - Documentata la causa ricorsiva dei regressi blu/bianco: Bootstrap Italia ridefinisce colori a livello wrapper, container, navbar, link, stati e media query.
 - Regola: correggere sempre il componente header in `resources/css/app.css`, mai tramite selettori per pagina o `.ticket-wizard-root`.
+
+# 2026-04-23 - CSS globale, niente selettori per pagina (wizard parity)
+
+- Nuova pagina: `concepts/global-css-no-page-selectors-wizard-parity.md`.
+- Ribadita regola tema: parity via CSS globale/component-level, non via `.page-content[data-slug="..."]` o classi per wizard specifici.

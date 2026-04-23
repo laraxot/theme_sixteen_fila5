@@ -44,7 +44,9 @@
 - [theme cms block architecture segnalazione crea](./concepts/theme-cms-block-architecture-segnalazione-crea.md): pattern CMS JSON → block view → widget; segnalazione-crea è CMS-driven, non hardcoded
 - [no cms shadowed folio pages rule](./concepts/no-cms-shadowed-folio-pages-rule.md): REGOLA — SE una pagina è CMS-driven (JSON blocks → block view), NON deve esistere un Folio page hardcoded con stesso slug che la duplica
 - [geo lit components must be imported rule](./concepts/geo-lit-components-must-be-imported-rule.md): OGNI componente Lit del modulo Geo deve essere importato in app.js del tema — altrimenti il browser non riconosce il custom element
+- [theme bundle integration false friends](./concepts/theme-bundle-integration-false-friends.md): il tema e' owner dell'integrazione bundle dei custom elements frontoffice
 - [story 7-54 artifact](../../../../../_bmad-output/implementation-artifacts/7-54-segnalazione-crea-header-slim-dropdowns-data-bs-toggle-unification.md): fix wizard segnalazione-crea, dropdown slim solo `data-bs-toggle` + `app.js`
+- [visual-parity-verification-rule](./concepts/visual-parity-verification-rule.md): REGOLA — dopo ogni modifica (PHP/Blade/CSS/JS) verificare la pagina nel browser all'URL di riferimento; mai dichiarare fix "completato" senza browser
 
 ## Sacred Hierarchy
 
@@ -71,9 +73,12 @@
 | [segnalazione-privacy-parity-audit](./concepts/segnalazione-privacy-parity-audit.md) | Concept | - | 2026-04-21 |
 | [segnalazione-runtime-asset-integrity](./concepts/segnalazione-runtime-asset-integrity.md) | Concept | - | 2026-04-21 |
 | [segnalazione-wizard-cta-parity](./concepts/segnalazione-wizard-cta-parity.md) | Concept | - | 2026-04-21 |
+| [global-css-no-page-selectors-wizard-parity](./concepts/global-css-no-page-selectors-wizard-parity.md) | Concept | parity governance | 2026-04-23 |
+| [visual-parity-verification-rule](./concepts/visual-parity-verification-rule.md) | Concept | Post-modifica-verifica obbligatoria con browser | 2026-04-23 |
 # Aggiornamenti Recenti
 
 - [wizard-summary-infolist-runtime-fix-2026-04-22](../design-comuni/wizard-summary-infolist-runtime-fix-2026-04-22.md): riepilogo segnalazione Design Comuni governato da entry Infolist nel widget Fixcity.
 - [context-compression-plugin-runtime](../context-compression-plugin-runtime.md): regola Sixteen per non caricare in blocco report/screenshot/raw HTML e usare LLM Wiki/QMD.
 
 - [context overflow compression rule](./concepts/context-overflow-compression-rule.md): workflow Sixteen anti overflow per audit visuali e Design Comuni
+- [route target recheck rule](./concepts/route-target-recheck-rule.md): un fix Sixteen non e' chiuso finche' la route finale reale non viene ricontrollata nel runtime del tema
