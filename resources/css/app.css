@@ -102,88 +102,6 @@
 @import './design-comuni-global-fixes.css';
 
 /* ========================================
-   SEGNALAZIONE WIZARD PARITY OVERRIDES
-   Theme-owned CSS only. The Fixcity widget Blade must stay markup-only.
-======================================== */
-.segnalazione-wizard-root .fi-sc-wizard-footer {
-  display: none !important;
-}
-
-.segnalazione-wizard-root .segnalazione-next-btn {
-  width: 100% !important;
-  min-height: 48px !important;
-  min-width: 100% !important;
-  align-self: flex-start !important;
-  margin-top: 0.5rem !important;
-}
-
-.segnalazione-wizard-root .segnalazione-back-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.segnalazione-wizard-root .steppers-nav {
-  width: 100% !important;
-  display: block !important;
-  position: static !important;
-  float: none !important;
-  clear: both !important;
-  margin-top: 2rem !important;
-}
-
-.segnalazione-wizard-root .steppers-nav > .d-flex {
-  width: 100% !important;
-  max-width: none !important;
-}
-
-.segnalazione-wizard-root coordinate-picker-lit {
-  display: block !important;
-  width: 100% !important;
-  min-height: 340px !important;
-}
-
-.segnalazione-wizard-root .fi-sc,
-.segnalazione-wizard-root .fi-sc-wizard {
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-}
-
-.segnalazione-wizard-root .steppers-content {
-  display: block !important;
-  width: 100% !important;
-}
-
-.segnalazione-wizard-root .navbar-custom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.segnalazione-wizard-root .it-navscroll-progressbar {
-  display: none !important;
-}
-
-@media (max-width: 991.98px) {
-  .segnalazione-wizard-root .fi-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .segnalazione-wizard-root .segnalazione-next-btn {
-    width: 348px !important;
-    min-width: 348px !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .segnalazione-wizard-root .segnalazione-next-btn {
-    width: 428px !important;
-    min-width: 428px !important;
-  }
-}
-/* ========================================
    FINAL HOMEPAGE PARITY OVERRIDES
    Colors VERIFIED from reference 2026-04-02
 ======================================== */
@@ -3716,35 +3634,36 @@ main #main-container .steppers-nav .steppers-btn-save {
   background: #00402b !important;
 }
 
-/* Barra menu principale: stesso fondo chiaro della fascia logo (Design Comuni segnalazione-02-dati). */
+/* Barra menu principale: stesso fondo verde della fascia logo/slogan. */
 .it-header-navbar-wrapper,
 .it-header-navbar-wrapper .container,
 .it-header-navbar-wrapper .row,
 .it-header-navbar-wrapper .col-12,
 .it-header-navbar-wrapper .navbar {
-  background: #ffffff !important;
+  background: #007a52 !important;
 }
 
 .it-header-navbar-wrapper .navbar-nav .nav-link,
 .it-header-navbar-wrapper .navbar-secondary .nav-link {
   background: transparent !important;
-  color: #191919 !important;
+  color: #ffffff !important;
 }
 
 .it-header-navbar-wrapper .navbar-nav .nav-link:hover,
 .it-header-navbar-wrapper .navbar-secondary .nav-link:hover {
-  color: #007a52 !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
 }
 
 .it-header-navbar-wrapper .nav-item.active .nav-link,
 .it-header-navbar-wrapper .nav-link.active {
-  color: #007a52 !important;
+  color: #ffffff !important;
 }
 
 .it-header-navbar-wrapper .custom-navbar-toggler .icon,
 .it-header-navbar-wrapper .custom-navbar-toggler-navbar .icon {
-  color: #191919 !important;
-  fill: #191919 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .it-header-slim-wrapper .btn-icon.btn-full,
@@ -3881,10 +3800,10 @@ main #main-container .steppers-nav .steppers-btn-save {
     .it-header-navbar-wrapper {
       position: relative !important;
       height: auto !important;
-      background: white !important;
+      background: #007a52 !important;
       z-index: 1 !important;
       pointer-events: auto !important;
-      border-bottom: 1px solid #dee2e6 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
       grid-column: 1 !important;
       grid-row: 1 !important;
     }
@@ -4259,10 +4178,98 @@ coordinate-picker-lit .ctrl-btn {
   opacity: 1 !important;
 }
 
-/* Fix excessive vertical spacing in ticket wizard sections */
-.segnalazione-wizard-root .container {
-  margin-bottom: 8px;
+/* Bug 2 fix — Filament loading-state overlay su coordinate/map picker nel wizard */
+.fi-fo-field-wrp:has(coordinate-picker-lit),
+.fi-fo-field-wrp:has(map-picker-lit) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
-.segnalazione-wizard-root .form-group {
-  margin-bottom: 0;
+
+fi-sc-wizard-step coordinate-picker-lit,
+fi-sc-wizard-step map-picker-lit {
+  opacity: 1 !important;
+}
+
+map-picker-lit,
+map-picker-lit .map-container,
+map-picker-lit .map-picker-leaflet-pane,
+map-picker-lit .leaflet-container {
+  display: block !important;
+  width: 100% !important;
+  min-height: 340px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+map-picker-lit .map-container {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+}
+
+map-picker-lit .layer-controls-overlay {
+  position: absolute !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  z-index: 1200 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Header navbar component contract: site-wide green, never page-scoped. */
+.it-header-navbar-wrapper,
+.it-header-navbar-wrapper .container,
+.it-header-navbar-wrapper .row,
+.it-header-navbar-wrapper .col-12,
+.it-header-navbar-wrapper .navbar,
+.it-header-navbar-wrapper .navbar-nav,
+.it-header-navbar-wrapper .navbar-secondary,
+.it-header-navbar-wrapper .nav-item,
+.it-header-navbar-wrapper .nav-link,
+.it-header-navbar-wrapper .nav-link span {
+  background: #007a52 !important;
+  background-color: #007a52 !important;
+  color: #ffffff !important;
+}
+
+.it-header-navbar-wrapper .nav-link:hover,
+.it-header-navbar-wrapper .nav-link:focus-visible,
+.it-header-navbar-wrapper .nav-link.active {
+  background: #00684a !important;
+  background-color: #00684a !important;
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.it-header-navbar-wrapper .icon {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+html.geo-map-fullscreen-active,
+html.geo-map-fullscreen-active body {
+  overflow: hidden !important;
+}
+
+coordinate-picker-lit:fullscreen,
+coordinate-picker-lit:fullscreen .map-container,
+coordinate-picker-lit .map-container.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  z-index: 2147483647 !important;
+}
+
+coordinate-picker-lit:fullscreen .map-picker-leaflet-pane,
+coordinate-picker-lit .map-container.is-fullscreen .map-picker-leaflet-pane {
+  height: 100vh !important;
 }
