@@ -1,5 +1,73 @@
 # Sixteen Wiki Log
 
+## [2026-04-27] sync | reusable search component discipline from Geo
+- recepita regola cross-modulo: pattern search dei picker va estratto in componente riutilizzabile.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/reusable-search-ui-component-rule.md`.
+
+## [2026-04-27] verifica | story 8-61 — screenshot runtime admin map con blocker 500
+- raccolto screenshot contesto route admin: `scripts/admin-map-context.png`.
+- diagnostica visuale: la pagina non renderizza il form mappa perche' cade prima in 500 (`Unsupported cipher or incorrect key length`).
+- allineato boundary: in questo stato la mappa non e' verificabile, priorita al ripristino bootstrap Laravel.
+
+## [2026-04-27] fix | story 8-59 — script credenziali da .env + placement map_diagnostic
+- aggiornato `scripts/inspect-fixcity-admin-ticket-create-map.cjs` per leggere credenziali admin solo da `laravel/.env` (niente hardcoded).
+- aggiunto `scripts/map_diagnostic.py` nella cartella `scripts` esistente del tema, conforme alla regola placement.
+- formalizzata regola in `concepts/theme-owned-scripts-rule.md` (no credenziali hardcoded, no nuove cartelle root scripts/bashscripts).
+
+## [2026-04-27] sync | geo admin map lens and controls visibility
+- recepito fix cross-modulo su route admin ticket create: lente search ridimensionata e controlli mappa Lit resi sempre visibili.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/admin-map-magnifier-and-controls-visibility.md`.
+
+## [2026-04-27] sync | lit light-dom map controls and reactive state
+- recepito aggiornamento modulo Geo su `CoordinatePicker` Lit in Light DOM (iniezione CSS text esplicita).
+- recepito fix reattivita stato coordinate lato bridge Alpine/Livewire (pattern immutabile).
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/lit-light-dom-map-controls-and-sync.md`.
+
+## [2026-04-27] sync | geo module build contract and runtime dependency
+- recepito fix build modulo Geo (`vite.config.js` entry reali + sintassi `coordinate-picker-lit.js`).
+- allineato il tema al principio: stabilita runtime mappa dipende anche dalla salute build del modulo owner Geo.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/geo-vite-build-contract.md`.
+
+## [2026-04-27] verifica | admin map route visual check
+- route admin `fixcity/admin/tickets/create` raggiunta e verificata in step `form.data::data::wizard-step`.
+- confermata separazione contesto: runtime admin dipende dalla chain asset Geo (non dal solo CSS frontoffice del tema).
+- recepita evidenza cross-modulo: fallback a `themes/Geo/js/map-picker-component.js` con asset mancanti su `/modules/geo/`.
+- dopo hardening Geo, verificata chain locale-first: `themes/Geo/js/geo.js` caricato correttamente (HEAD/GET 200) e nessun ricorso primario a `unpkg`.
+
+## [2026-04-27] sync | fixcity admin map asset chain analysis
+- recepita analisi runtime della route `fixcity/admin/tickets/create`.
+- confermato che il tema non deve sostituire la catena runtime canonica della mappa con fallback legacy.
+- riferimento operativo: `../../../Modules/Fixcity/docs/stories/wizard-map-runtime-asset-chain.md`.
+- collegamento architetturale: `../../../Modules/Fixcity/docs/wiki/log.md`.
+
+## [2026-04-27] governance | obsidian vault alignment for theme docs
+- aggiunta pagina `concepts/obsidian-vault-alignment.md`.
+- fissata checklist minima index/log/link cross-modulo per evitare docs non ingestite.
+- ingest knowledge base eseguito a livello progetto (`qmd update`) dopo update tema/moduli.
+
+## [2026-04-27] governance | frontoffice vs admin panel style ownership
+- aggiunta pagina `concepts/filament-admin-style-ownership-boundary.md`.
+- chiarito che Sixteen governa frontoffice; bug visuali mappa in panel admin vanno validati nel contesto Filament admin.
+
+## [2026-04-27] sync | policy matrix awareness in theme docs
+- collegata la matrice policy modulo-per-modulo alla documentazione tema.
+- ribadito che Sixteen non sceglie la base policy: renderizza capability backend.
+
+## [2026-04-27] governance | policy rendering boundary with backend ACL
+- chiarito boundary tema: Sixteen non sceglie tra `UserBasePolicy` e `XotBasePolicy`.
+- il tema renderizza solo stati autorizzativi gia' risolti lato backend.
+- nuova pagina: `concepts/policy-rendering-boundary.md`.
+
+## [2026-04-27] sync | profiles owner boundary anti-regressione
+- recepita regola aggiornata: nessuna migrazione additiva `add_*_to_profiles_table` nei moduli non owner.
+- caso reale rimosso dal modulo User: `2026_04_27_000000_add_credits_to_profiles_table.php`.
+- owner unico confermato: `Modules/Fixcity/...create_profiles_table.php`.
+
+## [2026-04-27] sync | profiles migration nullable credits contract
+- allineata knowledge cross-layer al fix profilo: `credits` e' opzionale e non deve bloccare il flusso UI/registrazione.
+- riferimento modulo: `../../../Modules/Fixcity/docs/wiki/concepts/profiles-uuid-contract.md`.
+- riferimento root: `../../../../docs/wiki/concepts/profiles-uuid-single-migration-rule.md`.
+
 ## [2026-04-23] governance | Route target recheck nel runtime reale del tema
 - documentata la regola `route-target-recheck-rule`
 - per fix visuali/runtime Sixteen serve recheck della route finale reale dopo build/copy asset, non basta il controllo del componente isolato

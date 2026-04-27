@@ -47,6 +47,10 @@
 - [theme bundle integration false friends](./concepts/theme-bundle-integration-false-friends.md): il tema e' owner dell'integrazione bundle dei custom elements frontoffice
 - [story 7-54 artifact](../../../../../_bmad-output/implementation-artifacts/7-54-segnalazione-crea-header-slim-dropdowns-data-bs-toggle-unification.md): fix wizard segnalazione-crea, dropdown slim solo `data-bs-toggle` + `app.js`
 - [visual-parity-verification-rule](./concepts/visual-parity-verification-rule.md): REGOLA — dopo ogni modifica (PHP/Blade/CSS/JS) verificare la pagina nel browser all'URL di riferimento; mai dichiarare fix "completato" senza browser
+- [policy-rendering-boundary](./concepts/policy-rendering-boundary.md): il tema non decide la base policy; consuma solo esiti autorizzativi backend
+- [filament-admin-style-ownership-boundary](./concepts/filament-admin-style-ownership-boundary.md): il tema Sixteen non e' owner CSS del panel admin Filament
+- [obsidian-vault-alignment](./concepts/obsidian-vault-alignment.md): allineamento tra uso vault Obsidian e governance wiki del tema
+- [theme owned scripts rule](./concepts/theme-owned-scripts-rule.md): script diagnostici tema in cartelle `scripts` esistenti e credenziali sempre da `laravel/.env` (mai hardcoded)
 
 ## Sacred Hierarchy
 
@@ -75,6 +79,9 @@
 | [segnalazione-wizard-cta-parity](./concepts/segnalazione-wizard-cta-parity.md) | Concept | - | 2026-04-21 |
 | [global-css-no-page-selectors-wizard-parity](./concepts/global-css-no-page-selectors-wizard-parity.md) | Concept | parity governance | 2026-04-23 |
 | [visual-parity-verification-rule](./concepts/visual-parity-verification-rule.md) | Concept | Post-modifica-verifica obbligatoria con browser | 2026-04-23 |
+| [policy-rendering-boundary](./concepts/policy-rendering-boundary.md) | Concept | policy boundary docs | 2026-04-27 |
+| [filament-admin-style-ownership-boundary](./concepts/filament-admin-style-ownership-boundary.md) | Concept | boundary frontoffice vs admin panel | 2026-04-27 |
+| [obsidian-vault-alignment](./concepts/obsidian-vault-alignment.md) | Concept | vault discipline for theme docs | 2026-04-27 |
 # Aggiornamenti Recenti
 
 - [wizard-summary-infolist-runtime-fix-2026-04-22](../design-comuni/wizard-summary-infolist-runtime-fix-2026-04-22.md): riepilogo segnalazione Design Comuni governato da entry Infolist nel widget Fixcity.
