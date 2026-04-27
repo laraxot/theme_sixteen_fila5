@@ -8,7 +8,17 @@ const SCREENSHOT_PATH = 'scripts/fixcity-admin-ticket-create-map.png';
 function loadAdminCredentials() {
     const envPath = path.resolve(__dirname, '../../../.env');
     if (fs.existsSync(envPath)) {
-        require('dotenv').config({ path: envPath });
+        const raw = fs.readFileSync(envPath, 'utf8');
+        for (const line of raw.split('\n')) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith('#') || !trimmed.includes('=')) continue;
+            const idx = trimmed.indexOf('=');
+            const key = trimmed.slice(0, idx).trim();
+            const value = trimmed.slice(idx + 1).trim().replace(/^['"]|['"]$/g, '');
+            if (!(key in process.env)) {
+                process.env[key] = value;
+            }
+        }
     }
 
     const email =
