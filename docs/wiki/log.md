@@ -1,5 +1,10 @@
 # Sixteen Wiki Log
 
+## [2026-04-27] sync | scopo mappa ticket-create recepito dal modulo Fixcity
+- recepita analisi business della mappa nello step `data` (`fixcity/admin/tickets/create`): coordinate come dato operativo per smistamento e priorita'.
+- confermato boundary tema: Sixteen cura la parity visuale ma non ridefinisce semantica dominio del campo `location`.
+- riferimento: `../../../Modules/Fixcity/docs/wiki/concepts/location-capture-map-wizard.md`.
+
 ## [2026-04-27] sync | reusable search component discipline from Geo
 - recepita regola cross-modulo: pattern search dei picker va estratto in componente riutilizzabile.
 - riferimento: `../../../Modules/Geo/docs/wiki/concepts/reusable-search-ui-component-rule.md`.
