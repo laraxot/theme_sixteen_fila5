@@ -2019,7 +2019,7 @@ a.read-terms {
    Reference: square checkbox with green check, label inline on same line, no underline
    -------------------------------------------------------------------------- */
 .segnalazione-privacy-page .form-check,
-.ticket-wizard-root .form-check {
+.form-check {
   border-bottom: none !important;
   border-top: none !important;
   margin-bottom: 0 !important;
@@ -2027,7 +2027,7 @@ a.read-terms {
 }
 
 .segnalazione-privacy-page .form-check .checkbox-body,
-.ticket-wizard-root .form-check .checkbox-body {
+.form-check .checkbox-body {
   display: flex !important;
   align-items: center !important;
   gap: 0.75rem !important;
@@ -2037,7 +2037,7 @@ a.read-terms {
 }
 
 .segnalazione-privacy-page .form-check input[type="checkbox"],
-.ticket-wizard-root .form-check input[type="checkbox"] {
+.form-check input[type="checkbox"] {
   /* Override BI: opacity:0 and position:absolute → make the input itself the visible checkbox */
   opacity: 1 !important;
   position: static !important;
@@ -2056,7 +2056,7 @@ a.read-terms {
 }
 
 .segnalazione-privacy-page .form-check input[type="checkbox"]:checked,
-.ticket-wizard-root .form-check input[type="checkbox"]:checked {
+.form-check input[type="checkbox"]:checked {
   background-color: #007a52 !important;
   border-color: #007a52 !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") !important;
@@ -2066,19 +2066,19 @@ a.read-terms {
 }
 
 .segnalazione-privacy-page .form-check input[type="checkbox"]:hover,
-.ticket-wizard-root .form-check input[type="checkbox"]:hover {
+.form-check input[type="checkbox"]:hover {
   border-color: #007a52 !important;
 }
 
 /* Hide BI pseudo-elements on the label: input is now the real visual checkbox */
-.ticket-wizard-root .form-check .checkbox-body input[type="checkbox"] + label::before,
-.ticket-wizard-root .form-check .checkbox-body input[type="checkbox"] + label::after {
+.form-check .checkbox-body input[type="checkbox"] + label::before,
+.form-check .checkbox-body input[type="checkbox"] + label::after {
   display: none !important;
   content: none !important;
 }
 
 .segnalazione-privacy-page .form-check .checkbox-body label.title-small-semi-bold,
-.ticket-wizard-root .form-check .checkbox-body label.title-small-semi-bold {
+.form-check .checkbox-body label.title-small-semi-bold {
   /* Reset BI: position:relative (not needed since we hide ::before/::after) */
   position: static !important;
   font-size: 1rem !important;
@@ -2903,7 +2903,7 @@ h1.title-xxxlarge {
 
 /* segnalazione-01-privacy uses 24px margin-bottom for h1 */
 h1.title-xxxlarge,
-.ticket-wizard-root h1.title-xxxlarge {
+h1.title-xxxlarge {
   margin-bottom: 24px !important;
 }
 
@@ -2941,17 +2941,17 @@ button.btn.btn-primary.mobile-full:hover,
 }
 
 /* ============================================================================
-   segnalazione-crea — same styles as segnalazione-01-privacy
+    — same styles as segnalazione-01-privacy
    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html
    ============================================================================ */
 
 /* Stepper: indicazione stato sola; nessun salto step da click (AC wizard) */
-.ticket-wizard-root .steppers-header li {
+.steppers-header li {
   pointer-events: none !important;
   cursor: default !important;
 }
 
-.ticket-wizard-root .steppers-header ul {
+.steppers-header ul {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 2rem !important;
@@ -2960,7 +2960,7 @@ button.btn.btn-primary.mobile-full:hover,
   margin: 0 !important;
 }
 
-.ticket-wizard-root .steppers-header li {
+.steppers-header li {
   display: block !important;
   position: relative !important;
   min-width: 0 !important;
@@ -2974,43 +2974,43 @@ button.btn.btn-primary.mobile-full:hover,
   white-space: normal !important;
 }
 
-.ticket-wizard-root .steppers-header ul li {
+.steppers-header ul li {
   color: #007A52 !important;
 }
 
-.ticket-wizard-root .steppers-header ul li:hover {
+.steppers-header ul li:hover {
   color: #007A52 !important;
 }
 
-.ticket-wizard-root .steppers-header ul li.active {
+.steppers-header ul li.active {
   color: #007A52 !important;
 }
 
-.ticket-wizard-root .steppers-header ul li.confirmed {
+.steppers-header ul li.confirmed {
   color: #007A52 !important;
 }
 
-.ticket-wizard-root .steppers-header li.active {
+.steppers-header li.active {
   color: #007A52 !important;
 }
 
-.ticket-wizard-root .steppers-header li.confirmed {
+.steppers-header li.confirmed {
   color: #007A52 !important;
   border-bottom-color: #008758 !important;
 }
 
-.ticket-wizard-root .form-check {
+.form-check {
   margin-top: 40px !important;
   margin-bottom: 40px !important;
   padding: 0 !important;
 }
 
-.ticket-wizard-root .checkbox-body label {
+.checkbox-body label {
   font-size: 1.125rem !important;
   color: #1a1a1a !important;
 }
 
-.ticket-wizard-root h1.title-xxxlarge {
+h1.title-xxxlarge {
   font-size: 3rem !important;
   font-weight: 700 !important;
   color: #191919 !important;
@@ -3214,7 +3214,7 @@ select:focus {
 }
 
 /* 27.17 Filament schema parity (wizard step 2) */
-.ticket-wizard-root .fi-section {
+.fi-section {
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -3225,25 +3225,25 @@ select:focus {
   margin-bottom: 1.75rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-header {
+.fi-section .fi-section-header {
   padding: 0 !important;
   margin-bottom: 0.75rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-header-heading {
+.fi-section .fi-section-header-heading {
   font-size: 2rem !important;
   font-weight: 700 !important;
   color: #191919 !important;
   line-height: 1.25 !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-header-description {
+.fi-section .fi-section-header-description {
   font-size: 1rem !important;
   color: #5c6f82 !important;
   margin-top: 0.35rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-content-ctn {
+.fi-section .fi-section-content-ctn {
   background: #f5f7f9 !important;
   border-radius: 4px !important;
   padding: 1.5rem 1.5rem 1.25rem !important;
@@ -3251,71 +3251,71 @@ select:focus {
   max-width: none !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-content {
+.fi-section .fi-section-content {
   row-gap: 1.1rem !important;
   width: 100% !important;
   max-width: none !important;
 }
 
-.ticket-wizard-root .fi-section .fi-sc-text {
+.fi-section .fi-sc-text {
   color: #17324d !important;
   font-size: 1rem !important;
 }
 
-.ticket-wizard-root .cmp-wizard-widget {
+.cmp-wizard-widget {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
-.ticket-wizard-root .fi-fo-field-label,
-.ticket-wizard-root .fi-fo-field-label-content {
+.fi-fo-field-label,
+.fi-fo-field-label-content {
   color: #17324d !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
 }
 
-.ticket-wizard-root .fi-input,
-.ticket-wizard-root .fi-select-input,
-.ticket-wizard-root textarea {
+.fi-input,
+.fi-select-input,
+textarea {
   font-size: 1rem !important;
 }
 
-.ticket-wizard-root .fi-input-wrp,
-.ticket-wizard-root .fi-fo-select,
-.ticket-wizard-root .fi-fo-textarea {
+.fi-input-wrp,
+.fi-fo-select,
+.fi-fo-textarea {
   background: #fff !important;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
-.ticket-wizard-root .fi-fo-field {
+.fi-fo-field {
   display: block !important;
 }
 
-.ticket-wizard-root .fi-fo-field-label-col,
-.ticket-wizard-root .fi-fo-field-content-col {
+.fi-fo-field-label-col,
+.fi-fo-field-content-col {
   width: 100% !important;
   max-width: none !important;
   flex: 0 0 100% !important;
   padding: 0 !important;
 }
 
-.ticket-wizard-root .fi-fo-field-content-col {
+.fi-fo-field-content-col {
   margin-top: 0.5rem !important;
 }
 
-.ticket-wizard-root .fi-fo-file-upload {
+.fi-fo-file-upload {
   background: #fff !important;
   border: 1px solid #d9e1e8 !important;
   padding: 1rem !important;
 }
 
-.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc {
+.fi-section[data-step-section="author"] .fi-sc {
   --cols-lg: repeat(3, minmax(0, 1fr));
 }
 
-.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
+.fi-section[data-step-section="author"] .fi-sc-text {
   display: block !important;
   min-height: 4.5rem !important;
   background: #fff !important;
@@ -3323,50 +3323,50 @@ select:focus {
   padding: 1rem !important;
 }
 
-.ticket-wizard-root .cmp-page-index,
-.ticket-wizard-root .cmp-page-index-mobile {
+.cmp-page-index,
+.cmp-page-index-mobile {
   display: none;
 }
 
-.ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index {
+.segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index {
   display: block;
 }
 
-.ticket-wizard-root .segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index-mobile {
+.segnalazione-wizard-layout:has(.fi-sc-wizard-header-step:nth-child(2).fi-active) .cmp-page-index-mobile {
   display: block;
 }
 
-.ticket-wizard-root .cmp-page-index {
+.cmp-page-index {
   top: 7rem;
 }
 
-.ticket-wizard-root .segnalazione-required-legend {
+.segnalazione-required-legend {
   margin-bottom: 1.5rem !important;
   color: #17324d !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-collapse-btn {
+.fi-section .fi-section-collapse-btn {
   color: #17324d !important;
 }
 
 /* Filament schema sections already render their own header:
    hide duplicate section labels generated by wrapper. */
-.ticket-wizard-root .fi-sc-section-label-ctn {
+.fi-sc-section-label-ctn {
   display: none !important;
 }
 
-.ticket-wizard-root .wizard-side-index {
+.wizard-side-index {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.ticket-wizard-root .wizard-side-index-box {
+.wizard-side-index-box {
   background: #fff !important;
   border: 1px solid #d9e1e8 !important;
   padding: 0.75rem 0.75rem 0.25rem !important;
 }
 
-.ticket-wizard-root .wizard-side-index-title {
+.wizard-side-index-title {
   color: #17324d !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
@@ -3374,12 +3374,12 @@ select:focus {
   margin: 0 0 0.5rem !important;
 }
 
-.ticket-wizard-root .wizard-side-index .nav-item {
+.wizard-side-index .nav-item {
   list-style: none !important;
   border-bottom: 1px solid #d9e1e8 !important;
 }
 
-.ticket-wizard-root .wizard-side-index .text-paragraph-small {
+.wizard-side-index .text-paragraph-small {
   color: #17324d !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
@@ -3387,7 +3387,7 @@ select:focus {
 
 /* Step 2 — fallback mobile (AC2): indice orizzontale scrollabile sotto lg */
 @media (max-width: 991.98px) {
-  .ticket-wizard-root .wizard-sidebar .wizard-side-index {
+  .wizard-sidebar .wizard-side-index {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -3397,7 +3397,7 @@ select:focus {
     padding-bottom: 0.25rem !important;
   }
 
-  .ticket-wizard-root .wizard-sidebar .wizard-side-index .nav-item {
+  .wizard-sidebar .wizard-side-index .nav-item {
     flex: 0 0 auto !important;
     border-bottom: none !important;
     border: 1px solid #d9e1e8 !important;
@@ -5267,28 +5267,28 @@ textarea#details,
 }
 
 /* 29. Step 2 high parity hardening */
-.ticket-wizard-root .segnalazione-wizard-layout {
+.segnalazione-wizard-layout {
   align-items: flex-start !important;
   --bs-gutter-x: 2rem !important;
 }
 
-.ticket-wizard-root .segnalazione-side-column {
+.segnalazione-side-column {
   padding-right: 0.5rem !important;
 }
 
-.ticket-wizard-root .segnalazione-main-column {
+.segnalazione-main-column {
   padding-left: 0.5rem !important;
 }
 
-.ticket-wizard-root .cmp-page-index {
+.cmp-page-index {
   max-width: 100% !important;
 }
 
-.ticket-wizard-root .cmp-page-index .accordion-item {
+.cmp-page-index .accordion-item {
   border-color: #c5d0d9 !important;
 }
 
-.ticket-wizard-root .cmp-page-index .accordion-button {
+.cmp-page-index .accordion-button {
   min-height: 4rem !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
@@ -5296,7 +5296,7 @@ textarea#details,
   color: #17324d !important;
 }
 
-.ticket-wizard-root .cmp-page-index .link-list a {
+.cmp-page-index .link-list a {
   padding: 0.875rem 1rem !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
@@ -5304,71 +5304,87 @@ textarea#details,
   color: #17324d !important;
 }
 
-.ticket-wizard-root .cmp-page-index .link-list a span {
+.cmp-page-index .link-list a span {
   display: inline-block !important;
   max-width: 14rem !important;
 }
 
-.ticket-wizard-root .cmp-wizard-widget,
-.ticket-wizard-root .fi-sc-wizard,
-.ticket-wizard-root .fi-sc-wizard-step,
-.ticket-wizard-root .fi-sc-wizard-step > .fi-sc {
+.cmp-wizard-widget,
+.fi-sc-wizard,
+.fi-sc-wizard-step,
+.fi-sc-wizard-step > .fi-sc {
   width: 100% !important;
   max-width: none !important;
 }
 
-.ticket-wizard-root .fi-sc-wizard {
+.fi-sc-wizard {
   row-gap: 1.5rem !important;
 }
 
-.ticket-wizard-root .fi-sc-wizard-header {
+.fi-sc-wizard-header {
   margin-bottom: 1.5rem !important;
 }
 
 /* Story 7-51: keep only Design Comuni stepper (remove duplicated Filament header above it). */
-.ticket-wizard-root .fi-sc-wizard-header {
+.fi-sc-wizard-header {
   display: none !important;
 }
 
-.ticket-wizard-root .fi-sc-wizard-step {
+.fi-sc-wizard-step {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-.ticket-wizard-root .segnalazione-required-legend {
+.segnalazione-required-legend {
   margin-bottom: 1rem !important;
 }
 
-.ticket-wizard-root .fi-section {
+.fi-section {
   margin-bottom: 1.25rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-header {
+.fi-section .fi-section-header {
   margin-bottom: 0.5rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-content-ctn {
+.fi-section .fi-section-content-ctn {
   padding: 1.25rem 1.25rem 1rem !important;
 }
 
-.ticket-wizard-root .fi-section .fi-section-content {
+.fi-section .fi-section-content {
   row-gap: 0.875rem !important;
 }
 
-.ticket-wizard-root .fi-fo-field {
+.fi-section[data-step-section="inefficiency"] .fi-section-header {
+  margin-bottom: 0.25rem !important;
+}
+
+.fi-section[data-step-section="inefficiency"] .fi-section-content-ctn {
+  padding-top: 0.875rem !important;
+}
+
+.fi-section[data-step-section="inefficiency"] .fi-section-content {
+  row-gap: 0.625rem !important;
+}
+
+.fi-section[data-step-section="inefficiency"] .fi-fo-field-content-col {
+  margin-top: 0.25rem !important;
+}
+
+.fi-fo-field {
   margin-bottom: 0 !important;
 }
 
-.ticket-wizard-root .fi-fo-field-content-col {
+.fi-fo-field-content-col {
   margin-top: 0.375rem !important;
 }
 
-.ticket-wizard-root .fi-section[data-step-section="author"] .fi-section-content > .fi-grid {
+.fi-section[data-step-section="author"] .fi-section-content > .fi-grid {
   column-gap: 1rem !important;
   row-gap: 0.75rem !important;
 }
 
-.ticket-wizard-root .fi-section[data-step-section="author"] .fi-sc-text {
+.fi-section[data-step-section="author"] .fi-sc-text {
   min-height: 4rem !important;
   padding: 0.875rem 1rem !important;
   color: #17324d !important;
@@ -5390,6 +5406,76 @@ textarea#details,
 .it-header-center-content-wrapper .search-label {
   font-size: 1rem !important;
   font-weight: 600 !important;
+}
+
+/* CoordinatePicker — visible map and controls inside Design Comuni wizard.
+   Leaflet panes are runtime-generated in light DOM, so the theme owns final parity. */
+coordinate-picker-lit {
+  display: block !important;
+  width: 100% !important;
+  min-height: 340px !important;
+  background: #fff !important;
+}
+
+coordinate-picker-lit .map-container,
+coordinate-picker-lit .map-picker-leaflet-pane,
+coordinate-picker-lit .leaflet-container {
+  opacity: 1 !important;
+  background: #fff !important;
+}
+
+coordinate-picker-lit .leaflet-tile,
+coordinate-picker-lit .leaflet-tile-loaded,
+coordinate-picker-lit .leaflet-pane,
+coordinate-picker-lit .leaflet-map-pane,
+coordinate-picker-lit .leaflet-tile-pane,
+coordinate-picker-lit .leaflet-marker-pane {
+  opacity: 1 !important;
+}
+
+coordinate-picker-lit .layer-controls-overlay {
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 1100 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  pointer-events: auto !important;
+}
+
+coordinate-picker-lit .ctrl-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  min-width: 2.75rem !important;
+  min-height: 2.75rem !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  color: #17324d !important;
+  background: #fff !important;
+  border: 1px solid #d9e1e8 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(23, 50, 77, 0.18) !important;
+  pointer-events: auto !important;
+}
+
+coordinate-picker-lit .ctrl-btn:hover,
+coordinate-picker-lit .ctrl-btn:focus-visible {
+  color: #007a52 !important;
+  background: #f5f7f9 !important;
+  outline: 2px solid #007a52 !important;
+  outline-offset: 2px !important;
+}
+
+coordinate-picker-lit .ctrl-btn svg {
+  display: block !important;
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  opacity: 1 !important;
+  color: currentColor !important;
+  stroke: currentColor !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5452,25 +5538,25 @@ textarea#details,
 }
 
 @media (min-width: 992px) {
-  .ticket-wizard-root .segnalazione-wizard-layout {
+  .segnalazione-wizard-layout {
     --bs-gutter-x: 2.5rem !important;
   }
 
-  .ticket-wizard-root .cmp-page-index .link-list a span {
+  .cmp-page-index .link-list a span {
     max-width: 100% !important;
   }
 }
 
 @media (max-width: 991.98px) {
-  .ticket-wizard-root .cmp-page-index-mobile {
+  .cmp-page-index-mobile {
     margin-bottom: 1rem !important;
   }
 
-  .ticket-wizard-root .fi-sc-wizard-header {
+  .fi-sc-wizard-header {
     margin-bottom: 1rem !important;
   }
 
-  .ticket-wizard-root .fi-section .fi-section-content-ctn {
+  .fi-section .fi-section-content-ctn {
     padding: 1rem !important;
   }
 }

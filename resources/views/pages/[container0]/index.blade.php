@@ -20,7 +20,10 @@ new class extends Component {
     public function mount(string $container0): void
     {
         $this->container0 = $container0;
-        $this->pageSlug = $container0 . '.index';
+        $this->pageSlug = match ($container0) {
+            'segnalazione-crea' => 'tests.segnalazione-crea',
+            default => $container0 . '.index',
+        };
         $this->data = [
             'container0' => $container0
         ];

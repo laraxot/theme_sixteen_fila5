@@ -16,18 +16,19 @@ Bande blu istituzionali (slim + center + navbar coerenti con Bootstrap Italia / 
 Dal kit statico (es. [segnalazione-02-dati](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html)):
 
 - **Fascia slim** (regione / utilità): toni **verdi** del modello segnalazioni (es. `#00402b` / varianti da token), testo chiaro dove previsto dal prototipo.
-- **Fascia menu principale** (`.it-header-navbar-wrapper`): **fondo chiaro** (bianco / grigio chiarissimo), **link scuri**, stato attivo/hover con **accento verde** — **non** una barra intera verde `#007a52` con testo bianco su tutti i `nav-link` (anti-pattern: rompe gerarchia e contrasto del kit).
+- **Fascia menu principale** (`.it-header-navbar-wrapper`) su `segnalazione-crea`: **fondo verde `#007a52` come logo/slogan**, link bianchi, hover/focus verde piu scuro. Non usare sfondo blu e non usare fascia bianca.
 
 ## Implementazione nel tema Sixteen (DRY + KISS)
 
 1. **Markup:** solo `resources/views/components/sections/header/v1.blade.php` (owner per `<x-section slug="header" />`).
-2. **Bootstrap Italia 2.x:** sulla navbar del flusso test `tests/segnalazione-crea`, aggiungere la classe BI **`theme-light-desk`** su `.it-header-navbar-wrapper` (il default CDN è spesso `background: #06c` senza questa modifica).
-3. **CSS:** regole dedicate in **`resources/css/app.css`** sotto il modificatore **`.it-header-wrapper.is-segnalazione-crea`** (stesso file già caricato da Vite dopo CDN/Filament sulle route test interessate). **Vietato** duplicare lo stesso blocco in `<style>` nel layout Blade.
+2. **Bootstrap Italia 2.x:** sulla navbar del flusso test `tests/segnalazione-crea`, non aggiungere `theme-light-desk`: quella classe riporta verso la variante chiara e favorisce regressioni bianco/blu.
+3. **CSS:** regole dedicate in **`resources/css/app.css`** sotto il modificatore **`.it-header-wrapper.is-segnalazione-crea`**, in fondo alla cascata. Devono coprire wrapper, `.navbar`, liste, `.nav-item`, `.nav-link` e `.nav-link span`.
 4. **Moduli (wizard):** niente colori header inline nel widget Filament — parity solo lato tema.
 
 ## Anti-pattern (da non reintrodurre)
 
-- `@if(...) <style> … #007a52 !important` su `.navbar-nav`, `.navbar-secondary`, center wrapper, per “pareggiare” la pagina: fragile, duplica `app.css`, e tende al **verde pieno** lontano dal kit.
+- `theme-light-desk` su `segnalazione-crea`: reintroduce la variante chiara e puo lasciare blu Bootstrap Italia come fallback.
+- Cambiare solo un blocco generico `.it-header-navbar-wrapper` in `app.css`: esistono blocchi duplicati successivi; serve una regola finale scoped a `.it-header-wrapper.is-segnalazione-crea`.
 - File CSS pubblicati a mano sotto `/themes/Sixteen/css/...` non presenti nel build: rischio **404**; preferire import Vite in `app.css`.
 
 ## Collegamenti

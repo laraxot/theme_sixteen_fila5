@@ -1,5 +1,147 @@
 # Sixteen Wiki Log
 
+## [2026-04-28] docs | boundary theme/modulo su custom field Filament (quality pack)
+- aggiornata `concepts/filament-custom-field-binding-modifiers-theme-boundary.md` con quality pack:
+  - best practices
+  - bad practices
+  - false friends
+  - link verificati Filament/Livewire
+- rafforzato confine DRY+KISS: tema owner della parity visuale, modulo owner del contratto state/binding.
+- ingest eseguito in QMD index `fixcity` (collection `sixteen-wiki` aggiornata).
+
+## [2026-04-27] sync | scopo mappa ticket-create recepito dal modulo Fixcity
+- recepita analisi business della mappa nello step `data` (`fixcity/admin/tickets/create`): coordinate come dato operativo per smistamento e priorita'.
+- confermato boundary tema: Sixteen cura la parity visuale ma non ridefinisce semantica dominio del campo `location`.
+- riferimento: `../../../Modules/Fixcity/docs/wiki/concepts/location-capture-map-wizard.md`.
+
+## [2026-04-27] sync | reusable search component discipline from Geo
+- recepita regola cross-modulo: pattern search dei picker va estratto in componente riutilizzabile.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/reusable-search-ui-component-rule.md`.
+
+## [2026-04-27] verifica | story 8-61 — screenshot runtime admin map con blocker 500
+- raccolto screenshot contesto route admin: `scripts/admin-map-context.png`.
+- diagnostica visuale: la pagina non renderizza il form mappa perche' cade prima in 500 (`Unsupported cipher or incorrect key length`).
+- allineato boundary: in questo stato la mappa non e' verificabile, priorita al ripristino bootstrap Laravel.
+
+## [2026-04-27] fix | story 8-59 — script credenziali da .env + placement map_diagnostic
+- aggiornato `scripts/inspect-fixcity-admin-ticket-create-map.cjs` per leggere credenziali admin solo da `laravel/.env` (niente hardcoded).
+- aggiunto `scripts/map_diagnostic.py` nella cartella `scripts` esistente del tema, conforme alla regola placement.
+- formalizzata regola in `concepts/theme-owned-scripts-rule.md` (no credenziali hardcoded, no nuove cartelle root scripts/bashscripts).
+
+## [2026-04-27] sync | geo admin map lens and controls visibility
+- recepito fix cross-modulo su route admin ticket create: lente search ridimensionata e controlli mappa Lit resi sempre visibili.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/admin-map-magnifier-and-controls-visibility.md`.
+
+## [2026-04-27] sync | lit light-dom map controls and reactive state
+- recepito aggiornamento modulo Geo su `CoordinatePicker` Lit in Light DOM (iniezione CSS text esplicita).
+- recepito fix reattivita stato coordinate lato bridge Alpine/Livewire (pattern immutabile).
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/lit-light-dom-map-controls-and-sync.md`.
+
+## [2026-04-27] sync | geo module build contract and runtime dependency
+- recepito fix build modulo Geo (`vite.config.js` entry reali + sintassi `coordinate-picker-lit.js`).
+- allineato il tema al principio: stabilita runtime mappa dipende anche dalla salute build del modulo owner Geo.
+- riferimento: `../../../Modules/Geo/docs/wiki/concepts/geo-vite-build-contract.md`.
+
+## [2026-04-27] verifica | admin map route visual check
+- route admin `fixcity/admin/tickets/create` raggiunta e verificata in step `form.data::data::wizard-step`.
+- confermata separazione contesto: runtime admin dipende dalla chain asset Geo (non dal solo CSS frontoffice del tema).
+- recepita evidenza cross-modulo: fallback a `themes/Geo/js/map-picker-component.js` con asset mancanti su `/modules/geo/`.
+- dopo hardening Geo, verificata chain locale-first: `themes/Geo/js/geo.js` caricato correttamente (HEAD/GET 200) e nessun ricorso primario a `unpkg`.
+
+## [2026-04-27] sync | fixcity admin map asset chain analysis
+- recepita analisi runtime della route `fixcity/admin/tickets/create`.
+- confermato che il tema non deve sostituire la catena runtime canonica della mappa con fallback legacy.
+- riferimento operativo: `../../../Modules/Fixcity/docs/stories/wizard-map-runtime-asset-chain.md`.
+- collegamento architetturale: `../../../Modules/Fixcity/docs/wiki/log.md`.
+
+## [2026-04-27] governance | obsidian vault alignment for theme docs
+- aggiunta pagina `concepts/obsidian-vault-alignment.md`.
+- fissata checklist minima index/log/link cross-modulo per evitare docs non ingestite.
+- ingest knowledge base eseguito a livello progetto (`qmd update`) dopo update tema/moduli.
+
+## [2026-04-27] governance | frontoffice vs admin panel style ownership
+- aggiunta pagina `concepts/filament-admin-style-ownership-boundary.md`.
+- chiarito che Sixteen governa frontoffice; bug visuali mappa in panel admin vanno validati nel contesto Filament admin.
+
+## [2026-04-27] sync | policy matrix awareness in theme docs
+- collegata la matrice policy modulo-per-modulo alla documentazione tema.
+- ribadito che Sixteen non sceglie la base policy: renderizza capability backend.
+
+## [2026-04-27] governance | policy rendering boundary with backend ACL
+- chiarito boundary tema: Sixteen non sceglie tra `UserBasePolicy` e `XotBasePolicy`.
+- il tema renderizza solo stati autorizzativi gia' risolti lato backend.
+- nuova pagina: `concepts/policy-rendering-boundary.md`.
+
+## [2026-04-27] sync | profiles owner boundary anti-regressione
+- recepita regola aggiornata: nessuna migrazione additiva `add_*_to_profiles_table` nei moduli non owner.
+- caso reale rimosso dal modulo User: `2026_04_27_000000_add_credits_to_profiles_table.php`.
+- owner unico confermato: `Modules/Fixcity/...create_profiles_table.php`.
+
+## [2026-04-27] sync | profiles migration nullable credits contract
+- allineata knowledge cross-layer al fix profilo: `credits` e' opzionale e non deve bloccare il flusso UI/registrazione.
+- riferimento modulo: `../../../Modules/Fixcity/docs/wiki/concepts/profiles-uuid-contract.md`.
+- riferimento root: `../../../../docs/wiki/concepts/profiles-uuid-single-migration-rule.md`.
+
+## [2026-04-23] governance | Route target recheck nel runtime reale del tema
+- documentata la regola `route-target-recheck-rule`
+- per fix visuali/runtime Sixteen serve recheck della route finale reale dopo build/copy asset, non basta il controllo del componente isolato
+
+## [2026-04-23] governance | Theme bundle integration false friends
+- Documentate best practices, bad practices e false friends sull'integrazione bundle del tema con componenti Lit/modulari.
+- Regola centrale: il tag custom nel Blade non basta; import in `resources/js/app.js`, build, copy e verifica URL reale sono parte del contratto.
+- Nuova pagina: `concepts/theme-bundle-integration-false-friends.md`.
+
+## [2026-04-23] fix | GeopointPicker JS missing from theme bundle
+- **problema**: `<geopoint-picker-lit>` non viene riconosciuto dal browser perché il JS non era importato in `app.js`
+- **fix**: aggiunto import in `resources/js/app.js` e rebuild tema
+- **wiki**: `concepts/geo-lit-components-must-be-imported-rule.md`
+- **modules wiki**: `Modules/Geo/docs/wiki/concepts/geopoint-picker-map-invisible-wizard-fix.md`
+
+## [2026-04-23] deletion | Removed redundant Folio page segnalazione-crea.blade.php
+- **file removed**: `resources/views/pages/segnalazione-crea.blade.php`
+- **reason**: duplicated CMS-driven page (`tests.segnalazione-crea.json` → block view → wizard). Shadowed Folio page with its own route name created confusion; the only production channel is CMS JSON blocks.
+- **wiki**: `concepts/no-cms-shadowed-folio-pages-rule.md`
+
+## [2026-04-23] discovery | CMS block architecture for segnalazione-crea
+- **sources**: `resources/views/pages/tests/[slug].blade.php`, `config/local/fixcity/database/content/pages/tests.segnalazione-crea.json`, `resources/views/components/blocks/tests/segnalazione-crea.blade.php`
+- **decision**: URL /it/tests/segnalazione-crea è CMS-driven (JSON → block view → widget), NON Folio hardcoded. Il tema Sixteen definisce block view come thin wrapper.
+- **wiki**: `concepts/theme-cms-block-architecture-segnalazione-crea.md`
+
+## [2026-04-22] contract | public wizard map stability without page css
+- **sources:** `Modules/Geo/resources/js/components/coordinate-picker-lit.js`, `docs/wiki/concepts/no-page-specific-css.md`
+- **decision:** la stabilita visuale della mappa nei wizard pubblici dipende da box/layout tema stabili e da runtime Geo debounced; il tema non deve introdurre CSS per pagina o workaround JS per compensare flicker runtime.
+- **wiki:** `concepts/leaflet-map-flicker-visual-contract.md`
+
+## [2026-04-23] fix | segnalazione-crea map flicker + geolocate when empty
+- **sources:** `Modules/Geo/resources/js/components/coordinate-picker-lit.js`, `Modules/Fixcity/app/Filament/Widgets/CreateTicketWizardWidget.php`, `Themes/Sixteen/resources/css/app.css`
+- **root cause:** refresh loop troppo aggressivo (invalidate + tile redraw + setView ripetuti) causava lampeggio; coordinate vuote senza `geolocateWhenEmpty()` non centravano sulla posizione corrente.
+- **decision:** refresh con invalidate differito, redraw tile solo su `tileerror`/fullscreen; `CoordinatePicker` dello step dati configurato con `->geolocateWhenEmpty()`.
+
+## [2026-04-23] fix | segnalazione-crea navbar green + map fullscreen contracts
+- **sources:** `resources/css/app.css`, `resources/views/components/sections/header/v1.blade.php`, `docs/wiki/concepts/segnalazione-crea-navbar-green-contract.md`, `docs/wiki/concepts/coordinate-picker-fullscreen-wizard-contract.md`, `Modules/Geo/docs/wiki/concepts/coordinate-picker-fullscreen-wizard-contract.md`, `Modules/Fixcity/docs/wiki/concepts/segnalazione-crea-map-fullscreen-contract.md`
+- **root cause header:** documentazione precedente indicava navbar chiara/theme-light-desk e `app.css` aveva blocchi header duplicati; cambiando un blocco intermedio il blu/bianco poteva vincere ancora.
+- **root cause map:** fullscreen solo CSS + `body.overflow=hidden` non bloccava sempre `html`/stacking context wizard; Leaflet richiede refresh dopo transizione.
+- **decision:** navbar `segnalazione-crea` verde `#007a52`; coordinate-picker fullscreen usa contratto browser fullscreen + classe document-level e refresh differiti.
+
+## [2026-04-22] governance | No page-specific CSS — Design Comuni principle
+- **regola**: vietato `.ticket-wizard-root`, `[data-slug="..."]` o qualsiasi selettore CSS per pagina/widget specifico
+- **principio**: Design Comuni ufficiale usa solo selettori di componente (`.it-*`); un wizard è un componente, non "la pagina segnalazione-crea"
+- **varianti**: usare props/attributi sul componente, non il nome della pagina come discriminante CSS
+- **rule**: `bashscripts/ai/.claude/rules/no-page-specific-css.md`
+- **wiki concept**: `laravel/Themes/Sixteen/docs/wiki/concepts/no-page-specific-css.md`
+- **memory**: `memory/feedback_no_page_specific_css.md`
+
+## [2026-04-22] ops | context-mode + QMD per docs tema e story BMAD
+- **regola root**: `docs/wiki/concepts/context-compression-discipline.md`
+- **scope Sixteen**: per story su wizard/header/parity non caricare l'intero corpus tema; usare QMD/context-mode e passare allo skill solo indici, concetti wiki e snippet essenziali.
+- **verifica**: context-mode plugin/MCP connessi; QMD aggiorna `theme-sixteen` con 1005 file indicizzati.
+
+## [2026-04-22] governance | getSummarySchema wizard con Infolists
+- **regola**: i riepiloghi wizard Sixteen/Fixcity devono usare Filament Infolists in `getSummarySchema()`; `SchemaView` non e' ammesso per summary read-only strutturati.
+- **root wiki**: `docs/wiki/concepts/filament-summary-infolist-rule.md`
+- **fonte ufficiale**: https://filamentphp.com/docs/5.x/infolists/overview
+- **nota DRY + KISS**: linkare la regola root dagli indici locali, non duplicare esempi divergenti.
+
 ## [2026-04-21] governance | header segnalazione — una sola fonte CSS + wiki kit
 - **sources:** `laravel/Themes/Sixteen/resources/views/components/layouts/main.blade.php`, `laravel/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php`, `laravel/Themes/Sixteen/resources/css/app.css`, `laravel/Themes/Sixteen/docs/wiki/concepts/header-color-parity.md`, `docs/wiki/index.md`, `docs/wiki/concepts/header-section-owner-rule.md`
 - **summary:** eliminato `<style>` inline duplicato e link 404 a override esterni; regola Design Comuni (repo + GitHub Pages) e anti-pattern “navbar tutta verde” descritti in `header-color-parity.md`; commento SSoT in `app.css`.
@@ -429,3 +571,30 @@
 - Consolidata regola Design Comuni: `v1.blade.php` resta owner markup/composizione; colori e background header vanno nel CSS/token layer.
 - Rimosso l'anti-pattern dello `<style>` condizionale per `is-segnalazione-crea`.
 - Nuova pagina: `concepts/header-style-layer-rule.md`.
+# 2026-04-22
+
+- Ingestita decisione Design Comuni: lo step riepilogo segnalazione resta renderizzato dal widget Fixcity con entry Infolist; il tema governa layout/parity CSS e non reintroduce `SchemaView` come riepilogo primario.
+- Ingestita nota `context-compression-plugin-runtime`: Sixteen contiene corpus visuale ampio; consultare wiki/QMD e non caricare batch report completi se non necessario.
+- Ingestita regola `theme-css-only-parity-rule`: Sixteen e' owner unico del CSS Design Comuni per `segnalazione-crea`; le Blade dei moduli non devono contenere `<style>` o inline style JS per la parity.
+- Ingestita regola `filament5-schema-section-namespace-rule`: il tema non deve forkare la pagina Folio per casi singoli; renderizza lo schema widget corretto e lascia `Section` a Filament Schemas.
+- Ingestita regola `filament5-schema-form-access-rule`: il tema renderizza `{{ $this->form }}`; il widget legge stato tramite `$this->form`, non `getForm('form')`.
+- Ingestita regola `segnalazione-map-and-section-spacing-parity`: controlli mappa e spacing sezione Disservizio si governano dal CSS tema con build/copy.
+- Rafforzata regola CSS Design Comuni: niente selettori per-page tipo `.page-content[data-slug="tests.segnalazione-crea"]` per correzioni riusabili; usare selettori semantici component/site-level.
+- Rafforzata regola CSS Design Comuni: niente `.ticket-wizard-root` per comportamenti comuni di wizard; usare hook site/component-level e non specializzare il ticket wizard rispetto agli altri wizard.
+- Aggiunto piano header-first per parity dello step riepilogo e submit canonico: `../../Modules/Fixcity/docs/stories/wizard-summary-step-header-and-submit-parity-plan.md`.
+# 2026-04-22 - CSS parity wizard owner tema
+
+- Aggiunta `concepts/theme-owned-wizard-css-parity-rule.md`.
+- Spostati gli override CSS del wizard segnalazione dal Blade Fixcity a `resources/css/app.css`.
+- Regola build: dopo CSS tema eseguire `npm run build` e `npm run copy` da `laravel/Themes/Sixteen`.
+
+# 2026-04-22 - Header navbar green component rule
+
+- Aggiunta `concepts/header-navbar-green-component-rule.md`.
+- Documentata la causa ricorsiva dei regressi blu/bianco: Bootstrap Italia ridefinisce colori a livello wrapper, container, navbar, link, stati e media query.
+- Regola: correggere sempre il componente header in `resources/css/app.css`, mai tramite selettori per pagina o `.ticket-wizard-root`.
+
+# 2026-04-23 - CSS globale, niente selettori per pagina (wizard parity)
+
+- Nuova pagina: `concepts/global-css-no-page-selectors-wizard-parity.md`.
+- Ribadita regola tema: parity via CSS globale/component-level, non via `.page-content[data-slug="..."]` o classi per wizard specifici.
