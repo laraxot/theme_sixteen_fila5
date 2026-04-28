@@ -56,6 +56,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "orchestra/testbench": "^9.4"
+        "orchestra/testbench": "*"
     }
 }
