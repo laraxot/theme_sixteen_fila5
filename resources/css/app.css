@@ -4109,6 +4109,35 @@ main #main-container .steppers-nav .steppers-btn-save {
   display: none !important;
 }
 
+/* Screenshot audit 2026-04-28 — step dati wizard parity fixes */
+.it-form-wizard .cmp-navscroll .accordion-button::after {
+  display: none !important;
+}
+
+.it-form-wizard .cmp-navscroll .accordion-button {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.it-form-wizard .cmp-navscroll .accordion-body {
+  padding: 0.5rem 0.75rem 0.75rem !important;
+}
+
+.it-form-wizard .cmp-navscroll .link-list {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.it-form-wizard .cmp-navscroll .link-list .nav-link {
+  padding: 0.25rem 0 !important;
+  color: #17324d !important;
+  font-size: 0.875rem !important;
+}
+
+.it-form-wizard .cmp-navscroll .link-list .nav-link span {
+  color: inherit !important;
+}
+
 @media (max-width: 991.98px) {
   .it-form-wizard .fi-grid {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -4136,6 +4165,31 @@ main #main-container .steppers-nav .steppers-btn-save {
 .it-form-wizard [data-step-section="inefficiency"] .fi-sc-section-header {
   margin-bottom: 0.5rem !important;
   padding-bottom: 0 !important;
+}
+
+.it-form-wizard .segnalazione-required-legend {
+  margin-bottom: 0.75rem !important;
+}
+
+.it-form-wizard [data-step-section="place"] .fi-sc-section-header,
+.it-form-wizard [data-step-section="place"] .fi-fo-section-header {
+  margin-bottom: 0.35rem !important;
+  padding-bottom: 0 !important;
+}
+
+.it-form-wizard [data-step-section="place"] .fi-sc-section-content,
+.it-form-wizard [data-step-section="place"] .fi-sc-section-content-ctn,
+.it-form-wizard [data-step-section="place"] .fi-fo-section-content {
+  padding-top: 0.35rem !important;
+}
+
+/* Address/geo search readability: avoid icon/text overlap */
+.it-form-wizard .input-group:has(.autocomplete-icon) .form-control {
+  padding-left: 2.25rem !important;
+}
+
+.it-form-wizard .autocomplete-icon {
+  left: 0.75rem !important;
 }
 
 .it-form-wizard [data-step-section="inefficiency"] .fi-sc-section-content,
