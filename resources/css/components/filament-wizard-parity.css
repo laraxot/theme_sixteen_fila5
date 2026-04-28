@@ -175,6 +175,13 @@
     @apply px-0;
 }
 
+/* Ensure map picker is visible in wizard steps */
+.ticket-wizard-root coordinate-picker-lit {
+    display: block !important;
+    width: 100% !important;
+    min-height: 340px !important;
+}
+
 /* === WIDGET container — no extra padding === */
 .ticket-wizard-root .cmp-wizard-widget {
     @apply bg-transparent;
