@@ -2,8 +2,10 @@ const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
 
-const TARGET_URL = 'http://127.0.0.1:8000/fixcity/admin/tickets/create';
-const SCREENSHOT_PATH = 'scripts/fixcity-admin-ticket-create-map.png';
+const TARGET_URL = process.env.FIXCITY_ADMIN_MAP_URL
+    || 'http://127.0.0.1:8001/fixcity/admin/tickets/create?step=form.data%3A%3Adata%3A%3Awizard-step';
+const SCREENSHOT_PATH = process.env.FIXCITY_ADMIN_MAP_SCREENSHOT
+    || 'scripts/fixcity-admin-ticket-create-map.png';
 
 function loadAdminCredentials() {
     const envPath = path.resolve(__dirname, '../../../.env');

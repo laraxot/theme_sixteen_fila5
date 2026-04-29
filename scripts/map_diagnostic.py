@@ -10,8 +10,8 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 
-TARGET_URL = "http://127.0.0.1:8000/fixcity/admin/tickets/create?step=form.data%3A%3Adata%3A%3Awizard-step"
-SCREENSHOT_PATH = "scripts/fixcity-admin-ticket-create-map-python.png"
+DEFAULT_TARGET_URL = "http://127.0.0.1:8001/fixcity/admin/tickets/create?step=form.data%3A%3Adata%3A%3Awizard-step"
+DEFAULT_SCREENSHOT_PATH = "scripts/fixcity-admin-ticket-create-map-python.png"
 
 
 def _load_dotenv(dotenv_path: Path) -> None:
@@ -53,6 +53,8 @@ def _get_admin_credentials() -> tuple[str, str]:
 
 def main() -> int:
     email, password = _get_admin_credentials()
+    target_url = os.getenv("FIXCITY_ADMIN_MAP_URL", DEFAULT_TARGET_URL)
+    screenshot_path = os.getenv("FIXCITY_ADMIN_MAP_SCREENSHOT", DEFAULT_SCREENSHOT_PATH)
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
@@ -73,14 +75,14 @@ def main() -> int:
             ),
         )
 
-        page.goto(TARGET_URL, wait_until="domcontentloaded", timeout=60000)
+        page.goto(target_url, wait_until="domcontentloaded", timeout=60000)
 
         if "/login" in page.url or "/auth/login" in page.url:
             page.locator('input[type="email"], input[name="email"], input[name="data.email"]').first.fill(email)
             page.locator('input[type="password"], input[name="password"], input[name="data.password"]').first.fill(password)
             page.locator('button[type="submit"], button:has-text("Accedi"), button:has-text("Login")').first.click()
             page.wait_for_timeout(1500)
-            page.goto(TARGET_URL, wait_until="domcontentloaded", timeout=60000)
+            page.goto(target_url, wait_until="domcontentloaded", timeout=60000)
 
         try:
             page.wait_for_selector("coordinate-picker-lit", timeout=30000)
@@ -105,14 +107,14 @@ def main() -> int:
             }"""
         )
 
-        page.screenshot(path=SCREENSHOT_PATH, full_page=True)
+        page.screenshot(path=screenshot_path, full_page=True)
         browser.close()
 
     print(
         json.dumps(
             {
-                "targetUrl": TARGET_URL,
-                "screenshot": SCREENSHOT_PATH,
+                "targetUrl": target_url,
+                "screenshot": screenshot_path,
                 "jsErrors": js_errors,
                 "failedRequests": failed_requests,
                 "snapshot": snapshot,
