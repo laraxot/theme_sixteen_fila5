@@ -1,12 +1,5 @@
-@php
-    $contacts = is_array($blockData['contacts'] ?? null) ? $blockData['contacts'] : [];
-    
-    // Extract wizard from form - DYNAMIC from module (no hardcoded steps!)
-    $wizardComponent = $this->getForm()?->getComponent('wizard');
-    $steps = $wizardComponent?->getSteps() ?? [];
-@endphp
 <x-filament-widgets::widget>
-{{-- Wrapper Design Comuni: titolo + form Filament Wizard (schema in CreateTicketWizardWidget::getFormSchema) --}}
+{{-- Wrapper Design Comuni: titolo + wizard Filament con view custom --}}
 <div class="ticket-wizard-root">
     {{-- Heading section --}}
     <div class="container wizard-dc-heading-shell">
@@ -22,20 +15,7 @@
         </div>
     </div>
 
-    {{-- Design Comuni Stepper - Dynamic from Wizard component --}}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <x-pub_theme::wizard.stepper 
-                    :steps="$steps" 
-                    :current-step="$wizardComponent?->getCurrentStepIndex() ?? 0"
-                    :total-steps="count($steps)"
-                />
-            </div>
-        </div>
-    </div>
-
-    {{-- Wizard Form --}}
+    {{-- Wizard Form - stepper e azioni renderizzate dalla view custom pub_theme::components.wizard --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 pb-40 pb-lg-80">
