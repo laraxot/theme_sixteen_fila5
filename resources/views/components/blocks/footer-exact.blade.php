@@ -163,7 +163,7 @@
             <div class="row">
                 {{-- Live Column --}}
                 <div class="col-md-3 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Vivere il comune</h4>
+                    <h4 class="footer-heading-title">Vivere il comune3</h4>
                     <ul class="footer-list">
                         @foreach($liveLinks as $link)
                         <li>

@@ -23,6 +23,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/app-test.css',
                 'resources/js/app.js',
+                '../../Modules/Geo/resources/js/components/geo-map-lit.js',
             ],
             refresh: [
                 ...refreshPaths,

@@ -243,7 +243,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-                <h2 class="title-xxlarge mb-4">Vivere il Comune</h2>
+                <h2 class="title-xxlarge mb-4">Vivere il Comune19</h2>
                 <div class="row g-4">
                     @foreach($eventi ?? [] as $evento)
                     <div class="col-sm-6 col-lg-4">

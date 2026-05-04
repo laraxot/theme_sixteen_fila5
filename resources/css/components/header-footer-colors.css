@@ -35,11 +35,20 @@
 .it-header-center-wrapper {
   background-color: var(--color-italia) !important;
   color: #FFFFFF !important;
+  /* D6: Header center height - padding verticale */
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
 }
 
 .it-header-center-wrapper .it-brand-title,
 .it-header-center-wrapper a {
   color: #FFFFFF !important;
+}
+
+/* Menu mobile / logo hamburger: titolo comune su fondo verde */
+.it-header-navbar-wrapper .menu-wrapper .it-brand-title,
+.it-header-navbar-wrapper .logo-hamburger .it-brand-title {
+  color: #ffffff !important;
 }
 
 /* Header Navbar - Verde (#007A52) */
@@ -48,19 +57,101 @@
   color: #FFFFFF !important;
 }
 
+/* D4: menu-wrapper at desktop must be transparent — CDN BI sets it to primary blue */
+.it-header-navbar-wrapper .menu-wrapper {
+  background-color: transparent !important;
+}
+
+/* D4: remove any left border stripe on nav items and wrapper */
+.it-header-navbar-wrapper,
+.it-header-navbar-wrapper .navbar-nav,
+.it-header-navbar-wrapper .menu-wrapper {
+  border-left: none !important;
+}
+
 .it-header-navbar-wrapper a,
 .it-header-navbar-wrapper .nav-link {
   color: #FFFFFF !important;
 }
 
-/* Override navigation items background to match header green */
+/* D3/D5: barra verde è lo sfondo del wrapper; le voci restano trasparenti (no fill) */
 .it-header-navbar-wrapper .navbar-nav .nav-link {
-  background-color: var(--color-italia) !important;
-  color: #FFFFFF !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-left: none !important;
 }
 
-.it-header-navbar-wrapper .navbar-nav .nav-link.active {
-  background-color: var(--color-italia-dark) !important;
+.it-header-navbar-wrapper .navbar-nav .nav-link.active,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page'] {
+  background-color: transparent !important;
+}
+
+/* Center underline under active nav item */
+.it-header-navbar-wrapper .navbar-nav .nav-link {
+  position: relative;
+}
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page']::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background-color: #ffffff;
+}
+
+/* Nome della Regione - background transparent to show dark green */
+.it-header-slim-wrapper .navbar-brand {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Aggiunto per fix region name text in slim header */
+.it-header-slim-wrapper .navbar-brand,
+.it-header-slim-wrapper .brand-text,
+.it-header-slim-wrapper [data-region-name] {
+  color: #ffffff !important;
+}
+
+/* D1: "Accedi all'area personale" button - light green like central header */
+.it-header-slim-wrapper .btn-full,
+.it-header-slim-wrapper .btn-primary.btn-icon.btn-full {
+  background-color: var(--color-italia) !important;
+  border-color: var(--color-italia) !important;
+  color: #ffffff !important;
+}
+
+/* D1: Language switcher button transparent */
+.it-header-slim-wrapper .dropdown-toggle {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* AC4 Story 8-106: Language dropdown — sfondo bianco, testo scuro come DC reference */
+.it-header-slim-wrapper .dropdown-menu {
+  background-color: #ffffff !important;
+  color: #17324d !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+.it-header-slim-wrapper .dropdown-menu .dropdown-item,
+.it-header-slim-wrapper .dropdown-menu .list-item {
+  color: #17324d !important;
+}
+.it-header-slim-wrapper .dropdown-menu .dropdown-item:hover,
+.it-header-slim-wrapper .dropdown-menu .list-item:hover {
+  background-color: #f0f4f8 !important;
+  color: #17324d !important;
+}
+
+/* AC3 Story 8-106: search wrapper flex-row come DC — etichetta «Cerca» a sinistra, lente a destra */
+.it-header-center-wrapper .it-search-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 }
 
 /* ========================================

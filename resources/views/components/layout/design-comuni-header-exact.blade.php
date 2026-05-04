@@ -155,7 +155,7 @@
                                     <a class="nav-link" href="/it/tests/servizi">Servizi</a>
                                 </div>
                                 <div class="nav-item">
-                                    <a class="nav-link" href="/it/tests/vivere">Vivere il Comune</a>
+                                    <a class="nav-link" href="/it/tests/vivere">Vivere il Comune12</a>
                                 </div>
                                 <div class="nav-item highlighted">
                                     <a class="nav-link" href="/it/tests/argomenti">Tutti gli argomenti</a>

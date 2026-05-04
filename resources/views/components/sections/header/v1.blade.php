@@ -42,6 +42,20 @@
     $testsPath = (string) request()->path();
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
+    $headerRegionLabel = __('pub_theme::header.slim.region.name.label');
+
+    // Story 8-107: nav items dinamici da header.json (no hardcoded)
+    $headerNavConfig = [];
+    $headerNavJsonPath = \Modules\Tenant\Services\TenantService::filePath('database/content/sections/header.json');
+    if (is_string($headerNavJsonPath) && file_exists($headerNavJsonPath)) {
+        $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
+    }
+    $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
+    $headerNavTopicsUrl = $headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/it/argomenti';
+    $headerNavItems     = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'primary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
+    $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
+    usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
+    usort($headerNavSecondary, fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
 @endphp
 
 {{--
@@ -67,17 +81,20 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
-                        {{-- White text on primary blue background --}}
-                        <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
-                        
+                        {{-- Transparent bg: shows slim dark green (#00402b) underneath, text-white for contrast --}}
+                        <a
+                            class="d-lg-block navbar-brand text-white"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="#"
+                            aria-label="{{ __('pub_theme::header.slim.region.portal_aria_label', ['region' => $headerRegionLabel]) }}"
+                            title="{{ __('pub_theme::header.slim.region.portal_title_label', ['region' => $headerRegionLabel]) }}"
+                        >{{ $headerRegionLabel }}</a>
+
                         <div class="it-header-slim-right-zone" role="navigation">
                             @include('pub_theme::components.sections.header.partials.language-switcher')
                             @guest
-                                @if ($headerHtmlParityPersonalArea)
-                                    @include('pub_theme::components.sections.header.partials.personal-area-guest-parity')
-                                @else
-                                    @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
-                                @endif
+                                @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
                             @else
                                 @include('pub_theme::components.sections.header.partials.user-dropdown', [
                                     'avatarUrl' => $headerAvatarUrl,
@@ -99,32 +116,32 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()" form="__never_submit_header_nav">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
                             </button>
                             <div class="it-brand-wrapper">
-                                <a href="/">
+                                <a href="/" title="{{ __('pub_theme::header.center.brand.home_link.title.label') }}">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
                                         <image href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
                                     </svg>
                                     <div class="it-brand-text">
-                                        <div class="it-brand-title">Il mio Comune</div>
-                                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere</div>
+                                        <div class="it-brand-title">{{ __('pub_theme::header.center.brand.title.label') }}</div>
+                                        <div class="it-brand-tagline d-none d-md-block">{{ __('pub_theme::header.center.brand.tagline.label') }}</div>
                                     </div>
                                 </a>
                             </div>
                             <div class="it-right-zone">
                                 <div class="it-socials d-none d-lg-flex">
-                                    <span>Seguici su</span>
+                                    <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank">
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Twitter</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -132,7 +149,7 @@
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Facebook</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -140,7 +157,7 @@
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                                                 </svg>
-                                                <span class="visually-hidden">YouTube</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -148,7 +165,7 @@
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Telegram</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -156,7 +173,7 @@
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                                                 </svg>
-                                                <span class="visually-hidden">Whatsapp</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -164,19 +181,19 @@
                                                 <svg class="icon icon-sm icon-white align-top">
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                                                 </svg>
-                                                <span class="visually-hidden">RSS</span>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="it-search-wrapper d-flex align-items-center">
-                                    <span class="search-label me-2">Cerca</span>
-                                    <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
-                                        <svg class="icon">
-                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
-                                        </svg>
-                                    </button>
-                                </div>
+                                <div class="it-search-wrapper flex-col items-center">
+                                         <span class="d-none d-md-block search-label">{{ __('pub_theme::header.center.search.label') }}</span>
+                                        <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
+                                            <svg class="icon">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -188,18 +205,18 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()" form="__never_submit_header_nav">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
                             </button>
                             <!-- Mobile overlay backdrop -->
-                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="navbar-overlay" style="display: none;"></div>
+                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="overlay" style="display: none;"></div>
                             <!-- Mobile menu panel -->
                             <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
                                 <div class="close-div">
                                     <button class="btn close-menu" type="button" @click="close()">
-                                        <span class="visually-hidden">Nascondi la navigazione</span>
+                                        <span class="visually-hidden">{{ __('pub_theme::header.center.nav.close_aria.label') }}</span>
                                         <svg class="icon">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
                                         </svg>
@@ -211,47 +228,41 @@
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                                         </svg>
                                         <div class="it-brand-text">
-                                            <div class="it-brand-title">Nome del Comune</div>
+                                            <div class="it-brand-title">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</div>
                                         </div>
                                     </a>
-                                    <nav aria-label="Principale">
+                                    <nav aria-label="{{ __('pub_theme::header.center.nav.primary_aria.label') }}">
                                         <ul class="navbar-nav" data-element="main-navigation">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/amministrazione" data-element="management">
-                                                    <span>Amministrazione</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/novita" data-element="news">
-                                                    <span>Novità</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="/it/tests/servizi" data-element="all-services">
-                                                    <span>Servizi</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/eventi" data-element="live">
-                                                    <span>Vivere il Comune</span>
-                                                </a>
-                                            </li>
+                                            @foreach($headerNavPrimaryItems as $item)
+                                                <li class="nav-item">
+                                                    <a class="nav-link{{ (request()->is($item['url'] ?? '#') || (str_contains($item['url'] ?? '', 'servizi') && request()->is('*segnalazione*')) ? ' active' : '' }}" 
+                                                       href="{{ $item['url'] ?? '#' }}" 
+                                                       data-element="{{ strtolower($item['label'] ?? '') }}">
+                                                        <span>{{ $item['label'] ?? '' }}</span>
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </nav>
-                                    <nav aria-label="Secondaria">
+                                    <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
                                         <ul class="navbar-nav navbar-secondary">
+                                            @foreach($headerNavSecondaryItems as $item)
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ $item['url'] ?? '#' }}">{{ $item['label'] ?? '' }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </nav>
+                                    <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
+                                        <ul class="navbar-nav navbar-secondary">
+                                            @foreach($headerNavSecondary as $headerNavSecItem)
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ $headerNavSecItem['url'] }}">{{ $headerNavSecItem['label'] }}</a>
+                                                </li>
+                                            @endforeach
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">Iscrizioni</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Estate in città</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Polizia locale</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/argomenti" data-element="all-topics">
-                                                    <span>Tutti gli argomenti
+                                                <a class="nav-link" href="{{ $headerNavTopicsUrl }}" data-element="all-topics">
+                                                    <span>{{ __('pub_theme::header.center.nav.argomenti.label') }}
                                                         <svg class="icon icon-sm">
                                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
                                                         </svg>
@@ -261,14 +272,14 @@
                                         </ul>
                                     </nav>
                                     <div class="it-socials">
-                                        <span>Seguici su</span>
+                                        <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                         <ul>
                                             <li>
                                                 <a href="#" target="_blank">
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Twitter</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -276,7 +287,7 @@
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Facebook</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -284,7 +295,7 @@
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">YouTube</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -292,7 +303,7 @@
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Telegram</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -300,7 +311,7 @@
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">Whatsapp</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -308,7 +319,7 @@
                                                     <svg class="icon icon-sm icon-white align-top">
                                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
                                                     </svg>
-                                                    <span class="visually-hidden">RSS</span>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
                                                 </a>
                                             </li>
                                         </ul>

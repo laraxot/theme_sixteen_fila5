@@ -241,7 +241,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/it/eventi" data-element="live">
-                                                    <span>Vivere il Comune</span>
+                                                    <span>Vivere il Comune13</span>
                                                 </a>
                                             </li>
                                         </ul>

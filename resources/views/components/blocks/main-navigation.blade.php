@@ -22,7 +22,7 @@
             ['label' => 'Avvisi', 'url' => '#'],
         ]],
         ['label' => 'Servizi', 'url' => '/it/tests/servizi', 'submenu' => []],
-        ['label' => 'Vivere il Comune', 'url' => '/it/tests/vivere', 'submenu' => [
+        ['label' => 'Vivere il Comune4', 'url' => '/it/tests/vivere', 'submenu' => [
             ['label' => 'Luoghi', 'url' => '#'],
             ['label' => 'Eventi', 'url' => '#'],
         ]],

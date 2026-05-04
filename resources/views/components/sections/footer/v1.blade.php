@@ -74,7 +74,7 @@
                         <li><a href="#">Comunicati</a></li>
                         <li><a href="#">Avvisi</a></li>
                     </ul>
-                    <h4 class="footer-heading-title">Vivere il comune</h4>
+                    <h4 class="footer-heading-title">Vivere il comune16</h4>
                     <ul class="footer-list">
                         <li><a href="#">Luoghi</a></li>
                         <li><a href="#">Eventi</a></li>

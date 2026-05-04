@@ -16,11 +16,10 @@ import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import './components/bootstrap-italia.js';
+import './components/modules/Geo/geo-map-lit.js';
 import '@modules/Geo/resources/js/components/my-map-lit.js';
 import '@modules/Geo/resources/js/components/geo-latlng-input.js';
 import '@modules/Geo/resources/js/components/map-picker-lit.js';
-import '@modules/Geo/resources/js/components/location-picker-lit.js';
-import '@modules/Geo/resources/js/components/geo-map-widget.js';
 import '@modules/Geo/resources/js/components/place-picker-lit.js';
 import '@modules/Geo/resources/js/components/geopoint-picker-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
@@ -110,31 +109,58 @@ if (window.Alpine) {
     }, { once: true });
 }
 
+// Scope modulo — disponibili a initHeaderDropdowns e ai listener globali (ESC, click esterno)
+function closeDropdownMenu(menu) {
+    if (!menu) { return; }
+    menu.classList.remove('show');
+    menu.style.removeProperty('display');
+    const openDropdown = menu.closest('.dropdown');
+    openDropdown?.classList.remove('is-open');
+    openDropdown?.querySelector('[data-bs-toggle="dropdown"]')?.setAttribute('aria-expanded', 'false');
+}
+
+function openDropdownMenu(menu, dropdown, toggle) {
+    if (!menu || !toggle) { return; }
+    menu.classList.add('show');
+    menu.style.removeProperty('display');
+    dropdown?.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+}
+
+// Re-aggancia i listener dopo ogni DOM morph di Livewire 4
+function initHeaderDropdowns() {
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(toggle) {
+        if (toggle._headerDropdownInit) { return; }
+        toggle._headerDropdownInit = true;
+
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = this.closest('.dropdown');
+            const menu = dropdown?.querySelector('.dropdown-menu');
+            const willOpen = menu ? !menu.classList.contains('show') : false;
+
+            document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
+                if (openMenu !== menu) { closeDropdownMenu(openMenu); }
+            });
+
+            if (menu) {
+                willOpen ? openDropdownMenu(menu, dropdown, this) : closeDropdownMenu(menu);
+            }
+        });
+    });
+
+    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        if (menu._headerDropdownMenuInit) { return; }
+        menu._headerDropdownMenuInit = true;
+        menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
+document.addEventListener('livewire:navigated', initHeaderDropdowns);
+document.addEventListener('livewire:update', initHeaderDropdowns);
+
 document.addEventListener('DOMContentLoaded', function() {
-    const closeDropdownMenu = function(menu) {
-        if (!menu) {
-            return;
-        }
-
-        menu.classList.remove('show');
-        menu.style.removeProperty('display');
-        const openDropdown = menu.closest('.dropdown');
-        openDropdown?.classList.remove('is-open');
-        const openToggle = openDropdown?.querySelector('[data-bs-toggle="dropdown"]');
-        openToggle?.setAttribute('aria-expanded', 'false');
-    };
-
-    const openDropdownMenu = function(menu, dropdown, toggle) {
-        if (!menu || !toggle) {
-            return;
-        }
-
-        menu.classList.add('show');
-        menu.style.removeProperty('display');
-        dropdown?.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-    };
-
     const closeModal = function(modal) {
         if (!modal) {
             return;
@@ -184,36 +210,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === this) {
                 closeModal(this);
             }
-        });
-    });
-
-    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const dropdown = this.closest('.dropdown');
-            const menu = dropdown?.querySelector('.dropdown-menu');
-            const willOpen = menu ? !menu.classList.contains('show') : false;
-
-            document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
-                if (openMenu !== menu) {
-                    closeDropdownMenu(openMenu);
-                }
-            });
-
-            if (menu) {
-                if (willOpen) {
-                    openDropdownMenu(menu, dropdown, this);
-                } else {
-                    closeDropdownMenu(menu);
-                }
-            }
-        });
-    });
-
-    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-        menu.addEventListener('click', function(e) {
-            e.stopPropagation();
         });
     });
 
@@ -283,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+console.log('--- THEME MEGA DEBUG 789 ---');
 console.log('Sixteen theme loaded - Tailwind + Alpine.js');
 
 document.addEventListener('DOMContentLoaded', function() {

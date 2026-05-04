@@ -96,7 +96,7 @@
             
             {{-- Vivere il Comune --}}
             <div class="col-12 col-md-6 col-lg-2">
-                <h4 class="h6 text-uppercase mb-3">Vivere il comune</h4>
+                <h4 class="h6 text-uppercase mb-3">Vivere il comune5</h4>
                 <ul class="list-unstyled">
                     <li class="mb-2"><a href="#" class="text-white text-decoration-none">Luoghi</a></li>
                     <li class="mb-2"><a href="#" class="text-white text-decoration-none">Eventi</a></li>

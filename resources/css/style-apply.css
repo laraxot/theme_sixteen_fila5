@@ -84,10 +84,11 @@ html, body {
   padding: 0 18px;
 }
 
-.it-header-slim-wrapper a {
+/* Removed conflicting color rule for slim header links */
+/* .it-header-slim-wrapper a {
   @apply no-underline text-base;
   color: #191919;
-}
+} */
 
 .it-header-slim-right-zone {
   @apply flex items-center gap-4;
@@ -503,8 +504,8 @@ html, body {
 }
 
 .it-header-slim-wrapper .btn-primary {
-  background-color: #0066CC !important;
-  border-color: #0066CC !important;
+  background-color: #007A52 !important;
+  border-color: #007A52 !important;
 }
 
 .it-header-slim-wrapper .btn-primary .icon {
