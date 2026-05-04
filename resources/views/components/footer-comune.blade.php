@@ -87,7 +87,7 @@
                         <li><a href="#" class="text-decoration-none">Avvisi</a></li>
                     </ul>
                     
-                    <h4 class="h5 mb-3">Vivere il Comune</h4>
+                    <h4 class="h5 mb-3">Vivere il Comune2</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-decoration-none">Luoghi</a></li>
                         <li><a href="#" class="text-decoration-none">Eventi</a></li>

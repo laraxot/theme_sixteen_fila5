@@ -1,6 +1,7 @@
 @props(['data' => []])
 
 @php
+    use Illuminate\Support\Str;
     $ns = 'fixcity::segnalazione';
     $blockData = is_array($data) ? $data : [];
     $phoneNumber = (string) ($blockData['phone'] ?? '05 0505');
@@ -44,11 +45,36 @@
     $mainContent = $blockData['main_content'] ?? [];
     $mainContentId = $mainContent['id'] ?? 'filter-and-cards';
     
-    $rawFilters = $mainContent['filters'] ?? [];
+    // Filtri dinamici da TicketTypeEnum + conteggi reali
+    $typeCountsRaw = \Modules\Fixcity\Models\Ticket::query()
+        ->selectRaw('type, count(*) as cnt')
+        ->whereNotNull('type')
+        ->groupBy('type')
+        ->pluck('cnt', 'type')
+        ->all();
+
+    $filterItems = [];
+    foreach (\Modules\Fixcity\Enums\TicketTypeEnum::cases() as $case) {
+        $cnt = $typeCountsRaw[$case->value] ?? 0;
+        $filterItems[] = [
+            'id' => 'filter-' . $case->value,
+            'value' => $case->value,
+            'label' => $case->getLabel(),
+            'color' => $case->getColor(),
+            'count' => $cnt,
+        ];
+    }
     $filters = [
-        'title' => $t($rawFilters['title'] ?? '', __($ns . '.filters.legend.label')),
-        'items' => $rawFilters['items'] ?? [],
+        'title' => $t($blockData['filters']['title'] ?? '', __($ns . '.filters.legend.label')),
+        'items' => $filterItems,
     ];
+
+    // Lista ticket reale (top 20)
+    $liveTickets = \Modules\Fixcity\Models\Ticket::query()
+        ->latest()
+        ->take(20)
+        ->get();
+    $resultsCount = \Modules\Fixcity\Models\Ticket::count();
 
     $rawCta = $mainContent['cta'] ?? [];
     $cta = $rawCta !== []
@@ -172,12 +198,13 @@
                     <div class="tab-pane fade{{ isset($tabs[0]) && ($tabs[0]['active'] ?? false) ? ' show active' : '' }}" id="data-ex-disservizio1" role="tabpanel">
                         <div class="row">
                             <div class="col-12">
-                                <div class="map-box">
-                                    <img src="/themes/Sixteen/design-comuni/assets/images/map-placeholder.svg" alt="{{ __($ns . '.map.image.alt') }}" class="w-100">
-                                    <button type="button" class="pin" data-bs-toggle="modal" data-bs-target="#modal-disservizio">
-                                        <img src="/themes/Sixteen/design-comuni/assets/images/map-pin.svg" alt="{{ __($ns . '.map.pin.alt') }}" title="{{ __($ns . '.map.pin.alt') }}">
-                                    </button>
-                                </div>
+                                <geo-map-lit
+                                    id="ticket-map"
+                                    data-url="/data/tickets.json"
+                                    height="clamp(360px,58vh,560px)"
+                                    style="height:clamp(360px,58vh,560px);display:block;width:100%"
+                                    aria-label="{{ __($ns . '.map.image.alt') }}"
+                                ></geo-map-lit>
                             </div>
                             @if (!empty($cta))
                                 <div class="col-lg-6 mt-50 mb-4 mb-lg-0">
@@ -187,9 +214,9 @@
                                             <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
                                         </div>
                                         <div class="button-wrapper">
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#modal-disservizio" class="btn btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <a href="/it/tests/segnalazione-crea" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                                 <span>{{ $cta['button_text'] }}</span>
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -199,17 +226,29 @@
 
                     <div class="tab-pane fade{{ (isset($tabs[0]) && !($tabs[0]['active'] ?? false)) || !isset($tabs[0]) ? ' show active' : '' }}" id="data-ex-disservizio2" role="tabpanel">
                         <div class="row">
-                            @foreach ($items as $item)
+                            @forelse ($liveTickets as $item)
+                                @php
+                                    $itemLocation = is_array($item->location) ? $item->location : [];
+                                    $itemAddress = $itemLocation['address'] ?? $itemLocation['display_name'] ?? '';
+                                    $itemType = $item->type ?? '';
+                                    $itemTypeLabel = '';
+                                    try {
+                                        $itemTypeEnum = \Modules\Fixcity\Enums\TicketTypeEnum::from((string) $itemType);
+                                        $itemTypeLabel = $itemTypeEnum->getLabel();
+                                    } catch (\ValueError) {
+                                        $itemTypeLabel = $itemType;
+                                    }
+                                @endphp
                                 <div class="cmp-card mb-4 mb-lg-30">
                                     <div class="card has-bkg-grey shadow-sm">
                                         <div class="card-body p-0">
                                             <div class="cmp-info-button-card">
                                                 <div class="card p-3 p-lg-4">
                                                     <div class="card-body p-0">
-                                                        <h3 class="medium-title mb-0">{{ $item['title'] ?? '' }}</h3>
+                                                        <h3 class="medium-title mb-0">{{ $item->name }}</h3>
                                                         <p class="card-info">
                                                             @if ($loop->first)
-                                                                {{ __($ns . '.card.type.label') }}<br><span>{{ $item['type'] ?? '' }}</span>
+                                                                {{ __($ns . '.card.type.label') }}<br><span>{{ $itemTypeLabel }}</span>
                                                             @else
                                                                 {{ __($ns . '.card.type.short') }}
                                                             @endif
@@ -236,33 +275,19 @@
                                                                                 @endif
                                                                             </div>
                                                                             <div class="card-body p-0">
-                                                                                @if (!empty($item['location']))
+                                                                                @if ($itemAddress)
                                                                                     <div class="single-line-info border-light">
                                                                                         <div class="text-paragraph-small">{{ __($ns . '.card.address.label') }}</div>
                                                                                         <div class="border-light">
-                                                                                            <p class="data-text">{{ $item['location'] }}</p>
+                                                                                            <p class="data-text">{{ $itemAddress }}</p>
                                                                                         </div>
                                                                                     </div>
                                                                                 @endif
-                                                                                @if (!empty($item['description']))
+                                                                                @if ($item->content)
                                                                                     <div class="single-line-info border-light">
                                                                                         <div class="text-paragraph-small">{{ __($ns . '.card.detail.label') }}</div>
                                                                                         <div class="border-light">
-                                                                                            <p class="data-text">{{ $item['description'] }}</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                @endif
-                                                                                @if (!empty($item['images']) && is_array($item['images']))
-                                                                                    <div class="single-line-info border-light">
-                                                                                        <div class="text-paragraph-small">{{ __($ns . '.card.images.label') }}</div>
-                                                                                        <div class="border-light border-0">
-                                                                                            <div class="d-lg-flex gap-2 mt-3">
-                                                                                                @foreach ($item['images'] as $index => $img)
-                                                                                                    <div>
-                                                                                                        <img src="{{ $img }}" alt="{{ __($ns . '.card.images.alt') }}" class="img-fluid w-100{{ $index < 2 ? ' mb-3 mb-lg-0' : '' }}">
-                                                                                                    </div>
-                                                                                                @endforeach
-                                                                                            </div>
+                                                                                            <p class="data-text">{{ Str::limit($item->content, 200) }}</p>
                                                                                         </div>
                                                                                     </div>
                                                                                 @endif
@@ -279,10 +304,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <div class="col-12 text-center py-5">
+                                    <p class="subtitle-small text-muted">{{ __($ns . '.results.empty') }}</p>
+                                </div>
+                            @endforelse
                         </div>
                         <div class="col-12 text-center">
-                            <button type="button" class="btn btn btn-outline-primary mobile-full py-3 mt-10 mx-auto">
+                            <button type="button" class="btn btn-outline-primary mobile-full py-3 mt-10 mx-auto">
                                 <span>{{ __($ns . '.load-more.button.label') }}</span>
                             </button>
                         </div>
@@ -330,3 +359,23 @@
         @endif
     </section>
 </div>
+
+{{-- geo-map-lit Web Component (Geo module — bundled via Vite, no CDN) --}}
+<style>.leaflet-container { z-index: 1; }</style>
+<script type="module" src="{{ Illuminate\Support\Facades\Vite::asset('resources/js/components/geo-map-lit.js', 'assets/geo') }}"></script>
+
+{{-- Filtri: click checkbox → filterByType() --}}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('input[name="category"]');
+    const map = document.getElementById('ticket-map');
+
+    checkboxes.forEach(function (cb) {
+        cb.addEventListener('change', function () {
+            if (!map) { return; }
+            const active = document.querySelector('input[name="category"]:checked');
+            map.filterByType(active ? active.value : null);
+        });
+    });
+});
+</script>

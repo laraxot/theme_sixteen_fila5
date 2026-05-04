@@ -2,7 +2,7 @@
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
     $contacts = is_array($blockData['contacts'] ?? null) ? $blockData['contacts'] : [];
 @endphp
-
+<x-filament-widgets::widget>
 {{-- Wrapper Design Comuni: titolo + form Filament Wizard (schema in CreateTicketWizardWidget::getFormSchema) --}}
 <div class="ticket-wizard-root">
     <div class="container" id="main-container">
@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 pb-40 pb-lg-80">
-                <x-filament-widgets::widget>
+                
                     <form wire:submit="submit">
                         @if ($errors->has('data.submit') || $errors->has('submit'))
                             <div class="alert alert-danger mb-4" role="alert">
@@ -30,10 +30,12 @@
                         @endif
                         {{ $this->form }}
                     </form>
-                    <x-filament-actions::modals />
-                </x-filament-widgets::widget>
+                    
+                
             </div>
         </div>
     </div>
 
 </div>
+<x-filament-actions::modals />
+</x-filament-widgets::widget>

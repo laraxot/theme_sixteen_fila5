@@ -167,7 +167,7 @@
                                     <li class="nav-item"><a class="nav-link" href="#" @click="closeOnItemClick()">Amministrazione</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#" @click="closeOnItemClick()">Novità</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#" @click="closeOnItemClick()">Servizi</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#" @click="closeOnItemClick()">Vivere il Comune</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" @click="closeOnItemClick()">Vivere il Comune20</a></li>
                                 </ul>
                             </nav>
                             <nav aria-label="Secondaria">

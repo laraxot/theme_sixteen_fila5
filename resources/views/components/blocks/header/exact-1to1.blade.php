@@ -175,7 +175,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/it/tests/eventi">
-                <span>Vivere il Comune</span>
+                <span>Vivere il Comune8</span>
               </a>
             </li>
           </ul>

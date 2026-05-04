@@ -3498,6 +3498,11 @@ textarea {
     flex-shrink: 0 !important;
   }
 
+  /* Scoped: blocco test segnalazione-02-dati (contract + stessa strategia §27.18) */
+  .page-content[data-slug="tests.segnalazione-02-dati"] .steppers-index {
+    display: inline !important;
+  }
+
   /* Steppers nav: bottom bar with prev/save/next buttons */
   .steppers-nav {
     display: flex !important;

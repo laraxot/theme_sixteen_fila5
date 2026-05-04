@@ -13,11 +13,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
-                        <a class="navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
+                        <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
                         <div class="it-header-slim-right-zone" role="navigation">
                             <div class="nav-item dropdown">
                                 <button type="button" class="nav-link dropdown-toggle" id="header-language-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="header-language-menu" aria-haspopup="true">
-                                    <span class="visually-hidden">Lingua attiva:</span>
                                     <span>ITA</span>
                                     <svg class="icon">
                                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
@@ -104,7 +103,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <a class="btn btn-primary btn-icon btn-full text-primary bg-white rounded-md" href="{{ route('login') }}" data-element="personal-area-login">
+                                    <a class="btn btn-primary btn-icon btn-full" href="{{ route('login') }}" data-element="personal-area-login">
                                         <span class="rounded-icon" aria-hidden="true">
                                             <svg class="icon icon-white">
                                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
@@ -240,6 +239,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
+                            <button class="custom-navbar-toggler md:hidden" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="Mostra/Nascondi la navigazione" @click="toggle()">
+                                <svg class="icon">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                </svg>
+                            </button>
                             <div class="it-brand-wrapper">
                                 <a href="/">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
@@ -247,7 +251,7 @@
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">Il mio Comune</div>
-                                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere</div>
+                                        <div class="it-brand-tagline">Un comune da vivere</div>
                                     </div>
                                 </a>
                             </div>
@@ -383,7 +387,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/it/tests/eventi" data-element="live">
-                                                    <span>Vivere il Comune</span>
+                                                    <span>Vivere il Comune6</span>
                                                 </a>
                                             </li>
                                         </ul>

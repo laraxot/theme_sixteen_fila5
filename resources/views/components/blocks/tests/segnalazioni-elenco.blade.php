@@ -75,6 +75,15 @@
             <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
                 <span class="search-results">{{ $totalCount }} Risultati</span>
 
+                <div class="filter-container d-flex align-items-center">
+                    <select onchange="document.querySelector('map-lit').filterByType(this.value || null)" class="form-select form-select-sm me-2" style="min-width: 180px;">
+                        <option value="">Tutti i tipi</option>
+                        @foreach(\Modules\Fixcity\Enums\TicketTypeEnum::cases() as $type)
+                            <option value="{{ $type->value }}">{{ $type->getLabel() }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-categories" @click="modalCategories = true" class="btn p-0 pe-2 d-lg-none">
                     <span class="rounded-icon">
                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
@@ -105,8 +114,23 @@
                 <div class="tab-pane" :class="{ 'fade show active': activeTab === 'disservizio1' }" id="data-ex-disservizio1" role="tabpanel" x-show="activeTab === 'disservizio1'">
                     <div class="row">
                         <div class="col-12">
-                            <div class="map-box">
-                                <img src="/themes/Sixteen/design-comuni/assets/images/map-placeholder.svg" alt="Mappa" class="w-100">
+                            <div class="map-box" style="height: 450px; position: relative;">
+                                <map-lit
+                                    id="segnalazioni-map"
+                                    data-url="/data/tickets.json"
+                                    active-layer="markers"
+                                    style="height: 100%; width: 100%; display: block;"
+                                    labels="{{ json_encode([
+                                        'fullscreen'         => __('geo::map.fullscreen'),
+                                        'close_fullscreen'   => __('geo::map.close_fullscreen'),
+                                        'use_location'       => __('geo::map.use_location'),
+                                        'switch_layer'       => __('geo::map.switch_layer'),
+                                        'zoom_in'            => __('geo::map.zoom_in'),
+                                        'zoom_out'           => __('geo::map.zoom_out'),
+                                        'search'             => __('geo::map.search'),
+                                        'search_placeholder' => __('geo::map.search_placeholder'),
+                                    ]) }}"
+                                ></map-lit>
                                 <button type="button" class="pin" data-bs-toggle="modal" data-bs-target="#modal-disservizio" @click="modalDisservizio = true">
                                     <img src="/themes/Sixteen/design-comuni/assets/images/map-pin.svg" alt="Pin di geolocalizzazione" title="Pin di geolocalizzazione">
                                 </button>

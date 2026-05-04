@@ -130,11 +130,11 @@
 :root {
   /* Reference colors from computed styles */
   --dc-green: #007a52;       /* Comune Logo Green-Background */
-  --dc-green-dark: #00402b;  /* Darker Green for Slim-Header */
+  --dc-green-dark: #00402b;  /* Fascia slim istituzionale (Design Comuni / Sixteen verde) */
   --dc-blue: #0066cc;
   --dc-blue-primary: #007a52; /* Primary action is green */
   --dc-blue-lighter: #e6f7f1; /* Light green for hover */
-  --dc-blue-dark: #00402b;    /* Institutional top bar is dark green */
+  --dc-blue-dark: #00402b;    /* Allineato a slim verde scuro (no blu istituzionale su Sixteen) */
   --dc-ink: #191919;         /* rgb(25, 25, 25) - text color */
   --dc-muted: #5c6f82;
   --dc-footer: #202a2e;      /* rgb(32,42,46) - reference footer bg */
@@ -1158,6 +1158,49 @@ header.it-header-wrapper {
 .it-header-navbar-wrapper .navbar-nav .nav-link:hover,
 .it-header-navbar-wrapper .navbar-secondary .nav-link:hover {
   background: rgba(255, 255, 255, 0.15) !important;
+  position: relative !important;
+}
+
+/* AC2 Story 8-106: hover ::after centrato sotto il testo del link (come DC active) */
+.it-header-navbar-wrapper .navbar-nav .nav-link:hover::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 2.75rem !important;
+  max-width: calc(100% - 0.75rem) !important;
+  height: 3px !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 1px !important;
+}
+
+/* Story 8-105: indicatore attivo centrato sotto il testo (non barra full-width sul link) */
+.it-header-navbar-wrapper .navbar-nav .nav-link.active,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current="page"] {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  color: #fff !important;
+  position: relative !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current="page"]::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 2.75rem !important;
+  max-width: calc(100% - 0.75rem) !important;
+  height: 3px !important;
+  background-color: #ffffff !important;
+  border-radius: 1px !important;
+}
+
+/* Fix menu-wrapper: Bootstrap Italia sets blue bg — override to transparent (DC reference = rgba(0,0,0,0)) */
+.it-header-navbar-wrapper .menu-wrapper {
+  background: transparent !important;
 }
 
 /* ========================================
@@ -2957,9 +3000,10 @@ html body {
   box-shadow: 0 0.375rem 1.5rem rgba(23, 50, 43, 0.16) !important;
   margin-top: 0.25rem !important;
   min-width: 13rem !important;
-  right: 0 !important;
-  left: auto !important;
-  z-index: 2000 !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  z-index: 1000 !important;
 }
 
 .it-header-slim-wrapper .dropdown-menu .dropdown-item {
@@ -2993,9 +3037,9 @@ html body {
   min-width: fit-content !important;
   height: 3rem !important;
   padding: 0.75rem 1.5rem !important;
-  border: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
   border-radius: 0 !important;
-  background: var(--dc-blue-primary) !important;
+  background: #00402b !important;
   color: #fff !important;
   white-space: nowrap !important;
 }
@@ -3054,7 +3098,7 @@ html body {
 }
 
 .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon .icon {
-  color: var(--dc-blue-primary) !important;
+  color: var(--dc-green-dark) !important;
   fill: currentColor !important;
 }
 
@@ -3114,6 +3158,7 @@ html body {
 
 .it-search-wrapper {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   gap: 12px !important;
   margin-left: auto !important;
@@ -3122,6 +3167,8 @@ html body {
 .it-search-wrapper span {
   color: #fff !important;
 }
+
+/* AC3 Story 8-106: search wrapper flex-row — rimosso blocco column ridondante */
 
 .search-link {
   display: inline-flex !important;
@@ -3460,6 +3507,25 @@ main #main-container .steppers-nav .steppers-btn-save {
 
 .fi-sc-wizard-header-step.fi-active .fi-sc-wizard-header-step-btn {
   border-bottom-width: 2px;
+  border-bottom-color: #007a52;
+  width: auto !important;
+  display: inline-flex !important;
+  margin: 0 auto !important;
+}
+
+.fi-sc-wizard-header-step.fi-active {
+  text-align: center !important;
+}
+
+/* Fix hover effects centering */
+.fi-sc-wizard-header-step-btn:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-align: center;
+}
+
+.fi-sc-wizard-header-step.fi-active {
+  text-align: center;
 }
 
 .fi-sc-wizard-header-step-icon-ctn {
@@ -3534,16 +3600,15 @@ main #main-container .steppers-nav .steppers-btn-save {
   display: none;
 }
 
-/* Visual parity: slim bar verde — navbar delegata a `` (fondo bianco come fascia logo / kit statico). */
-.it-header-slim-wrapper,
+/* Visual parity: slim container/row/col trasparenti — ereditano #00402b dalla slim-wrapper (DC reference: rgba(0,0,0,0)) */
 .it-header-slim-wrapper .container,
 .it-header-slim-wrapper .row,
 .it-header-slim-wrapper .col-12 {
-  background: #007a52 !important;
+  background: transparent !important;
 }
 
 .it-header-slim-wrapper {
-  background: #00402b !important;
+  background: var(--dc-green-dark) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -3587,11 +3652,11 @@ main #main-container .steppers-nav .steppers-btn-save {
     z-index: 1200 !important;
     right: 0 !important;
     left: auto !important;
-    min-width: 12rem !important;
+    min-width: max-content !important;
   }
 
   .it-header-slim-wrapper .btn-icon.btn-full {
-    background: var(--dc-blue-primary) !important;
+    background: var(--dc-green) !important;
     width: auto !important;
     min-width: fit-content !important;
     height: 3rem !important;
@@ -3653,7 +3718,7 @@ main #main-container .steppers-nav .steppers-btn-save {
  * Unica fonte qui: niente duplicati in Blade <style> (vedi Themes/Sixteen/docs/wiki/concepts/header-color-parity.md).
  */
 .it-header-slim-wrapper {
-  background: #00402b !important;
+  background: var(--dc-green-dark) !important;
 }
 
 /* Barra menu principale: stesso fondo verde della fascia logo/slogan. */
@@ -3662,7 +3727,7 @@ main #main-container .steppers-nav .steppers-btn-save {
 .it-header-navbar-wrapper .row,
 .it-header-navbar-wrapper .col-12,
 .it-header-navbar-wrapper .navbar {
-  background: #007a52 !important;
+  background: var(--dc-green) !important;
 }
 
 .it-header-navbar-wrapper .navbar-nav .nav-link,
@@ -3690,7 +3755,8 @@ main #main-container .steppers-nav .steppers-btn-save {
 
 .it-header-slim-wrapper .btn-icon.btn-full,
 .it-header-slim-wrapper .it-access-top-wrapper .btn {
-  background: #007a52 !important;
+  background: var(--dc-green) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
 }
 
 /* Keep only one stepper: hide Filament wizard header line artifacts. */
@@ -3907,20 +3973,21 @@ main #main-container .steppers-nav .steppers-btn-save {
     }
 
       .it-header-slim-wrapper .btn-icon.btn-full {
-      background: transparent !important;
-      border: 0 !important;
+      background: #00402b !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
       width: auto !important;
-      min-width: 0 !important;
+      min-width: fit-content !important;
+      min-height: 2.75rem !important;
       height: auto !important;
-      padding: 0 !important;
+      padding: 0.5rem 0.75rem !important;
     }
 
       .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon {
       width: 2.25rem !important;
       height: 2.25rem !important;
-      background: transparent !important;
-      border: 1px solid rgba(255, 255, 255, 0.75) !important;
-      border-radius: 9999px !important;
+      background: #ffffff !important;
+      border: 0 !important;
+      border-radius: 0.75rem !important;
     }
 
       .it-header-slim-wrapper .btn-icon.btn-full .icon {
@@ -4304,21 +4371,34 @@ map-picker-lit .layer-controls-overlay {
 .it-header-navbar-wrapper .navbar,
 .it-header-navbar-wrapper .navbar-nav,
 .it-header-navbar-wrapper .navbar-secondary,
-.it-header-navbar-wrapper .nav-item,
-.it-header-navbar-wrapper .nav-link,
-.it-header-navbar-wrapper .nav-link span {
+.it-header-navbar-wrapper .nav-item {
   background: #007a52 !important;
   background-color: #007a52 !important;
   color: #ffffff !important;
 }
 
+.it-header-navbar-wrapper .nav-link,
+.it-header-navbar-wrapper .nav-link span {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
 .it-header-navbar-wrapper .nav-link:hover,
-.it-header-navbar-wrapper .nav-link:focus-visible,
-.it-header-navbar-wrapper .nav-link.active {
+.it-header-navbar-wrapper .nav-link:focus-visible {
   background: #00684a !important;
   background-color: #00684a !important;
   color: #ffffff !important;
   text-decoration: underline;
+}
+
+/* D3: active state — white underline, no background fill (Design Comuni pattern) */
+.it-header-navbar-wrapper .nav-link.active {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-bottom: 3px solid #ffffff !important;
+  text-decoration: none !important;
 }
 
 .it-header-navbar-wrapper .icon {
@@ -4348,4 +4428,279 @@ coordinate-picker-lit .map-container.is-fullscreen {
 coordinate-picker-lit:fullscreen .map-picker-leaflet-pane,
 coordinate-picker-lit .map-container.is-fullscreen .map-picker-leaflet-pane {
   height: 100vh !important;
+}
+
+/* =======================================
+   DESIGN COMUNI BOOTSTRAP CLASSES CONVERTED TO TAILWIND
+   Source: https://italia.github.io/design-comuni-pagine-statiche/
+   Classes from: segnalazione-01 - 04, area-personale, elenco
+   ======================================= */
+
+/* Container & Grid */
+.container { @apply w-full mx-auto px-4; }
+.row { @apply flex flex-wrap -mx-4; }
+.col-12 { @apply w-full px-4; }
+.col-md-6 { @apply md:w-1/2 px-4; }
+.col-md-4 { @apply md:w-1/3 px-4; }
+.col-md-3 { @apply md:w-1/4 px-4; }
+.col-lg-8 { @apply lg:w-2/3 px-4; }
+.col-lg-4 { @apply lg:w-1/3 px-4; }
+.col-sm-12 { @apply sm:w-full px-4; }
+
+/* Typography */
+.h1 { @apply text-4xl font-bold; }
+.h2 { @apply text-3xl font-bold; }
+.h3 { @apply text-2xl font-bold; }
+.h4 { @apply text-xl font-bold; }
+.h5 { @apply text-lg font-bold; }
+.h6 { @apply text-base font-bold; }
+.fw-bold { @apply font-bold; }
+.fw-normal { @apply font-normal; }
+.text-center { @apply text-center; }
+.text-end { @apply text-right; }
+.text-muted { @apply text-gray-600; }
+.lead { @apply text-xl text-gray-700; }
+
+/* Colors - Design Comuni uses Bootstrap Italia tokens */
+.bg-primary { @apply bg-[#0066CC]; }
+.text-primary { @apply text-[#0066CC]; }
+.bg-secondary { @apply bg-[#6C7688]; }
+.text-secondary { @apply text-[#6C7688]; }
+.bg-success { @apply bg-[#198754]; }
+.text-success { @apply text-[#198754]; }
+.bg-danger { @apply bg-[#DC3545]; }
+.text-danger { @apply text-[#DC3545]; }
+.bg-warning { @apply bg-[#FFC107]; }
+.text-warning { @apply text-[#FFC107]; }
+.bg-light { @apply bg-gray-100; }
+.text-white { @apply text-white; }
+
+/* Buttons - Design Comuni primary button = #0066CC */
+.btn { @apply inline-flex items-center justify-center gap-2 rounded transition-colors; }
+.btn-primary { @apply bg-[#0066CC] text-white px-4 py-2 hover:bg-[#004A99]; }
+.btn-secondary { @apply bg-[#6C7688] text-white px-4 py-2 hover:bg-[#5A6270]; }
+.btn-outline-secondary { @apply border-2 border-[#6C7688] text-[#6C7688] px-4 py-2 rounded hover:bg-[#6C7688] hover:text-white; }
+.btn-lg { @apply px-6 py-3 text-lg; }
+.btn-sm { @apply px-3 py-1.5 text-sm; }
+.btn-icon { @apply inline-flex items-center; }
+.btn-full { @apply w-full; }
+
+/* Forms */
+.form-control { @apply w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none; }
+.form-check { @apply flex items-start gap-2; }
+.form-check-input { @apply w-4 h-4 text-[#0066CC] border-gray-300 rounded; }
+.form-check-label { @apply text-sm text-gray-700; }
+.form-label { @apply block text-sm font-medium text-gray-700 mb-1; }
+.form-text { @apply text-sm text-gray-500 mt-1; }
+.form-select { @apply w-full px-3 py-2 border border-gray-300 rounded pr-8 bg-white; }
+
+/* Breadcrumb */
+.breadcrumb { @apply flex items-center space-x-2 text-sm text-gray-500; }
+.breadcrumb-item { @apply inline-flex items-center; }
+.breadcrumb-item.active { @apply text-gray-700 font-medium; }
+
+/* Stepper - Design Comuni custom stepper */
+.stepper { @apply flex items-center justify-between; }
+.stepper-step { @apply flex items-center gap-2; }
+.stepper-step.active { @apply text-[#0066CC] font-bold; }
+.stepper-step.completed { @apply text-green-600; }
+
+/* Alerts */
+.alert { @apply border-l-4 p-4; }
+.alert-info { @apply bg-blue-50 border-blue-500; }
+.alert-success { @apply bg-green-50 border-green-500; }
+.alert-warning { @apply bg-yellow-50 border-yellow-500; }
+.alert-danger { @apply bg-red-50 border-red-500; }
+
+/* Cards */
+.card { @apply bg-white rounded-lg shadow-md overflow-hidden; }
+.card-body { @apply p-4; }
+.card-title { @apply text-xl font-bold mb-2; }
+.card-text { @apply text-gray-600; }
+
+/* Display & Flex */
+.d-flex { @apply flex; }
+.d-none { @apply hidden; }
+.d-block { @apply block; }
+.d-inline { @apply inline; }
+.d-inline-block { @apply inline-block; }
+.justify-content-between { @apply justify-between; }
+.justify-content-center { @apply justify-center; }
+.justify-content-end { @apply justify-end; }
+.align-items-center { @apply items-center; }
+.align-items-start { @apply items-start; }
+.flex-column { @apply flex-col; }
+.flex-wrap { @apply flex-wrap; }
+
+/* Sizing */
+.w-100 { @apply w-full; }
+.h-100 { @apply h-full; }
+.mw-100 { @apply max-w-full; }
+.vw-100 { @apply w-screen; }
+.min-vh-100 { @apply min-h-screen; }
+
+/* Tables */
+.table { @apply w-full border-collapse; }
+.table-striped { @apply divide-y divide-gray-200; }
+.table-bordered { @apply border border-gray-300; }
+
+/* Badges */
+.badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium; }
+.badge.bg-primary { @apply bg-blue-100 text-blue-800; }
+.badge.bg-success { @apply bg-green-100 text-green-800; }
+.badge.bg-warning { @apply bg-yellow-100 text-yellow-800; }
+.badge.bg-danger { @apply bg-red-100 text-red-800; }
+
+/* Spacing - Bootstrap uses 0.25rem base, Tailwind SAME! */
+/* mb-3 (1rem) = mb-4 (1rem) ✅ SAME RESULT */
+/* mb-4 (1.5rem) = mb-6 (1.5rem) ✅ SAME RESULT */
+.mb-3 { @apply mb-4; }
+.mb-4 { @apply mb-6; }
+.mt-3 { @apply mt-4; }
+.mt-4 { @apply mt-6; }
+.pt-3 { @apply pt-4; }
+.pb-3 { @apply pb-4; }
+.py-2 { @apply py-2; }
+.px-4 { @apply px-6; }
+.p-3 { @apply p-4; }
+.p-4 { @apply p-6; }
+
+/* Skip Link */
+.skiplink { @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:shadow-lg; }
+.visually-hidden-focusable { @apply sr-only focus:not-sr-only; }
+
+/* Header specific (Design Comuni) */
+.it-header-wrapper { @apply bg-white shadow-sm; }
+.it-header-slim-wrapper { @apply bg-[#00402B] text-white; }
+.it-header-center-wrapper { @apply border-b border-gray-200; }
+.it-nav-wrapper { @apply border-b border-gray-200; }
+.nav-item { @apply relative; }
+.nav-link { @apply inline-flex items-center px-3 py-2 text-sm hover:bg-gray-100; }
+.dropdown-toggle { @apply inline-flex items-center gap-1; }
+.dropdown-menu { @apply absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50; }
+.dropdown-item { @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100; }
+
+/* Link list */
+.link-list-wrapper { @apply py-4; }
+.link-list { @apply space-y-2; }
+.link-list-item { @apply inline-flex items-center gap-2; }
+
+
+/* ============================================
+   Create Ticket Wizard Styles (from create-ticket.blade.php)
+   P0: Removed inline <style> block → moved here
+   ============================================ */
+
+/* Primary button override */
+.fi-btn.fi-btn-color-primary {
+    background-color: #007a52 !important;
+    color: white !important;
+}
+.fi-btn.fi-btn-color-primary:hover {
+    background-color: #007a52 !important;
+}
+
+/* Custom color button */
+.fi-btn.fi-color-custom {
+    background-color: #059669 !important; /* emerald-600 */
+}
+.fi-btn.fi-color-custom:hover {
+    background-color: #0d9488 !important; /* emerald-500 */
+}
+
+/* Subtitle */
+.subtitle {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-weight: 800 !important;
+}
+
+/* Submit button */
+button[type="submit"].fi-btn {
+    background-color: white !important;
+    color: #007a52 !important;
+    border: 2px solid #007a52 !important;
+    --c-400: none !important;
+    --c-500: none !important;
+    --c-600: none !important;
+    cursor: pointer;
+}
+button[type="submit"].fi-btn:hover {
+    background-color: white !important;
+    color: #007a52 !important;
+    border: 2px solid #007a52 !important;
+}
+
+/* Hide wizard step indicator circle */
+.fi-fo-wizard-header-step-indicator,
+.fi-fo-wizard-header-step-icon-ctn {
+    display: none !important;
+}
+
+/* Wizard header */
+.fi-fo-wizard-header {
+    border: none !important;
+}
+
+/* Wizard steps */
+.fi-fo-wizard-header-step {
+    border-left: 2px solid #e5e7eb !important;
+    border-bottom: none !important;
+}
+.fi-fo-wizard-header-step.fi-active {
+    border-left: 2px solid #007a52 !important;
+    border-bottom: 2px solid #007a52 !important;
+}
+
+/* Step labels */
+.fi-fo-wizard-header-step-label {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+}
+.fi-fo-wizard-header-step.fi-active .fi-fo-wizard-header-step-label {
+    color: #007a52 !important;
+}
+
+/* Hide separator */
+.fi-fo-wizard-header-step-separator {
+    display: none !important;
+}
+
+/* Error message */
+.fi-fo-field-wrp-error-message {
+    color: #dc2626 !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+/* Section styling */
+.fi-section-content-ctn {
+    background-color: #d3d3d3 !important; /* lightgrey */
+    padding: 1.5rem !important;
+    border-radius: 0.5rem !important;
+}
+.fi-section-content {
+    background-color: white !important;
+    border-radius: 0.5rem !important;
+    padding: 1.5rem !important;
+}
+.fi-section {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Previous step button */
+button[type="button"].fi-btn-color-gray {
+    background-color: white !important;
+    color: #007a52 !important;
+    --c-400: none !important;
+    --c-500: none !important;
+    --c-600: none !important;
+    border: none !important;
+    cursor: pointer;
+}
+button[type="button"].fi-btn-color-gray:hover {
+    background-color: white !important;
+    color: #007a52 !important;
 }

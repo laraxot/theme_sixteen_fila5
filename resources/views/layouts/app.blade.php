@@ -7,8 +7,12 @@
 
     <x-section slug="header" />
 
-    <main>
-        {{ $slot }}
+    <main id="main-container">
+        @hasSection('content')
+            @yield('content')
+        @else
+            {{ $slot ?? '' }}
+        @endif
     </main>
 
     <x-section slug="footer" tpl="full" />

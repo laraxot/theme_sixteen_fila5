@@ -14,19 +14,34 @@
    Missing in local: 18px, 16px, 14px on various elements
    ============================================================================ */
 
-/* Nav links - reference uses 18px */
+/* Nav links - reference uses 18px (solo contenuto / navbar generica: NON barra istituzionale verde) */
 .nav-link,
-.it-header-navbar-wrapper .nav-link,
 .navbar .nav-link {
   font-size: 18px !important;
   color: var(--bs-dark, #17334f) !important;
 }
 
-/* Nav links active */
+/* Barra principale Sixteen: bianco su verde (global-fixes è tardi in cascade — evita #17334f qui) */
+.it-header-navbar-wrapper .nav-link,
+.it-header-navbar-wrapper .navbar-nav .nav-link,
+.it-header-navbar-wrapper .navbar-secondary .nav-link {
+  color: #ffffff !important;
+}
+
+/* Nav links active — pagine contenuto */
 .nav-link.active,
-.it-header-navbar-wrapper .nav-link.active {
+.navbar .nav-link.active {
   color: var(--bs-primary, #007a52) !important;
   font-weight: 600 !important;
+}
+
+/* Active su navbar istituzionale: sottolineatura bianca, no fill (allineato header-footer-colors / listing-parity) */
+.it-header-navbar-wrapper .navbar-nav .nav-link.active,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page'],
+.it-header-navbar-wrapper .nav-item.active .nav-link {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
 }
 
 /* Skip links / "Vai ai contenuti" - reference uses 16px */
@@ -84,7 +99,7 @@
 
 .it-brand-title {
   font-weight: 700 !important;
-  color: var(--bs-primary, #007a52) !important;
+  /* Colore: non forzare qui — header (center/menu) usa tema; contenuto usa utility / altri layer */
 }
 
 .it-brand-tagline {
@@ -163,35 +178,10 @@ a.t-primary {
   color: #004d33 !important;
 }
 
-/* Header slim wrapper - reference uses dark blue #17334f */
-.it-header-slim-wrapper {
-  background-color: #17334f !important;
-}
-
-/* Header center wrapper - reference uses white */
-.it-header-center-wrapper {
-  background-color: #ffffff !important;
-}
-
-/* Header navbar wrapper - reference uses white with border */
-.it-header-navbar-wrapper {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid #e5e5e5 !important;
-}
-
-/* Footer background - reference uses dark blue #17334f */
-.it-footer,
-footer.it-footer {
-  background-color: #17334f !important;
-  color: #ffffff !important;
-}
-
-/* Footer links - white text */
-.it-footer a,
-.it-footer .footer-list a,
-.it-footer .footer-heading-title {
-  color: #ffffff !important;
-}
+/*
+ * Header istituzionale + footer: NON sovrascrivere qui (conflitto tema Sixteen verde).
+ * Fonte verità: components/header-footer-colors.css + app.css parity.
+ */
 
 /* Grey card background - reference uses #ebeef0 */
 .bg-grey-card {
