@@ -1,235 +1,211 @@
 /**
- * Filament Wizard → Bootstrap Italia Visual Parity
+ * Filament Wizard → Bootstrap Italia / Design Comuni Visual Parity
  *
- * Filosofia: markup Filament (Livewire), look Bootstrap Italia via CSS scoped.
- * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+ * Scope: .fi-sc-wizard (Filament's native wizard class)
+ * Target: All Filament wizards in Sixteen theme.
+ *
+ * This file replaces custom widget-specific styles with global component overrides.
+ * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/
  */
 
-.ticket-wizard-root {
-    /* Scope root */
+/* === RESET FILAMENT NATIVE STYLES === */
+.fi-sc-wizard .fi-wiz-steps,
+.fi-sc-wizard .fi-fo-wizard-header,
+.fi-sc-wizard .fi-fo-wizard-step-header {
+    display: none !important;
 }
 
-/* === STEPPER ORIZZONTALE parity === */
-.ticket-wizard-root .fi-wiz-steps,
-.ticket-wizard-root .fi-fo-wizard-header {
-    display: none !important; /* Nascondi stepper laterale/header Filament */
+/* === STEPPER (Design Comuni / Bootstrap Italia) === */
+.fi-sc-wizard .steppers {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9e1e8;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
 }
 
-.ticket-wizard-root .steppers {
-    @apply bg-white border-b border-gray-200 mb-6;
-    padding: 1rem 0;
+.fi-sc-wizard .steppers-header {
+    display: flex;
+    flex-direction: column;
+    max-width: 1166px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.ticket-wizard-root .steppers-header {
-    @apply flex flex-col;
+.fi-sc-wizard .step-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.ticket-wizard-root .steppers-index {
-    @apply text-sm text-gray-500 mt-2 text-right;
+.fi-sc-wizard .step-item {
+    display: flex;
+    align-items: center;
+    flex: 1;
 }
 
-.ticket-wizard-root .step-list {
-    @apply flex items-center list-none p-0 m-0;
+.fi-sc-wizard .step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #f5f6f7;
+    color: #5c6f82;
+    flex-shrink: 0;
+    border: 2px solid transparent;
 }
 
-.ticket-wizard-root .step-item {
-    @apply flex items-center flex-1;
+.fi-sc-wizard .step-item.confirmed .step-icon,
+.fi-sc-wizard .step-item.completed .step-icon {
+    background-color: #008c45;
+    color: #ffffff;
 }
 
-/* Form + nav in colonna: il contenitore avvolge {{ $this->form }} e .steppers-nav */
-.ticket-wizard-root .steppers-content {
-    @apply flex w-full flex-col py-3 px-4;
+.fi-sc-wizard .step-item.active .step-icon {
+    background-color: #007a52; /* var(--dc-green) */
+    color: #ffffff;
+    border-color: #007a52;
 }
 
-.ticket-wizard-root .step-icon {
-    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-gray-200 text-gray-600 flex-shrink-0;
+.fi-sc-wizard .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c6f82;
+    margin-left: 0.75rem;
 }
 
-.ticket-wizard-root .step-item.confirmed .step-icon,
-.ticket-wizard-root .step-item.completed .step-icon {
-    @apply bg-green-600 text-white;
+.fi-sc-wizard .step-item.active .step-title {
+    color: #007a52;
+    font-weight: 700;
 }
 
-.ticket-wizard-root .step-item.active .step-icon {
-    @apply bg-[var(--dc-green)] text-white;
+.fi-sc-wizard .step-divider {
+    flex: 1;
+    height: 1px;
+    background-color: #d9e1e8;
+    margin: 0 1rem;
+    min-width: 1rem;
 }
 
-.ticket-wizard-root .step-icon-svg {
-    @apply w-4 h-4;
+.fi-sc-wizard .step-item.confirmed + .step-item .step-divider,
+.fi-sc-wizard .step-item.active + .step-item .step-divider {
+    background-color: #007a52;
 }
 
-.ticket-wizard-root .step-title {
-    @apply text-sm font-medium text-gray-700;
+.fi-sc-wizard .steppers-index {
+    font-size: 14px;
+    color: #5c6f82;
+    text-align: right;
+    margin-top: 0.5rem;
 }
 
-.ticket-wizard-root .step-item.active .step-title {
-    @apply text-[var(--dc-green)] font-bold;
+/* === FORM CONTENT === */
+.fi-sc-wizard .steppers-content {
+    max-width: 1166px;
+    margin: 0 auto;
+    padding: 0 15px 3rem;
 }
 
-.ticket-wizard-root .step-item.disabled .step-title {
-    @apply text-gray-400;
+/* Hide inactive steps to prevent vertical stacking */
+.fi-sc-wizard .fi-sc-wizard-step {
+    display: none !important;
 }
 
-/* === STEP DIVIDER - connecting line between steps === */
-.ticket-wizard-root .step-divider {
-    @apply flex-1 h-px bg-gray-300 mx-4;
-    min-width: 2rem;
-}
-
-.ticket-wizard-root .step-item.confirmed + .step-item .step-divider,
-.ticket-wizard-root .step-item.active + .step-item .step-divider {
-    @apply bg-[var(--dc-green)];
-}
-
-/* === MOBILE RESPONSIVE - hide step titles on small screens === */
-@media (max-width: 640px) {
-    .ticket-wizard-root .step-title {
-        @apply hidden;
-    }
-    
-    .ticket-wizard-root .step-divider {
-        @apply mx-2;
-        min-width: 1rem;
-    }
-    
-    .ticket-wizard-root .step-icon {
-        @apply w-6 h-6 text-xs;
-    }
-}
-
-.ticket-wizard-root .progress-step {
-    @apply h-1 bg-gray-200;
-}
-
-.ticket-wizard-root .progress-bar {
-    @apply h-full bg-[var(--dc-green)] text-xs text-white text-center leading-5 transition-all duration-300;
-}
-
-/* === REQUIRED NOTE === */
-.ticket-wizard-root .segnalazione-required-legend {
-    @apply text-sm text-gray-600;
-}
-
-/* === SECTIONS → Card parity === */
-.ticket-wizard-root .fi-fo-section {
-    @apply mb-4 bg-white rounded-lg shadow-sm border border-gray-200;
-}
-
-.ticket-wizard-root .fi-fo-section-header {
-    @apply p-6 pb-4;
-}
-
-.ticket-wizard-root .fi-fo-section-header-heading {
-    @apply text-lg font-bold text-gray-900 uppercase mb-2 block;
-}
-
-.ticket-wizard-root .fi-fo-section-header-description {
-    @apply text-sm text-gray-600 mt-1;
+.fi-sc-wizard .fi-sc-wizard-step.fi-active {
+    display: block !important;
 }
 
 /* === FORM GROUPS parity === */
-.ticket-wizard-root .fi-fo-field-wrp {
-    @apply mb-4 px-6;
+.fi-sc-wizard .fi-fo-field-wrp {
+    margin-bottom: 2rem;
 }
 
-.ticket-wizard-root .fi-fo-field-wrp-label {
-    @apply block text-sm font-semibold text-gray-800 mb-1;
+.fi-sc-wizard .fi-fo-field-wrp-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #191919;
+    margin-bottom: 0.5rem;
 }
 
-.ticket-wizard-root .fi-fo-field-wrp-label .fi-fo-required-indicator {
-    @apply text-red-600 ml-1;
+/* === INPUTS parity === */
+.fi-sc-wizard input[type="text"],
+.fi-sc-wizard input[type="email"],
+.fi-sc-wizard input[type="tel"],
+.fi-sc-wizard select,
+.fi-sc-wizard textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    border: 1px solid #5c6f82;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #191919;
+    line-height: 1.5;
 }
 
-/* === INPUTS === */
-.ticket-wizard-root input[type="text"],
-.ticket-wizard-root input[type="email"],
-.ticket-wizard-root input[type="tel"],
-.ticket-wizard-root select,
-.ticket-wizard-root textarea {
-    @apply w-full px-3 py-2 text-base border border-gray-300 rounded bg-white text-gray-900;
+.fi-sc-wizard input:focus,
+.fi-sc-wizard select:focus,
+.fi-sc-wizard textarea:focus {
+    border-color: #007a52;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 122, 82, 0.1);
 }
 
-.ticket-wizard-root input:focus,
-.ticket-wizard-root select:focus,
-.ticket-wizard-root textarea:focus {
-    @apply border-[var(--dc-green)] outline-none;
-    box-shadow: 0 0 0 2px rgba(0, 122, 82, 0.15);
+/* === ACTIONS parity === */
+.fi-sc-wizard .fi-fo-wizard-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d9e1e8;
 }
 
-.ticket-wizard-root .fi-fo-field-wrp-helper-text,
-.ticket-wizard-root .fi-fo-field-wrp-description {
-    @apply text-xs text-gray-500 mt-1 block;
+.fi-sc-wizard .fi-fo-wizard-actions button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-/* === SELECT === */
-.ticket-wizard-root select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 12px;
-    padding-right: 2.5rem;
+.fi-sc-wizard .fi-fo-wizard-actions button[type="submit"],
+.fi-sc-wizard .fi-fo-wizard-actions button.fi-ac-btn-action[data-action="next"] {
+    background-color: #007a52;
+    color: #ffffff;
+    border: none;
 }
 
-/* === TEXTAREA === */
-.ticket-wizard-root textarea {
-    @apply min-h-[80px] resize-y;
+.fi-sc-wizard .fi-fo-wizard-actions button[data-action="previous"] {
+    background-color: transparent;
+    color: #007a52;
+    border: 1px solid #007a52;
 }
 
-/* === FILE UPLOAD === */
-.ticket-wizard-root .fi-fo-file-upload {
-    @apply px-6;
+.fi-sc-wizard .fi-fo-wizard-actions button:hover {
+    opacity: 0.9;
 }
 
-/* === TEXT ENTRY (read-only) === */
-.ticket-wizard-root .fi-in-text-item {
-    @apply text-sm text-gray-700 flex items-center gap-2;
-}
-
-.ticket-wizard-root .fi-in-text-item-icon {
-    @apply text-[var(--dc-green)];
-}
-
-/* === ACTIONS (bottom buttons) === */
-.ticket-wizard-root .fi-fo-wizard-actions {
-    @apply flex flex-wrap items-center justify-end gap-3 mt-6 pt-4 border-t border-gray-200 px-6;
-}
-
-.ticket-wizard-root .fi-fo-wizard-actions button {
-    @apply px-5 py-2 text-base font-medium rounded transition-colors;
-}
-
-.ticket-wizard-root .fi-fo-wizard-actions button[type="submit"],
-.ticket-wizard-root .fi-fo-wizard-actions button[data-action="submit"] {
-    @apply bg-[var(--dc-green)] text-white border-none hover:bg-[var(--dc-green-dark)];
-}
-
-/* === CHECKBOX === */
-.ticket-wizard-root .fi-fo-checkbox {
-    @apply rounded border-gray-300 text-[var(--dc-green)];
-}
-
-.ticket-wizard-root .fi-fo-checkbox-label {
-    @apply text-sm text-gray-700;
-}
-
-/* === GRID parity inside sections === */
-.ticket-wizard-root .fi-fo-section .fi-fo-grid {
-    @apply px-0;
-}
-
-/* Ensure map picker is visible in wizard steps */
-.ticket-wizard-root coordinate-picker-lit {
-    display: block !important;
-    width: 100% !important;
-    min-height: 340px !important;
-}
-
-/* === WIDGET container — no extra padding === */
-.ticket-wizard-root .cmp-wizard-widget {
-    @apply bg-transparent;
-}
-
-.ticket-wizard-root .cmp-wizard-widget form {
-    @apply p-0;
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 767px) {
+    .fi-sc-wizard .step-title {
+        display: none;
+    }
+    
+    .fi-sc-wizard .fi-fo-wizard-actions {
+        flex-direction: column;
+    }
+    
+    .fi-sc-wizard .fi-fo-wizard-actions button {
+        width: 100%;
+    }
 }

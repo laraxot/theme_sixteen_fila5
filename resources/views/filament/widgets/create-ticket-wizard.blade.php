@@ -1,6 +1,6 @@
 <x-filament-widgets::widget>
 {{-- Wrapper Design Comuni: titolo + wizard Filament con view custom --}}
-<div class="ticket-wizard-root">
+<div class="cmp-wizard-widget">
     {{-- Heading section --}}
     <div class="container wizard-dc-heading-shell">
         <div class="row justify-content-center">

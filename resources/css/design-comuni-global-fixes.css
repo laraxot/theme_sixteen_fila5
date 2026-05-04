@@ -68,29 +68,24 @@
   font-size: 16px !important;
 }
 
-/* Steppers (DC): indice 14px, voci 18px — anche sotto .ticket-wizard-root (non solo main#main-container) */
-.steppers-index,
-.ticket-wizard-root .steppers-index {
+/* Steppers (DC): indice 14px, voci 18px */
+.steppers-index {
   font-size: 14px !important;
   color: #5d7083 !important;
 }
 
-.steppers-header ul li,
-.ticket-wizard-root .steppers-header ul.step-list li.step-item {
+.steppers-header ul li {
   font-size: 18px !important;
   color: #5d7083 !important;
 }
 
-.steppers-header ul li.active,
-.ticket-wizard-root .steppers-header ul.step-list li.step-item.active {
+.steppers-header ul li.active {
   color: #17334f !important;
   font-weight: 600 !important;
 }
 
 .steppers-header ul li.confirmed,
-.steppers-header ul li.completed,
-.ticket-wizard-root .steppers-header ul.step-list li.step-item.confirmed,
-.ticket-wizard-root .steppers-header ul.step-list li.step-item.completed {
+.steppers-header ul li.completed {
   color: #007a52 !important;
   font-weight: 600 !important;
 }
