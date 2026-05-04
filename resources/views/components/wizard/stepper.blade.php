@@ -1,7 +1,7 @@
 @php
     // Extract and validate props
     $steps = $steps ?? [];
-    $currentStep = ($currentStep ?? 0) + 1; // Convert 0-based to 1-based
+    $currentStep = $currentStep ?? 1; // Expect 1-based index from parent
     $totalSteps = $totalSteps ?? count($steps);
     
     // Bootstrap Italia sprite path

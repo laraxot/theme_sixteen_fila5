@@ -4,7 +4,7 @@
 @endphp
 
 {{-- Wrapper Design Comuni: titolo + form Filament Wizard (schema in CreateTicketWizardWidget::getFormSchema) --}}
-<div class="ticket-wizard-root">
+<div class="cmp-wizard-widget">
     <div class="container" id="main-container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">

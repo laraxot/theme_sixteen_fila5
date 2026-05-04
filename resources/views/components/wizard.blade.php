@@ -46,19 +46,12 @@
         x-ref="stepsData"
     />
 
-    {{-- Design Comuni Stepper - Replaces standard Filament header --}}
     @if (! $isHeaderHidden)
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <x-pub_theme::wizard.stepper 
-                        :steps="$steps" 
-                        :current-step="$getCurrentStepIndex() + 1"
-                        :total-steps="count($steps)"
-                    />
-                </div>
-            </div>
-        </div>
+        <x-pub_theme::wizard.stepper
+            :steps="$steps"
+            :current-step="$getStartStep()"
+            :total-steps="count($steps)"
+        />
     @endif
 
     @foreach ($steps as $step)

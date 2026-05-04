@@ -51,11 +51,6 @@
     @apply p-4 md:p-6;
 }
 
-/* Map section - reduce whitespace */
-[data-step-section="place"] .section-content {
-    @apply pb-4;
-}
-
 /* Wizard actions responsive */
 .wizard-actions {
     @apply flex justify-between items-center mt-6 pt-4 border-t border-gray-200;

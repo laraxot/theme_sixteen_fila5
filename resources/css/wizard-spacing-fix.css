@@ -1,45 +1,45 @@
-/* Wizard Spacing Fixes - Reduce excessive space */
+/* Wizard Spacing Fixes — generic .fi-sc-wizard scope (ALL wizard widgets in Sixteen theme) */
 
 /* Reduce space between titles and map */
-[data-widget="create-ticket-wizard"] .fi-wiz-steps {
-  margin-bottom: 0.5rem !important;
+.fi-sc-wizard .fi-wiz-steps {
+  margin-bottom: 0.5rem;
 }
 
-[data-widget="create-ticket-wizard"] .fi-wiz-steps .fi-wiz-step {
-  margin-bottom: 0.25rem !important;
+.fi-sc-wizard .fi-wiz-steps .fi-wiz-step {
+  margin-bottom: 0.25rem;
 }
 
-[data-widget="create-ticket-wizard"] .fi-wiz-steps .fi-wiz-step:not(:last-child) {
-  margin-right: 1rem !important;
+.fi-sc-wizard .fi-wiz-steps .fi-wiz-step:not(:last-child) {
+  margin-right: 1rem;
 }
 
 /* Map section spacing */
-[data-widget="create-ticket-wizard"] .fi-fo-section:last-of-type {
-  margin-bottom: 0 !important;
+.fi-sc-wizard .fi-fo-section:last-of-type {
+  margin-bottom: 0;
 }
 
-[data-widget="create-ticket-wizard"] .fi-fo-section-header {
-  margin-bottom: 0.5rem !important;
+.fi-sc-wizard .fi-fo-section-header {
+  margin-bottom: 0.5rem;
 }
 
-[data-widget="create-ticket-wizard"] .fi-fo-section-header + .fi-fo-section-body {
-  margin-top: 0 !important;
+.fi-sc-wizard .fi-fo-section-header + .fi-fo-section-body {
+  margin-top: 0;
 }
 
 /* Mobile specific spacing */
 @media (max-width: 768px) {
-  [data-widget="create-ticket-wizard"] .fi-wiz-steps {
-    margin-bottom: 0.25rem !important;
+  .fi-sc-wizard .fi-wiz-steps {
+    margin-bottom: 0.25rem;
   }
 
-  [data-widget="create-ticket-wizard"] .fi-fo-section-header {
-    margin-bottom: 0.25rem !important;
+  .fi-sc-wizard .fi-fo-section-header {
+    margin-bottom: 0.25rem;
   }
 
-  [data-widget="create-ticket-wizard"] .fi-fo-section-header h2,
-  [data-widget="create-ticket-wizard"] .fi-fo-section-header .fi-fo-section-header-heading {
-    font-size: 1.125rem !important;
-    margin-bottom: 0.25rem !important;
+  .fi-sc-wizard .fi-fo-section-header h2,
+  .fi-sc-wizard .fi-fo-section-header .fi-fo-section-header-heading {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
   }
 }
 
@@ -48,6 +48,6 @@
   .fi-wiz-step-label-text:has(.fi-wiz-step:nth-child(1)),
   .fi-wiz-step-label-text:has(.fi-wiz-step:nth-child(2)),
   .fi-wiz-step-label-text:has(.fi-wiz-step:nth-child(3)) {
-    display: none !important;
+    display: none;
   }
 }

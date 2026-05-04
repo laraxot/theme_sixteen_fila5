@@ -138,7 +138,7 @@
   }
 
   /* Wizard specific adjustments */
-  .ticket-wizard-root {
+  .cmp-wizard-widget {
     margin-top: 1rem !important;
   }
 
