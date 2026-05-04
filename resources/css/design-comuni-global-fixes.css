@@ -85,7 +85,8 @@
   font-weight: 600 !important;
 }
 
-.steppers-header ul li.confirmed {
+.steppers-header ul li.confirmed,
+.steppers-header ul li.completed {
   color: var(--bs-primary, #007a52) !important;
   font-weight: 600 !important;
 }
@@ -216,7 +217,8 @@ a.t-primary {
   font-weight: 600 !important;
 }
 
-.steppers-header ul li.confirmed {
+.steppers-header ul li.confirmed,
+.steppers-header ul li.completed {
   color: #007a52 !important;
   font-weight: 600 !important;
 }

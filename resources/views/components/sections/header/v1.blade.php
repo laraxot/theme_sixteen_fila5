@@ -56,6 +56,27 @@
     $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
     usort($headerNavSecondary, fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
+
+    $headerNavItemIsActive = static function (array $item): bool {
+        $patterns = $item['active_patterns'] ?? [];
+        if (\is_array($patterns) && $patterns !== []) {
+            foreach ($patterns as $p) {
+                if (! \is_string($p) || $p === '') {
+                    continue;
+                }
+                $normalized = ltrim($p, '/');
+                if ($normalized !== '' && request()->is($normalized)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        $u = (string) ($item['url'] ?? '');
+        $path = $u !== '' ? ltrim((string) parse_url($u, PHP_URL_PATH), '/') : '';
+
+        return $path !== '' && (request()->is($path) || request()->is($path.'/*'));
+    };
 @endphp
 
 {{--
@@ -87,8 +108,8 @@
                             target="_blank"
                             rel="noopener noreferrer"
                             href="#"
-                            aria-label="{{ __('pub_theme::header.slim.region.portal_aria_label', ['region' => $headerRegionLabel]) }}"
-                            title="{{ __('pub_theme::header.slim.region.portal_title_label', ['region' => $headerRegionLabel]) }}"
+                            aria-label="{{ __('pub_theme::header.slim.region.portal_aria.label', ['region' => $headerRegionLabel]) }}"
+                            title="{{ __('pub_theme::header.slim.region.portal_title.label', ['region' => $headerRegionLabel]) }}"
                         >{{ $headerRegionLabel }}</a>
 
                         <div class="it-header-slim-right-zone" role="navigation">
@@ -231,46 +252,15 @@
                                             <div class="it-brand-title">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</div>
                                         </div>
                                     </a>
-                                    <nav aria-label="{{ __('pub_theme::header.center.nav.primary_aria.label') }}">
-                                        <ul class="navbar-nav" data-element="main-navigation">
-                                            @foreach($headerNavPrimaryItems as $item)
-                                                <li class="nav-item">
-                                                    <a class="nav-link{{ (request()->is($item['url'] ?? '#') || (str_contains($item['url'] ?? '', 'servizi') && request()->is('*segnalazione*')) ? ' active' : '' }}" 
-                                                       href="{{ $item['url'] ?? '#' }}" 
-                                                       data-element="{{ strtolower($item['label'] ?? '') }}">
-                                                        <span>{{ $item['label'] ?? '' }}</span>
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </nav>
-                                    <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
-                                        <ul class="navbar-nav navbar-secondary">
-                                            @foreach($headerNavSecondaryItems as $item)
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $item['url'] ?? '#' }}">{{ $item['label'] ?? '' }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </nav>
-                                    <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
-                                        <ul class="navbar-nav navbar-secondary">
-                                            @foreach($headerNavSecondary as $headerNavSecItem)
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $headerNavSecItem['url'] }}">{{ $headerNavSecItem['label'] }}</a>
-                                                </li>
-                                            @endforeach
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ $headerNavTopicsUrl }}" data-element="all-topics">
-                                                    <span>{{ __('pub_theme::header.center.nav.argomenti.label') }}
-                                                        <svg class="icon icon-sm">
-                                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
-                                                        </svg>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                    @include('pub_theme::components.sections.header.partials.nav-primary', [
+                                        'headerNavItems' => $headerNavItems,
+                                        'headerNavItemIsActive' => $headerNavItemIsActive
+                                    ])
+                                    @include('pub_theme::components.sections.header.partials.nav-secondary', [
+                                        'headerNavSecondary' => $headerNavSecondary,
+                                        'headerNavTopicsUrl' => $headerNavTopicsUrl,
+                                        'headerNavItemIsActive' => $headerNavItemIsActive
+                                    ])
                                     <div class="it-socials">
                                         <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                         <ul>

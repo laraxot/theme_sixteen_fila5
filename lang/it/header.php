@@ -109,11 +109,7 @@ return [
             ],
         ],
         'search' => [
-            'label' => [
-                'label' => 'Cerca',
-                'placeholder' => '',
-                'help' => 'Etichetta sopra l\'icona di ricerca.',
-            ],
+            'label' => 'Cerca',
             'toggle_aria' => [
                 'label' => 'Cerca nel sito',
                 'placeholder' => '',

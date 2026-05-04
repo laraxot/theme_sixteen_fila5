@@ -3315,10 +3315,13 @@ html body {
    FINAL STEPPER RESPONSIVE FIX
    Scope without touching <body> or markup.
 ======================================== */
+/* main#main-container: layout app.blade.php (id su <main>). main #main-container: pattern statica DC (div interno). */
+main#main-container .steppers,
 main #main-container .steppers {
   width: 100%;
 }
 
+main#main-container .steppers-header,
 main #main-container .steppers-header {
   display: flex;
   align-items: flex-start;
@@ -3327,6 +3330,7 @@ main #main-container .steppers-header {
   width: 100%;
 }
 
+main#main-container .steppers-header ul,
 main #main-container .steppers-header ul {
   display: flex;
   flex: 1 1 auto;
@@ -3341,10 +3345,12 @@ main #main-container .steppers-header ul {
   scrollbar-width: none;
 }
 
+main#main-container .steppers-header ul::-webkit-scrollbar,
 main #main-container .steppers-header ul::-webkit-scrollbar {
   display: none;
 }
 
+main#main-container .steppers-header li,
 main #main-container .steppers-header li {
   position: relative;
   display: inline-flex;
@@ -3357,6 +3363,7 @@ main #main-container .steppers-header li {
   white-space: nowrap;
 }
 
+main#main-container .steppers-index,
 main #main-container .steppers-index {
   flex: 0 0 auto;
   margin: 0;
@@ -3364,10 +3371,12 @@ main #main-container .steppers-index {
   white-space: nowrap;
 }
 
+main#main-container .cmp-nav-steps,
 main #main-container .cmp-nav-steps {
   margin-top: 2rem;
 }
 
+main#main-container .steppers-nav,
 main #main-container .steppers-nav {
   display: flex;
   flex-wrap: wrap;
@@ -3376,31 +3385,38 @@ main #main-container .steppers-nav {
   gap: 0.75rem;
 }
 
+main#main-container .steppers-nav .steppers-btn-prev,
 main #main-container .steppers-nav .steppers-btn-prev,
+main#main-container .steppers-nav .steppers-btn-confirm,
 main #main-container .steppers-nav .steppers-btn-confirm {
   flex: 0 0 auto;
 }
 
+main#main-container .steppers-nav .steppers-btn-save,
 main #main-container .steppers-nav .steppers-btn-save {
   flex: 0 0 auto;
   margin-left: auto;
 }
 
 @media (max-width: 991.98px) {
+  main#main-container .steppers-header,
   main #main-container .steppers-header {
     align-items: center;
     gap: 0.75rem;
   }
 
+  main#main-container .steppers-header li,
   main #main-container .steppers-header li {
     font-size: 0.8125rem;
     padding-right: 1rem;
   }
 
+  main#main-container .cmp-nav-steps,
   main #main-container .cmp-nav-steps {
     margin-top: 1.5rem;
   }
 
+  main#main-container .steppers-nav,
   main #main-container .steppers-nav {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -3408,14 +3424,17 @@ main #main-container .steppers-nav .steppers-btn-save {
     gap: 0.75rem;
   }
 
+  main#main-container .steppers-nav .steppers-btn-prev,
   main #main-container .steppers-nav .steppers-btn-prev {
     justify-self: start;
   }
 
+  main#main-container .steppers-nav .steppers-btn-confirm,
   main #main-container .steppers-nav .steppers-btn-confirm {
     justify-self: end;
   }
 
+  main#main-container .steppers-nav .steppers-btn-save,
   main #main-container .steppers-nav .steppers-btn-save {
     margin-left: 0;
     justify-self: center;
@@ -3423,31 +3442,38 @@ main #main-container .steppers-nav .steppers-btn-save {
 }
 
 @media (max-width: 767.98px) {
+  main#main-container .steppers-header,
   main #main-container .steppers-header {
     align-items: flex-start;
   }
 
+  main#main-container .steppers-header li,
   main #main-container .steppers-header li {
     min-height: 1.75rem;
     padding-right: 0.75rem;
     font-size: 0.75rem;
   }
 
+  main#main-container .steppers-index,
   main #main-container .steppers-index {
     font-size: 0.75rem;
     line-height: 1.2;
   }
 
+  main#main-container .steppers-nav,
   main #main-container .steppers-nav {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
+  main#main-container .steppers-nav .steppers-btn-prev,
   main #main-container .steppers-nav .steppers-btn-prev,
+  main#main-container .steppers-nav .steppers-btn-confirm,
   main #main-container .steppers-nav .steppers-btn-confirm {
     width: 100%;
     justify-content: center;
   }
 
+  main#main-container .steppers-nav .steppers-btn-save,
   main #main-container .steppers-nav .steppers-btn-save {
     grid-column: 1 / -1;
     width: 100%;

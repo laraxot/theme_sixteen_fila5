@@ -221,50 +221,39 @@
                                             <div class="it-brand-title">Nome del Comune</div>
                                         </div>
                                     </a>
-                                    <nav aria-label="Principale">
-                                        <ul class="navbar-nav" data-element="main-navigation">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/amministrazione" data-element="management">
-                                                    <span>Amministrazione</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/novita" data-element="news">
-                                                    <span>Novità</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/servizi" data-element="all-services">
-                                                    <span>Servizi</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/eventi" data-element="live">
-                                                    <span>Vivere il Comune18</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <nav aria-label="Secondaria">
-                                        <ul class="navbar-nav navbar-secondary">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/argomento">Iscrizioni</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/argomento">Estate in città</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/argomento">Polizia locale</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="/it/tests/argomenti" data-element="all-topics">
-                                                    <span>Tutti gli argomenti
-                                                        <x-filament::icon icon="heroicon-o-chevron-right" class="icon icon-sm" />
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                     <nav aria-label="Principale">
+                                         <ul class="navbar-nav" data-element="main-navigation">
+                                             @foreach($headerNavItems as $item)
+                                                 <li class="nav-item">
+                                                     <a class="nav-link{{ $headerNavItemIsActive($item) ? ' active' : '' }}"
+                                                        href="{{ $item['url'] ?? '#' }}"
+                                                        @if(! empty($item['data_element'])) data-element="{{ $item['data_element'] }}" @endif>
+                                                         <span>{{ $item['label'] ?? '' }}</span>
+                                                     </a>
+                                                 </li>
+                                             @endforeach
+                                         </ul>
+                                     </nav>
+                                     <nav aria-label="Secondaria">
+                                         <ul class="navbar-nav navbar-secondary">
+                                             @foreach($headerNavSecondary as $headerNavSecItem)
+                                                 <li class="nav-item">
+                                                     <a class="nav-link{{ $headerNavItemIsActive($headerNavSecItem) ? ' active' : '' }}"
+                                                        href="{{ $headerNavSecItem['url'] ?? '#' }}"
+                                                        @if(! empty($headerNavSecItem['data_element'])) data-element="{{ $headerNavSecItem['data_element'] }}" @endif>
+                                                         <span>{{ $headerNavSecItem['label'] ?? '' }}</span>
+                                                     </a>
+                                                 </li>
+                                             @endforeach
+                                             <li class="nav-item">
+                                                 <a class="nav-link" href="{{ $headerNavTopicsUrl }}" data-element="all-topics">
+                                                     <span>Tutti gli argomenti
+                                                         <x-filament::icon icon="heroicon-o-chevron-right" class="icon icon-sm" />
+                                                     </span>
+                                                 </a>
+                                             </li>
+                                         </ul>
+                                     </nav>
                                     <div class="it-socials d-lg-none">
                                         <span>Seguici su</span>
                                         <ul>

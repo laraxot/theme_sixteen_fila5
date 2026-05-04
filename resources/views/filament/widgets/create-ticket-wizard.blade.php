@@ -5,7 +5,8 @@
 <x-filament-widgets::widget>
 {{-- Wrapper Design Comuni: titolo + form Filament Wizard (schema in CreateTicketWizardWidget::getFormSchema) --}}
 <div class="ticket-wizard-root">
-    <div class="container" id="main-container">
+    {{-- Nessun id="main-container" qui: l'id è su <main> nel layout; duplicarlo rompe i selettori CSS e l'HTML. --}}
+    <div class="container wizard-dc-heading-shell">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <div class="cmp-heading pb-3 pb-lg-4">
