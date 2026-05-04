@@ -68,26 +68,30 @@
   font-size: 16px !important;
 }
 
-/* Steppers index "1/3" - reference uses 14px */
-.steppers-index {
+/* Steppers (DC): indice 14px, voci 18px — anche sotto .ticket-wizard-root (non solo main#main-container) */
+.steppers-index,
+.ticket-wizard-root .steppers-index {
   font-size: 14px !important;
-  color: var(--bs-gray-600, #525252) !important;
+  color: #5d7083 !important;
 }
 
-/* Steppers header items - reference uses 18px */
-.steppers-header ul li {
+.steppers-header ul li,
+.ticket-wizard-root .steppers-header ul.step-list li.step-item {
   font-size: 18px !important;
-  color: var(--bs-gray-600, #525252) !important;
+  color: #5d7083 !important;
 }
 
-.steppers-header ul li.active {
-  color: var(--bs-dark, #17334f) !important;
+.steppers-header ul li.active,
+.ticket-wizard-root .steppers-header ul.step-list li.step-item.active {
+  color: #17334f !important;
   font-weight: 600 !important;
 }
 
 .steppers-header ul li.confirmed,
-.steppers-header ul li.completed {
-  color: var(--bs-primary, #007a52) !important;
+.steppers-header ul li.completed,
+.ticket-wizard-root .steppers-header ul.step-list li.step-item.confirmed,
+.ticket-wizard-root .steppers-header ul.step-list li.step-item.completed {
+  color: #007a52 !important;
   font-weight: 600 !important;
 }
 
@@ -204,28 +208,6 @@ a.t-primary {
 /* Select wrapper styling */
 .select-wrapper {
   background-color: #ffffff !important;
-}
-
-/* Steppers styling */
-.steppers-header ul li {
-  font-size: 18px !important;
-  color: #5d7083 !important;
-}
-
-.steppers-header ul li.active {
-  color: #17334f !important;
-  font-weight: 600 !important;
-}
-
-.steppers-header ul li.confirmed,
-.steppers-header ul li.completed {
-  color: #007a52 !important;
-  font-weight: 600 !important;
-}
-
-.steppers-index {
-  font-size: 14px !important;
-  color: #5d7083 !important;
 }
 
 /* Button styling */
