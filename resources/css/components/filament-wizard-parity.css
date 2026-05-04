@@ -10,12 +10,22 @@
 }
 
 /* === STEPPER ORIZZONTALE parity === */
-.ticket-wizard-root .fi-wiz-steps {
-    display: none !important; /* Nascondi stepper laterale Filament */
+.ticket-wizard-root .fi-wiz-steps,
+.ticket-wizard-root .fi-fo-wizard-header {
+    display: none !important; /* Nascondi stepper laterale/header Filament */
 }
 
 .ticket-wizard-root .steppers {
-    @apply bg-white border-b border-gray-200;
+    @apply bg-white border-b border-gray-200 mb-6;
+    padding: 1rem 0;
+}
+
+.ticket-wizard-root .steppers-header {
+    @apply flex flex-col;
+}
+
+.ticket-wizard-root .steppers-index {
+    @apply text-sm text-gray-500 mt-2 text-right;
 }
 
 .ticket-wizard-root .step-list {
@@ -32,15 +42,20 @@
 }
 
 .ticket-wizard-root .step-icon {
-    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-gray-200 text-gray-600;
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-gray-200 text-gray-600 flex-shrink-0;
 }
 
+.ticket-wizard-root .step-item.confirmed .step-icon,
 .ticket-wizard-root .step-item.completed .step-icon {
     @apply bg-green-600 text-white;
 }
 
 .ticket-wizard-root .step-item.active .step-icon {
     @apply bg-[var(--dc-green)] text-white;
+}
+
+.ticket-wizard-root .step-icon-svg {
+    @apply w-4 h-4;
 }
 
 .ticket-wizard-root .step-title {
@@ -53,6 +68,33 @@
 
 .ticket-wizard-root .step-item.disabled .step-title {
     @apply text-gray-400;
+}
+
+/* === STEP DIVIDER - connecting line between steps === */
+.ticket-wizard-root .step-divider {
+    @apply flex-1 h-px bg-gray-300 mx-4;
+    min-width: 2rem;
+}
+
+.ticket-wizard-root .step-item.confirmed + .step-item .step-divider,
+.ticket-wizard-root .step-item.active + .step-item .step-divider {
+    @apply bg-[var(--dc-green)];
+}
+
+/* === MOBILE RESPONSIVE - hide step titles on small screens === */
+@media (max-width: 640px) {
+    .ticket-wizard-root .step-title {
+        @apply hidden;
+    }
+    
+    .ticket-wizard-root .step-divider {
+        @apply mx-2;
+        min-width: 1rem;
+    }
+    
+    .ticket-wizard-root .step-icon {
+        @apply w-6 h-6 text-xs;
+    }
 }
 
 .ticket-wizard-root .progress-step {
