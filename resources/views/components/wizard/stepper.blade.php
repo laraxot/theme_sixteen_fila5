@@ -1,39 +1,65 @@
 @php
+    // Extract and validate props
     $steps = $steps ?? [];
+    $currentStep = $currentStep ?? 1; // Expect 1-based index from parent
     $totalSteps = $totalSteps ?? count($steps);
-
+    
+    // Bootstrap Italia sprite path
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
 @endphp
 
-<div class="steppers">
+<div class="steppers" role="navigation" aria-label="Progresso wizard">
     <div class="steppers-header">
-        <ul class="steppers-list" role="list">
+        <ul class="step-list">
             @foreach($steps as $index => $step)
                 @php
                     $stepNum = $index + 1;
+                    $isActive = $stepNum === $currentStep;
+                    $isCompleted = $stepNum < $currentStep;
+                    $isPending = $stepNum > $currentStep;
+                    
+                    // Get step data from Filament Step component
                     $stepLabel = $step->getLabel();
-                    $stepKey = $step->getKey();
+                    $stepDescription = $step->getDescription();
+                    $stepIcon = $step->getIcon();
                 @endphp
-
-                <li
-                    class="stepper-step"
-                    x-bind:class="{
-                        'active': getStepIndex(step) === {{ $index }},
-                        'confirmed': getStepIndex(step) > {{ $index }},
-                    }"
-                    x-bind:aria-current="getStepIndex(step) === {{ $index }} ? 'step' : null"
-                >
-                    {{ $stepLabel }}
-                    <span class="visually-hidden" x-show="getStepIndex(step) === {{ $index }}">
-                        ({{ __('fixcity::segnalazione.steps.active.label') }})
+                
+                <li class="step-item"
+                    @if($isActive) aria-current="step" @endif
+                    data-step="{{ $stepNum }}"
+                    :class="{ 
+                        'active': {{ $isActive ? 'true' : 'false' }}, 
+                        'confirmed': {{ $isCompleted ? 'true' : 'false' }},
+                        'text-muted': {{ $isPending ? 'true' : 'false' }}
+                    }">
+                    
+                    {{-- Step icon with checkmark for completed --}}
+                    <span class="step-icon" aria-hidden="true">
+                        @if($isCompleted)
+                            {{-- Completed step: show checkmark --}}
+                            <svg class="icon step-icon-svg">
+                                <use href="{{ $sprite }}#it-check"></use>
+                            </svg>
+                        @else
+                            {{-- Active or pending: show number or custom icon --}}
+                            <span class="step-number">{{ $stepNum }}</span>
+                        @endif
                     </span>
+                    
+                    {{-- Step label --}}
+                    <span class="step-title">{{ $stepLabel }}</span>
+                    
+                    {{-- Divider between steps (not after last) --}}
+                    @if($stepNum < $totalSteps)
+                        <span class="step-divider" aria-hidden="true"></span>
+                    @endif
                 </li>
             @endforeach
         </ul>
-        <span
-            class="steppers-index"
-            aria-hidden="true"
-            x-text="`${getStepIndex(step) + 1}/{{ $totalSteps }}`"
-        >{{ $totalSteps > 0 ? '1' : '0' }}/{{ $totalSteps }}</span>
+        
+        {{-- Step counter (e.g., "1/3") --}}
+        <span class="steppers-index" aria-hidden="true">
+            {{ $currentStep }}/{{ $totalSteps }}
+        </span>
     </div>
 </div>

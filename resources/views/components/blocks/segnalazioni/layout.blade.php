@@ -198,13 +198,13 @@
                     <div class="tab-pane fade{{ isset($tabs[0]) && ($tabs[0]['active'] ?? false) ? ' show active' : '' }}" id="data-ex-disservizio1" role="tabpanel">
                         <div class="row">
                             <div class="col-12">
-                                <map-lit
+                                <geo-map-lit
                                     id="ticket-map"
                                     data-url="/data/tickets.json"
                                     height="clamp(360px,58vh,560px)"
                                     style="height:clamp(360px,58vh,560px);display:block;width:100%"
                                     aria-label="{{ __($ns . '.map.image.alt') }}"
-                                ></map-lit>
+                                ></geo-map-lit>
                             </div>
                             @if (!empty($cta))
                                 <div class="col-lg-6 mt-50 mb-4 mb-lg-0">
@@ -230,7 +230,14 @@
                                 @php
                                     $itemLocation = is_array($item->location) ? $item->location : [];
                                     $itemAddress = $itemLocation['address'] ?? $itemLocation['display_name'] ?? '';
-                                    $itemTypeLabel = (string) ($item->type_label ?? '');
+                                    $itemType = $item->type ?? '';
+                                    $itemTypeLabel = '';
+                                    try {
+                                        $itemTypeEnum = \Modules\Fixcity\Enums\TicketTypeEnum::from((string) $itemType);
+                                        $itemTypeLabel = $itemTypeEnum->getLabel();
+                                    } catch (\ValueError) {
+                                        $itemTypeLabel = $itemType;
+                                    }
                                 @endphp
                                 <div class="cmp-card mb-4 mb-lg-30">
                                     <div class="card has-bkg-grey shadow-sm">
@@ -353,9 +360,9 @@
     </section>
 </div>
 
-{{-- map-lit Web Component is registered via Sixteen theme bundle (resources/js/app.js imports map-lit.js).
-     No extra <script> include needed; cross-module Vite::asset(...,'assets/geo') was the wrong pattern. --}}
+{{-- geo-map-lit Web Component (Geo module — bundled via Vite, no CDN) --}}
 <style>.leaflet-container { z-index: 1; }</style>
+<script type="module" src="{{ Illuminate\Support\Facades\Vite::asset('resources/js/components/geo-map-lit.js', 'assets/geo') }}"></script>
 
 {{-- Filtri: click checkbox → filterByType() --}}
 <script>
