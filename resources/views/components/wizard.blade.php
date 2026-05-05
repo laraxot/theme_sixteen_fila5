@@ -14,8 +14,6 @@
                 isSkippable: @js($isSkippable()),
                 isStepPersistedInQueryString: @js($isStepPersistedInQueryString()),
                 key: @js($key),
-                livewireId: @js($this->getId()),
-                schemaKey: @js($getRootContainer()->getKey()),
                 startStep: @js($getStartStep()),
                 stepQueryStringKey: @js($getStepQueryStringKey()),
             })"
@@ -51,6 +49,7 @@
     @if (! $isHeaderHidden)
         <x-pub_theme::wizard.stepper
             :steps="$steps"
+            :current-step="$getStartStep()"
             :total-steps="count($steps)"
         />
     @endif

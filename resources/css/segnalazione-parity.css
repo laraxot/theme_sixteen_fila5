@@ -5552,7 +5552,21 @@ coordinate-picker-lit .ctrl-btn svg {
   }
 }
 
+/* Step visibility — mirrors Filament's wizard.css which is not compiled into this theme */
+.fi-sc-wizard-step:not(.fi-active) {
+  visibility: hidden;
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}
 
+.fi-sc-wizard-step.fi-active {
+  visibility: visible;
+  position: static;
+  height: auto;
+  overflow: visible;
+}
 
 @media (max-width: 991.98px) {
   .cmp-page-index-mobile {
