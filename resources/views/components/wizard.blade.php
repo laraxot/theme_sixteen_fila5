@@ -49,7 +49,6 @@
     @if (! $isHeaderHidden)
         <x-pub_theme::wizard.stepper
             :steps="$steps"
-            :current-step="$getStartStep()"
             :total-steps="count($steps)"
         />
     @endif
