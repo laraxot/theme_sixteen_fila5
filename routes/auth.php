@@ -22,8 +22,7 @@ use Themes\Sixteen\Services\SpidAuthService;
 Route::prefix('auth/spid')
     ->name('spid.')
     ->middleware(['web'])
-    ->group(function () {
-
+    ->group(function (): void {
         // Login con provider SPID specifico
         Route::get('login/{provider}', [SpidAuthController::class, 'login'])
             ->name('login')
@@ -49,7 +48,7 @@ Route::prefix('auth/spid')
 Route::prefix('auth/cie')
     ->name('cie.')
     ->middleware(['web'])
-    ->group(function () {
+    ->group(function (): void {
         // Login CIE web
         Route::get('login', [CieAuthController::class, 'login'])
             ->name('login');
@@ -85,7 +84,7 @@ Route::prefix('auth/cie')
 Route::prefix('sixteen/auth')
     ->name('sixteen.auth.')
     ->middleware(['web'])
-    ->group(function () {
+    ->group(function (): void {
         // Selezione provider di autenticazione
         Route::view('select-provider', 'pub_theme::auth.select-provider')
             ->name('select-provider');
@@ -127,7 +126,6 @@ Route::prefix('sixteen/auth')
 
             return redirect()->route('home')
                 ->with('success', 'Logout effettuato con successo.');
-
         })->name('digital-identity.logout')->middleware(['auth']);
     });
 
@@ -136,7 +134,7 @@ if (app()->environment(['local', 'development', 'testing'])) {
     Route::prefix('sixteen/test-auth')
         ->name('sixteen.test-auth.')
         ->middleware(['web'])
-        ->group(function () {
+        ->group(function (): void {
             // Test page per SPID
             Route::view('spid', 'pub_theme::test.spid-test')
                 ->name('spid');
@@ -160,7 +158,6 @@ if (app()->environment(['local', 'development', 'testing'])) {
 
                 return redirect()->route('spid.callback')
                     ->with('success', 'Simulazione SPID attiva');
-
             })->name('spid.simulate');
 
             // Simulate CIE response (per testing)
@@ -179,7 +176,6 @@ if (app()->environment(['local', 'development', 'testing'])) {
 
                 return redirect()->route('cie.callback')
                     ->with('success', 'Simulazione CIE attiva');
-
             })->name('cie.simulate');
         });
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Themes\Sixteen\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -15,6 +17,32 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Appointment extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * Stati appuntamento conformi AGID
+     */
+    public const STATUS_PENDING = 'pending';      // In attesa di conferma
+
+    public const STATUS_CONFIRMED = 'confirmed';  // Confermato
+
+    public const STATUS_COMPLETED = 'completed';  // Completato
+
+    public const STATUS_CANCELLED = 'cancelled';  // Cancellato
+
+    public const STATUS_NO_SHOW = 'no_show';      // Non presentato
+
+    /**
+     * Tipi di servizio supportati
+     */
+    public const SERVICE_ANAGRAFE = 'anagrafe';
+
+    public const SERVICE_TRIBUTI = 'tributi';
+
+    public const SERVICE_SUAP = 'suap';
+
+    public const SERVICE_URP = 'urp';
+
+    public const SERVICE_OTHER = 'other';
 
     protected $table = 'sixteen_appointments';
 
@@ -44,32 +72,6 @@ class Appointment extends Model
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
     ];
-
-    /**
-     * Stati appuntamento conformi AGID
-     */
-    const STATUS_PENDING = 'pending';      // In attesa di conferma
-
-    const STATUS_CONFIRMED = 'confirmed';  // Confermato
-
-    const STATUS_COMPLETED = 'completed';  // Completato
-
-    const STATUS_CANCELLED = 'cancelled';  // Cancellato
-
-    const STATUS_NO_SHOW = 'no_show';      // Non presentato
-
-    /**
-     * Tipi di servizio supportati
-     */
-    const SERVICE_ANAGRAFE = 'anagrafe';
-
-    const SERVICE_TRIBUTI = 'tributi';
-
-    const SERVICE_SUAP = 'suap';
-
-    const SERVICE_URP = 'urp';
-
-    const SERVICE_OTHER = 'other';
 
     /**
      * Relazione con l'utente che ha prenotato
@@ -155,26 +157,6 @@ class Appointment extends Model
     }
 
     /**
-     * Formatta l'orario per display
-     */
-    protected function timeSlot(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
-        );
-    }
-
-    /**
-     * Durata appuntamento in minuti
-     */
-    protected function duration(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->start_time->diffInMinutes($this->end_time)
-        );
-    }
-
-    /**
      * Verifica se è necessario inviare promemoria
      */
     public function needsReminder(): bool
@@ -183,24 +165,6 @@ class Appointment extends Model
             && $this->status === self::STATUS_CONFIRMED
             && $this->appointment_date->isTomorrow()
             && now()->hour < 18; // Invio solo prima delle 18
-    }
-
-    /**
-     * Eventi del modello
-     */
-    protected static function booted()
-    {
-        static::creating(function ($appointment) {
-            if (empty($appointment->confirmation_code)) {
-                $appointment->confirmation_code = self::generateConfirmationCode();
-            }
-        });
-
-        static::updating(function ($appointment) {
-            if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
-                $appointment->cancelled_at = now();
-            }
-        });
     }
 
     /**
@@ -229,5 +193,43 @@ class Appointment extends Model
             self::SERVICE_URP => 'URP',
             self::SERVICE_OTHER => 'Altro',
         ];
+    }
+
+    /**
+     * Formatta l'orario per display
+     */
+    protected function timeSlot(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
+        );
+    }
+
+    /**
+     * Durata appuntamento in minuti
+     */
+    protected function duration(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_time->diffInMinutes($this->end_time)
+        );
+    }
+
+    /**
+     * Eventi del modello
+     */
+    protected static function booted(): void
+    {
+        static::creating(function ($appointment): void {
+            if (empty($appointment->confirmation_code)) {
+                $appointment->confirmation_code = self::generateConfirmationCode();
+            }
+        });
+
+        static::updating(function ($appointment): void {
+            if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
+                $appointment->cancelled_at = now();
+            }
+        });
     }
 }

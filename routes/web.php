@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 use Themes\Sixteen\Http\Controllers\ComuneController;
 
@@ -13,7 +15,7 @@ use Themes\Sixteen\Http\Controllers\ComuneController;
 |
 */
 
-Route::prefix('comune')->name('comune.')->group(function () {
+Route::prefix('comune')->name('comune.')->group(function (): void {
     // Homepage
     Route::get('/', [ComuneController::class, 'homepage'])->name('homepage');
 

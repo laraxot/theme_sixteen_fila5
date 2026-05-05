@@ -20,6 +20,28 @@ class ContactPoint extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * Tipi di contatto supportati secondo AGID
+     */
+    public const TYPES = [
+        'email' => 'Email',
+        'pec' => 'PEC (Posta Elettronica Certificata)',
+        'phone' => 'Telefono',
+        'fax' => 'Fax',
+        'mobile' => 'Cellulare',
+        'whatsapp' => 'WhatsApp',
+        'telegram' => 'Telegram',
+        'address' => 'Indirizzo fisico',
+        'website' => 'Sito web',
+        'social_facebook' => 'Facebook',
+        'social_twitter' => 'Twitter/X',
+        'social_linkedin' => 'LinkedIn',
+        'social_youtube' => 'YouTube',
+        'social_instagram' => 'Instagram',
+        'appointment_url' => 'Prenotazione appuntamenti',
+        'other' => 'Altro',
+    ];
+
     protected $table = 'sixteen_contact_points';
 
     protected $fillable = [
@@ -45,28 +67,6 @@ class ContactPoint extends Model
         'languages' => 'json',
         'metadata' => 'json',
         'position' => 'integer',
-    ];
-
-    /**
-     * Tipi di contatto supportati secondo AGID
-     */
-    public const TYPES = [
-        'email' => 'Email',
-        'pec' => 'PEC (Posta Elettronica Certificata)',
-        'phone' => 'Telefono',
-        'fax' => 'Fax',
-        'mobile' => 'Cellulare',
-        'whatsapp' => 'WhatsApp',
-        'telegram' => 'Telegram',
-        'address' => 'Indirizzo fisico',
-        'website' => 'Sito web',
-        'social_facebook' => 'Facebook',
-        'social_twitter' => 'Twitter/X',
-        'social_linkedin' => 'LinkedIn',
-        'social_youtube' => 'YouTube',
-        'social_instagram' => 'Instagram',
-        'appointment_url' => 'Prenotazione appuntamenti',
-        'other' => 'Altro',
     ];
 
     /**
@@ -107,6 +107,85 @@ class ContactPoint extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('position')->orderBy('is_primary', 'desc');
+    }
+
+    /**
+     * Crea un contatto email
+     */
+    public static function email(string $email, ?string $label = null, bool $isPrimary = false): self
+    {
+        return new self([
+            'type' => 'email',
+            'value' => $email,
+            'label' => $label ?? 'Email',
+            'is_primary' => $isPrimary,
+        ]);
+    }
+
+    /**
+     * Crea un contatto PEC
+     */
+    public static function pec(string $pec, ?string $label = null): self
+    {
+        return new self([
+            'type' => 'pec',
+            'value' => $pec,
+            'label' => $label ?? 'PEC',
+            'is_primary' => true, // PEC è sempre primaria per PA
+        ]);
+    }
+
+    /**
+     * Crea un contatto telefonico
+     */
+    public static function phone(string $phone, ?string $label = null, bool $isPrimary = false): self
+    {
+        return new self([
+            'type' => 'phone',
+            'value' => $phone,
+            'label' => $label ?? 'Telefono',
+            'is_primary' => $isPrimary,
+        ]);
+    }
+
+    /**
+     * Crea un indirizzo fisico
+     */
+    public static function address(string $address, ?string $label = null): self
+    {
+        return new self([
+            'type' => 'address',
+            'value' => $address,
+            'label' => $label ?? 'Indirizzo',
+        ]);
+    }
+
+    /**
+     * Verifica se il contatto è valido
+     */
+    public function isValid(): bool
+    {
+        return match ($this->type) {
+            'email', 'pec' => filter_var($this->value, FILTER_VALIDATE_EMAIL) !== false,
+            'phone', 'mobile', 'fax' => ! empty($this->formatPhoneNumber($this->value)),
+            'website', 'appointment_url' => ! empty($this->formatUrl($this->value)),
+            default => ! empty(trim($this->value)),
+        };
+    }
+
+    /**
+     * Ottiene l'URL per l'azione del contatto (mailto, tel, ecc.)
+     */
+    public function getActionUrl(): string
+    {
+        return match ($this->type) {
+            'email', 'pec' => 'mailto:'.$this->value,
+            'phone', 'mobile', 'fax' => 'tel:'.$this->formatted_value,
+            'website', 'appointment_url' => $this->formatted_value,
+            'whatsapp' => 'https://wa.me/'.preg_replace('/[^\d]/', '', $this->value),
+            'telegram' => 'https://t.me/'.ltrim($this->value, '@'),
+            default => '#',
+        };
     }
 
     /**
@@ -249,93 +328,14 @@ class ContactPoint extends Model
     }
 
     /**
-     * Crea un contatto email
-     */
-    public static function email(string $email, ?string $label = null, bool $isPrimary = false): self
-    {
-        return new self([
-            'type' => 'email',
-            'value' => $email,
-            'label' => $label ?? 'Email',
-            'is_primary' => $isPrimary,
-        ]);
-    }
-
-    /**
-     * Crea un contatto PEC
-     */
-    public static function pec(string $pec, ?string $label = null): self
-    {
-        return new self([
-            'type' => 'pec',
-            'value' => $pec,
-            'label' => $label ?? 'PEC',
-            'is_primary' => true, // PEC è sempre primaria per PA
-        ]);
-    }
-
-    /**
-     * Crea un contatto telefonico
-     */
-    public static function phone(string $phone, ?string $label = null, bool $isPrimary = false): self
-    {
-        return new self([
-            'type' => 'phone',
-            'value' => $phone,
-            'label' => $label ?? 'Telefono',
-            'is_primary' => $isPrimary,
-        ]);
-    }
-
-    /**
-     * Crea un indirizzo fisico
-     */
-    public static function address(string $address, ?string $label = null): self
-    {
-        return new self([
-            'type' => 'address',
-            'value' => $address,
-            'label' => $label ?? 'Indirizzo',
-        ]);
-    }
-
-    /**
-     * Verifica se il contatto è valido
-     */
-    public function isValid(): bool
-    {
-        return match ($this->type) {
-            'email', 'pec' => filter_var($this->value, FILTER_VALIDATE_EMAIL) !== false,
-            'phone', 'mobile', 'fax' => ! empty($this->formatPhoneNumber($this->value)),
-            'website', 'appointment_url' => ! empty($this->formatUrl($this->value)),
-            default => ! empty(trim($this->value)),
-        };
-    }
-
-    /**
-     * Ottiene l'URL per l'azione del contatto (mailto, tel, ecc.)
-     */
-    public function getActionUrl(): string
-    {
-        return match ($this->type) {
-            'email', 'pec' => 'mailto:'.$this->value,
-            'phone', 'mobile', 'fax' => 'tel:'.$this->formatted_value,
-            'website', 'appointment_url' => $this->formatted_value,
-            'whatsapp' => 'https://wa.me/'.preg_replace('/[^\d]/', '', $this->value),
-            'telegram' => 'https://t.me/'.ltrim($this->value, '@'),
-            default => '#',
-        };
-    }
-
-    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Auto-increment position
-        static::creating(function (ContactPoint $model) {
+        static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
                 $model->position = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
@@ -344,7 +344,7 @@ class ContactPoint extends Model
         });
 
         // Se è primario, rendi gli altri non primari
-        static::saving(function (ContactPoint $model) {
+        static::saving(function (ContactPoint $model): void {
             if ($model->is_primary) {
                 static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)

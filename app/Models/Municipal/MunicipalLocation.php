@@ -23,6 +23,65 @@ class MunicipalLocation extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * Tipologie di location secondo AGID
+     */
+    public const LOCATION_TYPES = [
+        'headquarters' => 'Sede Principale',
+        'office' => 'Ufficio',
+        'service_center' => 'Centro Servizi',
+        'library' => 'Biblioteca',
+        'school' => 'Scuola',
+        'sports_facility' => 'Impianto Sportivo',
+        'cultural_center' => 'Centro Culturale',
+        'healthcare' => 'Struttura Sanitaria',
+        'social_center' => 'Centro Sociale',
+        'cemetery' => 'Cimitero',
+        'market' => 'Mercato',
+        'parking' => 'Parcheggio',
+        'park' => 'Parco',
+        'square' => 'Piazza',
+        'monument' => 'Monumento',
+        'tourist_office' => 'Ufficio Turistico',
+        'waste_center' => 'Centro Raccolta Rifiuti',
+        'emergency' => 'Struttura di Emergenza',
+        'other' => 'Altro',
+    ];
+
+    /**
+     * Categorie principali
+     */
+    public const CATEGORIES = [
+        'administrative' => 'Amministrativo',
+        'cultural' => 'Culturale',
+        'educational' => 'Educativo',
+        'sports' => 'Sportivo',
+        'social' => 'Sociale',
+        'healthcare' => 'Sanitario',
+        'tourist' => 'Turistico',
+        'commercial' => 'Commerciale',
+        'environmental' => 'Ambientale',
+        'emergency' => 'Emergenza',
+    ];
+
+    /**
+     * Servizi disponibili
+     */
+    public const AVAILABLE_SERVICES = [
+        'citizen_services' => 'Servizi al Cittadino',
+        'document_collection' => 'Ritiro Documenti',
+        'payments' => 'Pagamenti',
+        'appointments' => 'Appuntamenti',
+        'information' => 'Informazioni',
+        'complaints' => 'Reclami/Segnalazioni',
+        'wifi' => 'WiFi Gratuito',
+        'photocopies' => 'Fotocopie',
+        'parking' => 'Parcheggio',
+        'accessibility' => 'Accessibilità',
+        'translation' => 'Servizi di Traduzione',
+        'assistance' => 'Assistenza',
+    ];
+
     protected $table = 'sixteen_municipal_locations';
 
     protected $fillable = [
@@ -103,65 +162,6 @@ class MunicipalLocation extends Model
         'capacity' => 'integer',
         'priority_level' => 'integer',
         'metadata' => 'json',
-    ];
-
-    /**
-     * Tipologie di location secondo AGID
-     */
-    public const LOCATION_TYPES = [
-        'headquarters' => 'Sede Principale',
-        'office' => 'Ufficio',
-        'service_center' => 'Centro Servizi',
-        'library' => 'Biblioteca',
-        'school' => 'Scuola',
-        'sports_facility' => 'Impianto Sportivo',
-        'cultural_center' => 'Centro Culturale',
-        'healthcare' => 'Struttura Sanitaria',
-        'social_center' => 'Centro Sociale',
-        'cemetery' => 'Cimitero',
-        'market' => 'Mercato',
-        'parking' => 'Parcheggio',
-        'park' => 'Parco',
-        'square' => 'Piazza',
-        'monument' => 'Monumento',
-        'tourist_office' => 'Ufficio Turistico',
-        'waste_center' => 'Centro Raccolta Rifiuti',
-        'emergency' => 'Struttura di Emergenza',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Categorie principali
-     */
-    public const CATEGORIES = [
-        'administrative' => 'Amministrativo',
-        'cultural' => 'Culturale',
-        'educational' => 'Educativo',
-        'sports' => 'Sportivo',
-        'social' => 'Sociale',
-        'healthcare' => 'Sanitario',
-        'tourist' => 'Turistico',
-        'commercial' => 'Commerciale',
-        'environmental' => 'Ambientale',
-        'emergency' => 'Emergenza',
-    ];
-
-    /**
-     * Servizi disponibili
-     */
-    public const AVAILABLE_SERVICES = [
-        'citizen_services' => 'Servizi al Cittadino',
-        'document_collection' => 'Ritiro Documenti',
-        'payments' => 'Pagamenti',
-        'appointments' => 'Appuntamenti',
-        'information' => 'Informazioni',
-        'complaints' => 'Reclami/Segnalazioni',
-        'wifi' => 'WiFi Gratuito',
-        'photocopies' => 'Fotocopie',
-        'parking' => 'Parcheggio',
-        'accessibility' => 'Accessibilità',
-        'translation' => 'Servizi di Traduzione',
-        'assistance' => 'Assistenza',
     ];
 
     /**
@@ -262,129 +262,6 @@ class MunicipalLocation extends Model
         return $query->whereRaw(
             '(6371 * acos(cos(radians(?)) * cos(radians(JSON_EXTRACT(coordinates, "$.lat"))) * cos(radians(JSON_EXTRACT(coordinates, "$.lng")) - radians(?)) + sin(radians(?)) * sin(radians(JSON_EXTRACT(coordinates, "$.lat"))))) <= ?',
             [$lat, $lng, $lat, $radiusKm]
-        );
-    }
-
-    /**
-     * Accessor per il nome del tipo di location
-     */
-    protected function locationTypeName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::LOCATION_TYPES[$this->location_type] ?? $this->location_type
-        );
-    }
-
-    /**
-     * Accessor per il nome della categoria
-     */
-    protected function categoryName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
-        );
-    }
-
-    /**
-     * Accessor per l'indirizzo completo
-     */
-    protected function fullAddress(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                $address = $this->address;
-
-                if ($this->civic_number) {
-                    $address .= ', '.$this->civic_number;
-                }
-
-                if ($this->postal_code) {
-                    $address .= ', '.$this->postal_code;
-                }
-
-                if ($this->city) {
-                    $address .= ' '.$this->city;
-                }
-
-                if ($this->province) {
-                    $address .= ' ('.$this->province.')';
-                }
-
-                return $address;
-            }
-        );
-    }
-
-    /**
-     * Accessor per verificare se ha coordinate GPS
-     */
-    protected function hasCoordinates(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => isset($this->coordinates['lat']) && isset($this->coordinates['lng'])
-        );
-    }
-
-    /**
-     * Accessor per la latitudine
-     */
-    protected function latitude(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->coordinates['lat'] ?? null
-        );
-    }
-
-    /**
-     * Accessor per la longitudine
-     */
-    protected function longitude(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->coordinates['lng'] ?? null
-        );
-    }
-
-    /**
-     * Accessor per l'URL della sede
-     */
-    protected function url(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => route('municipal.locations.show', $this->slug)
-        );
-    }
-
-    /**
-     * Accessor per l'URL di Google Maps
-     */
-    protected function googleMapsUrl(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->has_coordinates) {
-                    return "https://www.google.com/maps?q={$this->latitude},{$this->longitude}";
-                }
-
-                return 'https://www.google.com/maps/search/'.urlencode($this->full_address);
-            }
-        );
-    }
-
-    /**
-     * Mutator per il nome (genera automaticamente lo slug)
-     */
-    protected function name(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['name'] = $value;
-                if (empty($this->attributes['slug'])) {
-                    $this->attributes['slug'] = Str::slug($value);
-                }
-
-                return $value;
-            }
         );
     }
 
@@ -660,21 +537,144 @@ class MunicipalLocation extends Model
     }
 
     /**
+     * Accessor per il nome del tipo di location
+     */
+    protected function locationTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::LOCATION_TYPES[$this->location_type] ?? $this->location_type
+        );
+    }
+
+    /**
+     * Accessor per il nome della categoria
+     */
+    protected function categoryName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
+        );
+    }
+
+    /**
+     * Accessor per l'indirizzo completo
+     */
+    protected function fullAddress(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $address = $this->address;
+
+                if ($this->civic_number) {
+                    $address .= ', '.$this->civic_number;
+                }
+
+                if ($this->postal_code) {
+                    $address .= ', '.$this->postal_code;
+                }
+
+                if ($this->city) {
+                    $address .= ' '.$this->city;
+                }
+
+                if ($this->province) {
+                    $address .= ' ('.$this->province.')';
+                }
+
+                return $address;
+            }
+        );
+    }
+
+    /**
+     * Accessor per verificare se ha coordinate GPS
+     */
+    protected function hasCoordinates(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => isset($this->coordinates['lat']) && isset($this->coordinates['lng'])
+        );
+    }
+
+    /**
+     * Accessor per la latitudine
+     */
+    protected function latitude(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->coordinates['lat'] ?? null
+        );
+    }
+
+    /**
+     * Accessor per la longitudine
+     */
+    protected function longitude(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->coordinates['lng'] ?? null
+        );
+    }
+
+    /**
+     * Accessor per l'URL della sede
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.locations.show', $this->slug)
+        );
+    }
+
+    /**
+     * Accessor per l'URL di Google Maps
+     */
+    protected function googleMapsUrl(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->has_coordinates) {
+                    return "https://www.google.com/maps?q={$this->latitude},{$this->longitude}";
+                }
+
+                return 'https://www.google.com/maps/search/'.urlencode($this->full_address);
+            }
+        );
+    }
+
+    /**
+     * Mutator per il nome (genera automaticamente lo slug)
+     */
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['name'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -685,7 +685,7 @@ class MunicipalLocation extends Model
         });
 
         // Set default values
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (is_null($model->priority_level)) {
                 $model->priority_level = $model->is_headquarters ? 5 : 1;
             }

@@ -24,6 +24,64 @@ class MunicipalEvent extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * Tipologie di evento secondo AGID
+     */
+    public const EVENT_TYPES = [
+        'council_meeting' => 'Consiglio Comunale',
+        'committee_meeting' => 'Commissione',
+        'public_meeting' => 'Assemblea Pubblica',
+        'public_hearing' => 'Udienza Pubblica',
+        'conference' => 'Conferenza',
+        'workshop' => 'Workshop',
+        'seminar' => 'Seminario',
+        'training' => 'Formazione',
+        'cultural_event' => 'Evento Culturale',
+        'sports_event' => 'Evento Sportivo',
+        'celebration' => 'Celebrazione',
+        'ceremony' => 'Cerimonia',
+        'exhibition' => 'Mostra/Esposizione',
+        'fair' => 'Fiera',
+        'festival' => 'Festival',
+        'competition' => 'Concorso',
+        'tender_opening' => 'Apertura Gara',
+        'public_consultation' => 'Consultazione Pubblica',
+        'other' => 'Altro',
+    ];
+
+    /**
+     * Stati dell'evento
+     */
+    public const EVENT_STATUSES = [
+        'scheduled' => 'Programmato',
+        'confirmed' => 'Confermato',
+        'cancelled' => 'Annullato',
+        'postponed' => 'Rinviato',
+        'in_progress' => 'In Corso',
+        'completed' => 'Completato',
+        'draft' => 'Bozza',
+    ];
+
+    /**
+     * Tipologie di location
+     */
+    public const LOCATION_TYPES = [
+        'physical' => 'Fisica',
+        'online' => 'Online',
+        'hybrid' => 'Ibrida',
+        'tbd' => 'Da Definire',
+    ];
+
+    /**
+     * Livelli di visibilità
+     */
+    public const VISIBILITY_LEVELS = [
+        'public' => 'Pubblico',
+        'restricted' => 'Riservato',
+        'internal' => 'Interno',
+        'invite_only' => 'Solo su Invito',
+    ];
+
     protected $table = 'sixteen_municipal_events';
 
     protected $fillable = [
@@ -125,64 +183,6 @@ class MunicipalEvent extends Model
     ];
 
     /**
-     * Tipologie di evento secondo AGID
-     */
-    public const EVENT_TYPES = [
-        'council_meeting' => 'Consiglio Comunale',
-        'committee_meeting' => 'Commissione',
-        'public_meeting' => 'Assemblea Pubblica',
-        'public_hearing' => 'Udienza Pubblica',
-        'conference' => 'Conferenza',
-        'workshop' => 'Workshop',
-        'seminar' => 'Seminario',
-        'training' => 'Formazione',
-        'cultural_event' => 'Evento Culturale',
-        'sports_event' => 'Evento Sportivo',
-        'celebration' => 'Celebrazione',
-        'ceremony' => 'Cerimonia',
-        'exhibition' => 'Mostra/Esposizione',
-        'fair' => 'Fiera',
-        'festival' => 'Festival',
-        'competition' => 'Concorso',
-        'tender_opening' => 'Apertura Gara',
-        'public_consultation' => 'Consultazione Pubblica',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Stati dell'evento
-     */
-    public const EVENT_STATUSES = [
-        'scheduled' => 'Programmato',
-        'confirmed' => 'Confermato',
-        'cancelled' => 'Annullato',
-        'postponed' => 'Rinviato',
-        'in_progress' => 'In Corso',
-        'completed' => 'Completato',
-        'draft' => 'Bozza',
-    ];
-
-    /**
-     * Tipologie di location
-     */
-    public const LOCATION_TYPES = [
-        'physical' => 'Fisica',
-        'online' => 'Online',
-        'hybrid' => 'Ibrida',
-        'tbd' => 'Da Definire',
-    ];
-
-    /**
-     * Livelli di visibilità
-     */
-    public const VISIBILITY_LEVELS = [
-        'public' => 'Pubblico',
-        'restricted' => 'Riservato',
-        'internal' => 'Interno',
-        'invite_only' => 'Solo su Invito',
-    ];
-
-    /**
      * Relazione con l'unità organizzativa
      */
     public function organizationalUnit(): BelongsTo
@@ -249,7 +249,7 @@ class MunicipalEvent extends Model
     public function scopePast($query)
     {
         return $query->where('end_date', '<', now()->toDateString())
-            ->orWhere(function ($q) {
+            ->orWhere(function ($q): void {
                 $q->where('start_date', '<', now()->toDateString())
                     ->whereNull('end_date');
             });
@@ -263,7 +263,7 @@ class MunicipalEvent extends Model
         $today = now()->toDateString();
 
         return $query->where('start_date', '<=', $today)
-            ->where(function ($q) use ($today) {
+            ->where(function ($q) use ($today): void {
                 $q->where('end_date', '>=', $today)
                     ->orWhereNull('end_date');
             })
@@ -293,166 +293,6 @@ class MunicipalEvent extends Model
     {
         return $query->orderBy('start_date', $direction)
             ->orderBy('start_time', $direction);
-    }
-
-    /**
-     * Accessor per il nome del tipo di evento
-     */
-    protected function eventTypeName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::EVENT_TYPES[$this->event_type] ?? $this->event_type
-        );
-    }
-
-    /**
-     * Accessor per il nome dello stato
-     */
-    protected function eventStatusName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::EVENT_STATUSES[$this->event_status] ?? $this->event_status
-        );
-    }
-
-    /**
-     * Accessor per il nome del tipo di location
-     */
-    protected function locationTypeName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::LOCATION_TYPES[$this->location_type] ?? $this->location_type
-        );
-    }
-
-    /**
-     * Accessor per verificare se l'evento è futuro
-     */
-    protected function isUpcoming(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->start_date->isFuture() ||
-                ($this->start_date->isToday() && $this->start_time?->isFuture())
-        );
-    }
-
-    /**
-     * Accessor per verificare se l'evento è in corso
-     */
-    protected function isOngoing(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                $now = now();
-                $startDateTime = $this->getStartDateTime();
-                $endDateTime = $this->getEndDateTime();
-
-                return $startDateTime <= $now &&
-                       ($endDateTime >= $now || ! $endDateTime) &&
-                       $this->event_status === 'in_progress';
-            }
-        );
-    }
-
-    /**
-     * Accessor per verificare se l'evento è passato
-     */
-    protected function isPast(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                $endDateTime = $this->getEndDateTime();
-
-                return $endDateTime ? $endDateTime->isPast() : $this->start_date->isPast();
-            }
-        );
-    }
-
-    /**
-     * Accessor per verificare se l'evento è cancellato
-     */
-    protected function isCancelled(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->event_status === 'cancelled'
-        );
-    }
-
-    /**
-     * Accessor per verificare se ha posti disponibili
-     */
-    protected function hasAvailableSpots(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => ! $this->capacity || $this->current_attendees < $this->capacity
-        );
-    }
-
-    /**
-     * Accessor per i posti rimanenti
-     */
-    protected function availableSpots(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->capacity ? ($this->capacity - $this->current_attendees) : null
-        );
-    }
-
-    /**
-     * Accessor per la durata dell'evento
-     */
-    protected function duration(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->is_all_day) {
-                    return $this->end_date
-                        ? $this->start_date->diffInDays($this->end_date) + 1 .' giorni'
-                        : '1 giorno';
-                }
-
-                if ($this->start_time && $this->end_time) {
-                    $diff = $this->start_time->diffInMinutes($this->end_time);
-
-                    if ($diff >= 60) {
-                        $hours = intval($diff / 60);
-                        $minutes = $diff % 60;
-
-                        return $minutes > 0 ? "{$hours}h {$minutes}m" : "{$hours}h";
-                    }
-
-                    return "{$diff}m";
-                }
-
-            }
-        );
-    }
-
-    /**
-     * Accessor per l'URL dell'evento
-     */
-    protected function url(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => route('municipal.events.show', $this->slug)
-        );
-    }
-
-    /**
-     * Mutator per il titolo (genera automaticamente lo slug)
-     */
-    protected function title(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['title'] = $value;
-                if (empty($this->attributes['slug'])) {
-                    $this->attributes['slug'] = Str::slug($value);
-                }
-
-                return $value;
-            }
-        );
     }
 
     /**
@@ -602,7 +442,7 @@ class MunicipalEvent extends Model
      */
     public function isFree(): bool
     {
-        return ! $this->registration_cost || $this->registration_cost == 0;
+        return ! $this->registration_cost || $this->registration_cost === 0;
     }
 
     /**
@@ -655,21 +495,180 @@ class MunicipalEvent extends Model
     }
 
     /**
+     * Accessor per il nome del tipo di evento
+     */
+    protected function eventTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::EVENT_TYPES[$this->event_type] ?? $this->event_type
+        );
+    }
+
+    /**
+     * Accessor per il nome dello stato
+     */
+    protected function eventStatusName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::EVENT_STATUSES[$this->event_status] ?? $this->event_status
+        );
+    }
+
+    /**
+     * Accessor per il nome del tipo di location
+     */
+    protected function locationTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::LOCATION_TYPES[$this->location_type] ?? $this->location_type
+        );
+    }
+
+    /**
+     * Accessor per verificare se l'evento è futuro
+     */
+    protected function isUpcoming(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_date->isFuture() ||
+                ($this->start_date->isToday() && $this->start_time?->isFuture())
+        );
+    }
+
+    /**
+     * Accessor per verificare se l'evento è in corso
+     */
+    protected function isOngoing(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $now = now();
+                $startDateTime = $this->getStartDateTime();
+                $endDateTime = $this->getEndDateTime();
+
+                return $startDateTime <= $now &&
+                       ($endDateTime >= $now || ! $endDateTime) &&
+                       $this->event_status === 'in_progress';
+            }
+        );
+    }
+
+    /**
+     * Accessor per verificare se l'evento è passato
+     */
+    protected function isPast(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $endDateTime = $this->getEndDateTime();
+
+                return $endDateTime ? $endDateTime->isPast() : $this->start_date->isPast();
+            }
+        );
+    }
+
+    /**
+     * Accessor per verificare se l'evento è cancellato
+     */
+    protected function isCancelled(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->event_status === 'cancelled'
+        );
+    }
+
+    /**
+     * Accessor per verificare se ha posti disponibili
+     */
+    protected function hasAvailableSpots(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => ! $this->capacity || $this->current_attendees < $this->capacity
+        );
+    }
+
+    /**
+     * Accessor per i posti rimanenti
+     */
+    protected function availableSpots(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->capacity ? $this->capacity - $this->current_attendees : null
+        );
+    }
+
+    /**
+     * Accessor per la durata dell'evento
+     */
+    protected function duration(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->is_all_day) {
+                    return $this->end_date
+                        ? $this->start_date->diffInDays($this->end_date) + 1 .' giorni'
+                        : '1 giorno';
+                }
+
+                if ($this->start_time && $this->end_time) {
+                    $diff = $this->start_time->diffInMinutes($this->end_time);
+
+                    if ($diff >= 60) {
+                        $hours = intval($diff / 60);
+                        $minutes = $diff % 60;
+
+                        return $minutes > 0 ? "{$hours}h {$minutes}m" : "{$hours}h";
+                    }
+
+                    return "{$diff}m";
+                }
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'URL dell'evento
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.events.show', $this->slug)
+        );
+    }
+
+    /**
+     * Mutator per il titolo (genera automaticamente lo slug)
+     */
+    protected function title(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['title'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -680,7 +679,7 @@ class MunicipalEvent extends Model
         });
 
         // Set default values
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (is_null($model->event_status)) {
                 $model->event_status = 'scheduled';
             }

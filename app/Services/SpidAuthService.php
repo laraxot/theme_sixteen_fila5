@@ -37,39 +37,6 @@ class SpidAuthService
     }
 
     /**
-     * Carica la configurazione dei provider SPID
-     */
-    protected function loadProviders(): void
-    {
-        $this->providers = config('spid.providers', [
-            'poste' => [
-                'name' => 'Poste Italiane',
-                'entityId' => 'https://posteid.poste.it',
-                'sso_url' => 'https://posteid.poste.it/jod-fs/ssoservicepost',
-                'slo_url' => 'https://posteid.poste.it/jod-fs/sloservicepost',
-                'cert' => 'poste.crt',
-                'logo' => 'poste-logo.svg',
-            ],
-            'sielte' => [
-                'name' => 'Sielte',
-                'entityId' => 'https://identity.sieltecloud.it',
-                'sso_url' => 'https://identity.sieltecloud.it/simplesaml/saml2/idp/SSOService.php',
-                'slo_url' => 'https://identity.sieltecloud.it/simplesaml/saml2/idp/SingleLogoutService.php',
-                'cert' => 'sielte.crt',
-                'logo' => 'sielte-logo.svg',
-            ],
-            'tim' => [
-                'name' => 'TIM Trust Technologies',
-                'entityId' => 'https://login.id.tim.it/affwebservices/public/saml2sso',
-                'sso_url' => 'https://login.id.tim.it/affwebservices/public/saml2sso',
-                'slo_url' => 'https://login.id.tim.it/affwebservices/public/saml2slo',
-                'cert' => 'tim.crt',
-                'logo' => 'tim-logo.svg',
-            ],
-        ]);
-    }
-
-    /**
      * Ottiene tutti i provider SPID disponibili
      */
     public function getProviders(): array
@@ -93,7 +60,7 @@ class SpidAuthService
         // Salva lo stato della richiesta in sessione
         Session::put('spid.request_id', $requestId);
         Session::put('spid.provider', $provider);
-        Session::put('spid.return_url', $returnUrl ?: url()->previous());
+        Session::put('spid.return_url', $returnUrl ? $returnUrl : url()->previous());
         Session::put('spid.auth_level', $level);
 
         $samlRequest = $this->buildSamlAuthRequest($requestId, $providerConfig, $level);
@@ -146,7 +113,7 @@ class SpidAuthService
         }
 
         $decodedResponse = base64_decode($samlResponse);
-        $responseDoc = new DOMDocument;
+        $responseDoc = new DOMDocument();
         $responseDoc->loadXML($decodedResponse);
 
         // Valida la signature
@@ -215,6 +182,73 @@ class SpidAuthService
         $metadata .= '</md:EntityDescriptor>'.PHP_EOL;
 
         return $metadata;
+    }
+
+    /**
+     * Verifica se l'utente è autenticato con SPID
+     */
+    public function isAuthenticated(): bool
+    {
+        return Session::has('spid.authenticated') && Session::get('spid.authenticated') === true;
+    }
+
+    /**
+     * Ottiene i dati dell'utente autenticato
+     */
+    public function getAuthenticatedUser(): ?array
+    {
+        if (! $this->isAuthenticated()) {
+            return null;
+        }
+
+        return Session::get('spid.user_data');
+    }
+
+    /**
+     * Effettua il logout dell'utente SPID
+     */
+    public function logout(): void
+    {
+        Session::forget([
+            'spid.authenticated',
+            'spid.user_data',
+            'spid.provider',
+            'spid.request_id',
+            'spid.auth_level',
+        ]);
+    }
+
+    /**
+     * Carica la configurazione dei provider SPID
+     */
+    protected function loadProviders(): void
+    {
+        $this->providers = config('spid.providers', [
+            'poste' => [
+                'name' => 'Poste Italiane',
+                'entityId' => 'https://posteid.poste.it',
+                'sso_url' => 'https://posteid.poste.it/jod-fs/ssoservicepost',
+                'slo_url' => 'https://posteid.poste.it/jod-fs/sloservicepost',
+                'cert' => 'poste.crt',
+                'logo' => 'poste-logo.svg',
+            ],
+            'sielte' => [
+                'name' => 'Sielte',
+                'entityId' => 'https://identity.sieltecloud.it',
+                'sso_url' => 'https://identity.sieltecloud.it/simplesaml/saml2/idp/SSOService.php',
+                'slo_url' => 'https://identity.sieltecloud.it/simplesaml/saml2/idp/SingleLogoutService.php',
+                'cert' => 'sielte.crt',
+                'logo' => 'sielte-logo.svg',
+            ],
+            'tim' => [
+                'name' => 'TIM Trust Technologies',
+                'entityId' => 'https://login.id.tim.it/affwebservices/public/saml2sso',
+                'sso_url' => 'https://login.id.tim.it/affwebservices/public/saml2sso',
+                'slo_url' => 'https://login.id.tim.it/affwebservices/public/saml2slo',
+                'cert' => 'tim.crt',
+                'logo' => 'tim-logo.svg',
+            ],
+        ]);
     }
 
     /**
@@ -342,39 +376,5 @@ class SpidAuthService
     {
         // In produzione, caricare il certificato dal filesystem
         return config('spid.signing_cert', '');
-    }
-
-    /**
-     * Verifica se l'utente è autenticato con SPID
-     */
-    public function isAuthenticated(): bool
-    {
-        return Session::has('spid.authenticated') && Session::get('spid.authenticated') === true;
-    }
-
-    /**
-     * Ottiene i dati dell'utente autenticato
-     */
-    public function getAuthenticatedUser(): ?array
-    {
-        if (! $this->isAuthenticated()) {
-            return null;
-        }
-
-        return Session::get('spid.user_data');
-    }
-
-    /**
-     * Effettua il logout dell'utente SPID
-     */
-    public function logout(): void
-    {
-        Session::forget([
-            'spid.authenticated',
-            'spid.user_data',
-            'spid.provider',
-            'spid.request_id',
-            'spid.auth_level',
-        ]);
     }
 }

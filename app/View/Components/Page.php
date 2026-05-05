@@ -16,7 +16,8 @@ class Page extends Component
         public string $side = 'content',
         public string $slug = '',
         public array $data = []
-    ) {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.
