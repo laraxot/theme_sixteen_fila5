@@ -23,6 +23,38 @@ class PublicPerson extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * Categorie di persone pubbliche secondo AGID
+     */
+    public const CATEGORIES = [
+        'politician' => 'Politico/Amministratore',
+        'manager' => 'Dirigente',
+        'employee' => 'Dipendente',
+        'consultant' => 'Consulente/Collaboratore',
+        'commission_member' => 'Componente Commissione',
+        'board_member' => 'Componente Organo',
+        'authority_member' => 'Componente Autorità',
+        'other' => 'Altro',
+    ];
+
+    /**
+     * Ruoli principali secondo AGID
+     */
+    public const ROLES = [
+        'mayor' => 'Sindaco',
+        'deputy_mayor' => 'Vicesindaco',
+        'councillor' => 'Assessore',
+        'president' => 'Presidente',
+        'vice_president' => 'Vicepresidente',
+        'secretary' => 'Segretario',
+        'general_manager' => 'Direttore Generale',
+        'manager' => 'Dirigente',
+        'supervisor' => 'Responsabile',
+        'employee' => 'Dipendente',
+        'consultant' => 'Consulente',
+        'collaborator' => 'Collaboratore',
+    ];
+
     protected $table = 'sixteen_public_people';
 
     protected $fillable = [
@@ -76,38 +108,6 @@ class PublicPerson extends Model
         'skills' => 'json',
         'languages' => 'json',
         'metadata' => 'json',
-    ];
-
-    /**
-     * Categorie di persone pubbliche secondo AGID
-     */
-    public const CATEGORIES = [
-        'politician' => 'Politico/Amministratore',
-        'manager' => 'Dirigente',
-        'employee' => 'Dipendente',
-        'consultant' => 'Consulente/Collaboratore',
-        'commission_member' => 'Componente Commissione',
-        'board_member' => 'Componente Organo',
-        'authority_member' => 'Componente Autorità',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Ruoli principali secondo AGID
-     */
-    public const ROLES = [
-        'mayor' => 'Sindaco',
-        'deputy_mayor' => 'Vicesindaco',
-        'councillor' => 'Assessore',
-        'president' => 'Presidente',
-        'vice_president' => 'Vicepresidente',
-        'secretary' => 'Segretario',
-        'general_manager' => 'Direttore Generale',
-        'manager' => 'Dirigente',
-        'supervisor' => 'Responsabile',
-        'employee' => 'Dipendente',
-        'consultant' => 'Consulente',
-        'collaborator' => 'Collaboratore',
     ];
 
     /**
@@ -185,7 +185,7 @@ class PublicPerson extends Model
     public function scopeInOffice($query)
     {
         return $query->where('start_date', '<=', now())
-            ->where(function ($q) {
+            ->where(function ($q): void {
                 $q->whereNull('end_date')
                     ->orWhere('end_date', '>', now());
             });
@@ -197,115 +197,6 @@ class PublicPerson extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('last_name')->orderBy('first_name');
-    }
-
-    /**
-     * Accessor per il nome completo
-     */
-    protected function fullName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => trim($this->first_name.' '.$this->last_name)
-        );
-    }
-
-    /**
-     * Accessor per il nome invertito (Cognome, Nome)
-     */
-    protected function displayName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => trim($this->last_name.', '.$this->first_name)
-        );
-    }
-
-    /**
-     * Accessor per il nome della categoria
-     */
-    protected function categoryName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
-        );
-    }
-
-    /**
-     * Accessor per il nome del ruolo
-     */
-    protected function roleName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::ROLES[$this->role] ?? $this->role
-        );
-    }
-
-    /**
-     * Accessor per l'età
-     */
-    protected function age(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->birth_date?->age
-        );
-    }
-
-    /**
-     * Accessor per verificare se è in carica
-     */
-    protected function isInOffice(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if (! $this->start_date || $this->start_date->isFuture()) {
-                    return false;
-                }
-
-                return ! $this->end_date || $this->end_date->isFuture();
-            }
-        );
-    }
-
-    /**
-     * Accessor per i giorni rimanenti in carica
-     */
-    protected function daysInOffice(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if (! $this->is_in_office) {
-                    return;
-                }
-
-                return $this->end_date?->diffInDays(now()) ?? null;
-            }
-        );
-    }
-
-    /**
-     * Accessor per l'URL della persona
-     */
-    protected function url(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => route('municipal.public-people.show', $this->slug)
-        );
-    }
-
-    /**
-     * Mutator per nome (genera automaticamente lo slug)
-     */
-    protected function lastName(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
-                }
-
-                return $value;
-            }
-        );
     }
 
     /**
@@ -442,21 +333,130 @@ class PublicPerson extends Model
     }
 
     /**
+     * Accessor per il nome completo
+     */
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => trim($this->first_name.' '.$this->last_name)
+        );
+    }
+
+    /**
+     * Accessor per il nome invertito (Cognome, Nome)
+     */
+    protected function displayName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => trim($this->last_name.', '.$this->first_name)
+        );
+    }
+
+    /**
+     * Accessor per il nome della categoria
+     */
+    protected function categoryName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
+        );
+    }
+
+    /**
+     * Accessor per il nome del ruolo
+     */
+    protected function roleName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::ROLES[$this->role] ?? $this->role
+        );
+    }
+
+    /**
+     * Accessor per l'età
+     */
+    protected function age(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->birth_date?->age
+        );
+    }
+
+    /**
+     * Accessor per verificare se è in carica
+     */
+    protected function isInOffice(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if (! $this->start_date || $this->start_date->isFuture()) {
+                    return false;
+                }
+
+                return ! $this->end_date || $this->end_date->isFuture();
+            }
+        );
+    }
+
+    /**
+     * Accessor per i giorni rimanenti in carica
+     */
+    protected function daysInOffice(): Attribute
+    {
+        return Attribute::make(
+            get: function (): void {
+                if (! $this->is_in_office) {
+                    return;
+                }
+
+                return $this->end_date?->diffInDays(now()) ?? null;
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'URL della persona
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.public-people.show', $this->slug)
+        );
+    }
+
+    /**
+     * Mutator per nome (genera automaticamente lo slug)
+     */
+    protected function lastName(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['last_name'] = $value;
+                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
+                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
                 $model->slug = Str::slug($model->first_name.' '.$model->last_name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -467,7 +467,7 @@ class PublicPerson extends Model
         });
 
         // Set default privacy settings
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,

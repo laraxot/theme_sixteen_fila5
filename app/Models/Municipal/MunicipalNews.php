@@ -23,6 +23,74 @@ class MunicipalNews extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * Tipologie di notizia secondo AGID
+     */
+    public const NEWS_TYPES = [
+        'news' => 'Notizia',
+        'press_release' => 'Comunicato Stampa',
+        'public_notice' => 'Avviso Pubblico',
+        'announcement' => 'Annuncio',
+        'alert' => 'Allerta',
+        'service_update' => 'Aggiornamento Servizi',
+        'regulation_update' => 'Aggiornamento Normativo',
+        'event_announcement' => 'Annuncio Eventi',
+        'tender_notice' => 'Bando/Gara',
+        'job_posting' => 'Offerta Lavoro',
+        'council_update' => 'Aggiornamento Consiglio',
+        'mayor_message' => 'Messaggio del Sindaco',
+        'citizen_info' => 'Informazione ai Cittadini',
+        'emergency' => 'Emergenza',
+        'other' => 'Altro',
+    ];
+
+    /**
+     * Stati della notizia
+     */
+    public const NEWS_STATUSES = [
+        'draft' => 'Bozza',
+        'review' => 'In Revisione',
+        'approved' => 'Approvata',
+        'published' => 'Pubblicata',
+        'archived' => 'Archiviata',
+        'expired' => 'Scaduta',
+        'retracted' => 'Ritirata',
+    ];
+
+    /**
+     * Livelli di priorità
+     */
+    public const PRIORITY_LEVELS = [
+        1 => 'Bassa',
+        2 => 'Normale',
+        3 => 'Alta',
+        4 => 'Urgente',
+        5 => 'Critica',
+    ];
+
+    /**
+     * Livelli di urgenza
+     */
+    public const URGENCY_LEVELS = [
+        1 => 'Non Urgente',
+        2 => 'Normale',
+        3 => 'Urgente',
+        4 => 'Molto Urgente',
+        5 => 'Emergenza',
+    ];
+
+    /**
+     * Ambiti geografici
+     */
+    public const GEOGRAPHIC_SCOPES = [
+        'municipal' => 'Comunale',
+        'district' => 'Quartiere/Circoscrizione',
+        'regional' => 'Regionale',
+        'national' => 'Nazionale',
+        'european' => 'Europeo',
+        'international' => 'Internazionale',
+    ];
+
     protected $table = 'sixteen_municipal_news';
 
     protected $fillable = [
@@ -114,74 +182,6 @@ class MunicipalNews extends Model
     ];
 
     /**
-     * Tipologie di notizia secondo AGID
-     */
-    public const NEWS_TYPES = [
-        'news' => 'Notizia',
-        'press_release' => 'Comunicato Stampa',
-        'public_notice' => 'Avviso Pubblico',
-        'announcement' => 'Annuncio',
-        'alert' => 'Allerta',
-        'service_update' => 'Aggiornamento Servizi',
-        'regulation_update' => 'Aggiornamento Normativo',
-        'event_announcement' => 'Annuncio Eventi',
-        'tender_notice' => 'Bando/Gara',
-        'job_posting' => 'Offerta Lavoro',
-        'council_update' => 'Aggiornamento Consiglio',
-        'mayor_message' => 'Messaggio del Sindaco',
-        'citizen_info' => 'Informazione ai Cittadini',
-        'emergency' => 'Emergenza',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Stati della notizia
-     */
-    public const NEWS_STATUSES = [
-        'draft' => 'Bozza',
-        'review' => 'In Revisione',
-        'approved' => 'Approvata',
-        'published' => 'Pubblicata',
-        'archived' => 'Archiviata',
-        'expired' => 'Scaduta',
-        'retracted' => 'Ritirata',
-    ];
-
-    /**
-     * Livelli di priorità
-     */
-    public const PRIORITY_LEVELS = [
-        1 => 'Bassa',
-        2 => 'Normale',
-        3 => 'Alta',
-        4 => 'Urgente',
-        5 => 'Critica',
-    ];
-
-    /**
-     * Livelli di urgenza
-     */
-    public const URGENCY_LEVELS = [
-        1 => 'Non Urgente',
-        2 => 'Normale',
-        3 => 'Urgente',
-        4 => 'Molto Urgente',
-        5 => 'Emergenza',
-    ];
-
-    /**
-     * Ambiti geografici
-     */
-    public const GEOGRAPHIC_SCOPES = [
-        'municipal' => 'Comunale',
-        'district' => 'Quartiere/Circoscrizione',
-        'regional' => 'Regionale',
-        'national' => 'Nazionale',
-        'european' => 'Europeo',
-        'international' => 'Internazionale',
-    ];
-
-    /**
      * Relazione con l'unità organizzativa
      */
     public function organizationalUnit(): BelongsTo
@@ -245,7 +245,7 @@ class MunicipalNews extends Model
         return $query->where('is_published', true)
             ->where('news_status', 'published')
             ->where('publication_date', '<=', now())
-            ->where(function ($q) {
+            ->where(function ($q): void {
                 $q->whereNull('expiry_date')
                     ->orWhere('expiry_date', '>', now());
             });
@@ -314,168 +314,6 @@ class MunicipalNews extends Model
     {
         return $query->orderBy('publication_date', $direction)
             ->orderBy('priority_level', 'desc');
-    }
-
-    /**
-     * Accessor per il nome del tipo di notizia
-     */
-    protected function newsTypeName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::NEWS_TYPES[$this->news_type] ?? $this->news_type
-        );
-    }
-
-    /**
-     * Accessor per il nome dello stato
-     */
-    protected function newsStatusName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::NEWS_STATUSES[$this->news_status] ?? $this->news_status
-        );
-    }
-
-    /**
-     * Accessor per il nome della priorità
-     */
-    protected function priorityName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::PRIORITY_LEVELS[$this->priority_level] ?? 'Normale'
-        );
-    }
-
-    /**
-     * Accessor per il nome dell'urgenza
-     */
-    protected function urgencyName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::URGENCY_LEVELS[$this->urgency_level] ?? 'Normale'
-        );
-    }
-
-    /**
-     * Accessor per verificare se è scaduta
-     */
-    protected function isExpired(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
-        );
-    }
-
-    /**
-     * Accessor per verificare se è attuale
-     */
-    protected function isCurrent(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->is_expired) {
-                    return false;
-                }
-
-                return $this->publication_date <= now();
-            }
-        );
-    }
-
-    /**
-     * Accessor per l'età della notizia in giorni
-     */
-    protected function ageInDays(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->publication_date?->diffInDays(now())
-        );
-    }
-
-    /**
-     * Accessor per verificare se è una notizia fresca
-     */
-    protected function isFresh(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->age_in_days <= 7
-        );
-    }
-
-    /**
-     * Accessor per il tempo di lettura stimato
-     */
-    protected function estimatedReadingTime(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->reading_time) {
-                    return $this->reading_time;
-                }
-
-                // Stima basata su 200 parole al minuto
-                $wordCount = str_word_count(strip_tags($this->content));
-
-                return max(1, ceil($wordCount / 200));
-            }
-        );
-    }
-
-    /**
-     * Accessor per l'URL della notizia
-     */
-    protected function url(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => route('municipal.news.show', $this->slug)
-        );
-    }
-
-    /**
-     * Accessor per l'URL dell'immagine in evidenza
-     */
-    protected function featuredImageUrl(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->featured_image ? asset('storage/'.$this->featured_image) : null
-        );
-    }
-
-    /**
-     * Mutator per il titolo (genera automaticamente lo slug)
-     */
-    protected function title(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['title'] = $value;
-                if (empty($this->attributes['slug'])) {
-                    $this->attributes['slug'] = Str::slug($value);
-                }
-
-                return $value;
-            }
-        );
-    }
-
-    /**
-     * Mutator per il contenuto (aggiorna reading_time)
-     */
-    protected function content(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['content'] = $value;
-
-                // Auto-calcola reading time se non impostato
-                if (! isset($this->attributes['reading_time'])) {
-                    $wordCount = str_word_count(strip_tags($value));
-                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
-                }
-
-                return $value;
-            }
-        );
     }
 
     /**
@@ -687,21 +525,183 @@ class MunicipalNews extends Model
     }
 
     /**
+     * Accessor per il nome del tipo di notizia
+     */
+    protected function newsTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::NEWS_TYPES[$this->news_type] ?? $this->news_type
+        );
+    }
+
+    /**
+     * Accessor per il nome dello stato
+     */
+    protected function newsStatusName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::NEWS_STATUSES[$this->news_status] ?? $this->news_status
+        );
+    }
+
+    /**
+     * Accessor per il nome della priorità
+     */
+    protected function priorityName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::PRIORITY_LEVELS[$this->priority_level] ?? 'Normale'
+        );
+    }
+
+    /**
+     * Accessor per il nome dell'urgenza
+     */
+    protected function urgencyName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::URGENCY_LEVELS[$this->urgency_level] ?? 'Normale'
+        );
+    }
+
+    /**
+     * Accessor per verificare se è scaduta
+     */
+    protected function isExpired(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
+        );
+    }
+
+    /**
+     * Accessor per verificare se è attuale
+     */
+    protected function isCurrent(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->is_expired) {
+                    return false;
+                }
+
+                return $this->publication_date <= now();
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'età della notizia in giorni
+     */
+    protected function ageInDays(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->publication_date?->diffInDays(now())
+        );
+    }
+
+    /**
+     * Accessor per verificare se è una notizia fresca
+     */
+    protected function isFresh(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->age_in_days <= 7
+        );
+    }
+
+    /**
+     * Accessor per il tempo di lettura stimato
+     */
+    protected function estimatedReadingTime(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->reading_time) {
+                    return $this->reading_time;
+                }
+
+                // Stima basata su 200 parole al minuto
+                $wordCount = str_word_count(strip_tags($this->content));
+
+                return max(1, ceil($wordCount / 200));
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'URL della notizia
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.news.show', $this->slug)
+        );
+    }
+
+    /**
+     * Accessor per l'URL dell'immagine in evidenza
+     */
+    protected function featuredImageUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->featured_image ? asset('storage/'.$this->featured_image) : null
+        );
+    }
+
+    /**
+     * Mutator per il titolo (genera automaticamente lo slug)
+     */
+    protected function title(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['title'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
+     * Mutator per il contenuto (aggiorna reading_time)
+     */
+    protected function content(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['content'] = $value;
+
+                // Auto-calcola reading time se non impostato
+                if (! isset($this->attributes['reading_time'])) {
+                    $wordCount = str_word_count(strip_tags($value));
+                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -712,7 +712,7 @@ class MunicipalNews extends Model
         });
 
         // Set default values
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (is_null($model->news_status)) {
                 $model->news_status = 'draft';
             }
@@ -735,7 +735,7 @@ class MunicipalNews extends Model
         });
 
         // Auto-publish se la data è raggiunta
-        static::updating(function ($model) {
+        static::updating(function ($model): void {
             if ($model->news_status === 'approved' &&
                 $model->publication_date <= now() &&
                 ! $model->is_published) {
@@ -745,7 +745,7 @@ class MunicipalNews extends Model
         });
 
         // Increment revision number on updates
-        static::updating(function ($model) {
+        static::updating(function ($model): void {
             if ($model->isDirty(['title', 'content', 'excerpt'])) {
                 $model->revision_number++;
                 $model->last_modified = now();

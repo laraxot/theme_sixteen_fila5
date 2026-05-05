@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Themes\Sixteen\Http\Middleware;
 
 use Closure;

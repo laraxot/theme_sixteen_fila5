@@ -23,102 +23,6 @@ class PublicDocument extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'sixteen_public_documents';
-
-    protected $fillable = [
-        'title',
-        'slug',
-        'description',
-        'summary',
-        'document_type',
-        'category',
-        'subcategory',
-        'organizational_unit_id',
-        'author_id',
-        'service_id',
-        'document_number',
-        'protocol_number',
-        'registration_number',
-        'document_status',
-        'publication_status',
-        'legal_status',
-        'classification_code',
-        'subject_matter',
-        'keywords',
-        'language',
-        'document_date',
-        'approval_date',
-        'publication_date',
-        'effective_date',
-        'expiry_date',
-        'review_date',
-        'file_path',
-        'file_name',
-        'file_size',
-        'file_type',
-        'file_hash',
-        'original_format',
-        'accessible_format',
-        'signed_version',
-        'attachments',
-        'versions',
-        'related_documents',
-        'legislative_references',
-        'administrative_references',
-        'transparency_section',
-        'access_rights',
-        'privacy_level',
-        'retention_period',
-        'disposal_date',
-        'digital_signature',
-        'timestamp',
-        'accessibility_compliance',
-        'format_compliance',
-        'metadata_compliance',
-        'download_count',
-        'last_accessed',
-        'checksum',
-        'is_published',
-        'is_active',
-        'is_searchable',
-        'is_downloadable',
-        'requires_authentication',
-        'visibility_level',
-        'metadata',
-    ];
-
-    protected $casts = [
-        'document_date' => 'date',
-        'approval_date' => 'date',
-        'publication_date' => 'date',
-        'effective_date' => 'date',
-        'expiry_date' => 'date',
-        'review_date' => 'date',
-        'disposal_date' => 'date',
-        'last_accessed' => 'datetime',
-        'file_size' => 'integer',
-        'download_count' => 'integer',
-        'retention_period' => 'integer',
-        'is_published' => 'boolean',
-        'is_active' => 'boolean',
-        'is_searchable' => 'boolean',
-        'is_downloadable' => 'boolean',
-        'requires_authentication' => 'boolean',
-        'accessibility_compliance' => 'boolean',
-        'format_compliance' => 'boolean',
-        'metadata_compliance' => 'boolean',
-        'keywords' => 'json',
-        'attachments' => 'json',
-        'versions' => 'json',
-        'related_documents' => 'json',
-        'legislative_references' => 'json',
-        'administrative_references' => 'json',
-        'access_rights' => 'json',
-        'digital_signature' => 'json',
-        'timestamp' => 'json',
-        'metadata' => 'json',
-    ];
-
     /**
      * Tipologie di documento secondo AGID
      */
@@ -227,6 +131,102 @@ class PublicDocument extends Model
         'other' => 'Altri Contenuti',
     ];
 
+    protected $table = 'sixteen_public_documents';
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'description',
+        'summary',
+        'document_type',
+        'category',
+        'subcategory',
+        'organizational_unit_id',
+        'author_id',
+        'service_id',
+        'document_number',
+        'protocol_number',
+        'registration_number',
+        'document_status',
+        'publication_status',
+        'legal_status',
+        'classification_code',
+        'subject_matter',
+        'keywords',
+        'language',
+        'document_date',
+        'approval_date',
+        'publication_date',
+        'effective_date',
+        'expiry_date',
+        'review_date',
+        'file_path',
+        'file_name',
+        'file_size',
+        'file_type',
+        'file_hash',
+        'original_format',
+        'accessible_format',
+        'signed_version',
+        'attachments',
+        'versions',
+        'related_documents',
+        'legislative_references',
+        'administrative_references',
+        'transparency_section',
+        'access_rights',
+        'privacy_level',
+        'retention_period',
+        'disposal_date',
+        'digital_signature',
+        'timestamp',
+        'accessibility_compliance',
+        'format_compliance',
+        'metadata_compliance',
+        'download_count',
+        'last_accessed',
+        'checksum',
+        'is_published',
+        'is_active',
+        'is_searchable',
+        'is_downloadable',
+        'requires_authentication',
+        'visibility_level',
+        'metadata',
+    ];
+
+    protected $casts = [
+        'document_date' => 'date',
+        'approval_date' => 'date',
+        'publication_date' => 'date',
+        'effective_date' => 'date',
+        'expiry_date' => 'date',
+        'review_date' => 'date',
+        'disposal_date' => 'date',
+        'last_accessed' => 'datetime',
+        'file_size' => 'integer',
+        'download_count' => 'integer',
+        'retention_period' => 'integer',
+        'is_published' => 'boolean',
+        'is_active' => 'boolean',
+        'is_searchable' => 'boolean',
+        'is_downloadable' => 'boolean',
+        'requires_authentication' => 'boolean',
+        'accessibility_compliance' => 'boolean',
+        'format_compliance' => 'boolean',
+        'metadata_compliance' => 'boolean',
+        'keywords' => 'json',
+        'attachments' => 'json',
+        'versions' => 'json',
+        'related_documents' => 'json',
+        'legislative_references' => 'json',
+        'administrative_references' => 'json',
+        'access_rights' => 'json',
+        'digital_signature' => 'json',
+        'timestamp' => 'json',
+        'metadata' => 'json',
+    ];
+
     /**
      * Relazione con l'unità organizzativa
      */
@@ -286,7 +286,7 @@ class PublicDocument extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true)
-            ->where(function ($q) {
+            ->where(function ($q): void {
                 $q->whereNull('expiry_date')
                     ->orWhere('expiry_date', '>', now());
             });
@@ -322,7 +322,7 @@ class PublicDocument extends Model
     public function scopeEffective($query)
     {
         return $query->where('document_status', 'effective')
-            ->where(function ($q) {
+            ->where(function ($q): void {
                 $q->whereNull('effective_date')
                     ->orWhere('effective_date', '<=', now());
             });
@@ -334,152 +334,6 @@ class PublicDocument extends Model
     public function scopeOrdered($query, string $field = 'document_date', string $direction = 'desc')
     {
         return $query->orderBy($field, $direction);
-    }
-
-    /**
-     * Accessor per il nome del tipo di documento
-     */
-    protected function documentTypeName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
-        );
-    }
-
-    /**
-     * Accessor per il nome dello stato
-     */
-    protected function documentStatusName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
-        );
-    }
-
-    /**
-     * Accessor per il nome dello stato di pubblicazione
-     */
-    protected function publicationStatusName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
-        );
-    }
-
-    /**
-     * Accessor per il nome del livello di privacy
-     */
-    protected function privacyLevelName(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
-        );
-    }
-
-    /**
-     * Accessor per verificare se è scaduto
-     */
-    protected function isExpired(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
-        );
-    }
-
-    /**
-     * Accessor per verificare se è in vigore
-     */
-    protected function isEffective(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if ($this->document_status !== 'effective') {
-                    return false;
-                }
-
-                if ($this->effective_date && $this->effective_date->isFuture()) {
-                    return false;
-                }
-
-                if ($this->is_expired) {
-                    return false;
-                }
-
-                return true;
-            }
-        );
-    }
-
-    /**
-     * Accessor per verificare se necessita revisione
-     */
-    protected function needsReview(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->review_date && $this->review_date->isPast()
-        );
-    }
-
-    /**
-     * Accessor per la dimensione del file formattata
-     */
-    protected function formattedFileSize(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if (! $this->file_size) {
-                    return;
-                }
-
-                $units = ['B', 'KB', 'MB', 'GB'];
-                $size = $this->file_size;
-                $unit = 0;
-
-                while ($size >= 1024 && $unit < count($units) - 1) {
-                    $size /= 1024;
-                    $unit++;
-                }
-
-                return round($size, 2).' '.$units[$unit];
-            }
-        );
-    }
-
-    /**
-     * Accessor per l'URL del documento
-     */
-    protected function url(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => route('municipal.documents.show', $this->slug)
-        );
-    }
-
-    /**
-     * Accessor per l'URL di download
-     */
-    protected function downloadUrl(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null
-        );
-    }
-
-    /**
-     * Mutator per il titolo (genera automaticamente lo slug)
-     */
-    protected function title(): Attribute
-    {
-        return Attribute::make(
-            set: function ($value) {
-                $this->attributes['title'] = $value;
-                if (empty($this->attributes['slug'])) {
-                    $this->attributes['slug'] = Str::slug($value);
-                }
-
-                return $value;
-            }
-        );
     }
 
     /**
@@ -717,21 +571,167 @@ class PublicDocument extends Model
     }
 
     /**
+     * Accessor per il nome del tipo di documento
+     */
+    protected function documentTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
+        );
+    }
+
+    /**
+     * Accessor per il nome dello stato
+     */
+    protected function documentStatusName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
+        );
+    }
+
+    /**
+     * Accessor per il nome dello stato di pubblicazione
+     */
+    protected function publicationStatusName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
+        );
+    }
+
+    /**
+     * Accessor per il nome del livello di privacy
+     */
+    protected function privacyLevelName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
+        );
+    }
+
+    /**
+     * Accessor per verificare se è scaduto
+     */
+    protected function isExpired(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
+        );
+    }
+
+    /**
+     * Accessor per verificare se è in vigore
+     */
+    protected function isEffective(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->document_status !== 'effective') {
+                    return false;
+                }
+
+                if ($this->effective_date && $this->effective_date->isFuture()) {
+                    return false;
+                }
+
+                if ($this->is_expired) {
+                    return false;
+                }
+
+                return true;
+            }
+        );
+    }
+
+    /**
+     * Accessor per verificare se necessita revisione
+     */
+    protected function needsReview(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->review_date && $this->review_date->isPast()
+        );
+    }
+
+    /**
+     * Accessor per la dimensione del file formattata
+     */
+    protected function formattedFileSize(): Attribute
+    {
+        return Attribute::make(
+            get: function (): void {
+                if (! $this->file_size) {
+                    return;
+                }
+
+                $units = ['B', 'KB', 'MB', 'GB'];
+                $size = $this->file_size;
+                $unit = 0;
+
+                while ($size >= 1024 && $unit < count($units) - 1) {
+                    $size /= 1024;
+                    $unit++;
+                }
+
+                return round($size, 2).' '.$units[$unit];
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'URL del documento
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.documents.show', $this->slug)
+        );
+    }
+
+    /**
+     * Accessor per l'URL di download
+     */
+    protected function downloadUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null
+        );
+    }
+
+    /**
+     * Mutator per il titolo (genera automaticamente lo slug)
+     */
+    protected function title(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['title'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
+    }
+
+    /**
      * Boot del modello
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -742,7 +742,7 @@ class PublicDocument extends Model
         });
 
         // Set default values
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (is_null($model->document_status)) {
                 $model->document_status = 'draft';
             }
@@ -765,7 +765,7 @@ class PublicDocument extends Model
         });
 
         // Calcola checksum del file se presente
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if ($model->file_path && empty($model->checksum)) {
                 $filePath = storage_path('app/'.$model->file_path);
                 if (file_exists($filePath)) {

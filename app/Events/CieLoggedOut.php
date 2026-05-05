@@ -21,7 +21,8 @@ class CieLoggedOut
     public function __construct(
         public User $user,
         public array $cieAttributes
-    ) {}
+    ) {
+    }
 
     /**
      * Ottiene il metodo di autenticazione CIE utilizzato

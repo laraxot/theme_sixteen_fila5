@@ -160,12 +160,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Register SPID Auth Service
         $this->app->singleton(SpidAuthService::class, function ($app) {
-            return new SpidAuthService;
+            return new SpidAuthService();
         });
 
         // Register CIE Auth Service
         $this->app->singleton(CieAuthService::class, function ($app) {
-            return new CieAuthService;
+            return new CieAuthService();
         });
 
         // Aliases for easier access
@@ -269,7 +269,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
         // Enhanced composer per layout AGID-compliant
-        $this->app['view']->composer('layouts.guest-agid', function ($view) {
+        $this->app['view']->composer('layouts.guest-agid', function ($view): void {
             $themeService = app('sixteen.theme');
 
             $view->with([

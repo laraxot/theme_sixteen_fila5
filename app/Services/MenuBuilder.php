@@ -171,17 +171,6 @@ class MenuBuilder
     }
 
     /**
-     * Trasforma e processa gli elementi del menu
-     */
-    protected function transformItems(array $items): Collection
-    {
-        return collect($items)
-            ->map([$this, 'processMenuItem'])
-            ->filter() // Rimuove elementi false/null dai filtri
-            ->values(); // Re-index array
-    }
-
-    /**
      * Processa un singolo elemento del menu
      */
     public function processMenuItem($item): array|false|null
@@ -231,35 +220,13 @@ class MenuBuilder
         }
 
         // Aggiungi proprietà di default
-        $item = array_merge([
+        return array_merge([
             'active' => false,
             'target' => null,
             'icon' => null,
             'badge' => null,
             'attributes' => [],
         ], $item);
-
-        return $item;
-    }
-
-    /**
-     * Determina il tipo di elemento del menu
-     */
-    protected function determineItemType(array $item): string
-    {
-        if (isset($item['dropdown'])) {
-            return 'dropdown';
-        }
-
-        if (isset($item['megamenu'])) {
-            return 'megamenu';
-        }
-
-        if (isset($item['url']) || isset($item['route'])) {
-            return 'link';
-        }
-
-        return 'text';
     }
 
     /**
@@ -365,5 +332,36 @@ class MenuBuilder
             'has_dropdowns' => $this->header->contains('type', 'dropdown'),
             'has_megamenus' => $this->header->contains('type', 'megamenu'),
         ];
+    }
+
+    /**
+     * Trasforma e processa gli elementi del menu
+     */
+    protected function transformItems(array $items): Collection
+    {
+        return collect($items)
+            ->map([$this, 'processMenuItem'])
+            ->filter() // Rimuove elementi false/null dai filtri
+            ->values(); // Re-index array
+    }
+
+    /**
+     * Determina il tipo di elemento del menu
+     */
+    protected function determineItemType(array $item): string
+    {
+        if (isset($item['dropdown'])) {
+            return 'dropdown';
+        }
+
+        if (isset($item['megamenu'])) {
+            return 'megamenu';
+        }
+
+        if (isset($item['url']) || isset($item['route'])) {
+            return 'link';
+        }
+
+        return 'text';
     }
 }
