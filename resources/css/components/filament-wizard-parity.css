@@ -1,0 +1,211 @@
+/**
+ * Filament Wizard → Bootstrap Italia / Design Comuni Visual Parity
+ *
+ * Scope: .fi-sc-wizard (Filament's native wizard class)
+ * Target: All Filament wizards in Sixteen theme.
+ *
+ * This file replaces custom widget-specific styles with global component overrides.
+ * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/
+ */
+
+/* === RESET FILAMENT NATIVE STYLES === */
+.fi-sc-wizard .fi-wiz-steps,
+.fi-sc-wizard .fi-fo-wizard-header,
+.fi-sc-wizard .fi-fo-wizard-step-header {
+    display: none !important;
+}
+
+/* === STEPPER (Design Comuni / Bootstrap Italia) === */
+.fi-sc-wizard .steppers {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9e1e8;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+}
+
+.fi-sc-wizard .steppers-header {
+    display: flex;
+    flex-direction: column;
+    max-width: 1166px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.fi-sc-wizard .step-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fi-sc-wizard .step-item {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.fi-sc-wizard .step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #f5f6f7;
+    color: #5c6f82;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+}
+
+.fi-sc-wizard .step-item.confirmed .step-icon,
+.fi-sc-wizard .step-item.completed .step-icon {
+    background-color: #008c45;
+    color: #ffffff;
+}
+
+.fi-sc-wizard .step-item.active .step-icon {
+    background-color: #007a52; /* var(--dc-green) */
+    color: #ffffff;
+    border-color: #007a52;
+}
+
+.fi-sc-wizard .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c6f82;
+    margin-left: 0.75rem;
+}
+
+.fi-sc-wizard .step-item.active .step-title {
+    color: #007a52;
+    font-weight: 700;
+}
+
+.fi-sc-wizard .step-divider {
+    flex: 1;
+    height: 1px;
+    background-color: #d9e1e8;
+    margin: 0 1rem;
+    min-width: 1rem;
+}
+
+.fi-sc-wizard .step-item.confirmed + .step-item .step-divider,
+.fi-sc-wizard .step-item.active + .step-item .step-divider {
+    background-color: #007a52;
+}
+
+.fi-sc-wizard .steppers-index {
+    font-size: 14px;
+    color: #5c6f82;
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+/* === FORM CONTENT === */
+.fi-sc-wizard .steppers-content {
+    max-width: 1166px;
+    margin: 0 auto;
+    padding: 0 15px 3rem;
+}
+
+/* Hide inactive steps to prevent vertical stacking */
+.fi-sc-wizard .fi-sc-wizard-step {
+    display: none !important;
+}
+
+.fi-sc-wizard .fi-sc-wizard-step.fi-active {
+    display: block !important;
+}
+
+/* === FORM GROUPS parity === */
+.fi-sc-wizard .fi-fo-field-wrp {
+    margin-bottom: 2rem;
+}
+
+.fi-sc-wizard .fi-fo-field-wrp-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #191919;
+    margin-bottom: 0.5rem;
+}
+
+/* === INPUTS parity === */
+.fi-sc-wizard input[type="text"],
+.fi-sc-wizard input[type="email"],
+.fi-sc-wizard input[type="tel"],
+.fi-sc-wizard select,
+.fi-sc-wizard textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    border: 1px solid #5c6f82;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #191919;
+    line-height: 1.5;
+}
+
+.fi-sc-wizard input:focus,
+.fi-sc-wizard select:focus,
+.fi-sc-wizard textarea:focus {
+    border-color: #007a52;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 122, 82, 0.1);
+}
+
+/* === ACTIONS parity === */
+.fi-sc-wizard .fi-fo-wizard-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d9e1e8;
+}
+
+.fi-sc-wizard .fi-fo-wizard-actions button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fi-sc-wizard .fi-fo-wizard-actions button[type="submit"],
+.fi-sc-wizard .fi-fo-wizard-actions button.fi-ac-btn-action[data-action="next"] {
+    background-color: #007a52;
+    color: #ffffff;
+    border: none;
+}
+
+.fi-sc-wizard .fi-fo-wizard-actions button[data-action="previous"] {
+    background-color: transparent;
+    color: #007a52;
+    border: 1px solid #007a52;
+}
+
+.fi-sc-wizard .fi-fo-wizard-actions button:hover {
+    opacity: 0.9;
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 767px) {
+    .fi-sc-wizard .step-title {
+        display: none;
+    }
+    
+    .fi-sc-wizard .fi-fo-wizard-actions {
+        flex-direction: column;
+    }
+    
+    .fi-sc-wizard .fi-fo-wizard-actions button {
+        width: 100%;
+    }
+}
