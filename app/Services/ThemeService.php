@@ -26,8 +26,7 @@ class ThemeService
 
     public function __construct(
         protected MenuBuilder $menuBuilder
-    ) {
-    }
+    ) {}
 
     /**
      * Ottiene il nome del tema.

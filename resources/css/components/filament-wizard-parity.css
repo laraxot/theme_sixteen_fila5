@@ -120,6 +120,11 @@
     display: block !important;
 }
 
+/* Ensure Alpine/Filament visibility toggles work in custom themed footer */
+.fi-sc-wizard .fi-hidden {
+    display: none !important;
+}
+
 /* === FORM GROUPS parity === */
 .fi-sc-wizard .fi-fo-field-wrp {
     margin-bottom: 2rem;
