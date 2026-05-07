@@ -18,7 +18,8 @@ class SixteenComposer
 {
     public function __construct(
         protected MenuBuilder $menuBuilder
-    ) {}
+    ) {
+    }
 
     /**
      * Componi la vista con i dati del tema
