@@ -21,7 +21,8 @@ class SpidLoggedOut
     public function __construct(
         public User $user,
         public array $spidAttributes
-    ) {}
+    ) {
+    }
 
     /**
      * Ottiene il provider SPID utilizzato

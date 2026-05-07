@@ -25,7 +25,8 @@ class CieAuthController extends Controller
 {
     public function __construct(
         protected CieAuthService $cieService
-    ) {}
+    ) {
+    }
 
     /**
      * Reindirizza a CIE per l'autenticazione web
