@@ -198,13 +198,13 @@
                     <div class="tab-pane fade{{ isset($tabs[0]) && ($tabs[0]['active'] ?? false) ? ' show active' : '' }}" id="data-ex-disservizio1" role="tabpanel">
                         <div class="row">
                             <div class="col-12">
-                                <geo-map-lit
+                                <map-lit
                                     id="ticket-map"
                                     data-url="/data/tickets.json"
                                     height="clamp(360px,58vh,560px)"
                                     style="height:clamp(360px,58vh,560px);display:block;width:100%"
                                     aria-label="{{ __($ns . '.map.image.alt') }}"
-                                ></geo-map-lit>
+                                ></map-lit>
                             </div>
                             @if (!empty($cta))
                                 <div class="col-lg-6 mt-50 mb-4 mb-lg-0">
@@ -360,9 +360,9 @@
     </section>
 </div>
 
-{{-- geo-map-lit Web Component (Geo module — bundled via Vite, no CDN) --}}
+{{-- map-lit Web Component is registered via Sixteen theme bundle (resources/js/app.js imports map-lit.js).
+     No extra <script> include needed; cross-module Vite::asset(...,'assets/geo') was the wrong pattern. --}}
 <style>.leaflet-container { z-index: 1; }</style>
-<script type="module" src="{{ Illuminate\Support\Facades\Vite::asset('resources/js/components/geo-map-lit.js', 'assets/geo') }}"></script>
 
 {{-- Filtri: click checkbox → filterByType() --}}
 <script>

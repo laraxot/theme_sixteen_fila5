@@ -7,7 +7,7 @@
         <h1 class="text-2xl font-semibold mb-4">
             {{ __('fixcity::segnalazione.page.title.label') }}
         </h1>
-        {{-- Lit map component – displays the segnalazioni elenco map --}}
-        <map-lit data-url="{{ asset('data/tickets.json') }}" class="w-full"></map-lit>
+        {{-- Lit map component: Sixteen registers map-lit in the app bundle (canonical SSoT, see memory feedback_map_lit_canonical_name). --}}
+        @include('pub_theme::components.sections.map-lit')
     </div>
 @endsection
