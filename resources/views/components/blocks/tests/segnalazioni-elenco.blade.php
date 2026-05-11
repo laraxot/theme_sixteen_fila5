@@ -76,7 +76,7 @@
                 <span class="search-results">{{ $totalCount }} Risultati</span>
 
                 <div class="filter-container d-flex align-items-center">
-                    <select onchange="document.querySelector('map-lit').filterByType(this.value || null)" class="form-select form-select-sm me-2" style="min-width: 180px;">
+                    <select onchange="document.querySelector('map-lit')?.filterByType(this.value || null)" class="form-select form-select-sm me-2" style="min-width: 180px;">
                         <option value="">Tutti i tipi</option>
                         @foreach(\Modules\Fixcity\Enums\TicketTypeEnum::cases() as $type)
                             <option value="{{ $type->value }}">{{ $type->getLabel() }}</option>
