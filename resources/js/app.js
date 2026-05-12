@@ -16,13 +16,14 @@ import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import './components/bootstrap-italia.js';
-import './components/modules/Geo/geo-map-lit.js';
+import '@modules/Geo/resources/js/components/map-lit.js';
 import '@modules/Geo/resources/js/components/my-map-lit.js';
 import '@modules/Geo/resources/js/components/geo-latlng-input.js';
 import '@modules/Geo/resources/js/components/map-picker-lit.js';
 import '@modules/Geo/resources/js/components/place-picker-lit.js';
 import '@modules/Geo/resources/js/components/geopoint-picker-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
+import './components/modules/Geo/geo-map-lit.js';
 import geoMapPickerField from '@modules/Geo/resources/js/components/geo-map-picker-field.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
