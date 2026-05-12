@@ -160,12 +160,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Register SPID Auth Service
         $this->app->singleton(SpidAuthService::class, function ($app) {
-            return new SpidAuthService();
+            return new SpidAuthService;
         });
 
         // Register CIE Auth Service
         $this->app->singleton(CieAuthService::class, function ($app) {
-            return new CieAuthService();
+            return new CieAuthService;
         });
 
         // Aliases for easier access
