@@ -43,11 +43,11 @@ export class CoordinatePickerField extends LitElement {
         this.height = '400px';
         this.isLocating = false;
         this.isFullscreen = false;
-        this.geolocateWhenEmpty = false;
+        this.geolocateWhenEmpty = true;
         this.geolocated = false;
         this.labels = {};
         this.provider = 'osm';
-        this.showSearch = true;
+        this.showSearch = false;
         this.searchQuery = '';
         this.searchResults = [];
         this.showSearchResults = false;

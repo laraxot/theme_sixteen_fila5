@@ -1,339 +1,184 @@
-# Sixteen Theme Documentation
+# Sixteen Theme - Design Comuni Italia Documentation Index
+## [PROJECT_NAME] Theme Documentation
 
-## Overview
-The Sixteen theme is the primary frontend theme for the Fixcity application, built on top of Bootstrap Italia (Design Comuni) framework. It provides a modern, accessible, and responsive interface for all application features.
+**Project Goal**: Replicate Design Comuni static pages using Tailwind CSS + Alpine.js (no Bootstrap Italia runtime)
 
-## Architecture
+## Routing & Multilingual Rule
 
-### Theme Structure
+- The theme should consume named routes and CMS/config slugs, not PHP literals with Italian path fragments.
+- User-facing copy belongs in translations or CMS JSON.
+- For `/tests/[slug]` pages, keep route names stable and let content/config decide the slug value.
 
-```
-Themes/Sixteen/
-├── resources/
-│   ├── assets/
-│   │   ├── css/
-│   │   ├── js/
-│   │   └── images/
-│   └── views/
-│       ├── components/
-│       │   ├── blocks/
-│       │   │   └── tests/
-│       │   │       └── segnalazione-crea.blade.php
-│       │   ├── pub_theme/
-│       │   │   └── components/
-│       │   │       ├── wizard/
-│       │   │       │   └── wizard.blade.php
-│       │   │       └── sidebar.blade.php
-│       │   └── filament/
-│       │       └── widgets/
-│       │           └── create-ticket-wizard.blade.php
-│       └── pages/
-│           └── tests/
-│               └── [slug].blade.php
-├── package.json
-├── vite.config.js
-└── tailwind.config.js
-```
+## Header Section Rule
 
-### Key Features
+- Se il layout usa `<x-section slug="header" />`, l'header SSoT e' `laravel/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php`.
+- `v1.blade.php` resta owner e orchestration layer.
+- Blocchi come language switcher, user dropdown o guest CTA, se locali all'header, devono essere estratti come partial sotto `resources/views/components/sections/header/partials/` (regola dettagliata: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md), story 8-37).
+- Non trattare `bootstrap-italia/header.blade.php` come owner di default per i flussi section-based.
 
-#### 1. Design Comuni Integration
-- **Bootstrap Italia**: Complete Bootstrap Italia framework integration
-- **Design System**: Consistent design language across all components
-- **Accessibility**: WCAG 2.1 compliant design
-- **Responsive**: Mobile-first responsive design
+## Blade Component Extraction Rule
 
-#### 2. Asset Management
-- **Vite**: Modern build tool for asset compilation
-- **Tailwind CSS**: Utility-first CSS framework
-- **Asset Pipeline**: Efficient asset bundling and optimization
-- **Version Control**: Automatic cache busting
+- Cercare sempre componenti riusabili in tutte le Blade, non solo nel file che si sta correggendo.
+- Se un blocco e' riusabile cross-page/cross-section, estrarlo nella tassonomia componenti esistente.
+- Se un blocco e' locale a un owner specifico, usare una cartella `partials/` sotto quell'owner.
+- Non estrarre per moda: DRY + KISS prima di tutto.
 
-#### 3. Component Architecture
-- **Reusable Components**: Modular component system
-- **Theme Components**: Custom Design Comuni components
-- **Filament Integration**: Seamless Filament widget integration
-- **Layout Templates**: Consistent page layouts
+## Geo Field Governance
 
-## Development Guidelines
-
-### 1. Asset Development
-
-#### CSS Development
-```scss
-// Use SCSS for component styles
-.segnalazione-wizard-container {
-    @extend .container;
-    
-    .wizard-step {
-        @extend .card;
-        @extend .mb-3;
-    }
-}
-```
-
-#### JavaScript Development
-```javascript
-// Use modules for JavaScript functionality
-import { initializeMap } from './modules/map';
-import { initializeWizard } from './modules/wizard';
-
-document.addEventListener('DOMContentLoaded', () => {
-    initializeMap();
-    initializeWizard();
-});
-```
-
-### 2. Component Development
-
-#### Blade Components
-```blade
-{{-- Use Design Comuni components --}}
-@component('pub_theme::components.wizard.sidebar', [
-    'steps' => $steps,
-    'currentStep' => $currentStep
-])
-@endcomponent
-
-{{-- Use Bootstrap Italia components --}}
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">{{ $title }}</h5>
-        <p class="card-text">{{ $content }}</p>
-    </div>
-</div>
-```
-
-#### View Structure
-```blade
-{{-- Main page template --}}
-@extends('pub_theme::layouts.app')
-
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                @include('pub_theme::partials.header')
-                
-                <main class="py-4">
-                    {{ $slot }}
-                </main>
-                
-                @include('pub_theme::partials.footer')
-            </div>
-        </div>
-    </div>
-@endsection
-```
-
-### 3. Build Process
-
-#### Development Build
-```bash
-# Install dependencies
-npm install
-
-# Development build with watch
-npm run dev
-
-# Production build
-npm run build
-
-# Copy assets to public directory
-npm run copy
-```
-
-#### Asset Optimization
-- **Minification**: Automatic CSS/JS minification
-- **Tree Shaking**: Remove unused code
-- **Image Optimization**: Automatic image compression
-- **Code Splitting**: Lazy loading of chunks
-
-### 4. Theme Configuration
-
-#### Vite Configuration
-```javascript
-// vite.config.js
-export default {
-    build: {
-        manifest: true,
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    vendor: ['vue', 'alpine'],
-                    bootstrap: ['bootstrap-italia']
-                }
-            }
-        }
-    }
-}
-```
-
-#### Tailwind Configuration
-```javascript
-// tailwind.config.js
-module.exports = {
-    content: [
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
-        './src/**/*.php',
-    ],
-    theme: {
-        extend: {
-            colors: {
-                primary: '#0077b6',
-                secondary: '#00b4d8',
-            }
-        }
-    }
-}
-```
-
-### 5. Design System
-
-#### Color Palette
-- **Primary**: #0077b6 (Bootstrap Italia Primary)
-- **Secondary**: #00b4d8 (Bootstrap Italia Info)
-- **Success**: #28a745 (Bootstrap Italia Success)
-- **Danger**: #dc3545 (Bootstrap Italia Danger)
-
-#### Typography
-- **Headings**: Bootstrap Italia typography scale
-- **Body**: Bootstrap Italia default font
-- **Code**: Bootstrap Italia code styling
-
-#### Spacing
-- **Padding**: Bootstrap Italia spacing scale
-- **Margin**: Bootstrap Italia spacing scale
-- **Grid**: Bootstrap Italia grid system
-
-### 6. Integration Patterns
-
-#### With Filament
-```blade
-{{-- Filament widget integration --}}
-<x-filament-widgets::widget>
-    {{ $this->form }}
-</x-filament-widgets::widget>
-```
-
-#### With Laravel
-```blade
-{{-- Route-based page templates --}}
-@php
-    $page = request()->route()->parameter('slug');
-@endphp
-
-@extends("pages.tests.{$page}")
-```
-
-#### With Bootstrap Italia
-```blade
-{{-- Bootstrap Italia components --}}
-<div class="card mb-3">
-    <div class="card-header">
-        <h5 class="mb-0">{{ $title }}</h5>
-    </div>
-    <div class="card-body">
-        {{ $content }}
-    </div>
-</div>
-```
-
-### 7. Performance Optimization
-
-#### Asset Loading
-- **Lazy Loading**: Non-critical assets loaded asynchronously
-- **Caching**: Proper cache headers and ETags
-- **CDN**: Static assets served from CDN
-- **Compression**: Gzip/Brotli compression
-
-#### JavaScript Optimization
-- **Debouncing**: Event debouncing for scroll/resize events
-- **Throttling**: Function throttling for performance
-- **Virtual Scrolling**: Efficient large list rendering
-- **Intersection Observer**: Lazy loading of off-screen content
-
-### 8. Testing
-
-#### Browser Testing
-- **Cross-browser**: Chrome, Firefox, Safari, Edge
-- **Responsive**: Mobile, tablet, desktop views
-- **Accessibility**: Keyboard navigation, screen readers
-- **Performance**: Loading speed, rendering performance
-
-#### Automated Testing
-```javascript
-// Example test with Playwright
-test('wizard step navigation', async ({ page }) => {
-    await page.goto('/it/tests/segnalazione-crea');
-    
-    // Test step 1
-    await page.click('text=Next');
-    
-    // Test step 2
-    await page.fill('[name="data.name"]', 'Test Name');
-    await page.click('text=Submit');
-    
-    // Test success
-    await page.waitForSelector('text=Success');
-});
-```
-
-### 9. Deployment
-
-#### Build Process
-```bash
-# Production build
-npm run build
-
-# Copy assets
-npm run copy
-
-# Clear cache
-php artisan view:clear
-php artisan route:clear
-```
-
-#### Environment Configuration
-```env
-# Asset optimization
-NODE_ENV=production
-
-# Cache configuration
-APP_ENV=production
-APP_DEBUG=false
-```
-
-### 10. Troubleshooting
-
-#### Common Issues
-1. **Asset Not Loading**: Check Vite manifest and build process
-2. **CSS Conflicts**: Use proper specificity and BEM naming
-3. **JavaScript Errors**: Check console for errors and debug
-4. **Rendering Issues**: Verify component lifecycle and state
-
-#### Debugging Tools
-- **Browser DevTools**: Inspect elements and network requests
-- **Laravel DebugBar**: Debug Laravel application
-- **Vite Dev Server**: Development server with hot reload
-- **Webpack Bundle Analyzer**: Analyze bundle composition
-
-### 11. Future Enhancements
-
-#### Planned Features
-1. **Dark Mode**: Bootstrap Italia dark theme support
-2. **Internationalization**: Multi-language support
-3. **PWA Support**: Progressive Web App capabilities
-4. **Advanced Animations**: Smooth transitions and micro-interactions
-
-#### Technical Improvements
-1. **Component Library**: Comprehensive component documentation
-2. **Storybook**: Component development and testing
-3. **Automated Testing**: End-to-end testing integration
-4. **Performance Monitoring**: Real user monitoring (RUM)
+- Il tema `Sixteen` consuma i field Filament dei moduli; non ridefinisce la loro gerarchia PHP.
+- Gli SVG proprietari dei moduli restano nei moduli, sempre in `laravel/Modules/*/resources/svg/`; il tema li consuma via build/import, non li ricolloca.
+- Quando una pagina o un widget usa `Modules\Geo\Filament\Forms\Components\MapPicker`, la regola canonica e':
+  - `MapPicker` estende `Modules\Xot\Filament\Forms\Components\XotBaseField`;
+  - se `latitude` o `longitude` mancano, il runtime Geo tenta geolocalizzazione e usa la posizione corrente come coppia completa;
+  - il marker runtime deve essere custom e locale (`svg/png`), non il default marker Leaflet e non una URL `unpkg`;
+  - il tema puo' stilare o bundlare il runtime JS/CSS, ma non deve documentare pattern contrari (`extends Field`).
+- Riferimenti canonici:
+  - [../../../../docs/rules/xotbasefield-mandatory.md](../../../../docs/rules/xotbasefield-mandatory.md)
+  - [../../../Modules/Geo/docs/wiki/concepts/map-picker-filament-field.md](../../../Modules/Geo/docs/wiki/concepts/map-picker-filament-field.md)
+  - [../../../Modules/Geo/docs/wiki/index.md](../../../Modules/Geo/docs/wiki/index.md)
 
 ---
 
-*Last Updated: May 2026*  
-*Version: 1.0.0*
+## 📋 Page Parity Analysis & Implementation
+
+| Page | HTML Parity | Visual Parity | Status | Documentation |
+|------|-------------|---------------|--------|---------------|
+| **Homepage** | 99.5% | 85% | ✅ CSS Complete | [Homepage Analysis](HOMEPAGE-VISUAL-ANALYSIS.md) |
+| **segnalazione-01-privacy** | 99.5% | ~80% | 🔄 CSS Global Fixes Applied | [CSS/JS Parity Fix](css-js-parity/segnalazione-01-privacy-css-fix.md) |
+| **segnalazione-02-dati** | 97.0% | ~80% | 🔄 CSS Global Fixes Applied + File Upload UI | [CSS/JS Parity Fix](css-js-parity/segnalazione-01-privacy-css-fix.md) |
+| **segnalazione-03-riepilogo** | 83.3% | ~80% | 🔄 CSS Global Fixes Applied | [CSS/JS Parity Fix](css-js-parity/segnalazione-01-privacy-css-fix.md) |
+| **segnalazione-area-personale** | 91.9% | ~80% | 🔄 CSS Global Fixes Applied | [CSS/JS Parity Fix](css-js-parity/segnalazione-01-privacy-css-fix.md) |
+| **segnalazione-dettaglio** | 86.8% | ~80% | 🔄 CSS Global Fixes Applied | [CSS/JS Parity Fix](css-js-parity/segnalazione-01-privacy-css-fix.md) |
+| **segnalazioni-elenco** | 72.5% | - | ❌ HTML fix needed first | - |
+| **segnalazione-04-conferma** | 43.6% | - | ❌ HTML fix needed first | - |
+
+---
+
+## 🎯 Current Phase: CSS/JS Visual Parity
+
+### Active Work: segnalazione-01-privacy
+
+**Date Started**: 2026-04-09  
+**Methodology**: BMAD + GSD  
+**Tools**: Playwright visual parity analysis, Supermemory AI context
+
+| Task | Status | Details |
+|------|--------|---------|
+| HTML Parity Check | ✅ 99.8% | Locked - DO NOT TOUCH HTML |
+| Visual Analysis | ✅ Complete | Playwright screenshots + font/color analysis |
+| Reference Colors | ✅ Added | CSS variables from reference analysis |
+| text-paragraph Fix | ✅ Applied | Color changed #5C6F82 → #191919 |
+| Border Colors | ⏳ TODO | Add #d4d4d4 borders |
+| Secondary Text | ⏳ TODO | Change to #455a64 |
+| Build & Test | ✅ Complete | CSS built and deployed |
+| Screenshot Comparison | ⏳ TODO | After all fixes applied |
+
+### Quick Commands
+
+```bash
+# Build and deploy CSS changes
+cd laravel/Themes/Sixteen
+npm run build && npm run copy
+
+# Run visual parity analysis
+node scripts/visual-parity.mjs segnalazione-01-privacy
+
+# Check HTML parity
+bash ../../bashscripts/html/compare-html.sh \
+  "http://127.0.0.1:8000/it/tests/segnalazione-01-privacy" \
+  "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html"
+```
+
+---
+
+## 📊 Global Metrics
+
+| Metric | Value | Trend |
+|--------|-------|-------|
+| **Total Pages** | 38 | Design Comuni reference |
+| **HTML Parity (avg)** | 99.8% | ✅ Excellent |
+| **Visual Parity (avg)** | 75% | 🔄 Improving |
+| **CSS Files** | 28 | Organized by feature |
+| **Reference Colors** | ✅ Added | CSS variables system |
+
+---
+
+## 🛠️ Tools & Scripts
+
+| Tool | Purpose | Location |
+|------|---------|----------|
+| **visual-parity.mjs** | Playwright screenshot + font/color analysis | `scripts/visual-parity.mjs` |
+| **compare-html.sh** | HTML structure parity check | `../../bashscripts/html/compare-html.sh` |
+| **supermemory-context.js** | AI context indexing | `scripts/supermemory-context.js` |
+
+---
+
+## 📚 Architecture & Guidelines
+
+| Document | Purpose |
+|----------|---------|
+| [Header section owner (wiki root)](../../../../docs/wiki/concepts/header-section-owner-rule.md) | **SSoT:** `<x-section slug="header" />` → `resources/views/components/sections/header/v1.blade.php` (story 8-35) |
+| [Header composition (wiki root)](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md) | Estrazione riusabile da tutte le Blade; partial header sotto `sections/header/partials/`; `v1` orchestratore (story 8-37) |
+| [CSS/JS Parity Guide](css-js-parity/segnalazione-01-privacy-css-fix.md) | How to achieve visual parity |
+| [Bootstrap Italia Colors](bootstrap-italia-colors.md) | Color system documentation |
+| [Font System](font-system.md) | Typography guidelines |
+
+---
+
+## 🚀 Development Workflow
+
+1. **Check HTML parity** → Must be >95% before CSS work
+2. **Run visual analysis** → Capture baseline screenshots
+3. **Identify differences** → Fonts, colors, spacing, layout
+4. **Apply CSS fixes** → Use `*-parity.css` files
+5. **Build & deploy** → `npm run build && npm run copy`
+6. **Verify visually** → New screenshots + manual review
+7. **Update docs** → Record changes and metrics
+
+---
+
+## 📖 Related Documentation
+
+- **Project Docs**: [../../../docs/](../../../docs/)
+- **Module Docs**: [../../../Modules/*/docs/](../../../Modules/)
+- **Bash Scripts**: [../../../bashscripts/docs/](../../../bashscripts/docs/)
+- **Reference**: [Design Comuni GitHub](https://github.com/italia/design-comuni-pagine-statiche)
+
+---
+
+**See detailed analysis in [HOMEPAGE-VISUAL-ANALYSIS.md](HOMEPAGE-VISUAL-ANALYSIS.md)**  
+**See Phase 1 completion in [HOMEPAGE-CSS-JS-FIXES-COMPLETE.md](HOMEPAGE-CSS-JS-FIXES-COMPLETE.md)**
+
+---
+
+## Current Active Docs
+
+Per il lavoro attuale sulla homepage parity usare questi documenti canonici:
+- [design-comuni/homepage-parity-report.md](./design-comuni/homepage-parity-report.md)
+- [design-comuni/screenshots/homepage-parity/readmore-analysis.md](./design-comuni/screenshots/homepage-parity/readmore-analysis.md)
+- [../../../../bashscripts/docs/homepage-visual-parity/inspectors.md](../../../../bashscripts/docs/homepage-visual-parity/inspectors.md)
+
+I report storici nella root `docs/` restano utili come archivio, ma lo stato corrente va mantenuto nei file sopra.
+
+- [design-comuni/risultati-ricerca-parity-2026-04-03.md](./design-comuni/risultati-ricerca-parity-2026-04-03.md)
+- [design-comuni/argomenti-parity-2026-04-02.md](./design-comuni/argomenti-parity-2026-04-02.md)
+- [design-comuni/argomento-parity-2026-04-02.md](./design-comuni/argomento-parity-2026-04-02.md)
+- [design-comuni/design-comuni-batch-audit.md](./design-comuni/design-comuni-batch-audit.md)
+
+## LLM Wiki Workflow
+
+- Canonical wiki layer: [../../../../docs/wiki/README.md](../../../../docs/wiki/README.md)
+- Theme synthesis entrypoint: [../../../../docs/wiki/index.md](../../../../docs/wiki/index.md)
+- Geo module local wiki for map/runtime rules: [../../../Modules/Geo/docs/wiki/index.md](../../../Modules/Geo/docs/wiki/index.md)
+
+## LLM Wiki
+
+- [Sixteen Theme LLM Wiki](./llm-wiki.md)
+- [Sixteen Wiki README](./wiki/README.md)
+
+
+## Standard Rules & Workflow
+
+- [[BMAD Method](../../../../docs/wiki/concepts/bmad-method.md)]
+- [[Context Engineering](../../../../docs/wiki/concepts/context-engineering.md)]
+- [[LLM Wiki Governance](../../../../docs/wiki/concepts/llm-wiki-governance.md)]
