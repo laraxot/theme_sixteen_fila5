@@ -1,9 +1,9 @@
 ---
 title: Design Comuni Site-Wide Component CSS Rule
 type: concept
-tags: [sixteen, design-comuni, css, parity, governance, daisyui]
+tags: [sixteen, design-comuni, css, parity, governance]
 created: 2026-04-22
-updated: 2026-05-15
+updated: 2026-04-22
 sources:
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
 ---
@@ -33,11 +33,6 @@ Usare selettori di componente e semantica riusabile:
 - `.it-header-navbar-wrapper`
 
 Nel kit statico Design Comuni la pagina e' una composizione di componenti coerenti. Sixteen deve replicare questo approccio.
-
-## Riferimenti
-
-- Architettura CSS/HTML nel repo ufficiale (stylesheets + `cmp-*`): [entities/design-comuni-class-mapping.md](../entities/design-comuni-class-mapping.md).
-- Plugin UI Tailwind: [DaisyUI — documentazione](https://daisyui.com/docs/) (tema Sixteen); linee guida modulo Cms: [daisyui-componenti](../../../../../Modules/Cms/docs/daisyui-componenti.md); **pro/contro e percentuali**: [daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md).
 
 ## Build
 
