@@ -161,22 +161,110 @@ p, span, body {
    6. CONTAINER CENTERING (previously fixed, ensuring consistency)
    ============================================================================ */
 
-.container,
-.container-fluid,
-[class*="container"] {
+.container {
   margin-left: auto !important;
   margin-right: auto !important;
   max-width: 1320px !important;
 }
 
+.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Wizard Form Width Fix - match design-comuni-pagine-statiche reference */
+.fi-sc-wizard .container,
+.fi-sc-wizard .container-fluid {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* Ensure wizard form doesn't stretch full width */
+.fi-sc-wizard .fi-fo-section-body,
+.fi-sc-wizard .wizard-section-card .section-content {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Wizard specific container styling */
+.fi-sc-wizard .wizard-container,
+.fi-sc-wizard .fi-wiz-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* COORDINATE PICKER DATA DISPLAY FIX */
+/* Ensure coordinate picker data shows below the map */
+.fi-sc-wizard .coordinate-picker-field-wrapper .rounded-lg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Ensure lat/lng and address are visible */
+.fi-sc-wizard .coordinate-picker-field-wrapper span {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.fi-sc-wizard .coordinate-picker-field-wrapper strong {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+.fi-sc-wizard .coordinate-picker-field-wrapper .truncate {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.fi-sc-wizard .coordinate-picker-field-wrapper .mt-1 {
+  margin-top: 0.5rem !important;
+}
+
+/* Fix any hidden state from Tailwind/Dark mode overrides */
+.fi-sc-wizard .coordinate-picker-field-wrapper .bg-gray-50,
+.fi-sc-wizard .coordinate-picker-field-wrapper .dark\:bg-white\/5 {
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+}
+
+.fi-sc-wizard .coordinate-picker-field-wrapper .text-gray-500 {
+  color: #495057 !important;
+}
+
+/* Ensure Heroicons are visible */
+.fi-sc-wizard .coordinate-picker-field-wrapper svg {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 /* Ensure proper centering at all breakpoints */
 @media (min-width: 1920px) {
-  .container,
-  .container-fluid,
-  [class*="container"] {
+  .container {
     margin: 0 auto !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+
+  .container-fluid {
+    width: 100% !important;
+    max-width: none !important;
   }
 }
 
@@ -193,4 +281,3 @@ p, span, body {
 .test-link:hover {
   background-color: rgba(0, 122, 82, 0.1) !important;
 }
-

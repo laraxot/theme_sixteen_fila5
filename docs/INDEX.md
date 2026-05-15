@@ -1,32 +1,193 @@
 # Sixteen Theme Documentation Index
 
-## 🎯 Current Focus: Design Comuni Body Parity (Phase 1)
-Target: 90%+ structural identity with `italia/design-comuni-pagine-statiche`.
+## Overview
+This directory contains comprehensive documentation for the Sixteen theme, the primary frontend theme for the Fixcity application built on Bootstrap Italia (Design Comuni) framework.
 
-### 📄 Page Analysis & Reports
-- [segnalazioni-elenco Parity Analysis](prompts/segnalazione_disservizio/segnalazioni-elenco-html-parity-analysis.md)
-- [HTML Body Comparison Artifacts](html-compare/segnalazioni-elenco/report.md)
-- [Theme Audit & Roadmap](../../../docs/design-comuni-theme-audit.md)
+## Documentation Structure
 
-### 🛠 Tools (Agnostic)
-- `bashscripts/html/html-structure-compare.sh`: Main entry point for structural comparison.
-- `bashscripts/html/compare-html-body.py`: Python engine for deep tree comparison.
+### 📁 Core Documentation
+- **[README](README.md)** - Complete theme documentation and development guidelines
+- **[Component Library](components/)** - Available components and usage patterns
+- **[Style Guide](style-guide.md)** - Design system and styling guidelines
 
-### 🏗 Architecture
-- [Layout Hierarchy](layout-hierarchy.md)
-- [Component Structure](component-structure-reorganization.md)
-- [Translation System Rules](translation-system-rules.md)
-- [**BODY CLASS RULE**](BODY_CLASS_RULE.md) - HTML parity enforcement: `<body>` senza classi custom
-- [**STEPPER MOBILE-FIRST RULE**](STEPPER_MOBILE_FIRST_RULE.md) - Stepper CSS mobile-first con breakpoint 375/768/1024px
+### 📁 Development Resources
+- **[Asset Management](development/asset-management.md)** - Build process and optimization
+- **[Testing](development/testing.md)** - Testing strategies and guidelines
+- **[Deployment](deployment/)** - Deployment process and configuration
 
-## 📋 Design Comuni Segnalazione Flow
-- [segnalazione-02-dati Stepper Responsive](segnalazione-02-dati-stepper-responsive.md) ← Story [7-28](_bmad-output/implementation-artifacts/7-28-segnalazione-02-dati-stepper-responsive-multilingual.md)
-- [segnalazione-02-dati Body Class Fix](segnalazione-02-dati-body-class-fix.md) ← Story [7-27](_bmad-output/implementation-artifacts/7-27-segnalazione-02-dati-body-class-fix-and-visual-parity.md)
-- [segnalazione-crea Header/Stepper Responsive](segnalazione-crea-header-stepper-responsive.md) ← Story [7-29](_bmad-output/implementation-artifacts/7-29-segnalazione-crea-header-stepper-responsive-multilingual.md)
-- [Multilingual Compliance](multilingual-compliance.md) ← Story [7-28](_bmad-output/implementation-artifacts/7-28-segnalazione-02-dati-stepper-responsive-multilingual.md)
-- [Ticket Wizard Filament Refactor](ticket-wizard-filament-refactor.md) ← Story [7-30](_bmad-output/implementation-artifacts/7-30-refactor-ticket-wizard-to-filament-pure.md)
+### 📁 Integration Guides
+- **[Filament Integration](integrations/filament.md)** - Filament widget integration
+- **[Laravel Integration](integrations/laravel.md)** - Laravel Blade template integration
+- **[Design Comuni](integrations/design-comuni.md)** - Bootstrap Italia integration patterns
 
-## 🚀 Status: segnalazioni-elenco
-- **Overall Parity**: 93.7% ✅
-- **Remaining Issues**: 24 BLOCK errors (Header structural mismatches & Detail Modal placeholders).
-- **Next Step**: Fix Header DOM parity in Sixteen components.
+### 📁 Examples & Patterns
+- **[Layout Examples](examples/layouts/)** - Common layout patterns
+- **[Component Examples](examples/components/)** - Usage examples for each component
+- **[Page Templates](examples/pages/)** - Ready-to-use page templates
+
+## Quick Navigation
+
+### For Theme Developers
+- Start with [README](README.md) for comprehensive theme overview
+- Read [Component Library](components/) for available components
+- Follow [Style Guide](style-guide.md) for consistent design
+- Check [Asset Management](development/asset-management.md) for build process
+
+### For Frontend Developers
+- Review [Filament Integration](integrations/filament.md) for widget development
+- Check [Laravel Integration](integrations/laravel.md) for template development
+- Follow [Testing Guidelines](development/testing.md) for quality assurance
+- Use [Examples](examples/) for implementation patterns
+
+### For Designers
+- Review [Style Guide](style-guide.md) for design system
+- Check [Component Library](components/) for available UI components
+- Follow [Design Comuni Integration](integrations/design-comuni.md) for framework guidelines
+- Use [Layout Examples](examples/layouts/) for layout inspiration
+
+### For DevOps
+- Read [Deployment](deployment/) for production setup
+- Check [Asset Management](development/asset-management.md) for build optimization
+- Follow [Testing Guidelines](development/testing.md) for quality control
+- Review [Configuration](configuration/) for environment setup
+
+## Key Topics
+
+### 🎨 Design System
+- [Color Palette](README.md#color-palette)
+- [Typography](README.md#typography)
+- [Spacing System](README.md#spacing)
+- [Component Guidelines](components/)
+
+### 🚀 Development
+- [Build Process](README.md#build-process)
+- [Component Development](README.md#component-development)
+- [Asset Optimization](README.md#asset-optimization)
+- [Performance Guidelines](development/testing.md#performance-optimization)
+
+### 🔧 Configuration
+- [Vite Configuration](README.md#vite-configuration)
+- [Tailwind Configuration](README.md#tailwind-configuration)
+- [Environment Setup](deployment/configuration.md)
+- [Asset Management](development/asset-management.md)
+
+### 📱 Responsive Design
+- [Mobile-First Approach](README.md#responsive-design)
+- [Breakpoint System](README.md#responsive-design)
+- [Touch-Friendly Components](components/)
+- [Accessibility Guidelines](README.md#accessibility)
+
+## Component Library
+
+### Core Components
+- **[Buttons](components/buttons.md)** - Action buttons with various styles
+- **[Forms](components/forms.md)** - Input forms with validation
+- **[Cards](components/cards.md)** - Content containers
+- **[Navigation](components/navigation.md)** - Menus and navigation elements
+
+### Layout Components
+- **[Grid System](components/grid.md)** - Bootstrap Italia grid system
+- **[Containers](components/containers.md)** - Layout containers
+- **[Sidebar](components/sidebar.md)** - Navigation sidebar
+- **[Wizard](components/wizard.md)** - Multi-step wizard interface
+
+### Advanced Components
+- **[Maps](components/maps.md)** - Interactive maps
+- **[Charts](components/charts.md)** - Data visualization
+- **[Modals](components/modals.md)** - Modal dialogs
+- **[Notifications](components/notifications.md)** - User notifications
+
+## Integration Patterns
+
+### With Filament
+```php
+// Widget integration
+<x-filament-widgets::widget>
+    {{ $this->form }}
+</x-filament-widgets::widget>
+```
+
+### With Laravel
+```blade
+// Template inheritance
+@extends('pub_theme::layouts.app')
+
+@section('content')
+    {{ $slot }}
+@endsection
+```
+
+### With Design Comuni
+```blade
+// Bootstrap Italia components
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">{{ $title }}</h5>
+    </div>
+    <div class="card-body">
+        {{ $content }}
+    </div>
+</div>
+```
+
+## Performance Optimization
+
+### Asset Loading
+- **Lazy Loading**: Non-critical assets loaded asynchronously
+- **Caching**: Proper cache headers and ETags
+- **Code Splitting**: Lazy loading of JavaScript chunks
+- **Image Optimization**: Automatic image compression
+
+### CSS Optimization
+- **Minification**: Automatic CSS minification
+- **Tree Shaking**: Remove unused CSS rules
+- **Critical CSS**: Inline critical CSS above the fold
+- **CSS Variables**: Dynamic theming support
+
+### JavaScript Optimization
+- **Module Bundling**: ES6 module bundling
+- **Code Splitting**: Lazy loading of JavaScript
+- **Compression**: Gzip/Brotli compression
+- **Cache Busting**: Automatic cache busting
+
+## Documentation Updates
+
+### Latest Updates (May 2026)
+- ✅ Complete theme architecture documentation
+- ✅ Component library with usage examples
+- ✅ Development guidelines and best practices
+- ✅ Integration patterns for various frameworks
+- ✅ Performance optimization guidelines
+
+### Future Updates
+- 📋 Interactive component documentation
+- 📋 Real-world examples and case studies
+- 📋 Accessibility guidelines expansion
+- 📋 Performance monitoring integration
+
+## Contributing
+
+### Adding New Components
+1. Create component documentation in `components/`
+2. Include usage examples and best practices
+3. Update this index for navigation
+4. Test component thoroughly
+
+### Documentation Standards
+- Use clear, descriptive titles
+- Include practical examples
+- Follow consistent formatting
+- Keep content up-to-date
+
+## Support
+
+For questions or issues with the theme:
+- Check existing documentation first
+- Review [troubleshooting guide](README.md#troubleshooting)
+- Test in different environments
+- Contact the design team
+
+---
+
+*Last Updated: May 2026*  
+*Version: 1.0.0*

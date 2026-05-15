@@ -230,14 +230,7 @@
                                 @php
                                     $itemLocation = is_array($item->location) ? $item->location : [];
                                     $itemAddress = $itemLocation['address'] ?? $itemLocation['display_name'] ?? '';
-                                    $itemType = $item->type ?? '';
-                                    $itemTypeLabel = '';
-                                    try {
-                                        $itemTypeEnum = \Modules\Fixcity\Enums\TicketTypeEnum::from((string) $itemType);
-                                        $itemTypeLabel = $itemTypeEnum->getLabel();
-                                    } catch (\ValueError) {
-                                        $itemTypeLabel = $itemType;
-                                    }
+                                    $itemTypeLabel = (string) ($item->type_label ?? '');
                                 @endphp
                                 <div class="cmp-card mb-4 mb-lg-30">
                                     <div class="card has-bkg-grey shadow-sm">
