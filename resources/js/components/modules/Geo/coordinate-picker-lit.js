@@ -43,11 +43,11 @@ export class CoordinatePickerField extends LitElement {
         this.height = '400px';
         this.isLocating = false;
         this.isFullscreen = false;
-        this.geolocateWhenEmpty = false;
+        this.geolocateWhenEmpty = true;
         this.geolocated = false;
         this.labels = {};
         this.provider = 'osm';
-        this.showSearch = true;
+        this.showSearch = false;
         this.searchQuery = '';
         this.searchResults = [];
         this.showSearchResults = false;
@@ -118,6 +118,15 @@ export class CoordinatePickerField extends LitElement {
     _zoomIn() { zoomIn(this); }
     _zoomOut() { zoomOut(this); }
     _requestGeolocation() { requestGeolocation(this); }
+    _toggleSearch() {
+        this.showSearch = !this.showSearch;
+        if (!this.showSearch) {
+            this.showSearchResults = false;
+            this.searchQuery = '';
+            this.searchResults = [];
+        }
+        this.requestUpdate();
+    }
     _handleMapInteraction(lat, lng, source) { handleMapInteraction(this, lat, lng, source); }
     _updateMarker(lat, lng) { updateMarker(this, lat, lng); }
     _syncMarkerToProperties() { syncMarkerToProperties(this); }
