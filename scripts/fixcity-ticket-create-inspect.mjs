@@ -152,16 +152,17 @@ function checkCoordinatePickerLit() {
 }
 
 function checkMapPickerMarkerConfig() {
-  section('MapPickerMarkerConfig (no CDN check)');
-  const config = path.join(GEO_MODULE, 'resources/js/components/map-picker-marker-config.js');
+  section('Map marker config (no CDN check)');
+  const config = path.join(GEO_MODULE, 'resources/js/components/map/marker-config.js');
   if (fs.existsSync(config)) {
     const content = fs.readFileSync(config, 'utf8');
     const hasCDN = /unpkg\.com|leaflet@.*\/marker-icon/.test(content);
-    const hasCreateIcon = /createMapPickerLeafletIcon|L\.divIcon/.test(content);
+    const hasCreateIcon = /createGeoMapLeafletIcon|L\.divIcon/.test(content);
     console.log(`  ${hasCDN ? err('Contains CDN references!') : ok('No CDN markers')}`);
+    console.log(`  ${hasCreateIcon ? ok('Marker builder present') : warn('No createGeoMapLeafletIcon/L.divIcon')}`);
     console.log(`    Path: ${DIM}${config}${RESET}`);
   } else {
-    console.log(warn('map-picker-marker-config.js not found'));
+    console.log(warn('map/marker-config.js not found'));
   }
 }
 

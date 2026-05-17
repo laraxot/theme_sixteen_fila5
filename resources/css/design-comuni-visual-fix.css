@@ -208,8 +208,8 @@ p, span, body {
   margin-bottom: 1rem !important;
 }
 
-/* Ensure lat/lng and address are visible */
-.fi-sc-wizard .coordinate-picker-field-wrapper span {
+/* Ensure lat/lng and address are visible (not map .ctrl-fallback icons inside .ctrl-btn) */
+.fi-sc-wizard .coordinate-picker-field-wrapper span:not(.ctrl-fallback) {
   display: inline !important;
   visibility: visible !important;
   opacity: 1 !important;

@@ -1,6 +1,43 @@
 # Sixteen Wiki Log
 
+## [2026-05-15] concept | Tailwind `@apply` come alias preferito
+
+- Documentato in [bootstrap-italia-tailwind-philosophy](concepts/bootstrap-italia-tailwind-philosophy.md), [design-comuni-class-mapping](entities/design-comuni-class-mapping.md); modulo Cms [daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); Fixcity `wizard-architecture-filament-theme-boundary`.
+
+## [2026-05-15] reference | DaisyUI pro/contro/percentuali (Cms + Sixteen)
+
+- SSoT: [Modules/Cms/docs/daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); sintesi tema [concepts/daisyui-pro-contro-metriche](concepts/daisyui-pro-contro-metriche.md); indici Cms/UI e [daisyui-componenti](../../../../../Modules/Cms/docs/daisyui-componenti.md) aggiornati.
+
+## [2026-05-15] wiki | DaisyUI nel stack documentato (tema + moduli)
+
+- Tema: [entities/design-comuni-class-mapping.md](entities/design-comuni-class-mapping.md) (sezione DaisyUI), [concepts/design-comuni-site-wide-component-css-rule.md](concepts/design-comuni-site-wide-component-css-rule.md), [wiki index](index.md).
+- Moduli: Fixcity (`fixcity-module`, `wizard-architecture-filament-theme-boundary`), Geo [wiki index](../../../../Modules/Geo/docs/wiki/index.md), Cms `daisyui-componenti.md` + `index`, UI `mcp-ui-ux.md`; root rule [011-blocks-view-convention.md](../../../../docs/wiki/rules/011-blocks-view-convention.md).
+
+## [2026-05-15] entity | design-comuni-class-mapping — albero upstream `src/stylesheets`
+
+- Documentata in [entities/design-comuni-class-mapping.md](entities/design-comuni-class-mapping.md) la pipeline reale di `bootstrap-italia-comuni.scss` (BS5 + BI + layer comuni + import `cmp-*` da `src/components/`), e il ruolo dei layer Sixteen (Tailwind + parity Filament/Lit senza Bootstrap JS).
+
+## [2026-05-15] Import Geo mappa via `@modules`
+
+- `geo-map-lit-local.js`: import di `renderSearch` / `searchUiHandlers` e controlli da `@modules/Geo/resources/js/components/map/...` (niente `./modules/Geo/...` assente nel tree).
+- Boundary aggiornato: [concepts/theme-geo-js-boundary.md](concepts/theme-geo-js-boundary.md).
+
+## [2026-05-15] Geo map styles mirror
+
+- Aggiunto mirror `resources/js/components/modules/Geo/map/styles.js` come re-export da `@modules/Geo/...`.
+- `coordinate-picker-lit.js` del mirror importa `mapStylesText` da `./map/styles.js`.
+- `map/styles.js` resta solo re-export deprecato per compatibilità.
+
+## [2026-05-15] Geo map JS in sottocartella `map/`
+
+- Mirror `resources/js/components/modules/Geo/map/`: `controls`, `events`, `search`, `resize`, `utils`, `layers`.
+- Import Lit: `./map/controls.js`, `./map/events.js`, ecc.
+- Documentato boundary tema: [concepts/theme-geo-js-boundary.md](concepts/theme-geo-js-boundary.md).
+- Regola canonica nel modulo Geo: [map-js-module-naming-rule](../../../../Modules/Geo/docs/wiki/concepts/map-js-module-naming-rule.md).
+- Verifica asset: `npm run build` + `npm run copy` in questa cartella tema.
+
 ## [2026-05-11] ops | context overflow hardening recepito nel tema
+
 
 - creati `index.md` e `concepts/context-compression-plugin.md` come bootstrap minimo del wiki tema.
 - chiarito il boundary del tema: niente cache o workaround locali nel tema per risolvere overflow; la configurazione resta in `laravel/opencode.json` e negli MCP di progetto.
