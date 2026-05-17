@@ -1,17 +1,16 @@
 import { LitElement, html } from 'lit';
 import L from 'leaflet';
 window.L = L;
-import 'leaflet/dist/leaflet.css';
 import './leaflet.markercluster.local.js';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet.heat';
-import { renderControls, switchLayer, toggleFullscreen, zoomIn, zoomOut, requestGeolocation } from './map-picker-controls.js';
-import { renderSearch } from './map-picker-search.js';
-import { buildMapLayers } from './map-picker-layers.js';
-import { mapPickerStylesText } from './map-picker-styles.js';
-import { createGeoMapLeafletIcon } from './map-marker-config.js';
-import { geoIcon } from './geo-heroicons.js';
+import { renderControls, switchLayer, toggleFullscreen, zoomIn, zoomOut, requestGeolocation } from '@modules/Geo/resources/js/components/map/controls.js';
+import { renderSearch, searchUiHandlers } from '@modules/Geo/resources/js/components/map/controls/search.js';
+import { buildMapLayers } from '@modules/Geo/resources/js/components/map/layers.js';
+import { mapStylesText } from './map/styles.js';
+import { createGeoMapLeafletIcon } from '@modules/Geo/resources/js/components/map/config.js';
+import { geoIcon } from '@modules/Geo/resources/js/components/map/heroicons.js';
 
 const DEFAULT_TICKETS_JSON_URL = '/data/tickets.json';
 const DEFAULT_CENTER = [41.9028, 12.4964];
@@ -69,7 +68,7 @@ class GeoMapLit extends LitElement {
     render() {
         return html`
             <style>
-                ${mapPickerStylesText}
+                ${mapStylesText}
                 geo-map-lit { display: block; width: 100%; min-height: 320px; }
                 .geo-map-leaflet { width: 100%; height: 100%; min-height: 320px; }
                 .geo-map-marker-wrapper svg { display: block; }
@@ -91,7 +90,7 @@ class GeoMapLit extends LitElement {
                  style="position:relative;--map-height:${this.height || '450px'};">
                 <div class="geo-map-leaflet" style="width:100%;height:100%;"></div>
                 ${renderControls(this)}
-                ${this._searchOpen ? renderSearch(this) : ''}
+                ${this._searchOpen ? renderSearch(this, searchUiHandlers) : ''}
             </div>
         `;
     }

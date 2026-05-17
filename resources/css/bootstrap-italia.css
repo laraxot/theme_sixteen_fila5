@@ -713,11 +713,6 @@ a.category:hover {
     color: #006B5A;
 }
 
-/* Alpine.js x-cloak */
-[x-cloak] {
-    display: none !important;
-}
-
 /* Scroll filter wrapper */
 .scroll-filter-wrapper {
     max-height: calc(100vh - 200px);

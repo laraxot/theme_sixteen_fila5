@@ -228,10 +228,12 @@
 }
 
 /* === INPUTS parity === */
+/* Solo input testuali: bordo singolo, niente doppio bordo con wrapper */
 .fi-sc-wizard input[type="text"],
 .fi-sc-wizard input[type="email"],
 .fi-sc-wizard input[type="tel"],
-.fi-sc-wizard select,
+.fi-sc-wizard input[type="number"],
+.fi-sc-wizard input[type="search"],
 .fi-sc-wizard textarea {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -372,7 +374,8 @@
 .fi-sc-wizard input[type="tel"],
 .fi-sc-wizard input[type="number"],
 .fi-sc-wizard input[type="search"],
-.fi-sc-wizard select,
+    /* I <select> nativi hanno già il proprio stile completo: appearance:none + SVG arrow.
+       border, background-color e box-shadow sono gestiti dalle regole specifiche più avanti. */
 .fi-sc-wizard textarea {
     background-color: #ffffff !important;
     border: 1px solid #5c6f82 !important;
@@ -380,11 +383,27 @@
     box-shadow: 0 1px 2px rgba(23, 50, 77, 0.04);
 }
 
+/* Input-wrapper: trasparente, nessun bordo/box-shadow.
+   Solo lascia padding laterale per distanziare etichetta da contenuto.
+   Gli stili visivi (bordi, sfondo, ombre) sono gestiti dall'elemento nativo interno. */
 .fi-sc-wizard .fi-input-wrp,
-.fi-sc-wizard .fi-fo-field-wrp .fi-input-wrp {
-    background-color: #ffffff !important;
-    border-radius: 4px;
-}
+    .fi-sc-wizard .fi-fo-field-wrp .fi-input-wrp {
+        padding-left: 2px;
+        padding-right: 2px;
+        /* Single border on wrapper, remove inner input borders */
+        border: 1px solid #5c6f82 !important;
+        border-radius: 4px !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    /* Remove borders from inner inputs/selects/textarea */
+    .fi-sc-wizard .fi-input-wrp input,
+    .fi-sc-wizard .fi-input-wrp select,
+    .fi-sc-wizard .fi-input-wrp textarea {
+        border: none !important;
+        box-shadow: none !important;
+    }
 
 /* Stronger selectors for opaque form fields - Filament v5 */
 .fi-sc-wizard [data-field],
@@ -394,13 +413,13 @@
     background-color: transparent !important;
 }
 
+/* Wrapper di campo: trasparente, nessun bordo/box-shadow. 
+   Lo stile visivo è gestito direttamente dall'elemento nativo interno (input/select/textarea). */
 .fi-sc-wizard .fi-fo-field-wrp,
 .fi-sc-wizard .fi-field-wrapper,
 .fi-sc-wizard .fi-field-wrapper-content,
 .fi-sc-wizard [class*="fi-fo-field-wrp"] {
-    background-color: #ffffff !important;
-    border-radius: 4px;
-    padding: 4px;
+    background-color: transparent !important;
 }
 
 .fi-sc-wizard .fi-fo-text-input,
@@ -411,14 +430,26 @@
     color: #17324d !important;
 }
 
+/* Inner native input/select/textarea: zero bordo, sfondo trasparente.
+   Il SINGLE BORDER vive sul wrapper .fi-input-wrp (vedi blocco sopra).
+   Risolve il "doppio bordo": ring/wrapper + border interno → solo wrapper.
+   Allineato a italia/design-comuni-pagine-statiche (.form-control underline-only). */
 .fi-sc-wizard select,
 .fi-sc-wizard input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="reset"]),
 .fi-sc-wizard textarea {
-    background-color: #ffffff !important;
-    border: 1px solid #5c6f82 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
     color: #17324d !important;
-    border-radius: 4px !important;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+.fi-sc-wizard select:focus,
+.fi-sc-wizard input:not([type="checkbox"]):not([type="radio"]):focus,
+.fi-sc-wizard textarea:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 /* Make select elements clearly visible with visible dropdown arrow */

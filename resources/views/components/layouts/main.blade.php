@@ -1,12 +1,3 @@
-@php
-    $isTestsRoute = request()->routeIs('tests.*');
-    $testsSlug = (string) request()->route('slug', '');
-    $usesFrontendLivewire = $isTestsRoute && in_array($testsSlug, [
-        'segnalazione-crea',
-    ], true);
-    $renderRuntimeChrome = ! $isTestsRoute;
-    $isHomepageParity = $isTestsRoute && request()->route('slug') === 'homepage';
-@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -16,73 +7,28 @@
         {{-- PHILOSOPHY: TailwindCSS + Alpine.js ONLY. NO Bootstrap Italia JS/CSS. --}}
         {{-- See: docs/architecture/tailwind-alpine-philosophy.md --}}
 
-        {{-- Used to add dark mode right away, adding here prevents any flicker --}}
+        {{--
+            Dark mode boot: MUST stay inline and run before first paint.
+            Vite `app.js` is `type="module"` (deferred) → spostare qui dentro il bundle causerebbe FOUC.
+            La chiave `dark_mode` è definita anche in resources/js/theme/dark-mode.js (DRY logico: tenerle allineate).
+        --}}
         <script>
-            if (typeof(Storage) !== "undefined") {
-                if (localStorage.getItem('dark_mode') && localStorage.getItem('dark_mode') == 'true') {
-                    document.documentElement.classList.add('dark');
-                }
+            if (typeof Storage !== 'undefined' && localStorage.getItem('dark_mode') === 'true') {
+                document.documentElement.classList.add('dark');
             }
         </script>
-        <style>
-            [x-cloak] {
-                display: none !important;
-            }
-        </style>
-        @if($isTestsRoute)
-        <!-- Bootstrap Italia CSS for test routes -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.0/dist/css/bootstrap-italia.min.css">
-        @endif
-        @if(! $isTestsRoute)
-            @filamentStyles
-        @elseif($usesFrontendLivewire)
-            @livewireStyles
-            @filamentStyles
-        @endif
-        @if($isTestsRoute && ! $usesFrontendLivewire)
-            @vite(['resources/css/app.css'], 'themes/Sixteen')
-        @elseif($isTestsRoute)
-            @vite(['resources/css/app.css'], 'themes/Sixteen')
-        @else
-            @vite(['resources/css/app.css'], 'themes/Sixteen')
-            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
-        @endif
-        {{-- Segnalazione-crea header/nav: un solo posto — `Themes/Sixteen/resources/css/app.css` (`.it-header-wrapper.is-segnalazione-crea`) + `theme-light-desk` in `header/v1.blade.php`. Niente `<style>` inline (duplica app.css / anti-pattern “nav tutta verde”). Doc: `Themes/Sixteen/docs/wiki/concepts/header-color-parity.md`. --}}
-    </head>
-    <body class="{{$isTestsRoute ? 'tests-route' : ''}}">
-        {{ $slot }}
-        @if($renderRuntimeChrome)
-            <livewire:toast />
-            @livewire('notifications')
-            @filamentScripts
-            @vite(['resources/js/app.js'], 'themes/Sixteen')
-        @elseif($usesFrontendLivewire)
-            {{-- Frontend Livewire with Filament Schema (Wizard) — needs Filament scripts too --}}
-            @livewireScripts
-            @filamentScripts
-            @vite(['resources/js/app.js'], 'themes/Sixteen')
-        @elseif($isTestsRoute)
-            {{-- Test routes: load theme JS after Livewire/Volt boots Alpine --}}
-            @vite(['resources/js/app.js'], 'themes/Sixteen')
-        @endif
+        {{-- [x-cloak]: definito in resources/css/app.css --}}
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const darkModeToggle = document.getElementById('darkModeToggle');
-                if (darkModeToggle) {
-                    darkModeToggle.addEventListener('click', function() {
-                        const html = document.documentElement;
-                        const isDark = html.classList.contains('dark');
-                        if (isDark) {
-                            html.classList.remove('dark');
-                            localStorage.setItem('dark_mode', 'false');
-                        } else {
-                            html.classList.add('dark');
-                            localStorage.setItem('dark_mode', 'true');
-                        }
-                    });
-                }
-            });
-        </script>
+        @livewireStyles
+        @filamentStyles
+        @vite(['resources/css/app.css'], 'themes/Sixteen')
+        {{-- Cookie consent: NON in app.css — @import url(/vendor/...) fa fallire vite build (postcss-import filesystem). Solo asset() --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+    </head>
+    <body>
+        {{ $slot }}
+        @livewireScripts
+        @filamentScripts
+        @vite(['resources/js/app.js'], 'themes/Sixteen')
     </body>
 </html>
