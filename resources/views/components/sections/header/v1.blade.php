@@ -1,0 +1,325 @@
+@php
+    $authUser = auth()->user();
+    $headerProfile = $authUser?->profile;
+    $headerUserDisplayName = trim((string) ($headerProfile->user_name ?? ''));
+
+    if ($headerUserDisplayName === '') {
+        $headerUserDisplayName = trim((string) ($headerProfile->full_name ?? ''));
+    }
+    if ($headerUserDisplayName === '') {
+        $headerUserDisplayName = trim((string) ($authUser->user_name ?? ''));
+    }
+    if ($headerUserDisplayName === '') {
+        $headerUserDisplayName = trim((string) ($authUser->full_name ?? ''));
+    }
+    if ($headerUserDisplayName === '') {
+        $headerUserDisplayName = trim((string) (($authUser->first_name ?? '').' '.($authUser->last_name ?? '')));
+    }
+    if ($headerUserDisplayName === '') {
+        $headerUserDisplayName = (string) ($authUser->name ?? $authUser->email ?? 'Account');
+    }
+
+    $headerAvatarUrl = null;
+    if (\is_object($headerProfile) && method_exists($headerProfile, 'getAvatarUrl')) {
+        $headerAvatarUrl = $headerProfile->getAvatarUrl();
+    } elseif (filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
+        $headerAvatarUrl = $headerProfile->avatar_url;
+    } elseif (isset($authUser->profile_photo_url) && is_string($authUser->profile_photo_url) && $authUser->profile_photo_url !== '') {
+        $headerAvatarUrl = $authUser->profile_photo_url;
+    } elseif (! empty($authUser->profile_photo_path)) {
+        $profilePhotoPath = $authUser->profile_photo_path;
+        if (\Illuminate\Support\Str::startsWith($profilePhotoPath, ['http://', 'https://'])) {
+            $headerAvatarUrl = $profilePhotoPath;
+        } elseif (\Illuminate\Support\Str::startsWith($profilePhotoPath, '/')) {
+            $headerAvatarUrl = url($profilePhotoPath);
+        } else {
+            $headerAvatarUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($profilePhotoPath);
+        }
+    }
+
+    $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
+
+    $testsPath = (string) request()->path();
+    /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
+    $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
+    $headerRegionLabel = __('pub_theme::header.slim.region.name.label');
+
+    // Story 8-107: nav items dinamici da header.json (no hardcoded)
+    $headerNavConfig = [];
+    $headerNavJsonPath = \Modules\Tenant\Services\TenantService::filePath('database/content/sections/header.json');
+    if (is_string($headerNavJsonPath) && file_exists($headerNavJsonPath)) {
+        $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
+    }
+    $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
+    $headerNavTopicsUrl = $headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/it/argomenti';
+    $headerNavItems     = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'primary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
+    $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
+    usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
+    usort($headerNavSecondary, fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
+
+    $headerNavItemIsActive = static function (array $item): bool {
+        $patterns = $item['active_patterns'] ?? [];
+        if (\is_array($patterns) && $patterns !== []) {
+            foreach ($patterns as $p) {
+                if (! \is_string($p) || $p === '') {
+                    continue;
+                }
+                $normalized = ltrim($p, '/');
+                if ($normalized !== '' && request()->is($normalized)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        $u = (string) ($item['url'] ?? '');
+        $path = $u !== '' ? ltrim((string) parse_url($u, PHP_URL_PATH), '/') : '';
+
+        return $path !== '' && (request()->is($path) || request()->is($path.'/*'));
+    };
+@endphp
+
+{{--
+    Bootstrap Italia Header — EXACT match of Design Comuni reference
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html
+    
+    Updated for Story 5.0: Header Logged-In State
+    - Auth state detection
+    - User dropdown for authenticated users
+    - Area Personale menu (servizi, pratiche, notifiche, impostazioni, logout)
+    
+    Updated for Story 8-34: Real section owner fix
+    - Section header is the real runtime owner for Design Comuni header chrome
+    - Slim dropdowns lingua + utente: data-bs-toggle + app.js (Story 7-54), no Alpine inline (Livewire/Filament)
+    - Authenticated user block prioritizes display name over decorative avatar
+    - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
+--}}
+<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
+    {{-- Slim Header: background from theme tokens --}}
+    <div class="it-header-slim-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="it-header-slim-wrapper-content">
+                        {{-- Transparent bg: shows slim dark green (#00402b) underneath, text-white for contrast --}}
+                        <a
+                            class="d-lg-block navbar-brand text-white"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="#"
+                            aria-label="{{ __('pub_theme::header.slim.region.portal_aria.label', ['region' => $headerRegionLabel]) }}"
+                            title="{{ __('pub_theme::header.slim.region.portal_title.label', ['region' => $headerRegionLabel]) }}"
+                        >{{ $headerRegionLabel }}</a>
+
+                        <div class="it-header-slim-right-zone" role="navigation">
+                            @include('pub_theme::components.sections.header.partials.language-switcher')
+                            @guest
+                                @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
+                            @else
+                                @include('pub_theme::components.sections.header.partials.user-dropdown', [
+                                    'avatarUrl' => $headerAvatarUrl,
+                                    'displayName' => $headerUserDisplayName,
+                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
+                                    'userInitial' => $headerUserInitial,
+                                ])
+                            @endguest
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="it-nav-wrapper">
+        <div class="it-header-center-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="it-header-center-content-wrapper">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
+                                <svg class="icon">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                </svg>
+                            </button>
+                            <div class="it-brand-wrapper">
+                                <a href="/" title="{{ __('pub_theme::header.center.brand.home_link.title.label') }}">
+                                    <svg width="82" height="82" class="icon" aria-hidden="true">
+                                        <image href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
+                                    </svg>
+                                    <div class="it-brand-text">
+                                        <div class="it-brand-title">{{ __('pub_theme::header.center.brand.title.label') }}</div>
+                                        <div class="it-brand-tagline d-none d-md-block">{{ __('pub_theme::header.center.brand.tagline.label') }}</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="it-right-zone">
+                                <div class="it-socials d-none d-lg-flex">
+                                    <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
+                                    <ul>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <svg class="icon icon-sm icon-white align-top">
+                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                                                </svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="it-search-wrapper flex-col items-center">
+                                         <span class="d-none d-md-block search-label">{{ __('pub_theme::header.center.search.label') }}</span>
+                                        <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
+                                            <svg class="icon">
+                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navbar navbar-expand-lg has-megamenu">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
+                                <svg class="icon">
+                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                </svg>
+                            </button>
+                            <!-- Mobile overlay backdrop -->
+                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="overlay" style="display: none;"></div>
+                            <!-- Mobile menu panel -->
+                            <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
+                                <div class="close-div">
+                                    <button class="btn close-menu" type="button" @click="close()">
+                                        <span class="visually-hidden">{{ __('pub_theme::header.center.nav.close_aria.label') }}</span>
+                                        <svg class="icon">
+                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="menu-wrapper">
+                                    <a href="/" class="logo-hamburger">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
+                                        </svg>
+                                        <div class="it-brand-text">
+                                            <div class="it-brand-title">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</div>
+                                        </div>
+                                    </a>
+                                    @include('pub_theme::components.sections.header.partials.nav-primary', [
+                                        'headerNavItems' => $headerNavItems,
+                                        'headerNavItemIsActive' => $headerNavItemIsActive
+                                    ])
+                                    @include('pub_theme::components.sections.header.partials.nav-secondary', [
+                                        'headerNavSecondary' => $headerNavSecondary,
+                                        'headerNavTopicsUrl' => $headerNavTopicsUrl,
+                                        'headerNavItemIsActive' => $headerNavItemIsActive
+                                    ])
+                                    <div class="it-socials">
+                                        <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
+                                        <ul>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank">
+                                                    <svg class="icon icon-sm icon-white align-top">
+                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                                                    </svg>
+                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
