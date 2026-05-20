@@ -6,10 +6,13 @@
  *
  * CRITICAL: Livewire/Filament already loads Alpine.js.
  * We must NOT create a second instance. Only extend the existing one.
+ *
+ * Dark mode: boot anti-FOUC in layouts/main.blade.php (head); logica toggle in theme/dark-mode.js.
  */
 
 import '@splidejs/splide/dist/css/splide.min.css';
 import '@theme-leaflet-css';
+import { initDarkModeToggle, toggleDarkMode } from './theme/dark-mode.js';
 import focus from '@alpinejs/focus';
 import { dropdownToggle } from './components/dropdown';
 import { modal } from './components/modal';
@@ -17,14 +20,7 @@ import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import './components/bootstrap-italia.js';
 import '@modules/Geo/resources/js/components/map-lit.js';
-import '@modules/Geo/resources/js/components/my-map-lit.js';
-import '@modules/Geo/resources/js/components/geo-latlng-input.js';
-import '@modules/Geo/resources/js/components/map-picker-lit.js';
-import '@modules/Geo/resources/js/components/place-picker-lit.js';
-import '@modules/Geo/resources/js/components/geopoint-picker-lit.js';
-import '@modules/Geo/resources/js/components/coordinate-picker-field.js';
-import './components/modules/Geo/geo-map-lit.js';
-import geoMapPickerField from '@modules/Geo/resources/js/components/geo-map-picker-field.js';
+import '@modules/Geo/resources/js/components/coordinate-picker-lit.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -66,6 +62,15 @@ function registerAlpineComponents(AlpineInstance) {
 
     // geoMapPickerField: legacy Alpine helper (map-picker.blade usa $wire.entangle + map-picker-lit).
     AlpineInstance.data('geoMapPickerField', geoMapPickerField);
+
+    // Dark mode — state + toggle (persistito in localStorage)
+    AlpineInstance.data('darkMode', () => ({
+        isDark: document.documentElement.classList.contains('dark'),
+        toggle() {
+            toggleDarkMode();
+            this.isDark = document.documentElement.classList.contains('dark');
+        },
+    }));
 
     // Story 1.1.1-HEADER-RESPONSIVE: Mobile header navigation toggle
     // Fixes inline x-data not being processed correctly by Livewire/Alpine
@@ -160,6 +165,9 @@ function initHeaderDropdowns() {
 document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
 document.addEventListener('livewire:navigated', initHeaderDropdowns);
 document.addEventListener('livewire:update', initHeaderDropdowns);
+
+document.addEventListener('DOMContentLoaded', initDarkModeToggle);
+document.addEventListener('livewire:navigated', initDarkModeToggle);
 
 document.addEventListener('DOMContentLoaded', function() {
     const closeModal = function(modal) {

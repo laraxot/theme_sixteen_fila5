@@ -1,8 +1,8 @@
 <x-filament-widgets::widget>
-{{-- Wrapper Design Comuni: titolo + wizard Filament con view custom --}}
+{{-- Design Comuni wrapper --}}
 <div class="cmp-wizard-widget">
-    {{-- Heading section --}}
-    <div class="container wizard-dc-heading-shell">
+    {{-- Heading - max-width 1166px centered --}}
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <div class="cmp-heading pb-3 pb-lg-4">
@@ -15,18 +15,18 @@
         </div>
     </div>
 
-    {{-- Wizard Form - stepper e azioni renderizzate dalla view custom pub_theme::components.wizard --}}
-    <div class="container">
+    {{-- Wizard Form - stepper full row; step content constrained by neutral Design Comuni CSS hooks --}}
+    <div class="container wizard-dc-form-shell">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 pb-40 pb-lg-80">
-                <form wire:submit="submit">
+            <div class="col-12">
+                <div class="wizard-dc-form-shell p-4 bg-white rounded-lg shadow-sm">
                     @if ($errors->has('data.submit') || $errors->has('submit'))
                         <div class="alert alert-danger mb-4" role="alert">
                             {{ $errors->first('data.submit') ?: $errors->first('submit') }}
                         </div>
                     @endif
                     {{ $this->form }}
-                </form>
+                </div>
             </div>
         </div>
     </div>

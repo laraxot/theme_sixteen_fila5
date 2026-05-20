@@ -8,29 +8,70 @@
  * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/
  */
 
-/* === RESET FILAMENT NATIVE STYLES === */
-.fi-sc-wizard .fi-wiz-steps,
-.fi-sc-wizard .fi-fo-wizard-header,
-.fi-sc-wizard .fi-fo-wizard-step-header {
-    display: none !important;
-}
-
-/* === STEPPER (Design Comuni / Bootstrap Italia) === */
+/* === DESIGN COMUNI STEPPER (Reference: Italia Design Comuni) === */
 .fi-sc-wizard .steppers {
     background-color: #ffffff;
-    border-bottom: 1px solid #d9e1e8;
-    margin-bottom: 2rem;
+    border-bottom: 2px solid #d9e1e8;
     padding: 1.5rem 0;
 }
 
 .fi-sc-wizard .steppers-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     max-width: 1166px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 1rem;
 }
 
+.fi-sc-wizard .steppers-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fi-sc-wizard .stepper-step {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c6f82;
+}
+
+.fi-sc-wizard .stepper-step.active {
+    color: #007a52;
+    font-weight: 700;
+}
+
+.fi-sc-wizard .stepper-step.confirmed {
+    color: #008c45;
+}
+
+.fi-sc-wizard .steppers-index {
+    font-size: 14px;
+    font-weight: 600;
+    color: #17324d;
+    background-color: #f5f6f7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.fi-sc-wizard .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* DEPRECATED: Old interactive stepper styles (kept for reference) */
+/*
 .fi-sc-wizard .step-list {
     display: flex;
     align-items: center;
@@ -67,10 +108,36 @@
 }
 
 .fi-sc-wizard .step-item.active .step-icon {
-    background-color: #007a52; /* var(--dc-green) */
+    background-color: #007a52;
     color: #ffffff;
     border-color: #007a52;
 }
+
+.fi-sc-wizard .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c6f82;
+    margin-left: 0.75rem;
+}
+
+.fi-sc-wizard .step-item.active .step-title {
+    color: #007a52;
+    font-weight: 700;
+}
+
+.fi-sc-wizard .step-divider {
+    flex: 1;
+    height: 1px;
+    background-color: #d9e1e8;
+    margin: 0 1rem;
+    min-width: 1rem;
+}
+
+.fi-sc-wizard .step-item.confirmed + .step-item .step-divider,
+.fi-sc-wizard .step-item.active + .step-item .step-divider {
+    background-color: #007a52;
+}
+*/
 
 .fi-sc-wizard .step-title {
     font-size: 14px;
@@ -106,19 +173,41 @@
 
 /* === FORM CONTENT === */
 .fi-sc-wizard .steppers-content {
-    max-width: 1166px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px 3rem;
 }
 
-/* Hide inactive steps to prevent vertical stacking */
-.fi-sc-wizard .fi-sc-wizard-step {
+/* === CRITICAL: HIDE INACTIVE STEPS ===
+    Filament wizard steps should be hidden unless they have .fi-active.
+    Without this rule, all steps stack vertically. */
+/* === CRITICAL: HIDE INACTIVE STEPS ===
+    Filament wizard steps should be hidden unless they have .fi-active.
+    Without this rule, all steps stack vertically. */
+.wizard-dc-form-shell .fi-sc-wizard .fi-sc-wizard-step {
     display: none !important;
 }
 
-.fi-sc-wizard .fi-sc-wizard-step.fi-active {
+.wizard-dc-form-shell .fi-sc-wizard .fi-sc-wizard-step.fi-active {
     display: block !important;
 }
+
+/* Additional rule for form elements with fi-active class */
+.wizard-dc-form-shell .fi-sc-wizard-step form.fi-active {
+    display: block !important;
+}
+
+/* Ensure direct grids are also handled correctly */
+.wizard-dc-form-shell .fi-sc-wizard > .fi-sc.fi-grid,
+.wizard-dc-form-shell .fi-sc-wizard > .fi-grid {
+     display: none !important;
+}
+
+.wizard-dc-form-shell .fi-sc-wizard > .fi-sc.fi-grid.fi-active,
+.wizard-dc-form-shell .fi-sc-wizard > .fi-grid.fi-active {
+     display: block !important;
+}
+
 
 /* Ensure Alpine/Filament visibility toggles work in custom themed footer */
 .fi-sc-wizard .fi-hidden {
@@ -139,10 +228,12 @@
 }
 
 /* === INPUTS parity === */
+/* Solo input testuali: bordo singolo, niente doppio bordo con wrapper */
 .fi-sc-wizard input[type="text"],
 .fi-sc-wizard input[type="email"],
 .fi-sc-wizard input[type="tel"],
-.fi-sc-wizard select,
+.fi-sc-wizard input[type="number"],
+.fi-sc-wizard input[type="search"],
 .fi-sc-wizard textarea {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -205,12 +296,224 @@
     .fi-sc-wizard .step-title {
         display: none;
     }
-    
+
     .fi-sc-wizard .fi-fo-wizard-actions {
         flex-direction: column;
     }
-    
+
     .fi-sc-wizard .fi-fo-wizard-actions button {
         width: 100%;
     }
+}
+
+/* === WIZARD FORM CONTAINER (All Filament Wizards) ===
+   Matches Design Comuni reference: centered narrow form */
+
+/* Form shell - centered narrow form like Design Comuni reference */
+.wizard-dc-form-shell {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Form columns: col-lg-8 col-xl-7 to match reference layout */
+.wizard-dc-form-shell .col-lg-8,
+.wizard-dc-form-shell .col-xl-7 {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* All wizard content inside the narrow container.
+   The wrapper is a div because Filament wizard steps render their own forms. */
+.fi-sc-wizard form,
+.wizard-dc-form-shell .wizard-dc-form {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Legacy domain-specific wizard hooks were intentionally removed.
+   Scope Design Comuni wizard parity through .fi-sc-wizard and .wizard-dc-form-shell. */
+
+/* Map container within wizard - full width within the constrained form */
+.fi-sc-wizard .map-container-wrapper coordinate-picker-lit {
+    display: block !important;
+    width: 100% !important;
+}
+
+.fi-sc-wizard .map-container-wrapper .map-container,
+.fi-sc-wizard .map-container-wrapper .map-picker-leaflet-pane {
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+/* Also scope to wizard-dc-form-shell for explicit container usage */
+.wizard-dc-form-shell .map-container-wrapper coordinate-picker-lit {
+    display: block !important;
+    width: 100% !important;
+}
+
+.wizard-dc-form-shell .map-container-wrapper .map-container,
+.wizard-dc-form-shell .map-container-wrapper .map-picker-leaflet-pane {
+    width: 100% !important;
+}
+
+/* Defeat ghost / transparent backgrounds on form fields inside the wizard.
+   Filament v5 sometimes renders inputs with var() backgrounds that fall back
+   to transparent on the Sixteen theme cascade — force an opaque white. */
+.fi-sc-wizard .fi-input,
+.fi-sc-wizard .fi-fo-text-input,
+.fi-sc-wizard .fi-fo-select-input,
+.fi-sc-wizard .fi-fo-textarea-input,
+.fi-sc-wizard .fi-fo-input,
+.fi-sc-wizard input.fi-input,
+.fi-sc-wizard select.fi-input,
+.fi-sc-wizard textarea.fi-input,
+.fi-sc-wizard input[type="text"],
+.fi-sc-wizard input[type="email"],
+.fi-sc-wizard input[type="tel"],
+.fi-sc-wizard input[type="number"],
+.fi-sc-wizard input[type="search"],
+    /* I <select> nativi hanno già il proprio stile completo: appearance:none + SVG arrow.
+       border, background-color e box-shadow sono gestiti dalle regole specifiche più avanti. */
+.fi-sc-wizard textarea {
+    background-color: #ffffff !important;
+    border: 1px solid #5c6f82 !important;
+    color: #17324d !important;
+    box-shadow: 0 1px 2px rgba(23, 50, 77, 0.04);
+}
+
+/* Input-wrapper: trasparente, nessun bordo/box-shadow.
+   Solo lascia padding laterale per distanziare etichetta da contenuto.
+   Gli stili visivi (bordi, sfondo, ombre) sono gestiti dall'elemento nativo interno. */
+.fi-sc-wizard .fi-input-wrp,
+    .fi-sc-wizard .fi-fo-field-wrp .fi-input-wrp {
+        padding-left: 2px;
+        padding-right: 2px;
+        /* Single border on wrapper, remove inner input borders */
+        border: 1px solid #5c6f82 !important;
+        border-radius: 4px !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    /* Remove borders from inner inputs/selects/textarea */
+    .fi-sc-wizard .fi-input-wrp input,
+    .fi-sc-wizard .fi-input-wrp select,
+    .fi-sc-wizard .fi-input-wrp textarea {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+/* Stronger selectors for opaque form fields - Filament v5 */
+.fi-sc-wizard [data-field],
+.fi-sc-wizard [data-field-wrapper],
+.fi-sc-wizard [class*="field-wrapper"],
+.fi-sc-wizard [class*="input-wrapper"] {
+    background-color: transparent !important;
+}
+
+/* Wrapper di campo: trasparente, nessun bordo/box-shadow. 
+   Lo stile visivo è gestito direttamente dall'elemento nativo interno (input/select/textarea). */
+.fi-sc-wizard .fi-fo-field-wrp,
+.fi-sc-wizard .fi-field-wrapper,
+.fi-sc-wizard .fi-field-wrapper-content,
+.fi-sc-wizard [class*="fi-fo-field-wrp"] {
+    background-color: transparent !important;
+}
+
+.fi-sc-wizard .fi-fo-text-input,
+.fi-sc-wizard .fi-fo-select-input,
+.fi-sc-wizard .fi-fo-textarea-input,
+.fi-sc-wizard .fi-fo-input {
+    background-color: #ffffff !important;
+    color: #17324d !important;
+}
+
+/* Inner native input/select/textarea: zero bordo, sfondo trasparente.
+   Il SINGLE BORDER vive sul wrapper .fi-input-wrp (vedi blocco sopra).
+   Risolve il "doppio bordo": ring/wrapper + border interno → solo wrapper.
+   Allineato a italia/design-comuni-pagine-statiche (.form-control underline-only). */
+.fi-sc-wizard select,
+.fi-sc-wizard input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="reset"]),
+.fi-sc-wizard textarea {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #17324d !important;
+}
+
+.fi-sc-wizard select:focus,
+.fi-sc-wizard input:not([type="checkbox"]):not([type="radio"]):focus,
+.fi-sc-wizard textarea:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Make select elements clearly visible with visible dropdown arrow */
+.fi-sc-wizard select {
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+    padding-right: 2rem !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235c6f82' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.5rem center !important;
+    background-size: 16px 12px !important;
+}
+
+.fi-sc-wizard input::placeholder,
+.fi-sc-wizard textarea::placeholder {
+    color: #5c6f82 !important;
+    opacity: 1 !important;
+}
+
+/* Stepper polish: stronger contrast on inactive labels + index pill. */
+.fi-sc-wizard .steppers {
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #d9e1e8 !important;
+    padding: 1.5rem 0 !important;
+}
+
+.fi-sc-wizard .step-title {
+    color: #17324d !important;
+    font-weight: 600 !important;
+}
+
+.fi-sc-wizard .step-item.active .step-title {
+    color: #007a52 !important;
+    font-weight: 700 !important;
+}
+
+.fi-sc-wizard .step-item:not(.active):not(.confirmed):not(.completed) .step-icon {
+    background-color: #f5f6f7 !important;
+    color: #5c6f82 !important;
+    border: 2px solid #c1c9d1 !important;
+}
+
+.fi-sc-wizard .step-item.active .step-icon {
+    background-color: #007a52 !important;
+    color: #ffffff !important;
+    border: 2px solid #007a52 !important;
+    box-shadow: 0 2px 4px rgba(0, 122, 82, 0.3) !important;
+}
+
+.fi-sc-wizard .steppers-index {
+    color: #17324d !important;
+    font-weight: 600 !important;
+    background-color: #f5f6f7 !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 12px !important;
+}
+
+.fi-sc-wizard .step-divider {
+    background-color: #d9e1e8 !important;
+    height: 2px !important;
+}
+
+.fi-sc-wizard .step-item.confirmed .step-divider,
+.fi-sc-wizard .step-item.completed .step-divider,
+.fi-sc-wizard .step-item.active .step-divider {
+    background-color: #007a52 !important;
 }

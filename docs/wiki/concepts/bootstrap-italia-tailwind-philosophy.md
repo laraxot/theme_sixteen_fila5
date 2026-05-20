@@ -2,7 +2,7 @@
 title: Bootstrap Italia + Tailwind CSS — Filosofia e Regole
 type: concept
 tags: [tailwind, bootstrap-italia, design-comuni, css, philosophy]
-updated: 2026-04-15
+updated: 2026-05-15
 ---
 
 # Bootstrap Italia class names → Tailwind @apply
@@ -32,6 +32,30 @@ Browser             → stili corretti, zero Bootstrap JS/CSS
 2. **AGID compliance**: Le linee guida impongono l'uso del Design System nazionale; class names sono parte dello standard
 3. **Migrazione graduale**: HTML stabile, implementazione CSS libera di evolvere da Bootstrap puro a Tailwind @apply senza toccare i template
 4. **Riusabilità componenti**: Un componente con class names Bootstrap funziona in qualsiasi contesto PA
+
+## Alias con `@apply`: pattern preferito (più pulito)
+
+Per questo repository, la soluzione **più pulita** per mappare Tailwind (e, dove coerente, classi DaisyUI) sui **nomi di classe pubblici** è definire **alias nel foglio CSS del tema**, non sparse utility nell’HTML.
+
+```css
+/* Esempio: un solo nome semantico nel markup, implementazione centralizzata */
+.mio-bottone-istituzionale {
+  @apply inline-flex items-center rounded px-4 py-2 font-semibold text-white bg-emerald-700 hover:bg-emerald-800;
+}
+```
+
+**Vantaggi nel nostro modello**
+
+- **HTML stabile** rispetto a Design Comuni / Bootstrap Italia (parity AGID, diff automatici semplici).
+- **Un solo punto** per token colore/spacing quando cambiano linee guida o tema.
+- **Coerenza** tra Blade, Lit shadow DOM (dove si importa CSS) e Filament (parity in CSS dedicato).
+
+**Quando è accettabile usare utility “nude” nell’HTML**
+
+- Layout **one-off** o prototipi veloci **fuori** dal contratto `.it-*` / `.cmp-*`.
+- Eccezioni documentate (es. micro-spaziature in un partial già incapsulato), senza moltiplicare varianti globali.
+
+**Anti-pattern**: blocchi `<style>` nei Blade del modulo con `@apply` — il compilatore Tailwind del tema potrebbe non processarli; il CSS va nei file sotto `Themes/Sixteen/resources/css/`.
 
 ## File di Riferimento
 
