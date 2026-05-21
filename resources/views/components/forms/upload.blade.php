@@ -287,7 +287,6 @@ Usage Examples:
 1. Basic upload:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     name="document"
     file-info="PDF (Max 5MB)"
@@ -297,7 +296,6 @@ Usage Examples:
 2. Multiple file upload:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     name="documents[]"
     :multiple="true"
@@ -308,7 +306,6 @@ Usage Examples:
 3. Upload in loading state:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     state="loading"
     file-info="PDF (3.7MB)"
@@ -318,7 +315,6 @@ Usage Examples:
 4. Upload in success state:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     state="success"
     file-info="PDF (3.7MB)"
@@ -328,7 +324,6 @@ Usage Examples:
 5. Custom text and description:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     drag-text="Trascina qui i tuoi file"
     select-text="oppure seleziona dal computer"
@@ -337,7 +332,6 @@ Usage Examples:
 6. Image upload with custom icon:
 <x-pub_theme::upload 
 <x-pub_theme::upload 
-=======
 <x-pub_theme::upload 
     name="avatar"
     accept="image/*"

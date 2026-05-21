@@ -20,12 +20,14 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="wizard-dc-form-shell p-4 bg-white rounded-lg shadow-sm">
-                    @if ($errors->has('data.submit') || $errors->has('submit'))
-                        <div class="alert alert-danger mb-4" role="alert">
-                            {{ $errors->first('data.submit') ?: $errors->first('submit') }}
-                        </div>
-                    @endif
-                    {{ $this->form }}
+                    <form wire:submit="{{ $this->getFormSubmitAction() }}">
+                        @if (isset($errors) && ($errors->has('data.submit') || $errors->has('submit')))
+                            <div class="alert alert-danger mb-4" role="alert">
+                                {{ $errors->first('data.submit') ?: $errors->first('submit') }}
+                            </div>
+                        @endif
+                        {{ $this->form }}
+                    </form>
                 </div>
             </div>
         </div>
