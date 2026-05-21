@@ -5,6 +5,7 @@ theme: sixteen
 created: "2026-05-21"
 updated: "2026-05-21"
 related:
+  - ../../../../docs/ridondanze-documentazione-temi.md
   - ../../wizard-refactor-explanation.md
   - ../../ticket-wizard-filament-refactor.md
   - ../../architecture/wizard-parity.md
