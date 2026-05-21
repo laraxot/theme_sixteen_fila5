@@ -11,11 +11,12 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 
 ## Pagine
 
+- [wizard-parity-documentation-map](./concepts/wizard-parity-documentation-map.md) — ordine lettura parity segnalazione (dry tema)
 - [bootstrap-italia-tailwind-philosophy](./concepts/bootstrap-italia-tailwind-philosophy.md) — `@apply` come alias, HTML semantico
 - [daisyui-pro-contro-metriche](./concepts/daisyui-pro-contro-metriche.md) — sintesi tema; SSoT in modulo Cms
 - [context-compression-plugin](./concepts/context-compression-plugin.md)
 - [design-comuni-class-mapping](./entities/design-comuni-class-mapping.md) — Tailwind, DaisyUI, parity PA, Filament
-- [log](./log.md)
+- [ridondanze-documentazione-wizard](./concepts/ridondanze-documentazione-wizard.md) — quando conviene fusionare slice doc wizard vs tenerle separate
 
 ## Collegamenti root
 
