@@ -60,6 +60,20 @@
   - `laravel/Themes/Sixteen/public/manifest.json`
   - `public_html/themes/Sixteen/manifest.json`
 
+
+
+### Runtime Manifest Verification
+
+Before blaming PHP, Composer, Debugbar, Livewire, or Alpine, verify the exact bundle loaded by the page:
+
+```bash
+curl -s http://127.0.0.1:8000/it/segnalazione-crea -o /tmp/seg-current.html
+rg -n "assets/app-[A-Za-z0-9_-]+\.js" /tmp/seg-current.html
+cd laravel && php artisan tinker --execute="dump(['public_path' => public_path(), 'vite_app' => json_decode(file_get_contents(public_path('themes/Sixteen/manifest.json')), true)['resources/js/app.js']['file'] ?? null]);"
+```
+
+In this repository `public_path()` resolves to `public_html`, not `laravel/public`. Treat `laravel/public/themes/Sixteen/manifest.json` as non-authoritative unless the runtime `public_path()` says otherwise.
+
 ### Filament + Lit Rule
 - If a Geo Filament field selects a Lit renderer, the field still remains Filament-governed on the PHP side
 - The theme only bundles and publishes the Web Component assets

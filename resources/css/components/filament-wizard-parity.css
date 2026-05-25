@@ -178,21 +178,25 @@
     padding: 0 15px 3rem;
 }
 
-/* === CRITICAL: HIDE INACTIVE STEPS ===
-    Filament wizard steps should be hidden unless they have .fi-active.
-    Without this rule, all steps stack vertically. */
-/* === CRITICAL: HIDE INACTIVE STEPS ===
-    Filament wizard steps should be hidden unless they have .fi-active.
-    Without this rule, all steps stack vertically. */
-.wizard-dc-form-shell .fi-sc-wizard .fi-sc-wizard-step {
+/* === CRITICAL: one visible wizard step panel ===
+   Inactive panels must collapse; Alpine applies `fi-active` on `step`.
+   Race: dopo mount Livewire Alpine può tardare — tutti gli step restano `:not(.fi-active)`
+   → con `display:none` la pagina resta bianca ("primo step assente").
+   Fallback: se non esiste alcun `.fi-active`, mostra comunque il primo step finché Alpine non sincronizza. */
+.wizard-dc-form-shell .fi-sc-wizard .fi-sc-wizard-step:not(.fi-active) {
     display: none !important;
+}
+
+.wizard-dc-form-shell .fi-sc-wizard:not(:has(.fi-sc-wizard-step.fi-active))
+    .fi-sc-wizard-step:first-of-type {
+    display: block !important;
 }
 
 .wizard-dc-form-shell .fi-sc-wizard .fi-sc-wizard-step.fi-active {
     display: block !important;
 }
 
-/* Additional rule for form elements with fi-active class */
+/* Step con wrapper form: classe fi-active viene sul contenitore */
 .wizard-dc-form-shell .fi-sc-wizard-step form.fi-active {
     display: block !important;
 }

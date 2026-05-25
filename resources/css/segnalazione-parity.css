@@ -2589,22 +2589,20 @@ h1.title-xxxlarge {
   }
 }
 
-/* Hide dev overlays in visual parity runs. */
-#phpdebugbar,
-.phpdebugbar,
-[id^="phpdebugbar-"] {
+/* Nascondere Debugbar solo nei run parity (screenshot/HTML diff).
+ * Dev normale: non aggiungere questa classe al body.
+ * Esempio Playwright: document.body.classList.add('parity-capture-hide-dev-overlays');
+ */
+body.parity-capture-hide-dev-overlays #phpdebugbar,
+body.parity-capture-hide-dev-overlays .phpdebugbar,
+body.parity-capture-hide-dev-overlays [id^="phpdebugbar-"],
+body.parity-capture-hide-dev-overlays [id^="phpdebugbar"] {
   display: none !important;
 }
 
 /* ============================================================================
    26. PAGE-SPECIFIC PARITY: segnalazione-01-privacy
    ============================================================================ */
-#phpdebugbar,
-.phpdebugbar,
-[id^="phpdebugbar"] {
-  display: none !important;
-}
-
 .cmp-breadcrumbs {
   padding: 0.7rem 0 0.4rem !important;
 }

@@ -11,7 +11,7 @@ use Filament\Schemas\Components\Wizard\Step;
 public function getFormSchema(): array
 {
     return [
-        Wizard::make($this->getWizardSteps())
+        Wizard::make($this->getSteps())
             ->startOnStep(fn () => $this->wizardStartStep)
             ->columnSpanFull(),
     ];
@@ -20,7 +20,7 @@ public function getFormSchema(): array
 
 ### 2. **Step con Description** (Pattern Ufficiale)
 ```php
-public function getWizardSteps(): array
+public function getSteps(): array
 {
     return [
         Step::make('privacy')
@@ -38,17 +38,16 @@ public function getWizardSteps(): array
 }
 ```
 
-### 3. **Form State Normalization**
-```php
-protected function normalizeWizardFormState(array $state): array
-{
-    // Flatten nested wizard state
-    $key = $this->getWizardSchemaWrapperKey();
-    if (isset($state[$key]) && is_array($state[$key])) {
-        return $this->stringKeyed($state[$key]);
-    }
+### 3. **Submit stato wizard (preferenza progetto)**
 
-    return $this->stringKeyed($state);
+Non introdurre un helper generico sulla base che riscrive l’intero array dopo `$this->form->getState()`. Preferisci **`$this->form->getState()`** più eventuali merge di dominio (es. `owner_id`). Se il modello non accetta chiavi annidate, sistemare **schema** / **cast / mutatori**, non middleware PHP nel widget base.
+
+```php
+public function submit(): void
+{
+    /** @var array<string, mixed> $data */
+    $data = $this->form->getState();
+    Ticket::create($data);
 }
 ```
 
@@ -112,16 +111,9 @@ protected function queryStepOverrideAllowed(): bool
 }
 ```
 
-### 2. **State Management**
-```php
-protected function normalizeWizardFormState(array $state): array
-{
-    // Garantisce che tutte le chiavi siano stringhe
-    return $this->stringKeyed(
-        $state[$this->getWizardSchemaWrapperKey()] ?? $state
-    );
-}
-```
+### 2. **Gestione stato in submit**
+
+Vedi sopra § **Submit stato wizard**: niente snippet di `normalizeWizardFormState` duplicati — la forma deve combaciare col dehydrate Filament.
 
 ### 3. **Auto-Label System**
 ```php
@@ -178,6 +170,43 @@ test('wizard navigation works', function () {
 });
 ```
 
+### Visual Testing con Puppeteer e Playwright
+
+Tutte le modifiche wizard richiedono test visuali automatici:
+
+```bash
+# Installazione strumenti globali (solo una volta per sistema)
+npm install -g playwright@latest
+npm install -g puppeteer@latest
+playwright install
+
+# Esecuzione test
+npm run test:visual:wizard
+```
+
+**Pattern di test per wizard step:**
+```javascript
+// Esempio test Playwright per wizard step visibility
+test('wizard step 1 is visible', async ({ page }) => {
+    await page.goto('/it/tests/segnalazione-crea?step=privacy');
+    
+    // Verifica che il primo step sia visibile
+    await expect(page.locator('.wizard-dc-form-shell .fi-sc-wizard-step.fi-active')).toBeVisible();
+    await expect(page.locator('text=Privacy')).toBeVisible();
+});
+```
+
+### Quality Gate Obligatorio
+
+Tutte le modifiche a widget wizard devono passare attraverso:
+
+1. **phpstan analyse** - 0 errori richiesti
+2. **phpmd.phar** (in ./tools) - nessun errore bloccante  
+3. **phpinsights** - nessun errore critico
+4. **pest** - test devono passare
+5. **puppeteer** e **playwright** - test visuali devono passare
+6. **Verifica file .lock** - integrità mantenuta
+
 ## Migration da Versioni Precedenti
 
 ### Da Filament v4 a v5
@@ -190,10 +219,10 @@ use Filament\Schemas\Components\Wizard;
 ```
 
 ### Key Changes
-- `steps()` → `getWizardSteps()`
+- `steps()` → `getSteps()`
 - `formSchema()` → `getFormSchema()`
 - Actions sono ora configurate via callbacks
-- State normalization è automatica
+- La forma del payload in submit è quella esposta da **`$this->form->getState()`** + schema/dehydrate (niente normalize generico sulla base Xot wizard)
 
 ## Performance Tips
 

@@ -18,16 +18,22 @@ import { dropdownToggle } from './components/dropdown';
 import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
+import headerMobileNavDataFactory from './theme/header-mobile-nav-scope.js';
 import './components/bootstrap-italia.js';
 import '@modules/Geo/resources/js/components/map-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-lit.js';
+/** Registra Alpine `geoMapPickerField` + custom element `geo-map-picker` (partial Livewire/Filament). */
+import '@modules/Geo/resources/js/filament/map-picker.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
 
 /**
- * Register theme Alpine components onto the Alpine instance already booted by
- * Livewire/Filament. The theme must never import or start a second runtime.
+ * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.
+ *
+ * IMPORTANT: questo file è un ES module (defer): viene eseguito DOPO @livewireScripts.
+ * Qualsiasi `Alpine.data` richiesto al primo paint DEVE essere registrato anche dallo snippet
+ * inline `partials/alpine-livewire-bootstrap-header.blade.php` (prima dei Livewire script).
  *
  * @param {object} AlpineInstance
  */
@@ -60,8 +66,8 @@ function registerAlpineComponents(AlpineInstance) {
         showFilterModal: false,
     }));
 
-    // geoMapPickerField: legacy Alpine helper (map-picker.blade usa $wire.entangle + map-picker-lit).
-    AlpineInstance.data('geoMapPickerField', geoMapPickerField);
+    // geoMapPickerField is registered by the Geo module runtime:
+    // Modules/Geo/resources/js/filament/map-picker.js
 
     // Dark mode — state + toggle (persistito in localStorage)
     AlpineInstance.data('darkMode', () => ({
@@ -72,37 +78,8 @@ function registerAlpineComponents(AlpineInstance) {
         },
     }));
 
-    // Story 1.1.1-HEADER-RESPONSIVE: Mobile header navigation toggle
-    // Fixes inline x-data not being processed correctly by Livewire/Alpine
-    AlpineInstance.data('headerMobileNav', () => ({
-        mobileNavOpen: false,
-        _mq: null,
-        init() {
-            this._mq = window.matchMedia('(min-width: 992px)');
-            const onChange = () => {
-                if (this._mq.matches) {
-                    this.close();
-                }
-            };
-            this._mq.addEventListener('change', onChange);
-        },
-        toggle() {
-            this.mobileNavOpen = !this.mobileNavOpen;
-            document.body.classList.toggle('nav-open', this.mobileNavOpen);
-            if (this.mobileNavOpen) {
-                this.$nextTick(() => {
-                    const firstLink = document.querySelector('#nav4 .menu-wrapper a');
-                    if (firstLink) {
-                        firstLink.focus();
-                    }
-                });
-            }
-        },
-        close() {
-            this.mobileNavOpen = false;
-            document.body.classList.remove('nav-open');
-        },
-    }));
+    // Story 1.1.1-HEADER: mobile nav registration effettiva vedi partial Blade (alpinit prima Livewire).
+    AlpineInstance.data('headerMobileNav', headerMobileNavDataFactory);
 
     document.documentElement.setAttribute('data-sixteen-alpine-components', 'true');
 }
@@ -287,9 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     });
 });
-
-console.log('--- THEME MEGA DEBUG 789 ---');
-console.log('Sixteen theme loaded - Tailwind + Alpine.js');
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(toggle) {

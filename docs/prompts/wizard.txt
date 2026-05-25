@@ -82,7 +82,7 @@ La Blade `wizard/step.blade.php` vendor gestisce gia' `fi-active`, `role="tabpan
 - Usare `PubThemeWizard` o `pub_theme::components.wizard` in admin - contamina la skin Filament e rompe la separazione modulo/tema.
 - Nascondere il link "Vai al contenuto principale" con CSS invece di verificare che sia correttamente posizionato e accessibile.
 - Aggiungere bottoni "Avanti" custom in Blade invece di risolvere il problema alla radice (Alpine, action, CSS).
-- Creare duplicati di `getWizardSteps()`, `nextStep()`, `previousStep()` in XotBaseWizardWidget quando esistono già in `HasWizard` trait di Filament.
+- Creare duplicati di `nextStep()` / `previousStep()` in `XotBaseWizardWidget` se servono solo per Blade `wire:click`: usare **`DelegatesFilamentWizardSchemaMethods`**, non reinventare il trait **`HasWizard`**.
 - Modificare la logica del motore wizard per motivi estetici: il vestito si cambia nel tema, non nel motore.
 
 ## False friends
