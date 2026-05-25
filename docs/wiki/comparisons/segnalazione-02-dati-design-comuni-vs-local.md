@@ -159,7 +159,7 @@ Expected output:
 - [x] Slim bar background color (`#0066CC`) — ✅ in design-comuni-tokens.css
 - [x] Brand logo size (82x82) — ✅ correct in v1.blade.php
 - [x] Active nav state ("Servizi") — ✅ `class="nav-link active"` present
-- [x] Mobile hamburger — ✅ Alpine.js `x-data="headerMobileNav()"` works
+- [x] Mobile hamburger — ✅ Alpine.js `x-data="headerMobileNav"` (`Alpine.data`, senza parentesi)
 - [ ] **Verify**: Screenshot comparison local vs Design Comuni for visual confirmation
 
 ### Stepper (Priority: MEDIUM)

@@ -1,5 +1,22 @@
 # Sixteen Wiki Log
 
+## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
+
+- [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).
+
+## [2026-05-22] troubleshooting | verificare bundle runtime prima del sorgente
+
+- Aggiornata [concepts/livewire-alpine-esm-order.md](concepts/livewire-alpine-esm-order.md): quando la console cita un hash (`app-BDBkID6g.js`) la diagnosi parte dall'HTML servito, non dal sorgente.
+- `public_path()` punta a `public_html`; `laravel/public/themes/Sixteen/manifest.json` puo' essere storico e non autorevole.
+- Debugbar su `/it/segnalazione-crea` era iniettata; gli errori `geoMapPickerField`/`headerMobileNav` erano asset/runtime Alpine.
+- Issue: [#115](https://github.com/laraxot/base_fixcity_fila5/issues/115).
+
+## [2026-05-22] troubleshooting | alpine init vs vite esm (bootstrap header pre-livewire)
+
+- **Motivo**: gli script tema `@vite(resources/js/app.js)` sono **`type="module"` differiti**, posizionati dopo `@livewireScripts` nei layout pubblici — Alpine parte prima e `Alpine.data` / listener `alpine:init` in `app.js` arrivano troppo tardi → `headerMobileNav` non risolto al primo boot.
+- **Artifact**: [concepts/livewire-alpine-esm-order.md](concepts/livewire-alpine-esm-order.md), partial [resources/views/partials/alpine-livewire-bootstrap-header.blade.php](../../resources/views/partials/alpine-livewire-bootstrap-header.blade.php), factory [resources/js/theme/header-mobile-nav-scope.js](../../resources/js/theme/header-mobile-nav-scope.js).
+- **Layout**: include partial all’avvio `<body>` in [components/layouts/main.blade.php](../../resources/views/components/layouts/main.blade.php) e [layouts/main.blade.php](../../resources/views/layouts/main.blade.php).
+
 ## [2026-05-15] concept | Tailwind `@apply` come alias preferito
 
 - Documentato in [bootstrap-italia-tailwind-philosophy](concepts/bootstrap-italia-tailwind-philosophy.md), [design-comuni-class-mapping](entities/design-comuni-class-mapping.md); modulo Cms [daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); Fixcity `wizard-architecture-filament-theme-boundary`.

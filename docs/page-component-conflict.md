@@ -1,6 +1,8 @@
-# Page Component Conflict - Soluzione
+# Page Component — conflitto namespace (storico)
 
-## Problema
+> **Stato 2026-05-20**: documento **parzialmente obsoleto**. Il runtime canonico usa `<x-page>` → `Modules\Cms\View\Components\Page` (vedi `Modules/Cms/docs/cms-theme-template-runtime-architecture.md`). Quattro route Folio Sixteen usano già `<x-page :slug="...">`.
+
+## Problema (storico)
 
 Quando si usa `<x-page side="content" :slug="$pageSlug" :data="$data" />` in Sixteen, viene usato il componente `Modules\Cms\View\Components\Page` invece del componente del tema `Themes\Sixteen\View\Components\Page`.
 
@@ -36,8 +38,16 @@ Usare `@include` con il namespace `pub_theme`:
 2. Il file `components/page.blade.php` esiste in `Themes/Sixteen/resources/views/components/`
 3. Il namespace `pub_theme` → `Themes/Sixteen/resources/views` (tema attivo)
 
-## Regola
+## Regola aggiornata (2026-05-20)
 
-**Usare SEMPRE `@include('pub_theme::components.page')` per le pagine del tema, MAI `<x-page>`**
+| Contesto | Pattern |
+|----------|---------|
+| Route Folio Sixteen (tests, container0, home) | `<x-page side="content" :slug="$pageSlug" :data="$data" />` |
+| Override markup tema senza classe PHP | `@include('pub_theme::components.page', [...])` solo se serve view anonima tema |
+| Fetch blocchi nel route | **Vietato** — delegare a `Modules\Cms\View\Components\Page` |
 
-Il componente `<x-page>` del Cms è pensato per le pagine CMS dal database, non per le pagine di test del tema.
+Discussione e acceptance: [GitHub #114](https://github.com/laraxot/base_fixcity_fila5/issues/114)
+
+## Regola legacy (non più canonica)
+
+~~**Usare SEMPRE `@include('pub_theme::components.page')` per le pagine del tema, MAI `<x-page>`**~~

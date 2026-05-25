@@ -16,7 +16,7 @@ Il Blade `v1.blade.php` deve mappare **1:1 ogni elemento HTML** del HBS, adattan
 - `{{#if active1}} active{{/if}}` → classi dinamiche Laravel  
 - URL statici → `route()` Laravel
 - Variabili HBS → variabili Blade/PHP
-- `data-bs-toggle="navbarcollapsible"` → Alpine.js `x-data="headerMobileNav()"`
+- `data-bs-toggle="navbarcollapsible"` → Alpine.js `x-data="headerMobileNav"` (`Alpine.data`, non una funzione globale)
 - `xlink:href` → `href` (svg sprite moderni)
 
 Stack locale: **Tailwind + Alpine.js + Lit** (no Bootstrap JS). I `data-bs-toggle` per dropdown sono gestiti da `app.js` custom.
@@ -33,7 +33,7 @@ Il progetto locale diverge dal DC HBS in alcuni punti **intenzionali** documenta
 | **Login dropdown (auth)** | `<a>` con `btn btn-primary btn-icon btn-full` + avatar img | `<button>` con classi custom + avatar/iniziale | Pattern accessibilità: button per toggle dropdown |
 | **Logout** | `<a class="list-item left-icon">` | `<form POST>` + `<button>` | Sicurezza: logout DEVE essere POST |
 | **i18n testi** | Hardcoded ITA | `__('pub_theme::...')` | Multilinguismo |
-| **Mobile nav** | Bootstrap JS `data-bs-toggle="navbarcollapsible"` | Alpine.js `x-data="headerMobileNav()"` | No Bootstrap JS runtime |
+| **Mobile nav** | Bootstrap JS `data-bs-toggle="navbarcollapsible"` | Alpine.js `x-data="headerMobileNav"` | No Bootstrap JS runtime |
 | **Dropdown** | Bootstrap JS `data-bs-toggle="dropdown"` | `data-bs-toggle` + `app.js` custom | Livewire compatibility |
 
 ---
@@ -143,6 +143,7 @@ $primary: #007A52;                     /* verde comunale */
 
 ## 7. File correlati
 
+- `../../wiki/concepts/livewire-alpine-esm-order.md` — ordinamento `@livewireScripts` vs `@vite` (ES module) e bootstrap Alpine header
 - `raw/cmp-header.hbs` — sorgente HBS originale DC
 - `raw/_cmp-header.scss` — SCSS DC header  
 - `resources/views/components/sections/header/v1.blade.php` — SSoT Blade

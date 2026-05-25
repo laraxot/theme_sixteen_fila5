@@ -1,7 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms'
 import typography from '@tailwindcss/typography'
-import daisyui from 'daisyui'
 import colors from 'tailwindcss/colors';
 
 /** @type {import('tailwindcss').Config} */
@@ -121,7 +120,6 @@ export default {
     plugins: [
         forms,
         typography,
-        daisyui,
         require("flowbite/plugin"),
         function({ addComponents, theme }) {
             addComponents({
@@ -153,16 +151,4 @@ export default {
             });
         },
     ],
-    daisyui: {
-        themes: [
-            {
-                light: {
-                    ...require("daisyui/src/theming/themes")["light"],
-                    primary: "#007A52",
-                    secondary: "#0066CC",
-                    accent: "#003D73",
-                },
-            },
-        ],
-    },
 }
