@@ -133,25 +133,16 @@ Per far funzionare il tutto, abbiamo bisogno di questa regola in `filament-wizar
 
 #### 1. **Separazione View/Logic**
 
-Il blade non contiene logica - solo rendering. La logica è nel widget PHP:
-- `getStartStep()` → determina lo step iniziale
-- `getSteps()` → definisce gli step astratti
-- Actions → gestiscono la navigazione
+Il blade non contiene logica business — solo markup. Sul widget PHP: stato step (`wizardStartStep`, query `step` dove consentito), e contratto **`getSteps()`** che incapsula gli `Step` Filament (delega spesso allo schema tipo `TicketForm::getSteps()`).
 
-#### 2. **Composition over Inheritance**
+#### 2. **Trait Laraxot, non trait pagina Resource**
 
-`XotBaseWizardWidget` usa il trait `HasWizard` ma **non lo eredita direttamente**:
+`XotBaseWizardWidget` **`use`** `Filament\Resources\Pages\Concerns\HasWizard` sulla catena **`XotBaseWidget::form()`**, ove serve trait **`DelegatesFilamentWizardSchemaMethods`** per `wire:click` programmatici sulla Blade tema; il salvataggio nel widget dominio (**es.** `CreateTicketWizardWidget::submit`) usa **`$this->form->getState()`** senza helper di appiattimento sulla base.
 
-```php
-use HasWizard {
-    getWizardComponent as getParentWizardComponent;
-}
-```
+Motivazione breve:
 
-Questo permette di:
-- Usare i metodi del trait quando servono
-- Override quando necessario
-- Mantenere flessibilità
+- Pagina Filament-panel: lifecycle `parent::form()` + azioni cancellazione pagina — **non disponibili** sul widget tema.
+- Frontoffice/widget: tema `pub_theme::filament.wizard.submit-button` + `submit` Livewire pubblico sul widget dominio.
 
 #### 3. **State Management via Alpine**
 
@@ -194,8 +185,17 @@ Se vuoi che lo step sia accessibile da screen reader anche quando non attivo:
 
 Ma per ora `display: none` funziona perché i campi form sono comunque in accordion/raggruppati.
 
+### Aggiornamento 2026-05-22 — form annidate sul widget (blocco visibilità / step mancanti)
+
+**Non** avvolgere `{{ $this->form }}` in un `<form wire:submit>` nel Blade del widget se gli step Filament usano `Step` con `hasFormWrapper` (ogni step è un `<form class="fi-sc-wizard-step">`). HTML non consente form annidate: il browser corregge il DOM, spesso **perdendo** step o impedendo ad Alpine di applicare `fi-active` — risultato pannello vuoto e `visibility: hidden` fisso.
+
+Soluzione: contenitore **`div`** (`create-ticket-wizard.blade.php` in **Sixteen** e fallback **Fixcity**). Il submit resta sui pulsanti Filament del footer wizard.
+
+Fallback CSS in `resources/css/components/filament-wizard-parity.css`: se **nessuno** step ha `.fi-active` (race Alpine), mostra il **primo** pannello grazie a `:not(:has(.fi-sc-wizard-step.fi-active))` + `:first-of-type`.
+
 ### Riferimenti
 
-- `vendor/filament/schemas/resources/css/components/wizard.css:126-132`
+- `vendor/filament/schemas/resources/css/components/wizard.css` (wizard step concealment / visibility)
+- `resources/views/filament/widgets/create-ticket-wizard.blade.php` (nessun `<form>` esterno intorno allo schema wizard)
 - `laravel/Themes/Sixteen/resources/views/components/wizard.blade.php:56-58`
 - `laravel/Themes/Sixteen/resources/css/components/filament-wizard-parity.css:113-120`

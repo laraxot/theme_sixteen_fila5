@@ -105,7 +105,7 @@ Espanso in HTML (`segnalazione-02-dati.html` lines 32–135):
 - ✅ Region name link ora `class="navbar-brand"` (era `text-white` → colore grigio, fix 2026-05-04)
 - ✅ Center wrapper + brand text + tagline
 - ✅ Navbar wrapper + mobile toggler + menu items (Amministrazione, Novità, Servizi, Vivere il Comune)
-- ✅ Alpine.js integration per mobile menu (`x-data="headerMobileNav()"`, non Bootstrap JS)
+- ✅ Alpine.js integration per mobile menu (`x-data="headerMobileNav"`, non Bootstrap JS — evitare `headerMobileNav()` che richiederebbe una funzione globale)
 
 ## Delta visivi/strutturali ancora aperti
 

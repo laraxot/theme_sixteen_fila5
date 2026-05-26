@@ -39,7 +39,7 @@ related:
 ```
 
 **Why this is wrong:**
-1. **Duplication**: Steps defined both in `TicketForm::getWizardSteps()` AND in theme
+1. **Duplication**: Steps defined both in `TicketForm::getSteps()` AND in theme
 2. **Single Source of Truth violation**: Two sources for same data
 3. **Business logic in theme**: Theme should only present, not decide
 4. **No sync**: If wizard adds a step, theme doesn't know
@@ -50,9 +50,9 @@ related:
 ┌─────────────────────────────────────────────────────────────┐
 │  FIXCITY MODULE (PHP/Logic)                                  │
 │  ├── CreateTicketWizardWidget.php                            │
-│  │   └── getFormSchema() → Wizard::make(getWizardSteps())    │
+│  │   └── getFormSchema() → Wizard::make(getSteps())    │
 │  └── TicketForm.php                                          │
-│      └── getWizardSteps() → [Step::make('privacy'), ...]     │
+│      └── getSteps() → [Step::make('privacy'), ...]     │
 └────────────────────────┬────────────────────────────────────┘
                          │ $this->form (Wizard component)
                          ↓
@@ -217,7 +217,7 @@ Themes/Sixteen/resources/css/components/
 
 ## Testing Checklist
 
-- [ ] Step labels come from `TicketForm::getWizardSteps()`, not hardcoded
+- [ ] Step labels come from `TicketForm::getSteps()`, not hardcoded
 - [ ] Adding a step in `TicketForm` automatically shows in UI
 - [ ] Stepper highlights current step correctly
 - [ ] Stepper shows completed steps with checkmark

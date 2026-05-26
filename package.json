@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "build:with-webroot": "vite build && npm run copy",
         "build:analyze": "vite build --mode analyze",
         "build:production": "vite build --mode production",
         "build:filament": "vite build --mode filament",

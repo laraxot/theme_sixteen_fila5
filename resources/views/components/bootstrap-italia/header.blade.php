@@ -323,7 +323,7 @@
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav()">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
