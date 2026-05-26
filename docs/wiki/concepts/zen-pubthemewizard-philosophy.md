@@ -24,7 +24,7 @@ filament-schemas::components.wizard (ORIGINALE — non toccare)
 
 ```php
 // TicketForm.php line 38
-Wizard::make(static::getWizardSteps())
+Wizard::make(static::getSteps())
     ->skippable()
     ->persistStepInQueryString(),
 ```
@@ -32,7 +32,7 @@ Wizard::make(static::getWizardSteps())
 **AGGIORNAMENTO (Zen corretto):**
 ```php
 // TicketForm.php line 38
-PubThemeWizard::make(static::getWizardSteps())  // ← USA QUESTO!
+PubThemeWizard::make(static::getSteps())  // ← USA QUESTO!
     ->skippable()
     ->persistStepInQueryString(),
 ```

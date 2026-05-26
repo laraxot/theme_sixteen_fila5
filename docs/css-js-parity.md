@@ -33,6 +33,8 @@ When fixing fonts on Design Comuni pages, ALWAYS check for conflicting rules wit
 | Altri file parity | ~3000 | Argomenti, servizi, admin, ecc. |
 | **Totale** | **~11000+** | |
 
+**Debugbar (2026):** non usare `display:none !important` globale su `#phpdebugbar` nel CSS tema — copriva il dev anche su `/it/segnalazione-crea`. Per screenshot/visual parity nascondere con `document.body.classList.add('parity-capture-hide-dev-overlays')` (regola scoped in [`segnalazione-parity.css`](../resources/css/segnalazione-parity.css) vicino alla §26).
+
 ### Classi Mancanti Aggiunte (2026-04-09)
 - `.ps-5` — padding-start 3rem
 - `.has-megamenu` — navbar mega menu positioning

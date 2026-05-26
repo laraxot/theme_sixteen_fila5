@@ -94,7 +94,7 @@ Wizard::make([
 | `makeStepData()` | Build step 2 (all inputs) |
 | `makeStepSummary()` | Build step 3 (read-only) via Infolist |
 | `submit()` | Validate, create Ticket, redirect |
-| `getWizardSteps()` | Ordered wizard step list |
+| `getSteps()` | Ordered wizard step list |
 
 **REMOVED (old Blade-managed approach)**:
 - ~~`nextStep()`~~ — Filament wizard handles navigation

@@ -26,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
     </head>
     <body>
+        @include('pub_theme::partials.alpine-livewire-bootstrap-header')
         {{ $slot }}
         @livewireScripts
         @filamentScripts

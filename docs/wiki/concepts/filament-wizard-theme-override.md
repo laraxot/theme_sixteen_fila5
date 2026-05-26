@@ -104,7 +104,7 @@ When Design Comuni requests visual changes to the wizard:
 3. Run `npm run build && npm run copy` in `laravel/Themes/Sixteen`
 4. Clear views: `php artisan view:clear`
 
-The Fixcity module's `CreateTicketWizardWidget` and `TicketForm::getWizardSteps()` remain untouched.
+The Fixcity module's `CreateTicketWizardWidget` and `TicketForm::getSteps()` remain untouched.
 
 ### Quality Checks
 

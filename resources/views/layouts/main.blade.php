@@ -27,6 +27,7 @@
         @stack('styles')
     </head>
     <body class="min-h-screen antialiased bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
+        @include('pub_theme::partials.alpine-livewire-bootstrap-header')
         {{ $slot ?? '' }}
         @yield('body')
 

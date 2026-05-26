@@ -30,6 +30,7 @@
             ->merge($getExtraAttributes(), escape: false)
             ->merge($getExtraAlpineAttributes(), escape: false)
             ->class([
+                'wizard-dc-form-shell',
                 'fi-sc-wizard',
                 'fi-contained' => $isContained,
                 'fi-sc-wizard-header-hidden' => $isHeaderHidden,
