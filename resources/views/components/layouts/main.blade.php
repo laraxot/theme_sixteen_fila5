@@ -19,6 +19,35 @@
         </script>
         {{-- [x-cloak]: definito in resources/css/app.css --}}
 
+        {{--
+            Alpine component registration bootstrap.
+            Vite app.js e' type="module" defer → arriva dopo Alpine.
+            alpine:init si attiva durante il boot di Alpine (dentro @livewireScripts),
+            quindi questo listener deve essere registrato PRIMA.
+            Pattern: canonico Alpine, identico al dark-mode anti-FOUC sopra.
+        --}}
+        <script>
+            document.addEventListener('alpine:init', function () {
+                Alpine.data('mobileMenu', () => ({
+                    isOpen: false,
+                    isMobileBreakpoint: false,
+                    init() {
+                        this.checkBreakpoint();
+                        window.addEventListener('resize', () => this.checkBreakpoint());
+                    },
+                    toggle() { this.isOpen = !this.isOpen; },
+                    open() { this.isOpen = true; },
+                    close() { this.isOpen = false; },
+                    checkBreakpoint() {
+                        this.isMobileBreakpoint = window.innerWidth < 768;
+                        if (!this.isMobileBreakpoint && this.isOpen) this.close();
+                    },
+                    isMobile() { return this.isMobileBreakpoint; },
+                    closeOnItemClick() { if (this.isMobileBreakpoint) this.close(); },
+                }));
+            });
+        </script>
+
         @livewireStyles
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
@@ -26,7 +55,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
     </head>
     <body>
-        @include('pub_theme::partials.alpine-livewire-bootstrap-header')
+        
         {{ $slot }}
         @livewireScripts
         @filamentScripts

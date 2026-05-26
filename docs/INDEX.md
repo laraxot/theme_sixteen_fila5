@@ -10,7 +10,11 @@ This directory contains comprehensive documentation for the Sixteen theme, the p
 - **[Component Library](components/)** - Available components and usage patterns
 - **[Style Guide](style-guide.md)** - Design system and styling guidelines
 
-### 📁 Development Resources
+### � Critical Rules (Zero Tolerance)
+- **[NO INLINE JAVASCRIPT](rules/NO-INLINE-JS.md)** — Never use `<script>` inline in Blade (CSP, caching, security)
+- **[<body> NO CLASSES](rules/BODY-NO-CLASSES.md)** — `<body>` must be plain (Design Comuni fidelity)
+
+### �📁 Development Resources
 - **[Asset Management](development/asset-management.md)** - Build process and optimization
 - **[Testing](development/testing.md)** - Testing strategies and guidelines
 - **[Deployment](deployment/)** - Deployment process and configuration

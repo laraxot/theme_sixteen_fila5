@@ -131,13 +131,13 @@
         </div>
     </div>
 
-    <div class="it-nav-wrapper">
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
         <div class="it-header-center-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" aria-expanded="false" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" data-sixteen-mobile-nav-toggle data-sixteen-mobile-nav-target="#nav4" form="__never_submit_header_nav">
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
@@ -221,22 +221,22 @@
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" aria-expanded="false" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" data-sixteen-mobile-nav-toggle data-sixteen-mobile-nav-target="#nav4" form="__never_submit_header_nav">
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
                             </button>
                             <!-- Mobile overlay backdrop -->
-                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="overlay" style="display: none;"></div>
+                            <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                             <!-- Mobile menu panel -->
-                            <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
+                            <div class="navbar-collapsable" id="nav4" data-sixteen-mobile-nav-panel>
                                 <div class="close-div">
-                                    <button class="btn close-menu" type="button" @click="close()">
+                                    <button class="btn close-menu" type="button" data-sixteen-mobile-nav-close>
                                         <span class="visually-hidden">{{ __('pub_theme::header.center.nav.close_aria.label') }}</span>
                                         <svg class="icon">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>

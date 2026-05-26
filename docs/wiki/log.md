@@ -1,12 +1,11 @@
 # Sixteen Wiki Log
 
-<<<<<<< HEAD
-=======
-## [2026-05-25] docs | ridondanza Blade blocks — puntatori allo scan trasversale
+## [2026-05-26] cleanup | removed legacy blade wizard steps + outdated tests
 
-- [`wiki/redundancy/duplicated-blade-blocks.md`](redundancy/duplicated-blade-blocks.md): link incrociato a inventario holistic Xot [`audit-profondo-ridondanze-holistic.md`](../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md) e [`byte-identical-files-static-scan.md`](../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md) per evitare doc orfani.
-
->>>>>>> a931b1c (.)
+- **file rimossi**: `resources/views/components/blocks/tests/segnalazione-01-privacy.blade.php`, `segnalazione-02-dati.blade.php`, `segnalazione-03-riepilogo.blade.php` — duplicavano Filament wizard.
+- **test rimossi**: `tests/Unit/WizardLegacyStepSlugTest.php`, `Segnalazione02DatiBladeContractTest.php` — orfani e testavano file inesistenti.
+- **regola confermata**: wizard segnalazione = Filament widget (`CreateTicketWizardWidget`) + Blade wrapper (`ticket-create-wizard.blade.php`), niente step statici CMS duplicate.
+- **doc aggiornata**: `REMOVING_INLINE_JS.md`, `concepts/livewire-alpine-esm-order.md` con spiegazione bootstrap Alpine inline necessario.
 ## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
 
 - [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).

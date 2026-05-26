@@ -14,7 +14,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span>ITA</span>
                                     <svg class="icon d-none d-lg-block">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-expand"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-expand"></use>
                                     </svg>
                                 </a>
                                 <div class="dropdown-menu">
@@ -58,14 +58,14 @@
                                     <li>
                                         <a href="#" aria-label="Facebook" target="_blank">
                                             <svg class="icon">
-                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-facebook"></use>
+                                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-facebook"></use>
                                             </svg>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" aria-label="Twitter" target="_blank">
                                             <svg class="icon">
-                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-twitter"></use>
+                                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-twitter"></use>
                                             </svg>
                                         </a>
                                     </li>
@@ -75,7 +75,7 @@
                                 <span class="d-none d-md-block">Cerca</span>
                                 <a class="search-link" href="#" aria-label="Cerca nel sito">
                                     <svg class="icon">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-search"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-search"></use>
                                     </svg>
                                 </a>
                             </div>
@@ -94,7 +94,7 @@
                     <nav class="navbar navbar-expand-lg has-megamenu">
                         <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav10" data-bs-toggle="navbarcollapsible">
                             <svg class="icon">
-                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-burger"></use>
+                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-burger"></use>
                             </svg>
                         </button>
                         <div class="navbar-collapsible" id="nav10">
@@ -103,7 +103,7 @@
                                 <button class="btn close-menu" type="button">
                                     <span class="visually-hidden">Chiudi navigazione</span>
                                     <svg class="icon">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-close-big"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-close-big"></use>
                                     </svg>
                                 </button>
                             </div>
