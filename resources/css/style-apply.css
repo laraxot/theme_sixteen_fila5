@@ -1018,7 +1018,7 @@ main,
 
 /* Tab content */
 .tab-content {
-  @apply w-full;
+  @apply w-full block;
 }
 
 .tab-pane {
@@ -2857,7 +2857,7 @@ section.py-4 {
 }
 
 .tab-content {
-  @apply mt-6;
+  @apply mt-6 block;
 }
 
 .tab-pane {

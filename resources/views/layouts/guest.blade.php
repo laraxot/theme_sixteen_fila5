@@ -25,7 +25,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
     </head>
     
-    <body class="font-sans text-gray-900 antialiased">
+    <body>
         <!-- AGID Header -->
         <header role="banner" class="bg-blue-600 text-white py-3">
             <div class="container mx-auto px-4">

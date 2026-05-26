@@ -185,17 +185,45 @@ export default defineConfig({
 
 ### In Layout Files
 ```blade
-{{-- components/layouts/main.blade.php --}}
+{{-- resources/views/layouts/main.blade.php --}}
 <head>
-    {{-- Vite assets with theme namespace --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
+    @filamentStyles
+    @vite(['resources/css/app.css'], 'themes/Sixteen')
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+    @stack('styles')
 </head>
 <body>
     {{ $slot }}
+    @yield('body')
+    <livewire:toast />
+    @livewire('notifications')
     @filamentScripts
     @vite(['resources/js/app.js'], 'themes/Sixteen')
+    @stack('scripts')
 </body>
 ```
+
+### CRITICAL: No Inline Scripts or CDN Imports
+
+**NEVER**:
+```blade
+<!-- ❌ NO inline JavaScript - violates CSP -->
+<script>
+    // This is legacy code - WIPE IT OUT
+</script>
+
+<!-- ❌ NO CDN imports - bootstrap-italia is local -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@...">
+
+<!-- ❌ NO separate Vite entry for theme JS -->
+@vite(['resources/js/theme/header-mobile-nav.js'], 'themes/Sixteen')
+```
+
+**Why**:
+- Vite compiles all JS into `resources/js/app.js` 
+- `header-mobile-nav.js` is already imported in `app.js` line 16
+- CDN imports break CSP and caching
+- Inline scripts bypass Vite optimization
 
 ### How @vite() Works
 1. Reads `public_html/themes/Sixteen/manifest.json`
