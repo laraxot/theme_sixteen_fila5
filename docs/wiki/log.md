@@ -1,5 +1,12 @@
 # Sixteen Wiki Log
 
+<<<<<<< HEAD
+=======
+## [2026-05-25] docs | ridondanza Blade blocks — puntatori allo scan trasversale
+
+- [`wiki/redundancy/duplicated-blade-blocks.md`](redundancy/duplicated-blade-blocks.md): link incrociato a inventario holistic Xot [`audit-profondo-ridondanze-holistic.md`](../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md) e [`byte-identical-files-static-scan.md`](../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md) per evitare doc orfani.
+
+>>>>>>> a931b1c (.)
 ## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
 
 - [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).
