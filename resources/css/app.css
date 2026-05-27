@@ -5039,3 +5039,16 @@ button[type="button"].fi-btn-color-gray:hover {
         overflow-x: auto !important;
     }
 }
+
+[data-sixteen-mobile-nav-overlay][hidden] {
+  display: none !important;
+}
+
+[data-sixteen-mobile-nav-overlay].is-open {
+  display: block !important;
+}
+
+.navbar-collapsable[data-sixteen-mobile-nav-panel].is-open {
+  display: flex !important;
+  transform: translateX(0) !important;
+}

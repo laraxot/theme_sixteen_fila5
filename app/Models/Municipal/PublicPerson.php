@@ -18,6 +18,47 @@ use Illuminate\Support\Str;
  *
  * Rappresenta amministratori, dirigenti, dipendenti e altre figure
  * pubbliche dell'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string|null $slug
+ * @property string|null $title
+ * @property string|null $bio
+ * @property string|null $qualification
+ * @property string|null $role
+ * @property string $category
+ * @property \Carbon\Carbon|null $birth_date
+ * @property string|null $birth_place
+ * @property string|null $fiscal_code
+ * @property string|null $email
+ * @property string|null $pec
+ * @property string|null $phone
+ * @property string|null $mobile
+ * @property string|null $photo
+ * @property string|null $curriculum_vitae
+ * @property string|null $cv_file_path
+ * @property float|null $compensation
+ * @property float|null $travel_expenses
+ * @property \Carbon\Carbon|null $start_date
+ * @property \Carbon\Carbon|null $end_date
+ * @property bool $is_active
+ * @property bool $is_public
+ * @property \Carbon\Carbon|null $publication_date
+ * @property array|null $privacy_settings
+ * @property array|null $social_profiles
+ * @property array|null $education
+ * @property array|null $work_experience
+ * @property array|null $skills
+ * @property array|null $languages
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant
  */
 class PublicPerson extends Model
 {
