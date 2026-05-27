@@ -19,7 +19,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-input: [
+            input: [
                 'resources/css/app.css',
                 'resources/css/app-test.css',
                 'resources/js/app.js',

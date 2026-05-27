@@ -2,14 +2,42 @@
 
 **Type**: Build & Deployment Documentation  
 **Status**: ✅ Documented  
-**Last Update**: 2026-04-01  
+**Last Update**: 2026-05-26 - Added Canonical Auth Pattern Rule
 **Related**: [[00-index]], [[layout-hierarchy]], [[vite-configuration-rules]]
 
 ---
 
 ## 🎯 Overview
 
-The Sixteen theme uses **Vite** for building CSS and JavaScript assets. This document explains the complete build process from dependencies to deployment.
+The Sixteen theme uses **Vite** for building CSS and JavaScript assets.
+
+---
+
+## 🔑 Canonical Patterns
+
+### Auth Pages — Use Filament Livewire Widgets (NOT raw Volt)
+
+**✅ CORRECT:**
+```blade
+<x-layouts.app>
+    <x-slot name="title">
+        {{ __('user::auth.register.page.meta_title.label') }}
+    </x-slot>
+    @livewire(\Modules\User\Filament\Widgets\Auth\RegisterWidget::class)
+</x-layouts.app>
+```
+
+**❌ WRONG:**
+```blade
+<x-layouts.guest>
+    @volt('auth.register')
+    <!-- manual form + validation -->
+    @endvolt
+</x-layouts.guest>
+```
+
+**Rule**: Auth forms must use `Modules\User\Filament\Widgets\Auth\*` widgets.
+Never use raw Volt forms for authentication — you'll bypass validation, translation, and security.
 
 ---
 

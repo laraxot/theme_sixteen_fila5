@@ -18,6 +18,66 @@ use Illuminate\Support\Str;
  *
  * Rappresenta sedi, uffici, punti di erogazione servizi
  * e altre location dell'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $slug
+ * @property string|null $description
+ * @property string|null $short_description
+ * @property string $location_type
+ * @property string|null $category
+ * @property string|null $subcategory
+ * @property string|null $address
+ * @property string|null $civic_number
+ * @property string|null $postal_code
+ * @property string|null $city
+ * @property string|null $province
+ * @property string|null $region
+ * @property string|null $country
+ * @property array|null $coordinates
+ * @property string|null $floor
+ * @property string|null $room
+ * @property array|null $building_info
+ * @property array|null $opening_hours
+ * @property bool $public_access
+ * @property bool $appointment_required
+ * @property string|null $appointment_url
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string|null $pec
+ * @property string|null $fax
+ * @property string|null $website
+ * @property array|null $directions
+ * @property array|null $parking_info
+ * @property array|null $public_transport
+ * @property array|null $accessibility_info
+ * @property array|null $facilities
+ * @property array|null $equipment
+ * @property int|null $capacity
+ * @property array|null $services_available
+ * @property array|null $staff_info
+ * @property array|null $manager_info
+ * @property array|null $emergency_contacts
+ * @property array|null $safety_info
+ * @property string|null $image
+ * @property array|null $gallery
+ * @property string|null $virtual_tour_url
+ * @property string|null $map_embed
+ * @property string|null $place_id
+ * @property bool $is_active
+ * @property bool $is_public
+ * @property bool $is_headquarters
+ * @property bool $is_accessible
+ * @property int $priority_level
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, OrganizationalUnit> $organizationalUnits
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalService> $services
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $events
  */
 class MunicipalLocation extends Model
 {

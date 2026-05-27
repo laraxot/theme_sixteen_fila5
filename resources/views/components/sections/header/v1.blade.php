@@ -95,7 +95,7 @@
     - Authenticated user block prioritizes display name over decorative avatar
     - Sfondo slim: token design-comuni (no override hex inline; vedi design-comuni-tokens.css)
 --}}
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
+<header class="it-header-wrapper" data-sixteen-mobile-nav-target="#header-nav-wrapper">
     {{-- Slim Header: background from theme tokens --}}
     <div class="it-header-slim-wrapper">
         <div class="container">
@@ -221,7 +221,7 @@
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-sixteen-mobile-nav>
             <div class="container">
                 <div class="row">
                     <div class="col-12">

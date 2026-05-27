@@ -8,7 +8,7 @@
     - Logo PA conforme
 --}}
 
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
+<header class="it-header-wrapper" data-sixteen-mobile-nav-target="#header-nav-wrapper" style="">
     {{-- Skip Links per accessibilità --}}
     <div class="it-header-slim-wrapper">
         <div class="container">
@@ -102,7 +102,7 @@
                                     type="button" 
                                     aria-label="{{ __('Cerca') }}"
                                     data-bs-toggle="modal" 
-                                    data-bs-target="#searchModal"
+                                    data-sixteen-mobile-nav-target="#searchModal"
                                 >
                                     <svg class="icon">
                                         <use href="#it-search"></use>
@@ -134,8 +134,8 @@
     </div>
     
     {{-- Navigazione Principale --}}
-    <div class="it-nav-wrapper">
-        <div class="it-header-navbar-wrapper">
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
+        <div class="it-header-navbar-wrapper" data-sixteen-mobile-nav>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -146,17 +146,17 @@
                                 aria-controls="nav" 
                                 aria-expanded="false" 
                                 aria-label="{{ __('Apri menu di navigazione') }}"
-                                data-bs-toggle="navbarcollapsible"
-                                data-bs-target="#nav"
+                                data-sixteen-mobile-nav-toggle
+                                data-sixteen-mobile-nav-target="#nav"
                             >
                                 <svg class="icon"><use href="#it-burger"></use></svg>
                             </button>
                             
-                            <div class="navbar-collapsable" id="nav">
-                                <div class="overlay"></div>
+                            <div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav">
+                                <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                                 <div class="close-div">
                                     <button 
-                                        class="btn close-menu" 
+                                        class="btn close-menu" data-sixteen-mobile-nav-close 
                                         type="button"
                                         aria-label="{{ __('Chiudi menu') }}"
                                     >

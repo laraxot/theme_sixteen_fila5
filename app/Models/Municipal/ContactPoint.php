@@ -15,6 +15,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * Rappresenta un punto di contatto secondo l'ontologia AGID
  * per enti pubblici (telefono, email, PEC, indirizzo fisico, ecc.)
+ *
+ * @property int $id
+ * @property string $contactable_type
+ * @property int $contactable_id
+ * @property string $type
+ * @property string $value
+ * @property string|null $label
+ * @property string|null $description
+ * @property bool $is_primary
+ * @property bool $is_public
+ * @property array|null $office_hours
+ * @property array|null $languages
+ * @property array|null $accessibility_notes
+ * @property int $position
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read Model|\Eloquent $contactable
  */
 class ContactPoint extends Model
 {

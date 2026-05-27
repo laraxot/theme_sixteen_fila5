@@ -9,10 +9,36 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\User\Models\User;
 
 /**
  * Modello Appuntamento - Gestione prenotazioni servizi comunali
  * Conforme alle specifiche AGID per servizi di prenotazione
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property int|null $service_id
+ * @property int|null $office_id
+ * @property int|null $citizen_id
+ * @property \Carbon\Carbon|null $appointment_date
+ * @property \Carbon\Carbon|null $start_time
+ * @property \Carbon\Carbon|null $end_time
+ * @property string $status
+ * @property string|null $purpose
+ * @property string|null $notes
+ * @property array|null $required_documents
+ * @property string|null $confirmation_code
+ * @property bool $reminder_sent
+ * @property string|null $cancellation_reason
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read \Modules\User\Models\User|null $user
+ * @property-read \Modules\User\Models\User|null $citizen
+ * @property-read self|null $office
+ * @property-read self|null $service
  */
 class Appointment extends Model
 {

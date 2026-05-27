@@ -1,11 +1,15 @@
 # Sixteen Wiki Log
 
-## [2026-05-26] cleanup | removed legacy blade wizard steps + outdated tests
+## [2026-05-26] fix | register.blade.php — folio + Volt manuale + template errata
 
-- **file rimossi**: `resources/views/components/blocks/tests/segnalazione-01-privacy.blade.php`, `segnalazione-02-dati.blade.php`, `segnalazione-03-riepilogo.blade.php` — duplicavano Filament wizard.
-- **test rimossi**: `tests/Unit/WizardLegacyStepSlugTest.php`, `Segnalazione02DatiBladeContractTest.php` — orfani e testavano file inesistenti.
-- **regola confermata**: wizard segnalazione = Filament widget (`CreateTicketWizardWidget`) + Blade wrapper (`ticket-create-wizard.blade.php`), niente step statici CMS duplicate.
-- **doc aggiornata**: `REMOVING_INLINE_JS.md`, `concepts/livewire-alpine-esm-order.md` con spiegazione bootstrap Alpine inline necessario.
+- **Errori**:
+  - `<x-layouts.marketing>` non esiste (error 500)
+  - `title()` non è funzione Folio (Internal Server Error)
+  - Form Volt manuale duplice `RegisterWidget` esistente
+  - Traduzioni inesistenti (`user::auth.register.page.*`)
+  - Mancanza `Route` facade
+- **Fix**: template semplificato con `layouts/app` + `$title` slot + `$this->livewire(RegisterWidget::class)` + chiavi traduzione `user::auth.register-*`
+- **Regola second brain**: `filament-auth-widgets-rule.md` — auth pages usano Filament widgets, mai Blade/Volt manuali.
 ## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
 
 - [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).
