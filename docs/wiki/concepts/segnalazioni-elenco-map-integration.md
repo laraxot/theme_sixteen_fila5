@@ -39,7 +39,7 @@ Il componente legge un GeoJSON da:
 
 Il file viene prodotto da:
 
-- `../../../../Modules/Fixcity/Actions/GenerateTicketsJsonAction.php`
+- `../../../../Modules/Fixcity/app/Actions/GenerateTicketsJsonAction.php`
 
 Campi minimi richiesti nei `properties`:
 

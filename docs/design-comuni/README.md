@@ -13,6 +13,7 @@ The goal is to replicate the Bootstrap Italia design using **Tailwind CSS + Alpi
 
 | Document | Description | Last Updated |
 |----------|-------------|--------------|
+| [FixCity Product Brief (BMAD)](../../../../docs/product-brief-fixcity-2026-05-27.md) | Visione prodotto, scope, stakeholder, rischi — fase 1 Analysis | — |
 | [Homepage HTML Structure Comparison](homepage-html-comparison.md) | Detailed analysis of HTML structure and CSS differences between reference and local homepage | 2026-04-07 |
 | [Block Analysis](../../../../_bmad-output/design-comuni-block-analysis.md) | 47 reusable components identified across 38 pages (BMad) | 2026-03-15 |
 | [PRD](../../../../_bmad-output/design-comuni-prd.md) | Product Requirements Document (BMad) | 2026-03-15 |
