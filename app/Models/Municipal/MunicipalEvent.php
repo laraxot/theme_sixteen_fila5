@@ -19,6 +19,85 @@ use Illuminate\Support\Str;
  *
  * Rappresenta eventi, manifestazioni, incontri pubblici
  * e altre attività organizzate dall'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $title
+ * @property string|null $slug
+ * @property string|null $description
+ * @property string|null $short_description
+ * @property string $event_type
+ * @property string|null $category
+ * @property string|null $subcategory
+ * @property int|null $organizational_unit_id
+ * @property string|null $organizer
+ * @property array|null $co_organizers
+ * @property string $event_status
+ * @property string $visibility
+ * @property array|null $target_audience
+ * @property \Carbon\Carbon|null $start_date
+ * @property \Carbon\Carbon|null $end_date
+ * @property \Carbon\Carbon|null $start_time
+ * @property \Carbon\Carbon|null $end_time
+ * @property string|null $timezone
+ * @property bool $is_all_day
+ * @property bool $is_recurring
+ * @property array|null $recurrence_pattern
+ * @property string $location_type
+ * @property string|null $venue_name
+ * @property string|null $address
+ * @property string|null $room
+ * @property array|null $coordinates
+ * @property string|null $online_url
+ * @property string|null $streaming_url
+ * @property bool $hybrid_mode
+ * @property int|null $capacity
+ * @property int $current_attendees
+ * @property bool $registration_required
+ * @property string|null $registration_url
+ * @property \Carbon\Carbon|null $registration_deadline
+ * @property float|null $registration_cost
+ * @property array|null $contact_info
+ * @property array|null $speaker_info
+ * @property array|null $agenda
+ * @property array|null $materials
+ * @property array|null $requirements
+ * @property array|null $accessibility_info
+ * @property array|null $transport_info
+ * @property array|null $parking_info
+ * @property array|null $catering_info
+ * @property string|null $image
+ * @property array|null $gallery
+ * @property array|null $documents
+ * @property array|null $related_events
+ * @property array|null $tags
+ * @property array|null $social_links
+ * @property string|null $feedback_url
+ * @property string|null $recording_url
+ * @property bool $is_published
+ * @property \Carbon\Carbon|null $published_at
+ * @property bool $featured
+ * @property int $priority_level
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read string $event_type_name
+ * @property-read string $event_status_name
+ * @property-read string $location_type_name
+ * @property-read bool $is_upcoming
+ * @property-read bool $is_ongoing
+ * @property-read bool $is_past
+ * @property-read bool $is_cancelled
+ * @property-read bool $has_available_spots
+ * @property-read int|null $available_spots
+ * @property-read string|null $duration
+ * @property-read string $url
+ *
+ * @property-read OrganizationalUnit|null $organizationalUnit
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $participants
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $speakers
  */
 class MunicipalEvent extends Model
 {

@@ -18,12 +18,10 @@ import { dropdownToggle } from './components/dropdown';
 import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
-import headerMobileNavDataFactory from './theme/header-mobile-nav-scope.js';
 import './components/bootstrap-italia.js';
+import { initHeaderMobileNav } from './theme/header-mobile-nav.js';
 import '@modules/Geo/resources/js/components/map-lit.js';
 import '@modules/Geo/resources/js/components/coordinate-picker-lit.js';
-/** Registra Alpine `geoMapPickerField` + custom element `geo-map-picker` (partial Livewire/Filament). */
-import '@modules/Geo/resources/js/filament/map-picker.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -31,9 +29,9 @@ import '@modules/Geo/resources/js/filament/map-picker.js';
 /**
  * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.
  *
- * IMPORTANT: questo file è un ES module (defer): viene eseguito DOPO @livewireScripts.
- * Qualsiasi `Alpine.data` richiesto al primo paint DEVE essere registrato anche dallo snippet
- * inline `partials/alpine-livewire-bootstrap-header.blade.php` (prima dei Livewire script).
+ * IMPORTANT: questo file e' un ES module (defer). Il markup iniziale non deve
+ * dipendere da Alpine.data registrati qui; l'header usa il controller
+ * data-sixteen-mobile-nav importato in questo bundle Vite.
  *
  * @param {object} AlpineInstance
  */
@@ -66,9 +64,6 @@ function registerAlpineComponents(AlpineInstance) {
         showFilterModal: false,
     }));
 
-    // geoMapPickerField is registered by the Geo module runtime:
-    // Modules/Geo/resources/js/filament/map-picker.js
-
     // Dark mode — state + toggle (persistito in localStorage)
     AlpineInstance.data('darkMode', () => ({
         isDark: document.documentElement.classList.contains('dark'),
@@ -77,9 +72,6 @@ function registerAlpineComponents(AlpineInstance) {
             this.isDark = document.documentElement.classList.contains('dark');
         },
     }));
-
-    // Story 1.1.1-HEADER: mobile nav registration effettiva vedi partial Blade (alpinit prima Livewire).
-    AlpineInstance.data('headerMobileNav', headerMobileNavDataFactory);
 
     document.documentElement.setAttribute('data-sixteen-alpine-components', 'true');
 }
@@ -91,6 +83,8 @@ if (window.Alpine) {
         registerAlpineComponents(window.Alpine);
     }, { once: true });
 }
+
+initHeaderMobileNav();
 
 // Scope modulo — disponibili a initHeaderDropdowns e ai listener globali (ESC, click esterno)
 function closeDropdownMenu(menu) {
@@ -145,6 +139,9 @@ document.addEventListener('livewire:update', initHeaderDropdowns);
 
 document.addEventListener('DOMContentLoaded', initDarkModeToggle);
 document.addEventListener('livewire:navigated', initDarkModeToggle);
+document.addEventListener('DOMContentLoaded', initHeaderMobileNav);
+document.addEventListener('livewire:navigated', initHeaderMobileNav);
+document.addEventListener('livewire:update', initHeaderMobileNav);
 
 document.addEventListener('DOMContentLoaded', function() {
     const closeModal = function(modal) {
@@ -199,38 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.querySelectorAll('[data-bs-toggle="navbarcollapsible"]').forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('data-bs-target');
-            const panel = document.querySelector(targetId);
-
-            if (!panel) {
-                return;
-            }
-
-            const willOpen = !panel.classList.contains('show');
-            panel.classList.toggle('show', willOpen);
-            document.body.style.overflow = willOpen ? 'hidden' : '';
-        });
-    });
-
-    document.querySelectorAll('.close-menu, .navbar-collapsable .overlay').forEach(function(trigger) {
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const panel = this.closest('.navbar-collapsable') || document.querySelector('.navbar-collapsable.show');
-
-            if (!panel) {
-                return;
-            }
-
-            panel.classList.remove('show');
-            document.body.style.overflow = '';
-        });
-    });
-
     document.addEventListener('click', function(e) {
         const target = e.target;
         if (target instanceof Element) {
@@ -256,12 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.modal.show').forEach(function(modal) {
             closeModal(modal);
         });
-
-        document.querySelectorAll('.navbar-collapsable.show').forEach(function(panel) {
-            panel.classList.remove('show');
-        });
-
-        document.body.style.overflow = '';
     });
 });
 

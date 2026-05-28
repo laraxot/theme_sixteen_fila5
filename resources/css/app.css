@@ -50,6 +50,7 @@
    Forces Filament markup to look like Design Comuni
 ======================================== */
 @import './components/filament-wizard-parity.css';
+@import './components/filament-select-wizard-fix.css';
 @import "./container-override.css";
 @import "./footer-override.css";
 @import "./bootstrap-italia.css";
@@ -532,6 +533,7 @@ body {
     pointer-events: none !important;
   }
 }
+
 
 /* Body scroll lock when mobile nav is open */
 body.nav-open {
@@ -5007,33 +5009,13 @@ button[type="button"].fi-btn-color-gray:hover {
 .cmp-wizard-widget .wizard-dc-form-shell select,
 .cmp-wizard-widget .wizard-dc-form-shell .fi-fo-select-native select,
 .cmp-wizard-widget .wizard-dc-form-shell .fi-sc-wizard select {
-    appearance: none !important;
-    -webkit-appearance: none !important;
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
     padding-right: 2rem !important;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235c6f82' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
     background-repeat: no-repeat !important;
     background-position: right 0.5rem center !important;
     background-size: 16px 12px !important;
-}
-
-/*
- * Select Alpine / ricercabile: un solo bordo sul .fi-select-input-btn (vedi filament-wizard-parity.css).
- * Nessun bordo su contenitori, altrimenti doppio riquadro con il bottone interno.
- */
-.cmp-wizard-widget .wizard-dc-form-shell .fi-select-input-ctn,
-.cmp-wizard-widget .wizard-dc-form-shell .fi-fo-select:not(.fi-fo-select-native) {
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    --tw-ring-shadow: 0 0 #0000 !important;
-    --tw-ring-offset-shadow: 0 0 #0000 !important;
-    background: transparent !important;
-}
-
-.cmp-wizard-widget .wizard-dc-form-shell .fi-select-input-ctn:focus-within,
-.cmp-wizard-widget .wizard-dc-form-shell .fi-fo-select:not(.fi-fo-select-native):focus-within {
-    box-shadow: none !important;
-    --tw-ring-shadow: 0 0 #0000 !important;
 }
 
 .cmp-wizard-widget .wizard-dc-form-shell input::placeholder,
@@ -5051,17 +5033,22 @@ button[type="button"].fi-btn-color-gray:hover {
     box-shadow: none !important;
 }
 
-/* Select Alpine / ricercabile: un solo bordo sul bottone trigger, non sui contenitori */
-.cmp-wizard-widget .wizard-dc-form-shell .fi-select-input-btn {
-    border: 1px solid #5c6f82 !important;
-    border-radius: 4px !important;
-    background-color: #ffffff !important;
-    color: #17324d !important;
-}
-
 @media (max-width: 767.98px) {
     .cmp-wizard-widget .wizard-dc-form-shell .steppers-list {
         gap: 0 !important;
         overflow-x: auto !important;
     }
+}
+
+[data-sixteen-mobile-nav-overlay][hidden] {
+  display: none !important;
+}
+
+[data-sixteen-mobile-nav-overlay].is-open {
+  display: block !important;
+}
+
+.navbar-collapsable[data-sixteen-mobile-nav-panel].is-open {
+  display: flex !important;
+  transform: translateX(0) !important;
 }

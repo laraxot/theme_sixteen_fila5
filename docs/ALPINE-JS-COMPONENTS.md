@@ -410,15 +410,115 @@ resources/js/
 
 ---
 
+## Header Mobile Navigation — Vanilla JS Pattern (No Alpine)
+
+**⚠️ NEVER USE INLINE JAVASCRIPT IN BLADE TEMPLATES**
+
+### Architecture Change (2026-05-26)
+
+Il componente mobile navigation è stato **rifattorizzato da Alpine.js a Vanilla JS**:
+
+- **Prima**: Alpine.js `x-data="headerMobileNav"` con dual-file bootstrap sincrono
+- **Ora**: Vanilla JS con `data-*` attributes, caricato come ES module Vite (defer OK)
+
+### Perché Vanilla JS?
+
+1. **Più leggero**: No overhead Alpine per componente semplice
+2. **Nessun problema di timing**: Non dipende da `alpine:init` o registrazione sincrona
+3. **ES module nativo**: Caricato con `@vite` senza workarounds
+
+### Files (Clean Architecture)
+
+| File | Purpose | Loaded By |
+|------|---------|-----------|
+| `resources/js/theme/header-mobile-nav.js` | Vanilla JS controller | `import` in app.js |
+| `resources/js/app.js` | Main entry point | `@vite` in Blade |
+
+### Architecture
+
+```
+Blade: @vite(['resources/js/app.js'])
+    ↓
+app.js: import { initHeaderMobileNav } from './theme/header-mobile-nav.js'
+    ↓
+app.js: document.addEventListener('DOMContentLoaded', initHeaderMobileNav)
+    ↓
+header-mobile-nav.js: Auto-initializes on DOM ready
+```
+
+**Perché così?**
+- **Single entry point**: Solo `app.js` è entry point Vite
+- **ES modules**: `header-mobile-nav.js` è importato, non caricato separatamente
+- **Defer OK**: Vanilla JS con `DOMContentLoaded` funziona con defer
+- **No legacy**: Niente file bootstrap, niente plugin custom, niente duplicazione
+
+### ATTENZIONE: LEGACY RIMOSSA
+
+Il vecchio pattern `header-mobile-nav.js` (vanilla JS con `data-sixteen-mobile-nav-*`) e l'entry Vite separato `header-mobile-nav-boot.js` sono stati **rimossi** il 2026-05-26. Zero template usavano i loro selettori.
+
+### Pattern Attuale: Alpine `mobileMenu()` con Inline Bootstrap
+
+Il mobile nav usa l'Alpine component `mobileMenu()` registrato su 5 template con `x-data="mobileMenu()"`.
+
+**Problema**: Vite emette `type="module"` defer → `app.js` arriva dopo che Alpine (in @livewireScripts) ha già scandito il DOM.
+
+**Soluzione**: inline `<script>` su `alpine:init` nel `<head>` PRIMA di `@livewireScripts`:
+
+```html
+{{-- components/layouts/main.blade.php --}}
+<script>
+    document.addEventListener('alpine:init', function () {
+        Alpine.data('mobileMenu', () => ({
+            isOpen: false,
+            isMobileBreakpoint: false,
+            init() {
+                this.checkBreakpoint();
+                window.addEventListener('resize', () => this.checkBreakpoint());
+            },
+            toggle() { this.isOpen = !this.isOpen; },
+            open() { this.isOpen = true; },
+            close() { this.isOpen = false; },
+            checkBreakpoint() {
+                this.isMobileBreakpoint = window.innerWidth < 768;
+                if (!this.isMobileBreakpoint && this.isOpen) this.close();
+            },
+            isMobile() { return this.isMobileBreakpoint; },
+            closeOnItemClick() { if (this.isMobileBreakpoint) this.close(); },
+        }));
+    });
+</script>
+```
+
+La factory `mobileMenu` esiste anche come `export` in `resources/js/components/mobile-menu.js`, registrata in `app.js` come fallback per navigazioni Livewire successive.
+
+### Loading in Blade (Single Entry Point)
+
+```blade
+@filamentScripts
+@vite(['resources/js/app.js'], 'themes/Sixteen')
+```
+
+**NO multiple entry points** — Tutto passa da `app.js`.
+
+### Key Rules
+
+1. **Use `@vite`**: Standard Vite loading (defer ES module)
+2. **NEVER INLINE**: Tutto il JS in file esterni
+3. **Data attributes**: Usa `data-*` per markup HTML, non classi inline
+4. **Idempotent**: Controlla `dataset.bound` per evitare double-binding
+
+---
+
 ## Related Documentation
 
 - **Alpine.js Docs**: https://alpinejs.dev
 - **Splide Carousel**: https://splidejs.com
 - **Tailwind CSS**: https://tailwindcss.com
 - **WCAG 2.1 Guidelines**: https://www.w3.org/WAI/WCAG21/quickref/
+- **CSP Best Practices**: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 
 ---
 
-**Last Updated**: 2026-04-02  
-**Status**: ✅ Complete & Production Ready  
+**Last Updated**: 2026-05-26  
+**Status**: ✅ Header Mobile Nav Pattern Updated — No More Inline JS  
 **Test Coverage**: Components ready for integration testing

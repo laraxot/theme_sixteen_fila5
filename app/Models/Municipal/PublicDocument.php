@@ -18,6 +18,75 @@ use Illuminate\Support\Str;
  *
  * Rappresenta atti, delibere, determine, regolamenti
  * e altri documenti ufficiali dell'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $title
+ * @property string|null $slug
+ * @property string|null $description
+ * @property string|null $summary
+ * @property string $document_type
+ * @property string|null $category
+ * @property string|null $subcategory
+ * @property int|null $organizational_unit_id
+ * @property int|null $author_id
+ * @property int|null $service_id
+ * @property string|null $document_number
+ * @property string|null $protocol_number
+ * @property string|null $registration_number
+ * @property string $document_status
+ * @property string $publication_status
+ * @property string|null $legal_status
+ * @property string|null $classification_code
+ * @property string|null $subject_matter
+ * @property array|null $keywords
+ * @property string|null $language
+ * @property \Carbon\Carbon|null $document_date
+ * @property \Carbon\Carbon|null $approval_date
+ * @property \Carbon\Carbon|null $publication_date
+ * @property \Carbon\Carbon|null $effective_date
+ * @property \Carbon\Carbon|null $expiry_date
+ * @property \Carbon\Carbon|null $review_date
+ * @property string|null $file_path
+ * @property string|null $file_name
+ * @property int|null $file_size
+ * @property string|null $file_type
+ * @property string|null $file_hash
+ * @property string|null $original_format
+ * @property string|null $accessible_format
+ * @property string|null $signed_version
+ * @property array|null $attachments
+ * @property array|null $versions
+ * @property array|null $related_documents
+ * @property array|null $legislative_references
+ * @property array|null $administrative_references
+ * @property string|null $transparency_section
+ * @property string|null $access_rights
+ * @property string $privacy_level
+ * @property int|null $retention_period
+ * @property \Carbon\Carbon|null $disposal_date
+ * @property array|null $digital_signature
+ * @property array|null $timestamp
+ * @property bool $accessibility_compliance
+ * @property bool $format_compliance
+ * @property bool $metadata_compliance
+ * @property int $download_count
+ * @property \Carbon\Carbon|null $last_accessed
+ * @property string|null $checksum
+ * @property bool $is_published
+ * @property bool $is_active
+ * @property bool $is_searchable
+ * @property bool $is_downloadable
+ * @property bool $requires_authentication
+ * @property string $visibility_level
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read OrganizationalUnit|null $organizationalUnit
+ * @property-read PublicPerson|null $author
+ * @property-read MunicipalService|null $service
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  */
 class PublicDocument extends Model
 {

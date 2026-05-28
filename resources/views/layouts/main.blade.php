@@ -1,3 +1,6 @@
+<?php
+use Laravel\Folio\{title, middleware, name};
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,29 +11,19 @@
         {!! $_theme->metatags() !!}
         --}}
 
-        {{--
-            Dark mode boot: inline prima del paint (Vite app.js è deferred). Chiave allineata a resources/js/theme/dark-mode.js
-        --}}
-        <script>
-            if (typeof Storage !== 'undefined' && localStorage.getItem('dark_mode') === 'true') {
-                document.documentElement.classList.add('dark');
-            }
-        </script>
-        {{-- [x-cloak]: resources/css/app.css (in cima al foglio, dopo gli @import) --}}
+        {{-- [x-cloak]: resources/css/app.css --}}
 
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
-        <!-- Bootstrap Italia CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.18.0/dist/css/bootstrap-italia.min.css">
-        {{-- Cookie consent: vedi commento in app.css — Blade + asset() perché Vite @import fallisce --}}
+        {{-- Cookie consent: asset() perché Vite @import fallisce --}}
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
         @stack('styles')
     </head>
-    <body class="min-h-screen antialiased bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
-        @include('pub_theme::partials.alpine-livewire-bootstrap-header')
+    <body>
         {{ $slot ?? '' }}
         @yield('body')
 
+        @livewireScripts
         <livewire:toast />
         @livewire('notifications')
         @filamentScripts

@@ -1,4 +1,4 @@
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
+<header class="it-header-wrapper" data-sixteen-mobile-nav-target="#header-nav-wrapper" style="">
     <div class="it-header-slim-wrapper">
       <div class="container">
         <div class="row">
@@ -42,7 +42,7 @@
       </div>
     </div>
   
-    <div class="it-nav-wrapper">
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
       <div class="it-header-center-wrapper">
         <div class="container">
           <div class="row">
@@ -121,21 +121,21 @@
           </div>
         </div>
       </div>
-      <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+      <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-sixteen-mobile-nav>
         <div class="container">
           <div class="row">
             <div class="col-12">
               <!--start nav-->
               <div class="navbar navbar-expand-lg has-megamenu">
-                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
+                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-sixteen-mobile-nav-target="#nav4" data-sixteen-mobile-nav-toggle>
                   <svg class="icon">
                     <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                   </svg>
                 </button>
-                <div class="navbar-collapsable" id="nav4">
-                  <div class="overlay" style="display: none;"></div>
+                <div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav4">
+                  <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                   <div class="close-div">
-                    <button class="btn close-menu" type="button">
+                    <button class="btn close-menu" data-sixteen-mobile-nav-close type="button">
                       <span class="visually-hidden">Nascondi la navigazione</span>
                       <svg class="icon">
                         <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
