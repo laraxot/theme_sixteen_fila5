@@ -20,6 +20,38 @@ use Illuminate\Support\Str;
  *
  * Rappresenta uffici, dipartimenti, settori e altre unità organizzative
  * dell'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $slug
+ * @property string|null $description
+ * @property string|null $short_description
+ * @property string $type
+ * @property int|null $parent_id
+ * @property string|null $code
+ * @property string|null $logo
+ * @property string|null $image
+ * @property string|null $website
+ * @property string|null $email
+ * @property string|null $pec
+ * @property string|null $phone
+ * @property string|null $address
+ * @property array|null $office_hours
+ * @property bool $is_active
+ * @property bool $is_public
+ * @property int $position
+ * @property array|null $competences
+ * @property array|null $services_provided
+ * @property array|null $accessibility_info
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read self|null $parent
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $children
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $allChildren
  */
 class OrganizationalUnit extends Model
 {

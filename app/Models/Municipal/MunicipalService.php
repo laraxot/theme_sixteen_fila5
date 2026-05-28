@@ -19,6 +19,59 @@ use Illuminate\Support\Str;
  *
  * Rappresenta i servizi erogati dall'ente ai cittadini
  * secondo l'ontologia AGID e le specifiche dei servizi pubblici
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $slug
+ * @property string|null $description
+ * @property string|null $short_description
+ * @property string $service_type
+ * @property string|null $category
+ * @property string|null $subcategory
+ * @property int|null $organizational_unit_id
+ * @property int|null $parent_service_id
+ * @property string $service_status
+ * @property string $service_level
+ * @property array|null $target_audience
+ * @property array|null $geographic_coverage
+ * @property array|null $requirements
+ * @property array|null $procedures
+ * @property array|null $required_documents
+ * @property array|null $costs
+ * @property string|null $processing_time
+ * @property array|null $delivery_methods
+ * @property array|null $digital_channels
+ * @property array|null $physical_locations
+ * @property array|null $opening_hours
+ * @property bool $appointment_required
+ * @property string|null $appointment_url
+ * @property string|null $online_form_url
+ * @property array|null $legislation_references
+ * @property array|null $accessibility_info
+ * @property array|null $contact_info
+ * @property array|null $faq
+ * @property array|null $related_services
+ * @property array|null $service_outcomes
+ * @property array|null $quality_standards
+ * @property array|null $satisfaction_metrics
+ * @property \Carbon\Carbon|null $last_updated
+ * @property \Carbon\Carbon|null $next_review_date
+ * @property bool $is_active
+ * @property bool $is_public
+ * @property bool $is_digital
+ * @property bool $is_accessible
+ * @property int $priority_level
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read OrganizationalUnit|null $organizationalUnit
+ * @property-read self|null $parentService
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $subServices
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicDocument> $documents
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalLocation> $locations
  */
 class MunicipalService extends Model
 {

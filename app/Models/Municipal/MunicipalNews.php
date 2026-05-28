@@ -18,6 +18,70 @@ use Illuminate\Support\Str;
  *
  * Rappresenta notizie, comunicati stampa, avvisi pubblici
  * e altre comunicazioni dell'ente secondo l'ontologia AGID
+ *
+ * @property int $id
+ * @property string $title
+ * @property string|null $slug
+ * @property string|null $subtitle
+ * @property string|null $content
+ * @property string|null $excerpt
+ * @property string $news_type
+ * @property string|null $category
+ * @property string|null $subcategory
+ * @property int|null $organizational_unit_id
+ * @property int|null $author_id
+ * @property int|null $editor_id
+ * @property string|null $source
+ * @property string $news_status
+ * @property string $visibility
+ * @property int $priority_level
+ * @property int $urgency_level
+ * @property array|null $target_audience
+ * @property array|null $geographic_scope
+ * @property string|null $language
+ * @property string|null $featured_image
+ * @property string|null $image_caption
+ * @property string|null $image_alt_text
+ * @property array|null $gallery
+ * @property array|null $attachments
+ * @property array|null $related_services
+ * @property array|null $related_events
+ * @property array|null $related_people
+ * @property array|null $related_documents
+ * @property array|null $external_links
+ * @property array|null $tags
+ * @property string|null $social_summary
+ * @property string|null $meta_description
+ * @property array|null $seo_keywords
+ * @property \Carbon\Carbon|null $publication_date
+ * @property \Carbon\Carbon|null $expiry_date
+ * @property \Carbon\Carbon|null $last_modified
+ * @property int $revision_number
+ * @property bool $is_published
+ * @property bool $is_featured
+ * @property bool $is_breaking
+ * @property bool $is_archived
+ * @property bool $show_on_homepage
+ * @property bool $allow_comments
+ * @property int $view_count
+ * @property int $share_count
+ * @property int $reading_time
+ * @property array|null $accessibility_notes
+ * @property string|null $feedback_url
+ * @property string|null $correction_notice
+ * @property array|null $translation_links
+ * @property array|null $structured_data
+ * @property array|null $metadata
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read OrganizationalUnit|null $organizationalUnit
+ * @property-read PublicPerson|null $author
+ * @property-read PublicPerson|null $editor
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $categories
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $tags
  */
 class MunicipalNews extends Model
 {

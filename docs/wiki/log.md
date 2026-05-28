@@ -1,12 +1,15 @@
 # Sixteen Wiki Log
 
-<<<<<<< HEAD
-=======
-## [2026-05-25] docs | ridondanza Blade blocks — puntatori allo scan trasversale
+## [2026-05-26] fix | register.blade.php — folio + Volt manuale + template errata
 
-- [`wiki/redundancy/duplicated-blade-blocks.md`](redundancy/duplicated-blade-blocks.md): link incrociato a inventario holistic Xot [`audit-profondo-ridondanze-holistic.md`](../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md) e [`byte-identical-files-static-scan.md`](../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md) per evitare doc orfani.
-
->>>>>>> a931b1c (.)
+- **Errori**:
+  - `<x-layouts.marketing>` non esiste (error 500)
+  - `title()` non è funzione Folio (Internal Server Error)
+  - Form Volt manuale duplice `RegisterWidget` esistente
+  - Traduzioni inesistenti (`user::auth.register.page.*`)
+  - Mancanza `Route` facade
+- **Fix**: template semplificato con `layouts/app` + `$title` slot + `$this->livewire(RegisterWidget::class)` + chiavi traduzione `user::auth.register-*`
+- **Regola second brain**: `filament-auth-widgets-rule.md` — auth pages usano Filament widgets, mai Blade/Volt manuali.
 ## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
 
 - [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).

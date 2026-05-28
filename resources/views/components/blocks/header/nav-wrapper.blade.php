@@ -1,7 +1,7 @@
 @props(['municipality' => '', 'subtitle' => '', 'logo' => '', 'social' => [], 'search' => [], 'items' => []])
 
 <!-- DEBUG: nav-wrapper.blade.php v2 with Alpine.js -->
-<div class="it-nav-wrapper">
+<div class="it-nav-wrapper" data-sixteen-mobile-nav>
     {{-- Header Center --}}
     <div class="it-header-center-wrapper">
         <div class="container">
@@ -60,7 +60,7 @@
     </div>
 
     {{-- Navbar --}}
-    <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="mobileMenu()" @keydown.escape="close()">
+    <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-sixteen-mobile-nav>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -68,30 +68,29 @@
                         <button 
                             class="custom-navbar-toggler md:hidden" 
                             type="button" 
-                            @click="toggle()"
-                            :aria-expanded="isOpen"
+                           
+                            aria-expanded="false"
                             aria-controls="nav-main" 
                             aria-label="Mostra/Nascondi la navigazione" 
-                            data-bs-target="#nav-main" 
-                            data-bs-toggle="navbarcollapsible"
+                            data-sixteen-mobile-nav-target="#nav-main" 
+                            data-sixteen-mobile-nav-toggle
                         >
                             <svg class="icon">
                                 <use href="#it-burger"></use>
                             </svg>
                         </button>
                         <div 
-                            class="navbar-collapsable transition-all duration-300" 
+                            class="navbar-collapsable transition-all duration-300" data-sixteen-mobile-nav-panel 
                             id="nav-main"
-                            x-show="isOpen || !isMobile()"
-                            @click.outside="close()"
+                           
+                           
                         >
-                            <div class="overlay" style="display: none;"></div>
+                            <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                             <div class="close-div">
                                 <button 
-                                    class="btn close-menu" 
+                                    class="btn close-menu" data-sixteen-mobile-nav-close 
                                     type="button"
-                                    @click="close()"
-                                >
+                                                                    >
                                     <span class="visually-hidden">Nascondi la navigazione</span>
                                     <svg class="icon">
                                         <use href="#it-close-big"></use>
@@ -148,8 +147,7 @@
                 <button 
                     type="button" 
                     class="btn-close" 
-                    @click="close()"
-                    aria-label="Chiudi"
+                                        aria-label="Chiudi"
                 ></button>
             </div>
             <div class="modal-body">
