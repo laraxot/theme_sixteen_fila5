@@ -46,7 +46,7 @@
 
 ## [2026-05-15] Import Geo mappa via `@modules`
 
-- `geo-map-lit-local.js`: import di `renderSearch` / `searchUiHandlers` e controlli da `@modules/Geo/resources/js/components/map/...` (niente `./modules/Geo/...` assente nel tree).
+- **2026-05-28:** rimosso fork vietato `geo-map-lit-local.js`; mappa elenco solo via `import map-lit.js` in `app.js` — regola [no-theme-map-lit-fork](../../../../docs/wiki/rules/no-theme-map-lit-fork.md).
 - Boundary aggiornato: [concepts/theme-geo-js-boundary.md](concepts/theme-geo-js-boundary.md).
 
 ## [2026-05-15] Geo map styles mirror

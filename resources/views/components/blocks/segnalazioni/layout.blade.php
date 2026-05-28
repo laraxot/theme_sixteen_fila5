@@ -2,6 +2,8 @@
 
 @php
     use Illuminate\Support\Str;
+    use Modules\Fixcity\Enums\TicketStatusEnum;
+    use Modules\Fixcity\ViewModels\SegnalazioniFilterViewModel;
     $ns = 'fixcity::segnalazione';
     $blockData = is_array($data) ? $data : [];
     $phoneNumber = (string) ($blockData['phone'] ?? '05 0505');
@@ -44,37 +46,52 @@
 
     $mainContent = $blockData['main_content'] ?? [];
     $mainContentId = $mainContent['id'] ?? 'filter-and-cards';
-    
-    // Filtri dinamici da TicketTypeEnum + conteggi reali
-    $typeCountsRaw = \Modules\Fixcity\Models\Ticket::query()
-        ->selectRaw('type, count(*) as cnt')
-        ->whereNotNull('type')
-        ->groupBy('type')
-        ->pluck('cnt', 'type')
+
+    // Filtri da querystring (GET): ?types[]=...
+    $selectedTypes = request()->collect('types')
+        ->filter(static fn ($type): bool => is_string($type) && $type !== '')
+        ->values()
         ->all();
 
-    $filterItems = [];
-    foreach (\Modules\Fixcity\Enums\TicketTypeEnum::cases() as $case) {
-        $cnt = $typeCountsRaw[$case->value] ?? 0;
-        $filterItems[] = [
-            'id' => 'filter-' . $case->value,
-            'value' => $case->value,
-            'label' => $case->getLabel(),
-            'color' => $case->getColor(),
-            'count' => $cnt,
-        ];
+    // Query base visibile per ruolo/utente (allineata al comportamento frontoffice)
+    $baseTicketsQuery = \Modules\Fixcity\Models\Ticket::query();
+    $currentUserId = auth()->id();
+    if ($currentUserId !== null) {
+        $baseTicketsQuery->where(function ($q) use ($currentUserId): void {
+            $q->whereIn('status', TicketStatusEnum::canViewByAll())
+                ->orWhere('created_by', $currentUserId)
+                ->orWhere('updated_by', $currentUserId);
+        });
+    } else {
+        $baseTicketsQuery->whereIn('status', TicketStatusEnum::canViewByAll());
     }
+
+    // SSoT: Filtri leggono da JSON (stessa fonte della mappa)
+    $filterViewModel = new SegnalazioniFilterViewModel();
     $filters = [
         'title' => $t($blockData['filters']['title'] ?? '', __($ns . '.filters.legend.label')),
-        'items' => $filterItems,
+        'items' => $filterViewModel->getFilterItems(),
+        'total' => $filterViewModel->getTotalCount(),
     ];
 
-    // Lista ticket reale (top 20)
-    $liveTickets = \Modules\Fixcity\Models\Ticket::query()
+    // Conteggi filtri per reference (backward compatibility)
+    $typeCountsRaw = $filterViewModel->getCountsPerType();
+
+    // Applica filtro tipologia a lista/mappa (query canonica unica)
+    $filteredTicketsQuery = (clone $baseTicketsQuery);
+    if ($selectedTypes !== []) {
+        $filteredTicketsQuery->whereIn('type', $selectedTypes);
+    }
+
+    // Lista ticket reale (top 20) filtrata
+    $liveTickets = (clone $filteredTicketsQuery)
         ->latest()
         ->take(20)
         ->get();
-    $resultsCount = \Modules\Fixcity\Models\Ticket::count();
+    $resultsCount = $filterViewModel->getFilteredCount($selectedTypes);
+    $mapDataUrl = '/data/tickets.json';
+    $filterItemsAttr = e(json_encode($filters['items'], JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
+    $selectedTypesAttr = e(json_encode($selectedTypes, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
 
     $rawCta = $mainContent['cta'] ?? [];
     $cta = $rawCta !== []
@@ -142,31 +159,25 @@
         <div class="row justify-content-center">
             @if (!empty($filters['items']))
                 <aside class="col-lg-3 d-none d-lg-block" id="{{ $filtersSectionId }}" aria-label="{{ $filters['title'] }}">
-                    <fieldset>
-                        <legend class="h6 text-uppercase category-list__title">{{ $filters['title'] }}</legend>
-                        <div class="categoy-list pb-4">
-                            <ul>
-                                @foreach ($filters['items'] as $filter)
-                                    <li>
-                                        <div class="form-check">
-                                            <div class="checkbox-body border-light py-1">
-                                                <input type="checkbox" id="{{ $filter['id'] }}" name="category" value="{{ $filter['value'] ?? '' }}">
-                                                <label for="{{ $filter['id'] }}" class="subtitle-small_semi-bold mb-0 category-list__list">
-                                                    {{ $filter['label'] }} ({{ $filter['count'] ?? 0 }})
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </fieldset>
+                    <map-filter-lit
+                        map-id="ticket-map"
+                        title="{{ $filters['title'] }}"
+                        filters="{{ $filterItemsAttr }}"
+                        total="{{ $filters['total'] }}"
+                        initial-selected="{{ $selectedTypesAttr }}"
+                        results-target="#segnalazioni-results-count"
+                        clear-target="#segnalazioni-clear-filters"
+                    ></map-filter-lit>
                 </aside>
             @endif
 
             <div class="{{ !empty($filters['items']) ? 'col-lg-8 offset-lg-1' : 'col-12 col-lg-10 offset-lg-1' }}">
                 <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
-                    <span class="search-results">{{ __($ns . '.results.count.text', ['count' => $resultsCount]) }}</span>
+                    <span
+                        id="segnalazioni-results-count"
+                        class="search-results"
+                        data-count-template="{{ __($ns . '.results.count.text', ['count' => ':count']) }}"
+                    >{{ __($ns . '.results.count.text', ['count' => $resultsCount]) }}</span>
 
                     <button type="button" data-bs-toggle="modal" data-bs-target="#modal-categories" class="btn p-0 pe-2 d-lg-none">
                         <span class="rounded-icon">
@@ -177,9 +188,9 @@
                         <span class="t-primary title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.button.label') }}</span>
                     </button>
 
-                    <button type="button" class="btn p-0 pe-2 d-none d-lg-block">
+                    <a href="#" id="segnalazioni-clear-filters" class="btn p-0 pe-2 d-none d-lg-block text-decoration-none">
                         <span class="title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.remove.label') }}</span>
-                    </button>
+                    </a>
                 </div>
 
                 @if (!empty($tabs))
@@ -200,7 +211,7 @@
                             <div class="col-12">
                                 <map-lit
                                     id="ticket-map"
-                                    data-url="/data/tickets.json"
+                                    data-url="{{ $mapDataUrl }}"
                                     height="clamp(360px,58vh,560px)"
                                     style="height:clamp(360px,58vh,560px);display:block;width:100%"
                                     aria-label="{{ __($ns . '.map.image.alt') }}"
@@ -351,24 +362,30 @@
             </div>
         @endif
     </section>
+
+    @if (!empty($filters['items']))
+        <div class="modal fade d-lg-none" id="modal-categories" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <h2 class="title-medium-semi-bold" id="modal-categories-title">{{ $filters['title'] }}</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Chiudi') }}"></button>
+                    </div>
+                    <div class="modal-body text-black">
+                        <map-filter-lit
+                            map-id="ticket-map"
+                            title=""
+                            filters="{{ $filterItemsJson }}"
+                            total="{{ $filters['total'] }}"
+                            initial-selected="{{ $selectedTypesAttr }}"
+                            results-target="#segnalazioni-results-count"
+                        ></map-filter-lit>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 
-{{-- map-lit Web Component is registered via Sixteen theme bundle (resources/js/app.js imports map-lit.js).
-     No extra <script> include needed; cross-module Vite::asset(...,'assets/geo') was the wrong pattern. --}}
+{{-- map-lit + map-filter-lit: Sixteen app.js (modulo Geo) --}}
 <style>.leaflet-container { z-index: 1; }</style>
-
-{{-- Filtri: click checkbox → filterByType() --}}
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const checkboxes = document.querySelectorAll('input[name="category"]');
-    const map = document.getElementById('ticket-map');
-
-    checkboxes.forEach(function (cb) {
-        cb.addEventListener('change', function () {
-            if (!map) { return; }
-            const active = document.querySelector('input[name="category"]:checked');
-            map.filterByType(active ? active.value : null);
-        });
-    });
-});
-</script>
