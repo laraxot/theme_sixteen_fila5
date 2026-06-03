@@ -1,0 +1,474 @@
+/*
+ * Leaflet marker, cluster and map visualization overrides.
+ * Extracted from resources/css/app.css to keep app.css as a small import index.
+ */
+/* ========================================
+   READ MORE PARITY HOTFIX 6
+======================================== */
+.dc-homepage-parity #calendario .card-teaser > .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser > .read-more,
+.dc-homepage-parity #calendario .card-teaser .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser .read-more,
+.dc-homepage-parity #calendario .card-teaser > .read-more .text,
+.dc-homepage-parity #calendario .card-teaser .read-more .text {
+  letter-spacing: 0.9px !important;
+}
+
+/* ========================================
+   HIDE GOVERNANCE CAROUSEL (WAVE 3)
+   Not present in reference design
+======================================== */
+main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-four-cols {
+  display: none !important;
+}
+
+.dc-service-detail .cmp-heading {
+  padding-top: 1rem;
+}
+
+.dc-service-detail__cta-group {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dc-service-detail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dc-service-detail__dropdown {
+  position: relative;
+}
+
+.dc-service-detail__dropdown-menu {
+  display: block;
+  position: static;
+  min-width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item,
+.dc-service-detail__content .cmp-navscroll .accordion-button,
+.dc-service-detail__content .cmp-navscroll .accordion-body {
+  background: #fff;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item {
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #17324d;
+  border: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .nav-link {
+  display: block;
+  padding: 0.6rem 0;
+  color: #17324d;
+  text-decoration: none;
+}
+
+.dc-service-detail__content .it-page-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dc-service-detail__content .it-page-section {
+  scroll-margin-top: 6rem;
+}
+
+.dc-service-detail__content .has-bg-grey {
+  background: #f2f7fc;
+  border-radius: 1rem;
+}
+
+.dc-service-detail__richtext p + p {
+  margin-top: 1rem;
+}
+
+.dc-service-detail__richtext ul {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+}
+
+.dc-service-detail__button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dc-service-detail .card-teaser-info {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-service-detail .avatar.size-xl img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+/* ========================================
+   HOMEPAGE PARITY FIXES - WAVE 3 (Visual Alignment)
+======================================== */
+
+/* Hide extra evidence card wrappers (show only 6 items - 3x2 grid) */
+.dc-homepage-parity .evidence-section .row > div > .card-wrapper:nth-of-type(n+7) {
+  display: none !important;
+}
+
+/* Adjust evidence section height to match grid of 6 items */
+.dc-homepage-parity .evidence-section {
+  max-height: 1102px !important;
+  overflow: hidden !important;
+}
+
+/* Header height adjustment */
+.dc-homepage-parity header {
+  min-height: 222px !important;
+  height: auto !important;
+}
+
+/* Social icons sizing */
+.dc-homepage-parity .it-socials {
+  height: 27px !important;
+  line-height: 27px !important;
+}
+
+/* Footer background must be transparent, not dark grey */
+.dc-homepage-parity footer,
+.dc-homepage-parity footer#footer {
+  background-color: transparent !important;
+  color: rgb(25, 25, 25) !important;
+}
+
+@media (min-width: 992px) {
+  .dc-service-detail__content .cmp-navscroll.sticky-top {
+    top: 2rem;
+  }
+
+  .dc-service-detail__dropdown-menu {
+    max-width: 16rem;
+  }
+}
+
+/* ========================================
+   PAGE PARITY FIXES - 2026-04-04
+   Focus pages: lista-risorse, segnalazioni-elenco, amministrazione
+======================================== */
+
+main[data-page="lista-risorse"] .cmp-breadcrumbs,
+main[data-page="amministrazione"] .cmp-breadcrumbs,
+main[data-page="page-shell"] .cmp-breadcrumbs {
+  margin-top: 1.25rem !important;
+}
+
+main[data-page="lista-risorse"] > section.section:not(.section-muted):not(.section-primary) {
+  background: #eceff1 !important;
+}
+
+main[data-page="lista-risorse"] .useful-links-section {
+  background: #eceff1 !important;
+  padding: 3rem 0 4rem !important;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top,
+main[data-page="lista-risorse"] .card-teaser-image-top.no-after {
+  border: 1px solid #d9e1e8 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .card-image-wrapper {
+  display: block !important;
+  aspect-ratio: 16 / 9;
+  background: #dfe7ec;
+  overflow: hidden;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .card-image-wrapper > .card-body {
+  display: block !important;
+  height: 100%;
+  padding: 0 !important;
+}
+
+main[data-page="lista-risorse"] .card-teaser-image-top .img-fluid {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 180px;
+  object-fit: cover !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .input-group {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .form-control {
+  min-height: 3rem;
+  border-radius: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-input-search .btn {
+  min-width: 4.5rem;
+  border-radius: 0 !important;
+}
+
+main[data-page="lista-risorse"] .cmp-pagination {
+  justify-content: center;
+  margin: 1.75rem 0 0;
+}
+
+main[data-page="lista-risorse"] .section-primary .cmp-rating {
+  padding-top: 2.75rem !important;
+  padding-bottom: 2.75rem !important;
+}
+
+main[data-page="lista-risorse"] .section-primary .cmp-rating .card,
+main[data-page="lista-risorse"] .section-primary .cmp-rating .card-wrapper {
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+main[data-page="lista-risorse"] .section-primary .button-shadow {
+  display: none !important;
+}
+
+main[data-page="lista-risorse"] .shadow-contacts,
+main[data-page="lista-risorse"] .cmp-contacts .card {
+  box-shadow: none !important;
+}
+
+main[data-page="page-shell"] .search-results {
+  font-size: 0.875rem;
+  color: #5c6f82;
+}
+
+
+main[data-page="page-shell"] .map-box {
+  margin-top: 1rem;
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  background: #fff;
+  padding: 0;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.08);
+}
+
+main[data-page="page-shell"] .map-box > img {
+  display: block;
+  border-radius: 0;
+  height: 26rem;
+  object-fit: cover;
+}
+
+/* Leaflet marker glyphs — inline SVG preferito; img fallback protetto da Tailwind preflight */
+.leaflet-marker-pane .geo-map-marker-glyph,
+.leaflet-marker-pane .geo-map-marker-glyph-svg,
+.geo-map-marker-glyph-wrap .geo-map-marker-glyph,
+.geo-map-marker-glyph-wrap .geo-map-marker-glyph-svg,
+.geo-map-marker-glyph-wrap img.geo-map-marker-glyph--img {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  object-fit: contain;
+}
+
+/* Marker Cluster Styles — Enhanced visualization */
+.geo-cluster-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.geo-cluster-circle {
+  background: rgba(0, 122, 82, 0.9) !important;
+  border-radius: 50% !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(0, 122, 82, 0.3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 80px !important;
+  height: 80px !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  transition: box-shadow 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.geo-cluster-wrapper:hover .geo-cluster-circle {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(0, 122, 82, 0.4) !important;
+}
+
+/* Leaflet MarkerCluster plugin overrides */
+.marker-cluster {
+  background-color: transparent !important;
+}
+
+.marker-cluster div {
+  background-color: rgba(0, 122, 82, 0.9) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.marker-cluster-small div {
+  background-color: #4caf50 !important;
+}
+
+.marker-cluster-medium div {
+  background-color: #ff9800 !important;
+}
+
+.marker-cluster-large div {
+  background-color: #f44336 !important;
+}
+
+main[data-page="page-shell"] .cmp-text-button {
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 2rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+main[data-page="page-shell"] .cmp-text-button h2 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+main[data-page="page-shell"] .cmp-info-button-card,
+main[data-page="page-shell"] .cmp-info-summary {
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  background: #fff;
+  box-shadow: none;
+}
+
+main[data-page="page-shell"] .cmp-info-summary .card {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+main[data-page="page-shell"] .cmp-card {
+  border-radius: 0;
+  border: 1px solid #d9e1e8;
+  box-shadow: none;
+  background: #fff;
+}
+
+main[data-page="page-shell"] .cmp-card .card.has-bkg-grey {
+  border: none;
+  box-shadow: none;
+}
+
+main[data-page="page-shell"] .cmp-info-summary .cmp-info-summary__icon,
+main[data-page="page-shell"] .cmp-info-summary .single-line-info {
+  padding: 1rem 1.25rem;
+}
+
+main[data-page="page-shell"] .cmp-info-summary .card-body .single-line-info {
+  border-bottom: 1px solid #edf0f4;
+}
+
+main[data-page="page-shell"] .cmp-info-summary .single-line-info:last-child {
+  border-bottom: none;
+}
+
+main[data-page="page-shell"] .category-list__list {
+  color: #1f2d3d;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+main[data-page="page-shell"] .nav-tabs {
+  border: none !important;
+}
+
+main[data-page="page-shell"] .nav-tabs .nav-link {
+  border: none;
+  background: transparent;
+  padding-bottom: 0.5rem;
+}
+
+main[data-page="page-shell"] .nav-tabs .nav-link.active {
+  border-bottom: 2px solid #007a52;
+  color: #1f2d3d;
+}
+
+main[data-page="page-shell"] .cmp-rating {
+  background: #007a52;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 3rem 1rem;
+}
+
+main[data-page="page-shell"] .cmp-rating__card-first {
+  max-width: 34rem;
+  margin: 0 auto;
+  background: transparent;
+}
+
+main[data-page="page-shell"] .cmp-rating__card-first .card-body {
+  padding: 0;
+}
+
+main[data-page="page-shell"] .cmp-contacts {
+  margin-top: 2rem;
+}
+
+main[data-page="page-shell"] .cmp-contacts .cmp-contacts__container .card {
+  border: 1px solid #d9e1e8;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+main[data-page="amministrazione"] .cmp-hero .it-hero-text-wrapper {
+  padding-bottom: 2rem !important;
+}
+
+main[data-page="amministrazione"] .cmp-hero .hero-text p {
+  max-width: 36rem;
+  color: #5c6f82;
+}
+
+main[data-page="amministrazione"] .card,
+main[data-page="amministrazione"] .card-wrapper {
+  border-radius: 0 !important;
+}
