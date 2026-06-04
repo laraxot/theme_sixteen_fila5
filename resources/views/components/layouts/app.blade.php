@@ -1,6 +1,6 @@
-@props(['title' => ''])
+@props(['title' => '', 'metaDescription' => '', 'pageShell' => false, 'bodyPage' => ''])
 
-<x-layouts.main>
+<x-layouts.main :title="$title" :description="$metaDescription" :body-page="$bodyPage">
     <div class="skiplink">
         <a class="visually-hidden-focusable" href="#main-container">{{ __('pub_theme::ui.skip_to_content') }}</a>
         <a class="visually-hidden-focusable" href="#footer">{{ __('pub_theme::ui.skip_to_footer') }}</a>

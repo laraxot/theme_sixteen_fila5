@@ -18,13 +18,11 @@
 <div class="nav-item dropdown">
     <button
         type="button"
-        class="nav-link dropdown-toggle text-white"
-        id="header-language-toggle"
+        class="nav-link dropdown-toggle"
         data-bs-toggle="dropdown"
-        data-focus-mouse="false"
         aria-expanded="false"
         aria-haspopup="true"
-        aria-controls="header-language-menu"
+        aria-controls="languages"
     >
         <span class="visually-hidden">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
         <span>
@@ -37,17 +35,11 @@
             @endphp
             {{ $currentShort }}
         </span>
-        <svg class="icon icon-white" aria-hidden="true">
+        <svg class="icon">
             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
         </svg>
     </button>
-    <div
-        class="dropdown-menu"
-        id="header-language-menu"
-        role="menu"
-        aria-labelledby="header-language-toggle"
-        aria-orientation="vertical"
-    >
+    <div class="dropdown-menu">
         <div class="row">
             <div class="col-12">
                 <div class="link-list-wrapper">

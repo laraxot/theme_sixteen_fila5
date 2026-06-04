@@ -1,5 +1,32 @@
 # Sixteen Wiki Log
 
+## [2026-06-03] skill | Anthropic frontend-design × civic parity
+
+- Adattamento plugin: [concepts/frontend-design-civic-anthropic-adaptation.md](concepts/frontend-design-civic-anthropic-adaptation.md)
+- Memoria: [memories/frontend-design-anthropic-civic-mode.md](memories/frontend-design-anthropic-civic-mode.md)
+- Skill bridge: `bashscripts/ai/skills/frontend-design/SKILL.md` · wiki `docs/wiki/skills/frontend-design-civic-pa.md`
+
+## [2026-06-03] skill | Anthropic frontend-design → overlay Fixcity
+
+- Studio: [claude-code/plugins/frontend-design](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design)
+- Skill estesa: `bashscripts/ai/skills/frontend-design/SKILL.md` (PA parity, stack, anti-slop + anti-drift)
+- Doc: `concepts/frontend-design-fixcity-overlay.md`, memoria `memories/anthropic-frontend-design-skill-adapted.md`
+- Symlink agenti: `bashscripts/ai/.agents/skills/frontend-design` → skill canonica
+
+## [2026-06-03] docs | map-lit marker + popup — ricostruzione e confini tema
+
+- **SSoT modulo:** [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — dimensioni pin, DOM, popup BEM, checklist build
+- **Tema:** [geo-map-marker-civic-pin-theme-boundary.md](concepts/geo-map-marker-civic-pin-theme-boundary.md), [geo-map-popup-leaflet-boundary.md](concepts/geo-map-popup-leaflet-boundary.md)
+- **Runbook popup vuoto:** [map-popup-header-whitespace-fix.md](../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md) — `<div class="popup__header">` vs `header { min-height: 222px }`
+- **Codice:** `marker-config.js` (`__shell`/`__inner`/`__point`), `popup-ticket.js` (STORY-132), `07-map-clusters-and-leaflet.css`
+
+## [2026-06-01] rule | Frontend stack canonico + naming blocchi CMS
+
+- **Regola**: `rules/frontend-stack-canonical.md` — stack Tailwind+Alpine+Lit+DaisyUI+Flowbite+Filament (NO Bootstrap)
+- **Regola**: `rules/cms-block-naming-tailwind-flowbite.md` — sottocartelle `blocks/` da Tailwind UI / Flowbite
+- **Story**: STORY-112 — `docs/stories/STORY-112-frontend-stack-canonical-rule.md`
+- **Issue**: [#197](https://github.com/laraxot/base_fixcity_fila5/issues/197) · **Discussion**: [#198](https://github.com/laraxot/base_fixcity_fila5/discussions/198)
+
 ## [2026-05-26] fix | register.blade.php — folio + Volt manuale + template errata
 
 - **Errori**:

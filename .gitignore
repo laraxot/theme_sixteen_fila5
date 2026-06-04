@@ -65,3 +65,4 @@ docs/archive/
 *.rej
 *~head
 
+.c*

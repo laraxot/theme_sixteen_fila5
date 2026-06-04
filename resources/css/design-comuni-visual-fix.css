@@ -38,11 +38,11 @@ a:active,
 }
 
 /* Links in header specific */
-header a {
+header.it-header-wrapper a {
   color: #007A52 !important;
 }
 
-header a:hover {
+header.it-header-wrapper a:hover {
   color: #005841 !important;
 }
 
@@ -80,11 +80,20 @@ footer a:hover {
    3. HEADER HEIGHT ADJUSTMENT (-18px issue)
    ============================================================================ */
 
-header,
+header.it-header-wrapper,
 .it-header {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
   min-height: 222px !important;
+}
+
+/* Popup mappa: block .popup__header è <div>, non il tag header istituzionale */
+.leaflet-popup.popup-wrapper .popup__header,
+.dc-homepage-parity .leaflet-popup.popup-wrapper .popup__header {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.4rem !important;
 }
 
 .it-header-center-wrapper {

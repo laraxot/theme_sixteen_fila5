@@ -23,8 +23,8 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     $langHtml = (string) file_get_contents($langPath);
     $userHtml = (string) file_get_contents($userPath);
 
-    expect($langHtml)->toContain('id="header-language-toggle"');
     expect($langHtml)->toContain('data-bs-toggle="dropdown"');
+    expect($langHtml)->toContain('aria-controls="languages"');
     expect($userHtml)->toContain('id="header-user-toggle"');
     expect($userHtml)->toContain('data-bs-toggle="dropdown"');
 

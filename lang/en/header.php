@@ -104,11 +104,7 @@ return [
             ],
         ],
         'search' => [
-            'label' => [
-                'label' => 'Search',
-                'placeholder' => '',
-                'help' => '',
-            ],
+            'label' => 'Search',
             'toggle_aria' => [
                 'label' => 'Search the site',
                 'placeholder' => '',
