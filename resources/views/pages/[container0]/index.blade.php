@@ -6,6 +6,7 @@ use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+use Modules\Cms\Models\Page as CmsPage;
 
 name('container0.list');
 middleware(PageSlugMiddleware::class);
@@ -20,42 +21,51 @@ new class extends Component {
     public function mount(string $container0): void
     {
         $this->container0 = $container0;
-        $this->pageSlug = match ($container0) {
-            'segnalazione-crea' => 'tests.segnalazione-crea',
+        $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
+
+        $this->pageSlug = match (true) {
+            $container0 === 'segnalazione-crea' => 'tests.segnalazione-crea',
+            in_array($container0, $supportedLocales, true) => 'home',
             default => $container0 . '.index',
         };
         $this->data = [
-            'container0' => $container0
+            'container0' => $container0,
         ];
     }
 };
 ?>
 
 @php
-    $pageTitle = match ($container0) {
-        'predicts' => 'Mercati di Predizione',
-        default => ucfirst(str_replace('-', ' ', $container0)),
+    $folioContainer = (string) (request()->route('container0') ?? '');
+    $folioSupportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
+    $folioIsLocaleHome = in_array($folioContainer, $folioSupportedLocales, true);
+
+    $folioPageTitle = match (true) {
+        $folioContainer === 'predicts' => 'Mercati di Predizione',
+        $folioIsLocaleHome => (function (): string {
+            $page = CmsPage::query()->where('slug', 'home')->first();
+            if ($page === null) {
+                return (string) __('fixcity::ticket.heading.title.label');
+            }
+
+            $title = $page->getTranslation('title', app()->getLocale());
+
+            return is_string($title) && $title !== ''
+                ? $title
+                : (string) __('fixcity::ticket.heading.title.label');
+        })(),
+        default => ucfirst(str_replace('-', ' ', $folioContainer)),
     };
 
-    $pageMetaDescription = match ($container0) {
-        'predicts' => 'Esplora i mercati di predizione attivi, con probabilita, volume e accesso diretto ai dettagli.',
-        default => 'Pagina pubblica '.$pageTitle,
+    $folioMetaDescription = match (true) {
+        $folioContainer === 'predicts' => 'Esplora i mercati di predizione attivi, con probabilita, volume e accesso diretto ai dettagli.',
+        $folioIsLocaleHome => 'Consulta le segnalazioni aperte nel territorio e filtra i risultati per categoria.',
+        default => 'Pagina pubblica ' . $folioPageTitle,
     };
 @endphp
 
-<x-layouts.app :title="$pageTitle" :meta-description="$pageMetaDescription">
+<x-layouts.app :title="$folioPageTitle" :meta-description="$folioMetaDescription">
     @volt('container0.list')
-    {{--
-        CRITICAL: Zen Naked Page Philosophy
-        - NO styling hardcoded in [container0]/index.blade.php
-        - Layout app.blade.php già ha bg-slate-950 (dark theme)
-        - Questo div è SOLO wrapper semantico (NO styling)
-        - Styling va nei components CMS (x-page, blocks)
-        - Permette full-width cinematic sections e spacing personalizzato per blocco
-
-        DOCS:
-        - docs/ZEN_NAKED_PAGE_PHILOSOPHY.md
-    --}}
     <div>
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>

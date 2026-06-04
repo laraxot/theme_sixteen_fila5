@@ -420,7 +420,11 @@ html, body {
 }
 
 .it-header-center-content-wrapper {
-  @apply flex justify-between items-center;
+  @apply flex items-center;
+}
+
+.it-header-center-content-wrapper .it-brand-wrapper {
+  @apply mr-auto;
 }
 
 /* Navbar */
@@ -514,6 +518,12 @@ html, body {
 
 .it-header-slim-wrapper .btn-primary span:not(.rounded-icon) {
   @apply text-white;
+  color: #ffffff !important;
+}
+
+.cmp-text-button .btn-primary,
+.btn-primary .text-white,
+.btn-primary:where(.mobile-full, .py-3) {
   color: #ffffff !important;
 }
 
@@ -767,18 +777,19 @@ body {
   background: white;
 }
 
-/* Force visibility of main content */
+/* Force visibility of main content (non forzare display:block su .col-* — rompe la griglia Bootstrap) */
 main,
 #main-container,
-.container,
-.row,
-[class*="col-"] {
-  @apply block visible opacity-100;
+.container {
+  @apply visible opacity-100;
 }
 
-/* Fix flex layouts */
 .row {
-  @apply flex;
+  @apply flex flex-wrap visible opacity-100;
+}
+
+[class*="col-"] {
+  @apply visible opacity-100;
 }
 
 /* Override any hidden classes that might be interfering */
@@ -990,6 +1001,36 @@ main,
 
 .pt-0 {
   @apply pt-0;
+}
+
+/* Map/list block — Filament tabs skin (presentation-only: scoped to #main-container, no class dominio) */
+#main-container .fi-tabs {
+  @apply w-full max-w-none mx-0 mb-10 mt-3 gap-0 overflow-visible rounded-none bg-transparent p-0 shadow-none;
+  --tw-ring-shadow: 0 0 #0000;
+  border-bottom: 1px solid var(--bs-border-color, #d9dadb);
+}
+
+#main-container .fi-tabs .fi-tabs-item {
+  @apply flex-1 justify-center rounded-none border-0 bg-transparent px-2 py-2 shadow-none;
+  border-bottom: 2px solid transparent;
+}
+
+#main-container .fi-tabs .fi-tabs-item.fi-active {
+  @apply bg-transparent;
+  border-bottom-color: var(--bs-primary, #0066cc);
+}
+
+#main-container .fi-tabs .fi-tabs-item.fi-active .fi-tabs-item-label {
+  color: var(--bs-primary, #0066cc);
+}
+
+#main-container .fi-tabs .fi-tabs-item:not(.fi-active) .fi-tabs-item-label {
+  @apply font-semibold;
+  color: var(--bs-secondary, #5c6f82);
+}
+
+#main-container .tab-content [x-cloak] {
+  display: none !important;
 }
 
 /* Tabs - Bootstrap Italia style with @apply */

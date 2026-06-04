@@ -1,12 +1,13 @@
-const navToggleSelector = '[data-sixteen-mobile-nav-toggle]';
-const navPanelSelector = '[data-sixteen-mobile-nav-panel]';
-const navOverlaySelector = '[data-sixteen-mobile-nav-overlay]';
-const navCloseSelector = '[data-sixteen-mobile-nav-close]';
+const navToggleSelector = '.custom-navbar-toggler[data-bs-target="#nav4"], [data-sixteen-mobile-nav-toggle]';
+const navPanelSelector = '#nav4.navbar-collapsable, [data-sixteen-mobile-nav-panel]';
+const navOverlaySelector = '.navbar-collapsable > .overlay, [data-sixteen-mobile-nav-overlay]';
+const navCloseSelector = '.navbar-collapsable .close-menu, [data-sixteen-mobile-nav-close]';
 
 function getTargetPanel(toggle) {
-    const selector = toggle.getAttribute('data-sixteen-mobile-nav-target');
+    const selector = toggle.getAttribute('data-bs-target')
+        ?? toggle.getAttribute('data-sixteen-mobile-nav-target');
 
-    return selector ? document.querySelector(selector) : document.querySelector(navPanelSelector);
+    return selector ? document.querySelector(selector) : document.querySelector('#nav4');
 }
 
 function getRelatedOverlays(panel) {
@@ -30,6 +31,7 @@ function setPanelOpen(panel, open, focusFirstLink = false) {
 
     getRelatedOverlays(panel).forEach((overlay) => {
         overlay.hidden = !open;
+        overlay.style.display = open ? 'block' : 'none';
         overlay.classList.toggle('is-open', open);
         overlay.classList.toggle('show', open);
     });

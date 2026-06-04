@@ -130,6 +130,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
+                            <button class="custom-navbar-toggler custom-navbar-toggler-center d-lg-none" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-sixteen-mobile-nav-toggle data-sixteen-mobile-nav-target="#nav4" form="__never_submit_header_nav">
+                                <svg class="icon">
+                                    <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-burger') }}"/>
+                                </svg>
+                            </button>
                             <div class="it-brand-wrapper">
                                 <a href="/">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
