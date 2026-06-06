@@ -28,7 +28,7 @@ class CieAuthenticated
      */
     public function getAuthMethod(): ?string
     {
-        $value = $this->cieAttributes['auth_method'] ?? null;
+$value = $this->cieAttributes['auth_method'] ?? null;
 
         return is_string($value) ? $value : null;
     }
@@ -46,7 +46,7 @@ class CieAuthenticated
      */
     public function getFiscalCode(): ?string
     {
-        $value = $this->cieAttributes['fiscal_code'] ?? null;
+$value = $this->cieAttributes['fiscal_code'] ?? null;
 
         return is_string($value) ? $value : null;
     }
@@ -56,7 +56,7 @@ class CieAuthenticated
      */
     public function getCieId(): ?string
     {
-        $value = $this->cieAttributes['cie_id'] ?? null;
+$value = $this->cieAttributes['cie_id'] ?? null;
 
         return is_string($value) ? $value : null;
     }
@@ -74,7 +74,7 @@ class CieAuthenticated
      */
     public function isEmailVerified(): bool
     {
-        $value = $this->cieAttributes['email_verified'] ?? false;
+$value = $this->cieAttributes['email_verified'] ?? false;
 
         return is_bool($value) && $value;
     }
@@ -84,7 +84,7 @@ class CieAuthenticated
      */
     public function isPhoneVerified(): bool
     {
-        $value = $this->cieAttributes['phone_verified'] ?? false;
+$value = $this->cieAttributes['phone_verified'] ?? false;
 
         return is_bool($value) && $value;
     }

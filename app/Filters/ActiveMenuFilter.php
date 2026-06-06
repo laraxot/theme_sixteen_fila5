@@ -6,6 +6,7 @@ namespace Themes\Sixteen\Filters;
 
 use Illuminate\Support\Facades\Request;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
+
 use function Safe\parse_url;
 use function Safe\preg_match;
 
@@ -94,7 +95,7 @@ class ActiveMenuFilter implements MenuFilterInterface
 
         $itemUrl = $item['url'];
 
-        if (! is_string($itemUrl)) {
+if (! is_string($itemUrl)) {
             return false;
         }
 
@@ -124,7 +125,7 @@ class ActiveMenuFilter implements MenuFilterInterface
         }
 
         // Sub-path match (l'URL corrente è sotto l'URL dell'elemento)
-        if (str_starts_with($currentPath.'/', $itemPath.'/')) {
+if (str_starts_with($currentPath.'/', $itemPath.'/')) {
             return true;
         }
 

@@ -94,78 +94,16 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'pub_theme');
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'pub_theme');
 
-        // Register 'sixteen' namespace for backward compatibility
+// Register 'sixteen' namespace for backward compatibility
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'sixteen');
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'sixteen');
 
-        // Caricamento delle configurazioni del tema
-        $this->loadConfigFrom(__DIR__.'/../../config', 'sixteen');
-    }
-
-    /**
-     * Register the Menu Builder system
-     */
-    protected function registerMenuSystem(): void
-    {
-        // Singleton per il Menu Builder
-        $this->app->singleton(MenuBuilder::class, function ($app) {
-            $filters = $app->tagged('sixteen.menu.filters');
-
-            return new MenuBuilder($filters);
-        });
-
-        // Alias per backward compatibility
-        $this->app->alias(MenuBuilder::class, 'sixteen.menu');
-    }
-
-    /**
-     * Register core services
-     */
-    protected function registerCoreServices(): void
-    {
-        // Theme Service con dependency injection del MenuBuilder
-        $this->app->singleton('sixteen.theme', function ($app) {
-            return new ThemeService($app[MenuBuilder::class]);
-        });
-
-        // Alias per il ThemeService
-        $this->app->alias('sixteen.theme', ThemeService::class);
-    }
-
-    /**
-     * Register menu filters
-     */
-    protected function registerMenuFilters(): void
-    {
-        // Register default menu filters
-        $this->app->singleton(HrefMenuFilter::class);
-        $this->app->singleton(ActiveMenuFilter::class);
-        $this->app->singleton(GateMenuFilter::class);
-
-        // Tag them for the menu builder
-        $this->app->tag([
-            HrefMenuFilter::class,
-            ActiveMenuFilter::class,
-            GateMenuFilter::class,
-        ], 'sixteen.menu.filters');
-
-        // Register the interface binding for extension
-        $this->app->bind(MenuFilterInterface::class, HrefMenuFilter::class);
-    }
-
-    /**
-     * Register SPID/CIE authentication services
-     */
-    protected function registerAuthServices(): void
-    {
-        // Register SPID Auth Service
-        $this->app->singleton(SpidAuthService::class, function ($app) {
-            return new SpidAuthService;
+            return new SpidAuthService();
         });
 
         // Register CIE Auth Service
         $this->app->singleton(CieAuthService::class, function ($app) {
-            return new CieAuthService;
+return new CieAuthService();
         });
 
         // Aliases for easier access
@@ -269,7 +207,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
         // Enhanced composer per layout AGID-compliant
-        $this->app['view']->composer('layouts.guest-agid', function ($view): void {
+$this->app['view']->composer('layouts.guest-agid', function ($view): void {
             $themeService = app('sixteen.theme');
 
             $view->with([

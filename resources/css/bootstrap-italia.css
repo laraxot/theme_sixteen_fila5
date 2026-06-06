@@ -2,9 +2,11 @@
  * Bootstrap Italia Components Styles
  * 
  * CSS styles for all Bootstrap Italia compliant components
- * Implemented with Tailwind CSS @apply - NO CDN imports
  * Used by the Sixteen theme for Italian PA websites
  */
+
+/* Import Bootstrap Italia base styles */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/css/bootstrap-italia.min.css');
 
 /* Skiplinks Component */
 .skiplinks {
@@ -387,12 +389,12 @@
     .progress-spinner {
         border-top-color: currentColor;
     }
-
+    
     .rating label:hover ~ label,
     .rating input[type="radio"]:checked ~ label {
         color: currentColor;
     }
-
+    
     .notification {
         border-width: 2px;
         border-style: solid;
@@ -1151,19 +1153,23 @@ a.t-primary:hover {
 .d-flex { display: flex !important; }
 .d-inline-block { display: inline-block !important; }
 .d-lg-none { display: none !important; }
-.d-lg-block { display: block !important; }
-.d-lg-flex { display: flex !important; }
+/* d-lg-* visibili solo da lg in su — non forzare block/flex sotto 992px */
+.d-lg-block { display: none !important; }
+.d-lg-flex { display: none !important; }
 
 @media (max-width: 991.98px) {
     .d-lg-none { display: none !important; }
-    .d-lg-block { display: block !important; }
-    .d-lg-flex { display: flex !important; }
+    .d-lg-block { display: none !important; }
+    .d-lg-flex { display: none !important; }
     .d-none.d-lg-block { display: none !important; }
+    .d-none.d-lg-flex { display: none !important; }
 }
 @media (min-width: 992px) {
     .d-lg-none { display: none !important; }
     .d-lg-block { display: block !important; }
     .d-lg-flex { display: flex !important; }
+    .d-none.d-lg-block { display: block !important; }
+    .d-none.d-lg-flex { display: flex !important; }
 }
 
 /* Responsive display */

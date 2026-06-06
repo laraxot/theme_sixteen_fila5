@@ -23,7 +23,7 @@
     
     // Get color class and label from enum
     $colorClass = $priority->getColorClass();
-    $label = $priority->getLabel();
+$label = $priority->getLabel();
     
     // Map badge-* classes to bg-* classes for Bootstrap Italia
     $variant = match(true) {

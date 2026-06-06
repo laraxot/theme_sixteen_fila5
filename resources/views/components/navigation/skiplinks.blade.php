@@ -69,16 +69,6 @@ Usage Examples:
 
 2. Custom skiplinks:
 <x-pub_theme::skiplinks 
-    :links="[
-        ['href' => '#nav', 'text' => 'Vai al menu'],
-        ['href' => '#content', 'text' => 'Vai al contenuto'],
-        ['href' => '#footer', 'text' => 'Vai al piede'],
-        ['href' => 'https://form.agid.gov.it/view/xyz', 'text' => 'Dichiarazione di accessibilità', 'external' => true]
-    ]"
-    aria-label="Scorciatoie di navigazione personalizzate" />
 
-3. Simple div version:
-<x-pub_theme::skiplinks :show-list="false" />
-<x-pub_theme::skiplinks :show-list="false" />
 <x-pub_theme::skiplinks :show-list="false" />
 --}}

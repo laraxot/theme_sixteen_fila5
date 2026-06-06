@@ -45,46 +45,6 @@ class CieAuthController extends Controller
 
             return redirect()->to($loginUrl);
         } catch (\Exception $e) {
-            Log::error('CIE login error', [
-                'method' => 'web',
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-
-            return redirect()->route('login')
-                ->with('error', 'Errore durante l\'avvio dell\'autenticazione CIE. Riprova più tardi.');
-        }
-    }
-
-    /**
-     * Reindirizza all'app CieID mobile
-     */
-    public function mobileLogin(Request $request): RedirectResponse|JsonResponse
-    {
-        try {
-            $returnUrl = $request->query('return_url', route('dashboard'));
-
-            Log::info('CIE mobile login initiated', [
-                'method' => 'mobile',
-                'ip' => $request->ip(),
-                'user_agent' => $request->userAgent(),
-            ]);
-
-            $mobileUrl = $this->cieService->getMobileLoginUrl($returnUrl);
-
-            // Se è una richiesta AJAX, ritorna JSON per gestire il deep linking
-            if ($request->wantsJson() || $request->ajax()) {
-                return response()->json([
-                    'success' => true,
-                    'mobile_url' => $mobileUrl,
-                    'fallback_url' => $this->cieService->getLoginUrl($returnUrl),
-                    'timeout' => config('cie.mobile.deep_link_timeout', 10) * 1000, // millisecondi
-                ]);
-            }
-
-            // Redirect diretto per browser
-            return redirect()->to($mobileUrl);
-        } catch (\Exception $e) {
             Log::error('CIE mobile login error', [
                 'method' => 'mobile',
                 'error' => $e->getMessage(),
@@ -138,56 +98,6 @@ class CieAuthController extends Controller
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione CIE completata con successo.');
         } catch (\Exception $e) {
-            Log::error('CIE callback error', [
-                'error' => $e->getMessage(),
-                'request_data' => $request->all(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-
-            // Pulisci la sessione in caso di errore
-            $this->cieService->logout();
-
-            return redirect()->route('login')
-                ->with('error', 'Errore durante l\'autenticazione CIE: '.$e->getMessage());
-        }
-    }
-
-    /**
-     * Gestisce il logout CIE
-     */
-    public function logout(Request $request): RedirectResponse
-    {
-        try {
-            $user = Auth::user();
-            $userData = Session::get('cie.user_data');
-            $returnUrl = $request->query('return_url', route('home'));
-
-            if ($user && $userData) {
-                Log::info('CIE logout initiated', [
-                    'user_id' => $user->id,
-                    'auth_method' => $userData['auth_method'] ?? 'cie',
-                ]);
-
-                // Trigger evento prima del logout
-                event(new CieLoggedOut($user, $userData));
-            }
-
-            // Effettua logout locale
-            Auth::logout();
-            $this->cieService->logout();
-            Session::invalidate();
-            Session::regenerateToken();
-
-            // Se configurato, usa il logout endpoint CIE
-            if (config('cie.logout_endpoint_enabled', false)) {
-                $logoutUrl = $this->cieService->getLogoutUrl($returnUrl);
-
-                return redirect()->to($logoutUrl);
-            }
-
-            return redirect()->to($returnUrl)
-                ->with('success', 'Logout effettuato con successo.');
-        } catch (\Exception $e) {
             Log::error('CIE logout error', [
                 'error' => $e->getMessage(),
                 'user_id' => Auth::id(),
@@ -236,41 +146,6 @@ class CieAuthController extends Controller
                 'success' => true,
                 'expires_in' => $tokenData['expires_in'] ?? null,
                 'token_type' => $tokenData['token_type'] ?? 'Bearer',
-            ]);
-        } catch (\Exception $e) {
-            Log::error('CIE token refresh error', [
-                'error' => $e->getMessage(),
-                'user_id' => Auth::id(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-
-            return response()->json([
-                'success' => false,
-                'error' => 'Errore nel rinnovare il token',
-            ], 500);
-        }
-    }
-
-    /**
-     * Fornisce informazioni sullo stato dell'autenticazione CIE
-     */
-    public function status(Request $request): JsonResponse
-    {
-        try {
-            $isAuthenticated = $this->cieService->isAuthenticated();
-            $userData = $isAuthenticated ? $this->cieService->getAuthenticatedUser() : null;
-
-            return response()->json([
-                'authenticated' => $isAuthenticated,
-                'provider' => 'cie',
-                'auth_method' => $userData['auth_method'] ?? null,
-                'user_data' => $userData ? [
-                    'name' => $userData['name'],
-                    'surname' => $userData['surname'],
-                    'fiscal_code' => $userData['fiscal_code'],
-                    'auth_time' => $userData['auth_time'] ?? null,
-                ] : null,
-                'config_status' => $this->cieService->isConfigured(),
             ]);
         } catch (\Exception $e) {
             Log::error('CIE status check error', [
@@ -353,7 +228,7 @@ class CieAuthController extends Controller
             'address' => $attributes['address'],
             'cie_provider' => 'cie',
             'auth_method' => 'cie',
-            'email_verified_at' => $attributes['email_verified'] ?? false ? now() : null,
+'email_verified_at' => $attributes['email_verified'] ?? false ? now() : null,
             'phone_verified_at' => $attributes['phone_verified'] ?? false ? now() : null,
         ];
 

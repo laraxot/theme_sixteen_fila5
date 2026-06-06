@@ -27,7 +27,7 @@
                     <div class="bg-gray-50 rounded-xl p-8 relative">
                         {{-- Quote Icon --}}
                         <div class="absolute top-6 right-6 text-blue-200">
-                            <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
+<x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
 f7ac8eda (.)
                         </div>
 
@@ -35,7 +35,7 @@ f7ac8eda (.)
                         @if(isset($testimonial['rating']))
                             <div class="flex mb-4">
                                 @for($i = 1; $i <= 5; $i++)
-                                    <x-filament::icon icon="heroicon-s-star" class="w-5 h-5 {{ $i <= $testimonial['rating'] ? 'text-yellow-400' : 'text-gray-300' }}" />
+<x-filament::icon icon="heroicon-s-star" class="w-5 h-5 {{ $i <= $testimonial['rating'] ? 'text-yellow-400' : 'text-gray-300' }}" />
                                 @endfor
                             </div>
                         @endif

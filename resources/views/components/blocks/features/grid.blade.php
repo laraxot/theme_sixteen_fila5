@@ -1,5 +1,5 @@
 {{--
-    Features Grid Block
+Features Grid Block
 
     @var string $title
     @var string $description

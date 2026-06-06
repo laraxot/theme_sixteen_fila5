@@ -149,18 +149,7 @@ Usage Examples:
 1. Basic radio group with fieldset:
 <x-pub_theme::radio 
 <x-pub_theme::radio 
-<x-pub_theme::radio 
-    name="gruppo1"
-    legend="Gruppo di radio"
-    :options="[
-        'option1' => 'Radio di esempio 1',
-        'option2' => 'Radio di esempio 2'
-    ]"
-    selected="option1" />
 
-2. Inline radio buttons:
-<x-pub_theme::radio 
-<x-pub_theme::radio 
 <x-pub_theme::radio 
     name="gruppo2"
     legend="Gruppo di radio"
@@ -174,18 +163,7 @@ Usage Examples:
 3. Radio buttons with with-gap styling:
 <x-pub_theme::radio 
 <x-pub_theme::radio 
-<x-pub_theme::radio 
-    name="gruppo3"
-    legend="Gruppo di radio"
-    :with-gap="true"
-    :options="[
-        'choice1' => 'Opzione 1',
-        'choice2' => 'Opzione 2'
-    ]" />
 
-4. Disabled radio group:
-<x-pub_theme::radio 
-<x-pub_theme::radio 
 <x-pub_theme::radio 
     name="gruppo4"
     legend="Gruppo di radio"
@@ -199,18 +177,7 @@ Usage Examples:
 5. Advanced options array format:
 <x-pub_theme::radio 
 <x-pub_theme::radio 
-<x-pub_theme::radio 
-    name="gruppo5"
-    legend="Opzioni avanzate"
-    :options="[
-        ['value' => 'adv1', 'label' => 'Opzione 1', 'checked' => true],
-        ['value' => 'adv2', 'label' => 'Opzione 2', 'disabled' => true],
-        ['value' => 'adv3', 'label' => 'Opzione 3']
-    ]" />
 
-6. Required radio group with help text:
-<x-pub_theme::radio 
-<x-pub_theme::radio 
 <x-pub_theme::radio 
     name="required_group"
     legend="Campo obbligatorio"
@@ -221,20 +188,7 @@ Usage Examples:
 7. Simple radio group without fieldset:
 <x-pub_theme::radio 
 <x-pub_theme::radio 
-<x-pub_theme::radio 
-    name="simple_group"
-    :options="['simple1' => 'Opzione semplice 1', 'simple2' => 'Opzione semplice 2']" />
-
-8. Single radio button with slot (manual control):
-<x-pub_theme::radio>
-    <input name="custom_radio" type="radio" id="custom1" class="form-check-input">
-    <label for="custom1">Radio personalizzato</label>
-</x-pub_theme::radio>
-<x-pub_theme::radio>
-    <input name="custom_radio" type="radio" id="custom1" class="form-check-input">
-    <label for="custom1">Radio personalizzato</label>
-</x-pub_theme::radio>
-
+=======
 Bootstrap Italia Classes Reference:
 - .form-check: Container for radio button
 - .form-check-inline: Inline arrangement of radio buttons

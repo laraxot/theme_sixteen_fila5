@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,9 +21,9 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
- * @property \Carbon\Carbon|null $appointment_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
+ * @property Carbon|null $appointment_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
  * @property string $status
  * @property string|null $purpose
  * @property string|null $notes
@@ -31,12 +32,11 @@ use Modules\User\Models\User;
  * @property bool $reminder_sent
  * @property string|null $cancellation_reason
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Modules\User\Models\User|null $user
- * @property-read \Modules\User\Models\User|null $citizen
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read User|null $user
+ * @property-read User|null $citizen
  * @property-read self|null $office
  * @property-read self|null $service
  */
@@ -44,7 +44,7 @@ class Appointment extends Model
 {
     use HasFactory, SoftDeletes;
 
-    /**
+/**
      * Stati appuntamento conformi AGID
      */
     public const STATUS_PENDING = 'pending';      // In attesa di conferma
@@ -98,6 +98,32 @@ class Appointment extends Model
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
     ];
+
+    /**
+     * Stati appuntamento conformi AGID
+     */
+    const STATUS_PENDING = 'pending';      // In attesa di conferma
+
+    const STATUS_CONFIRMED = 'confirmed';  // Confermato
+
+    const STATUS_COMPLETED = 'completed';  // Completato
+
+    const STATUS_CANCELLED = 'cancelled';  // Cancellato
+
+    const STATUS_NO_SHOW = 'no_show';      // Non presentato
+
+    /**
+     * Tipi di servizio supportati
+     */
+    const SERVICE_ANAGRAFE = 'anagrafe';
+
+    const SERVICE_TRIBUTI = 'tributi';
+
+    const SERVICE_SUAP = 'suap';
+
+    const SERVICE_URP = 'urp';
+
+    const SERVICE_OTHER = 'other';
 
     /**
      * Relazione con l'utente che ha prenotato
@@ -183,6 +209,26 @@ class Appointment extends Model
     }
 
     /**
+     * Formatta l'orario per display
+     */
+    protected function timeSlot(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
+        );
+    }
+
+    /**
+     * Durata appuntamento in minuti
+     */
+    protected function duration(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_time->diffInMinutes($this->end_time)
+        );
+    }
+
+    /**
      * Verifica se è necessario inviare promemoria
      */
     public function needsReminder(): bool
@@ -194,34 +240,7 @@ class Appointment extends Model
     }
 
     /**
-     * Array di stati validi
-     */
-    public static function getStatuses(): array
-    {
-        return [
-            self::STATUS_PENDING => 'In attesa',
-            self::STATUS_CONFIRMED => 'Confermato',
-            self::STATUS_COMPLETED => 'Completato',
-            self::STATUS_CANCELLED => 'Cancellato',
-            self::STATUS_NO_SHOW => 'Non presentato',
-        ];
-    }
-
-    /**
-     * Array di tipi servizio
-     */
-    public static function getServiceTypes(): array
-    {
-        return [
-            self::SERVICE_ANAGRAFE => 'Anagrafe',
-            self::SERVICE_TRIBUTI => 'Tributi',
-            self::SERVICE_SUAP => 'SUAP',
-            self::SERVICE_URP => 'URP',
-            self::SERVICE_OTHER => 'Altro',
-        ];
-    }
-
-    /**
+/**
      * Formatta l'orario per display
      */
     protected function timeSlot(): Attribute

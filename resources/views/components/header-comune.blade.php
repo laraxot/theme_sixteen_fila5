@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
     <!-- Header Main -->
     <div class="it-header-main-wrapper">

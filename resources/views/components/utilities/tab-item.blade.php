@@ -24,7 +24,7 @@
        {{ $disabledAttr }}>
         @if($icon)
             <span class="tab-icon">
-                <x-filament::icon 
+<x-filament::icon 
                     :icon="$icon" 
                     class="w-5 h-5 mr-2" 
                     aria-hidden="true" 

@@ -76,6 +76,13 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 - [`app.blade.php`](../resources/views/layouts/app.blade.php)
 - [`main.blade.php`](../resources/views/layouts/main.blade.php)
 
+## Enforcement (agenti + CI)
+
+- Rule Cursor: `.cursor/rules/no-semantic-folio-page-dirs.mdc`
+- Wiki: [no-semantic-folio-page-directories.md](../../../../docs/wiki/rules/no-semantic-folio-page-directories.md)
+- Script: `bash bashscripts/tools/verify-no-semantic-folio-pages.sh`
+- Pest: `NoSemanticFolioPageDirectoriesTest.php`
+
 ## Collegamenti
 
 - [README.md](./README.md)

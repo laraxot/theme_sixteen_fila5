@@ -164,6 +164,7 @@ Usage Examples:
 1. Simple sidebar with header:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Sezione del sito"
     :links="[
@@ -176,6 +177,7 @@ Usage Examples:
 2. Sidebar with icon in header:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Documenti"
     subtitle="Area riservata"
@@ -187,6 +189,7 @@ Usage Examples:
 3. Secondary styled sidebar:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Menu secondario"
     :secondary="true"
@@ -199,6 +202,7 @@ Usage Examples:
 4. Nested sidebar navigation:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Amministrazione"
     :nested="true"
@@ -233,6 +237,7 @@ Usage Examples:
 5. Dark theme sidebar:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Navigazione"
     :dark="true"
@@ -241,6 +246,7 @@ Usage Examples:
 6. Sidebar with mixed states:
 <x-pub_theme::sidebar 
 <x-pub_theme::sidebar 
+=======
 <x-pub_theme::sidebar 
     title="Menu completo"
     :links="[
@@ -253,6 +259,7 @@ Usage Examples:
 7. Custom content with slot:
 <x-pub_theme::sidebar title="Menu personalizzato">
 <x-pub_theme::sidebar title="Menu personalizzato">
+=======
 <x-pub_theme::sidebar title="Menu personalizzato">
     <ul class="link-list">
         <li class="list-item active">
@@ -275,6 +282,7 @@ Usage Examples:
     </div>
 </x-pub_theme::sidebar>
 </x-pub_theme::sidebar>
+=======
 </x-pub_theme::sidebar>
 
 Layout Integration:
@@ -285,6 +293,7 @@ Use sidebar in a layout with main content:
         <div class="col-12 col-lg-3">
             <x-pub_theme::sidebar ... />
             <x-pub_theme::sidebar ... />
+=======
             <x-pub_theme::sidebar ... />
         </div>
         <div class="col-12 col-lg-9">

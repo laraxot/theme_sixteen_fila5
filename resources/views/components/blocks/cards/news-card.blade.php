@@ -94,7 +94,7 @@
             <div class="news-card-meta flex items-center space-x-4 text-sm text-gray-500">
                 @if($author)
                     <span class="flex items-center">
-                        <x-filament::icon icon="heroicon-o-user" class="w-4 h-4 mr-1" />
+<x-filament::icon icon="heroicon-o-user" class="w-4 h-4 mr-1" />
 f7ac8eda (.)
                         {{ $author }}
                     </span>
@@ -107,7 +107,7 @@ f7ac8eda (.)
                 aria-label="Leggi l'articolo completo: {{ $title }}"
             >
                 Leggi tutto
-                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+<x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 f7ac8eda (.)
             </a>
         </div>

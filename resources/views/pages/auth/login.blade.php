@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-slot name="title">
-        {{ __('user::auth.login.page.meta_title.label') }}
+{{ __('user::auth.login.page.meta_title.label') }}
     </x-slot>
 
     <section class="min-h-screen bg-slate-50 py-10 sm:py-14">
@@ -67,7 +67,7 @@
                     </a>
                 </div>
             @endif
-        </div>
+</div>
     </section>
     --}}
 </x-layouts.app>

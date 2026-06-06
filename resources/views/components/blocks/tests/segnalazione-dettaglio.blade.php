@@ -70,11 +70,7 @@
     }
 @endphp
 
-<<<<<<< HEAD
-<div class="container py-5 segnalazione-dettaglio-page">
-=======
 <div class="container py-5 cms-detail-page">
->>>>>>> d7fd0c4 (delete .c*)
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             @if (! $ticket)

@@ -28,7 +28,7 @@ class SpidLoggedOut
      */
     public function getProvider(): ?string
     {
-        $value = $this->spidAttributes['provider'] ?? null;
+$value = $this->spidAttributes['provider'] ?? null;
 
         return is_string($value) ? $value : null;
     }
