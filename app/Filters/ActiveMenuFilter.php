@@ -95,7 +95,7 @@ class ActiveMenuFilter implements MenuFilterInterface
 
         $itemUrl = $item['url'];
 
-if (! is_string($itemUrl)) {
+        if (! is_string($itemUrl)) {
             return false;
         }
 
@@ -125,7 +125,7 @@ if (! is_string($itemUrl)) {
         }
 
         // Sub-path match (l'URL corrente è sotto l'URL dell'elemento)
-if (str_starts_with($currentPath.'/', $itemPath.'/')) {
+        if (str_starts_with($currentPath.'/', $itemPath.'/')) {
             return true;
         }
 

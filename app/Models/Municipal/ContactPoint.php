@@ -40,7 +40,7 @@ class ContactPoint extends Model
 {
     use HasFactory, SoftDeletes;
 
-/**
+    /**
      * Tipi di contatto supportati secondo AGID
      */
     public const TYPES = [
@@ -87,28 +87,6 @@ class ContactPoint extends Model
         'languages' => 'json',
         'metadata' => 'json',
         'position' => 'integer',
-    ];
-
-    /**
-     * Tipi di contatto supportati secondo AGID
-     */
-    public const TYPES = [
-        'email' => 'Email',
-        'pec' => 'PEC (Posta Elettronica Certificata)',
-        'phone' => 'Telefono',
-        'fax' => 'Fax',
-        'mobile' => 'Cellulare',
-        'whatsapp' => 'WhatsApp',
-        'telegram' => 'Telegram',
-        'address' => 'Indirizzo fisico',
-        'website' => 'Sito web',
-        'social_facebook' => 'Facebook',
-        'social_twitter' => 'Twitter/X',
-        'social_linkedin' => 'LinkedIn',
-        'social_youtube' => 'YouTube',
-        'social_instagram' => 'Instagram',
-        'appointment_url' => 'Prenotazione appuntamenti',
-        'other' => 'Altro',
     ];
 
     /**
@@ -370,14 +348,14 @@ class ContactPoint extends Model
     }
 
     /**
-* Boot del modello
+     * Boot del modello
      */
     protected static function boot(): void
     {
         parent::boot();
 
         // Auto-increment position
-static::creating(function (ContactPoint $model): void {
+        static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
                 $model->position = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
@@ -386,7 +364,7 @@ static::creating(function (ContactPoint $model): void {
         });
 
         // Se è primario, rendi gli altri non primari
-static::saving(function (ContactPoint $model): void {
+        static::saving(function (ContactPoint $model): void {
             if ($model->is_primary) {
                 static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
