@@ -27,11 +27,21 @@ Il tema Sixteen pubblica pagine Design Comuni con **Tailwind + BI semantics**, m
 - **Docs Filament:** [Tabs](https://filamentphp.com/docs/5.x/components/tabs) — `alpine-active` + `x-on:click` sullo stesso `x-data` dei pannelli (`segnalazioniLayout`)
 - **Skin:** classi su `.segnalazioni-elenco .fi-tabs` in `style-apply.css` (non sostituire con `ul.nav-tabs` nuovi)
 
+## Dettaglio ticket `/it/tickets/{id}`
+
+- **CMS:** `tickets.view.json` → blocco `type: widget` (non `type: ticket` + Blade custom).
+- **Widget:** `Modules\Fixcity\Filament\Widgets\Ticket\ViewWidget` (`XotBaseInfolistWidget`). Naming: [filament-widgets-domain-folder-naming](../../../../Modules/Xot/docs/wiki/concepts/filament-widgets-domain-folder-naming.md).
+- **Schema:** `TicketInfolist::getInfolistSchema()` — stesso SSoT del backoffice `ViewTicket`.
+- **Mount:** `ui::components.blocks.widget.simple` passa `slug0` / `container0` dal data bag + `blockData`.
+- **ADR:** [ticket-fo-detail-filament-widget-infolist.md](../../../../../../docs/wiki/decisions/ticket-fo-detail-filament-widget-infolist.md)
+- **Vietato:** `pub_theme::components.blocks.ticket.detail` (rimossa).
+
 ## Boundary
 
 | Consentito FO | Vietato FO |
 |---------------|------------|
-| `<x-filament::tabs>`, `::icon`, `::button` | `@livewire` modulo Fixcity standalone |
+| `<x-filament::tabs>`, `::icon`, `::button` | Blade FO che duplica campi già in Infolist/Resource |
+| Blocco CMS `widget` + `XotBaseInfolistWidget` | `type: ticket` + view tema ~100 righe |
 | `map-lit`, `map-filter-lit` (Lit Geo) | Duplicare logica tab in `app.js` se Filament basta |
 
 ## Collegamenti

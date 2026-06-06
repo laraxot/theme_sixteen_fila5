@@ -57,6 +57,7 @@ class SpidAuthController extends Controller
             $loginUrl = $this->spidService->getLoginUrl($provider, $level, $returnUrl);
 
             return redirect()->to($loginUrl);
+
         } catch (\Exception $e) {
             Log::error('SPID login error', [
                 'provider' => $provider,
@@ -102,6 +103,7 @@ class SpidAuthController extends Controller
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione SPID completata con successo.');
+
         } catch (\Exception $e) {
             Log::error('SPID callback error', [
                 'error' => $e->getMessage(),
@@ -167,6 +169,7 @@ class SpidAuthController extends Controller
 
             return redirect()->route('home')
                 ->with('success', 'Logout effettuato con successo.');
+
         } catch (\Exception $e) {
             Log::error('SPID logout error', [
                 'error' => $e->getMessage(),
@@ -217,6 +220,7 @@ class SpidAuthController extends Controller
 
             return response($sloResponse)
                 ->header('Content-Type', 'text/xml');
+
         } catch (\Exception $e) {
             Log::error('SPID SLO error', [
                 'error' => $e->getMessage(),
@@ -242,6 +246,7 @@ class SpidAuthController extends Controller
             return response($metadata)
                 ->header('Content-Type', 'application/samlmetadata+xml')
                 ->header('Content-Disposition', 'inline; filename="metadata.xml"');
+
         } catch (\Exception $e) {
             Log::error('SPID metadata generation error', [
                 'error' => $e->getMessage(),

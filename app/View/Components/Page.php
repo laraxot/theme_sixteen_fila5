@@ -6,11 +6,12 @@ namespace Themes\Sixteen\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\Cms\Datas\BlockData;
 use Modules\Cms\Models\Page as PageModel;
 
 class Page extends Component
 {
-    /** @var array<string, \Modules\Cms\Datas\BlockData> */
+    /** @var array<string, BlockData> */
     public array $blocks = [];
 
     /**

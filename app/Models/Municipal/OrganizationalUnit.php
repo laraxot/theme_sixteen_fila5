@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -44,10 +45,9 @@ use Illuminate\Support\Str;
  * @property array|null $services_provided
  * @property array|null $accessibility_info
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read self|null $parent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $children
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
@@ -57,7 +57,7 @@ class OrganizationalUnit extends Model
 {
     use HasFactory, SoftDeletes;
 
-    /**
+/**
      * Tipi di unità organizzative secondo AGID
      */
     public const TYPES = [
@@ -112,6 +112,25 @@ class OrganizationalUnit extends Model
         'services_provided' => 'json',
         'accessibility_info' => 'json',
         'metadata' => 'json',
+    ];
+
+    /**
+     * Tipi di unità organizzative secondo AGID
+     */
+    public const TYPES = [
+        'municipality' => 'Comune',
+        'department' => 'Dipartimento',
+        'sector' => 'Settore',
+        'office' => 'Ufficio',
+        'service' => 'Servizio',
+        'area' => 'Area',
+        'division' => 'Divisione',
+        'unit' => 'Unità',
+        'committee' => 'Commissione',
+        'council' => 'Consiglio',
+        'board' => 'Giunta',
+        'authority' => 'Autorità',
+        'agency' => 'Agenzia',
     ];
 
     /**
@@ -221,6 +240,93 @@ class OrganizationalUnit extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('position')->orderBy('name');
+    }
+
+    /**
+     * Accessor per il nome del tipo
+     */
+    protected function typeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::TYPES[$this->type] ?? $this->type
+        );
+    }
+
+    /**
+     * Accessor per il percorso gerarchico
+     */
+    protected function hierarchyPath(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $path = collect([$this->name]);
+                $current = $this;
+
+                while ($current->parent) {
+                    $current = $current->parent;
+                    $path->prepend($current->name);
+                }
+
+                return $path->implode(' › ');
+            }
+        );
+    }
+
+    /**
+     * Accessor per verificare se ha figli
+     */
+    protected function hasChildren(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->children()->exists()
+        );
+    }
+
+    /**
+     * Accessor per il livello gerarchico
+     */
+    protected function level(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $level = 0;
+                $current = $this;
+
+                while ($current->parent) {
+                    $level++;
+                    $current = $current->parent;
+                }
+
+                return $level;
+            }
+        );
+    }
+
+    /**
+     * Accessor per l'URL dell'unità
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.organizational-units.show', $this->slug)
+        );
+    }
+
+    /**
+     * Mutator per il nome (genera automaticamente lo slug)
+     */
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['name'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
     }
 
     /**
@@ -367,7 +473,7 @@ class OrganizationalUnit extends Model
     }
 
     /**
-     * Accessor per il nome del tipo
+* Accessor per il nome del tipo
      */
     protected function typeName(): Attribute
     {
@@ -461,7 +567,7 @@ class OrganizationalUnit extends Model
         parent::boot();
 
         // Auto-increment position nella stessa categoria
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             if (is_null($model->position)) {
                 $model->position = static::where('parent_id', $model->parent_id)
                     ->where('type', $model->type)
@@ -470,14 +576,14 @@ class OrganizationalUnit extends Model
         });
 
         // Genera slug se mancante
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 

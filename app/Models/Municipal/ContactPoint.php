@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,17 +31,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property array|null $accessibility_notes
  * @property int $position
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read Model|\Eloquent $contactable
  */
 class ContactPoint extends Model
 {
     use HasFactory, SoftDeletes;
 
-    /**
+/**
      * Tipi di contatto supportati secondo AGID
      */
     public const TYPES = [
@@ -87,6 +87,28 @@ class ContactPoint extends Model
         'languages' => 'json',
         'metadata' => 'json',
         'position' => 'integer',
+    ];
+
+    /**
+     * Tipi di contatto supportati secondo AGID
+     */
+    public const TYPES = [
+        'email' => 'Email',
+        'pec' => 'PEC (Posta Elettronica Certificata)',
+        'phone' => 'Telefono',
+        'fax' => 'Fax',
+        'mobile' => 'Cellulare',
+        'whatsapp' => 'WhatsApp',
+        'telegram' => 'Telegram',
+        'address' => 'Indirizzo fisico',
+        'website' => 'Sito web',
+        'social_facebook' => 'Facebook',
+        'social_twitter' => 'Twitter/X',
+        'social_linkedin' => 'LinkedIn',
+        'social_youtube' => 'YouTube',
+        'social_instagram' => 'Instagram',
+        'appointment_url' => 'Prenotazione appuntamenti',
+        'other' => 'Altro',
     ];
 
     /**
@@ -348,14 +370,14 @@ class ContactPoint extends Model
     }
 
     /**
-     * Boot del modello
+* Boot del modello
      */
     protected static function boot(): void
     {
         parent::boot();
 
         // Auto-increment position
-        static::creating(function (ContactPoint $model): void {
+static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
                 $model->position = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
@@ -364,7 +386,7 @@ class ContactPoint extends Model
         });
 
         // Se è primario, rendi gli altri non primari
-        static::saving(function (ContactPoint $model): void {
+static::saving(function (ContactPoint $model): void {
             if ($model->is_primary) {
                 static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)

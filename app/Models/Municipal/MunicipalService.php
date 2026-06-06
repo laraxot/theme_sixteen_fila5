@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,7 +21,7 @@ use Illuminate\Support\Str;
  *
  * Rappresenta i servizi erogati dall'ente ai cittadini
  * secondo l'ontologia AGID e le specifiche dei servizi pubblici
- *
+*
  * @property int $id
  * @property string $name
  * @property string|null $slug
@@ -54,24 +56,23 @@ use Illuminate\Support\Str;
  * @property array|null $service_outcomes
  * @property array|null $quality_standards
  * @property array|null $satisfaction_metrics
- * @property \Carbon\Carbon|null $last_updated
- * @property \Carbon\Carbon|null $next_review_date
+ * @property Carbon|null $last_updated
+ * @property Carbon|null $next_review_date
  * @property bool $is_active
  * @property bool $is_public
  * @property bool $is_digital
  * @property bool $is_accessible
  * @property int $priority_level
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read self|null $parentService
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $subServices
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicDocument> $documents
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalLocation> $locations
+ * @property-read Collection<int, self> $subServices
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, PublicDocument> $documents
+ * @property-read Collection<int, MunicipalLocation> $locations
  */
 class MunicipalService extends Model
 {
@@ -210,6 +211,62 @@ class MunicipalService extends Model
     ];
 
     /**
+     * Tipologie di servizio secondo AGID
+     */
+    public const SERVICE_TYPES = [
+        'administrative' => 'Servizio Amministrativo',
+        'demographic' => 'Servizio Demografico',
+        'social' => 'Servizio Sociale',
+        'educational' => 'Servizio Educativo',
+        'cultural' => 'Servizio Culturale',
+        'sports' => 'Servizio Sportivo',
+        'environmental' => 'Servizio Ambientale',
+        'urban_planning' => 'Servizio Urbanistico',
+        'economic' => 'Servizio Economico',
+        'tourism' => 'Servizio Turistico',
+        'transport' => 'Servizio Trasporti',
+        'safety' => 'Servizio Sicurezza',
+        'health' => 'Servizio Sanitario',
+        'digital' => 'Servizio Digitale',
+        'other' => 'Altro',
+    ];
+
+    /**
+     * Stati del servizio
+     */
+    public const SERVICE_STATUSES = [
+        'active' => 'Attivo',
+        'suspended' => 'Sospeso',
+        'discontinued' => 'Sospeso Definitivamente',
+        'in_development' => 'In Sviluppo',
+        'testing' => 'In Fase di Test',
+        'maintenance' => 'In Manutenzione',
+    ];
+
+    /**
+     * Livelli di servizio
+     */
+    public const SERVICE_LEVELS = [
+        'essential' => 'Servizio Essenziale',
+        'standard' => 'Servizio Standard',
+        'premium' => 'Servizio Premium',
+        'emergency' => 'Servizio di Emergenza',
+    ];
+
+    /**
+     * Metodi di erogazione
+     */
+    public const DELIVERY_METHODS = [
+        'online' => 'Online',
+        'in_person' => 'Di Persona',
+        'phone' => 'Telefonico',
+        'email' => 'Email',
+        'mail' => 'Posta',
+        'mobile_app' => 'App Mobile',
+        'kiosk' => 'Chiosco Digitale',
+    ];
+
+    /**
      * Relazione con l'unità organizzativa responsabile
      */
     public function organizationalUnit(): BelongsTo
@@ -312,6 +369,83 @@ class MunicipalService extends Model
     public function scopeOrdered($query)
     {
         return $query->orderByDesc('priority_level')->orderBy('name');
+    }
+
+    /**
+     * Accessor per il nome del tipo di servizio
+     */
+    protected function serviceTypeName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::SERVICE_TYPES[$this->service_type] ?? $this->service_type
+        );
+    }
+
+    /**
+     * Accessor per il nome dello stato
+     */
+    protected function serviceStatusName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::SERVICE_STATUSES[$this->service_status] ?? $this->service_status
+        );
+    }
+
+    /**
+     * Accessor per il nome del livello
+     */
+    protected function serviceLevelName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::SERVICE_LEVELS[$this->service_level] ?? $this->service_level
+        );
+    }
+
+    /**
+     * Accessor per verificare se il servizio è disponibile
+     */
+    protected function isAvailable(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->is_active && $this->service_status === 'active'
+        );
+    }
+
+    /**
+     * Accessor per verificare se richiede appuntamento
+     */
+    protected function requiresAppointment(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->appointment_required
+        );
+    }
+
+    /**
+     * Accessor per l'URL del servizio
+     */
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => route('municipal.services.show', $this->slug)
+        );
+    }
+
+    /**
+     * Mutator per il nome (genera automaticamente lo slug)
+     */
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $this->attributes['name'] = $value;
+                if (empty($this->attributes['slug'])) {
+                    $this->attributes['slug'] = Str::slug($value);
+                }
+
+                return $value;
+            }
+        );
     }
 
     /**
@@ -452,7 +586,7 @@ class MunicipalService extends Model
         return collect($this->costs)->every(function ($cost) {
             $amount = is_array($cost) ? ($cost['amount'] ?? 0) : $cost;
 
-            return $amount === 0;
+return $amount === 0;
         });
     }
 
@@ -533,7 +667,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Accessor per il nome del tipo di servizio
+* Accessor per il nome del tipo di servizio
      */
     protected function serviceTypeName(): Attribute
     {
@@ -617,14 +751,14 @@ class MunicipalService extends Model
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -635,7 +769,7 @@ class MunicipalService extends Model
         });
 
         // Set default values
-        static::creating(function ($model): void {
+static::creating(function ($model): void {
             if (is_null($model->service_status)) {
                 $model->service_status = 'active';
             }

@@ -200,11 +200,12 @@
 
   .it-header-slim-wrapper .btn-icon.btn-full {
     background: var(--dc-green) !important;
-    width: auto !important;
-    min-width: fit-content !important;
+    width: 3rem !important;
+    min-width: 3rem !important;
     height: 3rem !important;
     border: 0 !important;
-    padding: 0.75rem 1rem !important;
+    padding: 0.75rem !important;
+    justify-content: center !important;
   }
 
   .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon {
@@ -214,9 +215,9 @@
     border-radius: 9999px !important;
   }
 
+  /* STORY-147: mobile slim — solo avatar/icona (nome in d-none.d-lg-block) */
   .it-header-slim-wrapper .btn-icon.btn-full > span:not(.rounded-icon) {
-    display: inline-block !important;
-    color: #ffffff !important;
+    display: none !important;
   }
 
   .fi-sc-wizard-header {
@@ -299,7 +300,7 @@
 .it-header-slim-wrapper .btn-icon.btn-full,
 .it-header-slim-wrapper .it-access-top-wrapper .btn {
   background: var(--dc-green) !important;
-  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border: 0 !important;
 }
 
 /* Keep only one stepper: hide Filament wizard header line artifacts. */
@@ -516,13 +517,18 @@
     }
 
       .it-header-slim-wrapper .btn-icon.btn-full {
-      background: #00402b !important;
-      border: 1px solid rgba(255, 255, 255, 0.35) !important;
-      width: auto !important;
-      min-width: fit-content !important;
+      background: var(--dc-green) !important;
+      border: 0 !important;
+      width: 3rem !important;
+      min-width: 3rem !important;
       min-height: 2.75rem !important;
-      height: auto !important;
-      padding: 0.5rem 0.75rem !important;
+      height: 3rem !important;
+      padding: 0.75rem !important;
+      justify-content: center !important;
+    }
+
+      .it-header-slim-wrapper .btn-icon.btn-full > span:not(.rounded-icon) {
+      display: none !important;
     }
 
       .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon {

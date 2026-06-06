@@ -10,7 +10,7 @@
         </div>
     </div>
     
-    {{-- Brand Section --}}
+{{-- Brand Section --}}
     <div class="it-footer-main">
         <div class="container">
             <div class="row">
@@ -29,8 +29,7 @@
             </div>
         </div>
     </div>
-
-    {{-- Top Section: Main Footer --}}
+{{-- Top Section: Main Footer --}}
     <div class="it-footer-main">
         <div class="container">
             <div class="row g-4">
@@ -214,3 +213,4 @@
         </div>
     </div>
 </footer>
+

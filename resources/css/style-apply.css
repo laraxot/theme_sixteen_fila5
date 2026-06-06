@@ -495,7 +495,7 @@ html, body {
 
 /* Slim wrapper: language selector + user button contrast */
 .it-header-slim-wrapper {
-  background-color: #00333A !important;
+  background-color: #00402b !important;
 }
 
 .it-header-slim-wrapper .nav-link {
@@ -516,7 +516,8 @@ html, body {
   fill: #ffffff !important;
 }
 
-.it-header-slim-wrapper .btn-primary span:not(.rounded-icon) {
+/* Solo figli diretti del toggle (nome utente), non l'iniziale dentro .rounded-icon */
+.it-header-slim-wrapper .btn-primary > span:not(.rounded-icon) {
   @apply text-white;
   color: #ffffff !important;
 }

@@ -19,10 +19,10 @@ return [
 
     'assets' => [
         'css' => [
-            // NOTE: Sixteen theme uses Vite + Tailwind, NOT Bootstrap Italia CDN
+// NOTE: Sixteen theme uses Vite + Tailwind, NOT Bootstrap Italia CDN
             // All styles are compiled locally via resources/css/app.css
             // These entries are kept for reference only - DO NOT use CDN
-            'design-comuni' => 'css/design-comuni.css',
+            'civic-design' => 'css/civic-design-theme.css',
             'comune-custom' => 'css/comune-custom.css',
         ],
         'js' => [

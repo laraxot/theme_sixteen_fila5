@@ -1,8 +1,29 @@
+---
+title: "Second Brain — confine memoria tema Sixteen"
+type: concept
+module: Sixteen
+tags: [second-brain, theme, boundary, parity, hackernoon]
+created: 2026-05-19
+updated: 2026-06-05
+qmd: "sixteen theme second brain boundary parity visual module owner hackernoon tip 020"
+issues:
+  - "https://github.com/laraxot/theme_sixteen_fila5/issues/54"
+discussions:
+  - "https://github.com/laraxot/theme_sixteen_fila5/discussions/55"
+related:
+  - ./ai-harness-theme-sixteen.md
+  - ../../../docs/wiki/concepts/second-brain-operating-model.md
+  - ../../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
+  - ../../../../../../bashscripts/tools/prompts/llm-wiki.txt
+---
+
 # Second Brain Theme Boundary
 
-## Source
+## Canon
 
-- `../../../../docs/wiki/concepts/second-brain-llm-wiki-pattern.md`
+- [ai-harness-theme-sixteen.md](./ai-harness-theme-sixteen.md)
+- [hackernoon map](../../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md) — Tip 019/020
+- [llm-wiki.txt](../../../../../../bashscripts/tools/prompts/llm-wiki.txt)
 
 ## Theme meaning
 
@@ -34,6 +55,6 @@ Nel tema Sixteen il second brain deve accumulare soprattutto:
 
 ## False friends
 
-- "se si vede male il tema puo' correggere tutto": falso, non se il bug e' nel contratto state/runtime
+- "se si vede male il tema può correggere tutto": falso, non se il bug è nel contratto state/runtime
 - "boundary docs sono opzionali": falso, evitano fix duplicati e ownership sbagliate
-- "la parity visiva basta senza log operativi": falso, senza log si perde il perche' delle regole
+- "la parity visuale basta senza log operativi": falso, senza log si perde il perché delle regole

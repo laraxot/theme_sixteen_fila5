@@ -28,7 +28,7 @@ class SpidAuthenticated
      */
     public function getProvider(): ?string
     {
-        $value = $this->spidAttributes['provider'] ?? null;
+$value = $this->spidAttributes['provider'] ?? null;
 
         return is_string($value) ? $value : null;
     }
@@ -38,7 +38,7 @@ class SpidAuthenticated
      */
     public function getAuthLevel(): ?int
     {
-        $value = $this->spidAttributes['auth_level'] ?? null;
+$value = $this->spidAttributes['auth_level'] ?? null;
 
         return is_int($value) ? $value : null;
     }
@@ -48,7 +48,7 @@ class SpidAuthenticated
      */
     public function getFiscalCode(): ?string
     {
-        $value = $this->spidAttributes['fiscal_code'] ?? null;
+$value = $this->spidAttributes['fiscal_code'] ?? null;
 
         return is_string($value) ? $value : null;
     }

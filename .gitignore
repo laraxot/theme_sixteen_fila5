@@ -73,5 +73,9 @@ Main_files
 test-results
 laravel
 .supermemory
-components
-layouts
+# Cartelle legacy alla root del tema (NON resources/views/components)
+/components
+/layouts
+
+# Database locale vector search (non versionare)
+ruvector.db

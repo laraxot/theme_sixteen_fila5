@@ -3,7 +3,7 @@
 {{-- Conforme AGID Bootstrap Italia + Filament 4.x --}}
 
 <x-filament-widgets::widget>
-    <x-filament::section class="rounded-none border-0 shadow-none">
+<x-filament::section class="rounded-none border-0 shadow-none">
         <div class="space-y-6 p-5 sm:p-7">
             @php
                 $loginError = $errors->first('data.email') ?: $errors->first('email');
@@ -49,12 +49,11 @@
                 ])>
                     {{ $this->form }}
                 </div>
-
                 <div class="mt-6">
                     <button 
                         type="submit" 
                         wire:loading.attr="disabled"
-                        class="w-full inline-flex justify-center items-center gap-2 rounded-md bg-primary-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+class="w-full inline-flex justify-center items-center gap-2 rounded-md bg-primary-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <svg wire:loading class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -65,7 +64,7 @@
                 </div>
             </form>
 
-            <div class="mt-2 space-y-3 text-sm">
+<div class="mt-2 space-y-3 text-sm">
                 <p class="text-slate-600">
                     {{ __('user::login.no_account') }}
                     <a 
@@ -76,7 +75,7 @@
                     </a>
                 </p>
                 
-                <p class="text-slate-600">
+<p class="text-slate-600">
                     {{ __('user::login.forgot_password_text') }}
                     <a 
                         href="{{ url('/' . app()->getLocale() . '/auth/password/reset') }}" 

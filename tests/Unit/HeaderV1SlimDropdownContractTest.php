@@ -27,6 +27,14 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     expect($langHtml)->toContain('aria-controls="languages"');
     expect($userHtml)->toContain('id="header-user-toggle"');
     expect($userHtml)->toContain('data-bs-toggle="dropdown"');
+    expect($userHtml)->toContain('btn btn-primary btn-icon btn-full');
+    expect($userHtml)->toContain('rounded-icon');
+    expect($userHtml)->toContain('d-none d-lg-block');
+    expect($userHtml)->toContain('icon-white d-none d-lg-block');
+    expect($userHtml)->not->toContain('nav-link dropdown-toggle');
+    expect($userHtml)->not->toContain('text-gray-800');
+    expect($userHtml)->toContain("route('services.categories')");
+    expect($userHtml)->not->toContain("route('tests.view'");
 
     expect($v1.$langHtml.$userHtml)->not->toContain('langOpen');
     expect($v1.$langHtml.$userHtml)->not->toContain('userOpen');

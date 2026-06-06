@@ -11,13 +11,17 @@
 ### Layout & Routing
 | Document | Description | Cross-References |
 |----------|-------------|------------------|
+| [x-page-data-bag-only.md](../wiki/concepts/x-page-data-bag-only.md) | **Religione:** `<x-page>` solo `side`/`slug`/`data` | → [ADR cms-x-page-opaque-data-bag](../../../../docs/wiki/decisions/cms-x-page-opaque-data-bag.md) |
+| [folio-page-pattern.md](../folio-page-pattern.md) | Folio shell + CMS blocks | → x-page-data-bag-only |
 | [PAGE_ROUTING_ARCHITECTURE.md](./PAGE_ROUTING_ARCHITECTURE.md) | Folio + Volt routing with [slug].blade.php | → [ARCHITECTURAL_DECISIONS.md](../design-comuni/ARCHITECTURAL_DECISIONS.md), → [LAYOUT_ARCHITECTURE_MAP.md](./LAYOUT_ARCHITECTURE_MAP.md) |
 | [LAYOUT_ARCHITECTURE_MAP.md](./LAYOUT_ARCHITECTURE_MAP.md) | Layout hierarchy and components | → [PAGE_ROUTING_ARCHITECTURE.md](./PAGE_ROUTING_ARCHITECTURE.md), → [component-namespace.md](./component-namespace.md) |
 | [component-namespace.md](./component-namespace.md) | pub_theme:: namespace convention | → [LAYOUT_ARCHITECTURE_MAP.md](./LAYOUT_ARCHITECTURE_MAP.md) |
 
-### Design Comuni
+### Design Comuni & token PA
 | Document | Description | Cross-References |
 |----------|-------------|------------------|
+| [fo-pa-tokens-uniformity.md](./fo-pa-tokens-uniformity.md) | **Religione:** no hex per `body[data-page]`; token + `.fo-filament-form-shell` | → [filament-pa-design-colors.md](../../../Modules/Xot/docs/wiki/concepts/filament-pa-design-colors.md), → [auth-login-ux-design-wcag.md](../wiki/design/auth-login-ux-design-wcag.md) |
+| [css-filename-english-naming.md](./css-filename-english-naming.md) | **Religione:** path CSS solo inglese (`civic-design-*`, `ticket-parity.css`) | → [css-filenames-english-no-italian.md](../../../../docs/wiki/decisions/css-filenames-english-no-italian.md) |
 | [ARCHITECTURAL_DECISIONS.md](../design-comuni/ARCHITECTURAL_DECISIONS.md) | Philosophy, Zen, 10 key decisions | → [PAGE_ROUTING_ARCHITECTURE.md](./PAGE_ROUTING_ARCHITECTURE.md), → [MASTER_IMPLEMENTATION_PLAN.md](../design-comuni/MASTER_IMPLEMENTATION_PLAN.md) |
 | [MASTER_IMPLEMENTATION_PLAN.md](../design-comuni/MASTER_IMPLEMENTATION_PLAN.md) | 38 pages implementation plan | → [ARCHITECTURAL_DECISIONS.md](../design-comuni/ARCHITECTURAL_DECISIONS.md), → [HTML_PARITY_VERIFICATION_REPORT.md](../design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) |
 | [HTML_PARITY_VERIFICATION_REPORT.md](../design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) | HTML parity verification tool & reports | → [MASTER_IMPLEMENTATION_PLAN.md](../design-comuni/MASTER_IMPLEMENTATION_PLAN.md) |
@@ -47,6 +51,14 @@
 - ✅ If the theme imports JS files from another module, bare imports inside those files must still resolve through the theme toolchain
 - ✅ For external packages like `lit` and `leaflet`, prefer explicit `resolve.alias` entries in `vite.config.js` when the importer is outside `laravel/Themes/Sixteen/`
 - ❌ Do not assume sibling modules can see `laravel/Themes/Sixteen/node_modules` automatically
+
+### 5. English-Only File Naming
+- ✅ **Tutti i file** (CSS, Blade, JS, PHP, JSON) in inglese
+- ✅ `ticket-parity.css` ✅, `segnalazione-parity.css` ❌
+- ✅ Model `Ticket` → file `ticket-*.css` → cartella `ticket/`
+- ❌ Italian terms: `segnalazione`, `argomenti`, `servizi`, `comuni`, `amministrazione`
+- Rule: [no-italian-component-names.md](../wiki/rules/no-italian-component-names.md)
+- Memory: `docs/wiki/memories/english-only-file-naming.md`
 
 ### Lit Rule
 - Lit official docs recommend installing the `lit` npm package and importing it directly from JavaScript modules

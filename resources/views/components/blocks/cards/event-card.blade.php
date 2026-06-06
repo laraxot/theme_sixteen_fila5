@@ -71,7 +71,7 @@
         @if($startDate)
             <div class="event-card-date mb-3">
                 <div class="flex items-center text-sm text-gray-500">
-                    <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
+<x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
 f7ac8eda (.)
                     <time datetime="{{ $startDate->format('Y-m-d\TH:i:s') }}">
                         @if($isMultiDay)
@@ -103,7 +103,7 @@ f7ac8eda (.)
         @if($location)
             <div class="event-card-location mb-4">
                 <div class="flex items-center text-sm text-gray-500">
-                    <x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
+<x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
 f7ac8eda (.)
                     <span>{{ $location }}</span>
                 </div>
@@ -114,7 +114,7 @@ f7ac8eda (.)
             <div class="event-card-meta flex items-center space-x-4 text-sm text-gray-500">
                 @if($category)
                     <span class="flex items-center">
-                        <x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
+<x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
 f7ac8eda (.)
                         {{ $category }}
                     </span>
@@ -127,7 +127,7 @@ f7ac8eda (.)
                 aria-label="Visualizza dettagli evento: {{ $title }}"
             >
                 Dettagli
-                <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
+<x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
 f7ac8eda (.)
             </a>
         </div>

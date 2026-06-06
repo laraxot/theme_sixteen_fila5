@@ -28,7 +28,7 @@ class CieLoggedOut
      */
     public function getAuthMethod(): ?string
     {
-        $value = $this->cieAttributes['auth_method'] ?? null;
+$value = $this->cieAttributes['auth_method'] ?? null;
 
         return is_string($value) ? $value : null;
     }
@@ -48,7 +48,7 @@ class CieLoggedOut
      */
     public function getCieId(): ?string
     {
-        $value = $this->cieAttributes['cie_id'] ?? null;
+$value = $this->cieAttributes['cie_id'] ?? null;
 
         return is_string($value) ? $value : null;
     }

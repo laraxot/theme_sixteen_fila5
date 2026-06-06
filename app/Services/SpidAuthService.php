@@ -37,30 +37,7 @@ class SpidAuthService
     }
 
     /**
-     * Ottiene tutti i provider SPID disponibili
-     */
-    public function getProviders(): array
-    {
-        return $this->providers;
-    }
-
-    /**
-     * Genera l'URL di login per un provider SPID specifico
-     */
-    public function getLoginUrl(string $provider, int $level = 2, ?string $returnUrl = null): string
-    {
-        if (! isset($this->providers[$provider])) {
-            throw new InvalidArgumentException("Provider SPID '{$provider}' non supportato");
-            throw new InvalidArgumentException("Provider SPID '{$provider}' non supportato");
-        }
-
-        $providerConfig = $this->providers[$provider];
-        $requestId = $this->generateRequestId();
-
-        // Salva lo stato della richiesta in sessione
-        Session::put('spid.request_id', $requestId);
-        Session::put('spid.provider', $provider);
-        Session::put('spid.return_url', $returnUrl ? $returnUrl : url()->previous());
+Session::put('spid.return_url', $returnUrl ? $returnUrl : url()->previous());
         Session::put('spid.auth_level', $level);
 
         $samlRequest = $this->buildSamlAuthRequest($requestId, $providerConfig, $level);
@@ -113,7 +90,7 @@ class SpidAuthService
         }
 
         $decodedResponse = base64_decode($samlResponse);
-        $responseDoc = new DOMDocument;
+$responseDoc = new DOMDocument();
         $responseDoc->loadXML($decodedResponse);
 
         // Valida la signature
@@ -185,7 +162,7 @@ class SpidAuthService
     }
 
     /**
-     * Verifica se l'utente è autenticato con SPID
+* Verifica se l'utente è autenticato con SPID
      */
     public function isAuthenticated(): bool
     {
@@ -376,5 +353,39 @@ class SpidAuthService
     {
         // In produzione, caricare il certificato dal filesystem
         return config('spid.signing_cert', '');
+    }
+
+    /**
+     * Verifica se l'utente è autenticato con SPID
+     */
+    public function isAuthenticated(): bool
+    {
+        return Session::has('spid.authenticated') && Session::get('spid.authenticated') === true;
+    }
+
+    /**
+     * Ottiene i dati dell'utente autenticato
+     */
+    public function getAuthenticatedUser(): ?array
+    {
+        if (! $this->isAuthenticated()) {
+            return null;
+        }
+
+        return Session::get('spid.user_data');
+    }
+
+    /**
+     * Effettua il logout dell'utente SPID
+     */
+    public function logout(): void
+    {
+        Session::forget([
+            'spid.authenticated',
+            'spid.user_data',
+            'spid.provider',
+            'spid.request_id',
+            'spid.auth_level',
+        ]);
     }
 }

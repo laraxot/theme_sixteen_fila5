@@ -7,7 +7,7 @@
         
         <title>{{ config('app.name', 'Laravel') }}</title>
         
-        <!-- Skip Links (AGID Compliant) - MOVED TO BODY -->
+<!-- Skip Links (AGID Compliant) - MOVED TO BODY -->
         @vite(['resources/css/app.css'], 'themes/Sixteen')
     </head>
     

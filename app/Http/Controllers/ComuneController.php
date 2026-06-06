@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -21,7 +22,7 @@ class ComuneController extends Controller
             ->limit(5)
             ->get();
 
-        return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
+return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
     }
 
     /**
@@ -72,17 +73,7 @@ class ComuneController extends Controller
     }
 
     /**
-     * Pagina contatti
-     */
-    public function contatti(): View
-    {
-        return view('sixteen::pages.comune.contatti');
-    }
-
-    /**
-     * Invia messaggio di contatto
-     */
-    public function sendContact(Request $request): \Illuminate\Http\RedirectResponse
+public function sendContact(Request $request): RedirectResponse
     {
         $request->validate([
             'nome' => 'required|string|max:255',

@@ -10,7 +10,17 @@
 
 ## Integrazione blade
 
-File: `resources/views/components/blocks/ticket-layout/layout.blade.php` (e varianti elenco).
+Homepage `/it`: `grid/2col.blade.php` → `ticket/column-main.blade.php` → CTA `cta/ticket.blade.php`.
+
+| View | Path | Regola naming |
+|------|------|----------------|
+| Colonna principale | `components/blocks/ticket/column-main.blade.php` | inglese `ticket` |
+| CTA mappa/lista | `components/blocks/cta/ticket.blade.php` | **vietato** `cta/segnalazione` — vedi [no-italian-component-names](../rules/no-italian-component-names.md) |
+| Include | `@include('pub_theme::components.blocks.cta.ticket', ['cta' => $cta])` | `$cta` da `TicketLayoutViewModel::cta()` |
+
+Testo UI «Fai una segnalazione» resta in `lang/it/` — non nel nome file.
+
+File legacy (altre pagine): `ticket-layout/layout.blade.php` (e varianti elenco).
 
 Pattern attivo:
 
@@ -46,17 +56,7 @@ Properties minime per marker/popup:
 
 ## UX attesa (2026-06)
 
-<<<<<<< HEAD
 - `../../../../Modules/Fixcity/app/Actions/GenerateTicketsJsonAction.php`
-=======
-- Cluster farmshops-style; `removeOutsideVisibleBounds: false`
-- Marker: `__inner` stato + `__glyph-pad` bianco + `__point` (triangolo CSS); vedi [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
-- Popup **block `popup`**: apertura immediata, dettaglio lazy `/api/ticket-details/{id}`
-- Popup **senza** vuoto header (vedi runbook sotto)
-- Hover cluster/marker: ombra only, no transform
-- Ricerca indirizzo collassabile (controllo lente)
->>>>>>> d7fd0c4 (delete .c*)
-
 ## Build obbligatoria dopo modifica JS/CSS
 
 ```bash
