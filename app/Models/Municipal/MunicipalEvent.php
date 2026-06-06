@@ -102,7 +102,7 @@ class MunicipalEvent extends Model
 {
     use HasFactory, SoftDeletes;
 
-/**
+    /**
      * Tipologie di evento secondo AGID
      */
     public const EVENT_TYPES = [
@@ -160,6 +160,173 @@ class MunicipalEvent extends Model
         'invite_only' => 'Solo su Invito',
     ];
 
+    protected $table = 'sixteen_municipal_events';
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'description',
+        'short_description',
+        'event_type',
+        'category',
+        'subcategory',
+        'organizational_unit_id',
+        'organizer',
+        'co_organizers',
+        'event_status',
+        'visibility',
+        'target_audience',
+        'start_date',
+        'end_date',
+        'start_time',
+        'end_time',
+        'timezone',
+        'is_all_day',
+        'is_recurring',
+        'recurrence_pattern',
+        'location_type',
+        'venue_name',
+        'address',
+        'room',
+        'coordinates',
+        'online_url',
+        'streaming_url',
+        'hybrid_mode',
+        'capacity',
+        'current_attendees',
+        'registration_required',
+        'registration_url',
+        'registration_deadline',
+        'registration_cost',
+        'contact_info',
+        'speaker_info',
+        'agenda',
+        'materials',
+        'requirements',
+        'accessibility_info',
+        'transport_info',
+        'parking_info',
+        'catering_info',
+        'image',
+        'gallery',
+        'documents',
+        'related_events',
+        'tags',
+        'social_links',
+        'feedback_url',
+        'recording_url',
+        'is_published',
+        'published_at',
+        'featured',
+        'priority_level',
+        'metadata',
+    ];
+
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'start_time' => 'datetime',
+        'end_time' => 'datetime',
+        'registration_deadline' => 'datetime',
+        'published_at' => 'datetime',
+        'is_all_day' => 'boolean',
+        'is_recurring' => 'boolean',
+        'hybrid_mode' => 'boolean',
+        'registration_required' => 'boolean',
+        'is_published' => 'boolean',
+        'featured' => 'boolean',
+        'capacity' => 'integer',
+        'current_attendees' => 'integer',
+        'registration_cost' => 'decimal:2',
+        'priority_level' => 'integer',
+        'co_organizers' => 'json',
+        'target_audience' => 'json',
+        'recurrence_pattern' => 'json',
+        'coordinates' => 'json',
+        'contact_info' => 'json',
+        'speaker_info' => 'json',
+        'agenda' => 'json',
+        'materials' => 'json',
+        'requirements' => 'json',
+        'accessibility_info' => 'json',
+        'transport_info' => 'json',
+        'parking_info' => 'json',
+        'catering_info' => 'json',
+        'gallery' => 'json',
+        'documents' => 'json',
+        'related_events' => 'json',
+        'tags' => 'json',
+        'social_links' => 'json',
+        'metadata' => 'json',
+    ];
+
+    /**
+     * Relazione con l'unità organizzativa
+     */
+    public function organizationalUnit(): BelongsTo
+    {
+        return $this->belongsTo(OrganizationalUnit::class);
+    }
+
+    /**
+     * Relazione con i punti di contatto
+     */
+    public function contacts(): MorphMany
+    {
+        return $this->morphMany(ContactPoint::class, 'contactable')->ordered();
+    }
+
+    /**
+     * Relazione con le persone pubbliche (relatori, partecipanti)
+     */
+    public function participants(): BelongsToMany
+    {
+        return $this->belongsToMany(PublicPerson::class, 'sixteen_event_participants')
+            ->withPivot(['role', 'is_speaker', 'bio', 'order'])
+            ->withTimestamps()
+            ->orderBy('pivot_order');
+    }
+
+    /**
+     * Relazione con i relatori
+     */
+    public function speakers(): BelongsToMany
+    {
+        return $this->participants()->wherePivot('is_speaker', true);
+    }
+
+    /**
+     * Scope per eventi pubblicati
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true)
+            ->where('published_at', '<=', now());
+    }
+
+    /**
+     * Scope per eventi pubblici
+     */
+    public function scopePublic($query)
+    {
+        return $query->where('visibility', 'public');
+    }
+
+    /**
+     * Scope per eventi futuri
+     */
+    public function scopeUpcoming($query)
+    {
+        return $query->where('start_date', '>=', now()->toDateString())
+            ->where('event_status', '!=', 'cancelled');
+    }
+
+    /**
+     * Scope per eventi passati
+     */
+    public function scopePast($query)
+    {
+        return $query->where('end_date', '<', now()->toDateString())
             ->orWhere(function ($q): void {
                 $q->where('start_date', '<', now()->toDateString())
                     ->whereNull('end_date');
@@ -174,7 +341,7 @@ class MunicipalEvent extends Model
         $today = now()->toDateString();
 
         return $query->where('start_date', '<=', $today)
-->where(function ($q) use ($today): void {
+            ->where(function ($q) use ($today): void {
                 $q->where('end_date', '>=', $today)
                     ->orWhereNull('end_date');
             })
@@ -207,7 +374,153 @@ class MunicipalEvent extends Model
     }
 
     /**
-return ! $this->registration_cost || $this->registration_cost === 0;
+     * Ottiene la data/ora di inizio come Carbon
+     */
+    public function getStartDateTime(): Carbon
+    {
+        if ($this->is_all_day) {
+            return $this->start_date->startOfDay();
+        }
+
+        return $this->start_time ?: $this->start_date->startOfDay();
+    }
+
+    /**
+     * Ottiene la data/ora di fine come Carbon
+     */
+    public function getEndDateTime(): ?Carbon
+    {
+        if ($this->is_all_day) {
+            return $this->end_date ? $this->end_date->endOfDay() : $this->start_date->endOfDay();
+        }
+
+        return $this->end_time;
+    }
+
+    /**
+     * Ottiene la data/ora formattata per il display
+     */
+    public function getFormattedDateTime(): string
+    {
+        if ($this->is_all_day) {
+            if ($this->end_date && ! $this->start_date->isSameDay($this->end_date)) {
+                return $this->start_date->format('d/m/Y').' - '.$this->end_date->format('d/m/Y');
+            }
+
+            return $this->start_date->format('d/m/Y').' (tutto il giorno)';
+        }
+
+        $formatted = $this->start_date->format('d/m/Y');
+
+        if ($this->start_time) {
+            $formatted .= ' alle '.$this->start_time->format('H:i');
+
+            if ($this->end_time) {
+                if ($this->start_time->isSameDay($this->end_time)) {
+                    $formatted .= ' - '.$this->end_time->format('H:i');
+                } else {
+                    $formatted .= ' - '.$this->end_time->format('d/m/Y H:i');
+                }
+            }
+        }
+
+        return $formatted;
+    }
+
+    /**
+     * Ottiene l'agenda formattata
+     */
+    public function getFormattedAgenda(): array
+    {
+        if (! $this->agenda || ! is_array($this->agenda)) {
+            return [];
+        }
+
+        return collect($this->agenda)
+            ->map(function ($item, $index) {
+                if (is_string($item)) {
+                    return [
+                        'time' => null,
+                        'title' => $item,
+                        'description' => null,
+                        'speaker' => null,
+                        'order' => $index,
+                    ];
+                }
+
+                return array_merge(['order' => $index], $item);
+            })
+            ->sortBy('order')
+            ->values()
+            ->toArray();
+    }
+
+    /**
+     * Ottiene i relatori formattati
+     */
+    public function getFormattedSpeakers(): array
+    {
+        if (! $this->speaker_info || ! is_array($this->speaker_info)) {
+            return [];
+        }
+
+        return collect($this->speaker_info)
+            ->map(function ($speaker) {
+                if (is_string($speaker)) {
+                    return ['name' => $speaker];
+                }
+
+                return $speaker;
+            })
+            ->toArray();
+    }
+
+    /**
+     * Ottiene i requisiti di partecipazione
+     */
+    public function getFormattedRequirements(): array
+    {
+        if (! $this->requirements || ! is_array($this->requirements)) {
+            return [];
+        }
+
+        return collect($this->requirements)
+            ->map(function ($requirement) {
+                if (is_string($requirement)) {
+                    return ['description' => $requirement, 'mandatory' => true];
+                }
+
+                return $requirement;
+            })
+            ->toArray();
+    }
+
+    /**
+     * Verifica se è possibile registrarsi
+     */
+    public function canRegister(): bool
+    {
+        if (! $this->registration_required) {
+            return false;
+        }
+
+        if ($this->registration_deadline && $this->registration_deadline->isPast()) {
+            return false;
+        }
+
+        if (! $this->hasAvailableSpots) {
+            return false;
+        }
+
+        return in_array($this->event_status, ['scheduled', 'confirmed']);
+    }
+
+    /**
+     * Verifica se l'evento è gratuito
+     */
+    public function isFree(): bool
+    {
+        return ! $this->registration_cost || $this->registration_cost === 0;
     }
 
     /**
@@ -260,7 +573,7 @@ return ! $this->registration_cost || $this->registration_cost === 0;
     }
 
     /**
-* Accessor per il nome del tipo di evento
+     * Accessor per il nome del tipo di evento
      */
     protected function eventTypeName(): Attribute
     {
@@ -426,14 +739,14 @@ return ! $this->registration_cost || $this->registration_cost === 0;
         parent::boot();
 
         // Genera slug se mancante
-static::creating(function ($model): void {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-static::creating(function ($model): void {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -444,7 +757,7 @@ static::creating(function ($model): void {
         });
 
         // Set default values
-static::creating(function ($model): void {
+        static::creating(function ($model): void {
             if (is_null($model->event_status)) {
                 $model->event_status = 'scheduled';
             }

@@ -22,7 +22,7 @@ class ComuneController extends Controller
             ->limit(5)
             ->get();
 
-return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
+        return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
     }
 
     /**
@@ -73,7 +73,17 @@ return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets
     }
 
     /**
-public function sendContact(Request $request): RedirectResponse
+     * Pagina contatti
+     */
+    public function contatti(): View
+    {
+        return view('sixteen::pages.comune.contatti');
+    }
+
+    /**
+     * Invia messaggio di contatto
+     */
+    public function sendContact(Request $request): RedirectResponse
     {
         $request->validate([
             'nome' => 'required|string|max:255',
