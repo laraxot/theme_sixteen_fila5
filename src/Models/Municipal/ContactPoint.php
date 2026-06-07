@@ -13,6 +13,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Modello per i punti di contatto (Contact Point)
  *
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo};
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+/**
+ * Modello per i punti di contatto (Contact Point)
+ * 
  * Rappresenta un punto di contatto secondo l'ontologia AGID
  * per enti pubblici (telefono, email, PEC, indirizzo fisico, ecc.)
  */
@@ -196,6 +203,12 @@ class ContactPoint extends Model
             $clean = '+39'.ltrim($clean, '0');
         }
 
+        
+        // Se non inizia con +, aggiungi +39 per l'Italia
+        if (!str_starts_with($clean, '+')) {
+            $clean = '+39' . ltrim($clean, '0');
+        }
+        
         return $clean;
     }
 
@@ -211,6 +224,13 @@ class ContactPoint extends Model
             }
         }
 
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            // Se non è un URL valido, prova ad aggiungere https://
+            if (!str_starts_with($url, 'http')) {
+                $url = 'https://' . $url;
+            }
+        }
+        
         return filter_var($url, FILTER_VALIDATE_URL) ? $url : '';
     }
 
@@ -323,6 +343,11 @@ class ContactPoint extends Model
             'website', 'appointment_url' => $this->formatted_value,
             'whatsapp' => 'https://wa.me/'.preg_replace('/[^\d]/', '', $this->value),
             'telegram' => 'https://t.me/'.ltrim($this->value, '@'),
+            'email', 'pec' => 'mailto:' . $this->value,
+            'phone', 'mobile', 'fax' => 'tel:' . $this->formatted_value,
+            'website', 'appointment_url' => $this->formatted_value,
+            'whatsapp' => 'https://wa.me/' . preg_replace('/[^\d]/', '', $this->value),
+            'telegram' => 'https://t.me/' . ltrim($this->value, '@'),
             default => '#',
         };
     }
@@ -355,3 +380,7 @@ class ContactPoint extends Model
         });
     }
 }
+
+
+
+

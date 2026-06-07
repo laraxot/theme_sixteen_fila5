@@ -76,22 +76,21 @@
                                             <span class="text-muted">{{ __('sixteen::header.user.welcome', ['name' => $user->name]) }}</span>
                                         </div>
 
-                                        {{-- Menu Items --}}
-                                        <a href="{{ route('area-personale.servizi') }}" class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 hover:text-primary flex items-center space-x-2">
+                                        {{-- Menu Items — named route Folio (folio:list) + pub_theme::header.user.dropdown.* --}}
+                                        <a href="{{ route('services.categories') }}" class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 hover:text-primary flex items-center space-x-2" role="menuitem">
                                             <x-ui::icon name="briefcase" class="w-4 h-4 text-gray-600" />
-                                            {{ __('sixteen::header.user.dropdown.my_services') }}
+                                            {{ __('pub_theme::header.user.dropdown.my_services.label') }}
                                         </a>
 
-                                        <a href="{{ route('area-personale.pratiche') }}" class="dropdown-item" role="menuitem">
+                                        <a href="{{ route('dashboard') }}" class="dropdown-item" role="menuitem">
                                             <x-ui::icon name="document-text" class="w-4 h-4 mr-2" />
-                                            {{ __('sixteen::header.user.dropdown.my_practices') }}
+                                            {{ __('pub_theme::header.user.dropdown.my_practices.label') }}
                                         </a>
 
                                         <a href="{{ route('area-personale.notifiche') }}" class="dropdown-item" role="menuitem">
                                             <span class="d-flex align-items-center">
                                                 <x-ui::icon name="bell" class="w-4 h-4 mr-2" />
-                                                {{ __('sixteen::header.user.dropdown.notifications') }}
-                                                {{-- Badge - only show if notifications exist --}}
+                                                {{ __('pub_theme::header.user.dropdown.notifications.label') }}
                                                 @if($user->unreadNotificationsCount > 0)
                                                     <span class="badge badge-primary ml-auto">{{ $user->unreadNotificationsCount }}</span>
                                                 @endif
@@ -100,21 +99,17 @@
 
                                         <div class="dropdown-divider"></div>
 
-                                        <a href="{{ route('area-personale.impostazioni') }}" class="dropdown-item" role="menuitem">
+                                        <a href="{{ route('profile.edit') }}" class="dropdown-item" role="menuitem">
                                             <x-ui::icon name="cog-6-tooth" class="w-4 h-4 mr-2" />
-                                            {{ __('sixteen::header.user.dropdown.settings') }}
+                                            {{ __('pub_theme::header.user.dropdown.settings.label') }}
                                         </a>
 
                                         <div class="dropdown-divider"></div>
 
-                                        {{-- Logout Form --}}
-                                        <form method="POST" action="{{ route('logout') }}" role="menuitem">
-                                            @csrf
-                                            <button type="submit" class="dropdown-item text-danger">
-                                                <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
-                                                {{ __('sixteen::header.user.dropdown.logout') }}
-                                            </button>
-                                        </form>
+                                        <a href="{{ route('logout') }}" class="dropdown-item text-danger" role="menuitem">
+                                            <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
+                                            {{ __('pub_theme::header.user.dropdown.logout.label') }}
+                                        </a>
                                     </div>
                                 </div>
                             @endauth

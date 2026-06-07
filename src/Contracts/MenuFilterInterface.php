@@ -18,3 +18,12 @@ interface MenuFilterInterface
      */
     public function filter(array $item): array|false;
 }
+     * 
+     * @param array $item Elemento del menu da processare
+     * @return array|false Array processato o false per rimuovere l'elemento
+     */
+    public function filter(array $item): array|false;
+}
+
+
+

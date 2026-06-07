@@ -153,7 +153,13 @@ Usage Examples:
 
 2. Success notification with message:
 <x-pub_theme::notifiche 
+    title="Operazione completata"
+    message="I dati sono stati salvati correttamente."
+    type="success" />
 
+3. Error notification:
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Errore durante il salvataggio"
     message="Si è verificato un errore imprevisto. Riprova più tardi."
@@ -162,7 +168,14 @@ Usage Examples:
 4. Info notification:
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Informazione importante"
+    message="Il sistema sarà in manutenzione dalle 02:00 alle 04:00."
+    type="info" />
 
+5. Warning notification:
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Attenzione"
     message="La sessione scadrà tra 5 minuti."
@@ -171,7 +184,15 @@ Usage Examples:
 6. Dismissible notification:
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Notifica eliminabile"
+    message="Puoi chiudere questa notifica cliccando sulla X."
+    type="info"
+    :dismissible="true" />
 
+7. Auto-hide notification:
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Notifica temporanea"
     message="Questa notifica scomparirà automaticamente dopo 3 secondi."
@@ -182,7 +203,14 @@ Usage Examples:
 8. Fixed position notifications:
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Notifica fissa in alto"
+    message="Questa notifica è posizionata in alto nella pagina."
+    type="info"
+    position="top-fix" />
 
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Notifica fissa in basso"
     message="Questa notifica è posizionata in basso nella pagina."
@@ -191,7 +219,15 @@ Usage Examples:
 
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Notifica fissa a destra"
+    message="Questa notifica è posizionata a destra nella pagina."
+    type="success"
+    position="right-fix" />
 
+9. Notification without icon:
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Notifica senza icona"
     message="Questa notifica non ha l'icona."
@@ -200,7 +236,15 @@ Usage Examples:
 10. Custom icon notification:
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Notifica con icona personalizzata"
+    message="Questa notifica usa un'icona personalizzata."
+    type="info"
+    custom-icon="it-star-outline" />
 
+11. Complex notification with slot content:
+<x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
     title="Aggiornamento disponibile"
     type="info"
@@ -218,7 +262,22 @@ Usage Examples:
 
 12. Form validation notifications:
 <x-pub_theme::notifiche 
+    title="Errori di validazione"
+    type="error"
+    :dismissible="true">
+    <ul class="mb-0">
+        <li>Il campo email è obbligatorio</li>
+        <li>La password deve essere di almeno 8 caratteri</li>
+        <li>I termini e condizioni devono essere accettati</li>
+    </ul>
+</x-pub_theme::notifiche>
 
+13. System status notifications:
+<x-pub_theme::notifiche 
+</x-pub_theme::notifiche>
+
+13. System status notifications:
+<x-pub_theme::notifiche 
     title="Sistema operativo"
     message="Tutti i servizi funzionano correttamente."
     type="success"
@@ -227,7 +286,26 @@ Usage Examples:
 14. Data processing notifications:
 <x-pub_theme::notifiche 
 <x-pub_theme::notifiche 
+<x-pub_theme::notifiche 
+    title="Elaborazione in corso"
+    type="info"
+    :auto-hide="false">
+    <div class="d-flex align-items-center">
+        <div class="progress-spinner progress-spinner-active size-sm me-3">
+            <span class="visually-hidden">Caricamento...</span>
+        </div>
+        <span>I tuoi dati sono in fase di elaborazione...</span>
+    </div>
+</x-pub_theme::notifiche>
 
+15. Multiple notifications stack:
+<div class="notifications-container">
+    <x-pub_theme::notifiche 
+</x-pub_theme::notifiche>
+
+15. Multiple notifications stack:
+<div class="notifications-container">
+    <x-pub_theme::notifiche 
         title="Messaggio 1"
         type="success"
         :dismissible="true"
@@ -235,7 +313,14 @@ Usage Examples:
     
     <x-pub_theme::notifiche 
     <x-pub_theme::notifiche 
-
+    <x-pub_theme::notifiche 
+        title="Messaggio 2"
+        type="warning"
+        :dismissible="true"
+        class="mb-2" />
+    
+    <x-pub_theme::notifiche 
+    <x-pub_theme::notifiche 
     <x-pub_theme::notifiche 
         title="Messaggio 3"
         type="info"

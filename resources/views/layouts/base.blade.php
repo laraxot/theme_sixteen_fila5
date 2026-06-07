@@ -12,7 +12,21 @@
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
-{{-- Tailwind CSS (replicates Bootstrap Italia design tokens) --}}
+        {{-- Tailwind CSS (replicates Bootstrap Italia design tokens) --}}
         @vite(['resources/css/app.css'], 'themes/Sixteen')
+
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+    </head>
+
+    <body>
+        @yield('body')
+
     </body>
 </html>

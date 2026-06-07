@@ -19,6 +19,16 @@ use Themes\Sixteen\Services\CieAuthService;
 /**
  * Controller per l'autenticazione CIE
  *
+use Illuminate\Http\{Request, RedirectResponse, JsonResponse};
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\{Auth, Log, Session};
+use Themes\Sixteen\Services\CieAuthService;
+use Themes\Sixteen\Models\User;
+use Themes\Sixteen\Events\{CieAuthenticated, CieLoggedOut};
+
+/**
+ * Controller per l'autenticazione CIE
+ * 
  * Gestisce il flusso completo di autenticazione CIE secondo le specifiche AGID
  */
 class CieAuthController extends Controller
@@ -128,6 +138,20 @@ class CieAuthController extends Controller
             // Trigger evento
             event(new CieAuthenticated($user, $userAttributes));
 
+            
+            // Trova o crea l'utente
+            $user = $this->findOrCreateUser($userAttributes);
+            
+            // Effettua il login
+            Auth::login($user, true);
+            
+            // Salva i dati CIE in sessione
+            Session::put('cie.authenticated', true);
+            Session::put('cie.user_data', $userAttributes);
+            
+            // Trigger evento
+            event(new CieAuthenticated($user, $userAttributes));
+            
             Log::info('CIE authentication completed', [
                 'user_id' => $user->id,
                 'auth_method' => $userAttributes['auth_method'],
@@ -418,3 +442,11 @@ class CieAuthController extends Controller
         }
     }
 }
+        if (!empty($updateData)) {
+            $user->update($updateData);
+        }
+    }
+}
+
+
+

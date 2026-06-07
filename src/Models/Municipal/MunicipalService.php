@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsTo, MorphMany, BelongsToMany};
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
 
 /**
@@ -489,6 +492,10 @@ class MunicipalService extends Model
                is_array($this->delivery_methods) &&
                in_array('online', $this->delivery_methods) &&
                ! in_array('in_person', $this->delivery_methods);
+        return $this->is_digital && 
+               is_array($this->delivery_methods) &&
+               in_array('online', $this->delivery_methods) &&
+               !in_array('in_person', $this->delivery_methods);
     }
 
     /**
@@ -591,9 +598,18 @@ class MunicipalService extends Model
                 $model->priority_level = 1;
             }
 
+            
+            if (is_null($model->priority_level)) {
+                $model->priority_level = 1;
+            }
+            
             if (is_null($model->last_updated)) {
                 $model->last_updated = now();
             }
         });
     }
 }
+
+
+
+

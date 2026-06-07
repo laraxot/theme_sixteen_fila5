@@ -1,3 +1,180 @@
+/*
+ * Leaflet marker, cluster and map visualization overrides.
+ * Extracted from resources/css/app.css to keep app.css as a small import index.
+ */
+/* ========================================
+   READ MORE PARITY HOTFIX 6
+======================================== */
+.dc-homepage-parity #calendario .card-teaser > .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser > .read-more,
+.dc-homepage-parity #calendario .card-teaser .read-more.ps-3,
+.dc-homepage-parity #calendario .card-teaser .read-more,
+.dc-homepage-parity #calendario .card-teaser > .read-more .text,
+.dc-homepage-parity #calendario .card-teaser .read-more .text {
+  letter-spacing: 0.9px !important;
+}
+
+/* ========================================
+   HIDE GOVERNANCE CAROUSEL (WAVE 3)
+   Not present in reference design
+======================================== */
+main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-four-cols {
+  display: none !important;
+}
+
+.dc-service-detail .cmp-heading {
+  padding-top: 1rem;
+}
+
+.dc-service-detail__cta-group {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dc-service-detail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dc-service-detail__dropdown {
+  position: relative;
+}
+
+.dc-service-detail__dropdown-menu {
+  display: block;
+  position: static;
+  min-width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item,
+.dc-service-detail__content .cmp-navscroll .accordion-button,
+.dc-service-detail__content .cmp-navscroll .accordion-body {
+  background: #fff;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-item {
+  border: 1px solid #d9e2f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.dc-service-detail__content .cmp-navscroll .accordion-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #17324d;
+  border: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dc-service-detail__content .cmp-navscroll .nav-link {
+  display: block;
+  padding: 0.6rem 0;
+  color: #17324d;
+  text-decoration: none;
+}
+
+.dc-service-detail__content .it-page-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dc-service-detail__content .it-page-section {
+  scroll-margin-top: 6rem;
+}
+
+.dc-service-detail__content .has-bg-grey {
+  background: #f2f7fc;
+  border-radius: 1rem;
+}
+
+.dc-service-detail__richtext p + p {
+  margin-top: 1rem;
+}
+
+.dc-service-detail__richtext ul {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+}
+
+.dc-service-detail__button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dc-service-detail .card-teaser-info {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-service-detail .avatar.size-xl img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+/* ========================================
+   HOMEPAGE PARITY FIXES - WAVE 3 (Visual Alignment)
+======================================== */
+
+/* Hide extra evidence card wrappers (show only 6 items - 3x2 grid) */
+.dc-homepage-parity .evidence-section .row > div > .card-wrapper:nth-of-type(n+7) {
+  display: none !important;
+}
+
+/* Adjust evidence section height to match grid of 6 items */
+.dc-homepage-parity .evidence-section {
+  max-height: 1102px !important;
+  overflow: hidden !important;
+}
+
+/* Header height adjustment — solo header sito, mai popup mappa (header.popup__header) */
+.dc-homepage-parity .it-header-wrapper,
+.dc-homepage-parity header.it-header-wrapper {
+  min-height: 222px !important;
+  height: auto !important;
+}
+
+/* Social icons sizing */
+.dc-homepage-parity .it-socials {
+  height: 27px !important;
+  line-height: 27px !important;
+}
+
+/* Footer background must be transparent, not dark grey */
+.dc-homepage-parity footer,
+.dc-homepage-parity footer#footer {
+  background-color: transparent !important;
+  color: rgb(25, 25, 25) !important;
+}
+
+@media (min-width: 992px) {
+  .dc-service-detail__content .cmp-navscroll.sticky-top {
+    top: 2rem;
+  }
+
+  .dc-service-detail__dropdown-menu {
+    max-width: 16rem;
+  }
+}
+
+/* ========================================
    PAGE PARITY FIXES - 2026-04-04
    Focus pages: lista-risorse, segnalazioni-elenco, amministrazione
 ======================================== */
@@ -91,6 +268,7 @@ main[data-page="page-shell"] .search-results {
   font-size: 0.875rem;
   color: #5c6f82;
 }
+
 
 main[data-page="page-shell"] .map-box {
   margin-top: 1rem;
@@ -276,6 +454,7 @@ main[data-page="page-shell"] .cmp-info-summary .card-body .single-line-info {
 main[data-page="page-shell"] .cmp-info-summary .single-line-info:last-child {
   border-bottom: none;
 }
+
 
 main[data-page="page-shell"] .nav-tabs {
   border: none !important;

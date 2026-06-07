@@ -9,31 +9,31 @@
     $socialPlatforms = [
         'facebook' => [
             'name' => 'Facebook',
-'icon' => 'ui-brands.facebook',
+            'icon' => 'ui-brands.facebook',
             'color' => 'text-blue-600 hover:text-blue-700',
             'bg' => 'hover:bg-blue-50',
         ],
         'twitter' => [
-'name' => 'X (Twitter)',
+            'name' => 'X (Twitter)',
             'icon' => 'ui-brands.twitter',
             'color' => 'text-gray-900 hover:text-gray-700',
             'bg' => 'hover:bg-gray-50',
         ],
         'instagram' => [
             'name' => 'Instagram',
-'icon' => 'ui-brands.instagram',
+            'icon' => 'ui-brands.instagram',
             'color' => 'text-pink-600 hover:text-pink-700',
             'bg' => 'hover:bg-pink-50',
         ],
         'linkedin' => [
             'name' => 'LinkedIn',
-'icon' => 'ui-brands.linkedin',
+            'icon' => 'ui-brands.linkedin',
             'color' => 'text-blue-700 hover:text-blue-800',
             'bg' => 'hover:bg-blue-50',
         ],
         'youtube' => [
             'name' => 'YouTube',
-'icon' => 'ui-brands.youtube',
+            'icon' => 'ui-brands.youtube',
             'color' => 'text-red-600 hover:text-red-700',
             'bg' => 'hover:bg-red-50',
         ],
@@ -73,10 +73,11 @@
                 class="{{ $sizeClasses[$size] }} {{ $platformConfig['bg'] }} {{ $platformConfig['color'] }} rounded-full flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-current focus:ring-offset-2"
                 :aria-label="__('pub_theme::social.follow_on', ['platform' => $platformConfig['name']])"
             >
-<x-icon
+                <x-icon
                     :name="$platformConfig['icon']"
                     class="w-5 h-5"
                 />
+
                 <span class="sr-only">
                     {{ __('pub_theme::social.follow_on', ['platform' => $platformConfig['name']]) }}
                 </span>

@@ -237,5 +237,3 @@ npm run copy
 **Versione Indice**: 1.0.0  
 **Status**: Completo e Aggiornato  
 **Mantenuto da**: Team Sixteen
-
-

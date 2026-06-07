@@ -8,7 +8,7 @@
     $title = $cta['title'] ?? 'fixcity::ticket.map.cta.title.label';
     $text = $cta['text'] ?? 'fixcity::ticket.map.cta.text.label';
     $buttonText = $cta['button_text'] ?? 'fixcity::ticket.map.cta.button.label';
-    $buttonUrl = $cta['button_url'] ?? '/it/segnalazione-crea';
+    $buttonUrl = $cta['button_url'] ?? '/it/tests/ticket-crea';
 @endphp
 
 @if (!empty($cta))

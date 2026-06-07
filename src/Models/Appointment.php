@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo};
+use Illuminate\Database\Eloquent\Casts\{Attribute, AsArrayObject};
 
 /**
  * Modello Appuntamento - Gestione prenotazioni servizi comunali
@@ -56,6 +59,9 @@ class Appointment extends Model
 
     const STATUS_CANCELLED = 'cancelled';  // Cancellato
 
+    const STATUS_CONFIRMED = 'confirmed';  // Confermato
+    const STATUS_COMPLETED = 'completed';  // Completato
+    const STATUS_CANCELLED = 'cancelled';  // Cancellato
     const STATUS_NO_SHOW = 'no_show';      // Non presentato
 
     /**
@@ -69,6 +75,9 @@ class Appointment extends Model
 
     const SERVICE_URP = 'urp';
 
+    const SERVICE_TRIBUTI = 'tributi';
+    const SERVICE_SUAP = 'suap';
+    const SERVICE_URP = 'urp';
     const SERVICE_OTHER = 'other';
 
     /**
@@ -231,3 +240,7 @@ class Appointment extends Model
         ];
     }
 }
+
+
+
+

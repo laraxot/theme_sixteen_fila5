@@ -61,6 +61,13 @@ class SixteenInstallCommand extends Command
 
         File::put($envExample, $template);
 
+        
+        $envExample = base_path('.env.sixteen.example');
+        
+        $template = $this->getEnvTemplate();
+        
+        File::put($envExample, $template);
+        
         $this->comment("Created {$envExample}");
         $this->line('You can copy these variables to your .env file');
     }
@@ -136,3 +143,7 @@ ENV;
         $this->line('• Test accessibility features with screen readers');
     }
 }
+
+
+
+

@@ -52,7 +52,7 @@
                             
                             {{-- Area Personale / Login --}}
                             @auth
-<a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.pages.dashboard') }}" data-element="personal-area-login" aria-label="{{ __('Area personale') }}">
+                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.pages.dashboard') }}" data-element="personal-area-login" aria-label="{{ __('Area personale') }}">
                                     <span class="rounded-icon" aria-hidden="true">
                                         <svg class="icon icon-primary"><use href="#it-user"></use></svg>
                                     </span>
@@ -102,7 +102,7 @@
                                     type="button" 
                                     aria-label="{{ __('Cerca') }}"
                                     data-bs-toggle="modal" 
-data-sixteen-mobile-nav-target="#searchModal"
+                                    data-sixteen-mobile-nav-target="#searchModal"
                                 >
                                     <svg class="icon">
                                         <use href="#it-search"></use>
@@ -134,7 +134,7 @@ data-sixteen-mobile-nav-target="#searchModal"
     </div>
     
     {{-- Navigazione Principale --}}
-<div class="it-nav-wrapper" data-sixteen-mobile-nav>
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
         <div class="it-header-navbar-wrapper" data-sixteen-mobile-nav>
             <div class="container">
                 <div class="row">
@@ -146,17 +146,17 @@ data-sixteen-mobile-nav-target="#searchModal"
                                 aria-controls="nav" 
                                 aria-expanded="false" 
                                 aria-label="{{ __('Apri menu di navigazione') }}"
-data-sixteen-mobile-nav-toggle
+                                data-sixteen-mobile-nav-toggle
                                 data-sixteen-mobile-nav-target="#nav"
                             >
                                 <svg class="icon"><use href="#it-burger"></use></svg>
                             </button>
                             
-<div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav">
+                            <div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav">
                                 <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                                 <div class="close-div">
                                     <button 
-                                        class="btn close-menu" data-sixteen-mobile-nav-close
+                                        class="btn close-menu" data-sixteen-mobile-nav-close 
                                         type="button"
                                         aria-label="{{ __('Chiudi menu') }}"
                                     >

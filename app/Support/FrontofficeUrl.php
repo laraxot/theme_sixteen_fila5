@@ -20,7 +20,7 @@ final class FrontofficeUrl
 {
     public static function path(string $path): string
     {
-        if ($path === '' || ! str_starts_with($path, '/')) {
+        if ('' === $path || ! str_starts_with($path, '/')) {
             return $path;
         }
 

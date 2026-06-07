@@ -19,7 +19,7 @@ return [
 
     'assets' => [
         'css' => [
-// NOTE: Sixteen theme uses Vite + Tailwind, NOT Bootstrap Italia CDN
+            // NOTE: Sixteen theme uses Vite + Tailwind, NOT Bootstrap Italia CDN
             // All styles are compiled locally via resources/css/app.css
             // These entries are kept for reference only - DO NOT use CDN
             'civic-design' => 'css/civic-design-theme.css',
