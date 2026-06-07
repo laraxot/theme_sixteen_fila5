@@ -1,7 +1,7 @@
 <div>
 	<button data-dropdown-toggle="dropdown-language" class="grid py-3 text-sm font-semibold transition rounded-lg place-items-center">
 		<div class="flex items-center space-x-1">
-<x-filament::icon icon="heroicon-o-language" class="size-5"/>
+			<x-filament::icon icon="heroicon-o-language" class="size-5"/>
 f7ac8eda (.)
 			<span class="hidden sm:block">English</span>
 			<x-filament::icon icon="heroicon-o-chevron-down" class="hidden size-4 sm:block"/>

@@ -2,6 +2,7 @@
   /** @var array $headerNavSecondary */
   /** @var string $headerNavTopicsUrl */
   /** @var callable $headerNavItemIsActive */
+  /** @var callable $headerFolioUrl */
 @endphp
 
 <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
@@ -9,7 +10,7 @@
     @foreach($headerNavSecondary as $headerNavSecItem)
       <li class="nav-item">
         <a class="nav-link{{ $headerNavItemIsActive($headerNavSecItem) ? ' active' : '' }}"
-           href="{{ $headerNavSecItem['url'] ?? '#' }}"
+           href="{{ $headerFolioUrl((string) ($headerNavSecItem['url'] ?? '#')) }}"
            @if(! empty($headerNavSecItem['data_element'])) data-element="{{ $headerNavSecItem['data_element'] }}" @endif>
           <span>{{ $headerNavSecItem['label'] ?? '' }}</span>
         </a>

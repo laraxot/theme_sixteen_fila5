@@ -51,7 +51,7 @@
                         </div>
                          @if (!empty($cta))
                              <div class="col-lg-6 mt-50 mb-4 mb-lg-0">
-                                 @include('pub_theme::components.blocks.cta.segnalazione', [
+                                 @include('pub_theme::components.blocks.cta.ticket', [
                                      'cta' => $cta
                                  ])
                              </div>
@@ -80,22 +80,9 @@
                      @if (!empty($cta))
                      <div class="row mt-50 mb-4 mb-lg-0">
                          <div class="col-lg-6">
-                             <div class="cmp-text-button mt-0">
-                                 <h2 class="title-xxlarge mb-0">{{ $cta['title'] }}</h2>
-                                 <div class="text-wrapper">
-                                     <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
-                                 </div>
-                                 <div class="button-wrapper">
-                                     <button
-                                         type="button"
-                                         class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#modal-disservizio"
-                                     >
-                                         <span>{{ $cta['button_text'] }}</span>
-                                     </button>
-                                 </div>
-                             </div>
+                             @include('pub_theme::components.blocks.cta.ticket', [
+                                 'cta' => $cta,
+                             ])
                          </div>
                      </div>
                      @endif

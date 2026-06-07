@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
     <!-- Navbar Header -->
     <div class="it-header-navbar-wrapper">
@@ -169,5 +169,6 @@
         </div>
     </div>
 </header>
+
 
 

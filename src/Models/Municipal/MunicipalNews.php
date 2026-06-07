@@ -16,6 +16,15 @@ use Illuminate\Support\Str;
 /**
  * Modello per le notizie comunali (Municipal News)
  *
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany, BelongsToMany};
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
+/**
+ * Modello per le notizie comunali (Municipal News)
+ * 
  * Rappresenta notizie, comunicati stampa, avvisi pubblici
  * e altre comunicazioni dell'ente secondo l'ontologia AGID
  */
@@ -416,6 +425,9 @@ class MunicipalNews extends Model
                 // Stima basata su 200 parole al minuto
                 $wordCount = str_word_count(strip_tags($this->content));
 
+                
+                // Stima basata su 200 parole al minuto
+                $wordCount = str_word_count(strip_tags($this->content));
                 return max(1, ceil($wordCount / 200));
             }
         );
@@ -473,6 +485,13 @@ class MunicipalNews extends Model
                     $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
                 }
 
+                
+                // Auto-calcola reading time se non impostato
+                if (!isset($this->attributes['reading_time'])) {
+                    $wordCount = str_word_count(strip_tags($value));
+                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
+                }
+                
                 return $value;
             }
         );
@@ -729,6 +748,19 @@ class MunicipalNews extends Model
                 $model->language = 'it';
             }
 
+            
+            if (is_null($model->priority_level)) {
+                $model->priority_level = 2; // Normale
+            }
+            
+            if (is_null($model->urgency_level)) {
+                $model->urgency_level = 2; // Normale
+            }
+            
+            if (is_null($model->language)) {
+                $model->language = 'it';
+            }
+            
             if (is_null($model->revision_number)) {
                 $model->revision_number = 1;
             }
@@ -753,3 +785,7 @@ class MunicipalNews extends Model
         });
     }
 }
+
+
+
+

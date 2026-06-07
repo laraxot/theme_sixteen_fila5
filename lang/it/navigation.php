@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     'main' => 'Navigazione principale',
-'site_title' => 'Il mio Comune',
+    'site_title' => 'Il mio Comune',
     'home' => 'Home',
     'about' => 'Chi siamo',
     'contact' => 'Contatti',

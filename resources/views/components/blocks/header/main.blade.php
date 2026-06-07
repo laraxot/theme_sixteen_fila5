@@ -8,7 +8,7 @@
                     <div class="it-brand-wrapper">
                         <a href="/">
                             <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image href="{{ $logo ?: '/themes/Sixteen/images/logo-comune.svg' }}"/>
+                                <image href="{{ $logo ?: asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                             </svg>
                             <div class="it-brand-text">
                                 <div class="it-brand-title">{{ $municipality ?: 'Il mio Comune' }}</div>

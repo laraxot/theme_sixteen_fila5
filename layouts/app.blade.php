@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Comune di ' . config('comune.nome', 'Nome Comune'))</title>
     
-<!-- Bootstrap Italia CSS removed: use Tailwind + theme assets (design-comuni). See Themes/Sixteen/docs/REMOVE_BOOTSTRAP_CDN.md -->
+    <!-- Bootstrap Italia CSS removed: use Tailwind + theme assets (design-comuni). See Themes/Sixteen/docs/REMOVE_BOOTSTRAP_CDN.md -->
     
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -19,13 +19,13 @@
 <body>
     @include('sixteen::components.header-comune')
     
-<main id="main-content">
+    <main id="main-content">
         @yield('content')
     </main>
     
     @include('sixteen::components.footer-comune')
     
-<!-- Bootstrap Italia JS removed: theme uses Tailwind/Alpine/Lit. If needed, include local assets via design-comuni. See Themes/Sixteen/docs/REMOVE_BOOTSTRAP_CDN.md -->
+    <!-- Bootstrap Italia JS removed: theme uses Tailwind/Alpine/Lit. If needed, include local assets via design-comuni. See Themes/Sixteen/docs/REMOVE_BOOTSTRAP_CDN.md -->
     
     <!-- Leaflet JS per le mappe -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -38,5 +38,6 @@
     @stack('scripts')
 </body>
 </html>
+
 
 

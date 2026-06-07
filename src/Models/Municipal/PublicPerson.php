@@ -16,6 +16,15 @@ use Illuminate\Support\Str;
 /**
  * Modello per le persone pubbliche (Public Person)
  *
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsToMany, MorphMany};
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
+/**
+ * Modello per le persone pubbliche (Public Person)
+ * 
  * Rappresenta amministratori, dirigenti, dipendenti e altre figure
  * pubbliche dell'ente secondo l'ontologia AGID
  */
@@ -261,6 +270,11 @@ class PublicPerson extends Model
                 }
 
                 return ! $this->end_date || $this->end_date->isFuture();
+                if (!$this->start_date || $this->start_date->isFuture()) {
+                    return false;
+                }
+                
+                return !$this->end_date || $this->end_date->isFuture();
             }
         );
     }
@@ -276,6 +290,10 @@ class PublicPerson extends Model
                     return;
                 }
 
+                if (!$this->is_in_office) {
+                    return null;
+                }
+                
                 return $this->end_date?->diffInDays(now()) ?? null;
             }
         );
@@ -303,6 +321,9 @@ class PublicPerson extends Model
                     $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
                 }
 
+                if (empty($this->attributes['slug']) && !empty($this->attributes['first_name'])) {
+                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'] . ' ' . $value);
+                }
                 return $value;
             }
         );
@@ -394,6 +415,11 @@ class PublicPerson extends Model
         }
 
         return asset('storage/'.$this->cv_file_path);
+        if (!$this->cv_file_path) {
+            return null;
+        }
+
+        return asset('storage/' . $this->cv_file_path);
     }
 
     /**
@@ -480,3 +506,7 @@ class PublicPerson extends Model
         });
     }
 }
+
+
+
+

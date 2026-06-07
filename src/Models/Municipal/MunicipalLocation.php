@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
+use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsToMany, MorphMany};
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
 
 /**
@@ -310,6 +313,23 @@ class MunicipalLocation extends Model
                     $address .= ' ('.$this->province.')';
                 }
 
+                
+                if ($this->civic_number) {
+                    $address .= ', ' . $this->civic_number;
+                }
+                
+                if ($this->postal_code) {
+                    $address .= ', ' . $this->postal_code;
+                }
+                
+                if ($this->city) {
+                    $address .= ' ' . $this->city;
+                }
+                
+                if ($this->province) {
+                    $address .= ' (' . $this->province . ')';
+                }
+                
                 return $address;
             }
         );
@@ -694,9 +714,18 @@ class MunicipalLocation extends Model
                 $model->country = 'Italia';
             }
 
+            
+            if (is_null($model->country)) {
+                $model->country = 'Italia';
+            }
+            
             if (is_null($model->public_access)) {
                 $model->public_access = true;
             }
         });
     }
 }
+
+
+
+

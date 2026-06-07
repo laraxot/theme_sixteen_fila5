@@ -19,6 +19,16 @@ use Themes\Sixteen\Services\SpidAuthService;
 /**
  * Controller per l'autenticazione SPID
  *
+use Illuminate\Http\{Request, RedirectResponse, Response};
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\{Auth, Log, Session};
+use Themes\Sixteen\Services\SpidAuthService;
+use Themes\Sixteen\Models\User;
+use Themes\Sixteen\Events\{SpidAuthenticated, SpidLoggedOut};
+
+/**
+ * Controller per l'autenticazione SPID
+ * 
  * Gestisce il flusso completo di autenticazione SPID secondo le specifiche AGID
  */
 class SpidAuthController extends Controller
@@ -92,6 +102,20 @@ class SpidAuthController extends Controller
             // Trigger evento
             event(new SpidAuthenticated($user, $userAttributes));
 
+            
+            // Trova o crea l'utente
+            $user = $this->findOrCreateUser($userAttributes);
+            
+            // Effettua il login
+            Auth::login($user, true);
+            
+            // Salva i dati SPID in sessione
+            Session::put('spid.authenticated', true);
+            Session::put('spid.user_data', $userAttributes);
+            
+            // Trigger evento
+            event(new SpidAuthenticated($user, $userAttributes));
+            
             Log::info('SPID authentication completed', [
                 'user_id' => $user->id,
                 'provider' => $userAttributes['provider'],
@@ -366,6 +390,19 @@ class SpidAuthController extends Controller
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.
+        $responseId = 'res_' . bin2hex(random_bytes(16));
+        $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
+
+        return '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL .
+               '<samlp:LogoutResponse xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"' . PHP_EOL .
+               '                      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"' . PHP_EOL .
+               '                      ID="' . $responseId . '"' . PHP_EOL .
+               '                      Version="2.0"' . PHP_EOL .
+               '                      IssueInstant="' . $issueInstant . '">' . PHP_EOL .
+               '  <saml:Issuer>' . config('spid.entity_id') . '</saml:Issuer>' . PHP_EOL .
+               '  <samlp:Status>' . PHP_EOL .
+               '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>' . PHP_EOL .
+               '  </samlp:Status>' . PHP_EOL .
                '</samlp:LogoutResponse>';
     }
 
@@ -390,3 +427,22 @@ class SpidAuthController extends Controller
                '</samlp:LogoutResponse>';
     }
 }
+        $responseId = 'res_' . bin2hex(random_bytes(16));
+        $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
+
+        return '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL .
+               '<samlp:LogoutResponse xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"' . PHP_EOL .
+               '                      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"' . PHP_EOL .
+               '                      ID="' . $responseId . '"' . PHP_EOL .
+               '                      Version="2.0"' . PHP_EOL .
+               '                      IssueInstant="' . $issueInstant . '">' . PHP_EOL .
+               '  <saml:Issuer>' . config('spid.entity_id') . '</saml:Issuer>' . PHP_EOL .
+               '  <samlp:Status>' . PHP_EOL .
+               '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder"/>' . PHP_EOL .
+               '  </samlp:Status>' . PHP_EOL .
+               '</samlp:LogoutResponse>';
+    }
+}
+
+
+

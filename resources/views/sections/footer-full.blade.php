@@ -12,11 +12,11 @@
             {{-- Logo Section --}}
             <div class="row">
                 <div class="col-12 footer-items-wrapper logo-wrapper">
-                    <img class="ue-logo" src="{{ asset('themes/Sixteen/images/logo-eu-inverted.svg') }}" alt="logo Unione Europea">
+                    <img class="ue-logo" src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg') }}" alt="logo Unione Europea">
                     <div class="it-brand-wrapper">
                         <a href="{{ $data['home_url'] ?? '/it' }}">
                             <svg class="icon" aria-hidden="true">
-                                <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#it-pa') }}"></use>
+                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa') }}"></use>
                             </svg>
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ $data['site_name'] ?? 'Nome del Comune' }}</h2>
@@ -129,7 +129,7 @@
                         <li class="list-inline-item">
                             <a class="text-underline" href="{{ $social['url'] }}" aria-label="{{ $social['label'] }}">
                                 <svg class="icon icon-white" aria-hidden="true">
-                                    <use href="{{ asset('themes/Sixteen/assets/svg/sprites.svg#' . $social['icon']) }}"></use>
+                                    <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . $social['icon']) }}"></use>
                                 </svg>
                             </a>
                         </li>

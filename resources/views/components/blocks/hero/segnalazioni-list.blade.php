@@ -9,7 +9,7 @@
     'subtitle' => 'Negli ultimi 12 mesi sono state risolte :count segnalazioni.',
     'count' => 73,
     'cta_text' => 'Segnala disservizio',
-    'cta_url' => '/it/segnalazione-crea',
+    'cta_url' => '/it/tests/ticket-crea',
 ])
 
 <section class="bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">

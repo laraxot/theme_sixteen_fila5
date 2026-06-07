@@ -1,3 +1,8 @@
+/*
+ * Primary Design Comuni tokens, header and navigation overrides.
+ * Extracted from resources/css/app.css to keep app.css as a small import index.
+ */
+/* ========================================
    FINAL HOMEPAGE PARITY OVERRIDES
    Colors VERIFIED from reference 2026-04-02
 ======================================== */
@@ -347,6 +352,7 @@ body {
     pointer-events: none !important;
   }
 }
+
 
 /* Body scroll lock when mobile nav is open */
 body.nav-open {

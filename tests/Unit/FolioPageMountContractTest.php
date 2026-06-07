@@ -64,7 +64,7 @@ test('folio pages con Component vietano props extends section e php slug hack', 
         }
         expect($html)->not->toContain('@props(');
         expect($html)->not->toContain("@extends('layouts.app')");
-        expect($html)->not->toContain('@extends("layouts.app")');
+        expect($html)->not->toContain("@extends(\"layouts.app\")");
         expect($html)->not->toContain("@section('content')");
         expect($html)->not->toMatch('/@php\s+\$pageSlug\s*=/');
     }
