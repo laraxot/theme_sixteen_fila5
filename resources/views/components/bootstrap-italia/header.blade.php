@@ -37,33 +37,36 @@
                                 </div>
                             </div>
                             @guest
-                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('login') }}" data-element="personal-area-login">
-                                    <span class="rounded-icon" aria-hidden="true">
-                                        <svg class="icon icon-primary">
-                                            <use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="d-none d-lg-block">{{ __('pub_theme::ui.personal_area') }}</span>
-                                </a>
+                                @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
                             @else
-                                {{-- ... (logged-in user logic) ... --}}
                                 @php
                                     $authUser = auth()->user();
                                     $headerProfile = $authUser?->profile;
                                     $headerUserDisplayName = trim((string) ($headerProfile->user_name ?? ''));
-                                    if ($headerUserDisplayName === '') $headerUserDisplayName = (string) ($authUser->name ?? $authUser->email ?? 'Account');
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = trim((string) ($headerProfile->full_name ?? ''));
+                                    }
+                                    if ($headerUserDisplayName === '') {
+                                        $headerUserDisplayName = (string) ($authUser->name ?? $authUser->email ?? 'Account');
+                                    }
+                                    $headerAvatarUrl = null;
+                                    if (\is_object($headerProfile) && method_exists($headerProfile, 'getFirstMediaUrl')) {
+                                        $mediaAvatar = (string) $headerProfile->getFirstMediaUrl('avatar');
+                                        if ($mediaAvatar !== '') {
+                                            $headerAvatarUrl = $mediaAvatar;
+                                        }
+                                    }
+                                    if ($headerAvatarUrl === null && filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
+                                        $headerAvatarUrl = $headerProfile->avatar_url;
+                                    }
+                                    $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
                                 @endphp
-                                <div class="it-user-wrapper nav-item dropdown">
-                                    <a href="#" class="btn btn-primary btn-icon btn-full" data-bs-toggle="dropdown">
-                                        <span class="rounded-icon" aria-hidden="true">
-                                            <svg class="icon icon-white">
-                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
-                                            </svg>
-                                        </span>
-                                        <span class="d-none d-lg-block">{{ $headerUserDisplayName }}</span>
-                                    </a>
-                                    {{-- ... dropdown menu ... --}}
-                                </div>
+                                @include('pub_theme::components.sections.header.partials.user-dropdown', [
+                                    'avatarUrl' => $headerAvatarUrl,
+                                    'displayName' => $headerUserDisplayName,
+                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
+                                    'userInitial' => $headerUserInitial,
+                                ])
                             @endguest
                         </div>
                     </div>

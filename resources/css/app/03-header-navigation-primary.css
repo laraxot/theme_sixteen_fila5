@@ -344,7 +344,7 @@ body {
   }
 }
 
-/* Story 7.10: desktop — backdrop overlay disattivato (nav inline via segnalazione-parity / app) */
+/* Story 7.10: desktop — backdrop overlay disattivato (nav inline via ticket-parity / app) */
 @media (min-width: 992px) {
   .it-header-navbar-wrapper .navbar-overlay {
     display: none !important;

@@ -5,7 +5,7 @@
     $title = $data['title'] ?? __($ns . '.map.cta.title.label');
     $text = $data['text'] ?? __($ns . '.map.cta.text.label');
     $buttonText = $data['button_text'] ?? __($ns . '.map.cta.button.label');
-    $buttonUrl = $data['button_url'] ?? '/it/segnalazione-crea';
+    $buttonUrl = $data['button_url'] ?? '/it/tests/ticket-crea';
 @endphp
 
 @if($title)

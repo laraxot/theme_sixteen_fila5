@@ -10,7 +10,17 @@
 
 ## Integrazione blade
 
-File: `resources/views/components/blocks/ticket-layout/layout.blade.php` (e varianti elenco).
+Homepage `/it`: `grid/2col.blade.php` → `ticket/column-main.blade.php` → CTA `cta/ticket.blade.php`.
+
+| View | Path | Regola naming |
+|------|------|----------------|
+| Colonna principale | `components/blocks/ticket/column-main.blade.php` | inglese `ticket` |
+| CTA mappa/lista | `components/blocks/cta/ticket.blade.php` | **vietato** `cta/segnalazione` — vedi [no-italian-component-names](../rules/no-italian-component-names.md) |
+| Include | `@include('pub_theme::components.blocks.cta.ticket', ['cta' => $cta])` | `$cta` da `TicketLayoutViewModel::cta()` |
+
+Testo UI «Fai una segnalazione» resta in `lang/it/` — non nel nome file.
+
+File legacy (altre pagine): `ticket-layout/layout.blade.php` (e varianti elenco).
 
 Pattern attivo:
 

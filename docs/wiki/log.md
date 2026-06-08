@@ -1,4 +1,80 @@
+## [2026-06-06] architecture | Folio shell — no @props/@extends
+
+- Regola: pagine Folio = Folio+Volt + `<x-layouts.app>`; vietato `@props`, `@extends`, `@php $pageSlug`
+- Fix `[container1]/index`: `name('container1.index')`, `@volt('container1.index')`
+- Pest 5/5; root memory `folio-page-shell-no-props-extends.md`
+
+## [2026-06-06] architecture | Header → `route('container0.index')`
+
+- `header/v1.blade.php` allineato (non `container0.list`)
+
+## [2026-06-05] architecture | `container0.index` — Filament way, mount lineare
+
+- `[container0]/index`: ripristinato `@volt('container0.index')`/`@endvolt` (mancava nel blade); mount lineare confermato
+- `[container0]/index`: `name('container0.index')`, `$pageSlug = $container0.'.index'`; rimosso `container0.list` e match locale/CmsPage nel mount
+- Canon: `folio-page-pattern.md`, `folio-route-params-mount.md`, `volt-usage-rule.md`
+- Root memoria: `folio-container0-index-filament-way.md`
+
+## [2026-06-05] architecture | Folio @volt statico — no @volt($pageSlug)
+
+- Tabella `name()` ↔ `@volt()` in `folio-page-pattern.md` (`container0.index` / `container0.view` / `container1.index`)
+- `folio-route-params-mount.md` + `volt-usage-rule.md` allineati
+- Cms: [folio-page-shell-pattern](../../../Modules/Cms/docs/wiki/concepts/folio-page-shell-pattern.md)
+
+## [2026-06-05] docs | @volt obbligatorio su Folio+Component — canon allineato
+
+- `folio-route-params-mount.md`: `@volt('…')` statico = `name()`; senza → `VoltDirectiveMissingException`
+- Root: `no-volt-in-blade-views` eccezione Folio; `volt-route-params-mount-contract` distinzione aggiornata
+
+## [2026-06-05] architecture | Folio params in mount() — fix container0.list
+
+- `[container0]/index.blade.php`: rimosso `@php` + `request()->route()`; title/meta in `mount(string $container0)`
+- Rule: `.cursor/rules/folio-route-params-mount.mdc`
+- Pest: `FolioPageMountContractTest` esteso a `container0/index`
+
+## [2026-06-05] docs | HackerNoon harness — tips 001-022 in wiki locale
+
+- Stub/checklist: second-brain → canon Xot, ai-harness, [hackernoon map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md), [llm-wiki.txt](../../../../../bashscripts/tools/prompts/llm-wiki.txt)
+- GitHub: [#272](https://github.com/laraxot/base_fixcity_fila5/issues/272) / [D#273](https://github.com/laraxot/base_fixcity_fila5/discussions/273)
+
 # Sixteen Wiki Log
+
+## [2026-06-05] architecture | STORY-152 — fromStoredUrl nav + memoria no /it/ no IT Blade
+
+- `FrontofficeUrl::fromStoredUrl()` — normalizza URL CMS `/it/servizi` → locale corrente
+- Nav `partials/nav-primary|secondary` + fallback `topics_url` in `v1.blade.php`
+- Memory root: `no-hardcoded-locale-italian-in-fo-blade.md` · issue [#288](https://github.com/laraxot/base_fixcity_fila5/issues/288)
+
+## [2026-06-05] architecture | No locale hardcoded + no italiano Blade (header)
+
+- `bootstrap-italia/header` DRY: include `partials/user-dropdown` + `personal-area-guest-cta`
+- Memoria root: `fo-folio-localized-urls-no-fake-routes.md`
+- Vietato: `href="/it/profilo/servizi"`, `<span>I miei servizi</span>`
+
+## [2026-06-05] architecture | Header menu — `route()` Folio, no `personalArea*`
+
+- Menu utente: `route('services.categories')` … verificato con `folio:list` — **vietato** `FrontofficeUrl::personalArea*`
+- `FrontofficeUrl`: solo `fromStoredUrl()` (CMS nav) + `path()` / `testsParity()`
+- Doc: [fo-folio-named-routes-header.md](concepts/fo-folio-named-routes-header.md), [fo-header-url-and-translation-contract.md](concepts/fo-header-url-and-translation-contract.md)
+- Test: `HeaderAreaPersonaleLinksContractTest` — scan tutti i `.blade.php` (656 assert)
+- Root: [folio-frontoffice-navigation-links.md](../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md)
+
+## [2026-06-05] rule | Header parity religione — link root wiki + index
+
+- Index header: rule/skill/memoria root + STORY-147 UX §11
+- `header-authenticated-state.md`: frontmatter + parity doppia
+- QMD ingest dopo `qmd update`
+
+## [2026-06-05] ux | STORY-147 header logged — CSS cascade + avatar FO
+
+- Root cause: `11-tailwind-utility-compat` `.btn-primary` blu dopo layer 08; Gravatar identicon in slim bar
+- Fix: `13-final-runtime-overrides.css`, `v1.blade.php` solo media avatar, delta doc aggiornato
+- Canon: [header-logged-in-parity-delta.md](concepts/header-logged-in-parity-delta.md), memoria root `header-html-visual-parity-rule.md`
+
+## [2026-06-05] docs | AI harness tema + HackerNoon
+
+- [ai-harness-theme-sixteen.md](concepts/ai-harness-theme-sixteen.md) in index
+- Canon temi: [ai-harness-theme-discipline.md](../../../docs/wiki/concepts/ai-harness-theme-discipline.md)
 
 ## [2026-06-03] skill | Anthropic frontend-design × civic parity
 

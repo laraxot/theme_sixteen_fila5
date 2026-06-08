@@ -20,9 +20,14 @@
     }
 
     $headerAvatarUrl = null;
-    if (\is_object($headerProfile) && method_exists($headerProfile, 'getAvatarUrl')) {
-        $headerAvatarUrl = $headerProfile->getAvatarUrl();
-    } elseif (filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
+    // FO header parity: media locale → Gravatar (email) → iniziale
+    if (\is_object($headerProfile) && method_exists($headerProfile, 'getFirstMediaUrl')) {
+        $mediaAvatar = (string) $headerProfile->getFirstMediaUrl('avatar');
+        if ($mediaAvatar !== '') {
+            $headerAvatarUrl = $mediaAvatar;
+        }
+    }
+    if ($headerAvatarUrl === null && filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
         $headerAvatarUrl = $headerProfile->avatar_url;
     } elseif (isset($authUser->profile_photo_url) && is_string($authUser->profile_photo_url) && $authUser->profile_photo_url !== '') {
         $headerAvatarUrl = $authUser->profile_photo_url;
@@ -34,6 +39,13 @@
             $headerAvatarUrl = url($profilePhotoPath);
         } else {
             $headerAvatarUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($profilePhotoPath);
+        }
+    }
+
+    if ($headerAvatarUrl === null && $authUser !== null) {
+        $headerAvatarEmail = trim((string) (($headerProfile->email ?? null) ?: ($authUser->email ?? '')));
+        if ($headerAvatarEmail !== '') {
+            $headerAvatarUrl = 'https://www.gravatar.com/avatar/'.md5(mb_strtolower($headerAvatarEmail)).'?s=40&d=mp';
         }
     }
 
@@ -51,7 +63,45 @@
         $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
     }
     $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
-    $headerNavTopicsUrl = $headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/it/argomenti';
+    $headerFolioUrl = static function (string $url): string {
+        if ($url === '' || $url === '#') {
+            return $url;
+        }
+
+        $path = parse_url($url, PHP_URL_PATH);
+        if (! is_string($path) || $path === '') {
+            return $url;
+        }
+
+        $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
+        $segments = array_values(array_filter(explode('/', trim($path, '/')), static fn (string $segment): bool => $segment !== ''));
+        if ($segments !== [] && in_array($segments[0], $supportedLocales, true)) {
+            array_shift($segments);
+        }
+
+        $container = $segments[0] ?? '';
+        if ($container === '') {
+            return route('home');
+        }
+
+        $container = match ($container) {
+            'amministrazione' => 'administration',
+            'novita' => 'news',
+            'servizi', 'lista-categorie' => 'services',
+            'eventi', 'vivere-il-comune' => 'events',
+            'argomenti' => 'topics',
+            'iscrizioni' => 'registrations',
+            'estate-in-citta' => 'summer-in-the-city',
+            'polizia-locale' => 'local-police',
+            default => $container,
+        };
+
+        return route('container0.index', ['container0' => $container]);
+    };
+
+    $headerNavTopicsUrl = $headerFolioUrl(
+        (string) ($headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/argomenti')
+    );
     $headerNavItems     = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'primary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
