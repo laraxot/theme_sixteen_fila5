@@ -1,3 +1,11 @@
+---
+title: "Sixteen Module Documentation"
+type: documentation
+tags: [module, documentation]
+created: 2026-06-05
+updated: 2026-06-05
+---
+
 # Sixteen Theme Documentation
 
 > 🇮🇹 [Biglietto da visita (IT)](../README.md) · 🇬🇧 [Business card (EN)](./readme-en.md)
@@ -335,7 +343,15 @@ APP_DEBUG=false
 3. **Automated Testing**: End-to-end testing integration
 4. **Performance Monitoring**: Real user monitoring (RUM)
 
+### 12. Architettura Laraxot (cross-cutting)
+
+I temi **non** contano modelli/migrazioni, ma gli agenti che toccano Fixcity/User devono rispettare:
+
+- [Parità modulo N=N](../../../../docs/wiki/bmad/architecture-module-model-artifact-parity.md) — audit: `bashscripts/tools/audit-module-artifact-parity.sh Fixcity`
+- [Dati sacri](../../../../docs/wiki/rules/data-sacred-no-destructive-db.md) — solo `php artisan migrate`
+- Wiki tema: [docs/wiki/](./wiki/) · ingest: `bashscripts/docs/llm-wiki-qmd.sh update`
+
 ---
 
-*Last Updated: May 2026*  
+*Last Updated: June 2026*  
 *Version: 1.0.0*

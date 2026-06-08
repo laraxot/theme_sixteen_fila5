@@ -32,8 +32,8 @@
 .text-muted { @apply text-gray-600; }
 .lead { @apply text-xl text-gray-700; }
 
-/* Colors - Design Comuni uses Bootstrap Italia tokens */
-.bg-primary { @apply bg-[#0066CC]; }
+/* Colors - Design Comuni: verde PA = sfondo primario, blu = testo/link istituzionale */
+.bg-primary { @apply bg-[#007A52]; }
 .text-primary { @apply text-[#0066CC]; }
 .bg-secondary { @apply bg-[#6C7688]; }
 .text-secondary { @apply text-[#6C7688]; }
@@ -46,7 +46,7 @@
 .bg-light { @apply bg-gray-100; }
 .text-white { @apply text-white; }
 
-/* Buttons - Design Comuni primary button = #0066CC */
+/* Buttons - Design Comuni primary button = #0066CC (header override in 03/08/13) */
 .btn { @apply inline-flex items-center justify-center gap-2 rounded transition-colors; }
 .btn-primary { @apply bg-[#0066CC] text-white px-4 py-2 hover:bg-[#004A99]; }
 .btn-secondary { @apply bg-[#6C7688] text-white px-4 py-2 hover:bg-[#5A6270]; }
@@ -185,8 +185,8 @@
     font-weight: 800 !important;
 }
 
-/* Submit button */
-button[type="submit"].fi-btn {
+/* Submit button (wizard segnalazione — escluso login FO) */
+body:not([data-page='auth-login']) button[type="submit"].fi-btn {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;
@@ -195,7 +195,7 @@ button[type="submit"].fi-btn {
     --c-600: none !important;
     cursor: pointer;
 }
-button[type="submit"].fi-btn:hover {
+body:not([data-page='auth-login']) button[type="submit"].fi-btn:hover {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;

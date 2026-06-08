@@ -19,6 +19,7 @@ Memoria: [frontend-stack-religion-standing.md](../memories/frontend-stack-religi
 | Windframe / Tailkit | — | OAuth/licenza mancanti |
 | Tailwind MCP | — | Pinterest, non pertinente |
 | Laravel Boost | backend/routes | `boost:mcp --help` OK |
+| Validation gate (MAUVE / PSI / GSC) | post-FO quality | [STORY-137](../../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md), [mcp-validation-fo-pages](./mcp-validation-fo-pages.md) |
 
 ## Workflow
 

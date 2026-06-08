@@ -43,6 +43,18 @@
   --font-sans: "Titillium Web";
   --font-serif: "Titillium Web";
   --font-mono: "Titillium Web";
+
+  /* Verde PA — allineato a tailwind.config.js e PaDesignColors (#007A52) */
+  --color-primary-50: #e6f7f0;
+  --color-primary-100: #b3e6d1;
+  --color-primary-200: #80d5b2;
+  --color-primary-300: #4dc493;
+  --color-primary-400: #1ab374;
+  --color-primary-500: #007a52;
+  --color-primary-600: #006945;
+  --color-primary-700: #005838;
+  --color-primary-800: #00472b;
+  --color-primary-900: #00361e;
 }
 
 /* ========================================
@@ -90,20 +102,21 @@
 ======================================== */
 @import './wizard-spacing-fix.css';
 @import './wizard-visibility-fix.css';
-@import './components/design-comuni.css';
-@import './design-comuni-visual-fix.css';
-@import './design-comuni-global.css';
+@import './components/civic-design-tokens.css';
+@import './components/civic-design-components.css';
+@import './civic-design-visual-fix.css';
+@import './civic-design-global.css';
 @import './faq-parity.css';
-@import './argomenti-parity.css';
+@import './topics-parity.css';
 @import './homepage-visual-fix.css';
 @import './listing-parity.css';
-@import './servizi-parity-fix.css';
-@import './amministrazione-parity-fix.css';
-@import './segnalazione-parity.css';
+@import './services-parity-fix.css';
+@import './administration-parity-fix.css';
+@import './ticket-parity.css';
 @import './homepage-parity-v2.css';
 @import './homepage-mobile-qa.css';
 /* Global fixes MUST be last to override all page-specific rules */
-@import './design-comuni-global-fixes.css';
+@import './civic-design-global-fixes.css';
 
 /* App thematic layers: extracted to keep this import index below 250 lines. */
 @import './app/01-wizard-form-spacing.css';
@@ -119,3 +132,5 @@
 @import './app/11-tailwind-utility-compat.css';
 @import './app/12-wizard-dc-form-shell.css';
 @import './app/13-final-runtime-overrides.css';
+@import './components/fo-filament-form-shell.css';
+@import './app/14-auth-login.css';

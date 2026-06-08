@@ -36,6 +36,8 @@ export default {
         'wizard-required-note',
         'segnalazione-dettaglio-page',
         'segnalazione-area-personale-page',
+        'auth-login-card',
+        'auth-register-card',
         // Select form-select
         'form-select',
         // Bootstrap Italia grid classes (used in segnalazioni-elenco layout)

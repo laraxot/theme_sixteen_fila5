@@ -24,12 +24,6 @@ import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import './components/bootstrap-italia.js';
 import { initHeaderMobileNav } from './theme/header-mobile-nav.js';
-<<<<<<< HEAD
-import '@modules/Geo/resources/js/components/map-lit.js';
-import '@modules/Geo/resources/js/components/map-filter-lit.js';
-import '@modules/Geo/resources/js/components/coordinate-picker-lit.js';
-=======
->>>>>>> d7fd0c4 (delete .c*)
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -111,7 +105,7 @@ initHeaderMobileNav();
 function closeDropdownMenu(menu) {
     if (!menu) { return; }
     menu.classList.remove('show');
-    menu.style.removeProperty('display');
+    menu.style.display = 'none';
     const openDropdown = menu.closest('.dropdown');
     openDropdown?.classList.remove('is-open');
     openDropdown?.querySelector('[data-bs-toggle="dropdown"]')?.setAttribute('aria-expanded', 'false');
@@ -120,13 +114,21 @@ function closeDropdownMenu(menu) {
 function openDropdownMenu(menu, dropdown, toggle) {
     if (!menu || !toggle) { return; }
     menu.classList.add('show');
-    menu.style.removeProperty('display');
+    menu.style.display = 'block';
     dropdown?.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
 }
 
 // Re-aggancia i listener dopo ogni DOM morph di Livewire 4
 function initHeaderDropdowns() {
+    // Slim header: Bootstrap 5 Dropdown (bootstrap-italia.js). Fallback manuale se assente.
+    if (window.bootstrap?.Dropdown) {
+        document.querySelectorAll('.it-header-slim-wrapper [data-bs-toggle="dropdown"]').forEach(function(toggle) {
+            window.bootstrap.Dropdown.getOrCreateInstance(toggle);
+        });
+        return;
+    }
+
     document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(toggle) {
         if (toggle._headerDropdownInit) { return; }
         toggle._headerDropdownInit = true;
@@ -157,6 +159,9 @@ function initHeaderDropdowns() {
 document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
 document.addEventListener('livewire:navigated', initHeaderDropdowns);
 document.addEventListener('livewire:update', initHeaderDropdowns);
+if (document.readyState !== 'loading') {
+    initHeaderDropdowns();
+}
 
 document.addEventListener('DOMContentLoaded', initDarkModeToggle);
 document.addEventListener('livewire:navigated', initDarkModeToggle);

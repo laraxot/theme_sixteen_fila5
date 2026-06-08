@@ -1,18 +1,6 @@
 {
   "../../Modules/Geo/resources/js/components/map-lit.js": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "file": "assets/map-lit-BSSLmzng.js",
-=======
-    "file": "assets/map-lit-ChyrSK8z.js",
->>>>>>> cc7d4ac4e (refactor(sprint-status): update STORY-051 status and modify sprint goals)
-=======
-    "file": "assets/map-lit-CxF0OK2O.js",
->>>>>>> 76e7e6035 (.)
-=======
-    "file": "assets/map-lit-DV6s_caz.js",
->>>>>>> d7fd0c4 (delete .c*)
+    "file": "assets/map-lit-DwpZEX_a.js",
     "name": "map-lit",
     "src": "../../Modules/Geo/resources/js/components/map-lit.js",
     "isEntry": true,
@@ -20,49 +8,15 @@
       "_leaflet.markercluster-kYRFWcpd.js"
     ],
     "dynamicImports": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "_leaflet.markercluster-D35Ho_FI.js",
-=======
-      "_leaflet.markercluster-46AAdR4j.js",
->>>>>>> 76e7e6035 (.)
-      "../../Modules/Geo/node_modules/leaflet.heat/dist/leaflet-heat.js"
-=======
-      "_leaflet.markercluster-D2ITwoyK.js",
-      "../../../node_modules/leaflet.heat/dist/leaflet-heat.js"
->>>>>>> cc7d4ac4e (refactor(sprint-status): update STORY-051 status and modify sprint goals)
-=======
       "node_modules/leaflet.heat/dist/leaflet-heat.js"
->>>>>>> d7fd0c4 (delete .c*)
     ],
     "css": [
-      "assets/map-lit-Dgihpmma.css"
+      "assets/map-lit-25t4MxmA.css"
     ]
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "_leaflet.markercluster-D35Ho_FI.js": {
-    "file": "assets/leaflet.markercluster-D35Ho_FI.js",
-=======
-  "_leaflet.markercluster-D2ITwoyK.js": {
-    "file": "assets/leaflet.markercluster-D2ITwoyK.js",
->>>>>>> cc7d4ac4e (refactor(sprint-status): update STORY-051 status and modify sprint goals)
-=======
-  "_leaflet.markercluster-46AAdR4j.js": {
-    "file": "assets/leaflet.markercluster-46AAdR4j.js",
->>>>>>> 76e7e6035 (.)
-    "name": "leaflet.markercluster",
-    "isDynamicEntry": true,
-    "imports": [
-      "../../Modules/Geo/resources/js/components/map-lit.js"
-    ]
-=======
   "_leaflet.markercluster-kYRFWcpd.js": {
     "file": "assets/leaflet.markercluster-kYRFWcpd.js",
     "name": "leaflet.markercluster"
->>>>>>> d7fd0c4 (delete .c*)
   },
   "node_modules/@splidejs/splide/dist/js/splide.esm.js": {
     "file": "assets/splide.esm-BWa4TFV4.js",
@@ -86,7 +40,7 @@
     ]
   },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-CwUA-J2L.css",
+    "file": "assets/app-test-BG9haIQq.css",
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -95,7 +49,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-BggOP8kl.css",
+    "file": "assets/app-CRsnr2xh.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -104,19 +58,7 @@
     ]
   },
   "resources/js/app.js": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "file": "assets/app-CP37u1e9.js",
-=======
-    "file": "assets/app-C2cymsQF.js",
->>>>>>> cc7d4ac4e (refactor(sprint-status): update STORY-051 status and modify sprint goals)
-=======
-    "file": "assets/app-B2rofjKM.js",
->>>>>>> 76e7e6035 (.)
-=======
-    "file": "assets/app-CIfDvh0Z.js",
->>>>>>> d7fd0c4 (delete .c*)
+    "file": "assets/app-R3M7NT6X.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

@@ -7,13 +7,14 @@
  * https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
  */
 
-import { Tab, Collapse, Modal } from 'bootstrap';
+import { Tab, Collapse, Modal, Dropdown } from 'bootstrap';
 
 // Espone Bootstrap per componenti ES module (es. map-lit.js)
 window.bootstrap = window.bootstrap || {};
 window.bootstrap.Modal = Modal;
 window.bootstrap.Tab = Tab;
 window.bootstrap.Collapse = Collapse;
+window.bootstrap.Dropdown = Dropdown;
 
 /* ============================================================
    BOOTSTRAP — Tab, Collapse, Modal initialization
@@ -22,6 +23,13 @@ function initBootstrapComponents() {
     document.querySelectorAll('[data-bs-toggle="tab"]').forEach(el => new Tab(el));
     document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(el => new Collapse(el, { toggle: false }));
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(el => new Modal(el));
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(el => {
+        if (el._bsDropdownInit) {
+            return;
+        }
+        el._bsDropdownInit = true;
+        Dropdown.getOrCreateInstance(el);
+    });
 }
 
 /* ============================================================
