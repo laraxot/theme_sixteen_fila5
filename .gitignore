@@ -65,3 +65,13 @@ docs/archive/
 *.rej
 *~head
 
+.c*
+.claude-flow
+.supermemory
+bmad
+Main_files
+test-results
+laravel
+.supermemory
+components
+layouts

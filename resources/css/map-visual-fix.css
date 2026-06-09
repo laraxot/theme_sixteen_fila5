@@ -56,21 +56,21 @@
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 5 !important;
+  z-index: 500 !important;
 }
 
 .leaflet-marker-pane {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 6 !important;
+  z-index: 600 !important;
 }
 
 .leaflet-popup-pane {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 7 !important;
+  z-index: 700 !important;
 }
 
 /* map-picker-lit marker styles (divIcon rendered outside Shadow DOM in Leaflet marker pane) */

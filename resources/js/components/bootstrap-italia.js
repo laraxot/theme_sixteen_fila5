@@ -1,10 +1,36 @@
 /**
- * Design Comuni Components - NO Bootstrap Italia
+ * Design Comuni Components - NO Bootstrap Italia runtime
  *
- * Replaces Bootstrap Italia JS with Alpine.js + Splide.
- * All behaviors replicated from:
+ * Uses Bootstrap JS (Tab, Collapse, Modal) for data-bs-toggle behaviors
+ * + Alpine.js + Splide for remaining interactive elements.
+ * Behaviors replicated from:
  * https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
  */
+
+import { Tab, Collapse, Modal, Dropdown } from 'bootstrap';
+
+// Espone Bootstrap per componenti ES module (es. map-lit.js)
+window.bootstrap = window.bootstrap || {};
+window.bootstrap.Modal = Modal;
+window.bootstrap.Tab = Tab;
+window.bootstrap.Collapse = Collapse;
+window.bootstrap.Dropdown = Dropdown;
+
+/* ============================================================
+   BOOTSTRAP — Tab, Collapse, Modal initialization
+   ============================================================ */
+function initBootstrapComponents() {
+    document.querySelectorAll('[data-bs-toggle="tab"]').forEach(el => new Tab(el));
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(el => new Collapse(el, { toggle: false }));
+    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(el => new Modal(el));
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(el => {
+        if (el._bsDropdownInit) {
+            return;
+        }
+        el._bsDropdownInit = true;
+        Dropdown.getOrCreateInstance(el);
+    });
+}
 
 /* ============================================================
    SPLIDE CAROUSEL — Calendar Events
@@ -169,6 +195,7 @@ function initCookiebar() {
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+    initBootstrapComponents();
     initSkipLinks();
     initCookiebar();
     initNotifications();

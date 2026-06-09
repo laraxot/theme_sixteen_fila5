@@ -3,12 +3,17 @@ import laravel, { refreshPaths } from 'laravel-vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
 import nodeResolve from '@rollup/plugin-node-resolve';
 import path from 'path';
+import fs from 'fs';
 
 export default defineConfig({
     base: '/themes/Sixteen/',
     resolve: {
         alias: {
             '@modules': path.resolve(__dirname, '../../Modules'),
+            lit: path.resolve(__dirname, 'node_modules/lit'),
+            leaflet: path.resolve(__dirname, 'node_modules/leaflet'),
+            'leaflet.markercluster': path.resolve(__dirname, 'node_modules/leaflet.markercluster'),
+            'leaflet.heat': path.resolve(__dirname, 'node_modules/leaflet.heat'),
             '@theme-lit': path.resolve(__dirname, 'node_modules/lit/index.js'),
             '@theme-leaflet': path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet-src.js'),
             '@theme-leaflet-css': path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet.css'),
@@ -19,11 +24,13 @@ export default defineConfig({
     },
     plugins: [
         laravel({
+            publicDirectory: '../../../public_html',
             input: [
                 'resources/css/app.css',
                 'resources/css/app-test.css',
                 'resources/js/app.js',
                 '../../Modules/Geo/resources/js/components/map-lit.js',
+                'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
             ],
             refresh: [
                 ...refreshPaths,
@@ -31,9 +38,22 @@ export default defineConfig({
             ],
         }),
         tailwindcss(),
+        {
+            name: 'sync-manifest',
+            closeBundle() {
+                const src = path.resolve(__dirname, '../../../public_html/themes/Sixteen/manifest.json');
+                const dst = path.resolve(__dirname, 'public/manifest.json');
+                try {
+                    if (fs.existsSync(src)) {
+                        fs.mkdirSync(path.dirname(dst), { recursive: true });
+                        fs.copyFileSync(src, dst);
+                    }
+                } catch { /* silent */ }
+            },
+        },
     ],
     build: {
-        outDir: './public',
+        outDir: '../../../public_html/themes/Sixteen',
         emptyOutDir: true,
         manifest: 'manifest.json',
         chunkFileNames: 'js/[name]-[hash].js',

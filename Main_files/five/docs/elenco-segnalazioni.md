@@ -29,4 +29,12 @@ Note:
 - Configurazione Tailwind in `tailwind.config.js` con colori Bootstrap Italia
 - Classi custom minime solo per componenti complessi (mappa, rating)
 
+## Runtime produzione (`/it`)
+
+- View canonica: `laravel/Themes/Sixteen/resources/views/components/blocks/ticket/layout.blade.php`
+- CMS: blocco `ticket-layout` in `config/local/fixcity/database/content/pages/1.json`
+- **No** `Modules\Fixcity\Livewire\TicketList` — rimosso; interattività form via widget Filament
+- Guscio Folio: `<main data-page="page-shell">` (no `ticket-list` sul tema)
+- Wiki: [theme-page-shell](../../docs/wiki/concepts/theme-page-shell.md), [theme-as-vestito](../../../../docs/wiki/concepts/theme-as-vestito-philosophy.md)
+
 

@@ -28,12 +28,12 @@ When fixing fonts on Design Comuni pages, ALWAYS check for conflicting rules wit
 |---|---|---|
 | `style-apply.css` | 3259 | Bootstrap Italia → Tailwind @apply mapping |
 | `components/bootstrap-italia-classes.css` | 1500 | Classi Bootstrap Italia replicate |
-| `segnalazione-parity.css` | **2517** | Stili specifici pagine segnalazione (+850 righe oggi) |
+| `ticket-parity.css` | **2517** | Stili parity flusso ticket (+850 righe) |
 | `homepage-parity-v2.css` | 847 | Fix homepage parity (merge conflicts risolti) |
 | Altri file parity | ~3000 | Argomenti, servizi, admin, ecc. |
 | **Totale** | **~11000+** | |
 
-**Debugbar (2026):** non usare `display:none !important` globale su `#phpdebugbar` nel CSS tema — copriva il dev anche su `/it/segnalazione-crea`. Per screenshot/visual parity nascondere con `document.body.classList.add('parity-capture-hide-dev-overlays')` (regola scoped in [`segnalazione-parity.css`](../resources/css/segnalazione-parity.css) vicino alla §26).
+**Debugbar (2026):** non usare `display:none !important` globale su `#phpdebugbar` nel CSS tema — copriva il dev anche su `/it/segnalazione-crea`. Per screenshot/visual parity nascondere con `document.body.classList.add('parity-capture-hide-dev-overlays')` (regola scoped in [`ticket-parity.css`](../resources/css/ticket-parity.css) vicino alla §26).
 
 ### Classi Mancanti Aggiunte (2026-04-09)
 - `.ps-5` — padding-start 3rem
@@ -91,10 +91,10 @@ When fixing fonts on Design Comuni pages, ALWAYS check for conflicting rules wit
 4. footer-override.css
 5. bootstrap-italia.css
 6. components/bootstrap-italia-classes.css
-7. components/design-comuni.css
-8. design-comuni-visual-fix.css
-9. design-comuni-global.css
-10. Segnalazione/Argomenti/Servizi parity files
+7. components/civic-design-components.css
+8. civic-design-visual-fix.css
+9. civic-design-global.css
+10. ticket-parity, topics-parity, services-parity-fix, administration-parity-fix
 11. app.css overrides finali
 ```
 

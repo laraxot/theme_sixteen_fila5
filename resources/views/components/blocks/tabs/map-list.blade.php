@@ -12,7 +12,7 @@
     $filters = $data['filters'] ?? [];
 @endphp
 
-<div class="row segnalazioni-layout align-items-start gx-4">
+<div class="row align-items-start gx-4">
     <div class="col-lg-3 d-none d-lg-block">
         <fieldset>
             <legend class="h6 text-uppercase category-list__title">categoria</legend>

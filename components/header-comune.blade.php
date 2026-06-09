@@ -27,8 +27,44 @@
                                 </div>
                             </div>
                             <div class="it-access-wrapper">
-                                <a class="btn btn-primary btn-sm" href="#">Accedi all'area personale</a>
-                            </div>
+    @guest
+        <a class="btn btn-primary btn-sm" href="{{ route('login') }}">Accedi all'area personale</a>
+    @else
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @if (Auth::user()->avatar && Auth::user()->avatar->isNotEmpty())
+                    <img src="{{ Auth::user()->avatar->first()->getUrl() }}" alt="Avatar" class="avatar-small me-1">
+                @else
+                    <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=32&d=identicon" alt="Avatar" class="avatar-small me-1">
+                @endif
+                <span class="d-none d-lg-inline">{{ Auth::user()->first_name ?? explode(' ', Auth::user()->name)['0'] }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                            <i class="it-user me-1"></i> {{ __('user::profile.edit') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('comune.tickets.my') ?? '/'.app()->getLocale().'/tickets/my' }}">
+                            <i class="it-list me-1"></i> {{ __('fixcity::tickets.my_tickets') }}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                            @csrf
+                            <button class="dropdown-item" type="submit">
+                                <i class="it-logout-circle-outline me-1"></i> {{ __('user::auth.logout') }}
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    @endguest
+</div>
                         </div>
                     </div>
                 </div>
