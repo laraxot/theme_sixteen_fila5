@@ -1,4 +1,4 @@
-<!-- User Dropdown Component -->
+<!-- User Dropdown Component (legacy — prefer sections/header/partials/user-dropdown) -->
 <div x-data="{userOpen: false}"
      x-data="{avatarUrl: '{{  }}'}"
      x-data="{displayName: '{{  }}'}"
@@ -13,39 +13,36 @@
     <div class="link-list-wrapper">
       <ul class="link-list">
         <li>
-          <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'servizi']) }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ route('services.categories') }}" role="menuitem">
             <x-ui::icon name="briefcase" class="icon-sm"/>
-            Servizi
+            {{ __('pub_theme::header.user.dropdown.my_services.label') }}
           </a>
         </li>
         <li>
-          <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ route('dashboard') }}" role="menuitem">
             <x-ui::icon name="document-text" class="icon-sm"/>
-            Pratiche
+            {{ __('pub_theme::header.user.dropdown.my_practices.label') }}
           </a>
         </li>
         <li>
-          <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ route('area-personale.notifiche') }}" role="menuitem">
             <x-ui::icon name="bell" class="icon-sm"/>
-            Notifiche
+            {{ __('pub_theme::header.user.dropdown.notifications.label') }}
           </a>
         </li>
         <li><span class="divider"></span></li>
         <li>
-          <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ route('profile.edit') }}" role="menuitem">
             <x-ui::icon name="cog-6-tooth" class="icon-sm"/>
-            Impostazioni
+            {{ __('pub_theme::header.user.dropdown.settings.label') }}
           </a>
         </li>
         <li><span class="divider"></span></li>
         <li>
-          <form method="POST" action="{{ route('logout') }}" class="m-0">
-            @csrf
-            <button type="submit" class="dropdown-item list-item text-danger border-0 bg-transparent w-100 text-left">
-              <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2"/>
-              Logout
-            </button>
-          </form>
+          <a class="dropdown-item list-item" href="{{ route('logout') }}" role="menuitem">
+            <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2"/>
+            {{ __('pub_theme::header.user.dropdown.logout.label') }}
+          </a>
         </li>
       </ul>
     </div>

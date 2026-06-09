@@ -7,6 +7,8 @@ This directory contains comprehensive documentation for the Sixteen theme, the p
 
 ### 📁 Core Documentation
 - **[README](README.md)** - Complete theme documentation and development guidelines
+- **[ARCHITECTURE-QUEUEABLE-ACTION](ARCHITECTURE-QUEUEABLE-ACTION.md)** - **Use Module Actions, NEVER Services** 🔴
+- **[BLOCKS-NAMING-CONVENTION](BLOCKS-NAMING-CONVENTION.md)** - Flowbite/Tailwind UI block naming
 - **[Component Library](components/)** - Available components and usage patterns
 - **[Style Guide](style-guide.md)** - Design system and styling guidelines
 

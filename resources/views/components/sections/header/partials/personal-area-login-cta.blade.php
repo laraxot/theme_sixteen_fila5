@@ -4,5 +4,5 @@
             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
         </svg>
     </span>
-    <span class="d-none d-lg-block">{{ __('pub_theme::ui.personal_area') }}</span>
+    <span class="d-none d-lg-block">{{ __('pub_theme::header.guest.cta.label') }}</span>
 </a>

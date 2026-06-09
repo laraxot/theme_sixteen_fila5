@@ -49,6 +49,10 @@ const PAGES = {
     local: 'http://127.0.0.1:8000/it/tests/segnalazioni-elenco',
     reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html'
   },
+  'segnalazioni-elenco-home': {
+    local: 'http://127.0.0.1:8000/it/',
+    reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html'
+  },
   'segnalazione-dettaglio': {
     local: 'http://127.0.0.1:8000/it/tests/segnalazione-dettaglio',
     reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-dettaglio.html'

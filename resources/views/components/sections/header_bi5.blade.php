@@ -3,40 +3,32 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="it-header-slim-wrapper-content">
-              <a class="d-lg-block navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
-              <div class="it-header-slim-right-zone" role="navigation">
-                <div class="nav-item dropdown">
-                  <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
-                    <span class="visually-hidden">Lingua attiva:</span>
-                    <span>ITA</span>
-                    <svg class="icon">
-                      <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="link-list-wrapper">
-                          <ul class="link-list">
-                            <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-                            <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a class="btn btn-primary btn-icon btn-full" href="../servizi/accesso-servizio.html" data-element="personal-area-login">
-                  <span class="rounded-icon" aria-hidden="true">
-                    <svg class="icon icon-primary">
-                      <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
-                    </svg>
-                  </span>
-                  <span class="d-none d-lg-block">Accedi all'area personale</span>
-                </a>
-              </div>
-            </div>
+<div class="it-header-slim-wrapper-content">
+               <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
+               <div class="it-header-slim-right-zone" role="navigation">
+                   <div class="nav-item dropdown">
+                       <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
+                           <span class="visually-hidden">Lingua attiva:</span>
+                           <span>ITA</span>
+                           <svg class="icon">
+                               <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                           </svg>
+                       </button>
+                       <div class="dropdown-menu">
+                           <div class="row">
+                               <div class="col-12">
+                                   <div class="link-list-wrapper">
+                                       <ul class="link-list">
+                                           <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
+                                           <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
+                                       </ul>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
           </div>
         </div>
       </div>
@@ -59,54 +51,79 @@
                       </div>
                     </a>
                 </div>
-                <div class="it-right-zone">
-                  <div class="it-socials d-none d-lg-flex">
-                    <span>Seguici su</span>
-                    <ul>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
-                          </svg>
-                          <span class="visually-hidden">Twitter</span></a>
-                      </li>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
-                          </svg>
-                          <span class="visually-hidden">Facebook</span></a>
-                      </li>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
-                          </svg>
-                          <span class="visually-hidden">YouTube</span></a>
-                      </li>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
-                          </svg>
-                          <span class="visually-hidden">Telegram</span></a>
-                      </li>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
-                          </svg>
-                          <span class="visually-hidden">Whatsapp</span></a>
-                      </li>
-                      <li>
-                        <a href="#" target="_blank">
-                          <svg class="icon icon-sm icon-white align-top">
-                            <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
-                          </svg>
-                          <span class="visually-hidden">RSS</span></a>
-                      </li>
-                    </ul>
-                  </div>
+<div class="it-right-zone">
+       <div class="it-socials d-none d-lg-flex">
+           <span>Seguici su</span>
+           <ul>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
+                       </svg>
+                       <span class="visually-hidden">Twitter</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                       </svg>
+                       <span class="visually-hidden">Facebook</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
+                       </svg>
+                       <span class="visually-hidden">YouTube</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                       </svg>
+                       <span class="visually-hidden">Telegram</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                       </svg>
+                       <span class="visually-hidden">Whatsapp</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#" target="_blank">
+                       <svg class="icon icon-sm icon-white align-top">
+                           <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
+                       </svg>
+                       <span class="visually-hidden">RSS</span>
+                   </a>
+               </li>
+           </ul>
+       </div>
+       <div class="it-search-wrapper d-flex align-items-center">
+           <span class="d-none d-md-block">Cerca</span>
+           <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
+               <svg class="icon">
+                   <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+               </svg>
+           </button>
+       </div>
+       <div class="d-none d-lg-flex">
+           <a href="#" class="btn btn-primary btn-icon btn-full" data-element="personal-area-login">
+               <span class="rounded-icon" aria-hidden="true">
+                   <svg class="icon icon-white">
+                       <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
+                   </svg>
+               </span>
+               <span class="d-none d-lg-block">Area personale</span>
+           </a>
+       </div>
+   </div>
                   <div class="it-search-wrapper">
                     <span class="d-none d-md-block">Cerca</span>
                     <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">

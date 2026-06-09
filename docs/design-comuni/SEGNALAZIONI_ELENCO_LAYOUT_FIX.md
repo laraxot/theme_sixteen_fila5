@@ -35,7 +35,9 @@
 ## 🔧 Fix Applicati
 
 ### 1. Creato Blocco Combinato
-**File**: `laravel/Themes/Sixteen/resources/views/components/blocks/segnalazioni/layout.blade.php`
+**File**: `laravel/Themes/Sixteen/resources/views/components/blocks/ticket/layout.blade.php`
+
+> **Regola**: I blocchi per la gestione ticket devono chiamarsi `ticket`, non `segnalazioni`. "segnalazioni" è la traduzione italiana di "ticket". Il naming tecnico deve usare il termine inglese per coerenza con il modello `Ticket`.
 
 **Contenuto**:
 - ✅ Sidebar filtri (col-lg-3)

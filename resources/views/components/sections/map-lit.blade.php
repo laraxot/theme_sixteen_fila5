@@ -1,8 +1,8 @@
 @php
-    $mapId = $id ?? 'segnalazioni-map';
+    $mapId = $id ?? 'ticket-map';
     $mapDataUrl = $dataUrl ?? asset('data/tickets.json');
     $mapHeight = $height ?? 'clamp(360px,58vh,560px)';
-    $mapAriaLabel = $ariaLabel ?? __('fixcity::segnalazione.map.image.alt');
+    $mapAriaLabel = $ariaLabel ?? __('fixcity::ticket.map.image.alt');
 @endphp
 
 <map-lit
