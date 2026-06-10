@@ -1,8 +1,8 @@
 # HTML Structure Comparison Report
 
 **Generated**: 2026-04-11 22:36:47
-**URL1 (Reference)**: file:///tmp/batch-fix/ref_segnalazioni-elenco.html
-**URL2 (Local)**:     file:///tmp/batch-fix/local_segnalazioni-elenco.html
+**URL1 (Reference)**: file:///tmp/batch-fix/ref_ticket-list.html
+**URL2 (Local)**:     file:///tmp/batch-fix/local_ticket-list.html
 
 ---
 
@@ -122,8 +122,8 @@
 ## Unified Diff (first 100 lines)
 
 ```diff
---- URL1: file:///tmp/batch-fix/ref_segnalazioni-elenco.html
-+++ URL2: file:///tmp/batch-fix/local_segnalazioni-elenco.html
+--- URL1: file:///tmp/batch-fix/ref_ticket-list.html
++++ URL2: file:///tmp/batch-fix/local_ticket-list.html
 @@ -166,418 +166,239 @@
                              <use>
                            <span class="visually-hidden">

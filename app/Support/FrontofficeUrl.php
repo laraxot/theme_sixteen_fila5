@@ -67,20 +67,20 @@ final class FrontofficeUrl
 
     /**
      * Route per l'area personale — I miei servizi
-     * Usa route Folio area-personale.servizi
+     * Usa route Folio area-personale.services
      */
     public static function personalAreaServices(): string
     {
-        return self::folioRoute('area-personale.servizi', '/area-personale/servizi');
+        return self::folioRoute('area-personale.services', '/area-personale/services');
     }
 
     /**
      * Route per l'area personale — Le mie pratiche
-     * Usa route Folio area-personale.pratiche
+     * Usa route Folio area-personale.requests
      */
     public static function personalAreaPractices(): string
     {
-        return self::folioRoute('area-personale.pratiche', '/area-personale/pratiche');
+        return self::folioRoute('area-personale.requests', '/area-personale/requests');
     }
 
     /**

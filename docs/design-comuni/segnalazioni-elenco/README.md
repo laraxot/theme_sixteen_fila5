@@ -3,12 +3,12 @@
 Data: 2026-04-04
 
 ## Obiettivo
-Allineare il layout della pagina `tests.segnalazioni-elenco` alla reference, mantenendo filtro + mappa affiancati anche quando si passa alla tab "Elenco" e documentando i pulsanti di filtro e `Elenco`/`Mappa`.
+Allineare il layout della pagina `tests.ticket-list` alla reference, mantenendo filtro + mappa affiancati anche quando si passa alla tab "Elenco" e documentando i pulsanti di filtro e `Elenco`/`Mappa`.
 
 ## Cosa ho fatto
 - creato il nuovo blocco `pub_theme::components.blocks.segnalazioni.layout` che contiene sidebar + tab mappa/elenco con `x-data` per la logica delle tab/modali;
 - trasferito i dati delle categorie direttamente nel blocco (via proprietà `filters.items`), eliminando il blocco `sidebar-filters` duplicato;
-- aggiornato il JSON `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json` sul tema per usare il blocco nuovo e passare `filters`, `tabs`, `cta`, `items`, `results_count`;
+- aggiornato il JSON `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json` sul tema per usare il blocco nuovo e passare `filters`, `tabs`, `cta`, `items`, `results_count`;
 - rigenerati gli asset (`npm run build`, `npm run copy`) e pulite le cache (`php artisan optimize:clear`).
 
 ## Verifica

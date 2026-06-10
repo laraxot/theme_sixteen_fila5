@@ -1,5 +1,5 @@
---- URL1: file:///tmp/batch-fix/ref_segnalazioni-elenco.html
-+++ URL2: file:///tmp/batch-fix/local_segnalazioni-elenco.html
+--- URL1: file:///tmp/batch-fix/ref_ticket-list.html
++++ URL2: file:///tmp/batch-fix/local_ticket-list.html
 @@ -166,418 +166,239 @@
                              <use>
                            <span class="visually-hidden">

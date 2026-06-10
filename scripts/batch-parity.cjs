@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 
 const PAGES = [
   'segnalazione-area-personale',
-  'segnalazioni-elenco',
+  'ticket-list',
   'segnalazione-dettaglio',
   'segnalazione-01-privacy',
   'segnalazione-02-dati',

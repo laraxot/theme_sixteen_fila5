@@ -14,7 +14,7 @@
 | segnalazione-03-riepilogo | 51% | 🔴 Da correggere |
 | segnalazione-04-conferma | 80% | ⚠️ Discreto |
 | segnalazione-area-personale | 59% | 🔴 Da correggere |
-| segnalazioni-elenco | 85% | ⚠️ Buono |
+| ticket-list | 85% | ⚠️ Buono |
 | segnalazione-disservizio | 4% | 🔴 Critico |
 
 ## Struttura HTML Riferimento (Bootstrap Italia)

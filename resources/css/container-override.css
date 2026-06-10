@@ -16,7 +16,7 @@
     max-width: 960px !important;
     margin: 0 auto !important;
   }
-  body[data-page='segnalazioni-elenco'] #main-container.container {
+  body[data-page='ticket-list'] #main-container.container {
     max-width: 1320px !important;
   }
 }

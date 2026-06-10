@@ -144,7 +144,7 @@ public/assets/splide.esm-BWa4TFV4.js  32.60 KB (gzip: 14.33 KB)
 - ✅ `segnalazione-crea`: NO Alpine/Livewire warnings
 - ✅ `segnalazione-01-privacy`: NO warnings
 - ✅ `segnalazione-02-dati`: NO warnings
-- ✅ `segnalazioni-elenco`: NO warnings
+- ✅ `ticket-list`: NO warnings
 
 ---
 
@@ -174,7 +174,7 @@ Based on this analysis, the CSS/JS approach is validated:
 **Next steps**: Apply same approach to pages with lower HTML parity:
 - segnalazione-dettaglio (72.45%)
 - segnalazione-04-conferma (77.4%)
-- segnalazioni-elenco (77.55%)
+- ticket-list (77.55%)
 
 ---
 

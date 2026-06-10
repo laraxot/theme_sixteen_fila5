@@ -1,8 +1,8 @@
 # HTML Body Structure Comparison — comparison
 
 - Data: 2026-04-08 11:45:14
-- Reference: `https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html`
-- Local: `http://127.0.0.1:8000/it/tests/segnalazioni-elenco`
+- Reference: `https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html`
+- Local: `http://127.0.0.1:8000/it/tests/ticket-list`
 - Soglia obiettivo: 90%
 - Parity score: **65.5%**
 

@@ -11,7 +11,7 @@
 4. CTA to signalare disservizio plus pagination structure for events/services.
 
 ## Local body (actual layout)
-- `main#main-container[data-page="segnalazioni-elenco"]` contains:
+- `main#main-container[data-page="ticket-list"]` contains:
   - `section.py-12`: heading block with title/subtitle from `heading` block.
   - `section.py-8`: “Scenario di conversione” text only (no dynamic filters or map).
   - Alert box referencing governance copy keys.
@@ -25,8 +25,8 @@
 3. **Governance alert & scenario section** – currently textual placeholders; the reference comprises multiple sections (novità, amministrazione, servizi, documenti) arranged in card grids. Must decide whether to recreate those sections via CMS content or restructure to fit the reference scaffolding (e.g., add new blocks for `sections` or multiple `cards-grid` instances).
 
 ## Visual references
-- Reference screenshot: `laravel/Themes/Sixteen/docs/design-comuni/screenshots/segnalazioni-elenco/reference-full.png`
-- Local screenshot: `laravel/Themes/Sixteen/docs/design-comuni/screenshots/segnalazioni-elenco/local-full.png`
+- Reference screenshot: `laravel/Themes/Sixteen/docs/design-comuni/screenshots/ticket-list/reference-full.png`
+- Local screenshot: `laravel/Themes/Sixteen/docs/design-comuni/screenshots/ticket-list/local-full.png`
 
 ## Next steps
 1. Verify `pub_theme::components.blocks.tabs.map-list` and `filters.sidebar` produce the expected DOM; update Blade templates if they currently output placeholder text (see `resources/views/components/blocks/filters/sidebar.blade.php` and `tabs/map-list`).

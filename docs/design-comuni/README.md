@@ -72,11 +72,11 @@ All comparison screenshots are in the `screenshots/` subdirectory:
 
 ### HTML Structure Comparison Tools
 - [bashscripts/html/README.md](../../../bashscripts/html/README.md) — Tool documentation for compare-html-body.py and html-structure-compare.sh
-- [bashscripts/body/](../../../bashscripts/body/) — Bash orchestrator scripts (html-structure-compare.sh, compare-segnalazioni-elenco.sh)
+- [bashscripts/body/](../../../bashscripts/body/) — Bash orchestrator scripts (html-structure-compare.sh, compare-ticket-list.sh)
 - [Body Structure Comparison Output](../body-structure-comparison/) — Generated reports and parity scores
-- [Segnalazioni Elenco Report](../body-structure-comparison/segnalazioni-elenco/report.md) — Structured diff output with BLOCK/FLAG/WARN severity
-- [Segnalazioni Elenco Parity Score](../body-structure-comparison/segnalazioni-elenco/parity-score.md) — Score card tracking parity over runs
-- [Segnalazioni Elenco Analysis](../prompts/segnalazione_disservizio/segnalazioni-elenco-html-parity-analysis.md) — Phase 1 parity summary (90%+ structural)
+- [Segnalazioni Elenco Report](../body-structure-comparison/ticket-list/report.md) — Structured diff output with BLOCK/FLAG/WARN severity
+- [Segnalazioni Elenco Parity Score](../body-structure-comparison/ticket-list/parity-score.md) — Score card tracking parity over runs
+- [Segnalazioni Elenco Analysis](../prompts/segnalazione_disservizio/ticket-list-html-parity-analysis.md) — Phase 1 parity summary (90%+ structural)
 
 ## Progress Status
 

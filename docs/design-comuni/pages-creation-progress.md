@@ -70,7 +70,7 @@
 - [ ] segnalazione-03-riepilogo
 - [ ] segnalazione-04-conferma
 - [ ] segnalazione-area-personale
-- [ ] segnalazioni-elenco
+- [ ] ticket-list
 
 ### Altre Pagine (4)
 - [ ] accesso-servizio

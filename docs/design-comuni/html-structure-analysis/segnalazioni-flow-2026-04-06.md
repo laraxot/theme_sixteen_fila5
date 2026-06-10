@@ -13,7 +13,7 @@
 | `segnalazione-03-riepilogo` | 48.7% | 523 | 384 | Reference includes progress steps plus a richer CTA band; the local page needs the same `cmp-steps-rating` sequence and contact link list to align.
 | `segnalazione-04-conferma` | 44.2% | 551 | 384 | Reference shows multi-column confirmation info and a CTA grid that are absent locally; this structural gap must be closed before styling.$
 | `segnalazione-area-personale` | 19.2% | 886 | 384 | Local is placeholder-heavy while the reference renders the full “area personale” dashboard; rebuild the JSON content blocks to emit those sections.
-| `segnalazioni-elenco` | 32.4% | 775 | 384 | Local now renders the map/list tabs but some wrappers (filters panel, CTA band, rating band) still diverge; CSS/JS can finish the parity once the block nesting matches.
+| `ticket-list` | 32.4% | 775 | 384 | Local now renders the map/list tabs but some wrappers (filters panel, CTA band, rating band) still diverge; CSS/JS can finish the parity once the block nesting matches.
 | `segnalazione-dettaglio` | 31.1% | 804 | 384 | Reference detail page has extensive accordion sections, metadata rows, and image gallery; local uses a simplified card layout that must be replaced with the same `cmp-info-button-card` + `cmp-info-summary` hierarchy.
 
 ## Action items

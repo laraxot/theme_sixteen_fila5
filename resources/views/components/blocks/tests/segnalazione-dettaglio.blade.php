@@ -70,13 +70,18 @@
     }
 @endphp
 
-<div class="container py-5 cms-detail-page">
+<div class="container py-5 segnalazione-dettaglio-page">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             @if (! $ticket)
                 <div class="alert alert-warning">Segnalazione non trovata o non visibile.</div>
             @else
                 <h1 class="title-xxxlarge mb-4">{{ $ticket->name }}</h1>
+
+                @auth
+                    @livewire(\Modules\Fixcity\Filament\Widgets\TicketCitizenRatingPromptWidget::class, ['ticketId' => $ticket->id])
+                @endauth
+
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
                         <div class="mb-3"><div class="text-paragraph-small text-muted">Tipologia</div><div class="fw-semibold">{{ $typeLabel !== '' ? $typeLabel : 'N/D' }}</div></div>
@@ -101,5 +106,3 @@
         </div>
     </div>
 </div>
-
-

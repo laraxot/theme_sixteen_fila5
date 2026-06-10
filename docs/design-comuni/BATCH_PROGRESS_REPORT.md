@@ -20,7 +20,7 @@
 
 | Pagina | Match % | Note |
 |--------|---------|------|
-| segnalazioni-elenco | 95.7% | ✅ TARGET RAGGIUNTO |
+| ticket-list | 95.7% | ✅ TARGET RAGGIUNTO |
 | mappa-sito | 92.9% | ✅ Ottimo |
 | lista-risorse | 84.9% | ✅ Buono |
 | segnalazione-01-privacy | 76.5% | ✅ Buono |

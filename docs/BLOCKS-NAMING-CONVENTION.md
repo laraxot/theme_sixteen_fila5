@@ -27,7 +27,7 @@
 | `ticket/tabs` | `tabs/` | Tabs mappa/elenco |
 | `ticket/ticket-card` | `card-headings/` o custom | Card segnalazione |
 | `ticket/map-filters` | `sidebar-layouts/` | Sidebar filtri |
-| `segnalazioni-elenco` | `grid-layouts/` o `sidebar-layouts/` | Layout completo |
+| `ticket-list` | `grid-layouts/` o `sidebar-layouts/` | Layout completo |
 | `hero` | `hero-sections/` | Header pagina |
 | `grid` | `grid-layouts/` | Layout griglia |
 | `cta` | `cta-sections/` | Call-to-action |

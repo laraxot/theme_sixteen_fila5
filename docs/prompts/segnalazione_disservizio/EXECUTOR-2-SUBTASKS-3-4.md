@@ -18,7 +18,7 @@ Before you start, ensure:
 - [ ] Subtask 1 (comparison script) is COMPLETE
 - [ ] You have read `PHASE-1-FINDINGS.md` (gap analysis from Researcher)
 - [ ] You understand the translation pattern: `fixcity::segnalazione.fields.title.label`
-- [ ] You know NOT to create separate `segnalazioni-elenco.blade.php` (use `[slug].blade.php`)
+- [ ] You know NOT to create separate `ticket-list.blade.php` (use `[slug].blade.php`)
 
 ---
 
@@ -139,7 +139,7 @@ After each change:
 
 1. **Visual Check**
    ```bash
-   curl -s http://127.0.0.1:8000/it/tests/segnalazioni-elenco | head -100
+   curl -s http://127.0.0.1:8000/it/tests/ticket-list | head -100
    ```
 
 2. **Element Count Check** (manually inspect HTML)
@@ -155,7 +155,7 @@ After each change:
 
 ### File Location
 ```
-laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json
+laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json
 ```
 
 ### Expected Structure
@@ -164,7 +164,7 @@ The JSON must contain ALL these sections (populate from reference if missing):
 
 ```json
 {
-  "slug": "segnalazioni-elenco",
+  "slug": "ticket-list",
   "featured_item": {
     "id": "...",
     "title": "...",
@@ -261,7 +261,7 @@ The JSON must contain ALL these sections (populate from reference if missing):
 
 ```php
 // Verify in blade context
-$data = json_decode(file_get_contents('...tests.segnalazioni-elenco.json'), true);
+$data = json_decode(file_get_contents('...tests.ticket-list.json'), true);
 
 // Should not throw errors
 foreach ($data['items'] as $item) {
@@ -291,7 +291,7 @@ foreach ($data['items'] as $item) {
 - [ ] All `*_key` fields use correct translation pattern
 - [ ] No empty/null sections
 - [ ] Data is realistic and sufficient
-- [ ] File path correct: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+- [ ] File path correct: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 ---
 
@@ -301,7 +301,7 @@ After you complete Subtasks 3 & 4:
 
 1. **Executor #1 (Subtask 5)** will re-run comparison script
    ```bash
-   ./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+   ./bashscripts/html/html-structure-compare.sh ticket-list
    ```
 
 2. **Expected Result**: Parity score should be ≥ 90%
@@ -326,8 +326,8 @@ After you complete Subtasks 3 & 4:
 - Pattern: `fixcity::segnalazione.fields.title.label`
 
 **HTML Reference**:
-- https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- Reference analysis in: `PHASE-1-STRATEGY.md` § segnalazioni-elenco Analysis
+- https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- Reference analysis in: `PHASE-1-STRATEGY.md` § ticket-list Analysis
 
 **Bootstrap Grid Reference**:
 - Reference structure uses: `col-lg-3` (sidebar), `col-lg-9` (main)

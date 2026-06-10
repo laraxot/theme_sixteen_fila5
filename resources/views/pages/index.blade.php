@@ -37,6 +37,6 @@ middleware($base_middleware);
     @endpush
 @endif
 
-<x-layouts.app :title="$homeTitle" :meta-description="__('sixteen::home.meta.description')" body-page="segnalazioni-elenco">
+<x-layouts.app :title="$homeTitle" :meta-description="__('sixteen::home.meta.description')" body-page="ticket-list">
     <x-page side="content" slug="home" />
 </x-layouts.app>

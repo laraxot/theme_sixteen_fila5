@@ -18,10 +18,10 @@ All 7 segnalazione pages have been updated to use Design Comuni class system ins
 
 | File | Before | After | Structure Match |
 |------|--------|-------|-----------------|
-| `flow/segnalazione/01-privacy.blade.php` | Generic Tailwind classes | Design Comuni classes (title-xxxlarge, form-check, btn-primary, bg-grey-card) | 30% → 90% |
-| `flow/segnalazione/02-dati.blade.php` | Generic Tailwind classes | Design Comuni classes (cmp-navscroll, card-wrapper, cmp-card-content-box, steppers-content) | 25% → 85% |
-| `flow/segnalazione/03-riepilogo.blade.php` | Generic Tailwind classes | Design Comuni classes (cmp-callout, cmp-info-summary, cmp-nav-steps) | 30% → 85% |
-| `flow/segnalazione/04-conferma.blade.php` | Already good | Minor adjustments | 85% → 90% |
+| `flow.ticket/01-privacy.blade.php` | Generic Tailwind classes | Design Comuni classes (title-xxxlarge, form-check, btn-primary, bg-grey-card) | 30% → 90% |
+| `flow.ticket/02-dati.blade.php` | Generic Tailwind classes | Design Comuni classes (cmp-navscroll, card-wrapper, cmp-card-content-box, steppers-content) | 25% → 85% |
+| `flow.ticket/03-riepilogo.blade.php` | Generic Tailwind classes | Design Comuni classes (cmp-callout, cmp-info-summary, cmp-nav-steps) | 30% → 85% |
+| `flow.ticket/04-conferma.blade.php` | Already good | Minor adjustments | 85% → 90% |
 | `segnalazioni/layout.blade.php` | **Created new** | Full structure with tabs, map, cards, rating, contacts | 0% → 85% |
 
 ### CSS Classes Added (style-apply.css)
@@ -81,7 +81,7 @@ Copied to: `public_html/themes/Sixteen/`
 | segnalazione-03-riepilogo | `/it/tests/segnalazione-03-riepilogo` | ✅ Built |
 | segnalazione-04-conferma | `/it/tests/segnalazione-04-conferma` | ✅ Built |
 | segnalazione-area-personale | `/it/tests/segnalazione-area-personale` | ⚠️ Needs blade update |
-| segnalazioni-elenco | `/it/tests/segnalazioni-elenco` | ✅ New template created |
+| ticket-list | `/it/tests/ticket-list` | ✅ New template created |
 
 ---
 
@@ -109,10 +109,10 @@ Copied to: `public_html/themes/Sixteen/`
 
 ### Blade Templates
 - → [segnalazione-dettaglio.blade.php](../../../resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php)
-- → [01-privacy.blade.php](../../../resources/views/components/blocks/flow/segnalazione/01-privacy.blade.php)
-- → [02-dati.blade.php](../../../resources/views/components/blocks/flow/segnalazione/02-dati.blade.php)
-- → [03-riepilogo.blade.php](../../../resources/views/components/blocks/flow/segnalazione/03-riepilogo.blade.php)
-- → [04-conferma.blade.php](../../../resources/views/components/blocks/flow/segnalazione/04-conferma.blade.php)
+- → [01-privacy.blade.php](../../../resources/views/components/blocks/flow.ticket/01-privacy.blade.php)
+- → [02-dati.blade.php](../../../resources/views/components/blocks/flow.ticket/02-dati.blade.php)
+- → [03-riepilogo.blade.php](../../../resources/views/components/blocks/flow.ticket/03-riepilogo.blade.php)
+- → [04-conferma.blade.php](../../../resources/views/components/blocks/flow.ticket/04-conferma.blade.php)
 - → [segnalazioni/layout.blade.php](../../../resources/views/components/blocks/segnalazioni/layout.blade.php)
 
 ### CSS

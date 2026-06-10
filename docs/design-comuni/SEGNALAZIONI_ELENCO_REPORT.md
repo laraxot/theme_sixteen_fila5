@@ -2,8 +2,8 @@
 
 ## Panoramica
 
-- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- **Local**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- **Local**: http://127.0.0.1:8000/it/tests/ticket-list
 - **Data**: 2026-04-03
 
 ## 📊 Metriche - Progressione Completa
@@ -44,7 +44,7 @@
 
 ## 📝 File Modificati
 
-1. ✅ `config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+1. ✅ `config/local/fixcity/database/content/pages/tests.ticket-list.json`
 2. ✅ `resources/views/components/blocks/tabs/map-list.blade.php`
 3. ✅ Immagini copiate in `public_html/themes/Sixteen/design-comuni/assets/images/`
 
@@ -61,8 +61,8 @@ Fix 5:       95.7% (1293 righe) ← +14.1% ✅ TARGET RAGGIUNTO
 
 ## 📚 Link Correlati
 
-- **Screenshot**: [screenshots/segnalazioni-elenco/](./screenshots/segnalazioni-elenco/)
-- **Script**: [bashscripts/design-comuni/analyze-segnalazioni-elenco.js](../../../bashscripts/design-comuni/analyze-segnalazioni-elenco.js)
+- **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
+- **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 

@@ -1,5 +1,5 @@
 # PHASE 1 - FINDINGS & ANALYSIS
-## segnalazioni-elenco HTML Parity Report
+## ticket-list HTML Parity Report
 
 **Status**: ⏳ PENDING - Awaiting comparison results from Subtask 1
 
@@ -59,7 +59,7 @@ Status:
 ```
 
 ### For JSON Content
-**File**: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+**File**: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 ```diff
 [JSON structure updates]
@@ -84,7 +84,7 @@ Executor #2 should:
 Executor #1 will re-run comparison after fixes:
 
 ```bash
-./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+./bashscripts/html/html-structure-compare.sh ticket-list
 ```
 
 **Expected Result**: Parity score ≥ 90%
@@ -133,7 +133,7 @@ All of these must be TRUE for Phase 1 to succeed:
 - Tools: `bashscripts/docs/html/INDEX.md` (comparison script docs)
 - Reference Files:
   - `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-  - `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+  - `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 ---
 

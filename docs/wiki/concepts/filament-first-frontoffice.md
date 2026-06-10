@@ -7,8 +7,8 @@ tags: [filament, frontoffice, tabs, design-comuni]
 related:
   - ../../../../../../docs/wiki/rules/filament-first-rule.md
   - ./no-standalone-livewire-frontoffice.md
-  - ../../design-comuni/visual-comparison/it-vs-segnalazioni-elenco.md
-  - ../../../../../Modules/Fixcity/docs/wiki/concepts/segnalazioni-elenco-map-architecture.md
+  - ../../design-comuni/visual-comparison/it-vs-ticket-list.md
+  - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
 ---
 
 # Filament-first sul frontoffice Sixteen
@@ -21,11 +21,11 @@ Il tema Sixteen pubblica pagine Design Comuni con **Tailwind + BI semantics**, m
 
 `resources/views/layouts/main.blade.php` carica `@filamentStyles` e `@filamentScripts` — senza pannello admin i tag `<x-filament::*>` restano validi.
 
-## Tab `/it` (segnalazioni-elenco)
+## Tab `/it` (ticket-list)
 
-- **Implementazione:** [segnalazioni-elenco-filament-tabs.md](./segnalazioni-elenco-filament-tabs.md) · story [STORY-065](../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md)
+- **Implementazione:** [ticket-list-filament-tabs.md](./ticket-list-filament-tabs.md) · story [STORY-065](../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md)
 - **Docs Filament:** [Tabs](https://filamentphp.com/docs/5.x/components/tabs) — `alpine-active` + `x-on:click` sullo stesso `x-data` dei pannelli (`segnalazioniLayout`)
-- **Skin:** classi su `.segnalazioni-elenco .fi-tabs` in `style-apply.css` (non sostituire con `ul.nav-tabs` nuovi)
+- **Skin:** classi su `.ticket-list .fi-tabs` in `style-apply.css` (non sostituire con `ul.nav-tabs` nuovi)
 
 ## Dettaglio ticket `/it/tickets/{id}`
 

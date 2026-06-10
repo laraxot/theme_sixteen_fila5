@@ -1004,18 +1004,38 @@ main,
   @apply pt-0;
 }
 
+<<<<<<< Updated upstream
 /* Map/list block — Filament tabs skin (presentation-only: scoped to #main-container, no class dominio) */
 #main-container .fi-tabs {
   @apply w-full max-w-none mx-0 mb-10 mt-3 gap-0 overflow-visible rounded-none bg-transparent p-0 shadow-none;
   --tw-ring-shadow: 0 0 #0000;
+=======
+/* Segnalazioni elenco — Tabs (Design Comuni parity on /it) */
+.segnalazioni-elenco .nav-tabs {
+  @apply flex w-full mx-0 mt-3 gap-0 overflow-visible;
+>>>>>>> Stashed changes
   border-bottom: 1px solid var(--bs-border-color, #d9dadb);
+  list-style: none;
 }
 
+<<<<<<< Updated upstream
 #main-container .fi-tabs .fi-tabs-item {
   @apply flex-1 justify-center rounded-none border-0 bg-transparent px-2 py-2 shadow-none;
-  border-bottom: 2px solid transparent;
+=======
+.segnalazioni-elenco .nav-item {
+  @apply flex-1 m-0 p-0;
 }
 
+.segnalazioni-elenco .nav-link {
+  @apply block w-full text-center rounded-none border-0 bg-transparent px-2 py-3 no-underline font-semibold;
+>>>>>>> Stashed changes
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--bs-secondary, #5c6f82);
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+<<<<<<< Updated upstream
 #main-container .fi-tabs .fi-tabs-item.fi-active {
   @apply bg-transparent;
   border-bottom-color: var(--bs-primary, #0066cc);
@@ -1031,6 +1051,15 @@ main,
 }
 
 #main-container .tab-content [x-cloak] {
+=======
+.segnalazioni-elenco .nav-link.active {
+  @apply bg-transparent;
+  border-bottom-color: var(--bs-primary, #0066cc);
+  color: var(--bs-primary, #0066cc);
+}
+
+.segnalazioni-elenco .tab-content [x-cloak] {
+>>>>>>> Stashed changes
   display: none !important;
 }
 

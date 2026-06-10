@@ -1363,7 +1363,7 @@
       "wire:id": "2lCHb0SoIdHRTtVS9l4r",
       "wire:key": "lw-558597373-0",
       "wire:name": "volt-anonymous-fragment-eyJuYW1lIjoidGVzdHMudmlldyIsInBhdGgiOiJUaGVtZXNcL1NpeHRlZW5cL3Jlc291cmNlc1wvdmlld3NcL3BhZ2VzXC90ZXN0c1wvW3NsdWddLmJsYWRlLnBocCJ9",
-      "wire:snapshot": "{\"data\":{\"slug\":\"segnalazioni-elenco\",\"pageSlug\":\"tests.segnalazioni-elenco\",\"data\":[{\"slug\":\"segnalazioni-elenco\"},{\"s\":\"arr\"}]},\"memo\":{\"id\":\"2lCHb0SoIdHRTtVS9l4r\",\"name\":\"volt-anonymous-fragment-eyJuYW1lIjoidGVzdHMudmlldyIsInBhdGgiOiJUaGVtZXNcL1NpeHRlZW5cL3Jlc291cmNlc1wvdmlld3NcL3BhZ2VzXC90ZXN0c1wvW3NsdWddLmJsYWRlLnBocCJ9\",\"path\":\"it\\/tests\\/segnalazioni-elenco\",\"method\":\"GET\",\"release\":\"a-a-a\",\"attributes\":{\"lang\":\"it\",\"_theme\":{},\"isMobile\":false,\"isTablet\":false,\"isDesktop\":true},\"children\":[],\"scripts\":[],\"assets\":[],\"errors\":[],\"locale\":\"it\",\"islands\":[]},\"checksum\":\"5b88fc898efbbdc35137384efae9adcbe1fa61d32a4cb69d5a640ab026572ffd\"}"
+      "wire:snapshot": "{\"data\":{\"slug\":\"ticket-list\",\"pageSlug\":\"tests.ticket-list\",\"data\":[{\"slug\":\"ticket-list\"},{\"s\":\"arr\"}]},\"memo\":{\"id\":\"2lCHb0SoIdHRTtVS9l4r\",\"name\":\"volt-anonymous-fragment-eyJuYW1lIjoidGVzdHMudmlldyIsInBhdGgiOiJUaGVtZXNcL1NpeHRlZW5cL3Jlc291cmNlc1wvdmlld3NcL3BhZ2VzXC90ZXN0c1wvW3NsdWddLmJsYWRlLnBocCJ9\",\"path\":\"it\\/tests\\/ticket-list\",\"method\":\"GET\",\"release\":\"a-a-a\",\"attributes\":{\"lang\":\"it\",\"_theme\":{},\"isMobile\":false,\"isTablet\":false,\"isDesktop\":true},\"children\":[],\"scripts\":[],\"assets\":[],\"errors\":[],\"locale\":\"it\",\"islands\":[]},\"checksum\":\"5b88fc898efbbdc35137384efae9adcbe1fa61d32a4cb69d5a640ab026572ffd\"}"
     },
     "direct_text": ""
   },
@@ -1373,7 +1373,7 @@
     "attrs": {
       "class": "content page-content",
       "data-side": "content",
-      "data-slug": "tests.segnalazioni-elenco"
+      "data-slug": "tests.ticket-list"
     },
     "direct_text": ""
   },

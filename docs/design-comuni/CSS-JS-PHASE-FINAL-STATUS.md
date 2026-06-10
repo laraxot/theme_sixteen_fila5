@@ -15,7 +15,7 @@
 | segnalazione-area-personale | 89.02% | ✅ PASS | Visual parity achieved |
 | segnalazione-02-dati | 89.11% | ✅ PASS | Visual parity achieved |
 | segnalazione-dettaglio | 83.83% | ✅ PASS | Visual parity achieved |
-| segnalazioni-elenco | 80.29% | ✅ PASS | Visual parity achieved |
+| ticket-list | 80.29% | ✅ PASS | Visual parity achieved |
 | homepage | 79.64% | ⏳ Pending | Below 80% threshold |
 | segnalazione-04-conferma | 77.53% | ⏳ Pending | Below 80% threshold |
 | segnalazione-crea | N/A | ✅ PASS | Wizard page (no reference) |
@@ -99,7 +99,7 @@ npm run copy    # ✅ Success
 | segnalazione-03-riepilogo | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
 | segnalazione-04-conferma | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
 | segnalazione-dettaglio | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
-| segnalazioni-elenco | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
+| ticket-list | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
 | segnalazione-area-personale | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
 | homepage | ✅ local-screenshot-final.png | ✅ reference-screenshot-final.png |
 

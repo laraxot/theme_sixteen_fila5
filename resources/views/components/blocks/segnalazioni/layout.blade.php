@@ -44,6 +44,16 @@
         ];
     }
 
+    $defaultActiveTab = $tabs[0]['id'] ?? 'map';
+    foreach ($tabs as $tab) {
+        if ($tab['active'] ?? false) {
+            $defaultActiveTab = $tab['id'];
+            break;
+        }
+    }
+    $mapTabId = $tabs[0]['id'] ?? 'map';
+    $listTabId = $tabs[1]['id'] ?? 'list';
+
     $mainContent = $blockData['main_content'] ?? [];
     $mainContentId = $mainContent['id'] ?? 'filter-and-cards';
 
@@ -88,6 +98,16 @@
         ->latest()
         ->take(20)
         ->get();
+
+    $minListCards = 3;
+    if ($liveTickets->count() < $minListCards) {
+        $supplements = $filterViewModel->getSupplementListItems(
+            $minListCards - $liveTickets->count(),
+            $liveTickets->pluck('id')->all(),
+        );
+        $liveTickets = $liveTickets->concat($supplements);
+    }
+
     $resultsCount = $filterViewModel->getFilteredCount($selectedTypes);
     $mapDataUrl = '/data/tickets.json';
     $filterItemsAttr = e(json_encode($filters['items'], JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE));
@@ -127,7 +147,7 @@
 @endphp
 
 {{-- Structure aligned with static `main` > `#main-container` > sidebar row (col-lg-3 + col-lg-8): tabs live in the right column. Outer `<main>` is provided by `components/layouts/app`. --}}
-<div id="segnalazioni-elenco-root" class="segnalazioni-elenco" data-section-map="{{ $tabsSectionId }}" data-section-filters="{{ $filtersSectionId }}" role="region" aria-label="{{ $title }}">
+<div id="segnalazioni-elenco-root" class="segnalazioni-elenco" x-data="segnalazioniLayout" x-init="activeTab = '{{ $defaultActiveTab }}'" data-section-map="{{ $tabsSectionId }}" data-section-filters="{{ $filtersSectionId }}" role="region" aria-label="{{ $title }}">
     <div class="container" id="main-container">
         <div class="row justify-content-center mb-md-40 mb-lg-80">
             <div class="col-12 col-lg-10">
@@ -157,21 +177,18 @@
         </div>
 
         <div class="row justify-content-center">
-            @if (!empty($filters['items']))
-                <aside class="col-lg-3 d-none d-lg-block" id="{{ $filtersSectionId }}" aria-label="{{ $filters['title'] }}">
-                    <map-filter-lit
-                        map-id="ticket-map"
-                        title="{{ $filters['title'] }}"
-                        filters="{{ $filterItemsAttr }}"
-                        total="{{ $filters['total'] }}"
-                        initial-selected="{{ $selectedTypesAttr }}"
-                        results-target="#segnalazioni-results-count"
-                        clear-target="#segnalazioni-clear-filters"
-                    ></map-filter-lit>
-                </aside>
-            @endif
+            <aside class="col-lg-3 d-none d-lg-block" id="{{ $filtersSectionId }}" aria-label="{{ $filters['title'] }}">
+                @if (!empty($filters['items']))
+                    @include('pub_theme::components.blocks.segnalazioni.filters-sidebar', [
+                        'filters' => $filters,
+                        'selectedTypes' => $selectedTypes,
+                    ])
+                @else
+                    <p class="subtitle-small text-muted p-3">{{ __($ns . '.filters.empty') }}</p>
+                @endif
+            </aside>
 
-            <div class="{{ !empty($filters['items']) ? 'col-lg-8 offset-lg-1' : 'col-12 col-lg-10 offset-lg-1' }}">
+            <div class="col-lg-8 offset-lg-1">
                 <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
                     <span
                         id="segnalazioni-results-count"
@@ -193,20 +210,18 @@
                     </a>
                 </div>
 
-                @if (!empty($tabs))
-                    <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist" data-section="{{ $tabsSectionId }}">
-                        @foreach ($tabs as $index => $tab)
-                            <li class="nav-item w-100" role="tab">
-                                <a class="nav-link{{ $tab['active'] ?? false ? ' active' : '' }} title-medium-semi-bold pt-0" href="#data-ex-disservizio{{ $index + 1 }}" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio{{ $index + 1 }}" aria-selected="{{ $tab['active'] ?? false ? 'true' : 'false' }}">
-                                    {{ $tab['label'] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
+                <div class="tab-section">
+                    @include('pub_theme::components.blocks.segnalazioni.tabs', [
+                        'tabs' => $tabs,
+                        'sectionId' => $tabsSectionId,
+                    ])
 
-                <div class="tab-content">
-                    <div class="tab-pane fade{{ isset($tabs[0]) && ($tabs[0]['active'] ?? false) ? ' show active' : '' }}" id="data-ex-disservizio1" role="tabpanel">
+<div class="tab-content">
+                          <div
+                              id="data-ex-disservizio1"
+                              role="tabpanel"
+                              class="tab-pane fade show active"
+                          >
                         <div class="row">
                             <div class="col-12">
                                 <map-lit
@@ -225,7 +240,7 @@
                                             <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
                                         </div>
                                         <div class="button-wrapper">
-                                            <a href="/it/tests/segnalazione-crea" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <a href="{{ $cta['button_url'] ?? '/it/segnalazione-crea' }}" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                                 <span>{{ $cta['button_text'] }}</span>
                                             </a>
                                         </div>
@@ -233,9 +248,13 @@
                                 </div>
                             @endif
                         </div>
-                    </div>
+</div>
 
-                    <div class="tab-pane fade{{ (isset($tabs[0]) && !($tabs[0]['active'] ?? false)) || !isset($tabs[0]) ? ' show active' : '' }}" id="data-ex-disservizio2" role="tabpanel">
+                      <div
+                          id="data-ex-disservizio2"
+                          role="tabpanel"
+                          class="tab-pane fade"
+                      >
                         <div class="row">
                             @forelse ($liveTickets as $item)
                                 @php
@@ -251,11 +270,7 @@
                                                     <div class="card-body p-0">
                                                         <h3 class="medium-title mb-0">{{ $item->name }}</h3>
                                                         <p class="card-info">
-                                                            @if ($loop->first)
-                                                                {{ __($ns . '.card.type.label') }}<br><span>{{ $itemTypeLabel }}</span>
-                                                            @else
-                                                                {{ __($ns . '.card.type.short') }}
-                                                            @endif
+                                                            {{ __($ns . '.card.type.label') }}<br><span>{{ $itemTypeLabel }}</span>
                                                         </p>
 
                                                         <div class="accordion-item">
@@ -274,9 +289,9 @@
                                                                     <div class="cmp-info-summary bg-white border-0">
                                                                         <div class="card">
                                                                             <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-end">
-                                                                                @if (!empty($item['edit_url']))
-                                                                                    <a href="{{ $item['edit_url'] }}" class="d-none text-decoration-none"><span class="text-button-sm-semi t-primary">{{ __($ns . '.card.edit.link.label') }}</span></a>
-                                                                                @endif
+                                                                                <a href="#" class="d-none text-decoration-none" data-element="ticket-edit">
+                                                                                    <span class="text-button-sm-semi t-primary">{{ __($ns . '.card.edit.link.label') }}</span>
+                                                                                </a>
                                                                             </div>
                                                                             <div class="card-body p-0">
                                                                                 @if ($itemAddress)
@@ -287,11 +302,28 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 @endif
-                                                                                @if ($item->content)
+                                                                                @if (! empty($item->content ?? null))
                                                                                     <div class="single-line-info border-light">
                                                                                         <div class="text-paragraph-small">{{ __($ns . '.card.detail.label') }}</div>
                                                                                         <div class="border-light">
                                                                                             <p class="data-text">{{ Str::limit($item->content, 200) }}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                @endif
+                                                                                @if ($loop->first)
+                                                                                    <div class="border-light single-line-info">
+                                                                                        <div class="text-paragraph-small">{{ __($ns . '.card.photos.label') }}</div>
+                                                                                        <div class="border-0 border-light">
+                                                                                            <div class="d-lg-flex gap-2 mt-3">
+                                                                                                <div>
+                                                                                                    <img
+                                                                                                        class="img-fluid mb-3 mb-lg-0 w-100"
+                                                                                                        src="/themes/Sixteen/design-comuni/assets/images/img-disservizio-thumbnail.png"
+                                                                                                        alt=""
+                                                                                                        loading="lazy"
+                                                                                                    >
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 @endif
@@ -324,8 +356,9 @@
             </div>
         </div>
     </div>
+</div>
 
-    @include('pub_theme::components.blocks.feedback.rating', ['data' => $blockData['rating'] ?? []])
+@include('pub_theme::components.blocks.feedback.rating', ['data' => $blockData['rating'] ?? []])
 
     <section id="info-contacts">
         @if (!empty($contacts))
@@ -363,6 +396,8 @@
         @endif
     </section>
 
+    @include('pub_theme::components.blocks.segnalazioni.modal-disservizio', ['sprite' => $sprite])
+
     @if (!empty($filters['items']))
         <div class="modal fade d-lg-none" id="modal-categories" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -372,14 +407,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Chiudi') }}"></button>
                     </div>
                     <div class="modal-body text-black">
-                        <map-filter-lit
-                            map-id="ticket-map"
-                            title=""
-                            filters="{{ $filterItemsJson }}"
-                            total="{{ $filters['total'] }}"
-                            initial-selected="{{ $selectedTypesAttr }}"
-                            results-target="#segnalazioni-results-count"
-                        ></map-filter-lit>
+                        @include('pub_theme::components.blocks.segnalazioni.filters-sidebar', [
+                            'filters' => $filters,
+                            'selectedTypes' => $selectedTypes,
+                        ])
                     </div>
                 </div>
             </div>
@@ -387,5 +418,5 @@
     @endif
 </div>
 
-{{-- map-lit + map-filter-lit: Sixteen app.js (modulo Geo) --}}
+{{-- map-lit + filtri fieldset (STORY-058): Sixteen app.js + modulo Geo --}}
 <style>.leaflet-container { z-index: 1; }</style>

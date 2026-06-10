@@ -54,7 +54,7 @@ laravel/Themes/Sixteen/docs/
 ## 🔗 Cross-Page Navigation
 
 ### By Structural Match
-- **>90%**: argomenti, segnalazioni-elenco, appuntamento-04, etc.
+- **>90%**: argomenti, ticket-list, appuntamento-04, etc.
 - **80-90%**: mappa-sito, amministrazione, lista-risorse, etc.
 - **60-80%**: argomento, servizi-categoria, novita-dettaglio
 - **<20%**: Stub references (aree-amministrative, persona, etc.)
@@ -63,7 +63,7 @@ laravel/Themes/Sixteen/docs/
 - **Content Pages**: homepage, domande-frequenti, risultati-ricerca
 - **Admin/User Management**: amministrazione, aree-amministrative, persona
 - **Transactions**: pagamento, prenotazione-appuntamento
-- **Reports**: segnalazione-disservizio, segnalazioni-elenco
+- **Reports**: segnalazione-disservizio, ticket-list
 
 ### By Issue Type
 - **Spacing/Layout**: Typography, padding, margins

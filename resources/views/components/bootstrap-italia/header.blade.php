@@ -1,6 +1,6 @@
 {{--
     Bootstrap Italia Header — EXACT match of Design Comuni reference
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 --}}
 @php
     /** HTML parity: slug route non è sempre disponibile nel contesto della section header; path è stabile. */

@@ -47,7 +47,7 @@ Questa regola vale per il tema Sixteen e per tutti i moduli che definiscono bloc
 ```
 // ❌ SBAGLIATO — nomi di dominio
 blocks/ticket-layout/
-blocks/segnalazioni-elenco/
+blocks/ticket-list/
 blocks/governance-calendario/
 
 // ✅ CORRETTO — nomi Tailwind/Flowbite

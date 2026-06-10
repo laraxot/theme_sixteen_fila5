@@ -8,7 +8,7 @@ updated: 2026-05-29
 tags: [filament, blade-components, filament-first, tabs, modal, dropdown, badge, button, callout, section, pagination, breadcrumbs]
 related:
   - concepts/filament-first-frontoffice.md
-  - concepts/segnalazioni-elenco-filament-tabs.md
+  - concepts/ticket-list-filament-tabs.md
   - concepts/filament-v5-hybrid-pattern-reference.md
   - ../../docs/wiki/rules/filament-first-rule.md
 ---

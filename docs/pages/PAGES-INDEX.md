@@ -59,7 +59,7 @@
 | ✅ | [segnalazione-03-riepilogo](./segnalazione-03-riepilogo/DIFF-analysis.md) | 92% |  |
 | ✅ | [segnalazione-04-conferma](./segnalazione-04-conferma/DIFF-analysis.md) | 87% |  |
 | ✅ | [segnalazione-area-personale](./segnalazione-area-personale/DIFF-analysis.md) | 97% |  |
-| ✅ | [segnalazioni-elenco](./segnalazioni-elenco/DIFF-analysis.md) | 100% |  |
+| ✅ | [ticket-list](./ticket-list/DIFF-analysis.md) | 100% |  |
 | ✅ | [segnalazione-dettaglio](./segnalazione-dettaglio/DIFF-analysis.md) | 93% |  |
 
 ## Link

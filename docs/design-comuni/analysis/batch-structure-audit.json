@@ -2544,9 +2544,9 @@
       "screenshotErrors": []
     },
     {
-      "slug": "segnalazioni-elenco",
-      "refUrl": "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html",
-      "locUrl": "http://127.0.0.1:8000/it/tests/segnalazioni-elenco",
+      "slug": "ticket-list",
+      "refUrl": "https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html",
+      "locUrl": "http://127.0.0.1:8000/it/tests/ticket-list",
       "jsonExists": true,
       "refStatus": 200,
       "locStatus": 200,
