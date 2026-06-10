@@ -60,6 +60,35 @@ function registerAlpineComponents(AlpineInstance) {
     AlpineInstance.data('accordionItem', () => ({ open: false }));
     AlpineInstance.data('ratingInline', () => ({ rating: 0, hover: 0 }));
 
+<<<<<<< Updated upstream
+=======
+    AlpineInstance.data('ticketLayout', () => ({
+        activeTab: 'map',
+        showModal: false,
+        showFilterModal: false,
+        init() {
+            const syncFromStore = () => {
+                const store = this.$store?.ticketTabs;
+                if (store && store.active !== this.activeTab) {
+                    this.activeTab = store.active;
+                }
+            };
+            this.$watch('activeTab', (tab) => {
+                if (tab !== 'map') { return; }
+                setTimeout(() => {
+                    const mapEl = document.getElementById('ticket-map');
+                    if (mapEl && typeof mapEl.invalidateSize === 'function') {
+                        mapEl.invalidateSize();
+                    }
+                }, 50);
+            });
+            this.$watch('$store.ticketTabs.active', (tab) => {
+                this.activeTab = tab;
+            });
+        },
+    }));
+
+>>>>>>> Stashed changes
     // Dark mode — state + toggle (persistito in localStorage)
     AlpineInstance.data('darkMode', () => ({
         isDark: document.documentElement.classList.contains('dark'),
@@ -80,6 +109,7 @@ if (window.Alpine) {
      }, { once: true });
  }
 
+<<<<<<< Updated upstream
  // Bootstrap tabs shim (no Bootstrap JS): invalidate map when map tab is shown
  document.addEventListener('shown.bs.tab', function (e) {
      const target = e.target;
@@ -98,6 +128,28 @@ if (window.Alpine) {
          }, 100);
      }
  });
+=======
+document.addEventListener('alpine:init', () => {
+    const A = window.Alpine;
+    if (!A) { return; }
+    if (!A.store('ticketTabs')) {
+        A.store('ticketTabs', {
+            active: 'map',
+            setTab(tab) {
+                this.active = tab;
+                if (tab === 'map') {
+                    setTimeout(() => {
+                        const mapEl = document.getElementById('ticket-map');
+                        if (mapEl && typeof mapEl.invalidateSize === 'function') {
+                            mapEl.invalidateSize();
+                        }
+                    }, 50);
+                }
+            },
+        });
+    }
+});
+>>>>>>> Stashed changes
 
 initHeaderMobileNav();
 

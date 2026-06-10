@@ -3,7 +3,7 @@
     'sectionId' => 'map-and-list',
 ])
 
-{{-- HTML parity: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html — Bootstrap Italia native tabs --}}
+{{-- HTML parity: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html — Bootstrap Italia native tabs --}}
 @if (!empty($tabs))
 <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none"
     id="tabDisservizio"

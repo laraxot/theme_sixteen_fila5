@@ -52,7 +52,7 @@
 - ✅ Rating section
 
 ### 2. Aggiornato JSON
-**File**: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+**File**: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 **Modifiche**:
 - ✅ Rimossi blocchi separati `sidebar-filters` e `tabs-map-list`
@@ -82,8 +82,8 @@
 
 ## 📚 Link Correlati
 
-- **Screenshot**: [screenshots/segnalazioni-elenco/](./screenshots/segnalazioni-elenco/)
-- **Script**: [bashscripts/design-comuni/analyze-segnalazioni-elenco.js](../../../bashscripts/design-comuni/analyze-segnalazioni-elenco.js)
+- **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
+- **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 

@@ -272,7 +272,7 @@ Flow multi-step con form fields diversi per ogni step:
 - `segnalazione-03-riepilogo.html` - Riepilogo
 - `segnalazione-04-conferma.html` - Conferma
 - `segnalazione-area-personale.html` - Area personale
-- `segnalazioni-elenco.html` - Elenco + mappa
+- `ticket-list.html` - Elenco + mappa
 
 **Pattern**: `blocks/form/segnalazione.blade.php`
 

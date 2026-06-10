@@ -7,7 +7,7 @@ sources:
   - "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html"
   - "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-04-conferma.html"
   - "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html"
-  - "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html"
+  - "https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html"
   - "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-dettaglio.html"
 confidence: high
 created: 2026-05-04

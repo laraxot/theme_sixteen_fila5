@@ -1,11 +1,11 @@
 # Analisi Struttura HTML - Segnalazioni Elenco
 
 ## Data Analisi
-**Pagina**: segnalazioni-elenco  
-**Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html  
-**Locale**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco  
+**Pagina**: ticket-list  
+**Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html  
+**Locale**: http://127.0.0.1:8000/it/tests/ticket-list  
 **Blade**: `resources/views/pages/tests/[slug].blade.php`  
-**JSON**: `config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+**JSON**: `config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 ---
 

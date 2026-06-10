@@ -5,11 +5,11 @@
 ## 📋 Panoramica
 
 - **Originale:** https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
-- **Produzione locale (canon):** http://127.0.0.1:8000/it — layout «Elenco segnalazioni» (parity target: [segnalazioni-elenco.html](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html)) — story [STORY-058](../../../../docs/stories/STORY-058-it-segnalazioni-elenco-html-visual-parity.md)
+- **Produzione locale (canon):** http://127.0.0.1:8000/it — layout «Elenco segnalazioni» (parity target: [ticket-list.html](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html)) — story [STORY-058](../../../../docs/stories/STORY-058-it-ticket-list-html-visual-parity.md)
 - **Sandbox parity:** http://127.0.0.1:8000/it/tests/homepage — `tests.homepage.json`
 - **Route produzione:** `Themes/Sixteen/resources/views/pages/index.blade.php`
 - **Route sandbox:** `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-- **Stato:** 🔄 In Progress — blocchi CMS: [STORY-062](../../../../docs/stories/STORY-062-segnalazioni-elenco-cms-blocks-decomposition.md); gap: [visual-comparison/it-vs-segnalazioni-elenco.md](../visual-comparison/it-vs-segnalazioni-elenco.md)
+- **Stato:** 🔄 In Progress — blocchi CMS: [STORY-062](../../../../docs/stories/STORY-062-ticket-list-cms-blocks-decomposition.md); gap: [visual-comparison/it-vs-ticket-list.md](../visual-comparison/it-vs-ticket-list.md)
 
 ## 🎯 Obiettivi
 

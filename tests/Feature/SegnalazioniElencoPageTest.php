@@ -80,7 +80,7 @@ final class SegnalazioniElencoPageTest extends TestCase
 
     public function test_segnalazioni_elenco_test_page_loads_successfully(): void
     {
-        $response = $this->get('/it/tests/segnalazioni-elenco');
+        $response = $this->get('/it/tests/ticket-list');
 
         $response->assertStatus(200);
         $response->assertSee('Elenco segnalazioni');

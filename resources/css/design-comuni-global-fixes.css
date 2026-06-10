@@ -1,7 +1,7 @@
    Segnalazioni elenco: center the page shell and keep the map clusters visible.
    The page card is #main-container; <main> must stay full-width.
    ============================================================================ */
-body[data-page='segnalazioni-elenco'] main {
+body[data-page='ticket-list'] main {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
@@ -12,7 +12,7 @@ body[data-page='segnalazioni-elenco'] main {
   box-shadow: none !important;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container {
+body[data-page='ticket-list'] main #main-container {
   width: calc(100% - 2rem) !important;
   max-width: 1176px !important;
   margin: 2rem auto 3.5rem !important;
@@ -21,19 +21,19 @@ body[data-page='segnalazioni-elenco'] main #main-container {
   box-shadow: var(--dc-shadow-soft, 0 20px 48px rgba(20, 52, 84, 0.08)) !important;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container .map-box,
-body[data-page='segnalazioni-elenco'] main #main-container map-lit,
-body[data-page='segnalazioni-elenco'] main #main-container .map-container,
-body[data-page='segnalazioni-elenco'] main #main-container .geo-map-leaflet {
+body[data-page='ticket-list'] main #main-container .map-box,
+body[data-page='ticket-list'] main #main-container map-lit,
+body[data-page='ticket-list'] main #main-container .map-container,
+body[data-page='ticket-list'] main #main-container .geo-map-leaflet {
   min-height: 305px !important;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container map-lit {
+body[data-page='ticket-list'] main #main-container map-lit {
   height: clamp(305px, 52vw, 661px) !important;
 }
 
 @media (max-width: 991.98px) {
-  body[data-page='segnalazioni-elenco'] main #main-container {
+  body[data-page='ticket-list'] main #main-container {
     width: calc(100% - 2px) !important;
     margin: 1rem auto 2rem !important;
     padding: 1.5rem 1rem 2rem !important;
@@ -41,23 +41,23 @@ body[data-page='segnalazioni-elenco'] main #main-container map-lit {
 }
 
 /* Tab Mappa/Elenco — verde istituzionale (#007a52), non blu link BI (#0066cc) */
-body[data-page='segnalazioni-elenco'] main #main-container .nav.nav-tabs .nav-link {
+body[data-page='ticket-list'] main #main-container .nav.nav-tabs .nav-link {
   color: #5c6f82;
   border-bottom: 3px solid transparent;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container .nav.nav-tabs .nav-link.active {
+body[data-page='ticket-list'] main #main-container .nav.nav-tabs .nav-link.active {
   color: var(--bs-primary, #007a52) !important;
   border-bottom: 3px solid var(--bs-primary, #007a52) !important;
   font-weight: 600;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container .nav.nav-tabs .nav-link:not(.active) {
+body[data-page='ticket-list'] main #main-container .nav.nav-tabs .nav-link:not(.active) {
   color: #5c6f82 !important;
   border-bottom: 3px solid transparent !important;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container #block-clear-filters {
+body[data-page='ticket-list'] main #main-container #block-clear-filters {
   color: var(--bi-link, #0066cc) !important;
   background: transparent !important;
   background-color: transparent !important;
@@ -66,7 +66,7 @@ body[data-page='segnalazioni-elenco'] main #main-container #block-clear-filters 
   text-decoration: none;
 }
 
-body[data-page='segnalazioni-elenco'] main #main-container #block-clear-filters:hover {
+body[data-page='ticket-list'] main #main-container #block-clear-filters:hover {
   text-decoration: underline;
   color: var(--bi-link, #0066cc) !important;
   background: transparent !important;

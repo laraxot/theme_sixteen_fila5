@@ -131,7 +131,7 @@
 
 {{--
     Bootstrap Italia Header — EXACT match of Design Comuni reference
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
     Reference: https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html
     
     Updated for Story 5.0: Header Logged-In State
@@ -170,7 +170,7 @@
                                 @include('pub_theme::components.sections.header.partials.user-dropdown', [
                                     'avatarUrl' => $headerAvatarUrl,
                                     'displayName' => $headerUserDisplayName,
-                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
+                                    'unreadNotificationsCount' => $authUser->unreadNotifications()->count(),
                                     'userInitial' => $headerUserInitial,
                                 ])
                             @endguest

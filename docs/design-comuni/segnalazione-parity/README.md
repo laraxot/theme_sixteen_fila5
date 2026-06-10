@@ -11,12 +11,12 @@
 | # | Page | Reference | Local Blade | Status |
 |---|------|-----------|-------------|--------|
 | 1 | segnalazione-dettaglio | `segnalazione-dettaglio.hbs` | `segnalazione-dettaglio.blade.php` | ✅ 90% |
-| 2 | segnalazione-01-privacy | `segnalazione-01-privacy.hbs` | `flow/segnalazione/01-privacy.blade.php` | ✅ 90% |
-| 3 | segnalazione-02-dati | `segnalazione-02-dati.hbs` | `flow/segnalazione/02-dati.blade.php` | ✅ 85% |
-| 4 | segnalazione-03-riepilogo | `segnalazione-03-riepilogo.hbs` | `flow/segnalazione/03-riepilogo.blade.php` | ✅ 85% |
-| 5 | segnalazione-04-conferma | `segnalazione-04-conferma.hbs` | `flow/segnalazione/04-conferma.blade.php` | ✅ 90% |
+| 2 | segnalazione-01-privacy | `segnalazione-01-privacy.hbs` | `flow.ticket/01-privacy.blade.php` | ✅ 90% |
+| 3 | segnalazione-02-dati | `segnalazione-02-dati.hbs` | `flow.ticket/02-dati.blade.php` | ✅ 85% |
+| 4 | segnalazione-03-riepilogo | `segnalazione-03-riepilogo.hbs` | `flow.ticket/03-riepilogo.blade.php` | ✅ 85% |
+| 5 | segnalazione-04-conferma | `segnalazione-04-conferma.hbs` | `flow.ticket/04-conferma.blade.php` | ✅ 90% |
 | 6 | segnalazione-area-personale | `segnalazione-area-personale.hbs` | `flow/area-personale/dashboard.blade.php` | ⚠️ 50% |
-| 7 | segnalazioni-elenco | `segnalazioni-elenco.hbs` | `segnalazioni/layout.blade.php` | ✅ 85% |
+| 7 | ticket-list | `ticket-list.hbs` | `segnalazioni/layout.blade.php` | ✅ 85% |
 
 ---
 
@@ -44,11 +44,11 @@
 | Template | Path |
 |----------|------|
 | segnalazione-dettaglio | `resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php` |
-| 01-privacy | `resources/views/components/blocks/flow/segnalazione/01-privacy.blade.php` |
-| 02-dati | `resources/views/components/blocks/flow/segnalazione/02-dati.blade.php` |
-| 03-riepilogo | `resources/views/components/blocks/flow/segnalazione/03-riepilogo.blade.php` |
-| 04-conferma | `resources/views/components/blocks/flow/segnalazione/04-conferma.blade.php` |
-| segnalazioni-elenco | `resources/views/components/blocks/segnalazioni/layout.blade.php` |
+| 01-privacy | `resources/views/components/blocks/flow.ticket/01-privacy.blade.php` |
+| 02-dati | `resources/views/components/blocks/flow.ticket/02-dati.blade.php` |
+| 03-riepilogo | `resources/views/components/blocks/flow.ticket/03-riepilogo.blade.php` |
+| 04-conferma | `resources/views/components/blocks/flow.ticket/04-conferma.blade.php` |
+| ticket-list | `resources/views/components/blocks/segnalazioni/layout.blade.php` |
 
 ---
 

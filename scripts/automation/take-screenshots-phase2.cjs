@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const BASE_URL = 'http://127.0.0.1:8000';
 const REF_URL = 'https://italia.github.io/design-comuni-pagine-statiche/sito';
-const OUTPUT_DIR = '/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/html-compare/segnalazioni-elenco/screenshots';
+const OUTPUT_DIR = '/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/html-compare/ticket-list/screenshots';
 
 const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
@@ -13,8 +13,8 @@ const viewports = [
 ];
 
 const targets = [
-  { name: 'local', url: `${BASE_URL}/it/tests/segnalazioni-elenco` },
-  { name: 'reference', url: `${REF_URL}/segnalazioni-elenco.html` }
+  { name: 'local', url: `${BASE_URL}/it/tests/ticket-list` },
+  { name: 'reference', url: `${REF_URL}/ticket-list.html` }
 ];
 
 async function capture(browser, target, viewport) {

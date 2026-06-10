@@ -13,7 +13,7 @@ discussions:
 related:
   - ../../../../../docs/wiki/bmad/architecture-r12-english-only-view-paths.md
   - ../../../../../docs/wiki/memories/english-only-file-naming.md
-  - ../concepts/segnalazioni-elenco-map-integration.md
+  - ../concepts/ticket-list-map-integration.md
   - ../../../../../docs/wiki/rules/no-italian-folder-names-in-code.md
   - ../../../../../Modules/Geo/docs/wiki/rules/js-file-english-naming-rule.md
   - ../../../../../.cursor/rules/english-only-naming.mdc
@@ -64,10 +64,10 @@ related:
 
 - `lang/{locale}/*.php` — traduzioni
 - Route slug pubblici: `/it/segnalazione/crea`
-- `data-page="segnalazioni-elenco"` — slug pagina parity Design Comuni
+- `data-page="ticket-list"` — slug pagina parity Design Comuni
 - `_bmad-output/` — artefatti BMAD (possono usare italiano descrittivo)
 - `docs/` — documentazione (può usare italiano, ma preferire inglese)
-- Commenti che citano URL Design Comuni: `// Reference: segnalazioni-elenco.html`
+- Commenti che citano URL Design Comuni: `// Reference: ticket-list.html`
 
 ## Verifica
 

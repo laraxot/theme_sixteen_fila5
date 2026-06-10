@@ -8,7 +8,7 @@
     $initialSelectedStatuses = $vm->selectedStatuses();
 @endphp
 
-{{-- Design Comuni reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html --}}
+{{-- Design Comuni reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html --}}
 <div class="container" id="main-container">
 
 {{-- Alpine: sync desktop ↔ modale; app.js applica filtro mappa su filter-types-updated --}}

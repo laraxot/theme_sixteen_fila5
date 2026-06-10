@@ -2,8 +2,8 @@
 
 ## Panoramica
 
-- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- **Local**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- **Local**: http://127.0.0.1:8000/it/tests/ticket-list
 - **Data**: 2026-04-03
 - **HTML Match**: 95.7% ✅
 - **Focus**: Differenze visive (CSS/JS)
@@ -12,14 +12,14 @@
 
 | Screenshot | Path |
 |-----------|------|
-| Reference Full | [screenshots/segnalazioni-elenco/reference-full.png](./screenshots/segnalazioni-elenco/reference-full.png) |
-| Local Full | [screenshots/segnalazioni-elenco/local-full.png](./screenshots/segnalazioni-elenco/local-full.png) |
-| Reference Header | [screenshots/segnalazioni-elenco/reference-header.png](./screenshots/segnalazioni-elenco/reference-header.png) |
-| Local Header | [screenshots/segnalazioni-elenco/local-header.png](./screenshots/segnalazioni-elenco/local-header.png) |
-| Reference Breadcrumb | [screenshots/segnalazioni-elenco/reference-breadcrumb.png](./screenshots/segnalazioni-elenco/reference-breadcrumb.png) |
-| Local Breadcrumb | [screenshots/segnalazioni-elenco/local-breadcrumb.png](./screenshots/segnalazioni-elenco/local-breadcrumb.png) |
-| Reference Content | [screenshots/segnalazioni-elenco/reference-content.png](./screenshots/segnalazioni-elenco/reference-content.png) |
-| Local Content | [screenshots/segnalazioni-elenco/local-content.png](./screenshots/segnalazioni-elenco/local-content.png) |
+| Reference Full | [screenshots/ticket-list/reference-full.png](./screenshots/ticket-list/reference-full.png) |
+| Local Full | [screenshots/ticket-list/local-full.png](./screenshots/ticket-list/local-full.png) |
+| Reference Header | [screenshots/ticket-list/reference-header.png](./screenshots/ticket-list/reference-header.png) |
+| Local Header | [screenshots/ticket-list/local-header.png](./screenshots/ticket-list/local-header.png) |
+| Reference Breadcrumb | [screenshots/ticket-list/reference-breadcrumb.png](./screenshots/ticket-list/reference-breadcrumb.png) |
+| Local Breadcrumb | [screenshots/ticket-list/local-breadcrumb.png](./screenshots/ticket-list/local-breadcrumb.png) |
+| Reference Content | [screenshots/ticket-list/reference-content.png](./screenshots/ticket-list/reference-content.png) |
+| Local Content | [screenshots/ticket-list/local-content.png](./screenshots/ticket-list/local-content.png) |
 
 ## 🔍 Differenze Visive Identificate
 
@@ -199,8 +199,8 @@
 
 ## 📚 Link Correlati
 
-- **Screenshot**: [screenshots/segnalazioni-elenco/](./screenshots/segnalazioni-elenco/)
-- **Script**: [bashscripts/design-comuni/analyze-segnalazioni-elenco.js](../../../bashscripts/design-comuni/analyze-segnalazioni-elenco.js)
+- **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
+- **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 

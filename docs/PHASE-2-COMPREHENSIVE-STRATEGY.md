@@ -1,5 +1,5 @@
 # PHASE 2 COMPREHENSIVE STRATEGY
-## CSS/JavaScript Visual Parity for segnalazioni-elenco
+## CSS/JavaScript Visual Parity for ticket-list
 
 **Status**: 🟢 STRATEGY COMPLETE - Ready for Execution  
 **Phase**: 2 - CSS & JavaScript Optimization  
@@ -77,7 +77,7 @@ npm run copy   → Copy to public_html/themes/Sixteen/
 - JavaScript: Vanilla JS (custom components)
 - Design System: AGID palette + Design Comuni tokens
 
-**segnalazioni-elenco Specific Styling**:
+**ticket-list Specific Styling**:
 1. **Hero Section**: Large background image, overlaid content, title + metadata
 2. **Tab Navigation**: Active state indicators, ARIA attributes, keyboard support
 3. **Sidebar Filters**: Form checkboxes with custom styling, category hierarchy
@@ -254,8 +254,8 @@ npm run copy   → Copy to public_html/themes/Sixteen/
 ### 5. Visual Parity Report
 
 **Deliverable**: Side-by-side screenshot comparison
-- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- Local: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- Local: http://127.0.0.1:8000/it/tests/ticket-list
 - Comparison: Pixel-level accuracy check
 - Status: ✅ MATCH or ❌ DIFF with annotation
 
@@ -400,7 +400,7 @@ npm run dev
 
 # In another terminal, serve Laravel
 php artisan serve
-# Visit: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+# Visit: http://127.0.0.1:8000/it/tests/ticket-list
 ```
 
 **2. Build for Testing**:
@@ -413,7 +413,7 @@ npm run build
 npm run copy
 
 # Verify deployed files at:
-# http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+# http://127.0.0.1:8000/it/tests/ticket-list
 ```
 
 **3. Deployment to Production**:

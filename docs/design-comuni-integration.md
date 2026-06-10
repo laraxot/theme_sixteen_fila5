@@ -71,7 +71,7 @@ Template HTML ufficiali per i siti web e servizi digitali dei Comuni Italiani, c
 - Segnalazioni effettuate
 
 #### 7. Elenco Segnalazioni
-**File**: `segnalazioni-elenco.html`
+**File**: `ticket-list.html`
 - Lista completa segnalazioni
 - Mappa interattiva
 - Filtri per tipologia

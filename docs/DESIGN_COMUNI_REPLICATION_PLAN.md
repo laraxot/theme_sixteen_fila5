@@ -82,7 +82,7 @@ All pages will be accessible at `http://fixcity.local/it/tests/<page-slug>`
 | Step 3 - Riepilogo | `/sit/segnalazione-03-riepilogo.html` | `/it/tests/segnalazione-03-riepilogo` |
 | Step 4 - Conferma | `/sit/segnalazione-04-conferma.html` | `/it/tests/segnalazione-04-conferma` |
 | Area personale | `/sit/segnalazione-area-personale.html` | `/it/tests/segnalazione-area-personale` |
-| Elenco segnalazioni | `/sit/segnalazioni-elenco.html` | `/it/tests/segnalazioni-elenco` |
+| Elenco segnalazioni | `/sit/ticket-list.html` | `/it/tests/ticket-list` |
 
 **Total: 38 pages**
 

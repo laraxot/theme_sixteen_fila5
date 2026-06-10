@@ -56,7 +56,7 @@ Questo report confronta il `body` senza `script` tra reference Design Comuni e p
 | `assistenza-02-conferma` | 200 | 200 | 40.6% | HTML_DELTA |
 | `segnalazione-disservizio` | 404 | 500 | 0.0% | LOCAL_500 |
 | `segnalazione-dettaglio` | 200 | 200 | 25.8% | HTML_DELTA |
-| `segnalazioni-elenco` | 200 | 200 | 31.9% | HTML_DELTA |
+| `ticket-list` | 200 | 200 | 31.9% | HTML_DELTA |
 | `segnalazione-01-privacy` | 200 | 200 | 89.3% | HTML_DELTA |
 | `segnalazione-02-dati` | 200 | 200 | 47.8% | HTML_DELTA |
 | `segnalazione-03-riepilogo` | 200 | 200 | 64.8% | HTML_DELTA |

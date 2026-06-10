@@ -1,5 +1,5 @@
 <pagina> = segnalazione-area-personale
-<pagina> = segnalazioni-elenco
+<pagina> = ticket-list
 <pagina> = segnalazione-dettaglio
 <pagina> = segnalazione-01-privacy
 <pagina> = segnalazione-02-dati
@@ -141,7 +141,7 @@ utilizza BMAD + GSD
 
 
 <pagina> = segnalazione-area-personale
-<pagina> = segnalazioni-elenco
+<pagina> = ticket-list
 <pagina> = segnalazione-dettaglio
 <pagina> = segnalazione-01-privacy
 <pagina> = segnalazione-02-dati

@@ -3,7 +3,7 @@
 **Document**: `laravel/Themes/Sixteen/docs/PHASE-1-STRATEGY.md`  
 **Status**: 📋 Strategy & Research Complete  
 **Target**: Achieve 90% HTML structural parity with Design Comuni reference  
-**Scope**: segnalazioni-elenco (pilot page) → scaling to all pages  
+**Scope**: ticket-list (pilot page) → scaling to all pages  
 **Timeline**: Concurrent execution by multiple AI agents  
 
 ---
@@ -111,7 +111,7 @@ Functional:
 
 ---
 
-## 🎯 PILOT PAGE: segnalazioni-elenco
+## 🎯 PILOT PAGE: ticket-list
 
 ### Why This Page?
 - **Representative**: Contains multiple patterns (list, filters, tabs, forms, CTAs)
@@ -180,7 +180,7 @@ Functional:
 
 ---
 
-## 🔍 ANALYSIS: segnalazioni-elenco.html
+## 🔍 ANALYSIS: ticket-list.html
 
 ### HTML Body Structure
 
@@ -361,10 +361,10 @@ middleware(PageSlugMiddleware::class);
 </x-layouts.app>
 ```
 
-### JSON Content: tests.segnalazioni-elenco.json
+### JSON Content: tests.ticket-list.json
 ```json
 {
-  "id": "tests.segnalazioni-elenco",
+  "id": "tests.ticket-list",
   "content_blocks": {
     "it": [
       {
@@ -438,12 +438,12 @@ Based on initial analysis, likely gaps in current implementation:
 **Executor Agent Task**: Run HTML comparison script
 
 ```bash
-./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+./bashscripts/html/html-structure-compare.sh ticket-list
 ```
 
 **Output Location**:
 ```
-laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/
+laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/
 ├── comparison-report.json          # Full technical report
 ├── parity-summary.txt              # Human-readable summary
 ├── reference-body.html             # Reference structure (extracted)
@@ -474,7 +474,7 @@ laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/
 
 **Work On**: `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
 
-**NOT to Touch**: Don't create separate `segnalazioni-elenco.blade.php`
+**NOT to Touch**: Don't create separate `ticket-list.blade.php`
 
 **Do This**:
 1. Ensure blade calls a generic block component system
@@ -492,7 +492,7 @@ laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/
 ### Phase 1e: JSON Content Structure (PENDING ⏳)
 **Executor Task**: Verify JSON content structure
 
-**Review**: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+**Review**: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 **Ensure**:
 - ✅ All content is in JSON (not hardcoded in blade)
@@ -508,7 +508,7 @@ laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/
 **Executor Task**: Re-run comparison and verify 90% parity
 
 ```bash
-./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+./bashscripts/html/html-structure-compare.sh ticket-list
 ```
 
 **Check Results**:
@@ -559,7 +559,7 @@ Where:
 ```blade
 ❌ 'SEGNALAZIONE::SEGNALAZIONE.ELENCO.TITLE'  (invents namespace)
 ❌ 'segnalazioni.list.title'                  (missing type)
-❌ 'pages::pages.segnalazioni.title'          (wrong namespace)
+❌ 'pages::pages.tickets.title'          (wrong namespace)
 ```
 
 ### Language File Structure
@@ -611,7 +611,7 @@ Phase 1a: RESEARCH (Researcher Agent)
 └── Output: PHASE-1-STRATEGY.md
 
 Phase 1b: COMPARE (Executor Agent #1)
-├── Run: ./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+├── Run: ./bashscripts/html/html-structure-compare.sh ticket-list
 ├── Fetch reference HTML
 ├── Fetch local HTML
 ├── Extract BODY elements
@@ -659,7 +659,7 @@ As work progresses, update these docs (Researcher/Documentation responsibility):
 - [ ] `laravel/Themes/Sixteen/docs/PHASE-1-STRATEGY.md` ← This document
 - [ ] `laravel/Themes/Sixteen/docs/PHASE-1-FINDINGS.md` ← Findings (to create)
 - [ ] `laravel/Themes/Sixteen/docs/PHASE-1-COMPLETION-REPORT.md` ← Results (to create)
-- [ ] `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/` ← Comparison output
+- [ ] `laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/` ← Comparison output
 - [ ] `laravel/Themes/Sixteen/docs/00-INDEX.md` ← Update with Phase 1 progress
 
 ### Bashscripts Documentation
@@ -668,7 +668,7 @@ As work progresses, update these docs (Researcher/Documentation responsibility):
 
 ### Blade/Component Documentation
 - [ ] `laravel/Themes/Sixteen/docs/blocks/` ← Component patterns used
-- [ ] `laravel/Themes/Sixteen/docs/design-comuni/pages/segnalazioni-elenco-structure.md` ← Page-specific reference
+- [ ] `laravel/Themes/Sixteen/docs/design-comuni/pages/ticket-list-structure.md` ← Page-specific reference
 
 ---
 
@@ -713,12 +713,12 @@ As work progresses, update these docs (Researcher/Documentation responsibility):
 #### Executor #1 (Comparison & Verification)
 - **Responsibility**: Run comparison scripts, verify results
 - **Work**: Phase 1b (compare) and Phase 1f (verify)
-- **Command**: `./bashscripts/html/html-structure-compare.sh segnalazioni-elenco`
+- **Command**: `./bashscripts/html/html-structure-compare.sh ticket-list`
 
 #### Executor #2 (Code Changes)
 - **Responsibility**: Fix blade templates and JSON content
 - **Work**: Phase 1d (blade fixes) and Phase 1e (JSON fixes)
-- **Files**: `[slug].blade.php`, `tests.segnalazioni-elenco.json`, block components
+- **Files**: `[slug].blade.php`, `tests.ticket-list.json`, block components
 
 #### Coordinator (Overall)
 - **Responsibility**: Track progress, unblock issues
@@ -742,7 +742,7 @@ As work progresses, update these docs (Researcher/Documentation responsibility):
 
 - 📖 [bashscripts/docs/html/INDEX.md](../../../bashscripts/docs/html/INDEX.md) - HTML comparison tools
 - 📋 [bashscripts/html/html-structure-compare.sh](../../../bashscripts/html/html-structure-compare.sh) - Main script
-- 🎯 [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html) - Live reference
+- 🎯 [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html) - Live reference
 - 📚 [Bootstrap Italia Docs](https://italia.github.io/bootstrap-italia/) - Official component library
 
 ---

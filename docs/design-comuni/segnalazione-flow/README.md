@@ -14,14 +14,14 @@ All 8 Segnalazione pages now use Design Comuni-compatible HTML structure and CSS
 ### Changes Made
 
 #### 1. JSON Content Files Updated
-- `tests.segnalazione-01-privacy.json` — Replaced placeholder blocks with `flow-stepper` + `flow-segnalazione-privacy`
-- `tests.segnalazione-02-dati.json` — Replaced placeholder blocks with `flow-stepper` + `flow-segnalazione-dati`
-- `tests.segnalazione-03-riepilogo.json` — Replaced placeholder blocks with `flow-stepper` + `flow-segnalazione-riepilogo`
+- `tests.segnalazione-01-privacy.json` — Replaced placeholder blocks with `flow-stepper` + `flow.ticket-privacy`
+- `tests.segnalazione-02-dati.json` — Replaced placeholder blocks with `flow-stepper` + `flow.ticket-dati`
+- `tests.segnalazione-03-riepilogo.json` — Replaced placeholder blocks with `flow-stepper` + `flow.ticket-riepilogo`
 
 #### 2. Blade Components Rewritten
-- `flow/segnalazione/01-privacy.blade.php` — Now uses Design Comuni classes: `container`, `row`, `col-lg-8`, `text-paragraph`, `form-check`, `checkbox-body`, `btn btn-primary mobile-full`
-- `flow/segnalazione/02-dati.blade.php` — Now uses: `fieldset`, `legend`, `form-group`, `form-control`, `card user-card`, `steppers-nav`, `btn btn-primary`, `btn btn-outline-primary`
-- `flow/segnalazione/03-riepilogo.blade.php` — Now uses: `it-alert alert-warning`, `card-wrapper`, `card-header`, `it-list-wrapper`, `actions-wrapper`, `terms-section`, `form-check`, `btn btn-primary`, `btn btn-outline-danger`
+- `flow.ticket/01-privacy.blade.php` — Now uses Design Comuni classes: `container`, `row`, `col-lg-8`, `text-paragraph`, `form-check`, `checkbox-body`, `btn btn-primary mobile-full`
+- `flow.ticket/02-dati.blade.php` — Now uses: `fieldset`, `legend`, `form-group`, `form-control`, `card user-card`, `steppers-nav`, `btn btn-primary`, `btn btn-outline-primary`
+- `flow.ticket/03-riepilogo.blade.php` — Now uses: `it-alert alert-warning`, `card-wrapper`, `card-header`, `it-list-wrapper`, `actions-wrapper`, `terms-section`, `form-check`, `btn btn-primary`, `btn btn-outline-danger`
 
 #### 3. CSS Additions (segnalazione-parity.css)
 Added 220+ lines covering:
@@ -49,7 +49,7 @@ Added 220+ lines covering:
 | segnalazione-03-riepilogo | ✅ Updated | ✅ | ✅ | Summary cards, alert, terms section |
 | segnalazione-04-conferma | ✅ | ✅ | ✅ | Already using Design Comuni classes |
 | segnalazione-area-personale | ✅ | ✅ | ✅ | Hero + card list layout |
-| segnalazioni-elenco | ✅ | ✅ | ✅ | Map/list tabs, filters, cards |
+| ticket-list | ✅ | ✅ | ✅ | Map/list tabs, filters, cards |
 | segnalazione-dettaglio | ✅ | ✅ | ✅ | Full detail with sidebar index |
 
 ### CSS Architecture
@@ -128,4 +128,4 @@ All pages captured at desktop (1440px) and tablet (768px) breakpoints:
 - [screenshots/segnalazione-area-personale/](../screenshots/segnalazione-area-personale/)
 - [screenshots/segnalazione-dettaglio/](../screenshots/segnalazione-dettaglio/)
 - [screenshots/segnalazione-disservizio/](../screenshots/segnalazione-disservizio/)
-- [screenshots/segnalazioni-elenco/](../screenshots/segnalazioni-elenco/)
+- [screenshots/ticket-list/](../screenshots/ticket-list/)

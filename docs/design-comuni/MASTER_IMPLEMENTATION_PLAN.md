@@ -84,7 +84,7 @@ Replicare **ESATTAMENTE** le 38 pagine statiche di Design Comuni Italia:
 | 32 | segnalazione-03-riepilogo | [segnalazione-03-riepilogo.html](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html) | `/it/tests/segnalazione-03-riepilogo` | `tests.segnalazione-03-riepilogo.json` | ⏳ |
 | 33 | segnalazione-04-conferma | [segnalazione-04-conferma.html](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-04-conferma.html) | `/it/tests/segnalazione-04-conferma` | `tests.segnalazione-04-conferma.json` | ⏳ |
 | 34 | segnalazione-area-personale | [segnalazione-area-personale.html](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html) | `/it/tests/segnalazione-area-personale` | `tests.segnalazione-area-personale.json` | ⏳ |
-| 35 | segnalazioni-elenco | [segnalazioni-elenco.html](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html) | `/it/tests/segnalazioni-elenco` | `tests.segnalazioni-elenco.json` | ⏳ |
+| 35 | ticket-list | [ticket-list.html](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html) | `/it/tests/ticket-list` | `tests.ticket-list.json` | ⏳ |
 
 ### 9. Pagine Extra (3)
 | # | Slug | Originale | Target | JSON | Status |

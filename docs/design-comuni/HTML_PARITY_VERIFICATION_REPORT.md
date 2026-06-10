@@ -411,7 +411,7 @@ final class Page extends Component
 31. ⏳ segnalazione-03-riepilogo
 32. ⏳ segnalazione-04-conferma
 33. ⏳ segnalazione-area-personale
-34. ⏳ segnalazioni-elenco
+34. ⏳ ticket-list
 35. ⏳ permessi (varianti)
 36. ⏳ pagamenti (varianti)
 37. ⏳ graduatoria (varianti)
