@@ -29,7 +29,7 @@ HTML (`cmp-header.hbs`) + visual (screenshot / computed CSS) vs [DC area persona
 | Stato | Cosa deve comparire nella `it-header-slim-right-zone` (zona destra della barra slim) |
 |--------|----------------------------------------------------------------------------------------|
 | **Non connesso** | Un solo pulsante primario: `pub_theme::header.guest.cta.label`, link `route('login')` (Folio auth). |
-| **Connesso** | Blocco utente slim: **nome leggibile protagonista**, **avatar secondario**, **dropdown** con voci `pub_theme::header.user.dropdown.*.label` e link `route('services.categories')`, `route('dashboard')`, `route('area-personale.notifiche')`, `route('profile.edit')`, **Esci** via `route('logout')` (pagina Folio GET). |
+| **Connesso** | Blocco utente slim: **nome leggibile protagonista**, **avatar secondario**, **dropdown** con voci `pub_theme::header.user.dropdown.*.label` e link `route('services.categories')`, `route('dashboard')`, `route('notifications')`, `route('profile.edit')`, **Esci** via `route('logout')` (pagina Folio GET). |
 
 Non mostrare il pulsante «Accedi all'area personale» a utente già autenticato.
 
@@ -102,7 +102,7 @@ SSoT: [fo-folio-named-routes-header.md](fo-folio-named-routes-header.md) — ver
 |-----------|-----------|
 | I miei servizi | `services.categories` |
 | Le mie pratiche | `dashboard` |
-| Notifiche | `area-personale.notifiche` |
+| Notifiche | `notifications` |
 | Impostazioni | `profile.edit` |
 | Esci | `logout` |
 | Accedi (guest) | `login` |

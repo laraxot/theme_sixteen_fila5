@@ -41,7 +41,7 @@ Non devono esistere directory semantiche hardcoded come:
 - `resources/views/pages/pages`
 - `resources/views/pages/profile`
 - `resources/views/pages/salute`
-- `resources/views/pages/segnalazioni`
+- `resources/views/pages.tickets`
 - `resources/views/pages/services`
 - `resources/views/pages/sport`
 - `resources/views/pages/tickets`
@@ -85,6 +85,7 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 
 ## Collegamenti
 
+- [folio-no-semantic-pages-tickets.md](./wiki/concepts/folio-no-semantic-pages-tickets.md) — post-mortem STORY-285 (`sixteen::` / `pages/tickets`)
 - [README.md](./README.md)
 - [layout-runtime-contract.md](./layout-runtime-contract.md)
 - [component-page-runtime.md](./component-page-runtime.md)

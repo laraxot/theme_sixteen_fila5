@@ -1,5 +1,5 @@
 # PHASE 2 STRATEGY FRAMEWORK
-## CSS/JS Visual Parity for segnalazioni-elenco
+## CSS/JS Visual Parity for ticket-list
 
 **Status**: 📋 PLANNING (Awaiting research results)  
 **Phase**: 2 - CSS & JavaScript Optimization  
@@ -206,10 +206,10 @@ npm run copy         # Copy to public_html/
 php artisan serve
 
 # View page
-http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+http://127.0.0.1:8000/it/tests/ticket-list
 
 # Compare with reference
-https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 
 # Screenshot comparison
 # [Manual visual inspection or automated screenshot testing]

@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('area-personale.notifiche') }}">
+                            <a class="dropdown-item list-item" href="{{ route('notifications') }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
                             </a>
                         </li>

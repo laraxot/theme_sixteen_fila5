@@ -28,7 +28,7 @@ new class extends Component {
 ?>
 
 @php
-    $bodyPage = $slug === 'segnalazioni-elenco' ? 'segnalazioni-elenco' : '';
+    $bodyPage = in_array($slug, ['ticket-list', 'ticket-list']) ? 'ticket-list' : '';
 @endphp
 
 <x-layouts.app :body-page="$bodyPage">

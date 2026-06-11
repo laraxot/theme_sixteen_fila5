@@ -25,7 +25,7 @@
           </a>
         </li>
         <li>
-          <a class="dropdown-item list-item" href="{{ route('area-personale.notifiche') }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ route('notifications') }}" role="menuitem">
             <x-ui::icon name="bell" class="icon-sm"/>
             {{ __('pub_theme::header.user.dropdown.notifications.label') }}
           </a>

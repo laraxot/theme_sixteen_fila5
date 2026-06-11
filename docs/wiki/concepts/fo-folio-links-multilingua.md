@@ -27,8 +27,9 @@ related:
 | **Backoffice** | Filament | `Resource::getUrl()` / panel routes |
 | **API** | Folio `pages/api/` + Action | Path o Action, mai Controller app |
 
-**Vietato** nel menu/header FO:
+**Vietato** nel menu/header FO e nei blocchi CTA (`cta/ticket`):
 
+- `Themes\Sixteen\Support\FrontofficeUrl` — scope solo CMS/JSON nav (`fromStoredUrl`)
 - `route('user.services')`, `route('tests.view', …)` e rotte named modulo per navigazione
 - `url('/servizi')` senza prefisso lingua
 - Controller + `Route::get` per pagine HTML cittadino
@@ -46,11 +47,21 @@ related:
 |--------|------------|--------------|
 | `services.categories` | `/it/lista-categorie` | Catalogo servizi, route name inglese su pagina Folio esistente |
 | `dashboard` | `/it/dashboard` | Pratiche / area utente, Folio User |
-| `area-personale.notifiche` | `/it/area-personale/notifiche` | Notifiche, pagina Folio tema Sixteen |
+| `notifications` | `/it/notifications` | Notifiche, pagina Folio tema Sixteen |
 | `profile.edit` | `/it/profile/edit` | Impostazioni profilo, Folio User |
 | `logout` | `/it/auth/logout` | Logout Folio auth |
 | `tests.view` | `/it/tests/{slug}` | **Solo** parity Design Comuni — non header produzione |
 | `fromStoredUrl($url)` | — | Normalizza URL CMS (`/it/servizi` → locale corrente) |
+
+## Uso CTA blocchi (mappa homepage)
+
+```blade
+{{-- components/blocks/cta/ticket.blade.php — NO FrontofficeUrl --}}
+@php
+    $buttonUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tests/ticket-crea');
+@endphp
+<a href="{{ $buttonUrl }}">…</a>
+```
 
 ## Uso in partial header
 

@@ -33,7 +33,7 @@
 | segnalazione-03-riepilogo | 92.75% ✅ | ⏳ Pending | - |
 | segnalazione-04-conferma | 77.4% ❌ | ⏳ Blocked (HTML < 80%) | - |
 | segnalazione-area-personale | 88.43% ✅ | ⏳ Pending | - |
-| segnalazioni-elenco | 77.55% ❌ | ⏳ Blocked (HTML < 80%) | - |
+| ticket-list | 77.55% ❌ | ⏳ Blocked (HTML < 80%) | - |
 | segnalazione-dettaglio | 72.45% ❌ | ⏳ Blocked (HTML < 80%) | - |
 
 **Ready for CSS/JS**: 4 pages (≥80% HTML parity)  
@@ -110,7 +110,7 @@ Theme: laravel/Themes/Sixteen/
 3. ⏳ **segnalazione-area-personale** (88.43% HTML → CSS/JS)
 
 ### Blocked (HTML Fixes Required First)
-1. ❌ **segnalazioni-elenco** (77.55% — needs modal structure, 121 missing elements)
+1. ❌ **ticket-list** (77.55% — needs modal structure, 121 missing elements)
 2. ❌ **segnalazione-04-conferma** (77.4% — needs heading hierarchy, 28 missing elements)
 3. ❌ **segnalazione-dettaglio** (72.45% — needs content sections, 146 missing elements)
 

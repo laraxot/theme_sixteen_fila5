@@ -38,7 +38,7 @@
 
 ### ✅ Phase 5: Bug Fixes
 - **Fixed 500 error** on segnalazione-02-dati (component namespace issue)
-- **Fixed timeout** on segnalazioni-elenco (simplified template)
+- **Fixed timeout** on ticket-list (simplified template)
 - **Fixed component includes** (`<x-pub_theme::...>` → `@include(...)`)
 - All 5 main pages now return HTTP 200
 
@@ -59,7 +59,7 @@
 | segnalazione-02-dati | ✅ 200 | ~7s |
 | segnalazione-03-riepilogo | ✅ 200 | ~6s |
 | segnalazione-04-conferma | ✅ 200 | ~13s |
-| segnalazioni-elenco | ✅ 200 | ~8s |
+| ticket-list | ✅ 200 | ~8s |
 
 ---
 
@@ -67,10 +67,10 @@
 
 | File | Action | Notes |
 |------|--------|-------|
-| `flow/segnalazione/01-privacy.blade.php` | Modified | Design Comuni classes + translations |
-| `flow/segnalazione/02-dati.blade.php` | Modified | Fixed 500 error + translations |
-| `flow/segnalazione/03-riepilogo.blade.php` | Modified | Design Comuni classes + translations |
-| `flow/segnalazione/04-conferma.blade.php` | Minor changes | Already good |
+| `flow.ticket/01-privacy.blade.php` | Modified | Design Comuni classes + translations |
+| `flow.ticket/02-dati.blade.php` | Modified | Fixed 500 error + translations |
+| `flow.ticket/03-riepilogo.blade.php` | Modified | Design Comuni classes + translations |
+| `flow.ticket/04-conferma.blade.php` | Minor changes | Already good |
 | `segnalazioni/layout.blade.php` | Created | New template + translations |
 | `resources/css/style-apply.css` | Modified | +400 classes, Tailwind v4 fixes |
 | `resources/css/tailwind-bootstrap-mapping.css` | Modified | Tailwind v4 fix |

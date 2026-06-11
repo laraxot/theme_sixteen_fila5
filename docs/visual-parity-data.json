@@ -98,7 +98,7 @@
     "parity": 87
   },
   {
-    "page": "segnalazioni-elenco",
+    "page": "ticket-list",
     "localHeight": 3618,
     "refHeight": 3128,
     "diff": 490,

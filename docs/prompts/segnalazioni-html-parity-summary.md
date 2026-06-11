@@ -12,11 +12,11 @@ Batch run eseguito con `bashscripts/html/html-structure-compare.sh` contro le re
 | `segnalazione-area-personale` | 88.43% | FAIL |
 | `segnalazione-04-conferma` | 77.31% | FAIL |
 | `segnalazione-dettaglio` | 75.18% | FAIL |
-| `segnalazioni-elenco` | 53.87% | FAIL |
+| `ticket-list` | 53.87% | FAIL |
 
 ## Priorita operative
 
-1. `segnalazioni-elenco`
+1. `ticket-list`
    Gap ampio su tag, id e classi. E' la pagina piu distante dalla reference.
 2. `segnalazione-dettaglio`
    Tag/id/classi quasi allineati, ma restano molti elementi mancanti/extra: va chiusa la struttura centrale e laterale.
@@ -28,7 +28,7 @@ Batch run eseguito con `bashscripts/html/html-structure-compare.sh` contro le re
 ## Report per pagina
 
 - `prompts/segnalazione-area-personale/body-structure-comparison/`
-- `prompts/segnalazioni-elenco/body-structure-comparison/`
+- `prompts/ticket-list/body-structure-comparison/`
 - `prompts/segnalazione-dettaglio/body-structure-comparison/`
 - `prompts/segnalazione-01-privacy/body-structure-comparison/`
 - `prompts/segnalazione-03-riepilogo/body-structure-comparison/`

@@ -1,6 +1,6 @@
 {{--
     Filters Sidebar Block - Design Comuni Style with Tailwind CSS
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 --}}
 @props(['title' => 'Filtro', 'filters' => [], 'resultsCount' => 0])
 

@@ -72,7 +72,7 @@
                                         {{ __('pub_theme::header.user.dropdown.my_practices.label') }}
                                     </a>
                                     
-                                    <a href="{{ route('area-personale.notifiche') }}" class="dropdown-item" role="menuitem">
+                                    <a href="{{ route('notifications') }}" class="dropdown-item" role="menuitem">
                                         <span class="d-flex align-items-center">
                                             <x-ui::icon name="bell" class="w-4 h-4 mr-2" />
                                             {{ __('pub_theme::header.user.dropdown.notifications.label') }}

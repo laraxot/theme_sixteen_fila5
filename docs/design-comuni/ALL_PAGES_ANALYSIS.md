@@ -67,7 +67,7 @@
 | assistenza-02-conferma | 0 | 0 | 0% | ❌ |
 | segnalazione-disservizio | 0 | 0 | 0% | ❌ |
 | segnalazione-dettaglio | 0 | 0 | 0% | ❌ |
-| segnalazioni-elenco | 0 | 0 | 0% | ❌ |
+| ticket-list | 0 | 0 | 0% | ❌ |
 | segnalazione-01-privacy | 0 | 0 | 0% | ❌ |
 | segnalazione-02-dati | 0 | 0 | 0% | ❌ |
 | segnalazione-03-riepilogo | 0 | 0 | 0% | ❌ |

@@ -119,7 +119,7 @@
                                         </li>
                                         <li><span class="divider"></span></li>
                                         <li>
-                                            <a class="list-item" href="/{{ app()->getLocale() }}/area-personale/notifiche">
+                                            <a class="list-item" href="{{ route('notifications') }}">
                                                 <svg class="icon icon-sm me-2" aria-hidden="true"><use xlink:href="#it-bell"></use></svg>
                                                 <span>Notifiche</span>
                                             </a>

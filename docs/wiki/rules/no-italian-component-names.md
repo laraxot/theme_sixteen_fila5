@@ -3,7 +3,7 @@ title: "No Italian File Names in Code"
 type: rule
 confidence: high
 created: 2026-05-29
-updated: 2026-06-04
+updated: 2026-06-10
 tags: [naming, components, css, js, i18n, dry, uniformita]
 issues:
   - https://github.com/laraxot/base_fixcity_fila5/issues/264
@@ -13,7 +13,7 @@ discussions:
 related:
   - ../../../../../docs/wiki/bmad/architecture-r12-english-only-view-paths.md
   - ../../../../../docs/wiki/memories/english-only-file-naming.md
-  - ../concepts/segnalazioni-elenco-map-integration.md
+  - ../concepts/ticket-list-map-integration.md
   - ../../../../../docs/wiki/rules/no-italian-folder-names-in-code.md
   - ../../../../../Modules/Geo/docs/wiki/rules/js-file-english-naming-rule.md
   - ../../../../../.cursor/rules/english-only-naming.mdc
@@ -64,10 +64,10 @@ related:
 
 - `lang/{locale}/*.php` — traduzioni
 - Route slug pubblici: `/it/segnalazione/crea`
-- `data-page="segnalazioni-elenco"` — slug pagina parity Design Comuni
+- `data-page="ticket-list"` — slug pagina parity Design Comuni
 - `_bmad-output/` — artefatti BMAD (possono usare italiano descrittivo)
 - `docs/` — documentazione (può usare italiano, ma preferire inglese)
-- Commenti che citano URL Design Comuni: `// Reference: segnalazioni-elenco.html`
+- Commenti che citano URL Design Comuni: `// Reference: ticket-list.html`
 
 ## Verifica
 
@@ -84,8 +84,27 @@ find . -type d -name "segnalazi*" -o -name "pratic*" -o -name "servizi*" | grep 
 # Deve restituire solo debt legacy documentato
 ```
 
-## Stato rename (2026-06-04)
+
+## No italiano in `__()` e attributi accessibilità
+
+**Vietato** usare parole italiane come chiave `__()` o testo letterale negli attributi `aria-label` / `title` nei Blade:
+
+| ❌ Vietato | ✅ Corretto |
+|-----------|------------|
+| `__('Chiudi')` | `__('pub_theme::ui.close')` |
+| `aria-label="Chiudi"` | `aria-label="{{ __('pub_theme::ui.close') }}"` |
+| `__('Filtra')` | `__('fixcity::ticket.filter.button.label')` |
+
+`__()` accetta **solo** chiavi i18n inglesi (`namespace::path.to.key`), mai copy UI italiana come chiave.
+Il valore tradotto vive in `lang/{locale}/`, non nel template.
+
+Canon esteso: [no-italian-in-html-attributes.md](../../../../../docs/wiki/rules/no-italian-in-html-attributes.md) · [no-italian-in-methods-and-blades.md](../../../../../docs/wiki/agents/rules/no-italian-in-methods-and-blades.md)
+
+## Stato rename (2026-06-10)
 
 Completati in `resources/css/` (import `app.css` aggiornati): `ticket-parity`, `topics-parity`, `civic-design-*`, `services-parity-fix`, `administration-parity-fix`, stub `ticket-wizard-deprecated`.
+
+Blade componenti CMS:
+- `components/blocks/tests/segnalazione-dettaglio.blade.php` → `ticket-detail.blade.php` (2026-06-10). Riferimenti `view` aggiornati in `config/local/fixcity/database/content/pages/tests.ticket-dettaglio.json` e `tests.ticket-disservizio.json`. Slug pubblici (`tests.segnalazione-dettaglio`) lasciati invariati: ammessi dalla regola.
 
 Debt residuo: `js/design-comuni.js` → `civic-design.js` (se presente). Dettaglio: [css-filename-english-naming.md](../../architecture/css-filename-english-naming.md).

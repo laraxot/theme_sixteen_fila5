@@ -1,6 +1,6 @@
 {{--
     Tabs Map/List Block - Bootstrap Italia Exact Replica with Modals
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 --}}
 @props(['data' => []])
 

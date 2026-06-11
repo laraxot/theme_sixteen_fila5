@@ -22,7 +22,7 @@ related:
 
 | # | Pilastro | Vietato | Corretto |
 |---|----------|---------|----------|
-| 1 | **URL** | `href="/{{ app()->getLocale() }}/profilo/notifiche"` | `route('area-personale.notifiche')` |
+| 1 | **URL** | `href="/{{ app()->getLocale() }}/profilo/notifiche"` | `route('notifications')` |
 | 2 | **Path** | segmenti italiani inventati (`profilo`, wrapper `personalArea*`) | named route Folio verificata (`folio:list`) |
 | 3 | **Copy** | `__('ui::ui.profile.notifications')` | `__('pub_theme::header.user.dropdown.notifications.label')` |
 
@@ -38,7 +38,7 @@ related:
 |------|-----------|------------------|
 | I miei servizi | `services.categories` | `pub_theme::header.user.dropdown.my_services.label` |
 | Le mie pratiche | `dashboard` | `pub_theme::header.user.dropdown.my_practices.label` |
-| Notifiche | `area-personale.notifiche` | `pub_theme::header.user.dropdown.notifications.label` |
+| Notifiche | `notifications` | `pub_theme::header.user.dropdown.notifications.label` |
 | Impostazioni | `profile.edit` | `pub_theme::header.user.dropdown.settings.label` |
 | Esci | `logout` | `pub_theme::header.user.dropdown.logout.label` |
 | Accedi (guest) | `login` | `pub_theme::header.guest.cta.label` |
@@ -54,7 +54,7 @@ related:
 ## Esempio canonico
 
 ```blade
-<a href="{{ route('area-personale.notifiche') }}">
+<a href="{{ route('notifications') }}">
     <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
 </a>
 ```

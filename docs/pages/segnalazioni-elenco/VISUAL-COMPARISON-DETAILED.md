@@ -1,4 +1,4 @@
-# segnalazioni-elenco - Detailed Visual Comparison
+# ticket-list - Detailed Visual Comparison
 
 **Analysis Date**: 2026-04-04T19:50:43.134Z
 

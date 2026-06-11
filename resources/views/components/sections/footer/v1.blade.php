@@ -5,7 +5,7 @@
             {{-- Logo Row --}}
             <div class="row">
                 <div class="col-12 footer-items-wrapper logo-wrapper">
-                    <img class="ue-logo" src="/themes/Sixteen/images/logo-eu-inverted.svg" alt="logo Unione Europea">
+                    <img class="ue-logo" src="/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg" alt="logo Unione Europea">
                     <div class="it-brand-wrapper">
                         <a href="/">
                             <svg class="icon" aria-hidden="true">

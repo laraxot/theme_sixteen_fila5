@@ -38,4 +38,4 @@ Legenda in basso a sinistra sulla mappa elenco; non sovrapposta ai controlli zoo
 ## Collegamenti
 
 - Geo: [map-lit-legend-types.md](../../../../../Modules/Geo/docs/wiki/concepts/map-lit-legend-types.md)
-- [segnalazioni-elenco-map-integration.md](./segnalazioni-elenco-map-integration.md)
+- [ticket-list-map-integration.md](./ticket-list-map-integration.md)

@@ -663,9 +663,9 @@
 
 ### 8.7 Elenco Segnalazioni (Pubblico)
 
-**URL Originale:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html  
+**URL Originale:** https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html  
 **URL Locale:** `/it/tests/segnalazioni/elenco`  
-**Slug JSON:** `tests.segnalazioni-elenco`  
+**Slug JSON:** `tests.ticket-list`  
 **Priorità:** 🟢 Bassa  
 **Stato:** ⏳ Pending
 

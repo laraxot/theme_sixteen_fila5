@@ -69,8 +69,6 @@
 @endphp
 
 <div class="container" id="main-container">
-<link rel="stylesheet" href="{{ asset('themes/Sixteen/css/MarkerCluster.css') }}">
-<link rel="stylesheet" href="{{ asset('themes/Sixteen/css/MarkerCluster.Default.css') }}">
 <div
     x-data="{
         dispatchMapFilters() {

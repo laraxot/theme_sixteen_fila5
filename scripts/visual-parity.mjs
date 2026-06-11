@@ -45,13 +45,13 @@ const PAGES = {
     local: 'http://127.0.0.1:8000/it/tests/segnalazione-area-personale',
     reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html'
   },
-  'segnalazioni-elenco': {
-    local: 'http://127.0.0.1:8000/it/tests/segnalazioni-elenco',
-    reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html'
+  'ticket-list': {
+    local: 'http://127.0.0.1:8000/it/tests/ticket-list',
+    reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html'
   },
-  'segnalazioni-elenco-home': {
+  'ticket-list-home': {
     local: 'http://127.0.0.1:8000/it/',
-    reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html'
+    reference: 'https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html'
   },
   'segnalazione-dettaglio': {
     local: 'http://127.0.0.1:8000/it/tests/segnalazione-dettaglio',

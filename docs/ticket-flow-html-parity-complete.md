@@ -16,7 +16,7 @@
 | 3 | segnalazione-area-personale | **91.9%** | 886 | 875 | ✅ PASS |
 | 4 | segnalazione-dettaglio | **86.8%** | 804 | 812 | ✅ PASS |
 | 5 | segnalazione-03-riepilogo | **83.3%** | 523 | 529 | ✅ PASS |
-| 6 | segnalazioni-elenco | **72.5%** | 775 | 783 | ⚠️ NEEDS WORK |
+| 6 | ticket-list | **72.5%** | 775 | 783 | ⚠️ NEEDS WORK |
 | 7 | segnalazione-04-conferma | **43.6%** | 551 | 224 | ❌ NEEDS WORK |
 
 **5/7 pages pass (>80% threshold)**
@@ -53,7 +53,7 @@
 - **Visual Issue**: Phone shows literal `:phone` instead of actual number
 - **Content**: Summary cards, warning box, user info all present
 
-### ⚠️ segnalazioni-elenco (72.5%)
+### ⚠️ ticket-list (72.5%)
 - **HTML**: 775 vs 783 lines — needs improvement
 - **Visual Issue**: Title uppercase "ELENCO SEGNALAZIONI" vs reference "Elenco segnalazioni"
 - **Has**: Map tab, list tab, 13 cards, rating section
@@ -91,7 +91,7 @@ All screenshots in: `screenshots/css-js-phase/`
 
 ### Priority 2: HTML Structure Fixes
 - **segnalazione-04-conferma**: Add missing wrapper elements to reach >80%
-- **segnalazioni-elenco**: Fix title casing, improve card structure
+- **ticket-list**: Fix title casing, improve card structure
 
 ### Priority 3: Visual CSS Fixes
 - **segnalazione-dettaglio**: Remove empty green line gaps

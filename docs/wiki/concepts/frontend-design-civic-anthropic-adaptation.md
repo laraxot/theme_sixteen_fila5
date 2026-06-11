@@ -40,7 +40,7 @@ Il tema Sixteen implementa **Design Comuni** e bundle Vite condiviso con Geo (`m
 
 - Blocchi CMS homepage ancora fuori parity sheet
 - Micro-copy empty state (con traduzioni in `lang/`)
-- **Non** su: `segnalazioni-elenco`, login, wizard crea
+- **Non** su: `ticket-list`, login, wizard crea
 
 ## Checklist UX pre-merge CSS
 
@@ -52,4 +52,4 @@ Il tema Sixteen implementa **Design Comuni** e bundle Vite condiviso con Geo (`m
 ## Collegamenti
 
 - Skill wiki: [frontend-design-civic-pa.md](../../../../docs/wiki/skills/frontend-design-civic-pa.md)
-- [segnalazioni-elenco-map-integration.md](./segnalazioni-elenco-map-integration.md)
+- [ticket-list-map-integration.md](./ticket-list-map-integration.md)

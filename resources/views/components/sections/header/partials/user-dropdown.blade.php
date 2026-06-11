@@ -42,24 +42,24 @@
             <div class="col-12">
                 <div class="link-list-wrapper">
                     <ul class="link-list">
-<li>
-    <a class="dropdown-item list-item" href="{{ route('services.categories') }}" role="menuitem">
-        <span>{{ __('pub_theme::header.user.dropdown.my_services.label') }}</span>
-    </a>
-</li>
-<li>
-    <a class="dropdown-item list-item" href="{{ route('dashboard') }}" role="menuitem">
-        <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
-    </a>
-</li>
-<li>
-    <a class="dropdown-item list-item" href="{{ route('area-personale.notifiche') }}" role="menuitem">
-        <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
-        @if (($unreadNotificationsCount ?? 0) > 0)
-            <span class="badge badge-primary ml-2">{{ $unreadNotificationsCount }}</span>
-        @endif
-    </a>
-</li>
+                        <li>
+                            <a class="dropdown-item list-item" href="{{ route('services.categories') }}" role="menuitem">
+                                <span>{{ __('pub_theme::header.user.dropdown.my_services.label') }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item list-item" href="{{ route('dashboard') }}" role="menuitem">
+                                <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item list-item" href="{{ route('notifications') }}" role="menuitem">
+                                <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
+                                @if (($unreadNotificationsCount ?? 0) > 0)
+                                    <span class="badge badge-primary ml-2">{{ $unreadNotificationsCount }}</span>
+                                @endif
+                            </a>
+                        </li>
                         <li><span class="divider"></span></li>
                         <li>
                             <a class="dropdown-item list-item" href="{{ route('profile.edit') }}" role="menuitem">

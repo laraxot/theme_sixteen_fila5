@@ -14,7 +14,7 @@
 | segnalazione-03-riepilogo | 51% | 🔴 Da correggere | Bootstrap Italia errato |
 | segnalazione-04-conferma | 80% | ⚠️ Discreto | Piccole differenze |
 | segnalazione-area-personale | 59% | 🔴 Da correggere | Struttura errata |
-| segnalazioni-elenco | 85% | ⚠️ Buono | Lavoro necessario |
+| ticket-list | 85% | ⚠️ Buono | Lavoro necessario |
 | segnalazione-disservizio | 4% | 🔴 Critico | Serve refactoring |
 
 ## Problema Core: Bootstrap Italia Errato

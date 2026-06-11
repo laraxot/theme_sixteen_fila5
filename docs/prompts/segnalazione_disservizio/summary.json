@@ -1,5 +1,5 @@
 {
-  "slug": "segnalazioni-elenco",
+  "slug": "ticket-list",
   "reference": "/tmp/reference_segnalazioni.html",
   "local": "/tmp/local_segnalazioni_v2.html",
   "threshold": 90,

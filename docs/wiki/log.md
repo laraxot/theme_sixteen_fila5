@@ -1,3 +1,11 @@
+- 2026-06-10: docs Folio FO — fo-folio-routing-zen, route-not-found-view-cache, header `notifications` vs `area-personale.notifiche`
+## [2026-06-09] cta/ticket | NO FrontofficeUrl — LaravelLocalization only
+
+- View: `resources/views/components/blocks/cta/ticket.blade.php`
+- URL: `LaravelLocalization::localizeURL($path)` — vietato `FrontofficeUrl` nei blocchi CTA
+- Test: `tests/Unit/CtaTicketBlockTest.php` (3 test)
+- Doc: `concepts/segnalazioni-elenco-map-integration.md`, `concepts/fo-folio-links-multilingua.md`
+
 ## [2026-06-06] architecture | Folio shell — no @props/@extends
 
 - Regola: pagine Folio = Folio+Volt + `<x-layouts.app>`; vietato `@props`, `@extends`, `@php $pageSlug`
@@ -319,7 +327,7 @@
 ## [2026-05-04] bmad-create-story | 7-105 inventario classi BI (7 pagine DC) → Tailwind in `app.css`
 
 - Story: `_bmad-output/implementation-artifacts/7-105-design-comuni-segnalazione-static-pages-bootstrap-to-tailwind-class-map.md`.
-- Scope URL: `segnalazione-dettaglio`, `segnalazione-01`…`04`, `segnalazione-area-personale`, `segnalazioni-elenco` (Design Comuni pagine statiche).
+- Scope URL: `segnalazione-dettaglio`, `segnalazione-01`…`04`, `segnalazione-area-personale`, `ticket-list` (Design Comuni pagine statiche).
 - Deliverable: elenco deduplicato classi + mapping `@layer` / utilities in `resources/css/app.css`; wiki tabella condivisa con Fixcity; ingest root `docs/wiki/log.md`.
 - Allineamento: [segnalazione-visual-parity-correction-plan](concepts/segnalazione-visual-parity-correction-plan.md), story 7-103/7-104.
 
@@ -381,8 +389,8 @@
 - Aggiornato `index.md` con nuovi documenti e backlink `visual-parity-verification-rule`
 - Collegamento a Playwright/Puppeteer per controlli visuali automatici post-modifica
 
-## [2026-04-30] sync | cluster-group visibile su segnalazioni-elenco + dataset runtime coerente
-- aggiornato blocco test `resources/views/components/blocks/tests/segnalazioni-elenco.blade.php`: `data-url` mappa allineato a `/data/tickets.json`.
+## [2026-04-30] sync | cluster-group visibile su ticket-list + dataset runtime coerente
+- aggiornato blocco test `resources/views/components/blocks/tests/ticket-list.blade.php`: `data-url` mappa allineato a `/data/tickets.json`.
 - recepito fix owner-side Geo: cluster rendering reso robusto in init tab/wizard (`removeOutsideVisibleBounds: false` + fallback `addLayers/addLayer`).
 - esito condiviso con evidenza runtime: cluster presenti nello shadow DOM e suite Playwright segnalazioni all green (`10 passed`).
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
@@ -393,27 +401,27 @@
 - recepita centratura automatica posizione corrente all'avvio; `fitBounds` non overridea la viewport dopo geolocalizzazione riuscita.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
-## [2026-04-30] sync | test map segnalazioni-elenco all green dopo stabilizzazione zoom
-- recepito update owner-side Geo sulla suite Playwright `segnalazioni-elenco`: scenario zoom stabilizzato con fallback anti-flaky.
+## [2026-04-30] sync | test map ticket-list all green dopo stabilizzazione zoom
+- recepito update owner-side Geo sulla suite Playwright `ticket-list`: scenario zoom stabilizzato con fallback anti-flaky.
 - esito condiviso: `10 passed` sulla suite mappa del blocco test segnalazioni.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
-## [2026-04-30] sync | segnalazioni-elenco resilient map rendering via Geo fallback
+## [2026-04-30] sync | ticket-list resilient map rendering via Geo fallback
 - recepito fix owner-side Geo: `geo-map-lit` ora degrada automaticamente a marker plain quando il plugin cluster va in errore runtime.
-- obiettivo UX tema preservato: evitare pagina mappa vuota in `/it/tests/segnalazioni-elenco` mantenendo contenuto visibile anche in modalita` degraded.
+- obiettivo UX tema preservato: evitare pagina mappa vuota in `/it/tests/ticket-list` mantenendo contenuto visibile anche in modalita` degraded.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
 ## [2026-04-30] fix | segnalazioni test block allineato a dataset runtime stabile
-- aggiornato `resources/views/components/blocks/tests/segnalazioni-elenco.blade.php`: `data-url` mappa da `/data/tickets_big.json` a `/data/tickets.json`.
+- aggiornato `resources/views/components/blocks/tests/ticket-list.blade.php`: `data-url` mappa da `/data/tickets_big.json` a `/data/tickets.json`.
 - obiettivo business: ridurre il rischio di pagina vuota in ambienti dove il dataset big non e` garantito o non aggiornato.
 - boundary confermato: Sixteen decide il mount del componente e l’URL predefinito, Geo gestisce rendering/fallback marker+cluster.
 
-## [2026-04-30] story | 8-88 marker/cluster visibility parity su segnalazioni-elenco
-- recepita la nuova story `_bmad-output/implementation-artifacts/8-88-segnalazioni-elenco-marker-cluster-data-loading-farmshops-parity.story.md` per incidente runtime: mappa senza marker/cluster su `/it/tests/segnalazioni-elenco`.
+## [2026-04-30] story | 8-88 marker/cluster visibility parity su ticket-list
+- recepita la nuova story `_bmad-output/implementation-artifacts/8-88-ticket-list-marker-cluster-data-loading-farmshops-parity.story.md` per incidente runtime: mappa senza marker/cluster su `/it/tests/ticket-list`.
 - focus tema: parity UX/integrazione pagina con dataset numeroso e fallback chiari quando il payload GeoJSON è vuoto o malformato.
 - boundary confermato: dato/tickets owner Fixcity, rendering/cluster owner Geo, composizione e parity visuale owner Sixteen.
 
-## [2026-04-30] docs | segnalazioni-elenco index sync su geo-map-lit
+## [2026-04-30] docs | ticket-list index sync su geo-map-lit
 - aggiornato `index.md`: riferimento integrazione mappa allineato da `<ticket-map-lit>` legacy a `<geo-map-lit>`.
 - chiarito boundary tecnico: asset Vite dal modulo Geo, tema owner di layout/integrazione.
 
@@ -1185,3 +1193,21 @@
 - Build: npm run build ✓, npm run copy ✓
 - Story: .bmad-output/implementation-artifacts/8-106-header-navigation-json-driven.md
 - Status: 8-106 → in-progress
+
+## [2026-06-10] Regola blocks/ Flowbite + Tailwind UI
+- **Regola on-demand**: `cms-block-naming-tailwind-flowbite.md` (root + Sixteen wiki)
+- **Catalogo**: `laravel/Themes/Sixteen/docs/wiki/how-to/blocks-subfolder-catalog.md`
+- **SSoT codice**: `Themes\\Sixteen\\Support\\BlockCategoryRegistry`
+- **Test**: `BlockSubfolderNamingTest` — valida sottocartelle ammesse
+- **Fix runtime**: slug duplicato `home` in `1.json` → `archive-ticket-detail-layout-v1`
+
+## 2026-06-10 — header FO session
+
+- `route('notifications')` al posto di `area-personale.notifiche`
+- Troubleshooting: [route-not-found-view-cache.md](troubleshooting/route-not-found-view-cache.md)
+
+## 2026-06-10 — docs Folio consolidate
+
+- `personal-area-routes.md` allineato al canon (deprecato nomi IT)
+- `fo-folio-named-routes-header.md` sezione Imparato
+- INDEX Folio FO sezione unificata

@@ -22,7 +22,7 @@ Il tema non decide se la search esiste: evita varianti inutili e drift tra pagin
 
 ## Verifica
 
-Quando si modifica `/it/tests/segnalazioni-elenco`:
+Quando si modifica `/it/tests/ticket-list`:
 
 - controllare desktop, tablet e mobile;
 - verificare che la search sia visibile;

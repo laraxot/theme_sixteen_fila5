@@ -37,7 +37,7 @@ node map-picker-smoke.cjs
 | Target | Reference | Local |
 |---|---|---|
 | homepage | `itàlia…/homepage.html` | `localhost/it/tests/homepage` |
-| segnalazioni-elenco | `itàlia…/segnalazioni-elenco.html` | `localhost/it/tests/segnalazioni-elenco` |
+| ticket-list | `itàlia…/ticket-list.html` | `localhost/it/tests/ticket-list` |
 | segnalazione-01-privacy | `itàlia…/segnalazione-01-privacy.html` | `localhost/it/tests/segnalazione-01-privacy` |
 | segnalazione-02-dati | `itàlia…/segnalazione-02-dati.html` | `localhost/it/tests/segnalazione-02-dati` |
 | segnalazione-03-riepilogo | `itàlia…/segnalazione-03-riepilogo.html` | `localhost/it/tests/segnalazione-03-riepilogo` |
@@ -54,8 +54,8 @@ node map-picker-smoke.cjs
 | `postcss.config.cjs` | **Kept in root** – standard PostCSS config (postcss-import, nesting, autoprefixer) |
 | `quick-style-compare.cjs` | Quick font-family / color / spacing comparison for segnalazione-01-privacy |
 | `take-screenshots-homepage.cjs` | Homepage screenshots (reference + local, desktop + mobile) |
-| `take-screenshots-phase2.cjs` | segnalazioni-elenco screenshots at 3 viewports |
-| `take-screenshots-segnalazioni.cjs` | Single-page screenshot helper for segnalazioni-elenco |
+| `take-screenshots-phase2.cjs` | ticket-list screenshots at 3 viewports |
+| `take-screenshots-segnalazioni.cjs` | Single-page screenshot helper for ticket-list |
 | `take-screenshots-v2.cjs` | Post-fix homepage viewport screenshot |
 | `verify-stepper.cjs` | Stepper component screenshots at 3 viewports |
 | `visual-compare-02-dati.cjs` | Full-page + computed-styles comparison for segnalazione-02-dati; saves JSON pair |
@@ -101,8 +101,8 @@ node map-picker-smoke.cjs
 | postcss.config.cjs | *(kept in theme root)* | — |
 | quick-style-compare.cjs | segnalazione-01-privacy | JSON pair (ref / loc styles) |
 | take-screenshots-homepage.cjs | homepage | Desktop + mobile ref+loc PNGS |
-| take-screenshots-phase2.cjs | segnalazioni-elenco | 3-viewport ref+loc PNGS |
-| take-screenshots-segnalazioni.cjs | segnalazioni-elenco | Full-page + viewport PNGS |
+| take-screenshots-phase2.cjs | ticket-list | 3-viewport ref+loc PNGS |
+| take-screenshots-segnalazioni.cjs | ticket-list | Full-page + viewport PNGS |
 | take-screenshots-v2.cjs | homepage (post-fix) | Local viewport + full-page |
 | verify-stepper.cjs | segnalazione-02-dati | Stepper PNGS at 3 viewports |
 | visual-compare-02-dati.cjs | segnalazione-02-dati | Full-page + viewport + style-JSON pair |

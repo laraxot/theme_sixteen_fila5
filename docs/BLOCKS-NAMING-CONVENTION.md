@@ -1,3 +1,11 @@
+# Naming Convention Blocks — Theme Sixteen
+
+> **Canon aggiornato (2026-06-10)**: [blocks/folder-vocabulary.md](./blocks/folder-vocabulary.md) · regola [wiki/rules/cms-block-naming-tailwind-flowbite.md](./wiki/rules/cms-block-naming-tailwind-flowbite.md) · verifica `bash bashscripts/quality-gates/check-blocks-folder-names.sh`
+
+Questo file è storico; per allowlist completa e cosa mettere in ogni cartella usare **folder-vocabulary.md**.
+
+---
+
 # Naming Convention Blocks - Theme Sixteen
 
 > **Regola**: I nomi delle cartelle in `resources/views/components/blocks/` devono seguire Flowbite e Tailwind UI.
@@ -27,7 +35,7 @@
 | `ticket/tabs` | `tabs/` | Tabs mappa/elenco |
 | `ticket/ticket-card` | `card-headings/` o custom | Card segnalazione |
 | `ticket/map-filters` | `sidebar-layouts/` | Sidebar filtri |
-| `segnalazioni-elenco` | `grid-layouts/` o `sidebar-layouts/` | Layout completo |
+| `ticket-list` | `grid-layouts/` o `sidebar-layouts/` | Layout completo |
 | `hero` | `hero-sections/` | Header pagina |
 | `grid` | `grid-layouts/` | Layout griglia |
 | `cta` | `cta-sections/` | Call-to-action |

@@ -8,7 +8,7 @@ Rimpiazzare la test page placeholder `tests.segnalazione-dettaglio` con una pagi
 
 ## File toccati
 
-- `laravel/Themes/Sixteen/resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php`
+- `laravel/Themes/Sixteen/resources/views/components/blocks/tests/ticket-detail.blade.php`
 - `laravel/config/local/fixcity/database/content/pages/tests.segnalazione-dettaglio.json`
 - `laravel/Themes/Sixteen/resources/css/app.css`
 

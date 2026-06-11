@@ -2,8 +2,8 @@
    FILAMENT WIZARD → BOOTSTRAP ITALIA PARITY
    Forces Filament markup to look like Design Comuni
 ======================================= */
-@import './components/filament-wizard-parity.css';
-@import './components/filament-select-wizard-fix.css';
+@import '../components/filament-wizard-parity.css';
+@import '../components/filament-select-wizard-fix.css';
 
 /* ========================================
    WIZARD FORM — componente globale (no per-pagina)

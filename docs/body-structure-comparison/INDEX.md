@@ -18,17 +18,17 @@ Artifacts in [`./segnalazione-01-privacy/`](./segnalazione-01-privacy/):
 - [`local.html`](./segnalazione-01-privacy/local.html) — Local HTML (cleaned)
 - Full output: [`../../prompts/segnalazione-01-privacy/body-structure-comparison/`](../../prompts/segnalazione-01-privacy/body-structure-comparison/)
 
-### segnalazioni-elenco
+### ticket-list
 
 **Parity Score: 77.8%** (603/775 elements identical)
 
-Artifacts in [`./segnalazioni-elenco/`](./segnalazioni-elenco/):
-- [`report.md`](./segnalazioni-elenco/report.md) — Detailed report with identical, missing, different, and extra elements
-- [`diff_details.json`](./segnalazioni-elenco/diff_details.json) — Machine-readable parity summary
-- [`reference-body.html`](./segnalazioni-elenco/reference-body.html) — Reference body (no `<script>`/`<style>`)
-- [`local-body.html`](./segnalazioni-elenco/local-body.html) — Local body (no `<script>`/`<style>`)
-- [`reference-structure.json`](./segnalazioni-elenco/reference-structure.json) — Parsed reference tree
-- [`local-structure.json`](./segnalazioni-elenco/local-structure.json) — Parsed local tree
+Artifacts in [`./ticket-list/`](./ticket-list/):
+- [`report.md`](./ticket-list/report.md) — Detailed report with identical, missing, different, and extra elements
+- [`diff_details.json`](./ticket-list/diff_details.json) — Machine-readable parity summary
+- [`reference-body.html`](./ticket-list/reference-body.html) — Reference body (no `<script>`/`<style>`)
+- [`local-body.html`](./ticket-list/local-body.html) — Local body (no `<script>`/`<style>`)
+- [`reference-structure.json`](./ticket-list/reference-structure.json) — Parsed reference tree
+- [`local-structure.json`](./ticket-list/local-structure.json) — Parsed local tree
 
 ### segnalazione-dettaglio
 

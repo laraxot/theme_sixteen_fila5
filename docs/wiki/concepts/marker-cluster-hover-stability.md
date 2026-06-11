@@ -81,7 +81,7 @@ npx playwright test --config=laravel/Modules/Geo/playwright.config.js \
 
 - [leaflet-no-transform-on-marker-icon.md](./leaflet-no-transform-on-marker-icon.md) — lezioni trasversali STORY-123 (cascade light-DOM vs tema, disciplina git multi-repo)
 - [map-lit-vite-build-troubleshooting.md](./map-lit-vite-build-troubleshooting.md)
-- [segnalazioni-elenco-map-integration.md](./segnalazioni-elenco-map-integration.md)
+- [ticket-list-map-integration.md](./ticket-list-map-integration.md)
 - Modulo Geo: `docs/wiki/troubleshooting/map-lit-it-incidents-2026-06.md`
 - GitHub: [module_geo_fila5#27](https://github.com/laraxot/module_geo_fila5/issues/27)
 - Story: `docs/stories/STORY-123-map-lit-cluster-hover-escape-fix.md`

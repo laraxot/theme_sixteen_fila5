@@ -4,7 +4,7 @@
  * Covers: segnalazione-dettaglio, segnalazione-01-privacy,
  *         segnalazione-02-dati, segnalazione-03-riepilogo,
  *         segnalazione-04-conferma, segnalazione-area-personale,
- *         segnalazioni-elenco
+ *         ticket-list
  *
  * Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/
  * Strategy: Tailwind CSS + Alpine.js (NO Bootstrap Italia runtime)
@@ -24,9 +24,9 @@ html, body {
   max-width: 100vw !important;
 }
 
-main /* Tailwind: Force centering on segnalazioni-elenco-page container */
-.segnalazioni-elenco-page.container,
-.segnalazioni-elenco-page#main-container {
+main /* Tailwind: Force centering on ticket-list-page container */
+.ticket-list-page.container,
+.ticket-list-page#main-container {
     max-width: 1166px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -462,7 +462,7 @@ hr { border-color: var(--bi-border-light, #d4d4d4); }
 body, .segnalazione-privacy-page, .segnalazione-dati-page,
 .segnalazione-riepilogo-page, .segnalazione-conferma-page,
 .cms-detail-page, .segnalazione-area-page,
-body #main-container[data-page='segnalazioni-elenco'] {
+body #main-container[data-page='ticket-list'] {
   color: var(--bi-text-primary, #000000);
 }
 
@@ -2876,7 +2876,7 @@ p.lora,
   color: #191919 !important;
 }
 
-/* segnalazioni-elenco: no .text-paragraph elements - uses different structure */
+/* ticket-list: no .text-paragraph elements - uses different structure */
 
 /* segnalazione-dettaglio: Lora serif 16px/24px, color #191919 */
 .text-paragraph {
@@ -3592,7 +3592,7 @@ textarea {
    ============================================================================ */
 
 /* 28.1 Tabs — active green with border-bottom, inactive dark (solo elenco segnalazioni) */
-body[data-page='segnalazioni-elenco'] #main-container .nav-tabs .nav-link {
+body[data-page='ticket-list'] #main-container .nav-tabs .nav-link {
   font-size: 16px !important;
   font-weight: 600 !important;
   border-radius: 0 !important;
@@ -3600,7 +3600,7 @@ body[data-page='segnalazioni-elenco'] #main-container .nav-tabs .nav-link {
   border-bottom: 3px solid transparent !important;
 }
 
-body[data-page='segnalazioni-elenco'] #main-container .nav-tabs .nav-link.active {
+body[data-page='ticket-list'] #main-container .nav-tabs .nav-link.active {
   color: #007a52 !important;
   border-bottom-color: #007a52 !important;
 }
@@ -3717,7 +3717,7 @@ h2.title-xxlarge,
 .segnalazione-conferma-page .btn-primary,
 .cms-detail-page .btn-primary,
 .segnalazione-area-page .btn-primary,
-body #main-container[data-page='segnalazioni-elenco'] .btn-primary {
+body #main-container[data-page='ticket-list'] .btn-primary {
   font-size: 16px !important;
   font-weight: 600 !important;
   background-color: rgb(0, 122, 82) !important;

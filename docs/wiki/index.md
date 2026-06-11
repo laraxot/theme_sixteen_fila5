@@ -59,7 +59,7 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 
 ## Pagine
 - [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruire mappa `/it` da documentazione
-- [segnalazioni-elenco-map-integration.md](./concepts/segnalazioni-elenco-map-integration.md) — blade, filtri, contratto JSON
+- [ticket-list-map-integration.md](./concepts/ticket-list-map-integration.md) — blade, filtri, contratto JSON
 - [geo-map-marker-civic-pin-theme-boundary.md](./concepts/geo-map-marker-civic-pin-theme-boundary.md) — override CSS marker
 - [geo-map-popup-leaflet-boundary.md](./concepts/geo-map-popup-leaflet-boundary.md) — popup + conflitti CSS tema
 - [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruzione marker + popup (SSoT modulo Geo)
@@ -81,7 +81,7 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 - [fo-pa-tokens-uniformity](../architecture/fo-pa-tokens-uniformity.md) — token PA + `.fo-filament-form-shell`; no hex per `data-page`
 - [auth-login-ux-design-wcag](./design/auth-login-ux-design-wcag.md) — login/register WCAG + Filament primary
 - [filament-first-frontoffice](./concepts/filament-first-frontoffice.md) — Filament Blade su FO (`x-filament::tabs` su `/it`, skin Design Comuni)
-- [segnalazioni-elenco-filament-tabs](./concepts/segnalazioni-elenco-filament-tabs.md) — tab Mappa/Elenco STORY-065
+- [ticket-list-filament-tabs](./concepts/ticket-list-filament-tabs.md) — tab Mappa/Elenco STORY-065
 - [wizard-parity-documentation-map](./concepts/wizard-parity-documentation-map.md) — ordine lettura parity segnalazione (dry tema)
 - [bootstrap-italia-tailwind-philosophy](./concepts/bootstrap-italia-tailwind-philosophy.md) — `@apply` come alias, HTML semantico
 - [daisyui-pro-contro-metriche](./concepts/daisyui-pro-contro-metriche.md) — sintesi tema; SSoT in modulo Cms

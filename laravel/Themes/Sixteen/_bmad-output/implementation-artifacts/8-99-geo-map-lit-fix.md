@@ -2,7 +2,7 @@
 
 ## Story
 
-**Problem**: The `<geo-map-lit>` component was not visible on the segnalazioni-elenco page.
+**Problem**: The `<geo-map-lit>` component was not visible on the ticket-list page.
 
 **Root Cause**: Runtime JS initialization issue - component not loading correctly in browser.
 

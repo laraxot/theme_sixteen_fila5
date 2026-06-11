@@ -5,6 +5,7 @@ declare(strict_types=1);
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use Livewire\Volt\Component;
+use Modules\Cms\Actions\ResolvePageAction;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
 name('cms.view');
@@ -22,13 +23,19 @@ new class extends Component {
     {
         $this->container = $container;
         $this->slug = $slug;
-        
-        // Build pageSlug: {container}.{slug} or just {container} for index
-        $this->pageSlug = $slug ? $container.'.'.$slug : $container;
-        
+
+        $resolved = app(ResolvePageAction::class)->execute($container, $slug);
+
+        $this->pageSlug = $resolved->pageSlug;
+
+        $item = $resolved->item;
+
         $this->data = [
             'container' => $container,
             'slug' => $slug,
+            'container0' => $container,
+            'slug0' => $slug,
+            'item' => $item,
         ];
     }
 };
@@ -36,19 +43,8 @@ new class extends Component {
 
 <x-layouts.app>
     @volt('cms.view')
-    {{-- Single root wrapper for Livewire --}}
-    <div class="cms-view-wrapper">
-        @php
-            // Load blocks from CMS Page model
-            $blocks = \Modules\Cms\Models\Page::getBlocksBySlug($this->pageSlug, 'content');
-        @endphp
-
-        {{-- Main Content - Page-specific content only --}}
-        <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
-            @foreach($blocks as $block)
-                @include($block->view, array_merge(['data' => []], $block->data))
-            @endforeach
-        </div>
+    <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
+        <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
     </div>
     @endvolt
 </x-layouts.app>
