@@ -1341,12 +1341,12 @@
             "main_ref": [],
             "main_loc": []
         },
-        "segnalazioni-elenco": {
-            "slug": "segnalazioni-elenco",
+        "ticket-list": {
+            "slug": "ticket-list",
             "json_exists": true,
             "status": "renders",
-            "local_url": "http://127.0.0.1:8000/it/tests/segnalazioni-elenco",
-            "reference_url": "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html",
+            "local_url": "http://127.0.0.1:8000/it/tests/ticket-list",
+            "reference_url": "https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html",
             "body_parity": 38,
             "main_parity": 0,
             "body_ref": [

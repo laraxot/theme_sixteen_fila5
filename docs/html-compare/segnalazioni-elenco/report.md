@@ -1,4 +1,4 @@
-# HTML Body Structure Comparison — segnalazioni-elenco
+# HTML Body Structure Comparison — ticket-list
 
 **Date:** 2026-04-08 09:32
 **Reference:** reference.html

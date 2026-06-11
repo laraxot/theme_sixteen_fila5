@@ -19,7 +19,7 @@ Il `<body>` tag deve essere ESATTAMENTE:
 <!-- SBAGLIATO -->
 <body class="page-tests-segnalazione-02-dati">
 <body class="page-tests-segnalazione-01-privacy">
-<body class="page-tests-segnalazioni-elenco">
+<body class="page-tests-ticket-list">
 <body class="cmp-homepage-page">
 ```
 
@@ -81,7 +81,7 @@ Le seguenti pagine attualmente hanno body classes custom che devono essere rimos
 | segnalazione-03-riepilogo | `page-tests-segnalazione-03-riepilogo` | `<body>` |
 | segnalazione-04-conferma | `page-tests-segnalazione-04-conferfa` | `<body>` |
 | segnalazione-area-personale | `page-tests-segnalazione-area-personale` | `<body>` |
-| segnalazioni-elenco | `page-tests-segnalazioni-elenco` | `<body>` |
+| ticket-list | `page-tests-ticket-list` | `<body>` |
 | homepage (design-comuni) | `cmp-homepage-page` / `dc-homepage-parity` | `<body>` |
 
 ## Root Cause

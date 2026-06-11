@@ -19,7 +19,7 @@
         <span class="ms-1">{{ __($ns . '.filter.button.label') }}</span>
     </button>
 
-    <button type="button" id="block-clear-filters" class="btn p-0 pe-2 d-none d-lg-block">
-        <span class="title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.remove.label') }}</span>
+    <button type="button" id="block-clear-filters" class="btn btn-primary btn-sm d-none d-lg-block">
+        <span class="title-xsmall-semi-bold">{{ __($ns . '.filter.remove.label') }}</span>
     </button>
 </div>

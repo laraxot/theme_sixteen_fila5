@@ -27,27 +27,27 @@
                 >
                     <div class="row">
                         <div class="col-12">
-<div class="map-box">
-@if ($vm->useReferenceStaticMap())
-    <img
-        src="{{ $vm->referenceMapImageUrl() }}"
-        alt="{{ __($ns . '.map.image.alt') }}"
-        class="w-100"
-        width="1200"
-        height="661"
-    >
-@else
-    <map-lit
-        id="block-map"
-        class="w-100"
-        legend-mode="sidebar"
-        data-url="{{ $vm->mapDataUrl() }}"
-        height="clamp(305px,52vw,661px)"
-        style="height:clamp(305px,52vw,661px);display:block;width:100%"
-        aria-label="{{ __($ns . '.map.image.alt') }}"
-    ></map-lit>
-@endif
-</div>
+                    <div class="map-box">
+                    @if ($vm->useReferenceStaticMap())
+                        <img
+                            src="{{ $vm->referenceMapImageUrl() }}"
+                            alt="{{ __($ns . '.map.image.alt') }}"
+                            class="w-100"
+                            width="1200"
+                            height="661"
+                        >
+                    @else
+                        <map-lit
+                            id="block-map"
+                            class="w-100"
+                            legend-mode="off"
+                            data-url="{{ $vm->mapDataUrl() }}"
+                            height="clamp(305px,52vw,661px)"
+                            style="height:clamp(305px,52vw,661px);display:block;width:100%"
+                            aria-label="{{ __($ns . '.map.image.alt') }}"
+                        ></map-lit>
+                    @endif
+                    </div>
                         </div>
                          @if (!empty($cta))
                              <div class="col-lg-6 mt-50 mb-4 mb-lg-0">

@@ -8,7 +8,7 @@ Implementation of the citizen report flow following Design Comuni Italia pattern
 
 ## Reference
 
-- **Design Comuni Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+- **Design Comuni Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 - **Reference HTML**: [`reference_segnalazioni.html`](./reference_segnalazioni.html)
 - **Local HTML**: [`local_segnalazioni.html`](./local_segnalazioni.html) (generated)
 
@@ -20,7 +20,7 @@ Implementation of the citizen report flow following Design Comuni Italia pattern
 | 2 | Dati | `/it/tests/segnalazione-02-dati` | `[slug].blade.php` |
 | 3 | Riepilogo | `/it/tests/segnalazione-03-riepilogo` | `[slug].blade.php` |
 | 4 | Conferma | `/it/tests/segnalazione-04-conferma` | `[slug].blade.php` |
-| Elenco | Elenco segnalazioni | `/it/tests/segnalazioni-elenco` | `[slug].blade.php` |
+| Elenco | Elenco segnalazioni | `/it/tests/ticket-list` | `[slug].blade.php` |
 
 ## Architecture
 
@@ -32,13 +32,13 @@ Implementation of the citizen report flow following Design Comuni Italia pattern
 
 ## Comparison Reports
 
-- **Body Structure Comparison**: `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/`
-  - [`report.md`](../body-structure-comparison/segnalazioni-elenco/report.md)
-  - [`summary.json`](../body-structure-comparison/segnalazioni-elenco/summary.json)
-  - [`diff_details.json`](../body-structure-comparison/segnalazioni-elenco/diff_details.json)
-  - [`reference-body.html`](../body-structure-comparison/segnalazioni-elenco/reference-body.html)
-  - [`local-body.html`](../body-structure-comparison/segnalazioni-elenco/local-body.html)
-  - [`segnalazioni-elenco-html-parity-analysis.md`](./segnalazioni-elenco-html-parity-analysis.md)
+- **Body Structure Comparison**: `laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/`
+  - [`report.md`](../body-structure-comparison/ticket-list/report.md)
+  - [`summary.json`](../body-structure-comparison/ticket-list/summary.json)
+  - [`diff_details.json`](../body-structure-comparison/ticket-list/diff_details.json)
+  - [`reference-body.html`](../body-structure-comparison/ticket-list/reference-body.html)
+  - [`local-body.html`](../body-structure-comparison/ticket-list/local-body.html)
+  - [`ticket-list-html-parity-analysis.md`](./ticket-list-html-parity-analysis.md)
 
 ## CSS
 

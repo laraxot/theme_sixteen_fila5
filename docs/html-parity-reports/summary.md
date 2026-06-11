@@ -22,7 +22,7 @@
 | Page | Similarity | Status |
 |------|------------|--------|
 | segnalazione-area-personale | N/A% | ⚠️ |
-| segnalazioni-elenco | N/A% | ⚠️ |
+| ticket-list | N/A% | ⚠️ |
 | segnalazione-dettaglio | N/A% | ⚠️ |
 | segnalazione-01-privacy | N/A% | ⚠️ |
 | segnalazione-02-dati | N/A% | ⚠️ |

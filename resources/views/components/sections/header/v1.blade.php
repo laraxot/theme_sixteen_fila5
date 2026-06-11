@@ -51,6 +51,15 @@
 
     $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
 
+    $headerUnreadNotificationsCount = 0;
+    if ($authUser !== null && \Modules\User\Support\NotificationSchema::isReadable()) {
+        try {
+            $headerUnreadNotificationsCount = $authUser->unreadNotifications()->count();
+        } catch (\Throwable) {
+            $headerUnreadNotificationsCount = 0;
+        }
+    }
+
     $testsPath = (string) request()->path();
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
@@ -131,7 +140,7 @@
 
 {{--
     Bootstrap Italia Header — EXACT match of Design Comuni reference
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
     Reference: https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html
     
     Updated for Story 5.0: Header Logged-In State
@@ -170,7 +179,7 @@
                                 @include('pub_theme::components.sections.header.partials.user-dropdown', [
                                     'avatarUrl' => $headerAvatarUrl,
                                     'displayName' => $headerUserDisplayName,
-                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
+                                    'unreadNotificationsCount' => $headerUnreadNotificationsCount,
                                     'userInitial' => $headerUserInitial,
                                 ])
                             @endguest

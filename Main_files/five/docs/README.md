@@ -4,7 +4,7 @@
 
 Questo progetto converte il design system Bootstrap Italia dalla sua implementazione Bootstrap originale a CSS nativo per compatibilità con Filament PHP.
 
-**Fonte Originale**: [Bootstrap Italia - Comuni](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html)
+**Fonte Originale**: [Bootstrap Italia - Comuni](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html)
 **Obiettivo**: Mantenere fedeltà visuale utilizzando proprietà CSS native invece di direttive @apply per compatibilità Filament.
 
 ## 🎯 Stato Progetto: COMPLETATO ✅

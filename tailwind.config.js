@@ -40,7 +40,7 @@ export default {
         'auth-register-card',
         // Select form-select
         'form-select',
-        // Bootstrap Italia grid classes (used in segnalazioni-elenco layout)
+        // Bootstrap Italia grid classes (used in ticket-list layout)
         'col-lg-3', 'col-lg-4', 'col-lg-5', 'col-lg-6', 'col-lg-8', 'col-lg-9', 'col-lg-10',
         'col-md-3', 'col-md-4', 'col-md-6', 'col-md-9',
         'col-sm-6', 'col-xl-3', 'col-xl-4', 'col-xl-6', 'col-xl-8',

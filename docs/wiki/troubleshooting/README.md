@@ -16,3 +16,5 @@ Runbook specifici del tema (build Vite, CSS parity, conflitti Leaflet).
 ## Altro
 
 - [git-merge-conflict-inventory-2026-04-28.md](./git-merge-conflict-inventory-2026-04-28.md)
+
+- [route-not-found-view-cache](route-not-found-view-cache.md) — `area-personale.notifiche` / cache Blade

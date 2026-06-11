@@ -3,59 +3,74 @@ title: "CMS Block naming — Tailwind UI / Flowbite (Sixteen)"
 type: rule
 confidence: high
 created: 2026-06-01
-updated: 2026-06-01
-tags: [cms, blocks, naming-convention, tailwind, flowbite, views]
+updated: 2026-06-10
+tags: [cms, blocks, naming-convention, tailwind, flowbite, views, on-demand]
 related:
-  - rules/frontend-stack-canonical.md
-  - rules/no-italian-component-names.md
+  - ../how-to/blocks-subfolder-catalog.md
+  - frontend-stack-canonical.md
+  - no-italian-component-names.md
+  - ../../../../../../docs/wiki/rules/011-blocks-view-convention.md
 ---
 
 # CMS Block naming — Tailwind UI / Flowbite
 
-## Regola
+## Regola (MANDATORY)
 
-> Le sottocartelle di `resources/views/components/blocks/` **devono** prendere i nomi da:
-> - https://tailwindcss.com/plus/ui-blocks
-> - https://flowbite.com/blocks/
+> Ogni sottocartella di `resources/views/components/blocks/` **deve** usare uno slug presente in
+> [Flowbite Blocks](https://flowbite.com/blocks/) o [Tailwind Plus UI Blocks](https://tailwindcss.com/plus/ui-blocks).
 
-Questa regola vale per il tema Sixteen e per tutti i moduli che definiscono blocchi CMS.
+- **Nuovi blocchi**: solo slug canonici (`BlockCategoryRegistry::CANONICAL_FOLDERS`)
+- **Legacy**: cartelle dominio ammesse solo per retrocompatibilita CMS
+- **Vietato**: nomi pagina/modulo (`ticket-layout`, `segnalazioni`, `homepage`)
 
-## Mapping
+## Trigger on-demand
 
-| Sottocartella | Reference |
-|---------------|-----------|
-| `hero/` | [Tailwind — Hero sections](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes) |
-| `grid/` | [Tailwind — Grids / Panels](https://tailwindcss.com/plus/ui-blocks/application-ui/layout/panels) |
-| `cta/` | [Tailwind — CTA sections](https://tailwindcss.com/plus/ui-blocks/marketing/sections/cta-sections) |
-| `rating/` | [Flowbite — Rating](https://flowbite.com/docs/components/rating/) |
-| `vertical-navigation/` | [Tailwind — Vertical navigation](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/vertical-navigation) |
-| `card/` | [Flowbite — Card](https://flowbite.com/docs/components/card/) |
-| `navbar/` | [Flowbite — Navbar](https://flowbite.com/docs/components/navbar/) |
-| `tabs/` | [Flowbite — Tabs](https://flowbite.com/docs/components/tabs/) |
-| `modal/` | [Flowbite — Modal](https://flowbite.com/docs/components/modal/) |
-| `breadcrumb/` | [Flowbite — Breadcrumb](https://flowbite.com/docs/components/breadcrumb/) |
-| `pagination/` | [Flowbite — Pagination](https://flowbite.com/docs/components/pagination/) |
-| `steps/` | [Flowbite — Stepper](https://flowbite.com/docs/components/stepper/) |
-| `timeline/` | [Flowbite — Timeline](https://flowbite.com/docs/components/timeline/) |
-| `accordion/` | [Flowbite — Accordion](https://flowbite.com/docs/components/accordion/) |
-| `features/` | [Tailwind — Feature sections](https://tailwindcss.com/plus/ui-blocks/marketing/sections/feature-sections) |
-| `testimonials/` | [Tailwind — Testimonials](https://tailwindcss.com/plus/ui-blocks/marketing/sections/testimonials) |
-| `stats/` | [Tailwind — Stats](https://tailwindcss.com/plus/ui-blocks/marketing/sections/stats) |
+Caricare questa regola quando:
+
+- si crea/rinomina una cartella sotto `blocks/`
+- si definisce `type` o `data.view` in JSON CMS
+- si aggiunge un blocco Filament (`GetViewBlocksOptionsByTypeAction`)
+
+## Cosa va dentro la cartella
+
+1. **Varianti blade** (`default`, `layout`, `with-*`) dello stesso pattern UI
+2. **Props** da CMS — niente business logic
+3. **Riferimento** nel commento header al pattern Flowbite/Tailwind
+
+Vedi catalogo: [blocks-subfolder-catalog.md](../how-to/blocks-subfolder-catalog.md)
+
+## SSoT codice
+
+`Themes\Sixteen\Support\BlockCategoryRegistry`
+
+Test: `Themes/Sixteen/tests/Unit/BlockSubfolderNamingTest.php`
 
 ## Anti-pattern
 
 ```
-// ❌ SBAGLIATO — nomi di dominio
+// SBAGLIATO
 blocks/ticket-layout/
-blocks/segnalazioni-elenco/
 blocks/governance-calendario/
+blocks/segnalazioni/
 
-// ✅ CORRETTO — nomi Tailwind/Flowbite
-blocks/hero/
+// CORRETTO
+blocks/layout/
+blocks/calendar/
 blocks/grid/
-blocks/vertical-navigation/
 ```
 
-## Migrazione blocchi esistenti
+## Migrazione
 
-I blocchi con nomi di dominio esistenti (`ticket-layout`, ecc.) rimangono per compatibilità ma non vanno usati per nuovi sviluppi. Nuovi blocchi usano sempre naming Tailwind/Flowbite.
+| Legacy | Canonico |
+|--------|----------|
+| `ticket-layout` | `layout` / `sidebar` |
+| `ticket-list` | `grid` |
+| `contacts` | `contact` |
+| `feature_sections` | `features` |
+
+Non eliminare legacy finche referenziati in JSON CMS.
+
+## Collegamenti
+
+- [011-blocks-view-convention](../../../../../../docs/wiki/rules/011-blocks-view-convention.md)
+- [frontend-stack-canonical.md](frontend-stack-canonical.md)

@@ -176,7 +176,7 @@ main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-f
 
 /* ========================================
    PAGE PARITY FIXES - 2026-04-04
-   Focus pages: lista-risorse, segnalazioni-elenco, amministrazione
+   Focus pages: lista-risorse, ticket-list, amministrazione
 ======================================== */
 
 main[data-page="lista-risorse"] .cmp-breadcrumbs,
@@ -316,10 +316,6 @@ main[data-page="page-shell"] .map-box > img {
   opacity: 1 !important;
 }
 
-.geo-map-marker-card__point::after {
-  border-top-color: var(--status-color, #607d8b) !important;
-}
-
 .leaflet-marker-pane .geo-map-marker-wrapper--card {
   background: transparent !important;
   border: none !important;
@@ -335,20 +331,21 @@ main[data-page="page-shell"] .map-box > img {
   justify-content: center !important;
 }
 
+/* farmshops.eu: cerchio bianco, bordo colorato, conteggio scuro; icone tipo dentro a zoom ≥ 8 */
 .geo-cluster-circle {
-  background: rgba(0, 122, 82, 0.9) !important;
+  background: #ffffff !important;
   border-radius: 50% !important;
-  border: 3px solid #fff !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(0, 122, 82, 0.3) !important;
+  border: 3px solid #007a52 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   width: 80px !important;
   height: 80px !important;
-  color: #fff !important;
+  color: #17324d !important;
   font-weight: 700 !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   text-align: center !important;
   line-height: 1 !important;
   transition: box-shadow 0.2s ease !important;
@@ -356,7 +353,19 @@ main[data-page="page-shell"] .map-box > img {
 }
 
 .geo-cluster-wrapper:hover .geo-cluster-circle {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(0, 122, 82, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22) !important;
+}
+
+.geo-cluster-type-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #d9e2f0;
+  margin: 1px;
 }
 
 .geo-cluster-type-icons svg,

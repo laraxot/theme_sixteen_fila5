@@ -1,6 +1,6 @@
 /**
  * Check HTML parity and take screenshots for all 6 pages
- * Pages: segnalazione-area-personale, segnalazioni-elenco, segnalazione-dettaglio,
+ * Pages: segnalazione-area-personale, ticket-list, segnalazione-dettaglio,
  *        segnalazione-01-privacy, segnalazione-02-dati, segnalazione-03-riepilogo, segnalazione-04-conferma
  */
 
@@ -10,7 +10,7 @@ const path = require('path');
 
 const PAGES = [
   'segnalazione-area-personale',
-  'segnalazioni-elenco',
+  'ticket-list',
   'segnalazione-dettaglio',
   'segnalazione-01-privacy',
   'segnalazione-02-dati',

@@ -225,7 +225,7 @@
                                             <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
                                         </div>
                                         <div class="button-wrapper">
-                                            <a href="/it/tests/segnalazione-crea" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <a href="/it/tests/ticket-crea" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                                 <span>{{ $cta['button_text'] }}</span>
                                             </a>
                                         </div>

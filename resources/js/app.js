@@ -60,6 +60,26 @@ function registerAlpineComponents(AlpineInstance) {
     AlpineInstance.data('accordionItem', () => ({ open: false }));
     AlpineInstance.data('ratingInline', () => ({ rating: 0, hover: 0 }));
 
+    AlpineInstance.data('ticketLayout', () => ({
+        activeTab: 'map',
+        showModal: false,
+        showFilterModal: false,
+        init() {
+            this.$watch('activeTab', (tab) => {
+                if (tab !== 'map') { return; }
+                setTimeout(() => {
+                    const mapEl = document.getElementById('block-map');
+                    if (mapEl && typeof mapEl.invalidateSize === 'function') {
+                        mapEl.invalidateSize();
+                    }
+                }, 50);
+            });
+            this.$watch('$store.ticketTabs.active', (tab) => {
+                this.activeTab = tab;
+            });
+        },
+    }));
+
     // Dark mode — state + toggle (persistito in localStorage)
     AlpineInstance.data('darkMode', () => ({
         isDark: document.documentElement.classList.contains('dark'),
@@ -80,24 +100,45 @@ if (window.Alpine) {
      }, { once: true });
  }
 
- // Bootstrap tabs shim (no Bootstrap JS): invalidate map when map tab is shown
- document.addEventListener('shown.bs.tab', function (e) {
-     const target = e.target;
-     let targetId = target && typeof target.getAttribute === 'function'
-         ? (target.getAttribute('href') || target.getAttribute('data-bs-target'))
-         : null;
-     if (!targetId && e.detail?.relatedTarget?.id) {
-         targetId = '#' + e.detail.relatedTarget.id;
-     }
-     if (targetId && targetId.includes('disservizio1')) {
-         setTimeout(() => {
-             const mapEl = document.getElementById('block-map');
-             if (mapEl && typeof mapEl.invalidateSize === 'function') {
-                 mapEl.invalidateSize();
-             }
-         }, 100);
-     }
- });
+// Bootstrap tabs shim (no Bootstrap JS): invalidate map when map tab is shown
+document.addEventListener('shown.bs.tab', function (e) {
+    const target = e.target;
+    let targetId = target && typeof target.getAttribute === 'function'
+        ? (target.getAttribute('href') || target.getAttribute('data-bs-target'))
+        : null;
+    if (!targetId && e.detail?.relatedTarget?.id) {
+        targetId = '#' + e.detail.relatedTarget.id;
+    }
+    if (targetId && targetId.includes('disservizio1')) {
+        setTimeout(() => {
+            const mapEl = document.getElementById('block-map');
+            if (mapEl && typeof mapEl.invalidateSize === 'function') {
+                mapEl.invalidateSize();
+            }
+        }, 100);
+    }
+});
+
+document.addEventListener('alpine:init', () => {
+    const A = window.Alpine;
+    if (!A) { return; }
+    if (!A.store('ticketTabs')) {
+        A.store('ticketTabs', {
+            active: 'map',
+            setTab(tab) {
+                this.active = tab;
+                if (tab === 'map') {
+                    setTimeout(() => {
+                        const mapEl = document.getElementById('block-map');
+                        if (mapEl && typeof mapEl.invalidateSize === 'function') {
+                            mapEl.invalidateSize();
+                        }
+                    }, 50);
+                }
+            },
+        });
+    }
+});
 
 initHeaderMobileNav();
 

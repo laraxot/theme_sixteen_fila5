@@ -2,13 +2,13 @@ const { chromium } = require('./node_modules/playwright');
 const path = require('path');
 
 const BASE_URL = process.env.BASE_URL || 'http://127.0.0.1:8000';
-const OUTPUT_DIR = process.env.OUTPUT_DIR || '/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/screenshots/segnalazioni-elenco';
+const OUTPUT_DIR = process.env.OUTPUT_DIR || '/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/screenshots/ticket-list';
 
 const pages = [
   {
-    slug: 'segnalazioni-elenco',
-    url: `${BASE_URL}/it/tests/segnalazioni-elenco`,
-    name: 'segnalazioni-elenco'
+    slug: 'ticket-list',
+    url: `${BASE_URL}/it/tests/ticket-list`,
+    name: 'ticket-list'
   }
 ];
 

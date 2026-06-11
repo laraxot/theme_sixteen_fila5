@@ -27,7 +27,7 @@
 
 ### ✅ GOOD (Visual parity acceptable)
 
-| [segnalazioni-elenco](./screenshots/segnalazioni-elenco-local.png) | Ratio: 0.91 | Size ratio: 0.91 - visually similar |
+| [ticket-list](./screenshots/ticket-list-local.png) | Ratio: 0.91 | Size ratio: 0.91 - visually similar |
 | [homepage](./screenshots/homepage-local.png) | Ratio: 0.83 | Size ratio: 0.83 - visually similar |
 
 ### ⚠️ PARTIAL (Some differences)

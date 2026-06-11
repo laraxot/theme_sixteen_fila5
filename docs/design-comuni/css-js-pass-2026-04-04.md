@@ -115,7 +115,7 @@ Il batch `BATCH_BODY_PARITY_REPORT.md` segnala queste percentuali di match tra b
 - `segnalazione-03-riepilogo`: 48.7% (tag-count 523/384).
 - `segnalazione-04-conferma`: 44.2% (tag-count 551/384).
 - `segnalazione-area-personale`: 19.2% (tag-count 886/384) — decisamente fuori soglia.
-- `segnalazioni-elenco`: 32.4% (tag-count 775/384).
+- `ticket-list`: 32.4% (tag-count 775/384).
 - `segnalazione-dettaglio`: 31.1% (tag-count 804/384).
 
 Tutti i casi sopra riportano `main structure drift`, quindi la struttura del `body` locale non ha ancora i contenuti/block corrispondenti alla reference (molti `<article>` trasformati in `<section>`, numero di tag molto diverso, reference non disponibile o 500 locale). Non ha senso spingere solo CSS/JS: dobbiamo prima riallineare Blade/JSON o almeno rendere il markup più simile (per esempio creare i blocchi mancanti nei file JSON). Una volta raggiunto il ~90% strutturale possiamo tornare a `page-parity.css` con un pass di visual polishing.

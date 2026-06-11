@@ -1,7 +1,7 @@
 # Audit `/it` — WCAG, SEO, Rich Snippet, Visual Parity (2026-05-29)
 
 **URL:** http://127.0.0.1:8000/it
-**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 **Tool:** pa11y 9.1.1 (WCAG2AA), HTML structure diff, visual comparison
 
 ---

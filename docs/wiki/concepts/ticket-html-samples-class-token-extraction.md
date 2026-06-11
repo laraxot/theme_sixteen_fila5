@@ -8,7 +8,7 @@ sources:
   - "../../../../../../.planning/research/local-segnalazione-03-riepilogo.html"
   - "../../../../../../.planning/research/local-segnalazione-04-conferma.html"
   - "../../../../../../.planning/research/local-segnalazione-area-personale.html"
-  - "../../../../../../.planning/research/local-segnalazioni-elenco.html"
+  - "../../../../../../.planning/research/local-ticket-list.html"
 confidence: high
 created: 2026-05-04
 updated: 2026-05-04
@@ -54,7 +54,7 @@ Rigenerazione: dalla root del workspace eseguire `php bashscripts/extract-segnal
 | `p03` | `local-segnalazione-03-riepilogo.html` |
 | `p04` | `local-segnalazione-04-conferma.html` |
 | `ap` | `local-segnalazione-area-personale.html` |
-| `el` | `local-segnalazioni-elenco.html` |
+| `el` | `local-ticket-list.html` |
 
 ## Riconciliazione con [bootstrap italia class inventory](../entities/bootstrap-italia-class-inventory.md)
 

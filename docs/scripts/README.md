@@ -32,7 +32,7 @@ sono utility manuali per ispezionare HTML servito dall'app dev.
 | `check-header-local.js` | Controlla che l'header `<x-header>` renderizzi i link locali attesi (logo, search, login button). |
 | `debug-test.mjs` | Stampa info di debug sul markup del wizard segnalazione. |
 | `dom-full-test.mjs` | Full DOM dump della pagina segnalazione-crea per snapshot diff. |
-| `final-verify.mjs` | Verifica finale step-by-step del flow segnalazione (privacy → form.data → riepilogo). |
+| `final-verify.mjs` | Verifica finale step-by-step del flow.ticket (privacy → form.data → riepilogo). |
 | `full-verify.mjs` | Variante più esaustiva del `final-verify.mjs`. |
 | `step-content-test.mjs` | Test del contenuto di ogni step del wizard. |
 | `stepper-test.mjs` | Verifica visibilità/stato dello stepper (active/completed). |

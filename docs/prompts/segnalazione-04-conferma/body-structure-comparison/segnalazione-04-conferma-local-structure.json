@@ -1992,7 +1992,7 @@
     "tag": "a",
     "attrs": {
       "class": "t-primary",
-      "href": "/it/tests/segnalazioni-elenco"
+      "href": "/it/tests/ticket-list"
     },
     "direct_text": "lista di tutte le segnalazioni"
   },

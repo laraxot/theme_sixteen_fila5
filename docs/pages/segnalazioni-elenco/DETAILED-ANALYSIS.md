@@ -1,4 +1,4 @@
-# Detailed Page Analysis: segnalazioni-elenco
+# Detailed Page Analysis: ticket-list
 
 **Analysis Date:** 2026-04-03T13:06:25.627Z
 

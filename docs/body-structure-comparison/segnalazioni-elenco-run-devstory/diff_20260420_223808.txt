@@ -1,5 +1,5 @@
---- URL1: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-+++ URL2: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+--- URL1: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
++++ URL2: http://127.0.0.1:8000/it/tests/ticket-list
 @@ -10,49 +10,43 @@
        <div class="row">
          <div class="col-12">
@@ -328,7 +328,7 @@
 -          <p class="subtitle-small">
 -          </p>
 +  <div class="page-content content">
-+    <main id="segnalazioni-elenco-main">
++    <main id="ticket-list-main">
 +      <div class="container" id="main-container">
 +        <div class="row justify-content-center mb-md-40 mb-lg-80">
 +          <div class="col-12 col-lg-10">

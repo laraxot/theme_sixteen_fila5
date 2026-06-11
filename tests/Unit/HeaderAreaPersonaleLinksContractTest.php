@@ -18,12 +18,14 @@ test('user-dropdown usa named route Folio verificate', function (): void {
 
     expect($html)->toContain("route('services.categories')");
     expect($html)->toContain("route('dashboard')");
-    expect($html)->toContain("route('area-personale.notifiche')");
+    expect($html)->toContain("route('notifications')");
     expect($html)->toContain("route('profile.edit')");
     expect($html)->toContain("route('logout')");
     expect($html)->not->toContain('FrontofficeUrl::personalArea');
     expect($html)->not->toContain("route('tests.view'");
     expect($html)->not->toContain("route('user.services'");
+    expect($html)->not->toContain("route('area-personale");
+    expect($html)->not->toContain('area-personale.notifiche');
     expect($html)->not->toContain('ui::ui.profile');
     expect($html)->toContain("pub_theme::header.user.dropdown.notifications.label");
 });
@@ -99,7 +101,7 @@ test('legacy header user-dropdown usa named route Folio', function (): void {
     $html = (string) file_get_contents($themeRoot.'/resources/views/components/header/user-dropdown.blade.php');
 
     expect($html)->toContain("route('services.categories')");
-    expect($html)->toContain("route('area-personale.notifiche')");
+    expect($html)->toContain("route('notifications')");
     expect($html)->not->toContain('FrontofficeUrl::personalArea');
 });
 
@@ -132,7 +134,7 @@ test('legacy header variants usano route Folio e chiavi header.user.dropdown', f
     foreach ($legacyHeaders as $relative) {
         $html = (string) file_get_contents($themeRoot.'/resources/views/'.$relative);
         expect($html)->toContain("route('services.categories')");
-        expect($html)->toContain("route('area-personale.notifiche')");
+        expect($html)->toContain("route('notifications')");
         expect($html)->toContain('pub_theme::header.user.dropdown.notifications.label');
         expect($html)->not->toContain('FrontofficeUrl::personalArea');
         expect($html)->not->toContain('pub_theme::ui.header_area_personale');

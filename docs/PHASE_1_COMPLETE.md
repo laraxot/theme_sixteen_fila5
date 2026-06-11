@@ -163,7 +163,7 @@ Tools Documentation:
 
 **Analysis Docs**:
 - `analysis/REFERENCE_DESIGN_ANALYSIS.md` (52KB - CSS team resource)
-- `analysis/segnalazioni-elenco-structure-analysis.md` (example page analysis)
+- `analysis/ticket-list-structure-analysis.md` (example page analysis)
 
 **Implementation Docs**:
 - `implementation/STRATEGY.md` (approach options)
