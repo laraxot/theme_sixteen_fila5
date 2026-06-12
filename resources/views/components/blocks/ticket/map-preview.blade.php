@@ -3,7 +3,7 @@
 @php
     $height   = $data['height'] ?? '350px';
     $dataUrl  = $data['data_url'] ?? '/data/tickets.json';
-    $reportUrl = $data['report_url'] ?? '/it/tests/ticket-crea';
+    $reportUrl = $data['report_url'] ?? '/it/tickets/create';
     $listUrl   = $data['list_url'] ?? '/it';
     $locale    = app()->getLocale();
     $ctaUrl   = auth()->check()

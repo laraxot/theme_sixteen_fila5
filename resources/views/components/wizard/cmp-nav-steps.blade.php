@@ -49,7 +49,7 @@
             type="button"
             class="btn btn-primary btn-sm steppers-btn-confirm"
             x-bind:class="{ 'btn-next-step': !isLastStep() }"
-            x-on:click="isLastStep() ? $wire.submit() : requestNextStep()"
+            x-on:click="isLastStep() ? $wire.save() : requestNextStep()"
         >
             <span class="text-button-sm" x-text="isLastStep() ? 'Invia' : 'Avanti'"></span>
             <svg class="icon icon-white icon-sm" aria-hidden="true" x-show="!isLastStep()">
