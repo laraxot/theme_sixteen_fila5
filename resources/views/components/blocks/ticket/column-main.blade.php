@@ -40,7 +40,7 @@
                         <map-lit
                             id="block-map"
                             class="w-100"
-                            legend-mode="off"
+                            legend-mode="sidebar"
                             data-url="{{ $vm->mapDataUrl() }}"
                             height="clamp(305px,52vw,661px)"
                             style="height:clamp(305px,52vw,661px);display:block;width:100%"
