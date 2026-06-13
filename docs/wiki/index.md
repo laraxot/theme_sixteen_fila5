@@ -3,7 +3,7 @@ title: "Sixteen Theme Wiki Index"
 type: index
 tags: [sixteen, theme, wiki, index, frontoffice]
 created: 2026-04-15
-updated: 2026-06-05
+updated: 2026-06-13
 qmd: "sixteen theme wiki index frontoffice folio filament parity docs"
 issues:
   - "https://github.com/laraxot/theme_sixteen_fila5/issues/54"
@@ -34,6 +34,12 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 - [second-brain-theme-boundary](./concepts/second-brain-theme-boundary.md) — confine memoria tema
 - [llm-wiki prompt](../../../../bashscripts/tools/prompts/llm-wiki.txt) — router agente
 - [bmad/architecture](../../../../docs/wiki/bmad/architecture.md)
+
+## Testing / PHPStan (2026-06-13)
+
+- [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
+- [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
+- [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
