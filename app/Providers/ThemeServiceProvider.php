@@ -239,9 +239,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         // Register with pub_theme namespace (for theme compatibility)
         Blade::componentNamespace($componentNamespace, 'pub_theme');
 
-        // Register anonymous components for pub_theme
+        // Register anonymous components (default + pub_theme namespace)
         $componentsPath = realpath(__DIR__.'/../../resources/views/components');
         if ($componentsPath !== false) {
+            Blade::anonymousComponentPath($componentsPath);
             Blade::anonymousComponentPath($componentsPath, 'pub_theme');
         }
 
