@@ -4,6 +4,7 @@
         class="btn btn-primary btn-icon btn-full"
         id="header-user-toggle"
         data-bs-toggle="dropdown"
+        data-bs-display="static"
         data-focus-mouse="false"
         aria-expanded="false"
         aria-controls="header-user-menu"
@@ -67,12 +68,15 @@
                             </a>
                         </li>
                         <li>
-                            <a class="list-item left-icon" href="{{ route('logout') }}" role="menuitem">
-                                <svg class="icon icon-primary icon-sm left" aria-hidden="true">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
-                                </svg>
-                                <span class="fw-bold">{{ __('pub_theme::header.user.dropdown.logout.label') }}</span>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="list-item left-icon" role="menuitem">
+                                    <svg class="icon icon-primary icon-sm left" aria-hidden="true">
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
+                                    </svg>
+                                    <span class="fw-bold">{{ __('pub_theme::header.user.dropdown.logout.label') }}</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

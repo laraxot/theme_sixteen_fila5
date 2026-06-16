@@ -45,6 +45,12 @@
   margin-top: 0 !important;
 }
 
+@media (max-width: 767.98px) {
+  .it-header-slim-wrapper .it-user-wrapper .dropdown-menu {
+    margin-top: -4px !important;
+  }
+}
+
 /* STORY-147: dropdown compatto — annulla p-4/space-y-2/border da style-apply .link-list-wrapper */
 .it-header-slim-wrapper .it-user-wrapper .dropdown-menu .row {
   margin: 0 !important;
@@ -75,7 +81,8 @@
 }
 
 .it-header-slim-wrapper .it-user-wrapper .dropdown-menu .link-list-wrapper .list-item,
-.it-header-slim-wrapper .it-user-wrapper .dropdown-menu a.list-item {
+.it-header-slim-wrapper .it-user-wrapper .dropdown-menu a.list-item,
+.it-header-slim-wrapper .it-user-wrapper .dropdown-menu button.list-item {
   display: block !important;
   width: 100% !important;
   border: 0 !important;
@@ -88,6 +95,14 @@
   color: #17324d !important;
   text-decoration: none !important;
   box-shadow: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  text-align: left !important;
+}
+
+.it-header-slim-wrapper .it-user-wrapper .dropdown-menu form {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .it-header-slim-wrapper .it-user-wrapper .dropdown-menu .link-list-wrapper .list-item:hover,
@@ -357,3 +372,4 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
   padding-top: 0.4rem !important;
   padding-bottom: 0.1rem !important;
 }
+
