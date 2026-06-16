@@ -60,7 +60,7 @@
         {{ $step }}
     @endforeach
 
-    <div x-cloak class="fi-sc-wizard-footer" style="display:none">
+    <div x-cloak class="fi-sc-wizard-footer">
         <div
             x-cloak
             @if (! $previousAction->isDisabled())
@@ -91,8 +91,4 @@
         </div>
     </div>
 
-    <x-pub_theme::wizard.cmp-nav-steps
-        :steps="$steps"
-        :total-steps="count($steps)"
-    />
 </div>

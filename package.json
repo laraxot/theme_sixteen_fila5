@@ -38,7 +38,7 @@
         "@tailwindcss/typography": "^0.5.18",
         "@tailwindcss/vite": "^4.1.13",
         "autoprefixer": "^10.5.0",
-        "axios": "^1.11.0",
+        "axios": "^1.17.0",
         "concurrently": "^9.0.1",
         "daisyui": "^5.5.19",
         "eslint": "^8.57.0",
@@ -61,7 +61,7 @@
         "tailwindcss": "^4.2.2",
         "terser": "^5.28.1",
         "vanilla-cookieconsent": "^3.0.1",
-        "vite": "^7.0.7",
+        "vite": "^7.3.2",
         "vite-plugin-compression": "^0.5.1"
     },
     "dependencies": {
