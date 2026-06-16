@@ -50,12 +50,15 @@
                             </a>
                         </li>
                         <li>
-                            <a class="list-item left-icon" href="{{ route('logout') }}">
-                                <svg class="icon icon-primary icon-sm left" aria-hidden="true">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
-                                </svg>
-                                <span class="fw-bold">{{ __('pub_theme::header.user.dropdown.logout.label') }}</span>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="list-item left-icon">
+                                    <svg class="icon icon-primary icon-sm left" aria-hidden="true">
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
+                                    </svg>
+                                    <span class="fw-bold">{{ __('pub_theme::header.user.dropdown.logout.label') }}</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
