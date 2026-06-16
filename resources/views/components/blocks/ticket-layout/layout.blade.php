@@ -98,7 +98,7 @@
                                         <map-lit
                                             id="block-map"
                                             class="w-100"
-                                            legend-mode="off"
+                                            legend-mode="sidebar"
                                             data-url="{{ $vm->mapDataUrl() }}"
                                             height="clamp(360px,58vh,560px)"
                                             style="height:clamp(360px,58vh,560px);display:block;width:100%"

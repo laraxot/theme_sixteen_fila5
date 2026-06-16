@@ -3,9 +3,16 @@ title: "Sixteen Theme - PHPStan Type Compliance"
 type: concept
 tags: [sixteen, phpstan, types, compliance, quality, static-analysis]
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-13
+qmd: "Sixteen theme PHPStan compliance module UI tests components"
+issues:
+  - "https://github.com/laraxot/module_fixcity_fila5/issues/52"
+discussions:
+  - "https://github.com/laraxot/module_fixcity_fila5/discussions/53"
 related:
-  - ../../../Modules/Activity/docs/wiki/concepts/phpstan-compliance.md
+  - ./theme-component-test-contract.md
+  - ../overviews/completion-roadmap.md
+  - ../../../Modules/Fixcity/docs/wiki/concepts/phpstan-compliance.md
   - ../../../../docs/wiki/concepts/phpstan-level-max-compliance.md
   - ../../../../docs/wiki/rules/git-forward-only.md
 ---
@@ -14,16 +21,17 @@ related:
 
 ## Status
 
-✅ **COMPLIANT** — 0 errors in PHPStan level: max
+✅ **COMPLIANT (indiretto)** — PHPStan L10 su codice modulo; tema validato via test UI
 
 ```
 Theme:    Sixteen
 Path:     laravel/Themes/Sixteen/
-Status:   GREEN
-Errors:   0
-Level:    max
-Updated:  2026-06-10 T+00:00
+PHPStan:  paths neon = Modules/ only (tema escluso direttamente)
+Tests:    Modules/UI + Fixcity → path tema
+Updated:  2026-06-13
 ```
+
+Vedi [theme-component-test-contract.md](./theme-component-test-contract.md) e [completion-roadmap.md](../overviews/completion-roadmap.md).
 
 ## Coverage
 
