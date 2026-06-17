@@ -256,6 +256,13 @@ html body {
   min-height: 48px !important;
 }
 
+/* Bootstrap Italia imposta padding: 6.5px 18px sull'it-header-slim-wrapper.
+   Questo allarga il container oltre 48px e fa scendere il dropdown menu
+   al di sotto del bottone visibile (top: 100% del nav-item allungato). */
+.it-header-slim-wrapper {
+  padding: 0 !important;
+}
+
 .it-header-slim-wrapper-content {
   display: flex !important;
   align-items: center !important;
@@ -282,11 +289,30 @@ html body {
 .it-header-slim-wrapper .nav-item.dropdown {
   display: flex !important;
   align-items: center !important;
+  height: 48px !important;
 }
 
 .it-header-slim-wrapper .it-user-wrapper {
   display: flex !important;
   align-items: center !important;
+  --bs-dropdown-spacer: 0;
+}
+
+.it-header-slim-wrapper .it-user-wrapper:has([aria-expanded="true"])::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 8px solid transparent !important;
+  border-right: 8px solid transparent !important;
+  border-bottom: 8px solid #ffffff !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  z-index: 1001 !important;
 }
 
 .it-header-slim-wrapper .nav-link.dropdown-toggle {
@@ -369,6 +395,67 @@ html body {
 
 .it-header-slim-wrapper .dropdown-menu .dropdown-item span {
   color: inherit !important;
+}
+
+/* Language switcher — .it-language-switcher (classe su nav-item.dropdown nel blade)
+   Struttura semplificata: dropdown-menu > a.dropdown-item (no link-list/list-item)
+   Conflitto evitato: style-apply.css ridefinisce .link-list-wrapper/.list-item con Tailwind
+   data-bs-display="static" nel blade disabilita Popper: usa CSS top:100%+margin-top:0 */
+.it-header-slim-wrapper .it-language-switcher {
+  --bs-dropdown-spacer: 0;
+}
+
+/* Il ::before di Bootstrap Italia sul dropdown viene coperto dallo sfondo verde del slim header. */
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Freccia sul nav-item (.dropdown, già position:relative da Bootstrap).
+   ::after del nav-item è il containing block corretto: stessa origine di left:0 del dropdown.
+   bottom:0 → il diamante è centrato sul bordo inferiore del nav-item:
+   la metà superiore (su sfondo verde) è visibile come triangolo bianco;
+   la metà inferiore (su sfondo bianco dropdown) è invisibile. */
+.it-header-slim-wrapper .it-language-switcher:has(.nav-link[aria-expanded="true"])::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 8px solid transparent !important;
+  border-right: 8px solid transparent !important;
+  border-bottom: 8px solid #ffffff !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  z-index: 1001 !important;
+}
+
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu {
+  min-width: 7rem !important;
+  padding: 0.25rem 0 !important;
+  margin-top: 0 !important;
+}
+
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item {
+  padding: 0.5rem 1.25rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  color: #007a52 !important;
+  white-space: nowrap !important;
+}
+
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item[aria-current="true"] {
+  font-weight: 700 !important;
+  color: #17324d !important;
+}
+
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item:hover,
+.it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item:focus-visible {
+  background: rgba(0, 122, 82, 0.08) !important;
+  color: #005c40 !important;
 }
 
 /* STORY-147: dropdown utente compatto (annulla space-y/p-4 da style-apply) */
@@ -674,6 +761,11 @@ html body {
 
   .it-header-slim-wrapper .nav-link.dropdown-toggle {
     padding: 0 8px !important;
+  }
+
+  .it-header-slim-wrapper .it-language-switcher .dropdown-menu,
+  .it-header-slim-wrapper .it-user-wrapper .dropdown-menu {
+    margin-top: -4px !important;
   }
 
   .it-header-slim-wrapper .btn-icon.btn-full {
