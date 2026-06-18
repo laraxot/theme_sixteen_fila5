@@ -628,3 +628,6 @@ main[data-page="amministrazione"] .card-wrapper {
   padding-bottom: 0.5rem !important;
   margin-bottom: 0;
 }
+
+/* STORY-365: Leaflet container base z-index — backdrop (z-index:1040) can paint above it */
+.leaflet-container { z-index: 1; }
