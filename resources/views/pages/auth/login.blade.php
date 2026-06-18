@@ -26,6 +26,7 @@
                     <div class="auth-login-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                         @livewire(\Modules\User\Filament\Widgets\Auth\LoginWidget::class)
                     </div>
+                    @livewire(\Modules\User\Filament\Widgets\Auth\SocialLoginWidget::class)
                 </div>
 
                 <aside class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="auth-login-support-heading">
