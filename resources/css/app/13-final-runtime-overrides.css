@@ -373,3 +373,128 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
   padding-bottom: 0.1rem !important;
 }
 
+/* STORY-365: modal filtri mobile — sopra lo stacking context Leaflet (teleportato a body via initFilterModal) */
+#modal-categories { z-index: 10000 !important; }
+
+/* ============================================================================
+   STORY-476: Mobile header visual parity
+   ============================================================================ */
+
+/* Gap 4: "Nome della Regione" — d-lg-block nasconde su mobile.
+   bootstrap-italia.css riga 1160: @media(max-width:991.98px) .d-lg-block { display:none !important }
+   → specificity (0,1,0). Override: specificity (0,3,0) vince a parità di !important.
+   Overflow visible su tutta la catena: il clipping sinistro viene dal container. */
+@media (max-width: 991.98px) {
+  .it-header-slim-wrapper .it-header-slim-wrapper-content {
+    overflow: visible !important;
+  }
+
+  .it-header-slim-wrapper .it-header-slim-wrapper-content .navbar-brand {
+    display: block !important;
+    color: #fff !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: nowrap !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    position: static !important;
+  }
+}
+
+/* "Cerca" text: bootstrap-italia.css riga 1176 ha .d-md-block{display:block} dentro max-width:767.98px
+   (bug: lo mostra anche su mobile <768px). Override con specificità maggiore. */
+@media (max-width: 991.98px) {
+  .it-header-center-wrapper .it-search-wrapper span.d-md-block {
+    display: none !important;
+  }
+}
+
+/* Logo SVG: <image xlink:href> senza attributi width/height → renderizza 0×0 su molti browser */
+.it-brand-wrapper .icon image,
+.it-brand-wrapper svg image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hamburger: mobile-header-fix.css usa grid con navbar-wrapper a z-index:1 sotto il center (z-index:20).
+   Fix: navbar-wrapper diventa absolute sul lato sinistro del nav-wrapper, trasparente,
+   il center-content-wrapper aggiunge padding-left per fare spazio. */
+@media (max-width: 991.98px) {
+  /* Container relativo per il posizionamento absolute del navbar-wrapper */
+  .it-nav-wrapper {
+    position: relative !important;
+    display: block !important;
+  }
+
+  /* Center wrapper: flusso normale (la barra verde prende tutta la larghezza) */
+  .it-header-center-wrapper {
+    position: static !important;
+    z-index: auto !important;
+    pointer-events: auto !important;
+  }
+
+  /* Spazio a sinistra per il hamburger */
+  .it-header-center-content-wrapper {
+    padding-left: 3.5rem !important;
+  }
+
+  /* Navbar wrapper: galleggia assoluto sul lato sinistro, sfondo trasparente, z sopra center */
+  .it-header-navbar-wrapper {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 3.5rem !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    z-index: 30 !important;
+    pointer-events: none !important;
+  }
+
+  .it-header-navbar-wrapper .navbar {
+    height: 100% !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    pointer-events: none !important;
+  }
+
+  /* Hamburger: cliccabile, centrato nel suo slot da 3.5rem */
+  .custom-navbar-toggler {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    z-index: auto !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+  }
+
+  /* Menu mobile (navbar-collapsable): deve restare interattivo e sopra tutto */
+  .it-header-navbar-wrapper .navbar-collapsable {
+    pointer-events: auto !important;
+  }
+}
+

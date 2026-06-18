@@ -210,7 +210,67 @@ document.addEventListener('DOMContentLoaded', initHeaderMobileNav);
 document.addEventListener('livewire:navigated', initHeaderMobileNav);
 document.addEventListener('livewire:update', initHeaderMobileNav);
 
+// STORY-365: modal filtri mobile — Bootstrap Italia ha display:none !important su .modal,
+// che batte il style.display JS senza !important. Bypass completo: teleport a body +
+// setProperty con 'important' + backdrop manuale.
+function initFilterModal() {
+    var modal = document.getElementById('modal-categories');
+    if (!modal) { return; }
+
+    document.body.appendChild(modal);
+
+    function openFilterModal() {
+        var mapEl = document.getElementById('ticket-map');
+        if (mapEl && mapEl._map) { mapEl._map.closePopup(); }
+        modal.style.setProperty('display', 'block', 'important');
+        modal.style.setProperty('visibility', 'visible', 'important');
+        modal.classList.add('show');
+        modal.removeAttribute('aria-hidden');
+        modal.setAttribute('aria-modal', 'true');
+        document.body.classList.add('modal-open');
+        var bd = document.createElement('div');
+        bd.className = 'modal-backdrop show';
+        bd.id = '_mfix_bd';
+        document.body.appendChild(bd);
+        bd.addEventListener('click', closeFilterModal);
+    }
+
+    function closeFilterModal() {
+        // Sposta focus prima di aria-hidden per evitare warning accessibilità
+        var trigger = document.querySelector('[data-bs-target="#modal-categories"]');
+        if (trigger) { trigger.focus(); }
+        modal.style.removeProperty('display');
+        modal.style.removeProperty('visibility');
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.removeAttribute('aria-modal');
+        document.body.classList.remove('modal-open');
+        var bd = document.getElementById('_mfix_bd');
+        if (bd) { bd.remove(); }
+    }
+
+    document.querySelectorAll('[data-bs-target="#modal-categories"]').forEach(function (btn) {
+        btn.removeAttribute('data-bs-toggle'); // disabilita Bootstrap delegation
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openFilterModal();
+        });
+    });
+
+    modal.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function (btn) {
+        btn.addEventListener('click', closeFilterModal);
+    });
+}
+
+// Esegue prima di DOMContentLoaded per prevenire Bootstrap delegation su #modal-categories
+if (document.readyState !== 'loading') {
+    initFilterModal();
+} else {
+    document.addEventListener('DOMContentLoaded', initFilterModal, { once: true });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+
     const closeModal = function(modal) {
         if (!modal) {
             return;
@@ -438,7 +498,7 @@ function initTicketFilters() {
     }
 
     const desktopRoot = root.querySelector('aside.col-lg-3, div.col-lg-3.d-none.d-lg-block');
-    const modalRoot = root.querySelector('#modal-categories');
+    const modalRoot = root.querySelector('#modal-categories') || document.getElementById('modal-categories');
     const typeSelector = 'input[type="checkbox"][name="category"][data-filter-type]';
     const statusSelector = 'input[type="checkbox"][name="status"][data-filter-status]';
     const primaryTypeCheckboxes = desktopRoot
