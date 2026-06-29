@@ -51,6 +51,34 @@ export default defineConfig({
                 } catch { /* silent */ }
             },
         },
+        {
+            name: 'copy-design-comuni-assets',
+            closeBundle() {
+                const outBase = path.resolve(__dirname, '../../../public_html/themes/Sixteen/design-comuni');
+                const copies = [
+                    {
+                        src: path.resolve(__dirname, 'node_modules/bootstrap-italia/dist/svg/sprites.svg'),
+                        dst: path.join(outBase, 'assets/bootstrap-italia/dist/svg/sprites.svg'),
+                    },
+                    {
+                        src: path.resolve(__dirname, 'Main_files/five/assets/images/logo-eu-inverted.svg'),
+                        dst: path.join(outBase, 'assets/images/logo-eu-inverted.svg'),
+                    },
+                    {
+                        src: path.resolve(__dirname, 'Main_files/five/assets/images/logo-comune.svg'),
+                        dst: path.join(outBase, 'assets/images/logo-comune.svg'),
+                    },
+                ];
+                for (const { src, dst } of copies) {
+                    try {
+                        if (fs.existsSync(src)) {
+                            fs.mkdirSync(path.dirname(dst), { recursive: true });
+                            fs.copyFileSync(src, dst);
+                        }
+                    } catch { /* silent */ }
+                }
+            },
+        },
     ],
     build: {
         outDir: '../../../public_html/themes/Sixteen',

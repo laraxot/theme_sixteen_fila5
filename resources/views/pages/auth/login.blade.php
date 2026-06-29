@@ -24,9 +24,25 @@
             <div class="grid gap-6 lg:grid-cols-3">
                 <div class="lg:col-span-2">
                     <div class="auth-login-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                        @livewire(\Modules\User\Filament\Widgets\Auth\LoginWidget::class)
+                        <div class="p-5 sm:p-7 space-y-6">
+                            @livewire(\Modules\User\Filament\Widgets\Auth\LoginWidget::class)
+                            @livewire(\Modules\User\Filament\Widgets\Auth\SocialLoginWidget::class)
+                            <nav class="space-y-3 border-t border-slate-200 pt-4 text-sm" aria-label="{{ __('user::auth.login.page.support_title.label') }}">
+                                <p class="text-slate-600">
+                                    {{ __('user::login.no_account') }}
+                                    <a href="{{ url('/' . app()->getLocale() . '/auth/register') }}"
+                                        class="font-semibold text-italia-blue-700 underline decoration-italia-blue-500 underline-offset-2 hover:text-italia-blue-800"
+                                    >{{ __('user::login.register_now') }}</a>
+                                </p>
+                                <p class="text-slate-600">
+                                    {{ __('user::login.forgot_password_text') }}
+                                    <a href="{{ url('/' . app()->getLocale() . '/auth/password/reset') }}"
+                                        class="font-semibold text-italia-blue-700 underline decoration-italia-blue-500 underline-offset-2 hover:text-italia-blue-800"
+                                    >{{ __('user::login.reset_it') }}</a>
+                                </p>
+                            </nav>
+                        </div>
                     </div>
-                    @livewire(\Modules\User\Filament\Widgets\Auth\SocialLoginWidget::class)
                 </div>
 
                 <aside class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="auth-login-support-heading">
