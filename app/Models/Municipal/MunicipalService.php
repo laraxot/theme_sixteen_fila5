@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -54,24 +56,23 @@ use Illuminate\Support\Str;
  * @property array|null $service_outcomes
  * @property array|null $quality_standards
  * @property array|null $satisfaction_metrics
- * @property \Carbon\Carbon|null $last_updated
- * @property \Carbon\Carbon|null $next_review_date
+ * @property Carbon|null $last_updated
+ * @property Carbon|null $next_review_date
  * @property bool $is_active
  * @property bool $is_public
  * @property bool $is_digital
  * @property bool $is_accessible
  * @property int $priority_level
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read self|null $parentService
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $subServices
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicDocument> $documents
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalLocation> $locations
+ * @property-read Collection<int, self> $subServices
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, PublicDocument> $documents
+ * @property-read Collection<int, MunicipalLocation> $locations
  */
 class MunicipalService extends Model
 {

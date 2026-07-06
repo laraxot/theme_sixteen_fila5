@@ -27,7 +27,7 @@ test('user-dropdown usa named route Folio verificate', function (): void {
     expect($html)->not->toContain("route('area-personale");
     expect($html)->not->toContain('area-personale.notifiche');
     expect($html)->not->toContain('ui::ui.profile');
-    expect($html)->toContain("pub_theme::header.user.dropdown.notifications.label");
+    expect($html)->toContain('pub_theme::header.user.dropdown.notifications.label');
 });
 
 test('guest CTA header usa route login Folio', function (): void {

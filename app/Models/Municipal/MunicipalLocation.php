@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -70,14 +72,13 @@ use Illuminate\Support\Str;
  * @property bool $is_accessible
  * @property int $priority_level
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, OrganizationalUnit> $organizationalUnits
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalService> $services
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $events
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, OrganizationalUnit> $organizationalUnits
+ * @property-read Collection<int, MunicipalService> $services
+ * @property-read Collection<int, MunicipalEvent> $events
  */
 class MunicipalLocation extends Model
 {

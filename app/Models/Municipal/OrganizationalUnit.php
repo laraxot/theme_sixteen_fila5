@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -44,10 +45,9 @@ use Illuminate\Support\Str;
  * @property array|null $services_provided
  * @property array|null $accessibility_info
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read self|null $parent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $children
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts

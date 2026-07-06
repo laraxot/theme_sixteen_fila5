@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,9 +21,9 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
- * @property \Carbon\Carbon|null $appointment_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
+ * @property Carbon|null $appointment_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
  * @property string $status
  * @property string|null $purpose
  * @property string|null $notes
@@ -31,12 +32,11 @@ use Modules\User\Models\User;
  * @property bool $reminder_sent
  * @property string|null $cancellation_reason
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Modules\User\Models\User|null $user
- * @property-read \Modules\User\Models\User|null $citizen
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read User|null $user
+ * @property-read User|null $citizen
  * @property-read self|null $office
  * @property-read self|null $service
  */

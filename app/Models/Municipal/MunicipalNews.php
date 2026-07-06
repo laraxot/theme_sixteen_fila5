@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -53,9 +55,9 @@ use Illuminate\Support\Str;
  * @property string|null $social_summary
  * @property string|null $meta_description
  * @property array|null $seo_keywords
- * @property \Carbon\Carbon|null $publication_date
- * @property \Carbon\Carbon|null $expiry_date
- * @property \Carbon\Carbon|null $last_modified
+ * @property Carbon|null $publication_date
+ * @property Carbon|null $expiry_date
+ * @property Carbon|null $last_modified
  * @property int $revision_number
  * @property bool $is_published
  * @property bool $is_featured
@@ -72,16 +74,15 @@ use Illuminate\Support\Str;
  * @property array|null $translation_links
  * @property array|null $structured_data
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read PublicPerson|null $author
  * @property-read PublicPerson|null $editor
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $categories
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $tags
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, self> $categories
+ * @property-read Collection<int, self> $tags
  */
 class MunicipalNews extends Model
 {
