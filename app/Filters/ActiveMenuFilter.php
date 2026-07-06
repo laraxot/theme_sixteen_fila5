@@ -6,6 +6,7 @@ namespace Themes\Sixteen\Filters;
 
 use Illuminate\Support\Facades\Request;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
+
 use function Safe\parse_url;
 use function Safe\preg_match;
 

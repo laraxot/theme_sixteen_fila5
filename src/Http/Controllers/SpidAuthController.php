@@ -25,8 +25,7 @@ class SpidAuthController extends Controller
 {
     public function __construct(
         protected SpidAuthService $spidService
-    ) {
-    }
+    ) {}
 
     /**
      * Reindirizza al provider SPID per l'autenticazione.

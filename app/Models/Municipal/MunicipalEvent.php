@@ -6,6 +6,7 @@ namespace Themes\Sixteen\Models\Municipal;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -34,10 +35,10 @@ use Illuminate\Support\Str;
  * @property string $event_status
  * @property string $visibility
  * @property array|null $target_audience
- * @property \Carbon\Carbon|null $start_date
- * @property \Carbon\Carbon|null $end_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
+ * @property Carbon|null $start_date
+ * @property Carbon|null $end_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
  * @property string|null $timezone
  * @property bool $is_all_day
  * @property bool $is_recurring
@@ -54,7 +55,7 @@ use Illuminate\Support\Str;
  * @property int $current_attendees
  * @property bool $registration_required
  * @property string|null $registration_url
- * @property \Carbon\Carbon|null $registration_deadline
+ * @property Carbon|null $registration_deadline
  * @property float|null $registration_cost
  * @property array|null $contact_info
  * @property array|null $speaker_info
@@ -74,14 +75,13 @@ use Illuminate\Support\Str;
  * @property string|null $feedback_url
  * @property string|null $recording_url
  * @property bool $is_published
- * @property \Carbon\Carbon|null $published_at
+ * @property Carbon|null $published_at
  * @property bool $featured
  * @property int $priority_level
  * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  * @property-read string $event_type_name
  * @property-read string $event_status_name
  * @property-read string $location_type_name
@@ -93,11 +93,10 @@ use Illuminate\Support\Str;
  * @property-read int|null $available_spots
  * @property-read string|null $duration
  * @property-read string $url
- *
  * @property-read OrganizationalUnit|null $organizationalUnit
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $participants
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $speakers
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, PublicPerson> $participants
+ * @property-read Collection<int, PublicPerson> $speakers
  */
 class MunicipalEvent extends Model
 {
