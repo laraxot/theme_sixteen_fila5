@@ -43,6 +43,7 @@
                             </nav>
                         </div>
                     </div>
+                    @livewire(\Modules\User\Filament\Widgets\Auth\SocialLoginWidget::class)
                 </div>
 
                 <aside class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="auth-login-support-heading">
