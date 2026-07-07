@@ -445,9 +445,9 @@ class PublicPerson extends Model
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-            get: function (): void {
+            get: function (): ?int {
                 if (! $this->is_in_office) {
-                    return;
+                    return null;
                 }
 
                 return $this->end_date?->diffInDays(now()) ?? null;
