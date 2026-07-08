@@ -125,7 +125,7 @@ font-family: "Titillium Web";
 | Pagina | HTML Parity | Font Match | CSS Status |
 |--------|-------------|------------|------------|
 | segnalazione-area-personale | 100% | 0/33 | 🟡 Da migliorare |
-| segnalazioni-elenco | 100% | 0/31 | 🟡 Da migliorare |
+| ticket-list | 100% | 0/31 | 🟡 Da migliorare |
 | segnalazione-dettaglio | 100% | 0/32 | 🟡 Da migliorare |
 | segnalazione-01-privacy | 100% | 0/22 | 🟡 Da migliorare |
 | segnalazione-02-dati | 100% | 0/31 | 🟡 Da migliorare |

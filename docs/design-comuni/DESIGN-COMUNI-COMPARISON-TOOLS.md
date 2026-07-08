@@ -229,7 +229,7 @@ For each page below 90% similarity:
 43. `segnalazione-02-dati` — Step 2: Data
 44. `segnalazione-03-riepilogo` — Step 3: Summary
 45. `segnalazione-04-conferma` — Step 4: Confirmation
-46. `segnalazioni-elenco` — Reports list
+46. `ticket-list` — Reports list
 47. `segnalazione-dettaglio` — Report detail
 
 ### Payments (Priority 3)

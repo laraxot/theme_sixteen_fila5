@@ -17,7 +17,7 @@
 | segnalazione-03-riepilogo | **92.75%** | ✅ PASS | ⏳ Pending | - |
 | segnalazione-04-conferma | **77.4%** | ❌ FAIL | ⏳ Pending | - |
 | segnalazione-area-personale | **88.43%** | ❌ FAIL | ⏳ Pending | - |
-| segnalazioni-elenco | **77.55%** | ❌ FAIL | ⏳ Pending | - |
+| ticket-list | **77.55%** | ❌ FAIL | ⏳ Pending | - |
 | segnalazione-dettaglio | **72.45%** | ❌ FAIL | ⏳ Pending | - |
 
 **Average:** 85.44% | **HTML Passing (≥80%):** 3/7 | **CSS/JS Passing:** 1/7
@@ -36,7 +36,7 @@
 | 4 | **Extra `<style>` and `<section>` tags** — Reference has 0 sections, local has 1 extra `<section>` and `<style>` | Structural deviation | 1 file, remove wrapper elements |
 | 5 | **`<use>` attribute differences** — SVG `href` paths differ (`../assets/...` vs `/themes/Sixteen/...`) | Expected (asset path), cosmetic only | N/A — acceptable divergence |
 
-### 2.2 segnalazioni-elenco (77.55%)
+### 2.2 ticket-list (77.55%)
 
 | # | Gap | Impact | Fix Complexity |
 |---|-----|--------|---------------|
@@ -109,7 +109,7 @@
 
 ---
 
-## 4. "Contatta il Comune" Block — Detailed Audit (segnalazioni-elenco)
+## 4. "Contatta il Comune" Block — Detailed Audit (ticket-list)
 
 **Status:** ✅ STRUCTURAL PARITY ACHIEVED
 
@@ -135,7 +135,7 @@ Reference structure:                    Local structure:
 - `data-element="contacts"` ✅
 - `data-element="appointment-booking"` ✅
 
-**No gaps in this specific block.** The low overall score for segnalazioni-elenco comes from the modal, feedback, and card sections — not the contacts block.
+**No gaps in this specific block.** The low overall score for ticket-list comes from the modal, feedback, and card sections — not the contacts block.
 
 ---
 
@@ -145,7 +145,7 @@ Reference structure:                    Local structure:
 | Priority | Task | Pages | Effort |
 |----------|------|-------|--------|
 | P0-1 | Rebuild `segnalazione-dettaglio` content sections — add missing detail blocks, status timeline, action buttons | dettaglio | High |
-| P0-2 | Complete disservizio modal in `segnalazioni-elenco` — add radio buttons (radio-1 through radio-10), form fields, modal body structure | elenco | High |
+| P0-2 | Complete disservizio modal in `ticket-list` — add radio buttons (radio-1 through radio-10), form fields, modal body structure | elenco | High |
 | P0-3 | Add missing IDs across all failing pages — `#modal-disservizio`, `#modal2Title`, `#formGroupExampleInputWithHelp`, `#collapseExample`, `#rating-feedback` | elenco, dettaglio, area-personale | Medium |
 
 ### P1 — High (Copy + Attribute Alignment)
@@ -187,7 +187,7 @@ Reference structure:                    Local structure:
 
 ### Biggest Gaps
 1. **segnalazione-dettaglio (72.45%)** — Most incomplete page; likely needs 3-4 major content sections rebuilt
-2. **segnalazioni-elenco modal (121 missing elements)** — Disservizio modal body is structurally incomplete
+2. **ticket-list modal (121 missing elements)** — Disservizio modal body is structurally incomplete
 3. **Heading text drift** — Local copy has diverged from reference in 4+ places
 4. **Missing IDs** — Systematic pattern of omitting `id` attributes that reference uses
 5. **Extra Alpine.js markup** — Local has 34-81 extra elements from Vue-like directives
@@ -197,7 +197,7 @@ Reference structure:                    Local structure:
 
 Specifically:
 - **segnalazione-dettaglio**: Needs the most work — treat as a new page build
-- **segnalazioni-elenco**: Modal completion + heading text alignment will push score from 77% → ~90%
+- **ticket-list**: Modal completion + heading text alignment will push score from 77% → ~90%
 - **segnalazione-area-personale**: Authenticated header variant + missing tab/modal will push 88% → ~95%
 - **segnalazione-04-conferma**: Heading hierarchy + element cleanup will push 77% → ~90%
 
@@ -212,7 +212,7 @@ Specifically:
 | 03-riepilogo report | `docs/prompts/segnalazione-03-riepilogo/body-structure-comparison/segnalazione-03-riepilogo-comparison-report.md` |
 | 04-conferma report | `docs/prompts/segnalazione-04-conferma/body-structure-comparison/segnalazione-04-conferma-comparison-report.md` |
 | area-personale report | `docs/prompts/segnalazione-area-personale/body-structure-comparison/segnalazione-area-personale-comparison-report.md` |
-| elenco report | `docs/prompts/segnalazioni-elenco/body-structure-comparison/segnalazioni-elenco-comparison-report.md` |
+| elenco report | `docs/prompts/ticket-list/body-structure-comparison/ticket-list-comparison-report.md` |
 | dettaglio report | `docs/prompts/segnalazione-dettaglio/body-structure-comparison/segnalazione-dettaglio-comparison-report.md` |
 | Comparison script | `bashscripts/html-comparison/compare-html-body.sh` |
 | Live fetch date | 2026-04-09 |

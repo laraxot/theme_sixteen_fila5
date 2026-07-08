@@ -1,7 +1,7 @@
 # Structural Parity Plan – 2026-04-06
 
 ## Context
-`lista-risorse` e `segnalazioni-elenco` now sit in the CSS/JS perimeter, but `amministrazione`, `mappa-sito` and the other low-score slugs are still far from matching the reference because their rendered blocks differ (missing background/CTA/links groups). Before chasing more styling, the next step is to align their JSON/Blade output with the reference structure.
+`lista-risorse` e `ticket-list` now sit in the CSS/JS perimeter, but `amministrazione`, `mappa-sito` and the other low-score slugs are still far from matching the reference because their rendered blocks differ (missing background/CTA/links groups). Before chasing more styling, the next step is to align their JSON/Blade output with the reference structure.
 
 ## Reference snapshot highlights
 

@@ -38,11 +38,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Themes\\Sixteen\\": ""
+            "Themes\\Sixteen\\": "app/"
         }
     },
     "autoload-dev": {
-        "psr-4": {}
+        "psr-4": {
+            "Themes\\Sixteen\\Tests\\": "tests/"
+        }
     },
     "config": {
         "sort-packages": true,

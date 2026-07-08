@@ -33,7 +33,7 @@
 - **appuntamento-04-richiedente** (56%)
 - **appuntamento-05-riepilogo** (56%)
 - **segnalazione-dettaglio** (56%)
-- **segnalazioni-elenco** (56%)
+- **ticket-list** (56%)
 - ... and 34 more
 
 ## Recommended Next Steps

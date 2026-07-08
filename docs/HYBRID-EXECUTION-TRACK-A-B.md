@@ -15,7 +15,7 @@
 **Scope**: Fix 12 blockers + 14 flags identified by Subtask 1  
 **Duration**: ~40-50 minutes  
 **Deliverable**: Clean HTML with no BLOCKED verdict  
-**Files Modified**: [slug].blade.php, tests.segnalazioni-elenco.json
+**Files Modified**: [slug].blade.php, tests.ticket-list.json
 
 ### Track B: Phase 2 Research & Strategy
 **Owners**: Researcher + 3 Research Agents  
@@ -68,7 +68,7 @@
 cd laravel/Themes/Sixteen
 npm run build
 npm run copy
-# Test locally at: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+# Test locally at: http://127.0.0.1:8000/it/tests/ticket-list
 ```
 
 **Step 7: Verify** (5 min)
@@ -153,7 +153,7 @@ npm run copy
 
 ### From Track A (Executor #2)
 - ✅ Updated [slug].blade.php (with blocker fixes)
-- ✅ Updated tests.segnalazioni-elenco.json (if needed)
+- ✅ Updated tests.ticket-list.json (if needed)
 - ✅ Compiled CSS/JS (npm run build + npm run copy)
 - ✅ Verification: Page loads correctly, no console errors
 - ✅ Ready for Subtask 5: Re-run comparison script
@@ -246,7 +246,7 @@ npm run copy
 
 ### Track A Progress
 - `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php` (being modified)
-- `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json` (verify)
+- `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json` (verify)
 - Build output (npm run build succeeds)
 
 ### Track B Progress

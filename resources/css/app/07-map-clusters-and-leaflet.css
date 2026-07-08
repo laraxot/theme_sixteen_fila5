@@ -144,8 +144,9 @@ main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-f
   overflow: hidden !important;
 }
 
-/* Header height adjustment */
-.dc-homepage-parity header {
+/* Header height adjustment — solo header sito, mai popup mappa (header.popup__header) */
+.dc-homepage-parity .it-header-wrapper,
+.dc-homepage-parity header.it-header-wrapper {
   min-height: 222px !important;
   height: auto !important;
 }
@@ -175,7 +176,7 @@ main[data-page="homepage"] .it-carousel-wrapper.it-carousel-landscape-abstract-f
 
 /* ========================================
    PAGE PARITY FIXES - 2026-04-04
-   Focus pages: lista-risorse, segnalazioni-elenco, amministrazione
+   Focus pages: lista-risorse, ticket-list, amministrazione
 ======================================== */
 
 main[data-page="lista-risorse"] .cmp-breadcrumbs,
@@ -285,17 +286,39 @@ main[data-page="page-shell"] .map-box > img {
   object-fit: cover;
 }
 
-/* Leaflet marker glyphs — inline SVG preferito; img fallback protetto da Tailwind preflight */
-.leaflet-marker-pane .geo-map-marker-glyph,
-.leaflet-marker-pane .geo-map-marker-glyph-svg,
+/* Cluster LOD — glifi piccoli nel riepilogo cluster */
+.geo-cluster-type-icons .geo-map-marker-glyph,
+.geo-cluster-type-icons img.geo-map-marker-glyph--img,
 .geo-map-marker-glyph-wrap .geo-map-marker-glyph,
-.geo-map-marker-glyph-wrap .geo-map-marker-glyph-svg,
 .geo-map-marker-glyph-wrap img.geo-map-marker-glyph--img {
   width: 14px !important;
   height: 14px !important;
   max-width: 14px !important;
   max-height: 14px !important;
   object-fit: contain;
+}
+
+/* Marker singoli — SSoT marker-config.js: corpo stato, glifo tipo bianco, punta a doppio contrasto */
+/* Pin mappa — SSoT marker-config.js; tema solo rinforza contrasto */
+.geo-map-marker-card__glyph {
+  background: transparent !important;
+}
+
+.geo-map-marker-card__glyph img.geo-map-marker-glyph--img {
+  width: 26px !important;
+  height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  object-fit: contain !important;
+  filter: brightness(0) saturate(100%) invert(1) !important;
+  opacity: 1 !important;
+}
+
+.leaflet-marker-pane .geo-map-marker-wrapper--card {
+  background: transparent !important;
+  border: none !important;
 }
 
 /* Marker Cluster Styles — Enhanced visualization */
@@ -308,20 +331,21 @@ main[data-page="page-shell"] .map-box > img {
   justify-content: center !important;
 }
 
+/* farmshops.eu: cerchio bianco, bordo colorato, conteggio scuro; icone tipo dentro a zoom ≥ 8 */
 .geo-cluster-circle {
-  background: rgba(0, 122, 82, 0.9) !important;
+  background: #ffffff !important;
   border-radius: 50% !important;
-  border: 3px solid #fff !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(0, 122, 82, 0.3) !important;
+  border: 3px solid #007a52 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   width: 80px !important;
   height: 80px !important;
-  color: #fff !important;
+  color: #17324d !important;
   font-weight: 700 !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   text-align: center !important;
   line-height: 1 !important;
   transition: box-shadow 0.2s ease !important;
@@ -329,7 +353,36 @@ main[data-page="page-shell"] .map-box > img {
 }
 
 .geo-cluster-wrapper:hover .geo-cluster-circle {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(0, 122, 82, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22) !important;
+}
+
+.geo-cluster-type-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #d9e2f0;
+  margin: 1px;
+}
+
+.geo-cluster-type-icons svg,
+.geo-cluster-type-icons img,
+.geo-cluster-type-dot {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  flex: 0 0 auto !important;
+  object-fit: contain;
+}
+
+.leaflet-bottom.leaflet-left .geo-map-legend {
+  margin: 0 0 12px 12px;
 }
 
 /* Leaflet MarkerCluster plugin overrides */
@@ -411,11 +464,6 @@ main[data-page="page-shell"] .cmp-info-summary .single-line-info:last-child {
   border-bottom: none;
 }
 
-main[data-page="page-shell"] .category-list__list {
-  color: #1f2d3d;
-  font-size: 0.875rem;
-  letter-spacing: 0.01em;
-}
 
 main[data-page="page-shell"] .nav-tabs {
   border: none !important;
@@ -472,3 +520,114 @@ main[data-page="amministrazione"] .card,
 main[data-page="amministrazione"] .card-wrapper {
   border-radius: 0 !important;
 }
+
+/* Filtri sidebar — icona affianco alla label (override BI inline-block sul label) */
+.categoy-list .checkbox-body input[type="checkbox"] + label.filter-type-label {
+  display: inline-flex !important;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding-left: 0 !important;
+}
+
+.filter-type-label__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.filter-type-icon {
+  display: inline-block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%);
+  opacity: 0.85;
+}
+
+/* Popup marker mappa (block .popup) — ritmo compatto, no vuoto header→tipologia */
+.leaflet-popup.popup-wrapper .leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.leaflet-popup.popup-wrapper .leaflet-popup-content p {
+  margin: 0 !important;
+}
+
+.leaflet-popup.popup-wrapper header.popup__header,
+.leaflet-popup.popup-wrapper .popup__header {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.15rem !important;
+  display: flow-root;
+}
+
+.leaflet-popup.popup-wrapper .popup__header-bar {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  row-gap: 0 !important;
+  min-height: 0 !important;
+}
+
+.leaflet-popup.popup-wrapper .popup__title,
+.leaflet-popup.popup-wrapper .popup__title[role='heading'] {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
+  font-size: 1.0625rem !important;
+}
+
+.leaflet-popup.popup-wrapper .popup__body {
+  min-height: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.leaflet-popup.popup-wrapper .popup__body > .popup__row--type:first-child {
+  margin-top: 0 !important;
+  padding-top: 0.1rem !important;
+}
+
+/* Vince su bundle legacy `.dc-homepage-parity header { min-height: 222px }` (tag header sito) */
+.dc-homepage-parity .leaflet-popup.popup-wrapper .popup__header,
+.dc-homepage-parity .leaflet-popup.popup-wrapper header.popup__header {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.3rem !important;
+}
+
+/* Modal disservizio: titolo già in header → nascondi prima sezione duplicata, compatta righe */
+#modal-disservizio .modal-header {
+  padding-bottom: 0.75rem;
+}
+
+#modal-disservizio .modal-body > .border-bottom.border-light:first-child {
+  display: none;
+}
+
+#modal-disservizio .modal-body .border-bottom.border-light {
+  padding-top: 0.35rem;
+  padding-bottom: 0;
+}
+
+#modal-disservizio .modal-body .title-xsmall.border-light.pt-2 {
+  padding-top: 0.35rem !important;
+  margin-bottom: 0.15rem;
+}
+
+#modal-disservizio .modal-body .subtitle-small.pb-2 {
+  padding-bottom: 0.5rem !important;
+  margin-bottom: 0;
+}
+
+/* STORY-365: Leaflet container base z-index — backdrop (z-index:1040) can paint above it */
+.leaflet-container { z-index: 1; }

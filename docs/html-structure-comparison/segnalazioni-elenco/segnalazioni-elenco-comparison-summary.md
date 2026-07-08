@@ -1,4 +1,4 @@
-# HTML Structure Comparison: segnalazioni-elenco
+# HTML Structure Comparison: ticket-list
 
 ## Summary
 
@@ -13,15 +13,15 @@
 
 ## Files Generated
 
-- `segnalazioni-elenco-comparison-report.json` — Full JSON report
-- `segnalazioni-elenco-reference-body.txt` — Extracted reference body
-- `segnalazioni-elenco-local-body.txt` — Extracted local body
-- `segnalazioni-elenco-comparison-summary.md` — This summary
+- `ticket-list-comparison-report.json` — Full JSON report
+- `ticket-list-reference-body.txt` — Extracted reference body
+- `ticket-list-local-body.txt` — Extracted local body
+- `ticket-list-comparison-summary.md` — This summary
 
 ## Configuration
 
-- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- **Local**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- **Local**: http://127.0.0.1:8000/it/tests/ticket-list
 
 ---
 

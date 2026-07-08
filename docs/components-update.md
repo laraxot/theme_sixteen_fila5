@@ -292,6 +292,27 @@ Per aggiornare componenti esistenti:
 
 ---
 
+## Aggiornamento 2026-07-06 — Fix view:cache (optimize)
+
+### Componenti creati per risolvere `Unable to locate a class or view`
+
+#### `blocks.governance.cards`
+- **File**: `resources/views/components/blocks/governance/cards.blade.php`
+- **Props**: `data` (array con chiavi `cards`, `month`, `slides`)
+- **Usato da**: `design-comuni/pages/homepage.blade.php`
+- **Descrizione**: Sezione doppia — organi di governo (cards con immagine/ruolo) + calendario eventi (slide per giorno).
+
+#### `blocks.links.grid`
+- **File**: `resources/views/components/blocks/links/grid.blade.php`
+- **Props**: `title` (string), `links` (array di `['url', 'label'/'title', 'description']`) oppure `data`
+- **Usato da**: `blocks/services/related.blade.php`
+- **Descrizione**: Griglia di link/card con titolo opzionale, stile Bootstrap Italia card-teaser.
+
+### Lock orfano rimosso
+- `resources/views/components/blocks/links/grid.blade.php.lock` (agente precedente interrotto)
+
+---
+
 **Autore**: Claude Code
 **Data**: 2025-10-15
 **Versione Tema**: 1.x

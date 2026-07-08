@@ -76,22 +76,21 @@
                                         <span class="text-muted">{{ __('sixteen::header.user.welcome', ['name' => $user->name]) }}</span>
                                     </div>
 
-                                    <!-- Menu Items -->
-                                    <a href="{{ route('area-personale.servizi') }}" class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 hover:text-primary flex items-center space-x-2">
+                                    {{-- Menu Items — named route Folio (folio:list) + pub_theme::header.user.dropdown.* --}}
+                                    <a href="{{ route('services.categories') }}" class="dropdown-item bg-white text-gray-800 rounded-md px-3 py-2 hover:bg-gray-100 hover:text-primary flex items-center space-x-2" role="menuitem">
                                         <x-ui::icon name="briefcase" class="w-4 h-4 text-gray-600" />
-                                        {{ __('sixteen::header.user.dropdown.my_services') }}
+                                        {{ __('pub_theme::header.user.dropdown.my_services.label') }}
                                     </a>
 
-                                    <a href="{{ route('area-personale.pratiche') }}" class="dropdown-item" role="menuitem">
+                                    <a href="{{ route('dashboard') }}" class="dropdown-item" role="menuitem">
                                         <x-ui::icon name="document-text" class="w-4 h-4 mr-2" />
-                                        {{ __('sixteen::header.user.dropdown.my_practices') }}
+                                        {{ __('pub_theme::header.user.dropdown.my_practices.label') }}
                                     </a>
 
-                                    <a href="{{ route('area-personale.notifiche') }}" class="dropdown-item" role="menuitem">
+                                    <a href="{{ route('notifications') }}" class="dropdown-item" role="menuitem">
                                         <span class="d-flex align-items-center">
                                             <x-ui::icon name="bell" class="w-4 h-4 mr-2" />
-                                            {{ __('sixteen::header.user.dropdown.notifications') }}
-                                            {{-- Badge - only show if notifications exist --}}
+                                            {{ __('pub_theme::header.user.dropdown.notifications.label') }}
                                             @if($user->unreadNotificationsCount > 0)
                                                 <span class="badge badge-primary ml-auto">{{ $user->unreadNotificationsCount }}</span>
                                             @endif
@@ -100,21 +99,17 @@
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a href="{{ route('area-personale.impostazioni') }}" class="dropdown-item" role="menuitem">
+                                    <a href="{{ route('profile.edit') }}" class="dropdown-item" role="menuitem">
                                         <x-ui::icon name="cog-6-tooth" class="w-4 h-4 mr-2" />
-                                        {{ __('sixteen::header.user.dropdown.settings') }}
+                                        {{ __('pub_theme::header.user.dropdown.settings.label') }}
                                     </a>
 
                                     <div class="dropdown-divider"></div>
 
-                                    <!-- Logout Form -->
-                                    <form method="POST" action="{{ route('logout') }}" role="menuitem">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item text-danger">
-                                            <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
-                                            {{ __('sixteen::header.user.dropdown.logout') }}
-                                        </button>
-                                    </form>
+                                    <a href="{{ route('logout') }}" class="dropdown-item text-danger" role="menuitem">
+                                        <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
+                                        {{ __('pub_theme::header.user.dropdown.logout.label') }}
+                                    </a>
                                 </div>
                             </div>
                             @endauth
@@ -125,7 +120,7 @@
         </div>
     </div>
 
-    <div class="it-nav-wrapper">
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
         <div class="it-header-center-wrapper">
             <div class="container">
                 <div class="row">
@@ -197,18 +192,18 @@
             </div>
         </div>
 
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-sixteen-mobile-nav>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
+                            <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-sixteen-mobile-nav-toggle data-sixteen-mobile-nav-target="#nav4">
                                 <x-filament::icon icon="heroicon-o-bars-3" class="icon" />
                             </button>
-                            <div class="navbar-collapsable" id="nav4">
-                                <div class="overlay" style="display: none;"></div>
+                            <div class="navbar-collapsable" id="nav4" data-sixteen-mobile-nav-panel>
+                                <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
                                 <div class="close-div">
-                                    <button class="btn close-menu" type="button">
+                                    <button class="btn close-menu" type="button" data-sixteen-mobile-nav-close>
                                         <span class="visually-hidden">Nascondi la navigazione</span>
                                         <x-filament::icon icon="heroicon-o-x-mark" class="icon" />
                                     </button>

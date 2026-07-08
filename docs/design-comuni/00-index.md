@@ -91,7 +91,7 @@ Il lavoro visivo resta limitato a:
 
 - **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - 🔴 NUOVO: Confronto strutturale homepage (92% match)
 - **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - 🔴 NUOVO: Pattern strutturali Design Comuni
-- [segnalazioni-elenco/README.md](./segnalazioni-elenco/README.md) - Layout combinato mappa/elenco con filtro e tab Alpine
+- [ticket-list/README.md](./ticket-list/README.md) - Layout combinato mappa/elenco con filtro e tab Alpine
 - [segnalazione-dettaglio/README.md](./segnalazione-dettaglio/README.md) - Implementazione e verifica della scheda servizio segnalazione disservizio
 - [ALL_PAGES_ANALYSIS.md](./ALL_PAGES_ANALYSIS.md) - Audit completo 54 pagine
 - [PROGRESS_REPORT.md](./PROGRESS_REPORT.md) - Report progresso

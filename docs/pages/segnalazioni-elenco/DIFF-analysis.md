@@ -1,12 +1,12 @@
-# DIFF Analysis: segnalazioni-elenco
+# DIFF Analysis: ticket-list
 
 **Data**: 2026-04-06
 **Parity strutturale**: 100%
 **Status**: ✅
 
 ## URL
-- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-- Local: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+- Local: http://127.0.0.1:8000/it/tests/ticket-list
 
 ## Metriche HTML
 | Metrica | Reference | Local |
@@ -60,7 +60,7 @@
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper" style="">
 <nav aria-label="Principale">
 <nav aria-label="Secondaria">
-<main data-page="segnalazioni-elenco">
+<main data-page="ticket-list">
 <nav class="breadcrumb-container" aria-label="breadcrumb">
 <h1 class="title-xxxlarge">
 <h2 class="title-xxlarge mb-0">

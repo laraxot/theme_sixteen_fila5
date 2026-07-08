@@ -47,8 +47,5 @@
     <x-pub_theme::blocks.footer.exact-1to1 />
   </footer>
   
-  {{-- Bootstrap Italia JS (via CDN for now) --}}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
 </body>
 </html>

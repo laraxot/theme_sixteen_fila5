@@ -2,8 +2,8 @@
 
 **Date:** 2026-04-03
 **Updated:** 2026-04-03 (Grid CSS fix)
-**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
-**Local:** http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
+**Local:** http://127.0.0.1:8000/it/tests/ticket-list
 **Status:** ✅ 92%+ Structural Parity
 
 ---
@@ -66,7 +66,7 @@
 ## Files Modified
 
 ### JSON Content
-- `content/pages/tests.segnalazioni-elenco.json` - Added `maintenance` + `public-order` categories, added feedback + contacts blocks
+- `content/pages/tests.ticket-list.json` - Added `maintenance` + `public-order` categories, added feedback + contacts blocks
 
 ### Existing Blade Templates (no changes needed)
 - `components/blocks/filters/sidebar.blade.php` - Renders 11 filter categories ✅
@@ -80,6 +80,6 @@
 - [Theme Index](../00-index.md) - Main documentation index
 - [Argomenti/Argomento Comparison](./ARGOMENTI-ARGOMENTO-COMPARISON.md) - Related pages
 - [Risultati Ricerca Comparison](./RISULTATI-RICERCA-HTML-COMPARISON.md) - Related page
-- [JSON Content](../../../../config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json)
+- [JSON Content](../../../../config/local/fixcity/database/content/pages/tests.ticket-list.json)
 - [Tabs Map-List Block](../../resources/views/components/blocks/tabs/map-list.blade.php)
 - [Filters Sidebar Block](../../resources/views/components/blocks/filters/sidebar.blade.php)

@@ -1151,19 +1151,23 @@ a.t-primary:hover {
 .d-flex { display: flex !important; }
 .d-inline-block { display: inline-block !important; }
 .d-lg-none { display: none !important; }
-.d-lg-block { display: block !important; }
-.d-lg-flex { display: flex !important; }
+/* d-lg-* visibili solo da lg in su — non forzare block/flex sotto 992px */
+.d-lg-block { display: none !important; }
+.d-lg-flex { display: none !important; }
 
 @media (max-width: 991.98px) {
     .d-lg-none { display: none !important; }
-    .d-lg-block { display: block !important; }
-    .d-lg-flex { display: flex !important; }
+    .d-lg-block { display: none !important; }
+    .d-lg-flex { display: none !important; }
     .d-none.d-lg-block { display: none !important; }
+    .d-none.d-lg-flex { display: none !important; }
 }
 @media (min-width: 992px) {
     .d-lg-none { display: none !important; }
     .d-lg-block { display: block !important; }
     .d-lg-flex { display: flex !important; }
+    .d-none.d-lg-block { display: block !important; }
+    .d-none.d-lg-flex { display: flex !important; }
 }
 
 /* Responsive display */

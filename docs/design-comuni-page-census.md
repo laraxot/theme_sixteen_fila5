@@ -69,7 +69,7 @@ Each source page maps to one local slug:
 - `segnalazione-03-riepilogo.html` -> `tests.segnalazione-03-riepilogo`
 - `segnalazione-04-conferma.html` -> `tests.segnalazione-04-conferma`
 - `segnalazione-area-personale.html` -> `tests.segnalazione-area-personale`
-- `segnalazioni-elenco.html` -> `tests.segnalazioni-elenco`
+- `ticket-list.html` -> `tests.ticket-list`
 
 ## Reusable Block Families
 The repeated structures observed across the census suggest these universal block families.
@@ -119,7 +119,7 @@ Used by administration and documents pages.
 - `administration.people-list`
 
 ### Geo and map-driven pages
-Used by `segnalazioni-elenco` and location-oriented pages.
+Used by `ticket-list` and location-oriented pages.
 - `map.results`
 - `map.filters`
 - `map.marker-list`

@@ -69,7 +69,7 @@
 
 ---
 
-## segnalazioni-elenco (38.4%)
+## ticket-list (38.4%)
 
 - Reference: 1351 righe
 - Local: 519 righe

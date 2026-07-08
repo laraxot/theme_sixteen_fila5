@@ -328,7 +328,7 @@
 </header>
 <main>
   <div class="page-content content">
-    <main id="segnalazioni-elenco-main">
+    <main id="ticket-list-main">
       <div class="container" id="main-container">
         <div class="row justify-content-center mb-md-40 mb-lg-80">
           <div class="col-12 col-lg-10">

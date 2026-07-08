@@ -143,7 +143,7 @@
         },
         {
           "rank": 15,
-          "page": "segnalazioni-elenco",
+          "page": "ticket-list",
           "parity": 85,
           "diff": 490,
           "effort": "medium",

@@ -31,7 +31,7 @@
 | lista-risorse-categorie | ✅ | ~80% - combined layout |
 | mappa-sito | ✅ | ~85% - sitemap structure |
 | contatti | ✅ | ~85% - contact card centered |
-| segnalazioni-elenco | ✅ | ~85% - list with filters |
+| ticket-list | ✅ | ~85% - list with filters |
 | segnalazione-dettaglio | ✅ | ~80% - detail view |
 | documento-dettaglio | ✅ | ~80% - document view |
 | documenti-dati | ✅ | ~80% - data list |

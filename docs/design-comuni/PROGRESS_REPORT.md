@@ -19,11 +19,11 @@
 - ✅ servizi-categoria: 49.8% → 56.0% (+6.2%)
 - ⚠️ evento-dettaglio: 43.0% → 37.3% (-5.7%)
 - ⚠️ segnalazione-dettaglio: 40.3% → 42.3% (+2.0%)
-- ✅ **segnalazioni-elenco: 38.4% → 95.7% (+57.3%)** ← TARGET RAGGIUNTO (>90%)
+- ✅ **ticket-list: 38.4% → 95.7% (+57.3%)** ← TARGET RAGGIUNTO (>90%)
 - ⚠️ segnalazione-area-personale: 34.5% → 37.6% (+3.1%)
 
 ### 3. Fix Completati con Successo
-- ✅ **segnalazioni-elenco**: 95.7% - Tutti i componenti implementati
+- ✅ **ticket-list**: 95.7% - Tutti i componenti implementati
   - Breadcrumb, Heading, Sidebar filtri, Tabs, Map, List, Cards, Modals, Rating
 
 ### 3. Componenti Creati
@@ -40,7 +40,7 @@
 - ✅ `fix-fail-pages-json.js`
 - ✅ `verify-fixed-pages.js`
 - ✅ `analyze-fail-pages.js`
-- ✅ `analyze-segnalazioni-elenco.js`
+- ✅ `analyze-ticket-list.js`
 - ✅ `capture-faq-screenshots.js`
 - ✅ `capture-risultati-ricerca.js`
 - ✅ `capture-argomenti.js`
@@ -71,7 +71,7 @@ Queste pagine hanno struttura significativamente diversa.
 - evento-dettaglio: 37.3%
 - segnalazione-area-personale: 37.6%
 - segnalazione-dettaglio: 42.3%
-- segnalazioni-elenco: 42.9%
+- ticket-list: 42.9%
 
 ## 🎯 Prossimi Passi
 

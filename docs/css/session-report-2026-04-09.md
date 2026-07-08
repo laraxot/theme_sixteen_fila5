@@ -9,7 +9,7 @@
 | # | Pagina | Ref Size | Local Size | Visual Ratio | Font | Status |
 |---|--------|----------|------------|-------------|------|--------|
 | 1 | `segnalazione-area-personale` | 203KB | 198KB | **97%** | ✅ | ✅ READY |
-| 2 | `segnalazioni-elenco` | 734KB | 616KB | **84%** | ✅ | ✅ READY |
+| 2 | `ticket-list` | 734KB | 616KB | **84%** | ✅ | ✅ READY |
 | 3 | `segnalazione-dettaglio` | 370KB | 303KB | **82%** | ✅ | ✅ READY |
 | 4 | `segnalazione-01-privacy` | 176KB | 171KB | **97%** | ✅ | ✅ READY |
 | 5 | `segnalazione-02-dati` | 220KB | 234KB | **106%** | ✅ | ✅ READY |

@@ -29,7 +29,7 @@ Rendere le 8 pagine di segnalazione (`http://127.0.0.1:8000/it/tests/<pagina>`) 
 
 | Page | Issue | Severity | Fix Required |
 |------|-------|----------|--------------|
-| `segnalazioni-elenco` | h1.title-xxxlarge element present but **empty text content** | MEDIUM | JSON title value not rendering |
+| `ticket-list` | h1.title-xxxlarge element present but **empty text content** | MEDIUM | JSON title value not rendering |
 | `segnalazione-area-personale` | Hero h1[data-element="page-name"] is **empty** | MEDIUM | JSON title value not rendering |
 
 ---
@@ -187,7 +187,7 @@ php artisan serve --host=127.0.0.1 --port=8000
 
 ## ⚠️ Problemi Rimasti
 
-### 1. segnalazioni-elenco - Empty h1
+### 1. ticket-list - Empty h1
 **Issue**: `<h1 class="title-xxxlarge">` exists but has no text  
 **Root Cause**: JSON title value not being passed to template correctly  
 **Fix Needed**: Check JSON structure and blade template data binding
@@ -252,4 +252,4 @@ Questo task è stato eseguito in parallelo con altri agenti AI. Per evitare conf
 ---
 
 **Ultimo aggiornamento**: 2026-04-07 16:30  
-**Prossimo step**: Fix empty titles in segnalazioni-elenco and segnalazione-area-personale
+**Prossimo step**: Fix empty titles in ticket-list and segnalazione-area-personale

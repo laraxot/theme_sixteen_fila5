@@ -1,6 +1,6 @@
 # Page Component — conflitto namespace (storico)
 
-> **Stato 2026-05-20**: documento **parzialmente obsoleto**. Il runtime canonico usa `<x-page>` → `Modules\Cms\View\Components\Page` (vedi `Modules/Cms/docs/cms-theme-template-runtime-architecture.md`). Quattro route Folio Sixteen usano già `<x-page :slug="...">`.
+> **Stato 2026-06-04**: risolto. `<x-page>` → **solo** `Modules\Cms\View\Components\Page`. Rimosso `Themes\Sixteen\View\Components\Page` (duplicato senza spread `$data`). Regola: [wiki/concepts/x-page-data-bag-only.md](wiki/concepts/x-page-data-bag-only.md).
 
 ## Problema (storico)
 

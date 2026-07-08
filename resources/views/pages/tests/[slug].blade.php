@@ -27,7 +27,11 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app>
+@php
+    $bodyPage = in_array($slug, ['ticket-list', 'ticket-list']) ? 'ticket-list' : '';
+@endphp
+
+<x-layouts.app :body-page="$bodyPage">
     @volt('tests.view')
     <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         <x-page side="content" :slug="$pageSlug" :data="$data" />

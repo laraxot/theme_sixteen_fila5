@@ -15,7 +15,7 @@ Il rating appariva 2 volte perché:
 ## 🔧 Fix Applicato
 
 ### JSON Aggiornato
-**File**: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+**File**: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 **Blocchi rimossi**:
 - ❌ `feedback` (view: `pub_theme::components.blocks.feedback.faq-rating`)

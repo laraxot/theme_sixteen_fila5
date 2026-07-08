@@ -280,7 +280,7 @@ curl -s http://127.0.0.1:8000/it/tests/domande-frequenti \
 python3 /var/www/_bases/base_fixcity_fila5/bashscripts/compare/comprehensive-analyzer.py
 
 # Verify no Bootstrap Italia classes remain
-for page in homepage domande-frequenti argomento lista-risorse novita servizio-dettaglio appuntamento-01-ufficio segnalazioni-elenco; do
+for page in homepage domande-frequenti argomento lista-risorse novita servizio-dettaglio appuntamento-01-ufficio ticket-list; do
   curl -s http://127.0.0.1:8000/it/tests/$page | \
     grep -o 'class="[^"]*"' | \
     grep -E "col-[0-9]|btn-primary|d-lg-block|d-lg-none" && \

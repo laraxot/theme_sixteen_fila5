@@ -105,7 +105,7 @@ Il file `laravel/config/local/fixcity/database/content/pages/tests.segnalazione-
 | segnalazione-02-dati | 88.96% | ✅ |
 | segnalazione-area-personale | 88.43% | ✅ |
 | segnalazione-dettaglio | 83.72% | ✅ |
-| segnalazioni-elenco | 80.19% | ✅ |
+| ticket-list | 80.19% | ✅ |
 | segnalazione-04-conferma | 77.4% | ❌ |
 
 ---

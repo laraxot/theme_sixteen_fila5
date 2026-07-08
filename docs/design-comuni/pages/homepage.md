@@ -5,10 +5,11 @@
 ## 📋 Panoramica
 
 - **Originale:** https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
-- **Locale:** http://fixcity.local/it/tests/homepage
-- **JSON:** `config/local/fixcity/database/content/pages/tests.homepage.json`
-- **Route:** `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-- **Stato:** 🔄 In Progress
+- **Produzione locale (canon):** http://127.0.0.1:8000/it — layout «Elenco segnalazioni» (parity target: [ticket-list.html](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html)) — story [STORY-058](../../../../docs/stories/STORY-058-it-ticket-list-html-visual-parity.md)
+- **Sandbox parity:** http://127.0.0.1:8000/it/tests/homepage — `tests.homepage.json`
+- **Route produzione:** `Themes/Sixteen/resources/views/pages/index.blade.php`
+- **Route sandbox:** `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
+- **Stato:** 🔄 In Progress — blocchi CMS: [STORY-062](../../../../docs/stories/STORY-062-ticket-list-cms-blocks-decomposition.md); gap: [visual-comparison/it-vs-ticket-list.md](../visual-comparison/it-vs-ticket-list.md)
 
 ## 🎯 Obiettivi
 
@@ -486,6 +487,25 @@
 - [ ] PHPStan: OK
 - [ ] Pint: OK
 - [ ] Accessibilità: OK
+```
+
+---
+
+## Mobile-first QA (STORY-056)
+
+**Verifica:** viewport 375×812, 768×1024, 1280×800 su `/it`, `/it/tests/homepage`, `/en/tests/homepage`.
+
+| Artefatto | Percorso |
+|-----------|----------|
+| Screenshot | [visual-comparison/homepage-it-qa/](../visual-comparison/homepage-it-qa/) |
+| CSS | `resources/css/homepage-mobile-qa.css` |
+| Playwright | `laravel/Modules/Geo/tests/Playwright/homepage-it-mobile-qa.spec.js` |
+
+**Criteri:** nessun `overflow-x` su `html`/`body`; link `segnalazione-crea` visibile; tap target CTA ≥ 44px su mobile.
+
+```bash
+cd laravel/Themes/Sixteen && npm run build && npm run copy
+npx playwright test Modules/Geo/tests/Playwright/homepage-it-mobile-qa.spec.js
 ```
 
 ---

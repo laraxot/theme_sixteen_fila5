@@ -1,4 +1,4 @@
-# Parity Score — segnalazioni-elenco
+# Parity Score — ticket-list
 
 | Run | Date | Score | Verdict |
 |-----|------|-------|---------|

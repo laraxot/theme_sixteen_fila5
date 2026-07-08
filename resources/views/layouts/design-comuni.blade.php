@@ -92,10 +92,58 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-outline-light d-flex align-items-center gap-2" href="#" data-element="personal-area-login">
-                            <svg class="icon" style="width:18px;height:18px;fill:currentColor;"><use xlink:href="#it-user"></use></svg>
+                        @auth
+                        {{-- Logged-in: user icon dropdown (Folio paths, no route()) --}}
+                        <div class="nav-item dropdown" x-data="{ userMenuOpen: false }" @click.away="userMenuOpen = false">
+                            <button
+                                @click="userMenuOpen = !userMenuOpen"
+                                class="btn btn-icon btn-outline-light rounded-circle p-1"
+                                :aria-expanded="userMenuOpen.toString()"
+                                aria-haspopup="true"
+                                aria-label="Area personale"
+                                data-element="personal-area-login"
+                                style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;"
+                            >
+                                <svg class="icon icon-white" aria-hidden="true" style="width:20px;height:20px;"><use xlink:href="#it-user"></use></svg>
+                            </button>
+                            <div
+                                x-show="userMenuOpen"
+                                x-transition
+                                class="dropdown-menu dropdown-menu-end shadow"
+                                style="display:none;min-width:180px;"
+                            >
+                                <div class="link-list-wrapper">
+                                    <ul class="link-list">
+                                        <li class="px-3 py-1">
+                                            <span class="text-muted small fw-semibold">{{ auth()->user()->name }}</span>
+                                        </li>
+                                        <li><span class="divider"></span></li>
+                                        <li>
+                                            <a class="list-item" href="{{ route('notifications') }}">
+                                                <svg class="icon icon-sm me-2" aria-hidden="true"><use xlink:href="#it-bell"></use></svg>
+                                                <span>Notifiche</span>
+                                            </a>
+                                        </li>
+                                        <li><span class="divider"></span></li>
+                                        <li>
+                                            <a class="list-item" href="/{{ app()->getLocale() }}/auth/logout">
+                                                <svg class="icon icon-sm me-2" aria-hidden="true"><use xlink:href="#it-close-circle"></use></svg>
+                                                <span>Esci</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                        {{-- Guest: login link to Folio page (locale-prefixed, no route()) --}}
+                        <a class="btn btn-outline-light d-flex align-items-center gap-2"
+                           href="/{{ app()->getLocale() }}/auth/login"
+                           data-element="personal-area-login">
+                            <svg class="icon" style="width:18px;height:18px;fill:currentColor;" aria-hidden="true"><use xlink:href="#it-user"></use></svg>
                             <span class="d-none d-lg-inline">Accedi all'area personale</span>
                         </a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -120,13 +168,18 @@
                         <svg class="icon text-white" style="width:24px;height:24px;"><use xlink:href="#it-burger"></use></svg>
                     </button>
                     <div class="it-brand-wrapper">
-                        <a href="#">
-                            <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image xlink:href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230066CC'/%3E%3Ctext x='50' y='60' font-size='40' text-anchor='middle' fill='white'%3EC%3C/text%3E%3C/svg%3E" width="82" height="82"/>
-                            </svg>
+                        <a href="/{{ app()->getLocale() }}">
+                            <img
+                                class="it-logo"
+                                src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"
+                                alt="Logo Comune"
+                                width="82"
+                                height="82"
+                                loading="eager"
+                            >
                             <div class="it-brand-text">
-                                <div class="it-brand-title">Nome del Comune</div>
-                                <div class="it-brand-tagline d-none d-md-block">Un comune da vivere</div>
+                                <div class="it-brand-title">{{ config('app.name', 'Nome del Comune') }}</div>
+                                <div class="it-brand-tagline d-none d-md-block">{{ config('comune.sottotitolo', 'Un comune da vivere') }}</div>
                             </div>
                         </a>
                     </div>

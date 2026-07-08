@@ -11,10 +11,8 @@ $blocks = Page::getBlocksBySlug($pageSlug, 'content');
 
 ?>
 
-<x-layouts.app>
-    <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="{{ $side }}">
-        @foreach($blocks as $block)
-            @include($block->view, array_merge($data, ['data' => $block->data]))
-        @endforeach
-    </div>
-</x-layouts.app>
+<div class="page-content content" data-slug="{{ $pageSlug }}" data-side="{{ $side }}">
+    @foreach($blocks as $block)
+        @include($block->view, $block->data)
+    @endforeach
+</div>

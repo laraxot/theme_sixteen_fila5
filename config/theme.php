@@ -19,15 +19,15 @@ return [
 
     'assets' => [
         'css' => [
-            'bootstrap-italia' => 'https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0/dist/css/bootstrap-italia.min.css',
-            'font-awesome' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
-            'leaflet' => 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-            'design-comuni' => 'css/design-comuni.css',
+            // NOTE: Sixteen theme uses Vite + Tailwind, NOT Bootstrap Italia CDN
+            // All styles are compiled locally via resources/css/app.css
+            // These entries are kept for reference only - DO NOT use CDN
+            'civic-design' => 'css/civic-design-theme.css',
             'comune-custom' => 'css/comune-custom.css',
         ],
         'js' => [
-            'bootstrap-italia' => 'https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0/dist/js/bootstrap-italia.bundle.min.js',
-            'leaflet' => 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+            // NOTE: Sixteen theme uses Vite + Alpine.js + Lit, NOT Bootstrap Italia CDN
+            // All scripts are compiled locally via resources/js/app.js
             'design-comuni' => 'js/design-comuni.js',
             'comune-functions' => 'js/comune-functions.js',
         ],

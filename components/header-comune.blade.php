@@ -14,7 +14,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span>ITA</span>
                                     <svg class="icon d-none d-lg-block">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-expand"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-expand"></use>
                                     </svg>
                                 </a>
                                 <div class="dropdown-menu">
@@ -27,8 +27,44 @@
                                 </div>
                             </div>
                             <div class="it-access-wrapper">
-                                <a class="btn btn-primary btn-sm" href="#">Accedi all'area personale</a>
-                            </div>
+    @guest
+        <a class="btn btn-primary btn-sm" href="{{ route('login') }}">Accedi all'area personale</a>
+    @else
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @if (Auth::user()->avatar && Auth::user()->avatar->isNotEmpty())
+                    <img src="{{ Auth::user()->avatar->first()->getUrl() }}" alt="Avatar" class="avatar-small me-1">
+                @else
+                    <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=32&d=identicon" alt="Avatar" class="avatar-small me-1">
+                @endif
+                <span class="d-none d-lg-inline">{{ Auth::user()->first_name ?? explode(' ', Auth::user()->name)['0'] }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                            <i class="it-user me-1"></i> {{ __('user::profile.edit') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('comune.tickets.my') ?? '/'.app()->getLocale().'/tickets/my' }}">
+                            <i class="it-list me-1"></i> {{ __('fixcity::tickets.my_tickets') }}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                            @csrf
+                            <button class="dropdown-item" type="submit">
+                                <i class="it-logout-circle-outline me-1"></i> {{ __('user::auth.logout') }}
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    @endguest
+</div>
                         </div>
                     </div>
                 </div>
@@ -58,14 +94,14 @@
                                     <li>
                                         <a href="#" aria-label="Facebook" target="_blank">
                                             <svg class="icon">
-                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-facebook"></use>
+                                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-facebook"></use>
                                             </svg>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" aria-label="Twitter" target="_blank">
                                             <svg class="icon">
-                                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-twitter"></use>
+                                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-twitter"></use>
                                             </svg>
                                         </a>
                                     </li>
@@ -75,7 +111,7 @@
                                 <span class="d-none d-md-block">Cerca</span>
                                 <a class="search-link" href="#" aria-label="Cerca nel sito">
                                     <svg class="icon">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-search"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-search"></use>
                                     </svg>
                                 </a>
                             </div>
@@ -94,7 +130,7 @@
                     <nav class="navbar navbar-expand-lg has-megamenu">
                         <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav10" data-bs-toggle="navbarcollapsible">
                             <svg class="icon">
-                                <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-burger"></use>
+                                <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-burger"></use>
                             </svg>
                         </button>
                         <div class="navbar-collapsible" id="nav10">
@@ -103,7 +139,7 @@
                                 <button class="btn close-menu" type="button">
                                     <span class="visually-hidden">Chiudi navigazione</span>
                                     <svg class="icon">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-close-big"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-close-big"></use>
                                     </svg>
                                 </button>
                             </div>

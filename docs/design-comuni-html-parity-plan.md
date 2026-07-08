@@ -101,7 +101,7 @@ Dopo aver raggiunto HTML parity, si procederà con:
 27-28. assistenza-01-dati, assistenza-02-conferma
 
 ### Segnalazione Disservizio (7)
-29-35. segnalazione-dettaglio → segnalazioni-elenco
+29-35. segnalazione-dettaglio → ticket-list
 
 ## Workflow di Implementazione
 

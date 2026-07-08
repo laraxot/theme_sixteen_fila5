@@ -67,7 +67,7 @@
 | segnalazione-03-riepilogo | 896 | 521 | 58.1% | ✅ |
 | segnalazione-04-conferma | 860 | 521 | 60.6% | ✅ |
 | segnalazione-area-personale | 1506 | 559 | 37.1% | ✅ |
-| segnalazioni-elenco | 1351 | 1293 | 95.7% | ✅ |
+| ticket-list | 1351 | 1293 | 95.7% | ✅ |
 
 ## Screenshots
 
@@ -123,7 +123,7 @@ Tutti gli screenshots sono in: `screenshots/batch-analysis/`
 | segnalazione-03-riepilogo | [ref](screenshots/batch-analysis/segnalazione-03-riepilogo-reference.png) | [local](screenshots/batch-analysis/segnalazione-03-riepilogo-local.png) |
 | segnalazione-04-conferma | [ref](screenshots/batch-analysis/segnalazione-04-conferma-reference.png) | [local](screenshots/batch-analysis/segnalazione-04-conferma-local.png) |
 | segnalazione-area-personale | [ref](screenshots/batch-analysis/segnalazione-area-personale-reference.png) | [local](screenshots/batch-analysis/segnalazione-area-personale-local.png) |
-| segnalazioni-elenco | [ref](screenshots/batch-analysis/segnalazioni-elenco-reference.png) | [local](screenshots/batch-analysis/segnalazioni-elenco-local.png) |
+| ticket-list | [ref](screenshots/batch-analysis/ticket-list-reference.png) | [local](screenshots/batch-analysis/ticket-list-local.png) |
 
 ## HTML Structure
 
