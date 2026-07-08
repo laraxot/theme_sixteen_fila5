@@ -7,25 +7,11 @@
         
         <title>{{ config('app.name', 'Laravel') }}</title>
         
-        <!-- Skip Links (AGID Compliant) -->
-        <div class="sr-only focus:not-sr-only">
-            <a href="#main-content" class="absolute top-0 left-0 bg-blue-600 text-white px-4 py-2 z-50 focus:relative">
-                Salta al contenuto principale
-            </a>
-            <a href="#login-form" class="absolute top-0 left-0 bg-blue-600 text-white px-4 py-2 z-50 focus:relative">
-                Vai al modulo di accesso
-            </a>
-        </div>
-        
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        
-        <!-- CSS del Tema -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
+        <!-- Skip Links (AGID Compliant) - MOVED TO BODY -->
+        @vite(['resources/css/app.css'], 'themes/Sixteen')
     </head>
     
-    <body class="font-sans text-gray-900 antialiased">
+    <body>
         <!-- AGID Header -->
         <header role="banner" class="bg-blue-600 text-white py-3">
             <div class="container mx-auto px-4">

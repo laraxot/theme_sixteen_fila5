@@ -112,5 +112,5 @@ Composer (agente dev-story), sessione 2026-04-20.
 
 ### File List
 
-- `laravel/Themes/Sixteen/resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php` (modificato)
+- `laravel/Themes/Sixteen/resources/views/components/blocks/tests/ticket-detail.blade.php` (modificato)
 - `_bmad-output/implementation-artifacts/sprint-status.yaml` (7-5 → in-progress, last_updated)

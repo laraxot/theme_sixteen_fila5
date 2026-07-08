@@ -170,7 +170,7 @@ Add to CI/CD pipeline:
 
 ### Comparing Multiple Pages
 ```bash
-for page in segnalazione-dettaglio segnalazioni-elenco segnalazione-01-privacy; do
+for page in segnalazione-dettaglio ticket-list segnalazione-01-privacy; do
   ./bashscripts/compare-html-structure.sh "$page"
 done
 ```

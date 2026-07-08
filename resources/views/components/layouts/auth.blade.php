@@ -199,7 +199,7 @@
         }
     </style>
 </head>
-<body class="h-full bg-gray-50">
+<body>
     <!-- Skip Links AGID -->
     <a href="#main-content" class="agid-skip-link">Salta al contenuto principale</a>
     <a href="#login-form" class="agid-skip-link">Vai al modulo di accesso</a>

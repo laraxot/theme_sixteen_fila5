@@ -1,8 +1,8 @@
-# Visual Comparison: segnalazioni-elenco
+# Visual Comparison: ticket-list
 
 **Page URLs:**
-- Local: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
-- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+- Local: http://127.0.0.1:8000/it/tests/ticket-list
+- Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 
 ## Desktop (1920x1080)
 

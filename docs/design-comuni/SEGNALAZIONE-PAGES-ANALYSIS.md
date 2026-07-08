@@ -10,7 +10,7 @@
 
 | Page | HTTP Status | HTML Similarity | Visual Parity | Height (Local/Ref) | Status |
 |------|-------------|-----------------|---------------|-------------------|--------|
-| **segnalazioni-elenco** | 200 | N/A | **91%** | 2847/3128px | ✅ Good |
+| **ticket-list** | 200 | N/A | **91%** | 2847/3128px | ✅ Good |
 | **segnalazione-dettaglio** | 200 | N/A | **93%** | 4753/4425px | ✅ Good |
 | **segnalazione-01-privacy** | 200 | N/A | **88%** | 1698/1938px | ✅ Good |
 | **segnalazione-area-personale** | 200 | 62% | **59%** | 1698/2854px | 🟡 Needs blocks |

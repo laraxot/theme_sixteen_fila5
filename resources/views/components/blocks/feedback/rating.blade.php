@@ -83,7 +83,7 @@
                                     @for ($star = 5; $star >= 1; $star--)
                                         <input type="radio" id="star{{ $star }}a" name="ratingA" value="{{ $star }}" x-model="rating">
                                         <label
-                                            class="full rating-star active"
+                                            class="full rating-star"
                                             for="star{{ $star }}a"
                                             data-element="feedback-rate-{{ $star }}"
                                             @click="feedbackType = {{ $star }} >= 4 ? 'positive' : 'negative'; step = 2"
@@ -197,9 +197,26 @@
                         </div>
 
                         <div class="cmp-rating__card-second d-none" data-step="3" :class="{ 'd-none': step !== 3 }">
-                            <div class="card-header border-0 mb-0">
-                                <h2 class="title-medium-2-bold mb-0">{{ $thankYouMsg }}</h2>
-                            </div>
+                            <fieldset class="d-none">
+                                <legend class="visually-hidden">{{ $textLabel }}</legend>
+                                <div class="card-header border-0 mb-0">
+                                    <h2 class="title-medium-2-bold mb-0">{{ $thankYouMsg }}</h2>
+                                </div>
+                                <div class="card-body">
+                                    <label for="rating-step3-text" class="form-label">{{ $textLabel }}</label>
+                                    <textarea
+                                        id="rating-step3-text"
+                                        class="form-control"
+                                        rows="3"
+                                        maxlength="200"
+                                        x-model="textFeedback"
+                                        data-element="feedback-input-text"
+                                    ></textarea>
+                                    <button class="btn btn-primary fw-bold btn-next mt-3" type="button">
+                                        {{ __('fixcity::rating.actions.submit.label') }}
+                                    </button>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                 </div>

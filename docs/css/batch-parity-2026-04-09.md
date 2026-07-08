@@ -9,7 +9,7 @@
 | Page | Match % | Remaining Issues | Status |
 |------|---------|-----------------|--------|
 | segnalazione-area-personale | 93% | h2 color (1 unit diff) | ✅ READY |
-| segnalazioni-elenco | 93% | h2 color (1 unit diff) | ✅ READY |
+| ticket-list | 93% | h2 color (1 unit diff) | ✅ READY |
 | segnalazione-dettaglio | 86% | h2 color, btn weight | ✅ READY |
 | segnalazione-01-privacy | 71% | h2 selector mismatch* | ✅ READY |
 | segnalazione-02-dati | 86% | h2 color, btn weight | ✅ READY |

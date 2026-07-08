@@ -420,7 +420,11 @@ html, body {
 }
 
 .it-header-center-content-wrapper {
-  @apply flex justify-between items-center;
+  @apply flex items-center;
+}
+
+.it-header-center-content-wrapper .it-brand-wrapper {
+  @apply mr-auto;
 }
 
 /* Navbar */
@@ -491,7 +495,7 @@ html, body {
 
 /* Slim wrapper: language selector + user button contrast */
 .it-header-slim-wrapper {
-  background-color: #00333A !important;
+  background-color: #00402b !important;
 }
 
 .it-header-slim-wrapper .nav-link {
@@ -512,8 +516,15 @@ html, body {
   fill: #ffffff !important;
 }
 
-.it-header-slim-wrapper .btn-primary span:not(.rounded-icon) {
+/* Solo figli diretti del toggle (nome utente), non l'iniziale dentro .rounded-icon */
+.it-header-slim-wrapper .btn-primary > span:not(.rounded-icon) {
   @apply text-white;
+  color: #ffffff !important;
+}
+
+.cmp-text-button .btn-primary,
+.btn-primary .text-white,
+.btn-primary:where(.mobile-full, .py-3) {
   color: #ffffff !important;
 }
 
@@ -767,18 +778,19 @@ body {
   background: white;
 }
 
-/* Force visibility of main content */
+/* Force visibility of main content (non forzare display:block su .col-* — rompe la griglia Bootstrap) */
 main,
 #main-container,
-.container,
-.row,
-[class*="col-"] {
-  @apply block visible opacity-100;
+.container {
+  @apply visible opacity-100;
 }
 
-/* Fix flex layouts */
 .row {
-  @apply flex;
+  @apply flex flex-wrap visible opacity-100;
+}
+
+[class*="col-"] {
+  @apply visible opacity-100;
 }
 
 /* Override any hidden classes that might be interfering */
@@ -992,6 +1004,12 @@ main,
   @apply pt-0;
 }
 
+/* Map/list block — tab panels (scoped #main-container; parity in listing-parity.css) */
+#main-container .tab-content [x-cloak],
+.segnalazioni-elenco .tab-content [x-cloak] {
+  display: none !important;
+}
+
 /* Tabs - Bootstrap Italia style with @apply */
 .nav-tabs {
   @apply flex w-full border-b border-gray-200 mb-10 mt-3 p-0 list-none;
@@ -1018,7 +1036,7 @@ main,
 
 /* Tab content */
 .tab-content {
-  @apply w-full;
+  @apply w-full block;
 }
 
 .tab-pane {
@@ -2857,7 +2875,7 @@ section.py-4 {
 }
 
 .tab-content {
-  @apply mt-6;
+  @apply mt-6 block;
 }
 
 .tab-pane {

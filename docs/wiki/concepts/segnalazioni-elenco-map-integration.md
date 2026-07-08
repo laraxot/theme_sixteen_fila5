@@ -2,61 +2,86 @@
 
 ## Ownership
 
-- Tema Sixteen: struttura Blade della pagina, sidebar filtri, tab mappa/lista.
-- Modulo Geo: componente mappa riusabile `<geo-map-lit>` e logica interattiva Leaflet/Lit.
-- Modulo Fixcity: dominio ticket + generazione GeoJSON (`GenerateTicketsJsonAction`).
+| Layer | Responsabilità |
+|-------|----------------|
+| Tema Sixteen | Blade pagina `/it`, sidebar filtri, tab mappa/lista, CSS cascade Leaflet |
+| Modulo Geo | `<map-lit>`, marker, popup, cluster, build Vite entry |
+| Modulo Fixcity | Ticket + `GenerateTicketsJsonAction` → `tickets.json` |
 
-## Integrazione corrente nel blade
+## Integrazione blade
 
-File owner:
+Homepage `/it`: `grid/2col.blade.php` → `ticket/column-main.blade.php` → CTA `cta/ticket.blade.php`.
 
-- `../../resources/views/components/blocks/segnalazioni/layout.blade.php`
+| View | Path | Regola naming |
+|------|------|----------------|
+| Colonna principale | `components/blocks/ticket/column-main.blade.php` | inglese `ticket` |
+| CTA mappa/lista | `components/blocks/cta/ticket.blade.php` | **vietato** `cta/segnalazione` — vedi [no-italian-component-names](../rules/no-italian-component-names.md) |
+| Include | `@include('pub_theme::components.blocks.cta.ticket', ['cta' => $cta])` | `$cta` da `TicketLayoutViewModel::cta()` |
+
+**URL CTA:** solo `LaravelLocalization::localizeURL($path)` nel blade — **vietato** `FrontofficeUrl` (scope header/CMS nav, non blocchi CTA).
+
+Testo UI «Fai una segnalazione» resta in `lang/it/` — non nel nome file.
+
+File legacy (altre pagine): `ticket-layout/layout.blade.php` (e varianti elenco).
 
 Pattern attivo:
 
-- mappa in tab con `<geo-map-lit id="ticket-map" data-url="/data/tickets.json">`
-- asset JS servito via Vite dal modulo Geo:
-  - `Vite::asset('resources/js/components/geo-map-lit.js', 'assets/geo')`
-- nessun asset Leaflet/MarkerCluster caricato via CDN nel tema
+```blade
+<map-lit
+    id="block-map"
+    data-url="/data/tickets.json"
+    …
+></map-lit>
+```
 
-## Filtri categoria
+Asset: `@vite` manifest tema → `public_html/themes/Sixteen/assets/map-lit-*.js`  
+**Non** usare CDN Leaflet nel tema se il bundle Geo è attivo.
 
-I checkbox della sidebar filtrano i marker senza refetch:
+`body[data-page="ticket-list"]` — regole CSS listing in `listing-parity.css`, `07-map-clusters-and-leaflet.css`.
 
-- `input[name="category"]` con value = `TicketTypeEnum::value`
-- script pagina: checkbox change -> `map.filterByType(value|null)`
+## Filtri
 
-Questo mantiene DRY/KISS:
+- Tipologia: checkbox sidebar → `filters-changed` con array `types`
+- Stato: STORY-128 — facet da stesso `tickets.json`
+- `map-lit` applica filtri su `_allMarkers` senza refetch
 
-- il tema decide solo *quando* filtrare (evento UI),
-- il componente Geo decide *come* filtrare i marker.
+## Contratto dati GeoJSON
 
-## Contratto dati
+Path: `/data/tickets.json`  
+Producer: `Modules/Fixcity/app/Actions/GenerateTicketsJsonAction.php`
 
-Il componente legge un GeoJSON da:
+Properties minime per marker/popup:
 
-- `/data/tickets.json`
+- `id`, `title`, `type`, `type_label`, `type_color`, `type_icon_url` / `iconUrl`
+- `status`, `status_label`, `status_color` (o equivalenti risolti in `map-lit`)
+- `address`, `city`, opz. `description`, `detail_url`
 
-Il file viene prodotto da:
+## UX attesa (2026-06)
 
-- `../../../../Modules/Fixcity/Actions/GenerateTicketsJsonAction.php`
+- Cluster farmshops-style; `removeOutsideVisibleBounds: false`
+- Marker: `__inner` stato + `__glyph-pad` bianco + `__point` (triangolo CSS); vedi [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
+- Popup **block `popup`**: apertura immediata, dettaglio lazy `/api/ticket-details/{id}`
+- Popup **senza** vuoto header (vedi runbook sotto)
+- Hover cluster/marker: ombra only, no transform
+- Ricerca indirizzo collassabile (controllo lente)
+- Producer GeoJSON: `Modules/Fixcity/app/Actions/GenerateTicketsJsonAction.php`
 
-Campi minimi richiesti nei `properties`:
+## Build obbligatoria dopo modifica JS/CSS
 
-- `id`, `title`, `type`, `type_label`, `type_color`, `address` (eventuale `description`)
+```bash
+cd laravel/Themes/Sixteen && npm run build
+php artisan view:clear
+```
 
-## Comportamento UX atteso
+Doc build: [map-lit-vite-build-troubleshooting.md](./map-lit-vite-build-troubleshooting.md)
 
-- clustering marker attivo con logica zoom-based + size dinamica per densita marker
-- nessun cluster su singolo marker (`minimumClusterSize: 2`)
-- niente coverage polygon hover (`showCoverageOnHover: false`) per parity con `farmshops.eu`
-- popup informativo al click marker
-- ricerca indirizzo collassata di default e apribile via controllo lente
-- chiusura ricerca con toggle lente, `Escape` o click fuori dalla search
+## Documentazione ricostruzione
 
-## Riferimenti
+- [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
+- [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents-2026-06.md)
 
-- componente Geo: `../../../../Modules/Geo/resources/js/components/geo-map-lit.js`
-- wiki Geo entity: `../../../../Modules/Geo/docs/wiki/entities/geo-map-lit.md`
-- wiki Geo cluster: `../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-marker-clusters.md`
-- riferimento esterno farmshops: [direktvermarkter.js](https://github.com/CodeforKarlsruhe/farmshops.eu/blob/master/js/direktvermarkter.js)
+## Riferimenti codice
+
+- `Modules/Geo/resources/js/components/map-lit.js`
+- `Modules/Geo/docs/wiki/entities/geo-map-lit.md`
+- [geo-map-popup-leaflet-boundary.md](./geo-map-popup-leaflet-boundary.md)

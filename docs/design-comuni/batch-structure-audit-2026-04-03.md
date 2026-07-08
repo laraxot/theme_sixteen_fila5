@@ -52,7 +52,7 @@ Generato: 2026-04-03T10:11:26.955Z
 | assistenza-02-conferma | yes | no | 42 | 0 | 13 | BLOCK |
 | segnalazione-disservizio | no | no | 0 | 100 | 70 | BLOCK |
 | segnalazione-dettaglio | yes | no | 33 | 0 | 10 | BLOCK |
-| segnalazioni-elenco | yes | no | 38 | 0 | 11 | BLOCK |
+| ticket-list | yes | no | 38 | 0 | 11 | BLOCK |
 | segnalazione-01-privacy | yes | no | 90 | 0 | 27 | BLOCK |
 | segnalazione-02-dati | yes | no | 38 | 0 | 11 | BLOCK |
 | segnalazione-03-riepilogo | yes | no | 38 | 0 | 11 | BLOCK |
@@ -330,11 +330,11 @@ Generato: 2026-04-03T10:11:26.955Z
 - Extra local main children: `section.py-12.bg-white`, `section.py-8.bg-white`, `div.bg-blue-50.border-l-4`, `div.mt-4`
 - Screenshots: [reference](screenshots/batch-structure-audit/segnalazione-dettaglio/reference.png), [local](screenshots/batch-structure-audit/segnalazione-dettaglio/local.png)
 
-### segnalazioni-elenco
+### ticket-list
 
 - Missing main children: `div#main-container.container`, `div.bg-primary`, `div.bg-grey-card.shadow-contacts`, `div.it-example-modal`
 - Extra local main children: `section.py-12.bg-white`, `section.py-8.bg-white`, `div.bg-blue-50.border-l-4`, `div.mt-4`
-- Screenshots: [reference](screenshots/batch-structure-audit/segnalazioni-elenco/reference.png), [local](screenshots/batch-structure-audit/segnalazioni-elenco/local.png)
+- Screenshots: [reference](screenshots/batch-structure-audit/ticket-list/reference.png), [local](screenshots/batch-structure-audit/ticket-list/local.png)
 
 ### segnalazione-01-privacy
 

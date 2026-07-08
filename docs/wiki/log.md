@@ -1,12 +1,126 @@
+- 2026-06-10: docs Folio FO — fo-folio-routing-zen, route-not-found-view-cache, header `notifications` vs `area-personale.notifiche`
+## [2026-06-09] cta/ticket | NO FrontofficeUrl — LaravelLocalization only
+
+- View: `resources/views/components/blocks/cta/ticket.blade.php`
+- URL: `LaravelLocalization::localizeURL($path)` — vietato `FrontofficeUrl` nei blocchi CTA
+- Test: `tests/Unit/CtaTicketBlockTest.php` (3 test)
+- Doc: `concepts/segnalazioni-elenco-map-integration.md`, `concepts/fo-folio-links-multilingua.md`
+
+## [2026-06-06] architecture | Folio shell — no @props/@extends
+
+- Regola: pagine Folio = Folio+Volt + `<x-layouts.app>`; vietato `@props`, `@extends`, `@php $pageSlug`
+- Fix `[container1]/index`: `name('container1.index')`, `@volt('container1.index')`
+- Pest 5/5; root memory `folio-page-shell-no-props-extends.md`
+
+## [2026-06-06] architecture | Header → `route('container0.index')`
+
+- `header/v1.blade.php` allineato (non `container0.list`)
+
+## [2026-06-05] architecture | `container0.index` — Filament way, mount lineare
+
+- `[container0]/index`: ripristinato `@volt('container0.index')`/`@endvolt` (mancava nel blade); mount lineare confermato
+- `[container0]/index`: `name('container0.index')`, `$pageSlug = $container0.'.index'`; rimosso `container0.list` e match locale/CmsPage nel mount
+- Canon: `folio-page-pattern.md`, `folio-route-params-mount.md`, `volt-usage-rule.md`
+- Root memoria: `folio-container0-index-filament-way.md`
+
+## [2026-06-05] architecture | Folio @volt statico — no @volt($pageSlug)
+
+- Tabella `name()` ↔ `@volt()` in `folio-page-pattern.md` (`container0.index` / `container0.view` / `container1.index`)
+- `folio-route-params-mount.md` + `volt-usage-rule.md` allineati
+- Cms: [folio-page-shell-pattern](../../../Modules/Cms/docs/wiki/concepts/folio-page-shell-pattern.md)
+
+## [2026-06-05] docs | @volt obbligatorio su Folio+Component — canon allineato
+
+- `folio-route-params-mount.md`: `@volt('…')` statico = `name()`; senza → `VoltDirectiveMissingException`
+- Root: `no-volt-in-blade-views` eccezione Folio; `volt-route-params-mount-contract` distinzione aggiornata
+
+## [2026-06-05] architecture | Folio params in mount() — fix container0.list
+
+- `[container0]/index.blade.php`: rimosso `@php` + `request()->route()`; title/meta in `mount(string $container0)`
+- Rule: `.cursor/rules/folio-route-params-mount.mdc`
+- Pest: `FolioPageMountContractTest` esteso a `container0/index`
+
+## [2026-06-05] docs | HackerNoon harness — tips 001-022 in wiki locale
+
+- Stub/checklist: second-brain → canon Xot, ai-harness, [hackernoon map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md), [llm-wiki.txt](../../../../../bashscripts/tools/prompts/llm-wiki.txt)
+- GitHub: [#272](https://github.com/laraxot/base_fixcity_fila5/issues/272) / [D#273](https://github.com/laraxot/base_fixcity_fila5/discussions/273)
+
 # Sixteen Wiki Log
 
-<<<<<<< HEAD
-=======
-## [2026-05-25] docs | ridondanza Blade blocks — puntatori allo scan trasversale
+## [2026-06-05] architecture | STORY-152 — fromStoredUrl nav + memoria no /it/ no IT Blade
 
-- [`wiki/redundancy/duplicated-blade-blocks.md`](redundancy/duplicated-blade-blocks.md): link incrociato a inventario holistic Xot [`audit-profondo-ridondanze-holistic.md`](../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md) e [`byte-identical-files-static-scan.md`](../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md) per evitare doc orfani.
+- `FrontofficeUrl::fromStoredUrl()` — normalizza URL CMS `/it/servizi` → locale corrente
+- Nav `partials/nav-primary|secondary` + fallback `topics_url` in `v1.blade.php`
+- Memory root: `no-hardcoded-locale-italian-in-fo-blade.md` · issue [#288](https://github.com/laraxot/base_fixcity_fila5/issues/288)
 
->>>>>>> a931b1c (.)
+## [2026-06-05] architecture | No locale hardcoded + no italiano Blade (header)
+
+- `bootstrap-italia/header` DRY: include `partials/user-dropdown` + `personal-area-guest-cta`
+- Memoria root: `fo-folio-localized-urls-no-fake-routes.md`
+- Vietato: `href="/it/profilo/servizi"`, `<span>I miei servizi</span>`
+
+## [2026-06-05] architecture | Header menu — `route()` Folio, no `personalArea*`
+
+- Menu utente: `route('services.categories')` … verificato con `folio:list` — **vietato** `FrontofficeUrl::personalArea*`
+- `FrontofficeUrl`: solo `fromStoredUrl()` (CMS nav) + `path()` / `testsParity()`
+- Doc: [fo-folio-named-routes-header.md](concepts/fo-folio-named-routes-header.md), [fo-header-url-and-translation-contract.md](concepts/fo-header-url-and-translation-contract.md)
+- Test: `HeaderAreaPersonaleLinksContractTest` — scan tutti i `.blade.php` (656 assert)
+- Root: [folio-frontoffice-navigation-links.md](../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md)
+
+## [2026-06-05] rule | Header parity religione — link root wiki + index
+
+- Index header: rule/skill/memoria root + STORY-147 UX §11
+- `header-authenticated-state.md`: frontmatter + parity doppia
+- QMD ingest dopo `qmd update`
+
+## [2026-06-05] ux | STORY-147 header logged — CSS cascade + avatar FO
+
+- Root cause: `11-tailwind-utility-compat` `.btn-primary` blu dopo layer 08; Gravatar identicon in slim bar
+- Fix: `13-final-runtime-overrides.css`, `v1.blade.php` solo media avatar, delta doc aggiornato
+- Canon: [header-logged-in-parity-delta.md](concepts/header-logged-in-parity-delta.md), memoria root `header-html-visual-parity-rule.md`
+
+## [2026-06-05] docs | AI harness tema + HackerNoon
+
+- [ai-harness-theme-sixteen.md](concepts/ai-harness-theme-sixteen.md) in index
+- Canon temi: [ai-harness-theme-discipline.md](../../../docs/wiki/concepts/ai-harness-theme-discipline.md)
+
+## [2026-06-03] skill | Anthropic frontend-design × civic parity
+
+- Adattamento plugin: [concepts/frontend-design-civic-anthropic-adaptation.md](concepts/frontend-design-civic-anthropic-adaptation.md)
+- Memoria: [memories/frontend-design-anthropic-civic-mode.md](memories/frontend-design-anthropic-civic-mode.md)
+- Skill bridge: `bashscripts/ai/skills/frontend-design/SKILL.md` · wiki `docs/wiki/skills/frontend-design-civic-pa.md`
+
+## [2026-06-03] skill | Anthropic frontend-design → overlay Fixcity
+
+- Studio: [claude-code/plugins/frontend-design](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design)
+- Skill estesa: `bashscripts/ai/skills/frontend-design/SKILL.md` (PA parity, stack, anti-slop + anti-drift)
+- Doc: `concepts/frontend-design-fixcity-overlay.md`, memoria `memories/anthropic-frontend-design-skill-adapted.md`
+- Symlink agenti: `bashscripts/ai/.agents/skills/frontend-design` → skill canonica
+
+## [2026-06-03] docs | map-lit marker + popup — ricostruzione e confini tema
+
+- **SSoT modulo:** [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — dimensioni pin, DOM, popup BEM, checklist build
+- **Tema:** [geo-map-marker-civic-pin-theme-boundary.md](concepts/geo-map-marker-civic-pin-theme-boundary.md), [geo-map-popup-leaflet-boundary.md](concepts/geo-map-popup-leaflet-boundary.md)
+- **Runbook popup vuoto:** [map-popup-header-whitespace-fix.md](../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md) — `<div class="popup__header">` vs `header { min-height: 222px }`
+- **Codice:** `marker-config.js` (`__shell`/`__inner`/`__point`), `popup-ticket.js` (STORY-132), `07-map-clusters-and-leaflet.css`
+
+## [2026-06-01] rule | Frontend stack canonico + naming blocchi CMS
+
+- **Regola**: `rules/frontend-stack-canonical.md` — stack Tailwind+Alpine+Lit+DaisyUI+Flowbite+Filament (NO Bootstrap)
+- **Regola**: `rules/cms-block-naming-tailwind-flowbite.md` — sottocartelle `blocks/` da Tailwind UI / Flowbite
+- **Story**: STORY-112 — `docs/stories/STORY-112-frontend-stack-canonical-rule.md`
+- **Issue**: [#197](https://github.com/laraxot/base_fixcity_fila5/issues/197) · **Discussion**: [#198](https://github.com/laraxot/base_fixcity_fila5/discussions/198)
+
+## [2026-05-26] fix | register.blade.php — folio + Volt manuale + template errata
+
+- **Errori**:
+  - `<x-layouts.marketing>` non esiste (error 500)
+  - `title()` non è funzione Folio (Internal Server Error)
+  - Form Volt manuale duplice `RegisterWidget` esistente
+  - Traduzioni inesistenti (`user::auth.register.page.*`)
+  - Mancanza `Route` facade
+- **Fix**: template semplificato con `layouts/app` + `$title` slot + `$this->livewire(RegisterWidget::class)` + chiavi traduzione `user::auth.register-*`
+- **Regola second brain**: `filament-auth-widgets-rule.md` — auth pages usano Filament widgets, mai Blade/Volt manuali.
 ## [2026-05-22] docs | wizard-review-parity — recap Infolist vs input autore/contatti
 
 - [`wizard-review-parity.md`](design/wizard-review-parity.md): chiarito che lo step `form.summary::data::wizard-step` è **misto** (`TextEntry` recap + `TextInput` autore/contatti).
@@ -43,7 +157,7 @@
 
 ## [2026-05-15] Import Geo mappa via `@modules`
 
-- `geo-map-lit-local.js`: import di `renderSearch` / `searchUiHandlers` e controlli da `@modules/Geo/resources/js/components/map/...` (niente `./modules/Geo/...` assente nel tree).
+- **2026-05-28:** rimosso fork vietato `geo-map-lit-local.js`; mappa elenco solo via `import map-lit.js` in `app.js` — regola [no-theme-map-lit-fork](../../../../docs/wiki/rules/no-theme-map-lit-fork.md).
 - Boundary aggiornato: [concepts/theme-geo-js-boundary.md](concepts/theme-geo-js-boundary.md).
 
 ## [2026-05-15] Geo map styles mirror
@@ -213,7 +327,7 @@
 ## [2026-05-04] bmad-create-story | 7-105 inventario classi BI (7 pagine DC) → Tailwind in `app.css`
 
 - Story: `_bmad-output/implementation-artifacts/7-105-design-comuni-segnalazione-static-pages-bootstrap-to-tailwind-class-map.md`.
-- Scope URL: `segnalazione-dettaglio`, `segnalazione-01`…`04`, `segnalazione-area-personale`, `segnalazioni-elenco` (Design Comuni pagine statiche).
+- Scope URL: `segnalazione-dettaglio`, `segnalazione-01`…`04`, `segnalazione-area-personale`, `ticket-list` (Design Comuni pagine statiche).
 - Deliverable: elenco deduplicato classi + mapping `@layer` / utilities in `resources/css/app.css`; wiki tabella condivisa con Fixcity; ingest root `docs/wiki/log.md`.
 - Allineamento: [segnalazione-visual-parity-correction-plan](concepts/segnalazione-visual-parity-correction-plan.md), story 7-103/7-104.
 
@@ -275,8 +389,8 @@
 - Aggiornato `index.md` con nuovi documenti e backlink `visual-parity-verification-rule`
 - Collegamento a Playwright/Puppeteer per controlli visuali automatici post-modifica
 
-## [2026-04-30] sync | cluster-group visibile su segnalazioni-elenco + dataset runtime coerente
-- aggiornato blocco test `resources/views/components/blocks/tests/segnalazioni-elenco.blade.php`: `data-url` mappa allineato a `/data/tickets.json`.
+## [2026-04-30] sync | cluster-group visibile su ticket-list + dataset runtime coerente
+- aggiornato blocco test `resources/views/components/blocks/tests/ticket-list.blade.php`: `data-url` mappa allineato a `/data/tickets.json`.
 - recepito fix owner-side Geo: cluster rendering reso robusto in init tab/wizard (`removeOutsideVisibleBounds: false` + fallback `addLayers/addLayer`).
 - esito condiviso con evidenza runtime: cluster presenti nello shadow DOM e suite Playwright segnalazioni all green (`10 passed`).
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
@@ -287,27 +401,27 @@
 - recepita centratura automatica posizione corrente all'avvio; `fitBounds` non overridea la viewport dopo geolocalizzazione riuscita.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
-## [2026-04-30] sync | test map segnalazioni-elenco all green dopo stabilizzazione zoom
-- recepito update owner-side Geo sulla suite Playwright `segnalazioni-elenco`: scenario zoom stabilizzato con fallback anti-flaky.
+## [2026-04-30] sync | test map ticket-list all green dopo stabilizzazione zoom
+- recepito update owner-side Geo sulla suite Playwright `ticket-list`: scenario zoom stabilizzato con fallback anti-flaky.
 - esito condiviso: `10 passed` sulla suite mappa del blocco test segnalazioni.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
-## [2026-04-30] sync | segnalazioni-elenco resilient map rendering via Geo fallback
+## [2026-04-30] sync | ticket-list resilient map rendering via Geo fallback
 - recepito fix owner-side Geo: `geo-map-lit` ora degrada automaticamente a marker plain quando il plugin cluster va in errore runtime.
-- obiettivo UX tema preservato: evitare pagina mappa vuota in `/it/tests/segnalazioni-elenco` mantenendo contenuto visibile anche in modalita` degraded.
+- obiettivo UX tema preservato: evitare pagina mappa vuota in `/it/tests/ticket-list` mantenendo contenuto visibile anche in modalita` degraded.
 - riferimento owner-side: `../../../Modules/Geo/docs/wiki/log.md`.
 
 ## [2026-04-30] fix | segnalazioni test block allineato a dataset runtime stabile
-- aggiornato `resources/views/components/blocks/tests/segnalazioni-elenco.blade.php`: `data-url` mappa da `/data/tickets_big.json` a `/data/tickets.json`.
+- aggiornato `resources/views/components/blocks/tests/ticket-list.blade.php`: `data-url` mappa da `/data/tickets_big.json` a `/data/tickets.json`.
 - obiettivo business: ridurre il rischio di pagina vuota in ambienti dove il dataset big non e` garantito o non aggiornato.
 - boundary confermato: Sixteen decide il mount del componente e l’URL predefinito, Geo gestisce rendering/fallback marker+cluster.
 
-## [2026-04-30] story | 8-88 marker/cluster visibility parity su segnalazioni-elenco
-- recepita la nuova story `_bmad-output/implementation-artifacts/8-88-segnalazioni-elenco-marker-cluster-data-loading-farmshops-parity.story.md` per incidente runtime: mappa senza marker/cluster su `/it/tests/segnalazioni-elenco`.
+## [2026-04-30] story | 8-88 marker/cluster visibility parity su ticket-list
+- recepita la nuova story `_bmad-output/implementation-artifacts/8-88-ticket-list-marker-cluster-data-loading-farmshops-parity.story.md` per incidente runtime: mappa senza marker/cluster su `/it/tests/ticket-list`.
 - focus tema: parity UX/integrazione pagina con dataset numeroso e fallback chiari quando il payload GeoJSON è vuoto o malformato.
 - boundary confermato: dato/tickets owner Fixcity, rendering/cluster owner Geo, composizione e parity visuale owner Sixteen.
 
-## [2026-04-30] docs | segnalazioni-elenco index sync su geo-map-lit
+## [2026-04-30] docs | ticket-list index sync su geo-map-lit
 - aggiornato `index.md`: riferimento integrazione mappa allineato da `<ticket-map-lit>` legacy a `<geo-map-lit>`.
 - chiarito boundary tecnico: asset Vite dal modulo Geo, tema owner di layout/integrazione.
 
@@ -1079,3 +1193,21 @@
 - Build: npm run build ✓, npm run copy ✓
 - Story: .bmad-output/implementation-artifacts/8-106-header-navigation-json-driven.md
 - Status: 8-106 → in-progress
+
+## [2026-06-10] Regola blocks/ Flowbite + Tailwind UI
+- **Regola on-demand**: `cms-block-naming-tailwind-flowbite.md` (root + Sixteen wiki)
+- **Catalogo**: `laravel/Themes/Sixteen/docs/wiki/how-to/blocks-subfolder-catalog.md`
+- **SSoT codice**: `Themes\\Sixteen\\Support\\BlockCategoryRegistry`
+- **Test**: `BlockSubfolderNamingTest` — valida sottocartelle ammesse
+- **Fix runtime**: slug duplicato `home` in `1.json` → `archive-ticket-detail-layout-v1`
+
+## 2026-06-10 — header FO session
+
+- `route('notifications')` al posto di `area-personale.notifiche`
+- Troubleshooting: [route-not-found-view-cache.md](troubleshooting/route-not-found-view-cache.md)
+
+## 2026-06-10 — docs Folio consolidate
+
+- `personal-area-routes.md` allineato al canon (deprecato nomi IT)
+- `fo-folio-named-routes-header.md` sezione Imparato
+- INDEX Folio FO sezione unificata

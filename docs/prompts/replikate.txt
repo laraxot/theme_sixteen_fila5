@@ -396,7 +396,7 @@ Tutti i controlli falli tu. La comparazione falla tu.
 46. `ufficio-dettaglio` - Dettaglio ufficio
 47. `enti-e-fondazioni` - Lista enti
 48. `ente-dettaglio` - Dettaglio ente
-49. `segnalazioni-elenco` - Elenco segnalazioni
+49. `ticket-list` - Elenco segnalazioni
 50. `segnalazione-dettaglio` - Dettaglio segnalazione
 51. `documento-dettaglio` - Dettaglio documento
 52. `dataset-dettaglio` - Dettaglio dataset

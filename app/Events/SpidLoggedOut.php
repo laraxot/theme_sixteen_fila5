@@ -6,7 +6,7 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Themes\Sixteen\Models\User;
+use Modules\User\Models\User;
 
 /**
  * Evento lanciato quando un utente effettua il logout da SPID
@@ -28,15 +28,19 @@ class SpidLoggedOut
      */
     public function getProvider(): ?string
     {
-        return $this->spidAttributes['provider'] ?? null;
+        $value = $this->spidAttributes['provider'] ?? null;
+
+        return is_string($value) ? $value : null;
     }
 
     /**
-     * Ottiene il codice fiscale dell'utente
+     * Ottiene il codice fiscale dall'autenticazione SPID
      */
     public function getFiscalCode(): ?string
     {
-        return $this->spidAttributes['fiscal_code'] ?? null;
+        $value = $this->spidAttributes['fiscal_code'] ?? null;
+
+        return is_string($value) ? $value : null;
     }
 
     /**

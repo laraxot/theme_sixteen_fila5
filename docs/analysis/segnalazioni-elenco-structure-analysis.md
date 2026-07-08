@@ -1,4 +1,4 @@
-# HTML Structure Analysis: segnalazioni-elenco
+# HTML Structure Analysis: ticket-list
 
 ## Executive Summary
 - **Reference**: 775 lines, 29 unique tags

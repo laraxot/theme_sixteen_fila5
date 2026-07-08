@@ -36,6 +36,7 @@ Nel kit statico Design Comuni la pagina e' una composizione di componenti coeren
 
 ## Riferimenti
 
+- Token PA FO (no hex per `data-page`): [fo-pa-tokens-uniformity](fo-pa-tokens-uniformity.md) · ADR [fo-pa-tokens-no-per-page-hex.md](../../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md)
 - Architettura CSS/HTML nel repo ufficiale (stylesheets + `cmp-*`): [entities/design-comuni-class-mapping.md](../entities/design-comuni-class-mapping.md).
 - Plugin UI Tailwind: [DaisyUI — documentazione](https://daisyui.com/docs/) (tema Sixteen); linee guida modulo Cms: [daisyui-componenti](../../../../../Modules/Cms/docs/daisyui-componenti.md); **pro/contro e percentuali**: [daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md).
 

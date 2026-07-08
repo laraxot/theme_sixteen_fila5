@@ -1,9 +1,9 @@
 /* Mobile Header Fix - Filament Wizard Compatibility */
 /* Mobile-first approach for segnalazione page */
 
-/* Hide hamburger on desktop */
+/* Hide hamburger on desktop (navbar only — reference has no center toggler) */
 @media (min-width: 992px) {
-  .custom-navbar-toggler {
+  .it-header-navbar-wrapper .custom-navbar-toggler {
     display: none !important;
   }
 }

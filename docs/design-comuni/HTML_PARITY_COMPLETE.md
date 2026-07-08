@@ -166,7 +166,7 @@ x-layouts.main (Base HTML structure)
 26-27. ⏳ assistenza-01-dati, assistenza-02-conferma
 
 **Reports Flow (7 pages)**:
-28-34. ⏳ segnalazione-dettaglio → segnalazioni-elenco
+28-34. ⏳ segnalazione-dettaglio → ticket-list
 
 ### Priority 2: Automation
 

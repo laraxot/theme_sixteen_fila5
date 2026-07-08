@@ -9,7 +9,7 @@
         aria-expanded="false"
         aria-controls="header-user-menu-guest-parity"
         id="header-user-toggle-guest-parity"
-        title="{{ __('pub_theme::ui.header_area_personale.user_menu_toggle.tooltip') }}"
+        title="{{ __('pub_theme::header.user.aria.toggle_menu.label') }}"
     >
         <span class="rounded-icon" aria-hidden="true">
             <svg class="icon icon-white">
@@ -27,35 +27,38 @@
                 <div class="link-list-wrapper">
                     <ul class="link-list">
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'servizi']) }}">
-                                <span>{{ __('pub_theme::ui.header_area_personale.my_services.label') }}</span>
+                            <a class="dropdown-item list-item" href="{{ route('services.categories') }}">
+                                <span>{{ __('pub_theme::header.user.dropdown.my_services.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
-                                <span>{{ __('pub_theme::ui.header_area_personale.my_practices.label') }}</span>
+                            <a class="dropdown-item list-item" href="{{ route('dashboard') }}">
+                                <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
-                                <span>{{ __('pub_theme::ui.header_area_personale.notifications.label') }}</span>
+                            <a class="dropdown-item list-item" href="{{ route('notifications') }}">
+                                <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
                             </a>
                         </li>
                         <li>
                             <span class="divider"></span>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('tests.view', ['slug' => 'segnalazione-area-personale']) }}">
-                                <span>{{ __('pub_theme::ui.header_area_personale.settings.label') }}</span>
+                            <a class="dropdown-item list-item" href="{{ route('profile.edit') }}">
+                                <span>{{ __('pub_theme::header.user.dropdown.settings.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="list-item left-icon" href="#">
-                                <svg class="icon icon-primary icon-sm left" aria-hidden="true">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
-                                </svg>
-                                <span class="fw-bold">{{ __('pub_theme::ui.header_area_personale.logout.label') }}</span>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="list-item left-icon">
+                                    <svg class="icon icon-primary icon-sm left" aria-hidden="true">
+                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-external-link"></use>
+                                    </svg>
+                                    <span class="fw-bold">{{ __('pub_theme::header.user.dropdown.logout.label') }}</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

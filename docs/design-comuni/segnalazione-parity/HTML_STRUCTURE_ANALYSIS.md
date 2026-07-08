@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-07
 **Reference:** `/tmp/design-comuni-ref/src/pages/sito/*.hbs` (7 templates)
-**Local:** `laravel/Themes/Sixteen/resources/views/components/blocks/flow/segnalazione/*.blade.php`
+**Local:** `laravel/Themes/Sixteen/resources/views/components/blocks/flow.ticket/*.blade.php`
 **Goal:** 90%+ HTML structure parity, then CSS/JS visual parity
 
 ---
@@ -12,12 +12,12 @@
 | # | Page | Reference HBS | Local Blade | Structure Match |
 |---|------|--------------|-------------|-----------------|
 | 1 | segnalazione-dettaglio | `segnalazione-dettaglio.hbs` | `segnalazione-dettaglio.blade.php` | ⚠️ 70% |
-| 2 | segnalazione-01-privacy | `segnalazione-01-privacy.hbs` | `flow/segnalazione/01-privacy.blade.php` | ❌ 30% |
-| 3 | segnalazione-02-dati | `segnalazione-02-dati.hbs` | `flow/segnalazione/02-dati.blade.php` | ❌ 25% |
-| 4 | segnalazione-03-riepilogo | `segnalazione-03-riepilogo.hbs` | `flow/segnalazione/03-riepilogo.blade.php` | ❌ 30% |
-| 5 | segnalazione-04-conferma | `segnalazione-04-conferma.hbs` | `flow/segnalazione/04-conferma.blade.php` | ✅ 85% |
+| 2 | segnalazione-01-privacy | `segnalazione-01-privacy.hbs` | `flow.ticket/01-privacy.blade.php` | ❌ 30% |
+| 3 | segnalazione-02-dati | `segnalazione-02-dati.hbs` | `flow.ticket/02-dati.blade.php` | ❌ 25% |
+| 4 | segnalazione-03-riepilogo | `segnalazione-03-riepilogo.hbs` | `flow.ticket/03-riepilogo.blade.php` | ❌ 30% |
+| 5 | segnalazione-04-conferma | `segnalazione-04-conferma.hbs` | `flow.ticket/04-conferma.blade.php` | ✅ 85% |
 | 6 | segnalazione-area-personale | `segnalazione-area-personale.hbs` | `flow/area-personale/dashboard.blade.php` | ⚠️ 50% |
-| 7 | segnalazioni-elenco | `segnalazioni-elenco.hbs` | *(missing)* | ❌ 0% |
+| 7 | ticket-list | `ticket-list.hbs` | *(missing)* | ❌ 0% |
 
 ---
 
@@ -284,7 +284,7 @@ main (logged=true)
 
 ---
 
-### 7. segnalazioni-elenco
+### 7. ticket-list
 
 **Reference Structure:**
 ```
@@ -348,7 +348,7 @@ main
    - cmp-nav-steps
    - bg-grey-card footer
 
-4. **segnalazioni-elenco.blade.php** - Create new:
+4. **ticket-list.blade.php** - Create new:
    - Full structure from reference HBS
    - cmp-category-list sidebar
    - cmp-map component

@@ -3,8 +3,8 @@
 ## Panoramica
 
 - **Data**: 2026-04-03
-- **URL**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
-- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+- **URL**: http://127.0.0.1:8000/it/tests/ticket-list
+- **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 - **Fix**: Modal non si apre più automaticamente, tabs funzionano con Alpine.js
 
 ## 🐛 Problemi Risolti

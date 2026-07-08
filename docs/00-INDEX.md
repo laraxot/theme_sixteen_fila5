@@ -13,7 +13,7 @@
 
 **Status**: Strategy Complete → Execution Ready  
 **Start**: 2026-04-08  
-**Target**: 90% HTML structural parity (segnalazioni-elenco pilot)  
+**Target**: 90% HTML structural parity (ticket-list pilot)  
 
 **Key Documents**:
 1. [PHASE-1-STRATEGY.md](PHASE-1-STRATEGY.md) - **START HERE** - Complete strategy with architecture analysis
@@ -51,7 +51,7 @@
 **Strategy & Planning**:
 - [PHASE-1-STRATEGY.md](PHASE-1-STRATEGY.md) - Deep dive strategy (22,000+ words)
   - Design Comuni architecture analysis
-  - segnalazioni-elenco structure breakdown
+  - ticket-list structure breakdown
   - FixCity current state assessment
   - Identified gaps list
   - Execution strategy with multi-agent coordination
@@ -85,7 +85,7 @@
   - Phase 2 preparation
 
 **Comparison Reports**:
-- [/body-structure-comparison/segnalazioni-elenco/](body-structure-comparison/segnalazioni-elenco/) - Comparison output
+- [/body-structure-comparison/ticket-list/](body-structure-comparison/ticket-list/) - Comparison output
   - `comparison-report.json` - Machine-readable full report
   - `parity-summary.txt` - Human-readable summary
   - `reference-body.html` - Reference structure extracted
@@ -106,10 +106,10 @@
 **Usage**:
 ```bash
 cd /var/www/_bases/base_fixcity_fila5
-./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+./bashscripts/html/html-structure-compare.sh ticket-list
 ```
 
-Output → `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/`
+Output → `laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/`
 
 ---
 
@@ -118,7 +118,7 @@ Output → `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-e
 **Main Template**:
 - [resources/views/pages/tests/[slug].blade.php](resources/views/pages/tests/[slug].blade.php)
   - Dynamic routing based on slug parameter
-  - **Do NOT create**: segnalazioni-elenco.blade.php (use [slug] pattern)
+  - **Do NOT create**: ticket-list.blade.php (use [slug] pattern)
   - Loads content from JSON via PageSlugMiddleware
   - Calls <x-page> component
 
@@ -137,7 +137,7 @@ Output → `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-e
 ### 📋 Content & Configuration
 
 **JSON Content Structure**:
-- [laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json](../../../laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json)
+- [laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json](../../../laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json)
   - Pilot page content configuration
   - Single source of truth for content
   - Structured by content_blocks type
@@ -155,7 +155,7 @@ Output → `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-e
 ### ✅ Phase 1: HTML Structure Alignment
 **Status**: 🟢 Strategy Complete → Execution In Progress  
 **Goal**: 90% HTML structural parity  
-**Pilot Page**: segnalazioni-elenco  
+**Pilot Page**: ticket-list  
 **Timeline**: ~2 hours concurrent execution  
 
 **Deliverables**:
@@ -249,7 +249,7 @@ laravel/Themes/Sixteen/
 │   ├── PHASE-1-FINDINGS.md             (⏳ pending)
 │   ├── PHASE-1-COMPLETION-REPORT.md    (⏳ pending)
 │   ├── body-structure-comparison/      (comparison outputs)
-│   │   └── segnalazioni-elenco/
+│   │   └── ticket-list/
 │   │       ├── comparison-report.json
 │   │       ├── parity-summary.txt
 │   │       ├── reference-body.html
@@ -284,12 +284,12 @@ bashscripts/
         └── html-structure-compare.md
 
 laravel/config/local/fixcity/database/content/pages/
-└── tests.segnalazioni-elenco.json     (← JSON CONTENT)
+└── tests.ticket-list.json     (← JSON CONTENT)
 ```
 
 ### Do NOT Modify
 ```
-❌ Create laravel/Themes/Sixteen/resources/views/pages/tests/segnalazioni-elenco.blade.php
+❌ Create laravel/Themes/Sixteen/resources/views/pages/tests/ticket-list.blade.php
    Use: laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
 
 ❌ Move bashscripts/html-structure-compare.sh
@@ -329,7 +329,7 @@ laravel/config/local/fixcity/database/content/pages/
 - [ ] Phase 2 strategy outlined (awaits Phase 1 completion)
 
 **Scaling Preparation**:
-- [ ] Methodology validated on segnalazioni-elenco
+- [ ] Methodology validated on ticket-list
 - [ ] Process documented for other pages
 - [ ] Batch execution approach designed
 - [ ] Parallel agent workflow optimized
@@ -339,7 +339,7 @@ laravel/config/local/fixcity/database/content/pages/
 ## 🔗 RELATED RESOURCES
 
 **Official References**:
-- [Design Comuni Live](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html) - Reference implementation
+- [Design Comuni Live](https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html) - Reference implementation
 - [Design Comuni GitHub](https://github.com/italia/design-comuni-pagine-statiche) - Source code
 - [Designers Italia](https://designers.italia.it/modelli/comuni/) - Official documentation
 - [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) - Component library
@@ -362,10 +362,10 @@ cd laravel && php artisan serve
 
 # Step 2: Run comparison (in new terminal)
 cd /var/www/_bases/base_fixcity_fila5
-./bashscripts/html/html-structure-compare.sh segnalazioni-elenco
+./bashscripts/html/html-structure-compare.sh ticket-list
 
 # Step 3: Review output
-cat laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/parity-summary.txt
+cat laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/parity-summary.txt
 ```
 
 **Executor #2 (Code Fixes)**:
@@ -377,12 +377,12 @@ cat laravel/Themes/Sixteen/docs/PHASE-1-FINDINGS.md
 nano laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php
 
 # Step 3: Edit JSON content
-nano laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json
+nano laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json
 
 # Step 4: Build & test
 cd laravel/Themes/Sixteen && npm run build && npm run copy
 php artisan optimize:clear
-# Open: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+# Open: http://127.0.0.1:8000/it/tests/ticket-list
 ```
 
 ---
@@ -419,7 +419,7 @@ php artisan optimize:clear
 ### Output Locations
 ```
 laravel/Themes/Sixteen/docs/
-├─ body-structure-comparison/segnalazioni-elenco/
+├─ body-structure-comparison/ticket-list/
 │  ├─ comparison-report.json          (Subtask 1 output)
 │  ├─ parity-summary.txt              (Subtask 1 output)
 │  ├─ reference-body.html             (Subtask 1 output)
@@ -470,7 +470,7 @@ laravel/Themes/Sixteen/docs/
 
 - **Subtask 4**: Verify JSON content
   - Input: PHASE-1-FINDINGS.md
-  - Output: Verified tests.segnalazioni-elenco.json
+  - Output: Verified tests.ticket-list.json
   - Duration: 15-20 min
   - Status: ⏳ PENDING (awaits Subtask 2)
   - Can run in parallel with Subtask 3

@@ -2,8 +2,8 @@
 
 ## Latest Comparison (2026-04-08)
 
-**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html  
-**Local:** http://127.0.0.1:8000/it/tests/segnalazioni-elenco  
+**Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html  
+**Local:** http://127.0.0.1:8000/it/tests/ticket-list  
 **Parity Score:** 28.9% ❌ (Target: 90%)
 
 ### Summary

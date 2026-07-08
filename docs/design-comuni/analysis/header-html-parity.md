@@ -30,7 +30,7 @@ Il progetto locale diverge dal DC HBS in alcuni punti **intenzionali** documenta
 | Elemento | DC HBS | Blade locale | Motivazione |
 |----------|--------|--------------|-------------|
 | **CTA guest posizione** | Nella slim (`it-header-slim-right-zone`) | Nel center (`it-right-zone`, solo `d-none d-md-flex`) | Scelta UX: mostra la CTA più prominente nel center |
-| **Login dropdown (auth)** | `<a>` con `btn btn-primary btn-icon btn-full` + avatar img | `<button>` con classi custom + avatar/iniziale | Pattern accessibilità: button per toggle dropdown |
+| **Login dropdown (auth)** | `<a>` con `btn btn-primary btn-icon btn-full` + avatar img | Allineato STORY-147: stesso pattern guest + `rounded-icon` | Visual parity > nav-link; logout resta POST |
 | **Logout** | `<a class="list-item left-icon">` | `<form POST>` + `<button>` | Sicurezza: logout DEVE essere POST |
 | **i18n testi** | Hardcoded ITA | `__('pub_theme::...')` | Multilinguismo |
 | **Mobile nav** | Bootstrap JS `data-bs-toggle="navbarcollapsible"` | Alpine.js `x-data="headerMobileNav"` | No Bootstrap JS runtime |

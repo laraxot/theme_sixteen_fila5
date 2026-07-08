@@ -20,9 +20,14 @@
     }
 
     $headerAvatarUrl = null;
-    if (\is_object($headerProfile) && method_exists($headerProfile, 'getAvatarUrl')) {
-        $headerAvatarUrl = $headerProfile->getAvatarUrl();
-    } elseif (filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
+    // FO header parity: media locale → Gravatar (email) → iniziale
+    if (\is_object($headerProfile) && method_exists($headerProfile, 'getFirstMediaUrl')) {
+        $mediaAvatar = (string) $headerProfile->getFirstMediaUrl('avatar');
+        if ($mediaAvatar !== '') {
+            $headerAvatarUrl = $mediaAvatar;
+        }
+    }
+    if ($headerAvatarUrl === null && filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
         $headerAvatarUrl = $headerProfile->avatar_url;
     } elseif (isset($authUser->profile_photo_url) && is_string($authUser->profile_photo_url) && $authUser->profile_photo_url !== '') {
         $headerAvatarUrl = $authUser->profile_photo_url;
@@ -37,7 +42,23 @@
         }
     }
 
+    if ($headerAvatarUrl === null && $authUser !== null) {
+        $headerAvatarEmail = trim((string) (($headerProfile->email ?? null) ?: ($authUser->email ?? '')));
+        if ($headerAvatarEmail !== '') {
+            $headerAvatarUrl = 'https://www.gravatar.com/avatar/'.md5(mb_strtolower($headerAvatarEmail)).'?s=40&d=mp';
+        }
+    }
+
     $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
+
+    $headerUnreadNotificationsCount = 0;
+    if ($authUser !== null && \Modules\User\Support\NotificationSchema::isReadable()) {
+        try {
+            $headerUnreadNotificationsCount = $authUser->unreadNotifications()->count();
+        } catch (\Throwable) {
+            $headerUnreadNotificationsCount = 0;
+        }
+    }
 
     $testsPath = (string) request()->path();
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
@@ -51,7 +72,45 @@
         $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
     }
     $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
-    $headerNavTopicsUrl = $headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/it/argomenti';
+    $headerFolioUrl = static function (string $url): string {
+        if ($url === '' || $url === '#') {
+            return $url;
+        }
+
+        $path = parse_url($url, PHP_URL_PATH);
+        if (! is_string($path) || $path === '') {
+            return $url;
+        }
+
+        $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
+        $segments = array_values(array_filter(explode('/', trim($path, '/')), static fn (string $segment): bool => $segment !== ''));
+        if ($segments !== [] && in_array($segments[0], $supportedLocales, true)) {
+            array_shift($segments);
+        }
+
+        $container = $segments[0] ?? '';
+        if ($container === '') {
+            return route('home');
+        }
+
+        $container = match ($container) {
+            'amministrazione' => 'administration',
+            'novita' => 'news',
+            'servizi', 'lista-categorie' => 'services',
+            'eventi', 'vivere-il-comune' => 'events',
+            'argomenti' => 'topics',
+            'iscrizioni' => 'registrations',
+            'estate-in-citta' => 'summer-in-the-city',
+            'polizia-locale' => 'local-police',
+            default => $container,
+        };
+
+        return route('container0.index', ['container0' => $container]);
+    };
+
+    $headerNavTopicsUrl = $headerFolioUrl(
+        (string) ($headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/argomenti')
+    );
     $headerNavItems     = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'primary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
@@ -81,7 +140,7 @@
 
 {{--
     Bootstrap Italia Header — EXACT match of Design Comuni reference
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
     Reference: https://italia.github.io/design-comuni-pagine-statiche/servizi/graduatoria-area-personale.html
     
     Updated for Story 5.0: Header Logged-In State
@@ -104,7 +163,7 @@
                     <div class="it-header-slim-wrapper-content">
                         {{-- Transparent bg: shows slim dark green (#00402b) underneath, text-white for contrast --}}
                         <a
-                            class="d-lg-block navbar-brand text-white"
+                            class="d-lg-block navbar-brand"
                             target="_blank"
                             rel="noopener noreferrer"
                             href="#"
@@ -120,7 +179,7 @@
                                 @include('pub_theme::components.sections.header.partials.user-dropdown', [
                                     'avatarUrl' => $headerAvatarUrl,
                                     'displayName' => $headerUserDisplayName,
-                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
+                                    'unreadNotificationsCount' => $headerUnreadNotificationsCount,
                                     'userInitial' => $headerUserInitial,
                                 ])
                             @endguest
@@ -131,21 +190,16 @@
         </div>
     </div>
 
-    <div class="it-nav-wrapper">
+    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
         <div class="it-header-center-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-center" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
-                                <svg class="icon">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
-                                </svg>
-                            </button>
                             <div class="it-brand-wrapper">
                                 <a href="/" title="{{ __('pub_theme::header.center.brand.home_link.title.label') }}">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
+                                        <image xlink:href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ __('pub_theme::header.center.brand.title.label') }}</div>
@@ -207,36 +261,43 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="it-search-wrapper flex-col items-center">
-                                         <span class="d-none d-md-block search-label">{{ __('pub_theme::header.center.search.label') }}</span>
-                                        <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
-                                            <svg class="icon">
-                                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
+                                <div class="it-search-wrapper">
+                                    <span class="d-none d-md-block">{{ __('pub_theme::header.center.search.label') }}</span>
+                                    <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
+                                        <svg class="icon">
+                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper" x-data="headerMobileNav">
+        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler custom-navbar-toggler-navbar" type="button" aria-controls="nav4" :aria-expanded="mobileNavOpen.toString()" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" @click="toggle()" form="__never_submit_header_nav">
+                            <button
+                                class="custom-navbar-toggler"
+                                type="button"
+                                aria-controls="nav4"
+                                aria-expanded="false"
+                                aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}"
+                                data-bs-target="#nav4"
+                                data-bs-toggle="navbarcollapsible"
+                                data-sixteen-mobile-nav-toggle
+                            >
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                                 </svg>
                             </button>
-                            <!-- Mobile overlay backdrop -->
-                            <div x-show="mobileNavOpen" @click.self="close()" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="overlay" style="display: none;"></div>
-                            <!-- Mobile menu panel -->
-                            <div x-show="mobileNavOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="navbar-collapsable" id="nav4" @keydown.escape.window="close()" style="display: none;">
+                            <div class="navbar-collapsable" id="nav4">
+                                <div class="overlay" style="display: none;"></div>
                                 <div class="close-div">
-                                    <button class="btn close-menu" type="button" @click="close()">
+                                    <button class="btn close-menu" type="button">
                                         <span class="visually-hidden">{{ __('pub_theme::header.center.nav.close_aria.label') }}</span>
                                         <svg class="icon">
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>

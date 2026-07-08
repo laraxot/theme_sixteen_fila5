@@ -34,7 +34,7 @@
 | 12 | argomenti | 3692px | 4104px | 412px | 89% |
 | 13 | appuntamento-03-dettagli | 1878px | 2139px | 261px | 87% |
 | 14 | appuntamento-06-conferma | 3078px | 2693px | 385px | 87% |
-| 15 | segnalazioni-elenco | 3618px | 3128px | 490px | 85% |
+| 15 | ticket-list | 3618px | 3128px | 490px | 85% |
 
 ## Bottom 10 Pages (Need Investigation)
 
@@ -69,7 +69,7 @@
 | 12 | argomenti                      | 3692  | 4104  | 412   | 89% | ⚠️ |
 | 13 | appuntamento-03-dettagli       | 1878  | 2139  | 261   | 87% | ⚠️ |
 | 14 | appuntamento-06-conferma       | 3078  | 2693  | 385   | 87% | ⚠️ |
-| 15 | segnalazioni-elenco            | 3618  | 3128  | 490   | 85% | ⚠️ |
+| 15 | ticket-list            | 3618  | 3128  | 490   | 85% | ⚠️ |
 | 16 | segnalazione-04-conferma       | 1878  | 2301  | 423   | 80% | 🔴 |
 | 17 | lista-risorse                  | 5287  | 4256  | 1031  | 78% | 🔴 |
 | 18 | documenti-dati                 | 3078  | 4090  | 1012  | 72% | 🔴 |

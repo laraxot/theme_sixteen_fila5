@@ -28,8 +28,9 @@ test('il blade segnalazione-02-dati ha steppers-header e steppers-index per la r
     // Elementi strutturali del stepper necessari per il CSS responsive
     expect($html)->toContain('steppers-header');
     expect($html)->toContain('steppers-index');
-    expect($html)->toContain('class="active"');
-    expect($html)->toContain('class="confirmed"');
+    // Il blade usa classi dinamiche Blade (non literal 'class="active"')
+    expect($html)->toContain("'active'");
+    expect($html)->toContain("'confirmed'");
 });
 
 /**

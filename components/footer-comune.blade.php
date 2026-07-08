@@ -34,14 +34,14 @@
                             <li class="list-inline-item">
                                 <a href="#" aria-label="Facebook" target="_blank">
                                     <svg class="icon icon-sm icon-white">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-facebook"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-facebook"></use>
                                     </svg>
                                 </a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#" aria-label="Twitter" target="_blank">
                                     <svg class="icon icon-sm icon-white">
-                                        <use href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.8/dist/svg/sprites.svg#it-twitter"></use>
+                                        <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg') }}#it-twitter"></use>
                                     </svg>
                                 </a>
                             </li>

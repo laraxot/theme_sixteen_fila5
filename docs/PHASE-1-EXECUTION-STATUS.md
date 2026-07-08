@@ -4,7 +4,7 @@
 **Last Updated**: 2026-04-08 07:41 UTC  
 **Session**: Researcher Agent (BMAD Mode C)  
 **Phase**: 1 - HTML Structural Parity  
-**Target**: segnalazioni-elenco → 90% parity
+**Target**: ticket-list → 90% parity
 
 ---
 
@@ -70,7 +70,7 @@ PHASE 1 WORKFLOW
 - ✅ **EXECUTOR-2-SUBTASKS-3-4.md** (9.5 KB) - Detailed instructions
 - Reference files:
   - `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-  - `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+  - `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 
 ---
 
@@ -98,7 +98,7 @@ Subtask 2 (Researcher): Analyze Findings
    │
    └─→ Subtask 4 (Executor #2): Verify JSON
        ├─ Input: PHASE-1-FINDINGS.md
-       ├─ Output: Verified tests.segnalazioni-elenco.json
+       ├─ Output: Verified tests.ticket-list.json
        └─ Duration: 15-20 min
    
    (Subtasks 3 & 4 can run in parallel)
@@ -132,7 +132,7 @@ Must have ALL of these ✅:
 - [ ] Bootstrap semantic classes (`.bg-light`, `.btn-primary`, etc.)
 - [ ] All user-visible text uses `trans('fixcity::...')`
 - [ ] ARIA attributes present and correct
-- [ ] Comparison reports saved: `laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/`
+- [ ] Comparison reports saved: `laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/`
 - [ ] All findings documented in PHASE-1-FINDINGS.md
 - [ ] Completion report created: PHASE-1-COMPLETION-REPORT.md
 
@@ -146,7 +146,7 @@ Must have ALL of these ✅:
 # (Will be displayed in UI or via /tasks command)
 
 # Expected output location:
-ls -la laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco/
+ls -la laravel/Themes/Sixteen/docs/body-structure-comparison/ticket-list/
 ```
 
 ### When Subtask 1 Completes
@@ -173,14 +173,14 @@ ls -la laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazioni-elenco
 
 **Key Files**:
 - Blade Template: `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
-- JSON Content: `laravel/config/local/fixcity/database/content/pages/tests.segnalazioni-elenco.json`
+- JSON Content: `laravel/config/local/fixcity/database/content/pages/tests.ticket-list.json`
 - Comparison Script: `./bashscripts/html/html-structure-compare.sh`
 
 **Translation Pattern**: `fixcity::segnalazione.fields.title.label`
 
-**Reference Page**: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+**Reference Page**: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 
-**Local Testing**: http://127.0.0.1:8000/it/tests/segnalazioni-elenco
+**Local Testing**: http://127.0.0.1:8000/it/tests/ticket-list
 
 ---
 
@@ -196,7 +196,7 @@ PHASE 1 �� IN PROGRESS: HTML Structural Parity
   └─ Subtask 1 (Comparison): 🟠 IN PROGRESS
   └─ Subtasks 2-6: ⏳ PENDING
   └─ Target: 90% parity
-  └─ Scope: segnalazioni-elenco (pilot page)
+  └─ Scope: ticket-list (pilot page)
 
 PHASE 2 ⏳ PLANNED: CSS Alignment
   └─ Design tokens application

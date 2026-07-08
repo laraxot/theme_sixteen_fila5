@@ -81,7 +81,7 @@ Per raggiungere 90% servono ~152 elementi aggiuntivi identici:
 ## Prossimi passi raccomandati
 
 1. **Studiare il block view** `segnalazione-dettaglio.blade.php` per capire la struttura attuale
-2. **Implementare rating section** completa con cmp-rating pattern (come fatto per segnalazioni-elenco)
+2. **Implementare rating section** completa con cmp-rating pattern (come fatto per ticket-list)
 3. **Aggiungere share/view dropdowns** nel JSON content
 4. **Implementare accordion** per le sezioni collassabili
 5. **Sostituire `<a>` con `<button>`** per le azioni primarie
@@ -102,5 +102,5 @@ Per raggiungere 90% servono ~152 elementi aggiuntivi identici:
 - [Reference HTML](../../prompts/tests/reference_segnalazione-dettaglio.html)
 - [Local HTML](../../prompts/tests/local_segnalazione-dettaglio.html)
 - [JSON content](../../../../config/local/fixcity/database/content/pages/tests.segnalazione-dettaglio.json)
-- [Block view](../../../../resources/views/components/blocks/tests/segnalazione-dettaglio.blade.php)
-- [Analisi segnalazioni-elenco](../segnalazione_disservizio/segnalazioni-elenco-html-parity-analysis.md)
+- [Block view](../../../../resources/views/components/blocks/tests/ticket-detail.blade.php)
+- [Analisi ticket-list](../segnalazione_disservizio/ticket-list-html-parity-analysis.md)

@@ -1,6 +1,6 @@
 {{--
     Tabs Map/List Block - Bootstrap Italia Exact Replica with Modals
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
+    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 --}}
 @props(['data' => []])
 
@@ -12,7 +12,7 @@
     $filters = $data['filters'] ?? [];
 @endphp
 
-<div class="row segnalazioni-layout align-items-start gx-4">
+<div class="row align-items-start gx-4">
     <div class="col-lg-3 d-none d-lg-block">
         <fieldset>
             <legend class="h6 text-uppercase category-list__title">categoria</legend>

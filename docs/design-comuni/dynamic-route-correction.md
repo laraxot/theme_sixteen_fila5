@@ -14,7 +14,7 @@
 ❌ documenti-dati.blade.php
 ❌ novita-dettaglio.blade.php
 ❌ segnalazione-area-personale.blade.php
-❌ segnalazioni-elenco.blade.php
+❌ ticket-list.blade.php
 ```
 
 **CORRECT**: Use ONLY dynamic route
@@ -38,7 +38,7 @@
 /it/tests/documenti-dati → loads tests.documenti-dati.json
 /it/tests/novita-dettaglio → loads tests.novita-dettaglio.json
 /it/tests/segnalazione-area-personale → loads tests.segnalazione-area-personale.json
-/it/tests/segnalazioni-elenco → loads tests.segnalazioni-elenco.json
+/it/tests/ticket-list → loads tests.ticket-list.json
 /it/tests/* → loads tests.*.json (ANY page)
 ```
 
@@ -119,7 +119,7 @@ laravel/Themes/Sixteen/resources/views/pages/tests/
 ❌ documenti-dati.blade.php          ← Use [slug].blade.php + JSON
 ❌ novita-dettaglio.blade.php        ← Use [slug].blade.php + JSON
 ❌ segnalazione-area-personale.blade.php  ← Use [slug].blade.php + JSON
-❌ segnalazioni-elenco.blade.php     ← Use [slug].blade.php + JSON
+❌ ticket-list.blade.php     ← Use [slug].blade.php + JSON
 ```
 
 ---
