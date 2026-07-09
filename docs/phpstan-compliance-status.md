@@ -1,6 +1,18 @@
 # PHPStan Level 10 Compliance Status
 
-**Status**: ⚠️ NON SCANSIONATO (non e' un errore del tema)
+**Status**: ✅ **0 errori codice** su `phpstan analyse Themes` (2026-07-09)
+
+## Aggiornamento 2026-07-09
+
+- Rimossi duplicati PHP legacy in `src/` (autoload canonico: `composer.json` → `app/`).
+- `RegisterRuntimePsr4NamespacesAction` allinea solo `Themes/Sixteen/app`.
+- Modelli municipal: `MunicipalBaseModel`, scope `Builder`, generics relazioni, `FrontofficeUrl`.
+- Auth: `XotData::getUserClass()` (no `Themes\Sixteen\Models\User`).
+- Exit code 1 residuo: pattern `ignoreErrors` obsoleto in `laravel/phpstan.neon` (solo utente).
+
+```bash
+cd laravel && php -d memory_limit=2048M vendor/bin/phpstan analyse Themes --no-progress
+```
 
 ## Aggiornamento 2026-07-06
 
