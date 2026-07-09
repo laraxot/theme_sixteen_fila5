@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
+use Illuminate\View\View as ViewInstance;
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
@@ -18,6 +21,8 @@ use Themes\Sixteen\Services\MenuBuilder;
 use Themes\Sixteen\Services\SpidAuthService;
 use Themes\Sixteen\Services\ThemeService;
 use Themes\Sixteen\View\Composers\SixteenComposer;
+use function Safe\glob;
+use function Safe\realpath;
 
 /**
  * Enhanced Service Provider per il tema Sixteen.
@@ -107,9 +112,13 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function registerMenuSystem(): void
     {
-        // Singleton per il Menu Builder
-        $this->app->singleton(MenuBuilder::class, function ($app) {
-            $filters = $app->tagged('sixteen.menu.filters');
+        $this->app->singleton(MenuBuilder::class, function (Application $app): MenuBuilder {
+            $filters = [];
+            foreach ($app->tagged('sixteen.menu.filters') as $filter) {
+                if ($filter instanceof MenuFilterInterface) {
+                    $filters[] = $filter;
+                }
+            }
 
             return new MenuBuilder($filters);
         });
@@ -124,8 +133,8 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerCoreServices(): void
     {
         // Theme Service con dependency injection del MenuBuilder
-        $this->app->singleton('sixteen.theme', function ($app) {
-            return new ThemeService($app[MenuBuilder::class]);
+        $this->app->singleton('sixteen.theme', function (Application $app): ThemeService {
+            return new ThemeService($app->make(MenuBuilder::class));
         });
 
         // Alias per il ThemeService
@@ -179,7 +188,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerViewComposers(): void
     {
         // Composer per layout principali
-        $this->app['view']->composer([
+        View::composer([
             'pub_theme::layouts.app',
             'pub_theme::layouts.guest',
             'pub_theme::layouts.guest-agid',
@@ -241,7 +250,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
 
         // Register anonymous components (default + pub_theme namespace)
         $componentsPath = realpath(__DIR__.'/../../resources/views/components');
-        if ($componentsPath !== false) {
+        if ($componentsPath !== '') {
             Blade::anonymousComponentPath($componentsPath);
             Blade::anonymousComponentPath($componentsPath, 'pub_theme');
         }
@@ -267,11 +276,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerLayoutShortcuts(): void
     {
         // Registrazione dei layout shortcuts per facilitare l'uso
-        $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+        View::addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
-        // Enhanced composer per layout AGID-compliant
-        $this->app['view']->composer('layouts.guest-agid', function ($view): void {
-            $themeService = app('sixteen.theme');
+        View::composer('layouts.guest-agid', function (ViewInstance $view): void {
+            $themeService = app(ThemeService::class);
 
             $view->with([
                 'theme_name' => 'Sixteen',
@@ -288,11 +296,17 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function loadConfigFrom(string $path, string $namespace): void
     {
-        if (is_dir($path)) {
-            foreach (glob($path.'/*.php') as $file) {
-                $name = basename($file, '.php');
-                $this->mergeConfigFrom($file, $namespace.'.'.$name);
+        if (! is_dir($path)) {
+            return;
+        }
+
+        foreach (glob($path.'/*.php') as $file) {
+            if (! is_string($file)) {
+                continue;
             }
+
+            $name = basename($file, '.php');
+            $this->mergeConfigFrom($file, $namespace.'.'.$name);
         }
     }
 }

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Illuminate\Database\Eloquent\Builder;
+use Themes\Sixteen\Support\FrontofficeUrl;
+
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -32,28 +33,28 @@ use Illuminate\Support\Str;
  * @property int|null $parent_service_id
  * @property string $service_status
  * @property string $service_level
- * @property array|null $target_audience
- * @property array|null $geographic_coverage
- * @property array|null $requirements
- * @property array|null $procedures
- * @property array|null $required_documents
- * @property array|null $costs
+ * @property array<string, mixed>|null $target_audience
+ * @property array<string, mixed>|null $geographic_coverage
+ * @property array<string, mixed>|null $requirements
+ * @property array<string, mixed>|null $procedures
+ * @property array<string, mixed>|null $required_documents
+ * @property array<string, mixed>|null $costs
  * @property string|null $processing_time
- * @property array|null $delivery_methods
- * @property array|null $digital_channels
- * @property array|null $physical_locations
- * @property array|null $opening_hours
+ * @property array<string, mixed>|null $delivery_methods
+ * @property array<string, mixed>|null $digital_channels
+ * @property array<string, mixed>|null $physical_locations
+ * @property array<string, mixed>|null $opening_hours
  * @property bool $appointment_required
  * @property string|null $appointment_url
  * @property string|null $online_form_url
- * @property array|null $legislation_references
- * @property array|null $accessibility_info
- * @property array|null $contact_info
- * @property array|null $faq
- * @property array|null $related_services
- * @property array|null $service_outcomes
- * @property array|null $quality_standards
- * @property array|null $satisfaction_metrics
+ * @property array<string, mixed>|null $legislation_references
+ * @property array<string, mixed>|null $accessibility_info
+ * @property array<string, mixed>|null $contact_info
+ * @property array<string, mixed>|null $faq
+ * @property array<string, mixed>|null $related_services
+ * @property array<string, mixed>|null $service_outcomes
+ * @property array<string, mixed>|null $quality_standards
+ * @property array<string, mixed>|null $satisfaction_metrics
  * @property \Carbon\Carbon|null $last_updated
  * @property \Carbon\Carbon|null $next_review_date
  * @property bool $is_active
@@ -61,7 +62,7 @@ use Illuminate\Support\Str;
  * @property bool $is_digital
  * @property bool $is_accessible
  * @property int $priority_level
- * @property array|null $metadata
+ * @property array<string, mixed>|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
@@ -73,11 +74,13 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicDocument> $documents
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalLocation> $locations
  */
-class MunicipalService extends Model
+class MunicipalService extends MunicipalBaseModel
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Tipologie di servizio secondo AGID
      */
     public const SERVICE_TYPES = [
@@ -210,7 +213,7 @@ class MunicipalService extends Model
     ];
 
     /**
-     * Relazione con l'unità organizzativa responsabile
+     * @return BelongsTo<OrganizationalUnit, $this>
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -218,7 +221,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Relazione con il servizio padre (per sottocategorie)
+     * @return BelongsTo<self, $this>
      */
     public function parentService(): BelongsTo
     {
@@ -226,7 +229,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Relazione con i servizi figlio
+     * @return HasMany<self, $this>
      */
     public function subServices(): HasMany
     {
@@ -234,7 +237,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Relazione con i punti di contatto
+     * @return MorphMany<ContactPoint, $this>
      */
     public function contacts(): MorphMany
     {
@@ -242,7 +245,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Relazione con i documenti associati
+     * @return HasMany<PublicDocument, $this>
      */
     public function documents(): HasMany
     {
@@ -250,7 +253,7 @@ class MunicipalService extends Model
     }
 
     /**
-     * Relazione con le sedi di erogazione
+     * @return BelongsToMany<MunicipalLocation, $this>
      */
     public function locations(): BelongsToMany
     {
@@ -258,64 +261,82 @@ class MunicipalService extends Model
     }
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per servizi attivi
      */
-    public function scopeActive($query)
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true)
             ->where('service_status', 'active');
     }
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per servizi pubblici
      */
-    public function scopePublic($query)
+    public function scopePublic(Builder $query): Builder
     {
         return $query->where('is_public', true);
     }
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per servizi digitali
      */
-    public function scopeDigital($query)
+    public function scopeDigital(Builder $query): Builder
     {
         return $query->where('is_digital', true);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per tipologia di servizio
      */
-    public function scopeOfType($query, string $type)
+    public function scopeOfType(Builder $query, string $type): Builder
     {
         return $query->where('service_type', $type);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per categoria
      */
-    public function scopeInCategory($query, string $category)
+    public function scopeInCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
     }
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope per servizi principali (senza parent)
      */
-    public function scopeMain($query)
+    public function scopeMain(Builder $query): Builder
     {
         return $query->whereNull('parent_service_id');
     }
 
     /**
+     * @param  Builder<MunicipalService>  $query
+     * @return Builder<MunicipalService>
      * Scope ordinati per priorità e nome
      */
-    public function scopeOrdered($query)
+    public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderByDesc('priority_level')->orderBy('name');
     }
 
     /**
      * Ottiene i requisiti formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedRequirements(): array
     {
@@ -323,7 +344,7 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->requirements)
+        $formatted = collect($this->requirements)
             ->map(function ($requirement) {
                 if (is_string($requirement)) {
                     return ['description' => $requirement, 'mandatory' => true];
@@ -331,11 +352,16 @@ class MunicipalService extends Model
 
                 return $requirement;
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene le procedure formattate
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedProcedures(): array
     {
@@ -343,19 +369,24 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->procedures)
-            ->map(function ($procedure, $index) {
+        $formatted = collect($this->procedures)
+            ->map(function (mixed $procedure, int|string $index): array {
                 if (is_string($procedure)) {
-                    return ['step' => $index + 1, 'description' => $procedure];
+                    return ['step' => (int) $index + 1, 'description' => $procedure];
                 }
 
-                return array_merge(['step' => $index + 1], $procedure);
+                return is_array($procedure) ? array_merge(['step' => (int) $index + 1], $procedure) : ['step' => (int) $index + 1, 'description' => $procedure];
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene i documenti richiesti formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedRequiredDocuments(): array
     {
@@ -363,7 +394,7 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->required_documents)
+        $formatted = collect($this->required_documents)
             ->map(function ($document) {
                 if (is_string($document)) {
                     return ['name' => $document, 'mandatory' => true];
@@ -371,11 +402,16 @@ class MunicipalService extends Model
 
                 return $document;
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene i costi formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedCosts(): array
     {
@@ -383,7 +419,7 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->costs)
+        $formatted = collect($this->costs)
             ->map(function ($cost) {
                 if (is_numeric($cost)) {
                     return ['amount' => $cost, 'description' => 'Costo del servizio'];
@@ -391,11 +427,16 @@ class MunicipalService extends Model
 
                 return $cost;
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene i canali digitali formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedDigitalChannels(): array
     {
@@ -403,7 +444,7 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->digital_channels)
+        $formatted = collect($this->digital_channels)
             ->mapWithKeys(function ($url, $channel) {
                 $channelNames = [
                     'website' => 'Sito Web',
@@ -417,11 +458,16 @@ class MunicipalService extends Model
 
                 return [$channelNames[$channel] ?? $channel => $url];
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene le FAQ formattate
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedFaq(): array
     {
@@ -429,7 +475,7 @@ class MunicipalService extends Model
             return [];
         }
 
-        return collect($this->faq)
+        $formatted = collect($this->faq)
             ->map(function ($item, $index) {
                 if (is_array($item) && isset($item['question']) && isset($item['answer'])) {
                     return $item;
@@ -437,7 +483,10 @@ class MunicipalService extends Model
 
                 return ['question' => "Domanda {$index}", 'answer' => $item];
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
@@ -500,6 +549,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene informazioni per il citizen journey
+     *
+     * @return array<string, mixed>
      */
     public function getCitizenJourney(): array
     {
@@ -534,6 +585,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del tipo di servizio
+     *
+     * @return Attribute<string, never>
      */
     protected function serviceTypeName(): Attribute
     {
@@ -544,6 +597,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome dello stato
+     *
+     * @return Attribute<string, never>
      */
     protected function serviceStatusName(): Attribute
     {
@@ -554,6 +609,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del livello
+     *
+     * @return Attribute<string, never>
      */
     protected function serviceLevelName(): Attribute
     {
@@ -564,6 +621,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se il servizio è disponibile
+     *
+     * @return Attribute<bool, never>
      */
     protected function isAvailable(): Attribute
     {
@@ -574,6 +633,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se richiede appuntamento
+     *
+     * @return Attribute<bool, never>
      */
     protected function requiresAppointment(): Attribute
     {
@@ -584,21 +645,26 @@ class MunicipalService extends Model
 
     /**
      * Accessor per l'URL del servizio
+     *
+     * @return Attribute<string, never>
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => route('municipal.services.show', $this->slug)
+            get: fn () => FrontofficeUrl::path('/servizi/'.$this->slug)
         );
     }
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
+     *
+     * @return Attribute<mixed, mixed>
      */
     protected function name(): Attribute
     {
         return Attribute::make(
             set: function ($value) {
+                $value = (string) $value;
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -617,14 +683,14 @@ class MunicipalService extends Model
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalService $model): void {
             if (empty($model->slug)) {
-                $model->slug = Str::slug($model->name);
+                $model->slug = Str::slug((string) $model->name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalService $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -635,7 +701,7 @@ class MunicipalService extends Model
         });
 
         // Set default values
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalService $model): void {
             if (is_null($model->service_status)) {
                 $model->service_status = 'active';
             }

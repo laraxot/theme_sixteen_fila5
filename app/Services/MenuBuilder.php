@@ -14,26 +14,38 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
  */
 class MenuBuilder
 {
+    /** @var Collection<int, array<string, mixed>> */
     protected Collection $slimHeader;
 
+    /** @var Collection<int, array<string, mixed>> */
     protected Collection $header;
 
+    /** @var Collection<int, array<string, mixed>> */
     protected Collection $footer;
 
+    /** @var Collection<int, array<string, mixed>> */
     protected Collection $footerBar;
 
+    /** @var list<MenuFilterInterface> */
     protected array $filters = [];
 
-    public function __construct()
+    /**
+     * @param  iterable<MenuFilterInterface>  $filters
+     */
+    public function __construct(iterable $filters = [])
     {
-        $this->slimHeader = collect();
-        $this->header = collect();
-        $this->footer = collect();
-        $this->footerBar = collect();
+        $this->slimHeader = new Collection;
+        $this->header = new Collection;
+        $this->footer = new Collection;
+        $this->footerBar = new Collection;
+
+        foreach ($filters as $filter) {
+            $this->filters[] = $filter;
+        }
     }
 
     /**
-     * Aggiungi elementi al menu slim header
+     * @param  array<int, array<string, mixed>|string>  $items
      */
     public function addSlimHeader(array $items): self
     {
@@ -44,7 +56,7 @@ class MenuBuilder
     }
 
     /**
-     * Aggiungi elementi al menu header principale
+     * @param  array<int, array<string, mixed>|string>  $items
      */
     public function addHeader(array $items): self
     {
@@ -55,7 +67,7 @@ class MenuBuilder
     }
 
     /**
-     * Aggiungi elementi al menu footer
+     * @param  array<int, array<string, mixed>|string>  $items
      */
     public function addFooter(array $items): self
     {
@@ -66,7 +78,7 @@ class MenuBuilder
     }
 
     /**
-     * Aggiungi elementi alla footer bar
+     * @param  array<int, array<string, mixed>|string>  $items
      */
     public function addFooterBar(array $items): self
     {
@@ -77,7 +89,7 @@ class MenuBuilder
     }
 
     /**
-     * Registra filtri da applicare ai menu items
+     * @param  list<MenuFilterInterface>  $filters
      */
     public function setFilters(array $filters): self
     {
@@ -87,151 +99,144 @@ class MenuBuilder
     }
 
     /**
-     * Costruisci e restituisci tutti i menu
+     * @return array{slim_header: array<int, array<string, mixed>>, header: array<int, array<string, mixed>>, footer: array<int, array<string, mixed>>, footer_bar: array<int, array<string, mixed>>}
      */
     public function build(): array
     {
         return [
-            'slim_header' => $this->slimHeader->toArray(),
-            'header' => $this->header->toArray(),
-            'footer' => $this->footer->toArray(),
-            'footer_bar' => $this->footerBar->toArray(),
+            'slim_header' => $this->slimHeader->values()->all(),
+            'header' => $this->header->values()->all(),
+            'footer' => $this->footer->values()->all(),
+            'footer_bar' => $this->footerBar->values()->all(),
         ];
     }
 
-    /**
-     * Ottieni solo il menu header
-     */
+    /** @return Collection<int, array<string, mixed>> */
     public function getHeader(): Collection
     {
         return $this->header;
     }
 
-    /**
-     * Ottieni solo il menu slim header
-     */
+    /** @return Collection<int, array<string, mixed>> */
     public function getSlimHeader(): Collection
     {
         return $this->slimHeader;
     }
 
-    /**
-     * Ottieni solo il menu footer
-     */
+    /** @return Collection<int, array<string, mixed>> */
     public function getFooter(): Collection
     {
         return $this->footer;
     }
 
-    /**
-     * Ottieni solo la footer bar
-     */
+    /** @return Collection<int, array<string, mixed>> */
     public function getFooterBar(): Collection
     {
         return $this->footerBar;
     }
 
-    /**
-     * Carica menu dalla configurazione
-     */
     public function loadFromConfig(): self
     {
+        /** @var array<string, mixed> $config */
         $config = config('sixteen.menu', []);
 
-        if (! empty($config['slim_header'])) {
-            $this->addSlimHeader($config['slim_header']);
+        if (! empty($config['slim_header']) && is_array($config['slim_header'])) {
+            /** @var array<int, array<string, mixed>|string> $slimHeader */
+            $slimHeader = $config['slim_header'];
+            $this->addSlimHeader($slimHeader);
         }
 
-        if (! empty($config['header'])) {
-            $this->addHeader($config['header']);
+        if (! empty($config['header']) && is_array($config['header'])) {
+            /** @var array<int, array<string, mixed>|string> $header */
+            $header = $config['header'];
+            $this->addHeader($header);
         }
 
-        if (! empty($config['footer'])) {
-            $this->addFooter($config['footer']);
+        if (! empty($config['footer']) && is_array($config['footer'])) {
+            /** @var array<int, array<string, mixed>|string> $footer */
+            $footer = $config['footer'];
+            $this->addFooter($footer);
         }
 
-        if (! empty($config['footer_bar'])) {
-            $this->addFooterBar($config['footer_bar']);
+        if (! empty($config['footer_bar']) && is_array($config['footer_bar'])) {
+            /** @var array<int, array<string, mixed>|string> $footerBar */
+            $footerBar = $config['footer_bar'];
+            $this->addFooterBar($footerBar);
         }
 
         return $this;
     }
 
-    /**
-     * Reset di tutti i menu
-     */
     public function reset(): self
     {
-        $this->slimHeader = collect();
-        $this->header = collect();
-        $this->footer = collect();
-        $this->footerBar = collect();
+        $this->slimHeader = new Collection;
+        $this->header = new Collection;
+        $this->footer = new Collection;
+        $this->footerBar = new Collection;
 
         return $this;
     }
 
     /**
-     * Processa un singolo elemento del menu
+     * @param  array<string, mixed>|string  $item
+     * @return array<string, mixed>|null
      */
-    public function processMenuItem($item): array|false|null
+    public function processMenuItem(array|string $item): ?array
     {
-        // Se è una stringa, rappresenta un header/separatore
         if (is_string($item)) {
+            if ($item === '-') {
+                return [
+                    'type' => 'separator',
+                ];
+            }
+
             return [
                 'type' => 'header',
                 'text' => $item,
             ];
         }
 
-        // Se è un separatore
-        if ($item === '-') {
-            return [
-                'type' => 'separator',
-            ];
-        }
+        $menuItem = $item;
 
-        // Applica filtri
         foreach ($this->filters as $filter) {
-            if ($filter instanceof MenuFilterInterface) {
-                $item = $filter->filter($item);
-
-                // Se il filtro restituisce false, rimuovi l'elemento
-                if ($item === false) {
-                    return false;
-                }
+            $filtered = $filter->filter($menuItem);
+            if ($filtered === false) {
+                return null;
             }
+            $menuItem = $filtered;
         }
 
-        // Determina il tipo di elemento
-        $item['type'] = $this->determineItemType($item);
+        $menuItem['type'] = $this->determineItemType($menuItem);
 
-        // Processa dropdown se presente
-        if (isset($item['dropdown'])) {
-            $item['dropdown'] = $this->transformItems($item['dropdown'])->toArray();
+        if (isset($menuItem['dropdown']) && is_array($menuItem['dropdown'])) {
+            /** @var array<int, array<string, mixed>|string> $dropdown */
+            $dropdown = $menuItem['dropdown'];
+            $menuItem['dropdown'] = $this->transformItems($dropdown)->values()->all();
         }
 
-        // Processa megamenu se presente
-        if (isset($item['megamenu'])) {
-            $item['megamenu'] = collect($item['megamenu'])
-                ->map(function ($column) {
-                    return $this->transformItems($column)->toArray();
+        if (isset($menuItem['megamenu']) && is_array($menuItem['megamenu'])) {
+            /** @var array<int, array<int, array<string, mixed>|string>> $megamenu */
+            $megamenu = $menuItem['megamenu'];
+            $menuItem['megamenu'] = collect($megamenu)
+                ->map(function (array $column): array {
+                    /** @var array<int, array<string, mixed>|string> $column */
+                    return $this->transformItems($column)->values()->all();
                 })
-                ->toArray();
+                ->all();
         }
 
-        // Aggiungi proprietà di default
-        return array_merge([
+        /** @var array<string, mixed> $defaults */
+        $defaults = [
             'active' => false,
             'target' => null,
             'icon' => null,
             'badge' => null,
             'attributes' => [],
-        ], $item);
+        ];
+
+        return array_merge($defaults, $menuItem);
     }
 
-    /**
-     * Controlla se un menu ha elementi
-     */
     public function hasItems(string $menu): bool
     {
         return match ($menu) {
@@ -243,9 +248,6 @@ class MenuBuilder
         };
     }
 
-    /**
-     * Conta gli elementi di un menu
-     */
     public function countItems(string $menu): int
     {
         return match ($menu) {
@@ -258,20 +260,23 @@ class MenuBuilder
     }
 
     /**
-     * Trova un elemento del menu per ID
+     * @return array<string, mixed>|null
      */
     public function findItem(string $id, ?string $menu = null): ?array
     {
-        $menus = $menu ? [$menu => $this->{$menu}] : [
-            'slim_header' => $this->slimHeader,
-            'header' => $this->header,
-            'footer' => $this->footer,
-            'footer_bar' => $this->footerBar,
-        ];
+        $menus = $menu !== null
+            ? [$this->getMenuCollection($menu)]
+            : [
+                $this->slimHeader,
+                $this->header,
+                $this->footer,
+                $this->footerBar,
+            ];
 
         foreach ($menus as $menuItems) {
+            /** @var array<string, mixed>|null $found */
             $found = $menuItems->firstWhere('id', $id);
-            if ($found) {
+            if ($found !== null) {
                 return $found;
             }
         }
@@ -279,44 +284,45 @@ class MenuBuilder
         return null;
     }
 
-    /**
-     * Rimuovi un elemento del menu per ID
-     */
     public function removeItem(string $id, ?string $menu = null): self
     {
-        $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
+        $menus = $menu !== null ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
 
         foreach ($menus as $menuName) {
-            $this->{$menuName} = $this->{$menuName}->reject(function ($item) use ($id) {
-                return isset($item['id']) && $item['id'] === $id;
-            });
+            $collection = $this->getMenuCollection($menuName);
+            $this->setMenuCollection($menuName, $collection->reject(
+                fn (array $menuItem): bool => isset($menuItem['id']) && $menuItem['id'] === $id
+            )->values());
         }
 
         return $this;
     }
 
     /**
-     * Aggiorna un elemento del menu
+     * @param  array<string, mixed>  $updates
      */
     public function updateItem(string $id, array $updates, ?string $menu = null): self
     {
-        $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
+        $menus = $menu !== null ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
 
         foreach ($menus as $menuName) {
-            $this->{$menuName} = $this->{$menuName}->map(function ($item) use ($id, $updates) {
-                if (isset($item['id']) && $item['id'] === $id) {
-                    return array_merge($item, $updates);
-                }
+            $collection = $this->getMenuCollection($menuName);
+            $this->setMenuCollection($menuName, $collection->map(
+                function (array $menuItem) use ($id, $updates): array {
+                    if (isset($menuItem['id']) && $menuItem['id'] === $id) {
+                        return array_merge($menuItem, $updates);
+                    }
 
-                return $item;
-            });
+                    return $menuItem;
+                }
+            )->values());
         }
 
         return $this;
     }
 
     /**
-     * Ottieni statistiche sui menu
+     * @return array<string, int|bool>
      */
     public function getStats(): array
     {
@@ -335,18 +341,31 @@ class MenuBuilder
     }
 
     /**
-     * Trasforma e processa gli elementi del menu
+     * @param  array<int, array<string, mixed>|string>  $items
+     * @return Collection<int, array<string, mixed>>
      */
     protected function transformItems(array $items): Collection
     {
-        return collect($items)
-            ->map([$this, 'processMenuItem'])
-            ->filter() // Rimuove elementi false/null dai filtri
-            ->values(); // Re-index array
+        /** @var Collection<int, array<string, mixed>> $collection */
+        $collection = collect($items)
+            ->map(function (mixed $item): ?array {
+                if (! is_string($item) && ! is_array($item)) {
+                    return null;
+                }
+
+                /** @var array<string, mixed>|string $menuItem */
+                $menuItem = $item;
+
+                return $this->processMenuItem($menuItem);
+            })
+            ->filter()
+            ->values();
+
+        return $collection;
     }
 
     /**
-     * Determina il tipo di elemento del menu
+     * @param  array<string, mixed>  $item
      */
     protected function determineItemType(array $item): string
     {
@@ -363,5 +382,29 @@ class MenuBuilder
         }
 
         return 'text';
+    }
+
+    /** @return Collection<int, array<string, mixed>> */
+    protected function getMenuCollection(string $menu): Collection
+    {
+        return match ($menu) {
+            'slim_header' => $this->slimHeader,
+            'header' => $this->header,
+            'footer' => $this->footer,
+            'footer_bar' => $this->footerBar,
+            default => throw new \InvalidArgumentException("Unknown menu location: {$menu}"),
+        };
+    }
+
+    /** @param Collection<int, array<string, mixed>> $collection */
+    protected function setMenuCollection(string $menu, Collection $collection): void
+    {
+        match ($menu) {
+            'slim_header' => $this->slimHeader = $collection,
+            'header' => $this->header = $collection,
+            'footer' => $this->footer = $collection,
+            'footer_bar' => $this->footerBar = $collection,
+            default => throw new \InvalidArgumentException("Unknown menu location: {$menu}"),
+        };
     }
 }

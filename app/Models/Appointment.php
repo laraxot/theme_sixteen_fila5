@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Modules\User\Models\User;
 
 /**
@@ -20,46 +22,42 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
- * @property \Carbon\Carbon|null $appointment_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
+ * @property Carbon|null $appointment_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
  * @property string $status
  * @property string|null $purpose
  * @property string|null $notes
- * @property array|null $required_documents
+ * @property array<int, string>|null $required_documents
  * @property string|null $confirmation_code
  * @property bool $reminder_sent
  * @property string|null $cancellation_reason
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
+ * @property array<string, mixed>|null $metadata
+ * @property Carbon|null $cancelled_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  *
- * @property-read \Modules\User\Models\User|null $user
- * @property-read \Modules\User\Models\User|null $citizen
- * @property-read self|null $office
- * @property-read self|null $service
+ * @property-read User|null $user
+ * @property-read Citizen|null $citizen
+ * @property-read Office|null $office
+ * @property-read Service|null $service
  */
 class Appointment extends Model
 {
+    /** @use HasFactory<\Illuminate\Database\Eloquent\Factories\Factory<Appointment>> */
     use HasFactory, SoftDeletes;
 
-    /**
-     * Stati appuntamento conformi AGID
-     */
-    public const STATUS_PENDING = 'pending';      // In attesa di conferma
+    public const STATUS_PENDING = 'pending';
 
-    public const STATUS_CONFIRMED = 'confirmed';  // Confermato
+    public const STATUS_CONFIRMED = 'confirmed';
 
-    public const STATUS_COMPLETED = 'completed';  // Completato
+    public const STATUS_COMPLETED = 'completed';
 
-    public const STATUS_CANCELLED = 'cancelled';  // Cancellato
+    public const STATUS_CANCELLED = 'cancelled';
 
-    public const STATUS_NO_SHOW = 'no_show';      // Non presentato
+    public const STATUS_NO_SHOW = 'no_show';
 
-    /**
-     * Tipi di servizio supportati
-     */
     public const SERVICE_ANAGRAFE = 'anagrafe';
 
     public const SERVICE_TRIBUTI = 'tributi';
@@ -72,6 +70,7 @@ class Appointment extends Model
 
     protected $table = 'sixteen_appointments';
 
+    /** @var list<string> */
     protected $fillable = [
         'user_id',
         'service_id',
@@ -90,6 +89,7 @@ class Appointment extends Model
         'metadata',
     ];
 
+    /** @var array<string, string> */
     protected $casts = [
         'appointment_date' => 'date',
         'start_time' => 'datetime',
@@ -97,104 +97,97 @@ class Appointment extends Model
         'required_documents' => 'array',
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
+        'cancelled_at' => 'datetime',
     ];
 
-    /**
-     * Relazione con l'utente che ha prenotato
-     */
+    /** @return BelongsTo<User, $this> */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Relazione con il cittadino (se diverso dall'utente)
-     */
+    /** @return BelongsTo<Citizen, $this> */
     public function citizen(): BelongsTo
     {
         return $this->belongsTo(Citizen::class);
     }
 
-    /**
-     * Relazione con l'ufficio
-     */
+    /** @return BelongsTo<Office, $this> */
     public function office(): BelongsTo
     {
         return $this->belongsTo(Office::class);
     }
 
-    /**
-     * Relazione con il servizio
-     */
+    /** @return BelongsTo<Service, $this> */
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
     }
 
     /**
-     * Scope per appuntamenti futuri
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
      */
-    public function scopeUpcoming($query)
+    public function scopeUpcoming(Builder $query): Builder
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
             ->where('status', self::STATUS_CONFIRMED);
     }
 
     /**
-     * Scope per appuntamenti di un utente
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
      */
-    public function scopeForUser($query, $userId)
+    public function scopeForUser(Builder $query, int $userId): Builder
     {
         return $query->where('user_id', $userId);
     }
 
     /**
-     * Scope per appuntamenti di un ufficio
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
      */
-    public function scopeForOffice($query, $officeId)
+    public function scopeForOffice(Builder $query, int $officeId): Builder
     {
         return $query->where('office_id', $officeId);
     }
 
-    /**
-     * Verifica se l'appuntamento è cancellabile
-     */
     public function getIsCancellableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
-            && $this->appointment_date > now()->addHours(24); // Cancellabile fino a 24h prima
+        $appointmentDate = $this->appointment_date;
+
+        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED], true)
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->greaterThan(now()->addHours(24));
     }
 
-    /**
-     * Verifica se l'appuntamento è modificabile
-     */
     public function getIsModifiableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
-            && $this->appointment_date > now()->addHours(48); // Modificabile fino a 48h prima
+        $appointmentDate = $this->appointment_date;
+
+        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED], true)
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->greaterThan(now()->addHours(48));
     }
 
-    /**
-     * Genera codice di conferma univoco
-     */
     public static function generateConfirmationCode(): string
     {
-        return strtoupper(substr(md5(uniqid()), 0, 8));
+        return strtoupper(substr(md5(uniqid('', true)), 0, 8));
     }
 
-    /**
-     * Verifica se è necessario inviare promemoria
-     */
     public function needsReminder(): bool
     {
+        $appointmentDate = $this->appointment_date;
+
         return ! $this->reminder_sent
             && $this->status === self::STATUS_CONFIRMED
-            && $this->appointment_date->isTomorrow()
-            && now()->hour < 18; // Invio solo prima delle 18
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->isTomorrow()
+            && now()->hour < 18;
     }
 
     /**
-     * Array di stati validi
+     * @return array<string, string>
      */
     public static function getStatuses(): array
     {
@@ -208,7 +201,7 @@ class Appointment extends Model
     }
 
     /**
-     * Array di tipi servizio
+     * @return array<string, string>
      */
     public static function getServiceTypes(): array
     {
@@ -221,38 +214,54 @@ class Appointment extends Model
         ];
     }
 
-    /**
-     * Formatta l'orario per display
-     */
+    public function sendConfirmationNotification(): void
+    {
+        // Notifica email/SMS orchestrata da modulo owner (future Action).
+    }
+
+    /** @return Attribute<string, never> */
     protected function timeSlot(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
+            get: function (): string {
+                $start = $this->start_time;
+                $end = $this->end_time;
+
+                if (! $start instanceof Carbon || ! $end instanceof Carbon) {
+                    return '';
+                }
+
+                return $start->format('H:i').' - '.$end->format('H:i');
+            }
         );
     }
 
-    /**
-     * Durata appuntamento in minuti
-     */
+    /** @return Attribute<int, never> */
     protected function duration(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->start_time->diffInMinutes($this->end_time)
+            get: function (): int {
+                $start = $this->start_time;
+                $end = $this->end_time;
+
+                if (! $start instanceof Carbon || ! $end instanceof Carbon) {
+                    return 0;
+                }
+
+                return (int) $start->diffInMinutes($end);
+            }
         );
     }
 
-    /**
-     * Eventi del modello
-     */
     protected static function booted(): void
     {
-        static::creating(function ($appointment): void {
-            if (empty($appointment->confirmation_code)) {
+        static::creating(function (Appointment $appointment): void {
+            if ($appointment->confirmation_code === null || $appointment->confirmation_code === '') {
                 $appointment->confirmation_code = self::generateConfirmationCode();
             }
         });
 
-        static::updating(function ($appointment): void {
+        static::updating(function (Appointment $appointment): void {
             if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
                 $appointment->cancelled_at = now();
             }

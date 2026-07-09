@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use Illuminate\Database\Eloquent\Builder;
+use Themes\Sixteen\Support\FrontofficeUrl;
+
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -45,13 +46,13 @@ use Illuminate\Support\Str;
  * @property bool $is_active
  * @property bool $is_public
  * @property \Carbon\Carbon|null $publication_date
- * @property array|null $privacy_settings
- * @property array|null $social_profiles
- * @property array|null $education
- * @property array|null $work_experience
- * @property array|null $skills
- * @property array|null $languages
- * @property array|null $metadata
+ * @property array<string, mixed>|null $privacy_settings
+ * @property array<string, mixed>|null $social_profiles
+ * @property array<string, mixed>|null $education
+ * @property array<string, mixed>|null $work_experience
+ * @property array<string, mixed>|null $skills
+ * @property array<string, mixed>|null $languages
+ * @property array<string, mixed>|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
@@ -60,11 +61,13 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant
  */
-class PublicPerson extends Model
+class PublicPerson extends MunicipalBaseModel
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     /**
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Categorie di persone pubbliche secondo AGID
      */
     public const CATEGORIES = [
@@ -152,7 +155,7 @@ class PublicPerson extends Model
     ];
 
     /**
-     * Relazione con i punti di contatto
+     * @return MorphMany<ContactPoint, $this>
      */
     public function contacts(): MorphMany
     {
@@ -160,7 +163,7 @@ class PublicPerson extends Model
     }
 
     /**
-     * Relazione con le unità organizzative
+     * @return BelongsToMany<OrganizationalUnit, $this>
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -171,6 +174,8 @@ class PublicPerson extends Model
 
     /**
      * Relazione con le unità organizzative attive
+     *
+     * @return BelongsToMany<OrganizationalUnit, $this>
      */
     public function activeOrganizationalUnits(): BelongsToMany
     {
@@ -181,7 +186,7 @@ class PublicPerson extends Model
     }
 
     /**
-     * Relazione con i documenti associati
+     * @return HasMany<PublicDocument, $this>
      */
     public function documents(): HasMany
     {
@@ -189,41 +194,53 @@ class PublicPerson extends Model
     }
 
     /**
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope per persone attive
      */
-    public function scopeActive($query)
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);
     }
 
     /**
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope per persone pubbliche
      */
-    public function scopePublic($query)
+    public function scopePublic(Builder $query): Builder
     {
         return $query->where('is_public', true);
     }
 
     /**
+     *
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope per categoria
      */
-    public function scopeOfCategory($query, string $category)
+    public function scopeOfCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
     }
 
     /**
+     *
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope per ruolo
      */
-    public function scopeWithRole($query, string $role)
+    public function scopeWithRole(Builder $query, string $role): Builder
     {
         return $query->where('role', $role);
     }
 
     /**
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope per persone in carica
      */
-    public function scopeInOffice($query)
+    public function scopeInOffice(Builder $query): Builder
     {
         return $query->where('start_date', '<=', now())
             ->where(function ($q): void {
@@ -233,15 +250,19 @@ class PublicPerson extends Model
     }
 
     /**
+     * @param  Builder<PublicPerson>  $query
+     * @return Builder<PublicPerson>
      * Scope ordinati per cognome e nome
      */
-    public function scopeOrdered($query)
+    public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('last_name')->orderBy('first_name');
     }
 
     /**
      * Ottiene le qualifiche formattate
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedEducation(): array
     {
@@ -249,7 +270,7 @@ class PublicPerson extends Model
             return [];
         }
 
-        return collect($this->education)
+        $formatted = collect($this->education)
             ->map(function ($education) {
                 if (is_string($education)) {
                     return ['degree' => $education];
@@ -257,11 +278,16 @@ class PublicPerson extends Model
 
                 return $education;
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene l'esperienza lavorativa formattata
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedWorkExperience(): array
     {
@@ -269,7 +295,7 @@ class PublicPerson extends Model
             return [];
         }
 
-        return collect($this->work_experience)
+        $formatted = collect($this->work_experience)
             ->map(function ($experience) {
                 if (is_string($experience)) {
                     return ['position' => $experience];
@@ -279,11 +305,16 @@ class PublicPerson extends Model
             })
             ->sortByDesc('start_date')
             ->values()
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene i profili social formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedSocialProfiles(): array
     {
@@ -300,12 +331,15 @@ class PublicPerson extends Model
             'telegram' => 'Telegram',
         ];
 
-        return collect($this->social_profiles)
+        $formatted = collect($this->social_profiles)
             ->mapWithKeys(function ($url, $platform) use ($platforms) {
                 return [$platforms[$platform] ?? $platform => $url];
             })
             ->filter()
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
@@ -340,6 +374,7 @@ class PublicPerson extends Model
     /**
      * Ottiene informazioni per il profilo pubblico
      */
+    /** @return array<string, mixed> */
     public function getPublicProfile(): array
     {
         $profile = [
@@ -375,26 +410,32 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome completo
+     *
+     * @return Attribute<string, never>
      */
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn () => trim($this->first_name.' '.$this->last_name)
+            get: fn () => trim((string) $this->getAttribute('first_name').' '.(string) $this->getAttribute('last_name'))
         );
     }
 
     /**
      * Accessor per il nome invertito (Cognome, Nome)
+     *
+     * @return Attribute<string, never>
      */
     protected function displayName(): Attribute
     {
         return Attribute::make(
-            get: fn () => trim($this->last_name.', '.$this->first_name)
+            get: fn () => trim((string) $this->getAttribute('last_name').', '.(string) $this->getAttribute('first_name'))
         );
     }
 
     /**
      * Accessor per il nome della categoria
+     *
+     * @return Attribute<string, never>
      */
     protected function categoryName(): Attribute
     {
@@ -405,6 +446,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome del ruolo
+     *
+     * @return Attribute<string, never>
      */
     protected function roleName(): Attribute
     {
@@ -415,6 +458,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per l'età
+     *
+     * @return Attribute<string, never>
      */
     protected function age(): Attribute
     {
@@ -425,6 +470,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per verificare se è in carica
+     *
+     * @return Attribute<bool, never>
      */
     protected function isInOffice(): Attribute
     {
@@ -441,40 +488,51 @@ class PublicPerson extends Model
 
     /**
      * Accessor per i giorni rimanenti in carica
+     *
+     * @return Attribute<?float, never>
      */
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-            get: function (): void {
-                if (! $this->is_in_office) {
-                    return;
+            get: function (): ?float {
+                if (! $this->start_date || $this->start_date->isFuture()) {
+                    return null;
                 }
 
-                return $this->end_date?->diffInDays(now()) ?? null;
+                if ($this->end_date && ! $this->end_date->isFuture()) {
+                    return null;
+                }
+
+                return $this->end_date?->diffInDays(now());
             }
         );
     }
 
     /**
      * Accessor per l'URL della persona
+     *
+     * @return Attribute<string, never>
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => route('municipal.public-people.show', $this->slug)
+            get: fn () => FrontofficeUrl::path('/amministrazione/personale/'.$this->slug)
         );
     }
 
     /**
      * Mutator per nome (genera automaticamente lo slug)
+     *
+     * @return Attribute<mixed, mixed>
      */
     protected function lastName(): Attribute
     {
         return Attribute::make(
             set: function ($value) {
+                $value = (string) $value;
                 $this->attributes['last_name'] = $value;
                 if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
+                    $this->attributes['slug'] = Str::slug((string) $this->attributes['first_name'].' '.$value);
                 }
 
                 return $value;
@@ -490,25 +548,25 @@ class PublicPerson extends Model
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model): void {
+        static::creating(function (PublicPerson $model): void {
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
-                $model->slug = Str::slug($model->first_name.' '.$model->last_name);
+                $model->slug = Str::slug((string) $model->first_name.' '.(string) $model->last_name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {
+        static::creating(function (PublicPerson $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-                $model->slug = $originalSlug.'-'.$counter;
+                $model->slug = (string) $originalSlug.'-'.$counter;
                 $counter++;
             }
         });
 
         // Set default privacy settings
-        static::creating(function ($model): void {
+        static::creating(function (PublicPerson $model): void {
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,
