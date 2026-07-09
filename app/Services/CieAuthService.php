@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Services;
 
 use Exception;
+use Illuminate\Http\Client\Response as HttpClientResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
+use function Safe\base64_decode;
+use function Safe\json_decode;
 
-/**
- * Servizio per l'autenticazione CIE (Carta di Identità Elettronica)
- *
- * Implementa l'integrazione con CIE 3.0 per l'autenticazione
- * secondo le specifiche AGID per l'identità digitale nella PA
- */
 class CieAuthService
 {
     protected string $baseUrl;
@@ -28,24 +26,20 @@ class CieAuthService
 
     public function __construct()
     {
-        $this->baseUrl = config('cie.base_url', 'https://preprod.idserver.servizicie.interno.gov.it/idp');
-        $this->clientId = config('cie.client_id');
-        $this->clientSecret = config('cie.client_secret');
+        $this->baseUrl = SafeStringCastAction::cast(config('cie.base_url', 'https://preprod.idserver.servizicie.interno.gov.it/idp'));
+        $this->clientId = SafeStringCastAction::cast(config('cie.client_id'));
+        $this->clientSecret = SafeStringCastAction::cast(config('cie.client_secret'));
         $this->redirectUri = route('cie.callback');
     }
 
-    /**
-     * Genera l'URL di login CIE
-     */
     public function getLoginUrl(?string $returnUrl = null): string
     {
         $state = $this->generateState();
         $nonce = $this->generateNonce();
 
-        // Salva lo stato in sessione
         Session::put('cie.state', $state);
         Session::put('cie.nonce', $nonce);
-        Session::put('cie.return_url', $returnUrl ? $returnUrl : url()->previous());
+        Session::put('cie.return_url', $returnUrl ?? url()->previous());
 
         $params = [
             'client_id' => $this->clientId,
@@ -55,15 +49,12 @@ class CieAuthService
             'state' => $state,
             'nonce' => $nonce,
             'prompt' => 'login',
-            'acr_values' => 'https://www.spid.gov.it/SpidL2', // Livello 2 CIE
+            'acr_values' => 'https://www.spid.gov.it/SpidL2',
         ];
 
         return $this->baseUrl.'/oidc/authorize?'.http_build_query($params);
     }
 
-    /**
-     * Genera l'URL per l'autenticazione tramite app CieID
-     */
     public function getMobileLoginUrl(?string $returnUrl = null): string
     {
         $state = $this->generateState();
@@ -71,21 +62,19 @@ class CieAuthService
 
         Session::put('cie.state', $state);
         Session::put('cie.nonce', $nonce);
-        Session::put('cie.return_url', $returnUrl ? $returnUrl : url()->previous());
+        Session::put('cie.return_url', $returnUrl ?? url()->previous());
         Session::put('cie.auth_method', 'mobile');
 
-        // URL per deep linking all'app CieID
         $webLoginUrl = $this->getLoginUrl($returnUrl);
 
-        // Genera l'URL per mobile con schema custom
         return 'cieid://login?'.http_build_query([
             'redirect_url' => $webLoginUrl,
-            'client_name' => config('app.name'),
+            'client_name' => SafeStringCastAction::cast(config('app.name')),
         ]);
     }
 
     /**
-     * Processa la callback OAuth2 da CIE
+     * @return array<string, mixed>
      */
     public function processCallback(Request $request): array
     {
@@ -93,30 +82,25 @@ class CieAuthService
         $state = $request->input('state');
         $error = $request->input('error');
 
-        // Verifica errori
-        if ($error) {
+        if (is_string($error) && $error !== '') {
             throw new Exception('CIE authentication error: '.$error);
         }
 
-        // Verifica lo state
-        if (! $state || $state !== Session::get('cie.state')) {
+        $sessionState = SafeStringCastAction::cast(Session::get('cie.state'));
+        if (! is_string($state) || $state === '' || $state !== $sessionState) {
             throw new Exception('State parameter mismatch');
         }
 
-        if (! $code) {
+        if (! is_string($code) || $code === '') {
             throw new Exception('Authorization code missing');
         }
 
-        // Scambia il code per un access token
         $tokenData = $this->exchangeCodeForToken($code);
+        $accessToken = SafeStringCastAction::cast($tokenData['access_token'] ?? null);
+        $idToken = SafeStringCastAction::cast($tokenData['id_token'] ?? null);
 
-        // Ottieni i dati utente usando l'access token
-        $userData = $this->getUserInfo($tokenData['access_token']);
-
-        // Valida il JWT ID token
-        $idTokenClaims = $this->validateIdToken($tokenData['id_token']);
-
-        // Unisci i dati
+        $userData = $this->getUserInfo($accessToken);
+        $idTokenClaims = $this->validateIdToken($idToken);
         $userAttributes = array_merge($userData, $idTokenClaims);
 
         Log::info('CIE authentication successful', [
@@ -127,16 +111,13 @@ class CieAuthService
         return $this->mapCieAttributes($userAttributes);
     }
 
-    /**
-     * Verifica se l'utente è autenticato con CIE
-     */
     public function isAuthenticated(): bool
     {
         return Session::has('cie.authenticated') && Session::get('cie.authenticated') === true;
     }
 
     /**
-     * Ottiene i dati dell'utente autenticato
+     * @return array<string, mixed>|null
      */
     public function getAuthenticatedUser(): ?array
     {
@@ -144,18 +125,23 @@ class CieAuthService
             return null;
         }
 
-        return Session::get('cie.user_data');
+        $userData = Session::get('cie.user_data');
+
+        if (! is_array($userData)) {
+            return null;
+        }
+
+        /** @var array<string, mixed> $normalized */
+        $normalized = $userData;
+
+        return $normalized;
     }
 
-    /**
-     * Effettua il logout dell'utente CIE
-     */
     public function logout(): void
     {
         $refreshToken = Session::get('cie.refresh_token');
 
-        // Revoca i token se disponibili
-        if ($refreshToken) {
+        if (is_string($refreshToken) && $refreshToken !== '') {
             try {
                 Http::asForm()->post($this->baseUrl.'/oidc/revoke', [
                     'token' => $refreshToken,
@@ -178,13 +164,10 @@ class CieAuthService
         ]);
     }
 
-    /**
-     * Ottiene l'URL di logout CIE (post-logout redirect)
-     */
     public function getLogoutUrl(?string $returnUrl = null): string
     {
         $params = [
-            'post_logout_redirect_uri' => $returnUrl ? $returnUrl : route('home'),
+            'post_logout_redirect_uri' => $returnUrl ?? route('home'),
             'client_id' => $this->clientId,
         ];
 
@@ -192,13 +175,13 @@ class CieAuthService
     }
 
     /**
-     * Aggiorna l'access token usando il refresh token
+     * @return array<string, mixed>|null
      */
     public function refreshToken(): ?array
     {
         $refreshToken = Session::get('cie.refresh_token');
 
-        if (! $refreshToken) {
+        if (! is_string($refreshToken) || $refreshToken === '') {
             return null;
         }
 
@@ -211,10 +194,9 @@ class CieAuthService
             ]);
 
             if ($response->successful()) {
-                $tokenData = $response->json();
+                $tokenData = $this->decodeJsonResponse($response);
 
-                // Aggiorna i token in sessione
-                Session::put('cie.access_token', $tokenData['access_token']);
+                Session::put('cie.access_token', $tokenData['access_token'] ?? null);
                 if (isset($tokenData['refresh_token'])) {
                     Session::put('cie.refresh_token', $tokenData['refresh_token']);
                 }
@@ -228,32 +210,29 @@ class CieAuthService
         return null;
     }
 
-    /**
-     * Verifica se CIE è configurato correttamente
-     */
     public function isConfigured(): bool
     {
-        return ! empty($this->clientId) &&
-               ! empty($this->clientSecret) &&
-               ! empty($this->baseUrl);
+        return $this->clientId !== '' &&
+               $this->clientSecret !== '' &&
+               $this->baseUrl !== '';
     }
 
     /**
-     * Ottiene le informazioni di configurazione CIE per il debug
+     * @return array<string, mixed>
      */
     public function getConfigInfo(): array
     {
         return [
             'base_url' => $this->baseUrl,
-            'client_id' => $this->clientId ? 'configured' : 'missing',
-            'client_secret' => $this->clientSecret ? 'configured' : 'missing',
+            'client_id' => $this->clientId !== '' ? 'configured' : 'missing',
+            'client_secret' => $this->clientSecret !== '' ? 'configured' : 'missing',
             'redirect_uri' => $this->redirectUri,
             'is_configured' => $this->isConfigured(),
         ];
     }
 
     /**
-     * Scambia l'authorization code per un access token
+     * @return array<string, mixed>
      */
     protected function exchangeCodeForToken(string $code): array
     {
@@ -269,11 +248,11 @@ class CieAuthService
             throw new Exception('Token exchange failed: '.$response->body());
         }
 
-        return $response->json();
+        return $this->decodeJsonResponse($response);
     }
 
     /**
-     * Ottiene le informazioni utente usando l'access token
+     * @return array<string, mixed>
      */
     protected function getUserInfo(string $accessToken): array
     {
@@ -284,42 +263,41 @@ class CieAuthService
             throw new Exception('UserInfo request failed: '.$response->body());
         }
 
-        return $response->json();
+        return $this->decodeJsonResponse($response);
     }
 
     /**
-     * Valida e decodifica l'ID token JWT
+     * @return array<string, mixed>
      */
     protected function validateIdToken(string $idToken): array
     {
-        // Decodifica il JWT (in produzione usare librerie come firebase/jwt)
         $parts = explode('.', $idToken);
 
         if (count($parts) !== 3) {
             throw new Exception('Invalid JWT format');
         }
 
-        // Decodifica header e payload
-        $header = json_decode(base64_decode($parts[0]), true);
+        /** @var array<string, mixed> $payload */
         $payload = json_decode(base64_decode($parts[1]), true);
 
-        // Verifica il nonce
-        if (! isset($payload['nonce']) || $payload['nonce'] !== Session::get('cie.nonce')) {
+        $nonce = SafeStringCastAction::cast($payload['nonce'] ?? null);
+        $sessionNonce = SafeStringCastAction::cast(Session::get('cie.nonce'));
+        if ($nonce === '' || $nonce !== $sessionNonce) {
             throw new Exception('Nonce verification failed');
         }
 
-        // Verifica l'audience
-        if (! isset($payload['aud']) || $payload['aud'] !== $this->clientId) {
+        $audience = SafeStringCastAction::cast($payload['aud'] ?? null);
+        if ($audience !== $this->clientId) {
             throw new Exception('Audience verification failed');
         }
 
-        // Verifica l'issuer
-        if (! isset($payload['iss']) || $payload['iss'] !== $this->baseUrl) {
+        $issuer = SafeStringCastAction::cast($payload['iss'] ?? null);
+        if ($issuer !== $this->baseUrl) {
             throw new Exception('Issuer verification failed');
         }
 
-        // Verifica la scadenza
-        if (! isset($payload['exp']) || $payload['exp'] < time()) {
+        $expiresAt = is_int($payload['exp'] ?? null) ? $payload['exp'] : 0;
+        if ($expiresAt < time()) {
             throw new Exception('Token expired');
         }
 
@@ -327,7 +305,8 @@ class CieAuthService
     }
 
     /**
-     * Mappa gli attributi CIE ai nomi standard
+     * @param  array<string, mixed>  $attributes
+     * @return array<string, mixed>
      */
     protected function mapCieAttributes(array $attributes): array
     {
@@ -346,50 +325,56 @@ class CieAuthService
             'phone_verified' => $attributes['phone_number_verified'] ?? false,
             'auth_method' => Session::get('cie.auth_method', 'web'),
             'provider' => 'cie',
-            'auth_level' => 2, // CIE è sempre livello 2
+            'auth_level' => 2,
             'auth_time' => $attributes['auth_time'] ?? time(),
         ];
     }
 
     /**
-     * Formatta l'indirizzo dall'array di attributi CIE
+     * @param  array<string, mixed>  $attributes
      */
     protected function formatAddress(array $attributes): ?string
     {
         $addressParts = [];
+        $address = $attributes['address'] ?? null;
 
-        if (isset($attributes['address']['street_address'])) {
-            $addressParts[] = $attributes['address']['street_address'];
+        if (! is_array($address)) {
+            return null;
         }
 
-        if (isset($attributes['address']['locality'])) {
-            $addressParts[] = $attributes['address']['locality'];
+        foreach (['street_address', 'locality', 'postal_code', 'country'] as $key) {
+            $value = SafeStringCastAction::cast($address[$key] ?? null);
+            if ($value !== '') {
+                $addressParts[] = $value;
+            }
         }
 
-        if (isset($attributes['address']['postal_code'])) {
-            $addressParts[] = $attributes['address']['postal_code'];
-        }
-
-        if (isset($attributes['address']['country'])) {
-            $addressParts[] = $attributes['address']['country'];
-        }
-
-        return ! empty($addressParts) ? implode(', ', $addressParts) : null;
+        return $addressParts !== [] ? implode(', ', $addressParts) : null;
     }
 
-    /**
-     * Genera un state sicuro per OAuth2
-     */
     protected function generateState(): string
     {
         return bin2hex(random_bytes(32));
     }
 
-    /**
-     * Genera un nonce per OIDC
-     */
     protected function generateNonce(): string
     {
         return bin2hex(random_bytes(32));
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function decodeJsonResponse(HttpClientResponse $response): array
+    {
+        $decoded = $response->json();
+        if (! is_array($decoded)) {
+            return [];
+        }
+
+        /** @var array<string, mixed> $normalized */
+        $normalized = $decoded;
+
+        return $normalized;
     }
 }

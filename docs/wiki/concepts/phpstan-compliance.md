@@ -3,7 +3,7 @@ title: "Sixteen Theme - PHPStan Type Compliance"
 type: concept
 tags: [sixteen, phpstan, types, compliance, quality, static-analysis]
 created: 2026-06-10
-updated: 2026-06-13
+updated: 2026-07-06
 qmd: "Sixteen theme PHPStan compliance module UI tests components"
 issues:
   - "https://github.com/laraxot/module_fixcity_fila5/issues/52"
@@ -12,7 +12,6 @@ discussions:
 related:
   - ./theme-component-test-contract.md
   - ../overviews/completion-roadmap.md
-  - ../../../Modules/Fixcity/docs/wiki/concepts/phpstan-compliance.md
   - ../../../../docs/wiki/concepts/phpstan-level-max-compliance.md
   - ../../../../docs/wiki/rules/git-forward-only.md
 ---
@@ -27,9 +26,15 @@ related:
 Theme:    Sixteen
 Path:     laravel/Themes/Sixteen/
 PHPStan:  paths neon = Modules/ only (tema escluso direttamente)
-Tests:    Modules/UI + Fixcity → path tema
-Updated:  2026-06-13
+Tests:    Modules/UI → path tema
+Updated:  2026-07-06
 ```
+
+**Nota 2026-07-06**: rimosso il riferimento al modulo `Fixcity`, non piu'
+presente in questo repo (rimosso in una sessione precedente). Confermato
+che `laravel/phpstan.neon` ha `paths: ['./Modules/']`, quindi il codice PHP
+sotto `Themes/Sixteen/app/` (38 file) non viene mai scansionato — vedi
+`Themes/Sixteen/docs/phpstan-compliance-status.md` per il dettaglio.
 
 Vedi [theme-component-test-contract.md](./theme-component-test-contract.md) e [completion-roadmap.md](../overviews/completion-roadmap.md).
 

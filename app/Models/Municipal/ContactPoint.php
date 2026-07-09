@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use function Safe\preg_replace;
+
+use Illuminate\Database\Eloquent\Builder;
+
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -25,22 +27,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $description
  * @property bool $is_primary
  * @property bool $is_public
- * @property array|null $office_hours
- * @property array|null $languages
- * @property array|null $accessibility_notes
+ * @property array<string, mixed>|null $office_hours
+ * @property array<string, mixed>|null $languages
+ * @property array<string, mixed>|null $accessibility_notes
  * @property int $position
- * @property array|null $metadata
+ * @property array<string, mixed>|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
- * @property-read Model|\Eloquent $contactable
+ * @property-read \Illuminate\Database\Eloquent\Model|null $contactable
  */
-class ContactPoint extends Model
+class ContactPoint extends MunicipalBaseModel
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     /**
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
      * Tipi di contatto supportati secondo AGID
      */
     public const TYPES = [
@@ -90,7 +94,7 @@ class ContactPoint extends Model
     ];
 
     /**
-     * Relazione polimorfica con l'entità che possiede il contatto
+     * @return MorphTo<\Illuminate\Database\Eloquent\Model, $this>
      */
     public function contactable(): MorphTo
     {
@@ -98,33 +102,42 @@ class ContactPoint extends Model
     }
 
     /**
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
      * Scope per contatti pubblici
      */
-    public function scopePublic($query)
+    public function scopePublic(Builder $query): Builder
     {
         return $query->where('is_public', true);
     }
 
     /**
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
      * Scope per contatti primari
      */
-    public function scopePrimary($query)
+    public function scopePrimary(Builder $query): Builder
     {
         return $query->where('is_primary', true);
     }
 
     /**
+     *
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
      * Scope per tipo di contatto
      */
-    public function scopeOfType($query, string $type)
+    public function scopeOfType(Builder $query, string $type): Builder
     {
         return $query->where('type', $type);
     }
 
     /**
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
      * Scope ordinati per posizione
      */
-    public function scopeOrdered($query)
+    public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('position')->orderBy('is_primary', 'desc');
     }
@@ -210,6 +223,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il nome del tipo di contatto
+     *
+     * @return Attribute<string, never>
      */
     protected function typeName(): Attribute
     {
@@ -220,6 +235,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il valore formattato del contatto
+     *
+     * @return Attribute<string, never>
      */
     protected function formattedValue(): Attribute
     {
@@ -230,6 +247,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un indirizzo email
+     *
+     * @return Attribute<bool, never>
      */
     protected function isEmail(): Attribute
     {
@@ -240,6 +259,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un numero di telefono
+     *
+     * @return Attribute<bool, never>
      */
     protected function isPhone(): Attribute
     {
@@ -250,6 +271,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un social media
+     *
+     * @return Attribute<bool, never>
      */
     protected function isSocial(): Attribute
     {
@@ -260,6 +283,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per l'icona del tipo di contatto
+     *
+     * @return Attribute<string, never>
      */
     protected function icon(): Attribute
     {
@@ -357,9 +382,8 @@ class ContactPoint extends Model
         // Auto-increment position
         static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
-                $model->position = static::where('contactable_type', $model->contactable_type)
-                    ->where('contactable_id', $model->contactable_id)
-                    ->max('position') + 1;
+                $model->position = (int) (static::where('contactable_type', $model->contactable_type)
+                    ->where('contactable_id', $model->contactable_id)->max('position') ?? 0) + 1;
             }
         });
 
