@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+use function Safe\parse_url;
+
+use Illuminate\Database\Eloquent\Builder;
+use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
+
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -36,23 +39,23 @@ use Illuminate\Support\Str;
  * @property string $visibility
  * @property int $priority_level
  * @property int $urgency_level
- * @property array|null $target_audience
- * @property array|null $geographic_scope
+ * @property array<string, mixed>|null $target_audience
+ * @property array<string, mixed>|null $geographic_scope
  * @property string|null $language
  * @property string|null $featured_image
  * @property string|null $image_caption
  * @property string|null $image_alt_text
- * @property array|null $gallery
- * @property array|null $attachments
- * @property array|null $related_services
- * @property array|null $related_events
- * @property array|null $related_people
- * @property array|null $related_documents
- * @property array|null $external_links
- * @property array|null $tags
+ * @property array<string, mixed>|null $gallery
+ * @property array<string, mixed>|null $attachments
+ * @property array<string, mixed>|null $related_services
+ * @property array<string, mixed>|null $related_events
+ * @property array<string, mixed>|null $related_people
+ * @property array<string, mixed>|null $related_documents
+ * @property array<string, mixed>|null $external_links
+ * @property array<string, mixed>|null $tags
  * @property string|null $social_summary
  * @property string|null $meta_description
- * @property array|null $seo_keywords
+ * @property array<string, mixed>|null $seo_keywords
  * @property \Carbon\Carbon|null $publication_date
  * @property \Carbon\Carbon|null $expiry_date
  * @property \Carbon\Carbon|null $last_modified
@@ -66,12 +69,12 @@ use Illuminate\Support\Str;
  * @property int $view_count
  * @property int $share_count
  * @property int $reading_time
- * @property array|null $accessibility_notes
+ * @property array<string, mixed>|null $accessibility_notes
  * @property string|null $feedback_url
  * @property string|null $correction_notice
- * @property array|null $translation_links
- * @property array|null $structured_data
- * @property array|null $metadata
+ * @property array<string, mixed>|null $translation_links
+ * @property array<string, mixed>|null $structured_data
+ * @property array<string, mixed>|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
@@ -83,11 +86,13 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $categories
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $tags
  */
-class MunicipalNews extends Model
+class MunicipalNews extends MunicipalBaseModel
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     /**
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Tipologie di notizia secondo AGID
      */
     public const NEWS_TYPES = [
@@ -246,7 +251,7 @@ class MunicipalNews extends Model
     ];
 
     /**
-     * Relazione con l'unità organizzativa
+     * @return BelongsTo<OrganizationalUnit, $this>
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -254,7 +259,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con l'autore
+     * @return BelongsTo<PublicPerson, $this>
      */
     public function author(): BelongsTo
     {
@@ -262,7 +267,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con l'editor
+     * @return BelongsTo<PublicPerson, $this>
      */
     public function editor(): BelongsTo
     {
@@ -270,7 +275,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con i punti di contatto
+     * @return MorphMany<ContactPoint, $this>
      */
     public function contacts(): MorphMany
     {
@@ -278,7 +283,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con i servizi correlati
+     * @return BelongsToMany<MunicipalService, $this>
      */
     public function services(): BelongsToMany
     {
@@ -286,7 +291,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con gli eventi correlati
+     * @return BelongsToMany<MunicipalEvent, $this>
      */
     public function events(): BelongsToMany
     {
@@ -294,7 +299,7 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con le persone correlate
+     * @return BelongsToMany<PublicPerson, $this>
      */
     public function people(): BelongsToMany
     {
@@ -302,9 +307,11 @@ class MunicipalNews extends Model
     }
 
     /**
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per notizie pubblicate
      */
-    public function scopePublished($query)
+    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true)
             ->where('news_status', 'published')
@@ -316,67 +323,90 @@ class MunicipalNews extends Model
     }
 
     /**
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per notizie in evidenza
      */
-    public function scopeFeatured($query)
+    public function scopeFeatured(Builder $query): Builder
     {
         return $query->where('is_featured', true);
     }
 
     /**
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per notizie breaking
      */
-    public function scopeBreaking($query)
+    public function scopeBreaking(Builder $query): Builder
     {
         return $query->where('is_breaking', true);
     }
 
     /**
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per notizie da homepage
      */
-    public function scopeHomepage($query)
+    public function scopeHomepage(Builder $query): Builder
     {
         return $query->where('show_on_homepage', true);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per tipologia di notizia
      */
-    public function scopeOfType($query, string $type)
+    public function scopeOfType(Builder $query, string $type): Builder
     {
         return $query->where('news_type', $type);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per categoria
      */
-    public function scopeInCategory($query, string $category)
+    public function scopeInCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per priorità minima
      */
-    public function scopeMinPriority($query, int $priority)
+    public function scopeMinPriority(Builder $query, int $priority): Builder
     {
         return $query->where('priority_level', '>=', $priority);
     }
 
     /**
+     *
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope per notizie recenti
      */
-    public function scopeRecent($query, int $days = 30)
+    public function scopeRecent(Builder $query, int $days = 30): Builder
     {
         return $query->where('publication_date', '>=', now()->subDays($days));
     }
 
     /**
+     *
+     * @param  Builder<MunicipalNews>  $query
+     * @return Builder<MunicipalNews>
      * Scope ordinati per pubblicazione
      */
-    public function scopeOrdered($query, string $direction = 'desc')
+    public function scopeOrdered(Builder $query, string $direction = 'desc'): Builder
     {
-        return $query->orderBy('publication_date', $direction)
+        $dir = in_array($direction, ['asc', 'desc'], true) ? $direction : 'desc';
+
+        return $query->orderBy('publication_date', $dir)
             ->orderBy('priority_level', 'desc');
     }
 
@@ -389,27 +419,39 @@ class MunicipalNews extends Model
             return $this->excerpt;
         }
 
-        return Str::limit(strip_tags($this->content), $length);
+        return Str::limit(strip_tags((string) ($this->content ?? '')), $length);
     }
 
     /**
      * Ottiene i tag formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedTags(): array
     {
-        if (! $this->tags || ! is_array($this->tags)) {
+        if (! is_array($this->tags) || $this->tags === []) {
             return [];
         }
 
-        return collect($this->tags)
-            ->map(function ($tag) {
-                return is_string($tag) ? ['name' => $tag, 'slug' => Str::slug($tag)] : $tag;
-            })
-            ->toArray();
+        $formatted = [];
+        foreach ($this->tags as $tag) {
+            if (is_string($tag)) {
+                $formatted[] = ['name' => $tag, 'slug' => Str::slug($tag)];
+                continue;
+            }
+
+            if (is_array($tag)) {
+                $formatted[] = $tag;
+            }
+        }
+
+        return $formatted;
     }
 
     /**
      * Ottiene i link esterni formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedExternalLinks(): array
     {
@@ -417,7 +459,7 @@ class MunicipalNews extends Model
             return [];
         }
 
-        return collect($this->external_links)
+        $formatted = collect($this->external_links)
             ->map(function ($link) {
                 if (is_string($link)) {
                     return ['url' => $link, 'title' => parse_url($link, PHP_URL_HOST)];
@@ -425,11 +467,16 @@ class MunicipalNews extends Model
 
                 return $link;
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene gli allegati formattati
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedAttachments(): array
     {
@@ -437,7 +484,7 @@ class MunicipalNews extends Model
             return [];
         }
 
-        return collect($this->attachments)
+        $formatted = collect($this->attachments)
             ->map(function ($attachment) {
                 if (is_string($attachment)) {
                     return [
@@ -449,15 +496,24 @@ class MunicipalNews extends Model
                     ];
                 }
 
-                return array_merge([
-                    'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
-                ], $attachment);
+                return is_array($attachment)
+                    ? array_merge([
+                        'url' => isset($attachment['path']) && is_string($attachment['path'])
+                            ? asset('storage/'.$attachment['path'])
+                            : null,
+                    ], $attachment)
+                    : [];
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
      * Ottiene la galleria immagini formattata
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getFormattedGallery(): array
     {
@@ -465,7 +521,7 @@ class MunicipalNews extends Model
             return [];
         }
 
-        return collect($this->gallery)
+        $formatted = collect($this->gallery)
             ->map(function ($image) {
                 if (is_string($image)) {
                     return [
@@ -476,11 +532,18 @@ class MunicipalNews extends Model
                     ];
                 }
 
-                return array_merge([
-                    'url' => isset($image['path']) ? asset('storage/'.$image['path']) : null,
-                ], $image);
+                return is_array($image)
+                    ? array_merge([
+                        'url' => isset($image['path']) && is_string($image['path'])
+                            ? asset('storage/'.$image['path'])
+                            : null,
+                    ], $image)
+                    : [];
             })
-            ->toArray();
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
     }
 
     /**
@@ -519,6 +582,8 @@ class MunicipalNews extends Model
 
     /**
      * Ottiene i dati strutturati per SEO
+     *
+     * @return array<string, mixed>
      */
     public function getStructuredData(): array
     {
@@ -536,18 +601,22 @@ class MunicipalNews extends Model
             ],
             'publisher' => [
                 '@type' => 'Organization',
-                'name' => $this->organizationalUnit?->name ?? 'Comune',
+                'name' => $this->organizationalUnit->name ?? 'Comune',
             ],
             'mainEntityOfPage' => $this->url,
             'articleSection' => $this->category,
-            'keywords' => is_array($this->seo_keywords) ? implode(', ', $this->seo_keywords) : null,
-            'wordCount' => str_word_count(strip_tags($this->content)),
+            'keywords' => is_array($this->seo_keywords)
+                ? implode(', ', array_map(static fn (mixed $keyword): string => (string) $keyword, $this->seo_keywords))
+                : null,
+            'wordCount' => str_word_count(strip_tags((string) ($this->content ?? ''))),
             'timeRequired' => 'PT'.$this->estimated_reading_time.'M',
         ];
     }
 
     /**
      * Ottiene le informazioni complete della notizia
+     *
+     * @return array<string, mixed>
      */
     public function getNewsDetails(): array
     {
@@ -590,6 +659,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome del tipo di notizia
+     *
+     * @return Attribute<string, never>
      */
     protected function newsTypeName(): Attribute
     {
@@ -600,6 +671,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome dello stato
+     *
+     * @return Attribute<string, never>
      */
     protected function newsStatusName(): Attribute
     {
@@ -610,6 +683,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome della priorità
+     *
+     * @return Attribute<string, never>
      */
     protected function priorityName(): Attribute
     {
@@ -620,6 +695,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome dell'urgenza
+     *
+     * @return Attribute<string, never>
      */
     protected function urgencyName(): Attribute
     {
@@ -630,6 +707,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per verificare se è scaduta
+     *
+     * @return Attribute<bool, never>
      */
     protected function isExpired(): Attribute
     {
@@ -640,6 +719,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per verificare se è attuale
+     *
+     * @return Attribute<bool, never>
      */
     protected function isCurrent(): Attribute
     {
@@ -656,6 +737,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per l'età della notizia in giorni
+     *
+     * @return Attribute<int, never>
      */
     protected function ageInDays(): Attribute
     {
@@ -666,6 +749,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per verificare se è una notizia fresca
+     *
+     * @return Attribute<bool, never>
      */
     protected function isFresh(): Attribute
     {
@@ -676,6 +761,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il tempo di lettura stimato
+     *
+     * @return Attribute<int, never>
      */
     protected function estimatedReadingTime(): Attribute
     {
@@ -686,7 +773,7 @@ class MunicipalNews extends Model
                 }
 
                 // Stima basata su 200 parole al minuto
-                $wordCount = str_word_count(strip_tags($this->content));
+                $wordCount = str_word_count(strip_tags((string) ($this->content ?? '')));
 
                 return max(1, ceil($wordCount / 200));
             }
@@ -695,16 +782,20 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per l'URL della notizia
+     *
+     * @return Attribute<string, never>
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => route('municipal.news.show', $this->slug)
+            get: fn () => app(BuildLocalizedFrontofficePathAction::class)->execute('/novita/'.$this->slug)
         );
     }
 
     /**
      * Accessor per l'URL dell'immagine in evidenza
+     *
+     * @return Attribute<string|null, never>
      */
     protected function featuredImageUrl(): Attribute
     {
@@ -715,11 +806,14 @@ class MunicipalNews extends Model
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
+     *
+     * @return Attribute<mixed, mixed>
      */
     protected function title(): Attribute
     {
         return Attribute::make(
             set: function ($value) {
+                $value = (string) $value;
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -732,16 +826,19 @@ class MunicipalNews extends Model
 
     /**
      * Mutator per il contenuto (aggiorna reading_time)
+     *
+     * @return Attribute<mixed, mixed>
      */
     protected function content(): Attribute
     {
         return Attribute::make(
             set: function ($value) {
+                $value = (string) $value;
                 $this->attributes['content'] = $value;
 
                 // Auto-calcola reading time se non impostato
                 if (! isset($this->attributes['reading_time'])) {
-                    $wordCount = str_word_count(strip_tags($value));
+                    $wordCount = str_word_count(strip_tags((string) $value));
                     $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
                 }
 
@@ -758,14 +855,14 @@ class MunicipalNews extends Model
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalNews $model): void {
             if (empty($model->slug)) {
-                $model->slug = Str::slug($model->title);
+                $model->slug = Str::slug((string) $model->title);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalNews $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -776,7 +873,7 @@ class MunicipalNews extends Model
         });
 
         // Set default values
-        static::creating(function ($model): void {
+        static::creating(function (MunicipalNews $model): void {
             if (is_null($model->news_status)) {
                 $model->news_status = 'draft';
             }
@@ -799,7 +896,7 @@ class MunicipalNews extends Model
         });
 
         // Auto-publish se la data è raggiunta
-        static::updating(function ($model): void {
+        static::updating(function (MunicipalNews $model): void {
             if ($model->news_status === 'approved' &&
                 $model->publication_date <= now() &&
                 ! $model->is_published) {
@@ -809,7 +906,7 @@ class MunicipalNews extends Model
         });
 
         // Increment revision number on updates
-        static::updating(function ($model): void {
+        static::updating(function (MunicipalNews $model): void {
             if ($model->isDirty(['title', 'content', 'excerpt'])) {
                 $model->revision_number++;
                 $model->last_modified = now();

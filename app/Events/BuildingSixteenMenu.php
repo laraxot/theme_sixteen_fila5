@@ -25,6 +25,9 @@ class BuildingSixteenMenu
     /**
      * Aggiunge elementi al menu corrente in base alla location
      */
+    /**
+     * @param  array<int, array<string, mixed>|string>  $items
+     */
     public function addMenuItems(array $items): void
     {
         match ($this->location) {

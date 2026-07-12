@@ -6,46 +6,29 @@ namespace Themes\Sixteen\Services;
 
 /**
  * Servizio per la gestione del tema Sixteen.
- *
- * Questo servizio fornisce metodi per la gestione
- * delle configurazioni e funzionalità del tema.
- *
- * Enhanced version integrating with the new Menu Builder System
  */
 class ThemeService
 {
-    /**
-     * Nome del tema.
-     */
     protected string $themeName = 'Sixteen';
 
-    /**
-     * Versione del tema.
-     */
     protected string $version = '1.0.0';
 
     public function __construct(
         protected MenuBuilder $menuBuilder
     ) {}
 
-    /**
-     * Ottiene il nome del tema.
-     */
     public function getName(): string
     {
         return $this->themeName;
     }
 
-    /**
-     * Ottiene la versione del tema.
-     */
     public function getVersion(): string
     {
         return $this->version;
     }
 
     /**
-     * Ottiene le informazioni del tema.
+     * @return array<string, mixed>
      */
     public function getInfo(): array
     {
@@ -62,68 +45,56 @@ class ThemeService
     }
 
     /**
-     * Costruisce il menu usando il MenuBuilder.
-     *
-     * @return array<string, mixed>
+     * @return array{slim_header: array<int, array<string, mixed>>, header: array<int, array<string, mixed>>, footer: array<int, array<string, mixed>>, footer_bar: array<int, array<string, mixed>>}
      */
     public function buildMenu(): array
     {
         return $this->menuBuilder->build();
     }
 
-    /**
-     * Inizializza le risorse del tema.
-     */
     public function initialize(): void
     {
-        // Caricamento delle risorse CSS e JS
-        // Configurazione dei componenti del tema
-        // Setup delle configurazioni specifiche
     }
 
-    /**
-     * Ottiene il Menu Builder per accesso diretto ai menu
-     */
     public function getMenuBuilder(): MenuBuilder
     {
         return $this->menuBuilder;
     }
 
     /**
-     * Ottiene i menu compilati per una location specifica
+     * @return array<int, array<string, mixed>>
      */
     public function getMenu(string $location): array
     {
         return match ($location) {
-            'slim_header' => $this->menuBuilder->getSlimHeader()->toArray(),
-            'header' => $this->menuBuilder->getHeader()->toArray(),
-            'footer' => $this->menuBuilder->getFooter()->toArray(),
-            'footer_bar' => $this->menuBuilder->getFooterBar()->toArray(),
-            default => throw new \InvalidArgumentException("Unknown menu location: {$location}")
+            'slim_header' => $this->menuBuilder->getSlimHeader()->values()->all(),
+            'header' => $this->menuBuilder->getHeader()->values()->all(),
+            'footer' => $this->menuBuilder->getFooter()->values()->all(),
+            'footer_bar' => $this->menuBuilder->getFooterBar()->values()->all(),
+            default => throw new \InvalidArgumentException("Unknown menu location: {$location}"),
         };
     }
 
     /**
-     * Verifica la compliance AGID del tema
+     * @return array<string, bool>
      */
     public function checkAgidCompliance(): array
     {
         return [
             'bootstrap_italia' => true,
-            'wcag_2_1_aa' => $this->getConfig('accessibility.screen_reader_content', true),
-            'skip_links' => $this->getConfig('accessibility.skip_links', true),
-            'keyboard_navigation' => $this->getConfig('accessibility.keyboard_navigation', true),
-            'cookiebar' => $this->getConfig('layout.cookiebar', true),
-            'breadcrumbs' => $this->getConfig('layout.breadcrumbs.enabled', true),
+            'wcag_2_1_aa' => (bool) $this->getConfig('accessibility.screen_reader_content', true),
+            'skip_links' => (bool) $this->getConfig('accessibility.skip_links', true),
+            'keyboard_navigation' => (bool) $this->getConfig('accessibility.keyboard_navigation', true),
+            'cookiebar' => (bool) $this->getConfig('layout.cookiebar', true),
+            'breadcrumbs' => (bool) $this->getConfig('layout.breadcrumbs.enabled', true),
         ];
     }
 
     /**
-     * Ottiene statistiche sui componenti implementati
+     * @return array<string, int|string|list<string>>
      */
     public function getComponentStats(): array
     {
-        // Questa sarà espansa con il progress del tema
         return [
             'total_agid_components' => 54,
             'implemented' => 26,
@@ -133,17 +104,11 @@ class ThemeService
         ];
     }
 
-    /**
-     * Verifica se il tema è attivo.
-     */
     public function isActive(): bool
     {
         return config('app.theme') === 'sixteen';
     }
 
-    /**
-     * Ottiene le configurazioni del tema.
-     */
     public function getConfig(?string $key = null, mixed $default = null): mixed
     {
         if ($key === null) {

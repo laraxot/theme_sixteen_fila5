@@ -15,6 +15,10 @@ use function Safe\parse_url;
  */
 class HrefMenuFilter implements MenuFilterInterface
 {
+    /**
+     * @param  array<string, mixed>  $item
+     * @return array<string, mixed>|false
+     */
     public function filter(array $item): array|false
     {
         // Converti route in URL

@@ -76,3 +76,12 @@ laravel
 components
 layouts
 agentdb.rvf
+
+# claude-audit bridge (non committare)
+audit-coverage/
+tests/AuditCoverage/*
+
+# claude-audit static — dev Playwright/smoke (non production runtime)
+*-test.mjs
+check-header-local.js
+scripts/*-smoke.cjs
