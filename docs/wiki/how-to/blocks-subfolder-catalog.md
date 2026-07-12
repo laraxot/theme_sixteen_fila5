@@ -82,4 +82,4 @@ cd laravel && ./vendor/bin/pest Themes/Sixteen/tests/Unit/BlockSubfolderNamingTe
 
 - [Regola on-demand](../rules/cms-block-naming-tailwind-flowbite.md)
 - [011-blocks-view-convention](../../../../../../docs/wiki/rules/011-blocks-view-convention.md)
-- [Registry PHP](../../../app/Support/BlockCategoryRegistry.php)
+- [Registry PHP](../../../app/Datas/BlockCategoryRegistryData.php)

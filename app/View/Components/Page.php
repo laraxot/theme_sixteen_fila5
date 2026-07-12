@@ -17,6 +17,9 @@ class Page extends Component
     /**
      * Create a new component instance.
      */
+    /**
+     * @param  array<string, mixed>  $data
+     */
     public function __construct(
         public string $side = 'content',
         public string $slug = '',

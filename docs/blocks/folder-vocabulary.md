@@ -147,7 +147,7 @@ Usare solo se la pagina riusa pattern ecommerce Tailwind; altrimenti mappare su 
 
 ## SSoT nel codice
 
-Lista machine-readable: `laravel/Themes/Sixteen/app/Support/BlockCategoryRegistry.php`  
+Lista machine-readable: `laravel/Themes/Sixteen/app/Datas/BlockCategoryRegistryData.php`  
 Test Pest: `Themes/Sixteen/tests/Unit/BlockSubfolderNamingTest.php`  
 Shell (mirror del registry): `bash bashscripts/quality-gates/check-blocks-folder-names.sh`
 
