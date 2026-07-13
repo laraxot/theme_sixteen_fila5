@@ -275,10 +275,6 @@ class MunicipalEvent extends Model
             ->where(function ($q) use ($today) {
                 $q->where('end_date', '>=', $today)
                     ->orWhereNull('end_date');
-        return $query->where('start_date', '<=', $today)
-            ->where(function ($q) use ($today) {
-                $q->where('end_date', '>=', $today)
-                  ->orWhereNull('end_date');
             })
             ->where('event_status', 'in_progress');
     }
@@ -437,23 +433,6 @@ class MunicipalEvent extends Model
                     return "{$diff}m";
                 }
 
-                    return $this->end_date 
-                        ? $this->start_date->diffInDays($this->end_date) + 1 . ' giorni'
-                        : '1 giorno';
-                }
-                
-                if ($this->start_time && $this->end_time) {
-                    $diff = $this->start_time->diffInMinutes($this->end_time);
-                    
-                    if ($diff >= 60) {
-                        $hours = intval($diff / 60);
-                        $minutes = $diff % 60;
-                        return $minutes > 0 ? "{$hours}h {$minutes}m" : "{$hours}h";
-                    }
-                    
-                    return "{$diff}m";
-                }
-                
                 return null;
             }
         );
@@ -537,26 +516,6 @@ class MunicipalEvent extends Model
             }
         }
 
-            if ($this->end_date && !$this->start_date->isSameDay($this->end_date)) {
-                return $this->start_date->format('d/m/Y') . ' - ' . $this->end_date->format('d/m/Y');
-            }
-            return $this->start_date->format('d/m/Y') . ' (tutto il giorno)';
-        }
-        
-        $formatted = $this->start_date->format('d/m/Y');
-        
-        if ($this->start_time) {
-            $formatted .= ' alle ' . $this->start_time->format('H:i');
-            
-            if ($this->end_time) {
-                if ($this->start_time->isSameDay($this->end_time)) {
-                    $formatted .= ' - ' . $this->end_time->format('H:i');
-                } else {
-                    $formatted .= ' - ' . $this->end_time->format('d/m/Y H:i');
-                }
-            }
-        }
-        
         return $formatted;
     }
 

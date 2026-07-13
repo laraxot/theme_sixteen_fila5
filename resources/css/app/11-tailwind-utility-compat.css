@@ -76,11 +76,11 @@
 .stepper-step.active { @apply text-[#0066CC] font-bold; }
 .stepper-step.completed { @apply text-green-600; }
 
-/* Alerts */
-.alert { @apply border-l-4 p-4; }
-.alert-info { @apply bg-blue-50 border-blue-500; }
+/* Alerts — full 1px border (no side-tab accent; Impeccable / DESIGN.md) */
+.alert { @apply border rounded p-4; }
+.alert-info { @apply bg-blue-50 border-blue-300; }
 .alert-success { @apply bg-green-50 border-green-500; }
-.alert-warning { @apply bg-yellow-50 border-yellow-500; }
+.alert-warning { @apply bg-yellow-50 border-amber-600; }
 .alert-danger { @apply bg-red-50 border-red-500; }
 
 /* Cards */

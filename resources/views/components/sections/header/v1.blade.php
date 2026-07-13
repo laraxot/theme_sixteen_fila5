@@ -67,7 +67,7 @@
 
     // Story 8-107: nav items dinamici da header.json (no hardcoded)
     $headerNavConfig = [];
-    $headerNavJsonPath = \Modules\Tenant\Services\TenantService::filePath('database/content/sections/header.json');
+    $headerNavJsonPath = app(\Modules\Tenant\Actions\Config\GetTenantFilePathAction::class)->execute('database/content/sections/header.json');
     if (is_string($headerNavJsonPath) && file_exists($headerNavJsonPath)) {
         $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
     }
