@@ -21,16 +21,16 @@
         $status = TicketStatusEnum::from($status);
     }
     
-    // Get color class and label from enum
-    $colorClass = $status->getColorClass();
+    // Get color and label from enum (values.{value}.color / .label in lang files)
+    $color = $status->getColor();
     $label = $status->getLabel();
-    
-    // Map badge-* classes to bg-* classes for Bootstrap Italia
-    $variant = match(true) {
-        str_contains($colorClass, 'success') => 'success',
-        str_contains($colorClass, 'danger') => 'danger',
-        str_contains($colorClass, 'warning') => 'warning',
-        str_contains($colorClass, 'info') => 'info',
+
+    // Map enum color keys to Bootstrap Italia badge variants
+    $variant = match($color) {
+        'success' => 'success',
+        'danger' => 'danger',
+        'warning', 'orange' => 'warning',
+        'info' => 'info',
         default => 'secondary',
     };
 @endphp

@@ -22,9 +22,6 @@ class MenuBuilder
 
     protected Collection $footerBar;
 
-    protected Collection $header;
-    protected Collection $footer;
-    protected Collection $footerBar;
     protected array $filters = [];
 
     public function __construct()
@@ -154,19 +151,6 @@ class MenuBuilder
         }
 
         if (! empty($config['footer_bar'])) {
-        if (!empty($config['slim_header'])) {
-            $this->addSlimHeader($config['slim_header']);
-        }
-
-        if (!empty($config['header'])) {
-            $this->addHeader($config['header']);
-        }
-
-        if (!empty($config['footer'])) {
-            $this->addFooter($config['footer']);
-        }
-
-        if (!empty($config['footer_bar'])) {
             $this->addFooterBar($config['footer_bar']);
         }
 

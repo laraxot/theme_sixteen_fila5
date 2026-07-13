@@ -63,5 +63,10 @@
         @livewireScripts
         @filamentScripts
         @vite(['resources/js/app.js'], 'themes/Sixteen')
+    <!-- impeccable-live-start -->
+    @if (app()->environment('local'))
+        <script src="http://localhost:8400/live.js" defer></script>
+    @endif
+    <!-- impeccable-live-end -->
     </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use function Laravel\Folio\name;
+use Modules\Fixcity\Enums\TicketStatusEnum;
 
 name('segnalazioni');
 ?>
@@ -77,6 +78,25 @@ new class extends \Livewire\Volt\Component {
     public function getTotalResults()
     {
         return count($this->getFilteredTickets());
+    }
+
+    public function getStatusLabel($status)
+    {
+        return TicketStatusEnum::from($status)->getLabel();
+    }
+
+    public function getStatusBadgeClasses($status)
+    {
+        // ponytail: demo page only has 3 sample statuses; map full enum's
+        // semantic color name to closest Tailwind badge classes.
+        return match (TicketStatusEnum::from($status)->getColor()) {
+            'success' => 'bg-green-100 text-green-800',
+            'warning', 'orange' => 'bg-yellow-100 text-yellow-800',
+            'danger' => 'bg-red-100 text-red-800',
+            'info' => 'bg-blue-100 text-blue-800',
+            'secondary' => 'bg-purple-100 text-purple-800',
+            default => 'bg-gray-100 text-gray-800',
+        };
     }
 }
 <x-pub_theme::layouts.app>
@@ -279,15 +299,8 @@ new class extends \Livewire\Volt\Component {
                                                 Coordinate: {{ $ticket['lat'] }}, {{ $ticket['lng'] }}
                                             </p>
                                         </div>
-                                        <span class="px-2 py-1 text-xs rounded-full 
-                                            @if($ticket['status'] === 'open') bg-red-100 text-red-800
-                                            @elseif($ticket['status'] === 'in_progress') bg-yellow-100 text-yellow-800
-                                            @else bg-green-100 text-green-800
-                                            @endif">
-                                            @if($ticket['status'] === 'open') Aperta
-                                            @elseif($ticket['status'] === 'in_progress') In corso
-                                            @else Risolta
-                                            @endif
+                                        <span class="px-2 py-1 text-xs rounded-full {{ $this->getStatusBadgeClasses($ticket['status']) }}">
+                                            {{ $this->getStatusLabel($ticket['status']) }}
                                         </span>
                                     </div>
                                 </div>

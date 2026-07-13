@@ -546,13 +546,6 @@ class PublicDocument extends Model
 
                 return array_merge([
                     'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
-                        'url' => asset('storage/' . $attachment),
-                        'type' => pathinfo($attachment, PATHINFO_EXTENSION),
-                    ];
-                }
-                
-                return array_merge([
-                    'url' => isset($attachment['path']) ? asset('storage/' . $attachment['path']) : null,
                 ], $attachment);
             })
             ->toArray();
