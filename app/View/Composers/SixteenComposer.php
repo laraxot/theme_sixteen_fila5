@@ -6,7 +6,7 @@ namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
-use Themes\Sixteen\Services\MenuBuilder;
+use Themes\Sixteen\Actions\MenuBuilderAction;
 
 /**
  * View Composer per il tema Sixteen
@@ -17,7 +17,7 @@ use Themes\Sixteen\Services\MenuBuilder;
 class SixteenComposer
 {
     public function __construct(
-        protected MenuBuilder $menuBuilder
+        protected MenuBuilderAction $menuBuilder
     ) {}
 
     /**

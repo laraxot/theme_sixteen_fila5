@@ -2,22 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Themes\Sixteen\Services;
+namespace Themes\Sixteen\Actions;
 
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Spatie\QueueableAction\QueueableAction;
 
-/**
- * Servizio per l'autenticazione CIE (Carta di Identità Elettronica)
- *
- * Implementa l'integrazione con CIE 3.0 per l'autenticazione
- * secondo le specifiche AGID per l'identità digitale nella PA
- */
-class CieAuthService
+class CieAuthAction
 {
+    use QueueableAction;
+
     protected string $baseUrl;
 
     protected string $clientId;
@@ -34,15 +31,13 @@ class CieAuthService
         $this->redirectUri = route('cie.callback');
     }
 
-    /**
-     * Genera l'URL di login CIE
-     */
+    public function execute(): void {}
+
     public function getLoginUrl(?string $returnUrl = null): string
     {
         $state = $this->generateState();
         $nonce = $this->generateNonce();
 
-        // Salva lo stato in sessione
         Session::put('cie.state', $state);
         Session::put('cie.nonce', $nonce);
         Session::put('cie.return_url', $returnUrl ? $returnUrl : url()->previous());
@@ -55,15 +50,12 @@ class CieAuthService
             'state' => $state,
             'nonce' => $nonce,
             'prompt' => 'login',
-            'acr_values' => 'https://www.spid.gov.it/SpidL2', // Livello 2 CIE
+            'acr_values' => 'https://www.spid.gov.it/SpidL2',
         ];
 
         return $this->baseUrl.'/oidc/authorize?'.http_build_query($params);
     }
 
-    /**
-     * Genera l'URL per l'autenticazione tramite app CieID
-     */
     public function getMobileLoginUrl(?string $returnUrl = null): string
     {
         $state = $this->generateState();
@@ -74,31 +66,24 @@ class CieAuthService
         Session::put('cie.return_url', $returnUrl ? $returnUrl : url()->previous());
         Session::put('cie.auth_method', 'mobile');
 
-        // URL per deep linking all'app CieID
         $webLoginUrl = $this->getLoginUrl($returnUrl);
 
-        // Genera l'URL per mobile con schema custom
         return 'cieid://login?'.http_build_query([
             'redirect_url' => $webLoginUrl,
             'client_name' => config('app.name'),
         ]);
     }
 
-    /**
-     * Processa la callback OAuth2 da CIE
-     */
     public function processCallback(Request $request): array
     {
         $code = $request->input('code');
         $state = $request->input('state');
         $error = $request->input('error');
 
-        // Verifica errori
         if ($error) {
             throw new Exception('CIE authentication error: '.$error);
         }
 
-        // Verifica lo state
         if (! $state || $state !== Session::get('cie.state')) {
             throw new Exception('State parameter mismatch');
         }
@@ -107,16 +92,12 @@ class CieAuthService
             throw new Exception('Authorization code missing');
         }
 
-        // Scambia il code per un access token
         $tokenData = $this->exchangeCodeForToken($code);
 
-        // Ottieni i dati utente usando l'access token
         $userData = $this->getUserInfo($tokenData['access_token']);
 
-        // Valida il JWT ID token
         $idTokenClaims = $this->validateIdToken($tokenData['id_token']);
 
-        // Unisci i dati
         $userAttributes = array_merge($userData, $idTokenClaims);
 
         Log::info('CIE authentication successful', [
@@ -127,17 +108,11 @@ class CieAuthService
         return $this->mapCieAttributes($userAttributes);
     }
 
-    /**
-     * Verifica se l'utente è autenticato con CIE
-     */
     public function isAuthenticated(): bool
     {
         return Session::has('cie.authenticated') && Session::get('cie.authenticated') === true;
     }
 
-    /**
-     * Ottiene i dati dell'utente autenticato
-     */
     public function getAuthenticatedUser(): ?array
     {
         if (! $this->isAuthenticated()) {
@@ -147,14 +122,10 @@ class CieAuthService
         return Session::get('cie.user_data');
     }
 
-    /**
-     * Effettua il logout dell'utente CIE
-     */
     public function logout(): void
     {
         $refreshToken = Session::get('cie.refresh_token');
 
-        // Revoca i token se disponibili
         if ($refreshToken) {
             try {
                 Http::asForm()->post($this->baseUrl.'/oidc/revoke', [
@@ -178,9 +149,6 @@ class CieAuthService
         ]);
     }
 
-    /**
-     * Ottiene l'URL di logout CIE (post-logout redirect)
-     */
     public function getLogoutUrl(?string $returnUrl = null): string
     {
         $params = [
@@ -191,9 +159,6 @@ class CieAuthService
         return $this->baseUrl.'/oidc/logout?'.http_build_query($params);
     }
 
-    /**
-     * Aggiorna l'access token usando il refresh token
-     */
     public function refreshToken(): ?array
     {
         $refreshToken = Session::get('cie.refresh_token');
@@ -213,7 +178,6 @@ class CieAuthService
             if ($response->successful()) {
                 $tokenData = $response->json();
 
-                // Aggiorna i token in sessione
                 Session::put('cie.access_token', $tokenData['access_token']);
                 if (isset($tokenData['refresh_token'])) {
                     Session::put('cie.refresh_token', $tokenData['refresh_token']);
@@ -228,9 +192,6 @@ class CieAuthService
         return null;
     }
 
-    /**
-     * Verifica se CIE è configurato correttamente
-     */
     public function isConfigured(): bool
     {
         return ! empty($this->clientId) &&
@@ -238,9 +199,6 @@ class CieAuthService
                ! empty($this->baseUrl);
     }
 
-    /**
-     * Ottiene le informazioni di configurazione CIE per il debug
-     */
     public function getConfigInfo(): array
     {
         return [
@@ -252,9 +210,6 @@ class CieAuthService
         ];
     }
 
-    /**
-     * Scambia l'authorization code per un access token
-     */
     protected function exchangeCodeForToken(string $code): array
     {
         $response = Http::asForm()->post($this->baseUrl.'/oidc/token', [
@@ -272,9 +227,6 @@ class CieAuthService
         return $response->json();
     }
 
-    /**
-     * Ottiene le informazioni utente usando l'access token
-     */
     protected function getUserInfo(string $accessToken): array
     {
         $response = Http::withToken($accessToken)
@@ -287,38 +239,29 @@ class CieAuthService
         return $response->json();
     }
 
-    /**
-     * Valida e decodifica l'ID token JWT
-     */
     protected function validateIdToken(string $idToken): array
     {
-        // Decodifica il JWT (in produzione usare librerie come firebase/jwt)
         $parts = explode('.', $idToken);
 
         if (count($parts) !== 3) {
             throw new Exception('Invalid JWT format');
         }
 
-        // Decodifica header e payload
         $header = json_decode(base64_decode($parts[0]), true);
         $payload = json_decode(base64_decode($parts[1]), true);
 
-        // Verifica il nonce
         if (! isset($payload['nonce']) || $payload['nonce'] !== Session::get('cie.nonce')) {
             throw new Exception('Nonce verification failed');
         }
 
-        // Verifica l'audience
         if (! isset($payload['aud']) || $payload['aud'] !== $this->clientId) {
             throw new Exception('Audience verification failed');
         }
 
-        // Verifica l'issuer
         if (! isset($payload['iss']) || $payload['iss'] !== $this->baseUrl) {
             throw new Exception('Issuer verification failed');
         }
 
-        // Verifica la scadenza
         if (! isset($payload['exp']) || $payload['exp'] < time()) {
             throw new Exception('Token expired');
         }
@@ -326,9 +269,6 @@ class CieAuthService
         return $payload;
     }
 
-    /**
-     * Mappa gli attributi CIE ai nomi standard
-     */
     protected function mapCieAttributes(array $attributes): array
     {
         return [
@@ -346,14 +286,11 @@ class CieAuthService
             'phone_verified' => $attributes['phone_number_verified'] ?? false,
             'auth_method' => Session::get('cie.auth_method', 'web'),
             'provider' => 'cie',
-            'auth_level' => 2, // CIE è sempre livello 2
+            'auth_level' => 2,
             'auth_time' => $attributes['auth_time'] ?? time(),
         ];
     }
 
-    /**
-     * Formatta l'indirizzo dall'array di attributi CIE
-     */
     protected function formatAddress(array $attributes): ?string
     {
         $addressParts = [];
@@ -377,17 +314,11 @@ class CieAuthService
         return ! empty($addressParts) ? implode(', ', $addressParts) : null;
     }
 
-    /**
-     * Genera un state sicuro per OAuth2
-     */
     protected function generateState(): string
     {
         return bin2hex(random_bytes(32));
     }
 
-    /**
-     * Genera un nonce per OIDC
-     */
     protected function generateNonce(): string
     {
         return bin2hex(random_bytes(32));

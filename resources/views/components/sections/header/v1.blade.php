@@ -52,7 +52,7 @@
     $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
 
     $headerUnreadNotificationsCount = 0;
-    if ($authUser !== null && \Modules\User\Support\NotificationSchema::isReadable()) {
+    if ($authUser !== null && app(\Modules\User\Actions\Notification\IsNotificationSchemaReadableAction::class)->execute()) {
         try {
             $headerUnreadNotificationsCount = $authUser->unreadNotifications()->count();
         } catch (\Throwable) {

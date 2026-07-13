@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
-use Themes\Sixteen\Services\CieAuthService;
+use Themes\Sixteen\Actions\CieAuthAction;
 
 /**
  * Controller per l'autenticazione CIE
@@ -24,7 +24,7 @@ use Themes\Sixteen\Services\CieAuthService;
 class CieAuthController extends Controller
 {
     public function __construct(
-        protected CieAuthService $cieService
+        protected CieAuthAction $cieService
     ) {}
 
     /**
