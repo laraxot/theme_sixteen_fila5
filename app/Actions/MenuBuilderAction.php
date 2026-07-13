@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Themes\Sixteen\Services;
+namespace Themes\Sixteen\Actions;
 
 use Illuminate\Support\Collection;
+use Spatie\QueueableAction\QueueableAction;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
 
-/**
- * Menu Builder Service per Sixteen Theme
- * Ispirato al tema ufficiale italia/design-laravel-theme
- * Supporta menu dinamici, filtri e autorizzazioni
- */
-class MenuBuilder
+class MenuBuilderAction
 {
+    use QueueableAction;
+
     protected Collection $slimHeader;
 
     protected Collection $header;
@@ -32,9 +30,11 @@ class MenuBuilder
         $this->footerBar = collect();
     }
 
-    /**
-     * Aggiungi elementi al menu slim header
-     */
+    public function execute(): void
+    {
+        $this->build();
+    }
+
     public function addSlimHeader(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -43,9 +43,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Aggiungi elementi al menu header principale
-     */
     public function addHeader(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -54,9 +51,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Aggiungi elementi al menu footer
-     */
     public function addFooter(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -65,9 +59,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Aggiungi elementi alla footer bar
-     */
     public function addFooterBar(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -76,9 +67,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Registra filtri da applicare ai menu items
-     */
     public function setFilters(array $filters): self
     {
         $this->filters = $filters;
@@ -86,9 +74,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Costruisci e restituisci tutti i menu
-     */
     public function build(): array
     {
         return [
@@ -99,41 +84,26 @@ class MenuBuilder
         ];
     }
 
-    /**
-     * Ottieni solo il menu header
-     */
     public function getHeader(): Collection
     {
         return $this->header;
     }
 
-    /**
-     * Ottieni solo il menu slim header
-     */
     public function getSlimHeader(): Collection
     {
         return $this->slimHeader;
     }
 
-    /**
-     * Ottieni solo il menu footer
-     */
     public function getFooter(): Collection
     {
         return $this->footer;
     }
 
-    /**
-     * Ottieni solo la footer bar
-     */
     public function getFooterBar(): Collection
     {
         return $this->footerBar;
     }
 
-    /**
-     * Carica menu dalla configurazione
-     */
     public function loadFromConfig(): self
     {
         $config = config('sixteen.menu', []);
@@ -157,9 +127,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Reset di tutti i menu
-     */
     public function reset(): self
     {
         $this->slimHeader = collect();
@@ -170,12 +137,8 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Processa un singolo elemento del menu
-     */
     public function processMenuItem($item): array|false|null
     {
-        // Se è una stringa, rappresenta un header/separatore
         if (is_string($item)) {
             return [
                 'type' => 'header',
@@ -183,34 +146,28 @@ class MenuBuilder
             ];
         }
 
-        // Se è un separatore
         if ($item === '-') {
             return [
                 'type' => 'separator',
             ];
         }
 
-        // Applica filtri
         foreach ($this->filters as $filter) {
             if ($filter instanceof MenuFilterInterface) {
                 $item = $filter->filter($item);
 
-                // Se il filtro restituisce false, rimuovi l'elemento
                 if ($item === false) {
                     return false;
                 }
             }
         }
 
-        // Determina il tipo di elemento
         $item['type'] = $this->determineItemType($item);
 
-        // Processa dropdown se presente
         if (isset($item['dropdown'])) {
             $item['dropdown'] = $this->transformItems($item['dropdown'])->toArray();
         }
 
-        // Processa megamenu se presente
         if (isset($item['megamenu'])) {
             $item['megamenu'] = collect($item['megamenu'])
                 ->map(function ($column) {
@@ -219,7 +176,6 @@ class MenuBuilder
                 ->toArray();
         }
 
-        // Aggiungi proprietà di default
         return array_merge([
             'active' => false,
             'target' => null,
@@ -229,9 +185,6 @@ class MenuBuilder
         ], $item);
     }
 
-    /**
-     * Controlla se un menu ha elementi
-     */
     public function hasItems(string $menu): bool
     {
         return match ($menu) {
@@ -243,9 +196,6 @@ class MenuBuilder
         };
     }
 
-    /**
-     * Conta gli elementi di un menu
-     */
     public function countItems(string $menu): int
     {
         return match ($menu) {
@@ -257,9 +207,6 @@ class MenuBuilder
         };
     }
 
-    /**
-     * Trova un elemento del menu per ID
-     */
     public function findItem(string $id, ?string $menu = null): ?array
     {
         $menus = $menu ? [$menu => $this->{$menu}] : [
@@ -279,9 +226,6 @@ class MenuBuilder
         return null;
     }
 
-    /**
-     * Rimuovi un elemento del menu per ID
-     */
     public function removeItem(string $id, ?string $menu = null): self
     {
         $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
@@ -295,9 +239,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Aggiorna un elemento del menu
-     */
     public function updateItem(string $id, array $updates, ?string $menu = null): self
     {
         $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
@@ -315,9 +256,6 @@ class MenuBuilder
         return $this;
     }
 
-    /**
-     * Ottieni statistiche sui menu
-     */
     public function getStats(): array
     {
         return [
@@ -334,20 +272,14 @@ class MenuBuilder
         ];
     }
 
-    /**
-     * Trasforma e processa gli elementi del menu
-     */
     protected function transformItems(array $items): Collection
     {
         return collect($items)
             ->map([$this, 'processMenuItem'])
-            ->filter() // Rimuove elementi false/null dai filtri
-            ->values(); // Re-index array
+            ->filter()
+            ->values();
     }
 
-    /**
-     * Determina il tipo di elemento del menu
-     */
     protected function determineItemType(array $item): string
     {
         if (isset($item['dropdown'])) {

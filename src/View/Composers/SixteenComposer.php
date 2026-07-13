@@ -11,7 +11,7 @@ use Themes\Sixteen\Services\MenuBuilder;
 /**
  * View Composer per il tema Sixteen
  *
-use Themes\Sixteen\Services\MenuBuilder;
+use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
 
 /**
@@ -23,7 +23,7 @@ use Themes\Sixteen\Events\BuildingSixteenMenu;
 class SixteenComposer
 {
     public function __construct(
-        protected MenuBuilder $menuBuilder
+        protected MenuBuilderAction $menuBuilder
     ) {}
 
     /**

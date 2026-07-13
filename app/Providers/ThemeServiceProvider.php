@@ -13,10 +13,10 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
 use Themes\Sixteen\Filters\ActiveMenuFilter;
 use Themes\Sixteen\Filters\GateMenuFilter;
 use Themes\Sixteen\Filters\HrefMenuFilter;
-use Themes\Sixteen\Services\CieAuthService;
-use Themes\Sixteen\Services\MenuBuilder;
-use Themes\Sixteen\Services\SpidAuthService;
-use Themes\Sixteen\Services\ThemeService;
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Actions\MenuBuilderAction;
+use Themes\Sixteen\Actions\SpidAuthAction;
+use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\View\Composers\SixteenComposer;
 
 /**
@@ -108,14 +108,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerMenuSystem(): void
     {
         // Singleton per il Menu Builder
-        $this->app->singleton(MenuBuilder::class, function ($app) {
-            $filters = $app->tagged('sixteen.menu.filters');
-
-            return new MenuBuilder($filters);
-        });
+        $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction());
 
         // Alias per backward compatibility
-        $this->app->alias(MenuBuilder::class, 'sixteen.menu');
+        $this->app->alias(MenuBuilderAction::class, 'sixteen.menu');
     }
 
     /**
@@ -125,11 +121,11 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Theme Service con dependency injection del MenuBuilder
         $this->app->singleton('sixteen.theme', function ($app) {
-            return new ThemeService($app[MenuBuilder::class]);
+            return new ThemeAdapter();
         });
 
         // Alias per il ThemeService
-        $this->app->alias('sixteen.theme', ThemeService::class);
+        $this->app->alias('sixteen.theme', ThemeAdapter::class);
     }
 
     /**
@@ -159,18 +155,18 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerAuthServices(): void
     {
         // Register SPID Auth Service
-        $this->app->singleton(SpidAuthService::class, function ($app) {
-            return new SpidAuthService;
+        $this->app->singleton(SpidAuthAction::class, function ($app) {
+            return new SpidAuthAction;
         });
 
         // Register CIE Auth Service
-        $this->app->singleton(CieAuthService::class, function ($app) {
-            return new CieAuthService;
+        $this->app->singleton(CieAuthAction::class, function ($app) {
+            return new CieAuthAction;
         });
 
         // Aliases for easier access
-        $this->app->alias(SpidAuthService::class, 'sixteen.spid');
-        $this->app->alias(CieAuthService::class, 'sixteen.cie');
+        $this->app->alias(SpidAuthAction::class, 'sixteen.spid');
+        $this->app->alias(CieAuthAction::class, 'sixteen.cie');
     }
 
     /**
