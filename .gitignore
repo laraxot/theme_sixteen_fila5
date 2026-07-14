@@ -77,3 +77,6 @@ components
 layouts
 agentdb.rvf
 ruvector.db
+.cursor/
+.windsurf/
+.devcontainer/
