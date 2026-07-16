@@ -61,7 +61,7 @@ Main_files/
 *.orig
 *.rej
 
-# Forbidden module/theme-tree folders (see docs/wiki/rules/no-forbidden-tree-folders.md)
+# AI/TOOL SCAFFOLD — must never exist in module/theme tree (see docs/wiki/rules/module-theme-root-cleanup.md, Rule 5)
 # Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
 _docs/
 scripts/
