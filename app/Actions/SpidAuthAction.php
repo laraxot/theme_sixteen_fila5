@@ -97,7 +97,7 @@ class SpidAuthAction
         }
 
         $decodedResponse = base64_decode($samlResponse);
-        $responseDoc = new DOMDocument;
+        $responseDoc = new DOMDocument();
         $responseDoc->loadXML($decodedResponse);
 
         $this->validateSamlResponse($responseDoc);

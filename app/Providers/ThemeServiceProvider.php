@@ -7,16 +7,16 @@ namespace Themes\Sixteen\Providers;
 use Illuminate\Support\Facades\Blade;
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Actions\MenuBuilderAction;
+use Themes\Sixteen\Actions\SpidAuthAction;
+use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
 use Themes\Sixteen\Console\Commands\SixteenPublishCommand;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
 use Themes\Sixteen\Filters\ActiveMenuFilter;
 use Themes\Sixteen\Filters\GateMenuFilter;
 use Themes\Sixteen\Filters\HrefMenuFilter;
-use Themes\Sixteen\Actions\CieAuthAction;
-use Themes\Sixteen\Actions\MenuBuilderAction;
-use Themes\Sixteen\Actions\SpidAuthAction;
-use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\View\Composers\SixteenComposer;
 
 /**
@@ -156,12 +156,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Register SPID Auth Service
         $this->app->singleton(SpidAuthAction::class, function ($app) {
-            return new SpidAuthAction;
+            return new SpidAuthAction();
         });
 
         // Register CIE Auth Service
         $this->app->singleton(CieAuthAction::class, function ($app) {
-            return new CieAuthAction;
+            return new CieAuthAction();
         });
 
         // Aliases for easier access

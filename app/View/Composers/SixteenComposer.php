@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
-use Themes\Sixteen\Events\BuildingSixteenMenu;
 use Themes\Sixteen\Actions\MenuBuilderAction;
+use Themes\Sixteen\Events\BuildingSixteenMenu;
 
 /**
  * View Composer per il tema Sixteen
