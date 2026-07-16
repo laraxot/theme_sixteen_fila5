@@ -20,8 +20,7 @@ class BuildingSixteenMenu
     public function __construct(
         public MenuBuilderAction $menuBuilder,
         public string $location
-    ) {
-    }
+    ) {}
 
     /**
      * Aggiunge elementi al menu corrente in base alla location

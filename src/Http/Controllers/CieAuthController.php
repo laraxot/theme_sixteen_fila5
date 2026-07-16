@@ -11,10 +11,10 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Themes\Sixteen\Actions\CieAuthAction;
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
-use Themes\Sixteen\Actions\CieAuthAction;
 
 /**
  * Controller per l'autenticazione CIE.
@@ -25,8 +25,7 @@ class CieAuthController extends Controller
 {
     public function __construct(
         protected CieAuthAction $cieService
-    ) {
-    }
+    ) {}
 
     /**
      * Reindirizza a CIE per l'autenticazione web.

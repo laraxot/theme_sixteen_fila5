@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Models\Municipal;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 abstract class MunicipalBaseModel extends Model
 {
-    /** @use HasFactory<\Illuminate\Database\Eloquent\Factories\Factory<static>> */
+    /** @use HasFactory<Factory<static>> */
     use HasFactory;
 }
