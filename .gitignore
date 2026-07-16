@@ -1,82 +1,84 @@
-# Node.js
+# Dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
+vendor/
+
+# Lockfiles (managed at monorepo root)
 package-lock.json
 yarn.lock
 
-# Vendor (per PHP, Composer, ecc.)
-vendor/
-
-# Build outputs (per progetti frontend, React, Angular, Vue, ecc.)
+# Build outputs
 build/
 dist/
+test-results/
 
-
-# Cache e temporary files
+# Cache / temp
 .cache/
 tmp/
 temp/
+docs/cache/
 
-# IDEs e editor (Visual Studio Code, JetBrains, ecc.)
-.vscode/
-.idea/
-
-# Sistema operativo (macOS, Windows, Linux)
-.DS_Store
-Thumbs.db
-*.bak
-
-# Log files
-*.log
-
-# Environment files
+# Environment
 .env
 .env.local
 .env.*.local
 
-# Documentation Cache (siti generati da strumenti come Jekyll, Hugo, ecc.)
-docs/cache/
+# Logs
+*.log
+npm-debug.log
+yarn-error.log
 
-# Git-specific
-.git-blame-ignore-revs
+# OS
+.DS_Store
+Thumbs.db
 
-# Standard ignores (auto)
+# Editors / AI tool workspaces
+.vscode/
+.idea/
+.cursor/
+.windsurf/
+.claude-flow
+.supermemory
+agentdb.rvf
+ruvector.db
+
+# Stray browser-saved-page dump (not theme source, keep out of history)
+Main_files/
+
+# Backups / stray artifacts
+*.bak
 *.old
 *.old1
+*.backup
+*.backup.*
 *.bakcup
-*.backup
-*.backup.*
-*.backup
-*.backup
-*.backup.*
-*.backup
-*.backup.*
-_docs/
 
-# Second brain: no-docs-archive (wiki) — non tracciare albero legacy docs/archive/
-docs/archive/
-# Copie residue da merge/rebase o editor (mai committare — es. `.agent~HEAD`, `*.md~head`)
+# Merge/rebase leftovers — never commit
 *~HEAD
 *~BASE
 *~LOCAL
 *~REMOTE
+*~head
 *.orig
 *.rej
-*~head
 
-.c*
-.claude-flow
-.supermemory
-bmad
-Main_files
-test-results
-laravel
-.supermemory
-components
-layouts
-agentdb.rvf
-ruvector.db
-.cursor/
-.windsurf/
+# Forbidden module/theme-tree folders (see docs/wiki/rules/no-forbidden-tree-folders.md)
+# Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
+_docs/
+scripts/
+bashscripts/
+docs/archive/
+docs/archived/
+docs/legacy/
+docs/workbench/
+.circleci/
+.claude-audit/
+tests/.claude-audit/
+_bmad-output/
 .devcontainer/
+.kilocode/
+.kiro/
+.ralph/
+tests/AuditCoverage/
+
+# Git internals
+.git-blame-ignore-revs
