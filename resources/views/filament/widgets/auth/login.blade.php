@@ -49,7 +49,7 @@
             class="w-full"
             wire:loading.attr="disabled"
         >
-            {{ __('user::auth.login.submit') }}
+            {{ __('user::auth.login.submit.text') }}
         </x-filament::button>
     </form>
 </div>
