@@ -1,3 +1,9 @@
+## [1.0.0-dev.4](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.3...theme-sixteen-v1.0.0-dev.4) (2026-08-27)
+
+### Bug Fixes
+
+* remove leftover merge conflict markers and disable git-lfs filter in .gitattributes ([e4d51e3](https://github.com/laraxot/theme_sixteen_fila5/commit/e4d51e3cfeac6ecb2a9dd40e2f114c3c42f5fe77))
+
 ## [1.0.0-dev.3](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.2...theme-sixteen-v1.0.0-dev.3) (2026-08-27)
 
 ### Features
