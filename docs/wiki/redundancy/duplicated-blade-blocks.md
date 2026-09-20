@@ -51,6 +51,9 @@ Examples of content-hash collisions:
 - Epic [#90](https://github.com/laraxot/base_fixcity_fila5/issues/90) (main redundancy tracker)
 - Previous static scan already flagged many of these files
 - Inventario tecnico trasversale: [`audit-profondo-ridondanze-holistic.md`](../../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md)
+<<<<<<< .merge_file_3k67fp
+- Scan byte-identical aggiornato: [`byte-identical-files-static-scan.md`](../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md)
+=======
 - Scan byte-identical aggiornato: [`byte-identical-files-static-scan.md`](../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md)
 =======
 <<<<<<< HEAD
@@ -63,3 +66,4 @@ Examples of content-hash collisions:
 - Scan byte-identical aggiornato: [`byte-identical-files-static-scan.md`](../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md)
 >>>>>>> a931b1c (.)
 >>>>>>> laraxot/dev
+>>>>>>> .merge_file_dtL4fX
