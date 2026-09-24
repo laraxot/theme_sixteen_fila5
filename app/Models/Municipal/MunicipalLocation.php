@@ -4,13 +4,23 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+<<<<<<< HEAD
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+=======
+<<<<<<< HEAD
+>>>>>>> 9e18142 (.)
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Themes\Sixteen\Support\FrontofficeUrl;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
+>>>>>>> 464cfc5 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -38,11 +48,27 @@ use Illuminate\Support\Str;
  * @property string|null $province
  * @property string|null $region
  * @property string|null $country
+<<<<<<< HEAD
  * @property array{lat?: float, lng?: float}|null $coordinates
  * @property string|null $floor
  * @property string|null $room
  * @property array<array-key, mixed>|null $building_info
  * @property array<string, list<array{open?: string, close?: string}>>|null $opening_hours
+=======
+<<<<<<< HEAD
+ * @property array|null $coordinates
+ * @property string|null $floor
+ * @property string|null $room
+ * @property array|null $building_info
+ * @property array|null $opening_hours
+=======
+ * @property array<string, mixed>|null $coordinates
+ * @property string|null $floor
+ * @property string|null $room
+ * @property array<string, mixed>|null $building_info
+ * @property array<string, mixed>|null $opening_hours
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
  * @property bool $public_access
  * @property bool $appointment_required
  * @property string|null $appointment_url
@@ -51,12 +77,22 @@ use Illuminate\Support\Str;
  * @property string|null $pec
  * @property string|null $fax
  * @property string|null $website
+<<<<<<< HEAD
  * @property array<array-key, mixed>|null $directions
  * @property array<string, mixed>|null $parking_info
  * @property array<int, mixed>|null $public_transport
  * @property array<string, mixed>|null $accessibility_info
  * @property array<int, mixed>|null $facilities
  * @property array<array-key, mixed>|null $equipment
+=======
+<<<<<<< HEAD
+ * @property array|null $directions
+ * @property array|null $parking_info
+ * @property array|null $public_transport
+ * @property array|null $accessibility_info
+ * @property array|null $facilities
+ * @property array|null $equipment
+>>>>>>> 9e18142 (.)
  * @property int|null $capacity
  * @property array<array-key, mixed>|null $services_available
  * @property array<array-key, mixed>|null $staff_info
@@ -64,7 +100,27 @@ use Illuminate\Support\Str;
  * @property array<array-key, mixed>|null $emergency_contacts
  * @property array<array-key, mixed>|null $safety_info
  * @property string|null $image
+<<<<<<< HEAD
  * @property array<int, mixed>|null $gallery
+=======
+ * @property array|null $gallery
+=======
+ * @property array<string, mixed>|null $directions
+ * @property array<string, mixed>|null $parking_info
+ * @property array<string, mixed>|null $public_transport
+ * @property array<string, mixed>|null $accessibility_info
+ * @property array<string, mixed>|null $facilities
+ * @property array<string, mixed>|null $equipment
+ * @property int|null $capacity
+ * @property array<string, mixed>|null $services_available
+ * @property array<string, mixed>|null $staff_info
+ * @property array<string, mixed>|null $manager_info
+ * @property array<string, mixed>|null $emergency_contacts
+ * @property array<string, mixed>|null $safety_info
+ * @property string|null $image
+ * @property array<string, mixed>|null $gallery
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
  * @property string|null $virtual_tour_url
  * @property string|null $map_embed
  * @property string|null $place_id
@@ -73,6 +129,7 @@ use Illuminate\Support\Str;
  * @property bool $is_headquarters
  * @property bool $is_accessible
  * @property int $priority_level
+<<<<<<< HEAD
  * @property array<array-key, mixed>|null $metadata
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -89,13 +146,38 @@ use Illuminate\Support\Str;
  * @property-read Collection<int, OrganizationalUnit> $organizationalUnits
  * @property-read Collection<int, MunicipalService> $services
  * @property-read Collection<int, MunicipalEvent> $events
+=======
+<<<<<<< HEAD
+ * @property array|null $metadata
+=======
+ * @property array<string, mixed>|null $metadata
+>>>>>>> 464cfc5 (.)
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, OrganizationalUnit> $organizationalUnits
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalService> $services
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $events
+>>>>>>> 9e18142 (.)
  */
+<<<<<<< HEAD
 class MunicipalLocation extends Model
 {
     /** @use HasFactory<Factory<self>> */
     use HasFactory, SoftDeletes;
 
     /**
+=======
+class MunicipalLocation extends MunicipalBaseModel
+{
+    use SoftDeletes;
+
+    /**
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+>>>>>>> 464cfc5 (.)
      * Tipologie di location secondo AGID
      */
     public const LOCATION_TYPES = [
@@ -245,9 +327,16 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Relazione con i punti di contatto
+<<<<<<< HEAD
      *
      * @return MorphMany<ContactPoint, $this>
+=======
+=======
+     * @return MorphMany<ContactPoint, $this>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function contacts(): MorphMany
     {
@@ -255,9 +344,16 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Relazione con le unità organizzative
+<<<<<<< HEAD
      *
      * @return BelongsToMany<OrganizationalUnit, $this>
+=======
+=======
+     * @return BelongsToMany<OrganizationalUnit, $this>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -265,9 +361,16 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Relazione con i servizi erogati
+<<<<<<< HEAD
      *
      * @return BelongsToMany<MunicipalService, $this>
+=======
+=======
+     * @return BelongsToMany<MunicipalService, $this>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function services(): BelongsToMany
     {
@@ -275,9 +378,16 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Relazione con gli eventi che si svolgono nella sede
+<<<<<<< HEAD
      *
      * @return HasMany<MunicipalEvent, $this>
+=======
+=======
+     * @return HasMany<MunicipalEvent, $this>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function events(): HasMany
     {
@@ -285,78 +395,164 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Scope per sedi attive
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeActive(Builder $query): Builder
+=======
+    public function scopeActive($query)
+=======
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per sedi attive
+     */
+    public function scopeActive(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('is_active', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per sedi pubbliche
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopePublic(Builder $query): Builder
+=======
+    public function scopePublic($query)
+=======
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per sedi pubbliche
+     */
+    public function scopePublic(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('is_public', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per sedi accessibili
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeAccessible(Builder $query): Builder
+=======
+    public function scopeAccessible($query)
+=======
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per sedi accessibili
+     */
+    public function scopeAccessible(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('is_accessible', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per tipologia di sede
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeOfType(Builder $query, string $type): Builder
+=======
+    public function scopeOfType($query, string $type)
+=======
+     *
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per tipologia di sede
+     */
+    public function scopeOfType(Builder $query, string $type): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('location_type', $type);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per categoria
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeInCategory(Builder $query, string $category): Builder
+=======
+    public function scopeInCategory($query, string $category)
+=======
+     *
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per categoria
+     */
+    public function scopeInCategory(Builder $query, string $category): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('category', $category);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per sedi principali
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeHeadquarters(Builder $query): Builder
+=======
+    public function scopeHeadquarters($query)
+=======
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per sedi principali
+     */
+    public function scopeHeadquarters(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('is_headquarters', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope ordinati per priorità
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeOrdered(Builder $query): Builder
+=======
+    public function scopeOrdered($query)
+=======
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope ordinati per priorità
+     */
+    public function scopeOrdered(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->orderByDesc('is_headquarters')
             ->orderByDesc('priority_level')
@@ -364,12 +560,25 @@ class MunicipalLocation extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Scope per ricerca geografica
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeNearby(Builder $query, float $lat, float $lng, float $radiusKm = 10): Builder
+=======
+    public function scopeNearby($query, float $lat, float $lng, float $radiusKm = 10)
+=======
+     *
+     * @param  Builder<MunicipalLocation>  $query
+     * @return Builder<MunicipalLocation>
+     * Scope per ricerca geografica
+     */
+    public function scopeNearby(Builder $query, float $lat, float $lng, float $radiusKm = 10): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->whereRaw(
             '(6371 * acos(cos(radians(?)) * cos(radians(JSON_EXTRACT(coordinates, "$.lat"))) * cos(radians(JSON_EXTRACT(coordinates, "$.lng")) - radians(?)) + sin(radians(?)) * sin(radians(JSON_EXTRACT(coordinates, "$.lat"))))) <= ?',
@@ -379,8 +588,16 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene gli orari di apertura formattati
+<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<int, array<string, mixed>>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedOpeningHours(): array
     {
@@ -401,20 +618,44 @@ class MunicipalLocation extends Model
             'sunday' => 'Domenica',
         ];
 
+<<<<<<< HEAD
         return collect($days)
+<<<<<<< HEAD
             ->mapWithKeys(function (string $day) use ($dayNames, $openingHours): array {
                 $hours = $openingHours[$day] ?? [];
+=======
+=======
+        $formatted = collect($days)
+>>>>>>> 464cfc5 (.)
+            ->mapWithKeys(function ($day) use ($dayNames) {
+                $hours = $this->opening_hours[$day] ?? null;
+>>>>>>> 9e18142 (.)
 
                 return [$dayNames[$day] => $hours];
             })
             ->filter()
+<<<<<<< HEAD
             ->toArray();
+=======
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
+>>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene le informazioni sui mezzi pubblici
+<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<int, array<string, mixed>>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedPublicTransport(): array
     {
@@ -424,8 +665,17 @@ class MunicipalLocation extends Model
             return [];
         }
 
+<<<<<<< HEAD
         return collect($publicTransport)
             ->map(function (mixed $transport): mixed {
+=======
+<<<<<<< HEAD
+        return collect($this->public_transport)
+=======
+        $formatted = collect($this->public_transport)
+>>>>>>> 464cfc5 (.)
+            ->map(function ($transport) {
+>>>>>>> 9e18142 (.)
                 if (is_string($transport)) {
                     return ['type' => 'bus', 'line' => $transport];
                 }
@@ -433,13 +683,28 @@ class MunicipalLocation extends Model
                 return $transport;
             })
             ->groupBy('type')
+<<<<<<< HEAD
             ->toArray();
+=======
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
+>>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene le informazioni sull'accessibilità
+<<<<<<< HEAD
      *
      * @return array<string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedAccessibilityInfo(): array
     {
@@ -465,8 +730,16 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene le facilities disponibili
+<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<int, array<string, mixed>>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedFacilities(): array
     {
@@ -476,21 +749,45 @@ class MunicipalLocation extends Model
             return [];
         }
 
+<<<<<<< HEAD
         return collect($facilities)
             ->map(function (mixed $facility): mixed {
+=======
+<<<<<<< HEAD
+        return collect($this->facilities)
+=======
+        $formatted = collect($this->facilities)
+>>>>>>> 464cfc5 (.)
+            ->map(function ($facility) {
+>>>>>>> 9e18142 (.)
                 if (is_string($facility)) {
                     return ['name' => $facility, 'available' => true];
                 }
 
                 return $facility;
             })
+<<<<<<< HEAD
             ->toArray();
+=======
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
+>>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene i servizi disponibili formattati
+<<<<<<< HEAD
      *
      * @return array<array-key, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<int, array<string, mixed>>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedServicesAvailable(): array
     {
@@ -500,23 +797,53 @@ class MunicipalLocation extends Model
             return [];
         }
 
+<<<<<<< HEAD
         return collect($servicesAvailable)
             ->mapWithKeys(function (mixed $available, int|string $service): array {
                 if (is_numeric($service) && is_string($available)) {
                     // Array semplice: il valore è il nome del servizio
+=======
+<<<<<<< HEAD
+        return collect($this->services_available)
+            ->mapWithKeys(function ($available, $service) {
+                if (is_numeric($service)) {
+                    // Array semplice
+>>>>>>> 9e18142 (.)
                     return [$available => true];
+=======
+        $formatted = collect($this->services_available)
+            ->mapWithKeys(function ($available, $service) {
+                if (is_numeric($service)) {
+                    // Array semplice
+                    return [(string) $available => true];
+>>>>>>> 464cfc5 (.)
                 }
 
                 // Array associativo, o valore non stringa in un array semplice
                 return [(string) $service => $available];
             })
+<<<<<<< HEAD
             ->toArray();
+=======
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
+>>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene le informazioni sui parcheggi
+<<<<<<< HEAD
      *
      * @return array<string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedParkingInfo(): array
     {
@@ -541,8 +868,16 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene la galleria immagini formattata
+<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<int, array<string, mixed>>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getFormattedGallery(): array
     {
@@ -552,8 +887,17 @@ class MunicipalLocation extends Model
             return [];
         }
 
+<<<<<<< HEAD
         return collect($gallery)
             ->map(function (mixed $image): mixed {
+=======
+<<<<<<< HEAD
+        return collect($this->gallery)
+=======
+        $formatted = collect($this->gallery)
+>>>>>>> 464cfc5 (.)
+            ->map(function ($image) {
+>>>>>>> 9e18142 (.)
                 if (is_string($image)) {
                     return [
                         'path' => $image,
@@ -563,16 +907,35 @@ class MunicipalLocation extends Model
                     ];
                 }
 
+<<<<<<< HEAD
                 if (! is_array($image)) {
                     return $image;
                 }
 
+=======
+<<<<<<< HEAD
+>>>>>>> 9e18142 (.)
                 return array_merge([
                     'url' => isset($image['path']) && is_string($image['path']) ? asset('storage/'.$image['path']) : null,
                     'alt' => $this->name,
                 ], $image);
             })
             ->toArray();
+=======
+                return is_array($image)
+                    ? array_merge([
+                        'url' => isset($image['path']) && is_string($image['path'])
+                            ? asset('storage/'.$image['path'])
+                            : null,
+                        'alt' => $this->name,
+                    ], $image)
+                    : [];
+            })
+            ->values()->all();
+
+        /** @var array<int, array<string, mixed>> $formatted */
+        return $formatted;
+>>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -597,6 +960,12 @@ class MunicipalLocation extends Model
         }
 
         foreach ($todayHours as $period) {
+<<<<<<< HEAD
+=======
+            if (! is_array($period)) {
+                continue;
+            }
+>>>>>>> 464cfc5 (.)
             if (isset($period['open']) && isset($period['close'])) {
                 if ($currentTime >= $period['open'] && $currentTime <= $period['close']) {
                     return true;
@@ -621,11 +990,27 @@ class MunicipalLocation extends Model
 
         $earthRadius = 6371; // km
 
+<<<<<<< HEAD
         $latDelta = deg2rad($latitude - $lat);
         $lngDelta = deg2rad($longitude - $lng);
 
         $a = sin($latDelta / 2) * sin($latDelta / 2) +
              cos(deg2rad($lat)) * cos(deg2rad($latitude)) *
+=======
+<<<<<<< HEAD
+        $latDelta = deg2rad($this->latitude - $lat);
+        $lngDelta = deg2rad($this->longitude - $lng);
+
+        $a = sin($latDelta / 2) * sin($latDelta / 2) +
+             cos(deg2rad($lat)) * cos(deg2rad($this->latitude)) *
+=======
+        $latDelta = deg2rad((float) ($this->latitude ?? 0.0) - $lat);
+        $lngDelta = deg2rad($this->longitude - $lng);
+
+        $a = sin($latDelta / 2) * sin($latDelta / 2) +
+             cos(deg2rad($lat)) * cos(deg2rad((float) ($this->latitude ?? 0.0))) *
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
              sin($lngDelta / 2) * sin($lngDelta / 2);
 
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
@@ -635,8 +1020,16 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene le informazioni complete della sede
+<<<<<<< HEAD
      *
      * @return array<string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function getLocationDetails(): array
     {
@@ -689,8 +1082,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per il nome del tipo di location
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function locationTypeName(): Attribute
     {
@@ -701,8 +1102,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per il nome della categoria
+<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function categoryName(): Attribute
     {
@@ -713,8 +1122,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per l'indirizzo completo
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function fullAddress(): Attribute
     {
@@ -745,8 +1162,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per verificare se ha coordinate GPS
+<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function hasCoordinates(): Attribute
     {
@@ -757,8 +1182,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per la latitudine
+<<<<<<< HEAD
      *
      * @return Attribute<float|null, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<float|null, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function latitude(): Attribute
     {
@@ -769,8 +1202,16 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per la longitudine
+<<<<<<< HEAD
      *
      * @return Attribute<float|null, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<float|null, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function longitude(): Attribute
     {
@@ -781,20 +1222,40 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per l'URL della sede
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function url(): Attribute
     {
         return Attribute::make(
+<<<<<<< HEAD
             get: fn () => route('municipal.locations.show', $this->slug)
+=======
+            get: fn () => FrontofficeUrl::path('/vivere-il-comune/luoghi/'.$this->slug)
+>>>>>>> 464cfc5 (.)
         );
     }
 
     /**
      * Accessor per l'URL di Google Maps
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string|null, never>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function googleMapsUrl(): Attribute
     {
@@ -814,13 +1275,29 @@ class MunicipalLocation extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
+<<<<<<< HEAD
      *
      * @return Attribute<string, string>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<mixed, mixed>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     protected function name(): Attribute
     {
         return Attribute::make(
+<<<<<<< HEAD
             set: function (string $value): string {
+=======
+            set: function ($value) {
+<<<<<<< HEAD
+=======
+                $value = (string) $value;
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -839,14 +1316,32 @@ class MunicipalLocation extends Model
         parent::boot();
 
         // Genera slug se mancante
+<<<<<<< HEAD
         static::creating(function (self $model): void {
+=======
+<<<<<<< HEAD
+        static::creating(function ($model): void {
+>>>>>>> 9e18142 (.)
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
+=======
+        static::creating(function (MunicipalLocation $model): void {
+            if (empty($model->slug)) {
+                $model->slug = Str::slug((string) $model->name);
+>>>>>>> 464cfc5 (.)
             }
         });
 
         // Assicura unicità dello slug
+<<<<<<< HEAD
         static::creating(function (self $model): void {
+=======
+<<<<<<< HEAD
+        static::creating(function ($model): void {
+=======
+        static::creating(function (MunicipalLocation $model): void {
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -857,7 +1352,15 @@ class MunicipalLocation extends Model
         });
 
         // Set default values
+<<<<<<< HEAD
         static::creating(function (self $model): void {
+=======
+<<<<<<< HEAD
+        static::creating(function ($model): void {
+=======
+        static::creating(function (MunicipalLocation $model): void {
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
             if (is_null($model->priority_level)) {
                 $model->priority_level = $model->is_headquarters ? 5 : 1;
             }
