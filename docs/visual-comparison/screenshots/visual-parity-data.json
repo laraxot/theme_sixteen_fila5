@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "page": "segnalazione-04-conferma",
+      "status": "complete",
+      "localHeight": 2613,
+      "localStatus": "ok",
+      "refHeight": 2301,
+      "refStatus": "ok",
+      "heightDiff": 312,
+      "parity": 86
+    },
+    {
+      "page": "segnalazione-01-privacy",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 1938,
+      "refStatus": "ok",
+      "heightDiff": 240,
+      "parity": 88
+    }
+  ],
+  "completed": [
+    {
+      "page": "segnalazione-01-privacy",
+      "status": "complete",
+      "localHeight": 1698,
+      "localStatus": "ok",
+      "refHeight": 1938,
+      "refStatus": "ok",
+      "heightDiff": 240,
+      "parity": 88
+    },
+    {
+      "page": "segnalazione-04-conferma",
+      "status": "complete",
+      "localHeight": 2613,
+      "localStatus": "ok",
+      "refHeight": 2301,
+      "refStatus": "ok",
+      "heightDiff": 312,
+      "parity": 86
+    }
+  ],
+  "errors": [],
+  "generated": "2026-04-06T19:43:36.327Z"
+}
