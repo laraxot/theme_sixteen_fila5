@@ -44,7 +44,7 @@ class SpidAuthAction
     public function execute(): void {}
 
     /**
-     * @return array<string, SpidProvider>
+     * @return array<string, array<string, string>>
      */
     public function getProviders(): array
     {
@@ -99,20 +99,20 @@ class SpidAuthAction
      */
     public function processCallback(Request $request): array
     {
-        $samlResponse = $request->input('SAMLResponse');
-        $relayState = $request->input('RelayState');
+        $samlResponse = $request->string('SAMLResponse')->toString();
+        $relayState = $request->string('RelayState')->toString();
 
         if (! is_string($samlResponse) || $samlResponse === '') {
             throw new Exception('SAMLResponse mancante');
         }
 
-        if (! $relayState || $relayState !== Session::get('spid.request_id')) {
+        if ($relayState === '' || $relayState !== Session::get('spid.request_id')) {
             throw new Exception('RelayState non valido');
         }
 
         $decodedResponse = base64_decode($samlResponse, true);
         if ($decodedResponse === '') {
-            throw new Exception('SAMLResponse vuota');
+            throw new Exception('SAMLResponse non decodificabile');
         }
 
         $responseDoc = new DOMDocument();
@@ -266,21 +266,31 @@ class SpidAuthAction
                 'logo' => 'tim-logo.svg',
             ],
         ];
+
+        $configured = config('spid.providers');
+
+        $this->providers = is_array($configured) ? $this->normalizeProviders($configured) : $default;
     }
 
     /**
-     * @param  array<array-key, mixed>  $values
+     * @param  array<array-key, mixed>  $configured
+     * @return array<string, array<string, string>>
      */
-    protected function arrayString(array $values, string $key): string
+    protected function normalizeProviders(array $configured): array
     {
-        $value = $values[$key] ?? null;
+        $normalized = [];
 
-        return is_string($value) ? $value : '';
-    }
+        foreach ($configured as $key => $provider) {
+            if (! is_string($key) || ! is_array($provider)) {
+                continue;
+            }
 
-    protected function configString(string $key, string $default): string
-    {
-        $value = config($key);
+            $entry = [];
+            foreach ($provider as $field => $value) {
+                if (is_string($field) && is_string($value)) {
+                    $entry[$field] = $value;
+                }
+            }
 
         return is_string($value) ? $value : $default;
     }
@@ -291,7 +301,7 @@ class SpidAuthAction
     }
 
     /**
-     * @param  SpidProvider  $provider
+     * @param  array<string, string>  $provider
      */
     protected function buildSamlAuthRequest(string $requestId, array $provider, int $level): string
     {
@@ -318,7 +328,7 @@ class SpidAuthAction
     }
 
     /**
-     * @param  SpidProvider  $provider
+     * @param  array<string, string>  $provider
      */
     protected function buildSamlLogoutRequest(string $requestId, string $nameId, string $sessionIndex, array $provider): string
     {
@@ -378,6 +388,8 @@ class SpidAuthAction
                     $attributes[$name] = $valueNode->nodeValue;
                 }
             }
+
+            $attributes[$name] = $valueNodes->item(0)?->nodeValue;
         }
 
         return [
