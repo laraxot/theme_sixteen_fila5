@@ -49,11 +49,7 @@
             class="w-full"
             wire:loading.attr="disabled"
         >
-<<<<<<< HEAD
             {{ __('user::auth.login.submit') }}
-=======
-            {{ __('user::auth.login.submit.text') }}
->>>>>>> laraxot/dev
         </x-filament::button>
     </form>
 </div>

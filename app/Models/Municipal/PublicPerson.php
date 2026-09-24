@@ -445,15 +445,9 @@ class PublicPerson extends Model
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): ?float {
                 if (! $this->is_in_office) {
                     return null;
-=======
-            get: function (): void {
-                if (! $this->is_in_office) {
-                    return;
->>>>>>> laraxot/dev
                 }
 
                 return $this->end_date?->diffInDays(now()) ?? null;

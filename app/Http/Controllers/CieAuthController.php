@@ -11,17 +11,10 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-<<<<<<< HEAD
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
 use Themes\Sixteen\Actions\CieAuthAction;
-=======
-use Themes\Sixteen\Actions\CieAuthAction;
-use Themes\Sixteen\Events\CieAuthenticated;
-use Themes\Sixteen\Events\CieLoggedOut;
-use Themes\Sixteen\Models\User;
->>>>>>> laraxot/dev
 
 /**
  * Controller per l'autenticazione CIE

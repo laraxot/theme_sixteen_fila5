@@ -10,17 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Servizio comunale prenotabile (tema Sixteen).
  *
-<<<<<<< HEAD
  * @property int         $id
  * @property string      $name
  * @property bool        $is_active
  * @property bool        $requires_appointment
-=======
- * @property int $id
- * @property string $name
- * @property bool $is_active
- * @property bool $requires_appointment
->>>>>>> laraxot/dev
  */
 class Service extends Model
 {
