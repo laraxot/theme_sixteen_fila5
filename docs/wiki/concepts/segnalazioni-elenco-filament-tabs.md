@@ -3,8 +3,22 @@ title: "Segnalazioni elenco — tab Design Comuni su /it (Alpine.js)"
 type: concept
 status: active
 created: 2026-05-28
+<<<<<<< HEAD
 updated: 2026-05-29
 tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+tags: [filament, tabs, ticket-list]
+=======
+updated: 2026-05-29
+tags: [tabs, design-comuni, alpine, segnalazioni-elenco]
+>>>>>>> Stashed changes
+=======
+updated: 2026-05-29
+tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 related:
   - ../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
@@ -31,7 +45,19 @@ Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/desig
 
 ## CSS
 
+<<<<<<< HEAD
 Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs`.
+=======
+Skin Design Comuni in `style-apply.css` — selettore `.segnalazioni-elenco .nav-tabs`.
+>>>>>>> Stashed changes
+=======
+Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
 ## Riferimenti
 

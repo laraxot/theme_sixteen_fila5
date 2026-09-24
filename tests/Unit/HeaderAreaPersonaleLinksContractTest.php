@@ -2,9 +2,16 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Tests\TestCase;
+=======
+<<<<<<< HEAD
+>>>>>>> 9e18142 (.)
 use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
 use Themes\Sixteen\Actions\Url\NormalizeStoredFrontofficeUrlAction;
+=======
+use Themes\Sixteen\Support\FrontofficeUrl;
+>>>>>>> 464cfc5 (.)
 
 use function Safe\file_get_contents;
 
@@ -14,8 +21,13 @@ uses(TestCase::class);
  * Contratto header area personale: named route Folio verificate (folio:list), no wrapper path custom.
  */
 test('FrontofficeUrl e autoloadabile per nav CMS', function (): void {
+<<<<<<< HEAD
     expect(class_exists(BuildLocalizedFrontofficePathAction::class))->toBeTrue();
     expect(class_exists(NormalizeStoredFrontofficeUrlAction::class))->toBeTrue();
+=======
+    expect(class_exists(FrontofficeUrl::class))->toBeTrue();
+    expect(method_exists(FrontofficeUrl::class, 'fromStoredUrl'))->toBeTrue();
+>>>>>>> 464cfc5 (.)
 });
 
 test('user-dropdown usa named route Folio verificate', function (): void {
@@ -88,14 +100,30 @@ test('bootstrap-italia header riusa partial canonici area personale', function (
 test('nav partials localizzano url da header.json via fromStoredUrl', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     foreach (['nav-primary.blade.php', 'nav-secondary.blade.php'] as $file) {
+<<<<<<< HEAD
         $html = file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
+=======
+        $html = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
+<<<<<<< HEAD
+>>>>>>> 9e18142 (.)
         expect($html)->toContain('$headerFolioUrl');
+=======
+        expect($html)->toContain('FrontofficeUrl::fromStoredUrl');
+>>>>>>> 464cfc5 (.)
         expect($html)->not->toContain('href="/it/');
     }
 });
 
 test('FrontofficeUrl non espone wrapper personalArea', function (): void {
+<<<<<<< HEAD
     $php = file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php.bak');
+=======
+<<<<<<< HEAD
+    $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php.bak');
+=======
+    $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php');
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
     expect($php)->not->toContain('personalAreaServices');
     expect($php)->not->toContain('personalAreaNotifications');

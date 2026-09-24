@@ -13,8 +13,18 @@ interface MenuFilterInterface
     /**
      * Filtra/trasforma un elemento del menu
      *
+<<<<<<< HEAD
      * @param  array<array-key, mixed>  $item  Elemento del menu da processare
      * @return array<array-key, mixed>|false Array processato o false per rimuovere l'elemento
+=======
+<<<<<<< HEAD
+     * @param  array  $item  Elemento del menu da processare
+     * @return array|false Array processato o false per rimuovere l'elemento
+=======
+     * @param  array<string, mixed>  $item  Elemento del menu da processare
+     * @return array<string, mixed>|false Array processato o false per rimuovere l'elemento
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public function filter(array $item): array|false;
 }

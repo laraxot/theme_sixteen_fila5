@@ -11,10 +11,29 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< .merge_file_XvAjfd
+=======
+>>>>>>> 464cfc5 (.)
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Events\CieAuthenticated;
+use Themes\Sixteen\Events\CieLoggedOut;
+use Themes\Sixteen\Models\User;
+<<<<<<< HEAD
+=======
+>>>>>>> 9e18142 (.)
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
 use Themes\Sixteen\Actions\CieAuthAction;
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_DDoq0e
+=======
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
 /**
  * Controller per l'autenticazione CIE
@@ -25,7 +44,20 @@ class CieAuthController extends Controller
 {
     public function __construct(
         protected CieAuthAction $cieService
+<<<<<<< HEAD
     ) {}
+=======
+<<<<<<< HEAD
+<<<<<<< .merge_file_XvAjfd
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> .merge_file_DDoq0e
+=======
+    ) {}
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
     /**
      * Reindirizza a CIE per l'autenticazione web
