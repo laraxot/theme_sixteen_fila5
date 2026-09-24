@@ -1,95 +1,82 @@
-# Dependencies
+# Node.js
 node_modules/
-vendor/
-
-# Lockfiles (managed at monorepo root)
+npm-debug.log
+yarn-error.log
 package-lock.json
 yarn.lock
 
-# Build outputs
+# Vendor (per PHP, Composer, ecc.)
+vendor/
+
+# Build outputs (per progetti frontend, React, Angular, Vue, ecc.)
 build/
 dist/
-test-results/
 
-# Cache / temp
+
+# Cache e temporary files
 .cache/
 tmp/
 temp/
-docs/cache/
 
-# Environment
+# IDEs e editor (Visual Studio Code, JetBrains, ecc.)
+.vscode/
+.idea/
+
+# Sistema operativo (macOS, Windows, Linux)
+.DS_Store
+Thumbs.db
+*.bak
+
+# Log files
+*.log
+
+# Environment files
 .env
 .env.local
 .env.*.local
 
-# Logs
-*.log
-npm-debug.log
-yarn-error.log
+# Documentation Cache (siti generati da strumenti come Jekyll, Hugo, ecc.)
+docs/cache/
 
-# OS
-.DS_Store
-Thumbs.db
+# Git-specific
+.git-blame-ignore-revs
 
-# Editors / AI tool workspaces
-.vscode/
-.idea/
-.cursor/
-.windsurf/
-.claude-flow
-.supermemory
-agentdb.rvf
-ruvector.db
-
-# Stray browser-saved-page dump (not theme source, keep out of history)
-Main_files/
-
-# Backups / stray artifacts
-*.bak
+# Standard ignores (auto)
 *.old
 *.old1
+*.bakcup
 *.backup
 *.backup.*
-*.bakcup
+*.backup
+*.backup
+*.backup.*
+*.backup
+*.backup.*
+_docs/
 
-# Merge/rebase leftovers — never commit
+# Second brain: no-docs-archive (wiki) — non tracciare albero legacy docs/archive/
+docs/archive/
+# Copie residue da merge/rebase o editor (mai committare — es. `.agent~HEAD`, `*.md~head`)
 *~HEAD
 *~BASE
 *~LOCAL
 *~REMOTE
-*~head
 *.orig
 *.rej
+*~head
 
-# AI/TOOL SCAFFOLD — must never exist in module/theme tree (see docs/wiki/rules/module-theme-root-cleanup.md, Rule 5)
-# Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
-_docs/
-scripts/
-bashscripts/
-docs/archive/
-docs/archived/
-docs/legacy/
-docs/workbench/
-.circleci/
-.claude-audit/
-tests/.claude-audit/
-_bmad-output/
-.devcontainer/
-.kilocode/
-.kiro/
-.ralph/
-tests/AuditCoverage/
-
-# Git internals
-.git-blame-ignore-revs
-
-# Laraxot — IDE folders forbidden at module/theme root (see module-theme-root-hygiene)
+.c*
+.claude-flow
+.supermemory
+bmad
+Main_files
+test-results
+laravel
+.supermemory
+components
+layouts
+agentdb.rvf
+ruvector.db
 .cursor/
-.devcontainer/
-.vscode/
 .windsurf/
-
-# Laraxot — quality tool configs forbidden in module/theme root (use laravel/phpinsights.php, laravel/rector.php)
-phpinsights.php
-rector.php
-storage/
+.devcontainer/

@@ -12,6 +12,7 @@ class ThemeAdapter
 
     protected string $version = '1.0.0';
 
+
     public function getName(): string
     {
         return $this->themeName;
