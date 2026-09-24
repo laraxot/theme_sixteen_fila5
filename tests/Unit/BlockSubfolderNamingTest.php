@@ -8,8 +8,6 @@ use Themes\Sixteen\Actions\Block\IsLegacyBlockCategoryFolderAction;
 use Themes\Sixteen\Actions\Block\ListInvalidBlockCategoryFoldersAction;
 use Themes\Sixteen\Datas\BlockCategoryRegistryData;
 
-uses(Tests\TestCase::class);
-
 $blocksRoot = dirname(__DIR__, 2).'/resources/views/components/blocks';
 
 test('blocks subfolders use allowed tailwind or flowbite names', function () use ($blocksRoot): void {
