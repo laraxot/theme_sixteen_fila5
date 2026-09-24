@@ -1,3 +1,9 @@
+## [1.0.0-dev.9](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.8...theme-sixteen-v1.0.0-dev.9) (2026-09-24)
+
+### Bug Fixes
+
+* remove LFS configuration from .gitattributes to align with project standards ([ba26ec3](https://github.com/laraxot/theme_sixteen_fila5/commit/ba26ec3744c16cab1a6c1a189f51fc3c2ff686b4))
+
 ## [1.0.0-dev.8](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.7...theme-sixteen-v1.0.0-dev.8) (2026-09-24)
 
 ### Bug Fixes
