@@ -110,12 +110,25 @@ class SpidAuthAction
             throw new Exception('RelayState non valido');
         }
 
+<<<<<<< HEAD
         $decodedResponse = base64_decode($samlResponse, true);
         if ($decodedResponse === '') {
             throw new Exception('SAMLResponse non decodificabile');
         }
 
         $responseDoc = new DOMDocument();
+=======
+        $decodedResponse = base64_decode($samlResponse);
+<<<<<<< HEAD
+<<<<<<< .merge_file_jvPsck
+        $responseDoc = new DOMDocument();
+=======
+        $responseDoc = new DOMDocument;
+>>>>>>> .merge_file_07TFJO
+=======
+        $responseDoc = new DOMDocument();
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
         $responseDoc->loadXML($decodedResponse);
 
         $this->validateSamlResponse($responseDoc);

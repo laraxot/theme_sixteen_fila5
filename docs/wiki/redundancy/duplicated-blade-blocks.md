@@ -4,11 +4,26 @@ type: redundancy
 owner: Themes/Sixteen
 severity: medium-high
 created: 2026-05-21
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 updated: 2026-05-25
 related:
   - ../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md
   - ../../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md
 tags: [redundancy, blade]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a931b1c (.)
+=======
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 ---
 
 # Duplicated Blade Blocks (Content-Identical Components)
@@ -37,7 +52,23 @@ Examples of content-hash collisions:
 3. Remove the duplicated copies.
 
 ## Related
+<<<<<<< HEAD
+- Epic [#90](https://github.com/laraxot/base_fixcity_fila5/issues/90) (main redundancy tracker)
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+- Issue #90 (main redundancy tracker)
+>>>>>>> 9e18142 (.)
+- Previous static scan already flagged many of these files
+- Inventario tecnico trasversale: [`audit-profondo-ridondanze-holistic.md`](../../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md)
+- Scan byte-identical aggiornato: [`byte-identical-files-static-scan.md`](../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md)
+<<<<<<< HEAD
+=======
+>>>>>>> a931b1c (.)
+=======
 - Epic [#90](https://github.com/laraxot/base_fixcity_fila5/issues/90) (main redundancy tracker)
 - Previous static scan already flagged many of these files
 - Inventario tecnico trasversale: [`audit-profondo-ridondanze-holistic.md`](../../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md)
 - Scan byte-identical aggiornato: [`byte-identical-files-static-scan.md`](../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md)
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)

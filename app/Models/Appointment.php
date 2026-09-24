@@ -4,14 +4,25 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
+<<<<<<< HEAD
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+=======
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Carbon;
+>>>>>>> 464cfc5 (.)
 use Modules\User\Models\User;
 
 /**
@@ -23,9 +34,16 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
+<<<<<<< HEAD
  * @property Carbon|null $appointment_date
  * @property Carbon|null $start_time
  * @property Carbon|null $end_time
+=======
+<<<<<<< HEAD
+ * @property \Carbon\Carbon|null $appointment_date
+ * @property \Carbon\Carbon|null $start_time
+ * @property \Carbon\Carbon|null $end_time
+>>>>>>> 9e18142 (.)
  * @property string $status
  * @property string|null $purpose
  * @property string|null $notes
@@ -68,6 +86,44 @@ class Appointment extends Model
     /**
      * Tipi di servizio supportati
      */
+=======
+ * @property Carbon|null $appointment_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
+ * @property string $status
+ * @property string|null $purpose
+ * @property string|null $notes
+ * @property array<int, string>|null $required_documents
+ * @property string|null $confirmation_code
+ * @property bool $reminder_sent
+ * @property string|null $cancellation_reason
+ * @property array<string, mixed>|null $metadata
+ * @property Carbon|null $cancelled_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ *
+ * @property-read User|null $user
+ * @property-read Citizen|null $citizen
+ * @property-read Office|null $office
+ * @property-read Service|null $service
+ */
+class Appointment extends Model
+{
+    /** @use HasFactory<\Illuminate\Database\Eloquent\Factories\Factory<Appointment>> */
+    use HasFactory, SoftDeletes;
+
+    public const STATUS_PENDING = 'pending';
+
+    public const STATUS_CONFIRMED = 'confirmed';
+
+    public const STATUS_COMPLETED = 'completed';
+
+    public const STATUS_CANCELLED = 'cancelled';
+
+    public const STATUS_NO_SHOW = 'no_show';
+
+>>>>>>> 464cfc5 (.)
     public const SERVICE_ANAGRAFE = 'anagrafe';
 
     public const SERVICE_TRIBUTI = 'tributi';
@@ -80,6 +136,10 @@ class Appointment extends Model
 
     protected $table = 'sixteen_appointments';
 
+<<<<<<< HEAD
+=======
+    /** @var list<string> */
+>>>>>>> 464cfc5 (.)
     protected $fillable = [
         'user_id',
         'service_id',
@@ -98,6 +158,10 @@ class Appointment extends Model
         'metadata',
     ];
 
+<<<<<<< HEAD
+=======
+    /** @var array<string, string> */
+>>>>>>> 464cfc5 (.)
     protected $casts = [
         'appointment_date' => 'date',
         'start_time' => 'datetime',
@@ -105,6 +169,7 @@ class Appointment extends Model
         'required_documents' => 'array',
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
+<<<<<<< HEAD
     ];
 
     /**
@@ -112,75 +177,127 @@ class Appointment extends Model
      *
      * @return BelongsTo<User, $this>
      */
+=======
+        'cancelled_at' => 'datetime',
+    ];
+
+    /** @return BelongsTo<User, $this> */
+>>>>>>> 464cfc5 (.)
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+<<<<<<< HEAD
     /**
      * Relazione con il cittadino (se diverso dall'utente)
      *
      * @return BelongsTo<Citizen, $this>
      */
+=======
+    /** @return BelongsTo<Citizen, $this> */
+>>>>>>> 464cfc5 (.)
     public function citizen(): BelongsTo
     {
         return $this->belongsTo(Citizen::class);
     }
 
+<<<<<<< HEAD
     /**
      * Relazione con l'ufficio
      *
      * @return BelongsTo<Office, $this>
      */
+=======
+    /** @return BelongsTo<Office, $this> */
+>>>>>>> 464cfc5 (.)
     public function office(): BelongsTo
     {
         return $this->belongsTo(Office::class);
     }
 
+<<<<<<< HEAD
     /**
      * Relazione con il servizio
      *
      * @return BelongsTo<Service, $this>
      */
+=======
+    /** @return BelongsTo<Service, $this> */
+>>>>>>> 464cfc5 (.)
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per appuntamenti futuri
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeUpcoming(Builder $query): Builder
+=======
+    public function scopeUpcoming($query)
+=======
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
+     */
+    public function scopeUpcoming(Builder $query): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
             ->where('status', self::STATUS_CONFIRMED);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per appuntamenti di un utente
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeForUser(Builder $query, int $userId): Builder
+=======
+    public function scopeForUser($query, $userId)
+=======
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
+     */
+    public function scopeForUser(Builder $query, int $userId): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('user_id', $userId);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per appuntamenti di un ufficio
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
+<<<<<<< HEAD
     public function scopeForOffice(Builder $query, int $officeId): Builder
+=======
+    public function scopeForOffice($query, $officeId)
+=======
+     * @param  Builder<Appointment>  $query
+     * @return Builder<Appointment>
+     */
+    public function scopeForOffice(Builder $query, int $officeId): Builder
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     {
         return $query->where('office_id', $officeId);
     }
 
+<<<<<<< HEAD
     /**
      * Verifica se l'appuntamento è cancellabile
      */
@@ -220,8 +337,49 @@ class Appointment extends Model
 
     /**
      * Array di stati validi
+<<<<<<< HEAD
      *
      * @return array<string, string>
+=======
+=======
+    public function getIsCancellableAttribute(): bool
+    {
+        $appointmentDate = $this->appointment_date;
+
+        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED], true)
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->greaterThan(now()->addHours(24));
+    }
+
+    public function getIsModifiableAttribute(): bool
+    {
+        $appointmentDate = $this->appointment_date;
+
+        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED], true)
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->greaterThan(now()->addHours(48));
+    }
+
+    public static function generateConfirmationCode(): string
+    {
+        return strtoupper(substr(md5(uniqid('', true)), 0, 8));
+    }
+
+    public function needsReminder(): bool
+    {
+        $appointmentDate = $this->appointment_date;
+
+        return ! $this->reminder_sent
+            && $this->status === self::STATUS_CONFIRMED
+            && $appointmentDate instanceof Carbon
+            && $appointmentDate->isTomorrow()
+            && now()->hour < 18;
+    }
+
+    /**
+     * @return array<string, string>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public static function getStatuses(): array
     {
@@ -235,9 +393,16 @@ class Appointment extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Array di tipi servizio
+<<<<<<< HEAD
      *
      * @return array<string, string>
+=======
+=======
+     * @return array<string, string>
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
      */
     public static function getServiceTypes(): array
     {
@@ -250,6 +415,7 @@ class Appointment extends Model
         ];
     }
 
+<<<<<<< HEAD
     /**
      * Formatta l'orario per display
      *
@@ -281,11 +447,64 @@ class Appointment extends Model
     {
         static::creating(function (self $appointment): void {
             if (empty($appointment->confirmation_code)) {
+=======
+    public function sendConfirmationNotification(): void
+    {
+        // Notifica email/SMS orchestrata da modulo owner (future Action).
+    }
+
+    /** @return Attribute<string, never> */
+    protected function timeSlot(): Attribute
+    {
+        return Attribute::make(
+            get: function (): string {
+                $start = $this->start_time;
+                $end = $this->end_time;
+
+                if (! $start instanceof Carbon || ! $end instanceof Carbon) {
+                    return '';
+                }
+
+                return $start->format('H:i').' - '.$end->format('H:i');
+            }
+        );
+    }
+
+    /** @return Attribute<int, never> */
+    protected function duration(): Attribute
+    {
+        return Attribute::make(
+            get: function (): int {
+                $start = $this->start_time;
+                $end = $this->end_time;
+
+                if (! $start instanceof Carbon || ! $end instanceof Carbon) {
+                    return 0;
+                }
+
+                return (int) $start->diffInMinutes($end);
+            }
+        );
+    }
+
+    protected static function booted(): void
+    {
+        static::creating(function (Appointment $appointment): void {
+            if ($appointment->confirmation_code === null || $appointment->confirmation_code === '') {
+>>>>>>> 464cfc5 (.)
                 $appointment->confirmation_code = self::generateConfirmationCode();
             }
         });
 
+<<<<<<< HEAD
         static::updating(function (self $appointment): void {
+=======
+<<<<<<< HEAD
+        static::updating(function ($appointment): void {
+=======
+        static::updating(function (Appointment $appointment): void {
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
             if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
                 $appointment->cancelled_at = now();
             }

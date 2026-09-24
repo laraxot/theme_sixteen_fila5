@@ -18,9 +18,18 @@ class SpidAuthenticated
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< HEAD
     /**
      * @param  array<string, mixed>  $spidAttributes
      */
+=======
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $spidAttributes
+     */
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     public function __construct(
         public UserContract $user,
         public array $spidAttributes
@@ -67,9 +76,18 @@ class SpidAuthenticated
     /**
      * Ottiene tutti gli attributi SPID ricevuti
      */
+<<<<<<< HEAD
     /**
      * @return array<string, mixed>
      */
+=======
+<<<<<<< HEAD
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
     public function getSpidAttributes(): array
     {
         return $this->spidAttributes;
@@ -77,6 +95,11 @@ class SpidAuthenticated
 
     /**
      * Ottiene attributi specifici per logging sicuro
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> 464cfc5 (.)
      */
     /**
      * @return array<string, mixed>
