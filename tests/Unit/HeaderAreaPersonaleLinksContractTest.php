@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-use Themes\Sixteen\Support\FrontofficeUrl;
+use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
+use Themes\Sixteen\Actions\Url\NormalizeStoredFrontofficeUrlAction;
 
 /**
  * Contratto header area personale: named route Folio verificate (folio:list), no wrapper path custom.
  */
 test('FrontofficeUrl e autoloadabile per nav CMS', function (): void {
-    expect(class_exists(FrontofficeUrl::class))->toBeTrue();
-    expect(method_exists(FrontofficeUrl::class, 'fromStoredUrl'))->toBeTrue();
+    expect(class_exists(BuildLocalizedFrontofficePathAction::class))->toBeTrue();
+    expect(class_exists(NormalizeStoredFrontofficeUrlAction::class))->toBeTrue();
 });
 
 test('user-dropdown usa named route Folio verificate', function (): void {
@@ -83,13 +84,13 @@ test('nav partials localizzano url da header.json via fromStoredUrl', function (
     $themeRoot = dirname(__DIR__, 2);
     foreach (['nav-primary.blade.php', 'nav-secondary.blade.php'] as $file) {
         $html = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
-        expect($html)->toContain('FrontofficeUrl::fromStoredUrl');
+        expect($html)->toContain('$headerFolioUrl');
         expect($html)->not->toContain('href="/it/');
     }
 });
 
 test('FrontofficeUrl non espone wrapper personalArea', function (): void {
-    $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php');
+    $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php.bak');
 
     expect($php)->not->toContain('personalAreaServices');
     expect($php)->not->toContain('personalAreaNotifications');
