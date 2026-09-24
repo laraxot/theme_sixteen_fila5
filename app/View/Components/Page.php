@@ -19,6 +19,12 @@ class Page extends Component
      *
      * @param  array<string, mixed>  $data
      */
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $data
+     */
+>>>>>>> 464cfc5 (.)
     public function __construct(
         public string $side = 'content',
         public string $slug = '',

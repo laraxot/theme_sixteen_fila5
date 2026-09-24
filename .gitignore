@@ -76,7 +76,10 @@ laravel
 components
 layouts
 agentdb.rvf
+<<<<<<< HEAD
 ruvector.db
 .cursor/
 .windsurf/
 .devcontainer/
+=======
+>>>>>>> 464cfc5 (.)

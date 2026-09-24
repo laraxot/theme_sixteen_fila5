@@ -11,10 +11,29 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< .merge_file_qsxJKQ
+=======
+>>>>>>> 464cfc5 (.)
+use Themes\Sixteen\Actions\SpidAuthAction;
+use Themes\Sixteen\Events\SpidAuthenticated;
+use Themes\Sixteen\Events\SpidLoggedOut;
+use Themes\Sixteen\Models\User;
+<<<<<<< HEAD
+=======
+>>>>>>> 9e18142 (.)
 use Themes\Sixteen\Events\SpidAuthenticated;
 use Themes\Sixteen\Events\SpidLoggedOut;
 use Themes\Sixteen\Models\User;
 use Themes\Sixteen\Actions\SpidAuthAction;
+<<<<<<< HEAD
+=======
+>>>>>>> .merge_file_UQFkEJ
+=======
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
 /**
  * Controller per l'autenticazione SPID
@@ -25,7 +44,20 @@ class SpidAuthController extends Controller
 {
     public function __construct(
         protected SpidAuthAction $spidService
+<<<<<<< HEAD
     ) {}
+=======
+<<<<<<< HEAD
+<<<<<<< .merge_file_qsxJKQ
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> .merge_file_UQFkEJ
+=======
+    ) {}
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
     /**
      * Reindirizza al provider SPID per l'autenticazione

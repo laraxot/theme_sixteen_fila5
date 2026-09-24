@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
+<<<<<<< HEAD
 use Illuminate\Contracts\View\View;
+=======
+<<<<<<< HEAD
+>>>>>>> 9e18142 (.)
 use Illuminate\Support\Facades\Blade;
+=======
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
+use Illuminate\View\View as ViewInstance;
+>>>>>>> 464cfc5 (.)
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
@@ -14,11 +24,21 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
 use Themes\Sixteen\Filters\ActiveMenuFilter;
 use Themes\Sixteen\Filters\GateMenuFilter;
 use Themes\Sixteen\Filters\HrefMenuFilter;
+<<<<<<< HEAD
 use Themes\Sixteen\Actions\CieAuthAction;
 use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\View\Composers\SixteenComposer;
+=======
+use Themes\Sixteen\Services\CieAuthService;
+use Themes\Sixteen\Services\MenuBuilder;
+use Themes\Sixteen\Services\SpidAuthService;
+use Themes\Sixteen\Services\ThemeService;
+use Themes\Sixteen\View\Composers\SixteenComposer;
+use function Safe\glob;
+use function Safe\realpath;
+>>>>>>> 464cfc5 (.)
 
 use function Safe\glob;
 use function Safe\realpath;
@@ -111,11 +131,27 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function registerMenuSystem(): void
     {
+<<<<<<< HEAD
         // Singleton per il Menu Builder
         $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction());
 
         // Alias per backward compatibility
         $this->app->alias(MenuBuilderAction::class, 'sixteen.menu');
+=======
+        $this->app->singleton(MenuBuilder::class, function (Application $app): MenuBuilder {
+            $filters = [];
+            foreach ($app->tagged('sixteen.menu.filters') as $filter) {
+                if ($filter instanceof MenuFilterInterface) {
+                    $filters[] = $filter;
+                }
+            }
+
+            return new MenuBuilder($filters);
+        });
+
+        // Alias per backward compatibility
+        $this->app->alias(MenuBuilder::class, 'sixteen.menu');
+>>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -124,12 +160,21 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerCoreServices(): void
     {
         // Theme Service con dependency injection del MenuBuilder
+<<<<<<< HEAD
         $this->app->singleton('sixteen.theme', function ($app) {
             return new ThemeAdapter();
         });
 
         // Alias per il ThemeService
         $this->app->alias('sixteen.theme', ThemeAdapter::class);
+=======
+        $this->app->singleton('sixteen.theme', function (Application $app): ThemeService {
+            return new ThemeService($app->make(MenuBuilder::class));
+        });
+
+        // Alias per il ThemeService
+        $this->app->alias('sixteen.theme', ThemeService::class);
+>>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -159,6 +204,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerAuthServices(): void
     {
         // Register SPID Auth Service
+<<<<<<< HEAD
         $this->app->singleton(SpidAuthAction::class, function ($app) {
             return new SpidAuthAction;
         });
@@ -171,6 +217,20 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         // Aliases for easier access
         $this->app->alias(SpidAuthAction::class, 'sixteen.spid');
         $this->app->alias(CieAuthAction::class, 'sixteen.cie');
+=======
+        $this->app->singleton(SpidAuthService::class, function ($app) {
+            return new SpidAuthService;
+        });
+
+        // Register CIE Auth Service
+        $this->app->singleton(CieAuthService::class, function ($app) {
+            return new CieAuthService;
+        });
+
+        // Aliases for easier access
+        $this->app->alias(SpidAuthService::class, 'sixteen.spid');
+        $this->app->alias(CieAuthService::class, 'sixteen.cie');
+>>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -179,7 +239,15 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerViewComposers(): void
     {
         // Composer per layout principali
+<<<<<<< HEAD
         $this->app->make('view')->composer([
+=======
+<<<<<<< HEAD
+        $this->app['view']->composer([
+=======
+        View::composer([
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
             'pub_theme::layouts.app',
             'pub_theme::layouts.guest',
             'pub_theme::layouts.guest-agid',
@@ -240,8 +308,17 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         Blade::componentNamespace($componentNamespace, 'pub_theme');
 
         // Register anonymous components (default + pub_theme namespace)
+<<<<<<< HEAD
         try {
             $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+=======
+        $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+<<<<<<< HEAD
+        if ($componentsPath !== false) {
+=======
+        if ($componentsPath !== '') {
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
             Blade::anonymousComponentPath($componentsPath);
             Blade::anonymousComponentPath($componentsPath, 'pub_theme');
         } catch (FilesystemException) {
@@ -269,11 +346,26 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerLayoutShortcuts(): void
     {
         // Registrazione dei layout shortcuts per facilitare l'uso
+<<<<<<< HEAD
         $this->app->make('view')->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
         // Enhanced composer per layout AGID-compliant
         $this->app->make('view')->composer('layouts.guest-agid', function (View $view): void {
             $themeService = app(ThemeAdapter::class);
+=======
+<<<<<<< HEAD
+        $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+
+        // Enhanced composer per layout AGID-compliant
+        $this->app['view']->composer('layouts.guest-agid', function ($view): void {
+            $themeService = app('sixteen.theme');
+=======
+        View::addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+
+        View::composer('layouts.guest-agid', function (ViewInstance $view): void {
+            $themeService = app(ThemeService::class);
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
 
             $view->with([
                 'theme_name' => 'Sixteen',
@@ -290,6 +382,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function loadConfigFrom(string $path, string $namespace): void
     {
+<<<<<<< HEAD
         if (! is_dir($path)) {
             return;
         }
@@ -307,6 +400,27 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
 
             $name = basename($file, '.php');
             $this->mergeConfigFrom($file, $namespace.'.'.$name);
+=======
+<<<<<<< HEAD
+        if (is_dir($path)) {
+            foreach (glob($path.'/*.php') as $file) {
+                $name = basename($file, '.php');
+                $this->mergeConfigFrom($file, $namespace.'.'.$name);
+            }
+=======
+        if (! is_dir($path)) {
+            return;
+        }
+
+        foreach (glob($path.'/*.php') as $file) {
+            if (! is_string($file)) {
+                continue;
+            }
+
+            $name = basename($file, '.php');
+            $this->mergeConfigFrom($file, $namespace.'.'.$name);
+>>>>>>> 464cfc5 (.)
+>>>>>>> 9e18142 (.)
         }
     }
 }
