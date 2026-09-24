@@ -98,7 +98,8 @@ class SpidAuthController extends Controller
             ]);
 
             // Redirect all'URL di ritorno
-            $returnUrl = Session::pull('spid.return_url', route('dashboard'));
+            $returnUrl = Session::pull('spid.return_url');
+            $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : route('dashboard');
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione SPID completata con successo.');
@@ -124,12 +125,17 @@ class SpidAuthController extends Controller
     {
         try {
             $user = Auth::user();
-            $userData = Session::get('spid.user_data');
-            $provider = Session::get('spid.provider');
+            $sessionUserData = Session::get('spid.user_data');
+            $userData = is_array($sessionUserData) ? $sessionUserData : null;
+            $sessionProvider = Session::get('spid.provider');
+            $provider = is_string($sessionProvider) ? $sessionProvider : null;
 
-            if ($user && $userData && $provider) {
+            if ($user !== null && $userData !== null && $provider !== null) {
                 // Se abbiamo i dati per il Single Logout, usiamoli
-                if (isset($userData['name_id']) && isset($userData['session_index'])) {
+                $nameId = $userData['name_id'] ?? null;
+                $sessionIndex = $userData['session_index'] ?? null;
+
+                if (is_string($nameId) && is_string($sessionIndex)) {
                     Log::info('SPID logout initiated', [
                         'user_id' => $user->id,
                         'provider' => $provider,
@@ -137,8 +143,8 @@ class SpidAuthController extends Controller
 
                     $logoutUrl = $this->spidService->getLogoutUrl(
                         $provider,
-                        $userData['name_id'],
-                        $userData['session_index']
+                        $nameId,
+                        $sessionIndex
                     );
 
                     // Effettua logout locale
@@ -161,7 +167,7 @@ class SpidAuthController extends Controller
             Session::invalidate();
             Session::regenerateToken();
 
-            if ($user && $userData) {
+            if ($user !== null && $userData !== null) {
                 event(new SpidLoggedOut($user, $userData));
             }
 
@@ -193,7 +199,7 @@ class SpidAuthController extends Controller
         try {
             // Processa la richiesta SLO
             $logoutRequest = $request->input('SAMLRequest');
-            $relayState = $request->input('RelayState');
+            $relayState = $request->string('RelayState')->toString();
 
             Log::info('SPID SLO received', [
                 'relay_state' => $relayState,
@@ -203,13 +209,16 @@ class SpidAuthController extends Controller
             // Effettua logout se l'utente è loggato
             if (Auth::check()) {
                 $user = Auth::user();
-                $userData = Session::get('spid.user_data', []);
+                $sessionUserData = Session::get('spid.user_data', []);
+                $userData = is_array($sessionUserData) ? $sessionUserData : [];
 
                 Auth::logout();
                 $this->spidService->logout();
                 Session::invalidate();
 
-                event(new SpidLoggedOut($user, $userData));
+                if ($user !== null) {
+                    event(new SpidLoggedOut($user, $userData));
+                }
             }
 
             // Genera response SLO
@@ -254,23 +263,33 @@ class SpidAuthController extends Controller
 
     /**
      * Trova o crea un utente basato sui dati SPID
+     *
+     * @param  array<string, mixed>  $attributes
      */
-    protected function findOrCreateUser(array $attributes): User
+    protected function findOrCreateUser(array $attributes): UserContract
     {
-        $fiscalCode = $attributes['fiscal_code'];
+        $fiscalCode = $attributes['fiscal_code'] ?? null;
 
-        if (empty($fiscalCode)) {
+        if (! is_string($fiscalCode) || $fiscalCode === '') {
             throw new \Exception('Codice fiscale mancante nei dati SPID');
         }
 
         // Cerca utente per codice fiscale
-        $user = User::where('fiscal_code', $fiscalCode)->first();
+        $userClass = XotData::make()->getUserClass();
+        $user = $userClass::where('fiscal_code', $fiscalCode)->first();
 
-        if ($user) {
+        if ($user instanceof UserContract) {
             // Aggiorna i dati se necessario
             $this->updateUserFromSpid($user, $attributes);
 
             return $user;
+        }
+
+        if ($user !== null) {
+            Log::error('SPID: existing user record does not implement UserContract', [
+                'user_class' => $user::class,
+                'fiscal_code' => $fiscalCode,
+            ]);
         }
 
         // Crea nuovo utente
@@ -279,36 +298,56 @@ class SpidAuthController extends Controller
 
     /**
      * Crea un nuovo utente dai dati SPID
+     *
+     * @param  array<string, mixed>  $attributes
      */
-    protected function createUserFromSpid(array $attributes): User
+    protected function createUserFromSpid(array $attributes): UserContract
     {
+        $fiscalCode = $attributes['fiscal_code'] ?? null;
+
+        if (! is_string($fiscalCode) || $fiscalCode === '') {
+            throw new \Exception('Codice fiscale mancante nei dati SPID');
+        }
+
+        $email = $attributes['email'] ?? null;
+        $emailIsValid = is_string($email) && $email !== '';
+
         $userData = [
-            'name' => $attributes['name'],
-            'surname' => $attributes['surname'],
-            'email' => $attributes['email'],
-            'fiscal_code' => $attributes['fiscal_code'],
-            'birth_date' => $attributes['birth_date'],
-            'birth_place' => $attributes['birth_place'],
-            'gender' => $attributes['gender'],
-            'mobile_phone' => $attributes['mobile'],
-            'address' => $attributes['address'],
-            'spid_provider' => $attributes['provider'],
+            'name' => $attributes['name'] ?? null,
+            'surname' => $attributes['surname'] ?? null,
+            'email' => $emailIsValid ? $email : null,
+            'fiscal_code' => $fiscalCode,
+            'birth_date' => $attributes['birth_date'] ?? null,
+            'birth_place' => $attributes['birth_place'] ?? null,
+            'gender' => $attributes['gender'] ?? null,
+            'mobile_phone' => $attributes['mobile'] ?? null,
+            'address' => $attributes['address'] ?? null,
+            'spid_provider' => $attributes['provider'] ?? null,
             'auth_method' => 'spid',
-            'email_verified_at' => $attributes['email'] ? now() : null,
+            'email_verified_at' => $emailIsValid ? now() : null,
         ];
 
         // Genera email temporanea se mancante
         if (empty($userData['email'])) {
-            $userData['email'] = 'spid.'.$attributes['fiscal_code'].'@noemail.local';
+            $userData['email'] = 'spid.'.$fiscalCode.'@noemail.local';
         }
 
-        return User::create($userData);
+        $userClass = XotData::make()->getUserClass();
+        $user = $userClass::create($userData);
+
+        if (! $user instanceof UserContract) {
+            throw new \Exception('La classe utente configurata non implementa UserContract');
+        }
+
+        return $user;
     }
 
     /**
      * Aggiorna un utente esistente con i dati SPID
+     *
+     * @param  array<string, mixed>  $attributes
      */
-    protected function updateUserFromSpid(User $user, array $attributes): void
+    protected function updateUserFromSpid(UserContract $user, array $attributes): void
     {
         $updateData = [];
 
@@ -317,7 +356,7 @@ class SpidAuthController extends Controller
             $updateData['name'] = $attributes['name'];
         }
 
-        if ($user->surname !== $attributes['surname']) {
+        if ($user->getAttribute('surname') !== $attributes['surname']) {
             $updateData['surname'] = $attributes['surname'];
         }
 
@@ -326,21 +365,19 @@ class SpidAuthController extends Controller
             $updateData['email_verified_at'] = now();
         }
 
-        if ($attributes['mobile'] && $user->mobile_phone !== $attributes['mobile']) {
+        if ($attributes['mobile'] && $user->getAttribute('mobile_phone') !== $attributes['mobile']) {
             $updateData['mobile_phone'] = $attributes['mobile'];
         }
 
         // Aggiorna provider se diverso
-        if ($user->spid_provider !== $attributes['provider']) {
+        if ($user->getAttribute('spid_provider') !== $attributes['provider']) {
             $updateData['spid_provider'] = $attributes['provider'];
         }
 
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
-        if (! empty($updateData)) {
-            $user->update($updateData);
-        }
+        $user->update($updateData);
     }
 
     /**
@@ -357,7 +394,7 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
-               '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+               '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.
@@ -378,7 +415,7 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
-               '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+               '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.
