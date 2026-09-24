@@ -6,16 +6,7 @@ namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
-<<<<<<< HEAD
 use Themes\Sixteen\Actions\MenuBuilderAction;
-=======
-
-/**
- * View Composer per il tema Sixteen
- *
-use Themes\Sixteen\Actions\MenuBuilderAction;
-use Themes\Sixteen\Events\BuildingSixteenMenu;
->>>>>>> laraxot/dev
 
 /**
  * View Composer per il tema Sixteen
@@ -40,12 +31,6 @@ class SixteenComposer
         // Costruzione dinamica dei menu tramite eventi
         $this->buildMenus();
 
-<<<<<<< HEAD
-=======
-        // Costruzione dinamica dei menu tramite eventi
-        $this->buildMenus();
-
->>>>>>> laraxot/dev
         // Inietta i dati nella vista
         $view->with([
             'sixteenConfig' => $config,
@@ -74,12 +59,6 @@ class SixteenComposer
         // Lancia eventi per permettere modifiche dinamiche
         $locations = ['slim_header', 'header', 'footer', 'footer_bar'];
 
-<<<<<<< HEAD
-=======
-        // Lancia eventi per permettere modifiche dinamiche
-        $locations = ['slim_header', 'header', 'footer', 'footer_bar'];
-
->>>>>>> laraxot/dev
         foreach ($locations as $location) {
             event(new BuildingSixteenMenu($this->menuBuilder, $location));
         }
@@ -104,21 +83,6 @@ class SixteenComposer
             $this->menuBuilder->addFooter($menuConfig['footer']);
         }
 
-<<<<<<< HEAD
-=======
-        if (isset($menuConfig['slim_header'])) {
-            $this->menuBuilder->addSlimHeader($menuConfig['slim_header']);
-        }
-
-        if (isset($menuConfig['header'])) {
-            $this->menuBuilder->addHeader($menuConfig['header']);
-        }
-
-        if (isset($menuConfig['footer'])) {
-            $this->menuBuilder->addFooter($menuConfig['footer']);
-        }
-
->>>>>>> laraxot/dev
         if (isset($menuConfig['footer_bar'])) {
             $this->menuBuilder->addFooterBar($menuConfig['footer_bar']);
         }

@@ -3,22 +3,8 @@ title: "Segnalazioni elenco — tab Design Comuni su /it (Alpine.js)"
 type: concept
 status: active
 created: 2026-05-28
-<<<<<<< HEAD
 updated: 2026-05-29
 tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
-=======
-<<<<<<< HEAD
-updated: 2026-05-29
-tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
-=======
-<<<<<<< Updated upstream
-tags: [filament, tabs, ticket-list]
-=======
-updated: 2026-05-29
-tags: [tabs, design-comuni, alpine, segnalazioni-elenco]
->>>>>>> Stashed changes
->>>>>>> laraxot/dev
->>>>>>> laraxot/dev
 related:
   - ../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
@@ -45,27 +31,11 @@ Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/desig
 
 ## CSS
 
-<<<<<<< HEAD
 Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
-=======
-<<<<<<< HEAD
-Skin Design Comuni in `style-apply.css` — selettori `.ticket-list .segnalazioni-fi-tabs` e `.segnalazioni-elenco .nav-tabs`.
-=======
-<<<<<<< Updated upstream
-Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs`.
-=======
-Skin Design Comuni in `style-apply.css` — selettore `.segnalazioni-elenco .nav-tabs`.
->>>>>>> Stashed changes
->>>>>>> laraxot/dev
->>>>>>> laraxot/dev
 
 ## Riferimenti
 
 - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
 - [STORY-065](../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md)
 - [filament-first-rule.md](../../../../../../docs/rules/filament-first-rule.md)
-<<<<<<< HEAD
 - `tailwindcss + alpinejs + lit + daisyui + filament`
-=======
-- `tailwindcss + alpinejs + lit + daisyui + filament`
->>>>>>> laraxot/dev

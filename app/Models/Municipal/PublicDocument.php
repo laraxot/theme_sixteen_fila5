@@ -729,15 +729,9 @@ class PublicDocument extends Model
     protected function formattedFileSize(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): ?string {
                 if (! $this->file_size) {
                     return null;
-=======
-            get: function (): void {
-                if (! $this->file_size) {
-                    return;
->>>>>>> laraxot/dev
                 }
 
                 $units = ['B', 'KB', 'MB', 'GB'];

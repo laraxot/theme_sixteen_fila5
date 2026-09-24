@@ -29,7 +29,6 @@ CHANGELOG.md export-ignore
 *.phar binary !filter
 *.db binary !filter
 *.sqlite binary !filter
-*.psd !text !filter !merge !diff
 *.png !text !filter !merge !diff
 *.svg !text !filter !merge !diff
 *.jpg !text !filter !merge !diff
