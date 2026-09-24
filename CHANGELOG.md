@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+## [1.0.0-dev.9](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.8...theme-sixteen-v1.0.0-dev.9) (2026-09-24)
+
+### Bug Fixes
+
+* remove LFS configuration from .gitattributes to align with project standards ([ba26ec3](https://github.com/laraxot/theme_sixteen_fila5/commit/ba26ec3744c16cab1a6c1a189f51fc3c2ff686b4))
+
 ## [1.0.0-dev.8](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.7...theme-sixteen-v1.0.0-dev.8) (2026-09-24)
 
 ### Bug Fixes
@@ -13,18 +18,6 @@
 
 * remove merge conflict markers and clean up constructor formatting in multiple files ([1709c88](https://github.com/laraxot/theme_sixteen_fila5/commit/1709c88eb568f6c67f867c24ec08f42337dc925e))
 * **Sixteen:** risolti i marker di conflitto reimmessi dal sync con laraxot/dev ([85ef56b](https://github.com/laraxot/theme_sixteen_fila5/commit/85ef56b1fbf43ddf129aa0a111c8b2baf7e49d19))
-=======
-## [1.0.0-dev.3](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.2...theme-sixteen-v1.0.0-dev.3) (2026-08-27)
-
-### Features
-
-* add UI components for resources, news, and feedback while documenting design parity analysis ([d81b922](https://github.com/laraxot/theme_sixteen_fila5/commit/d81b92218347171ef745bc157641d7ad0a66f30a))
-
-### Bug Fixes
-
-* add map rendering and fullscreen fixes, remove duplicate component import, and update asset manifest ([7589a86](https://github.com/laraxot/theme_sixteen_fila5/commit/7589a86db0a99d5aa987622b40462db1faae2d8c))
-* **map:** STORY-123 cluster hover-escape — no transform su .geo-cluster-wrapper ([84715db](https://github.com/laraxot/theme_sixteen_fila5/commit/84715dbc4474c3698c45003ba49895f586c59db0))
->>>>>>> laraxot/dev
 
 ## [1.0.0-dev.2](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.1...theme-sixteen-v1.0.0-dev.2) (2026-07-08)
 
