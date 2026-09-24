@@ -729,9 +729,9 @@ class PublicDocument extends Model
     protected function formattedFileSize(): Attribute
     {
         return Attribute::make(
-            get: function (): void {
+            get: function (): ?string {
                 if (! $this->file_size) {
-                    return;
+                    return null;
                 }
 
                 $units = ['B', 'KB', 'MB', 'GB'];
