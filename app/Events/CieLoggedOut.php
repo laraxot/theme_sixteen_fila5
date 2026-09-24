@@ -18,9 +18,6 @@ class CieLoggedOut
 {
     use Dispatchable, SerializesModels;
 
-    /**
-     * @param  array<string, mixed>  $cieAttributes
-     */
     public function __construct(
         public User $user,
         public array $cieAttributes
@@ -58,9 +55,6 @@ class CieLoggedOut
 
     /**
      * Ottiene attributi specifici per logging sicuro
-     */
-    /**
-     * @return array<string, mixed>
      */
     public function getLoggingData(): array
     {

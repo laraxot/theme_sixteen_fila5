@@ -97,7 +97,15 @@ class SpidAuthAction
         }
 
         $decodedResponse = base64_decode($samlResponse);
+<<<<<<< .merge_file_fdfRwD
         $responseDoc = new DOMDocument();
+=======
+<<<<<<< .merge_file_jvPsck
+        $responseDoc = new DOMDocument();
+=======
+        $responseDoc = new DOMDocument;
+>>>>>>> .merge_file_07TFJO
+>>>>>>> .merge_file_OH69nz
         $responseDoc->loadXML($decodedResponse);
 
         $this->validateSamlResponse($responseDoc);

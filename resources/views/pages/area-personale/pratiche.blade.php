@@ -4,10 +4,19 @@ declare(strict_types=1);
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+<<<<<<< .merge_file_nxfCl4
+=======
+use Modules\Fixcity\Actions\BuildAuthenticatedUserTicketsQueryAction;
+>>>>>>> .merge_file_BmNkUm
 
 name('area-personale.pratiche');
 middleware(['web', 'auth']);
 
+<<<<<<< .merge_file_nxfCl4
+=======
+$tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->paginate(15);
+
+>>>>>>> .merge_file_BmNkUm
 ?><x-layouts.app>
     <x-slot name="title">
         {{ __('pub_theme::ui.header_area_personale.my_practices.label') }}
@@ -23,6 +32,7 @@ middleware(['web', 'auth']);
                     </p>
                 </header>
 
+<<<<<<< .merge_file_nxfCl4
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <p class="text-muted">Questa pagina mostrerà le pratiche disponibili presto.</p>
@@ -32,3 +42,50 @@ middleware(['web', 'auth']);
         </div>
     </main>
 </x-layouts.app>
+=======
+                @if ($tickets->isEmpty())
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body p-4 p-lg-5 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-muted mb-3" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <p class="text-muted mb-3">
+                                {{ __('pub_theme::ui.header_area_personale.my_practices.empty', ['default' => 'Non hai ancora inviato nessuna segnalazione.']) }}
+                            </p>
+                            <a href="{{ route('segnalazioni') }}" class="btn btn-primary">
+                                {{ __('pub_theme::ui.header_area_personale.my_practices.new_report', ['default' => 'Invia una nuova segnalazione']) }}
+                            </a>
+                        </div>
+                    </div>
+                @else
+                    <div class="list-group shadow-sm" role="list">
+                        @foreach ($tickets as $ticket)
+                            <div class="list-group-item p-4" role="listitem">
+                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-start gap-2">
+                                    <div class="flex-grow-1">
+                                        <h2 class="h6 mb-1">{{ $ticket->name }}</h2>
+                                        @if ($ticket->content)
+                                            <p class="text-muted small mb-1">{{ \Illuminate\Support\Str::limit(strip_tags((string) $ticket->content), 140) }}</p>
+                                        @endif
+                                        <p class="text-muted small mb-0">
+                                            {{ __('pub_theme::ui.header_area_personale.my_practices.submitted_on', ['default' => 'Inviata il']) }}
+                                            {{ $ticket->created_at?->translatedFormat('d F Y') }}
+                                        </p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <x-pub_theme::data-display.badge.status :status="$ticket->status" />
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <div class="mt-4">
+                        {{ $tickets->links() }}
+                    </div>
+                @endif
+            </div>
+        </div>
+    </main>
+</x-layouts.app>
+>>>>>>> .merge_file_BmNkUm

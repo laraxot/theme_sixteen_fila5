@@ -5,8 +5,8 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use Themes\Sixteen\Http\Controllers\CieAuthController;
 use Themes\Sixteen\Http\Controllers\SpidAuthController;
-use Themes\Sixteen\Services\CieAuthService;
-use Themes\Sixteen\Services\SpidAuthService;
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Actions\SpidAuthAction;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,8 +91,8 @@ Route::prefix('sixteen/auth')
 
         // Status generale autenticazione digitale
         Route::get('digital-identity/status', function () {
-            $spidService = app(SpidAuthService::class);
-            $cieService = app(CieAuthService::class);
+            $spidService = app(SpidAuthAction::class);
+            $cieService = app(CieAuthAction::class);
 
             return response()->json([
                 'spid' => [
@@ -108,8 +108,8 @@ Route::prefix('sixteen/auth')
         })->name('digital-identity.status');
         // Logout universale (SPID o CIE)
         Route::post('digital-identity/logout', function () {
-            $spidService = app(SpidAuthService::class);
-            $cieService = app(CieAuthService::class);
+            $spidService = app(SpidAuthAction::class);
+            $cieService = app(CieAuthAction::class);
 
             if ($spidService->isAuthenticated()) {
                 return redirect()->route('spid.logout');

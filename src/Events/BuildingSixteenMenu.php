@@ -20,7 +20,16 @@ class BuildingSixteenMenu
     public function __construct(
         public MenuBuilderAction $menuBuilder,
         public string $location
+<<<<<<< .merge_file_CqbAx0
     ) {}
+=======
+<<<<<<< .merge_file_QBpwrb
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> .merge_file_LpvRCl
+>>>>>>> .merge_file_8svbps
 
     /**
      * Aggiunge elementi al menu corrente in base alla location

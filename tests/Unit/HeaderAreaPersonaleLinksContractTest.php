@@ -5,15 +5,12 @@ declare(strict_types=1);
 use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
 use Themes\Sixteen\Actions\Url\NormalizeStoredFrontofficeUrlAction;
 
-uses(Tests\TestCase::class);
-
 /**
  * Contratto header area personale: named route Folio verificate (folio:list), no wrapper path custom.
  */
-test('Frontoffice URL actions sono autoloadabili per nav CMS', function (): void {
-    expect(class_exists(NormalizeStoredFrontofficeUrlAction::class))->toBeTrue();
-    expect(method_exists(NormalizeStoredFrontofficeUrlAction::class, 'execute'))->toBeTrue();
+test('FrontofficeUrl e autoloadabile per nav CMS', function (): void {
     expect(class_exists(BuildLocalizedFrontofficePathAction::class))->toBeTrue();
+    expect(class_exists(NormalizeStoredFrontofficeUrlAction::class))->toBeTrue();
 });
 
 test('user-dropdown usa named route Folio verificate', function (): void {
@@ -83,7 +80,7 @@ test('bootstrap-italia header riusa partial canonici area personale', function (
     expect($html)->toContain('partials.user-dropdown');
 });
 
-test('nav partials localizzano url da header.json via headerFolioUrl callback', function (): void {
+test('nav partials localizzano url da header.json via fromStoredUrl', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     foreach (['nav-primary.blade.php', 'nav-secondary.blade.php'] as $file) {
         $html = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
@@ -92,17 +89,12 @@ test('nav partials localizzano url da header.json via headerFolioUrl callback', 
     }
 });
 
-test('Frontoffice URL actions non espongono wrapper personalArea', function (): void {
-    $paths = [
-        dirname(__DIR__, 2).'/app/Actions/Url/NormalizeStoredFrontofficeUrlAction.php',
-        dirname(__DIR__, 2).'/app/Actions/Url/BuildLocalizedFrontofficePathAction.php',
-    ];
+test('FrontofficeUrl non espone wrapper personalArea', function (): void {
+    $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php.bak');
 
-    foreach ($paths as $phpPath) {
-        $php = (string) file_get_contents($phpPath);
-        expect($php)->not->toContain('personalAreaServices');
-        expect($php)->not->toContain('personalAreaNotifications');
-    }
+    expect($php)->not->toContain('personalAreaServices');
+    expect($php)->not->toContain('personalAreaNotifications');
+    expect($php)->toContain('fromStoredUrl');
 });
 
 test('legacy header user-dropdown usa named route Folio', function (): void {

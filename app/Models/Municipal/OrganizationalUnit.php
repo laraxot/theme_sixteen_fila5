@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-use Illuminate\Database\Eloquent\Builder;
-use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
-
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -37,14 +36,14 @@ use Illuminate\Support\Str;
  * @property string|null $pec
  * @property string|null $phone
  * @property string|null $address
- * @property array<string, mixed>|null $office_hours
+ * @property array|null $office_hours
  * @property bool $is_active
  * @property bool $is_public
  * @property int $position
- * @property array<string, mixed>|null $competences
- * @property array<string, mixed>|null $services_provided
- * @property array<string, mixed>|null $accessibility_info
- * @property array<string, mixed>|null $metadata
+ * @property array|null $competences
+ * @property array|null $services_provided
+ * @property array|null $accessibility_info
+ * @property array|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
@@ -54,13 +53,11 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $allChildren
  */
-class OrganizationalUnit extends MunicipalBaseModel
+class OrganizationalUnit extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     /**
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Tipi di unità organizzative secondo AGID
      */
     public const TYPES = [
@@ -118,7 +115,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     ];
 
     /**
-     * @return BelongsTo<self, $this>
+     * Relazione con l'unità parent
      */
     public function parent(): BelongsTo
     {
@@ -126,7 +123,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return HasMany<self, $this>
+     * Relazione con le unità figlie
      */
     public function children(): HasMany
     {
@@ -134,7 +131,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return HasMany<self, $this>
+     * Relazione con tutti i discendenti
      */
     public function descendants(): HasMany
     {
@@ -142,7 +139,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return MorphMany<ContactPoint, $this>
+     * Relazione con i punti di contatto
      */
     public function contacts(): MorphMany
     {
@@ -150,7 +147,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return BelongsToMany<PublicPerson, $this>
+     * Relazione con le persone pubbliche
      */
     public function people(): BelongsToMany
     {
@@ -161,8 +158,6 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Relazione con i responsabili attuali
-     *
-     * @return BelongsToMany<PublicPerson, $this>
      */
     public function managers(): BelongsToMany
     {
@@ -173,7 +168,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return HasMany<MunicipalService, $this>
+     * Relazione con i servizi erogati
      */
     public function services(): HasMany
     {
@@ -181,7 +176,7 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @return BelongsToMany<MunicipalLocation, $this>
+     * Relazione con le location
      */
     public function locations(): BelongsToMany
     {
@@ -189,60 +184,47 @@ class OrganizationalUnit extends MunicipalBaseModel
     }
 
     /**
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Scope per unità attive
      */
-    public function scopeActive(Builder $query): Builder
+    public function scopeActive($query)
     {
         return $query->where('is_active', true);
     }
 
     /**
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Scope per unità pubbliche
      */
-    public function scopePublic(Builder $query): Builder
+    public function scopePublic($query)
     {
         return $query->where('is_public', true);
     }
 
     /**
-     *
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Scope per tipo di unità
      */
-    public function scopeOfType(Builder $query, string $type): Builder
+    public function scopeOfType($query, string $type)
     {
         return $query->where('type', $type);
     }
 
     /**
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Scope per unità radice (senza parent)
      */
-    public function scopeRoot(Builder $query): Builder
+    public function scopeRoot($query)
     {
         return $query->whereNull('parent_id');
     }
 
     /**
-     * @param  Builder<OrganizationalUnit>  $query
-     * @return Builder<OrganizationalUnit>
      * Scope ordinato per posizione
      */
-    public function scopeOrdered(Builder $query): Builder
+    public function scopeOrdered($query)
     {
         return $query->orderBy('position')->orderBy('name');
     }
 
     /**
      * Ottiene le competenze formattate
-     *
-     * @return array<int, array<string, mixed>>
      */
     public function getFormattedCompetences(): array
     {
@@ -250,7 +232,7 @@ class OrganizationalUnit extends MunicipalBaseModel
             return [];
         }
 
-        $formatted = collect($this->competences)
+        return collect($this->competences)
             ->map(function ($competence) {
                 if (is_string($competence)) {
                     return ['title' => $competence];
@@ -258,16 +240,11 @@ class OrganizationalUnit extends MunicipalBaseModel
 
                 return $competence;
             })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
+            ->toArray();
     }
 
     /**
      * Ottiene i servizi forniti formattati
-     *
-     * @return array<int, array<string, mixed>>
      */
     public function getFormattedServices(): array
     {
@@ -275,7 +252,7 @@ class OrganizationalUnit extends MunicipalBaseModel
             return [];
         }
 
-        $formatted = collect($this->services_provided)
+        return collect($this->services_provided)
             ->map(function ($service) {
                 if (is_string($service)) {
                     return ['name' => $service];
@@ -283,16 +260,11 @@ class OrganizationalUnit extends MunicipalBaseModel
 
                 return $service;
             })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
+            ->toArray();
     }
 
     /**
      * Ottiene gli orari di apertura formattati
-     *
-     * @return array<int, array<string, mixed>>
      */
     public function getFormattedOfficeHours(): array
     {
@@ -311,17 +283,14 @@ class OrganizationalUnit extends MunicipalBaseModel
             'sunday' => 'Domenica',
         ];
 
-        $formatted = collect($days)
+        return collect($days)
             ->mapWithKeys(function ($day) use ($dayNames) {
                 $hours = $this->office_hours[$day] ?? null;
 
                 return [$dayNames[$day] => $hours];
             })
             ->filter()
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
+            ->toArray();
     }
 
     /**
@@ -340,9 +309,6 @@ class OrganizationalUnit extends MunicipalBaseModel
         }
 
         foreach ($todayHours as $period) {
-            if (! is_array($period)) {
-                continue;
-            }
             if (isset($period['open']) && isset($period['close'])) {
                 if ($currentTime >= $period['open'] && $currentTime <= $period['close']) {
                     return true;
@@ -356,10 +322,8 @@ class OrganizationalUnit extends MunicipalBaseModel
     /**
      * Ottiene tutti gli antenati
      */
-    /** @return Collection<int, self> */
     public function getAncestors(): Collection
     {
-        /** @var Collection<int, self> $ancestors */
         $ancestors = collect();
         $current = $this->parent;
 
@@ -374,10 +338,8 @@ class OrganizationalUnit extends MunicipalBaseModel
     /**
      * Ottiene tutti i discendenti (recursivo)
      */
-    /** @return Collection<int, self> */
     public function getAllDescendants(): Collection
     {
-        /** @var Collection<int, self> $descendants */
         $descendants = collect();
 
         foreach ($this->children as $child) {
@@ -406,8 +368,6 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del tipo
-     *
-     * @return Attribute<string, never>
      */
     protected function typeName(): Attribute
     {
@@ -418,8 +378,6 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Accessor per il percorso gerarchico
-     *
-     * @return Attribute<string, never>
      */
     protected function hierarchyPath(): Attribute
     {
@@ -440,8 +398,6 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se ha figli
-     *
-     * @return Attribute<string, never>
      */
     protected function hasChildren(): Attribute
     {
@@ -452,8 +408,6 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Accessor per il livello gerarchico
-     *
-     * @return Attribute<int, never>
      */
     protected function level(): Attribute
     {
@@ -474,26 +428,21 @@ class OrganizationalUnit extends MunicipalBaseModel
 
     /**
      * Accessor per l'URL dell'unità
-     *
-     * @return Attribute<string, never>
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => app(BuildLocalizedFrontofficePathAction::class)->execute('/amministrazione/organizzazione/'.$this->slug)
+            get: fn () => route('municipal.organizational-units.show', $this->slug)
         );
     }
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
-     *
-     * @return Attribute<mixed, mixed>
      */
     protected function name(): Attribute
     {
         return Attribute::make(
             set: function ($value) {
-                $value = (string) $value;
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -512,22 +461,23 @@ class OrganizationalUnit extends MunicipalBaseModel
         parent::boot();
 
         // Auto-increment position nella stessa categoria
-        static::creating(function (OrganizationalUnit $model): void {
+        static::creating(function ($model): void {
             if (is_null($model->position)) {
-                $model->position = (int) (static::where('parent_id', $model->parent_id)
-                    ->where('type', $model->type)->max('position') ?? 0) + 1;
+                $model->position = static::where('parent_id', $model->parent_id)
+                    ->where('type', $model->type)
+                    ->max('position') + 1;
             }
         });
 
         // Genera slug se mancante
-        static::creating(function (OrganizationalUnit $model): void {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
-                $model->slug = Str::slug((string) $model->name);
+                $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function (OrganizationalUnit $model): void {
+        static::creating(function ($model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 

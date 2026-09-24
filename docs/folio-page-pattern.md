@@ -125,15 +125,8 @@ new class extends Component {
 | `<x-page>` | Carica blocchi CMS |
 | Modulo | Business logic |
 
-## Pagine applicative (non CMS shell)
-
-Per pagine con logica propria (`area-personale/pratiche`, `dashboard`, …): stesso contratto Volt + `PageSlugMiddleware`, ma **senza** `<x-page>` — la query/orchestrazione sta in `mount()`.
-
-Dettaglio: [folio-volt-app-pages.md](docs/wiki/concepts/folio-volt-app-pages.md).
-
 ## Collegamenti
 
 - [folio-route-params-mount.md](docs/wiki/concepts/folio-route-params-mount.md)
-- [folio-volt-app-pages.md](docs/wiki/concepts/folio-volt-app-pages.md)
 - [cms-x-page-data-bag-only.md](../../../docs/wiki/rules/cms-x-page-data-bag-only.md)
 - STORY-141 (solo anti-pattern `@volt` dinamico)
