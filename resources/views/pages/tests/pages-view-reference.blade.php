@@ -11,7 +11,6 @@ use Modules\Cms\Models\Page;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
 /** @var array */
-//$middleware=app(\Modules\Tenant\Actions\Config\ResolveTenantConfigValueAction::class)->execute('middleware');
 //$base_middleware=Arr::get($middleware,'base',[]);
 
 $base_middleware=[];

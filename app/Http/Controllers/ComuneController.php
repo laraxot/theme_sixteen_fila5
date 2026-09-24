@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -12,20 +11,22 @@ use Modules\Fixcity\Models\Ticket;
 
 class ComuneController extends Controller
 {
+    /**
+     * Homepage del comune
+     */
     public function homepage(): View
     {
-        $recentTickets = Ticket::query()
-            ->with(['owner'])
+        $recentTickets = Ticket::with(['user', 'status', 'priority'])
             ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
 
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.homepage';
-
-        return view($view, ['recentTickets' => $recentTickets]);
+        return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
     }
 
+    /**
+     * Pagina servizi
+     */
     public function servizi(): View
     {
         $services = [
@@ -67,21 +68,21 @@ class ComuneController extends Controller
             ],
         ];
 
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.servizi';
-
-        return view($view, compact('services'));
+        return view('sixteen::pages.comune.servizi', compact('services'));
     }
 
+    /**
+     * Pagina contatti
+     */
     public function contatti(): View
     {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.contatti';
-
-        return view($view);
+        return view('sixteen::pages.comune.contatti');
     }
 
-    public function sendContact(Request $request): RedirectResponse
+    /**
+     * Invia messaggio di contatto
+     */
+    public function sendContact(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'nome' => 'required|string|max:255',
@@ -91,9 +92,15 @@ class ComuneController extends Controller
             'messaggio' => 'required|string|max:1000',
         ]);
 
+        // Qui implementeresti l'invio dell'email
+        // Mail::to(config('comune.email'))->send(new ContactMessage($request->all()));
+
         return redirect()->back()->with('success', 'Messaggio inviato con successo!');
     }
 
+    /**
+     * Pagina documenti
+     */
     public function documenti(): View
     {
         $documenti = [
@@ -123,12 +130,12 @@ class ComuneController extends Controller
             ],
         ];
 
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.documenti';
-
-        return view($view, compact('documenti'));
+        return view('sixteen::pages.comune.documenti', compact('documenti'));
     }
 
+    /**
+     * Pagina eventi
+     */
     public function eventi(): View
     {
         $eventi = [
@@ -158,41 +165,38 @@ class ComuneController extends Controller
             ],
         ];
 
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.eventi';
-
-        return view($view, compact('eventi'));
+        return view('sixteen::pages.comune.eventi', compact('eventi'));
     }
 
+    /**
+     * Pagina anagrafe
+     */
     public function anagrafe(): View
     {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.anagrafe';
-
-        return view($view);
+        return view('sixteen::pages.comune.anagrafe');
     }
 
+    /**
+     * Pagina tributi
+     */
     public function tributi(): View
     {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.tributi';
-
-        return view($view);
+        return view('sixteen::pages.comune.tributi');
     }
 
+    /**
+     * Pagina urbanistica
+     */
     public function urbanistica(): View
     {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.urbanistica';
-
-        return view($view);
+        return view('sixteen::pages.comune.urbanistica');
     }
 
+    /**
+     * Pagina prenotazioni
+     */
     public function prenotazioni(): View
     {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.prenotazioni';
-
-        return view($view);
+        return view('sixteen::pages.comune.prenotazioni');
     }
 }

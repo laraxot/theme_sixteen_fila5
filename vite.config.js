@@ -29,7 +29,6 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/app-test.css',
                 'resources/js/app.js',
-                'resources/js/pages/home.js',
                 '../../Modules/Geo/resources/js/components/map-lit.js',
                 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
             ],
