@@ -18,9 +18,6 @@ class SpidLoggedOut
 {
     use Dispatchable, SerializesModels;
 
-    /**
-     * @param  array<string, mixed>  $spidAttributes
-     */
     public function __construct(
         public User $user,
         public array $spidAttributes
@@ -48,9 +45,6 @@ class SpidLoggedOut
 
     /**
      * Ottiene attributi specifici per logging sicuro
-     */
-    /**
-     * @return array<string, mixed>
      */
     public function getLoggingData(): array
     {
