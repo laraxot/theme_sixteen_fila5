@@ -7,23 +7,9 @@ use Filament\Notifications\Actions\Action;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
 use Livewire\Volt\Component;
-<<<<<<< HEAD
 use Modules\Cms\Http\Volt\LoginComponent;
 
 /** @var array */
-=======
-<<<<<<< HEAD
-use Modules\Cms\Http\Volt\LoginComponent;
-
-/** @var array */
-=======
-use Modules\Tenant\Services\TenantService;
-use Modules\Cms\Http\Volt\LoginComponent;
-
-/** @var array */
-//$middleware=TenantService::config('middleware');
->>>>>>> 464cfc5 (.)
->>>>>>> laraxot/dev
 //$base_middleware=Arr::get($middleware,'base',[]);
 $base_middleware=[];
 

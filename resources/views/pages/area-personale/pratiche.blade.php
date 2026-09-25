@@ -4,28 +4,13 @@ declare(strict_types=1);
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
-<<<<<<< HEAD
 use Modules\Fixcity\Actions\BuildAuthenticatedUserTicketsQueryAction;
-=======
-<<<<<<< HEAD
-use Modules\Fixcity\Actions\BuildAuthenticatedUserTicketsQueryAction;
-=======
->>>>>>> 464cfc5 (.)
->>>>>>> laraxot/dev
 
 name('area-personale.pratiche');
 middleware(['web', 'auth']);
 
-<<<<<<< HEAD
 $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->paginate(15);
 
-=======
-<<<<<<< HEAD
-$tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->paginate(15);
-
-=======
->>>>>>> 464cfc5 (.)
->>>>>>> laraxot/dev
 ?><x-layouts.app>
     <x-slot name="title">
         {{ __('pub_theme::ui.header_area_personale.my_practices.label') }}
@@ -41,10 +26,6 @@ $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->pagi
                     </p>
                 </header>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> laraxot/dev
                 @if ($tickets->isEmpty())
                     <div class="card shadow-sm border-0">
                         <div class="card-body p-4 p-lg-5 text-center">
@@ -90,17 +71,3 @@ $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->pagi
         </div>
     </main>
 </x-layouts.app>
-<<<<<<< HEAD
-=======
-=======
-                <div class="card shadow-sm border-0">
-                    <div class="card-body p-4">
-                        <p class="text-muted">Questa pagina mostrerà le pratiche disponibili presto.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</x-layouts.app>
->>>>>>> 464cfc5 (.)
->>>>>>> laraxot/dev

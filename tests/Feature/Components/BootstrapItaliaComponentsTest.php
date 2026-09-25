@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 use Tests\TestCase;
 
 uses(TestCase::class);
@@ -13,12 +12,6 @@ beforeEach(function (): void {
         'View legacy pub_theme::bootstrap-italia.* assenti in base workorder — componenti attivi sotto sixteen::components/bootstrap-italia/.'
     );
 });
-=======
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
-uses(TestCase::class, RefreshDatabase::class);
->>>>>>> laraxot/dev
 
 test('skiplinks component renders correctly', function (): void {
     /** @var TestCase $this */

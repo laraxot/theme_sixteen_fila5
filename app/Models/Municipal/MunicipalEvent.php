@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -12,20 +11,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-=======
-<<<<<<< HEAD
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-=======
-use Illuminate\Database\Eloquent\Builder;
-use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
-
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Casts\Attribute;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -48,7 +33,6 @@ use Illuminate\Support\Str;
  * @property string|null $subcategory
  * @property int|null $organizational_unit_id
  * @property string|null $organizer
-<<<<<<< HEAD
  * @property array<array-key, mixed>|null $co_organizers
  * @property string $event_status
  * @property string $visibility
@@ -61,44 +45,11 @@ use Illuminate\Support\Str;
  * @property bool $is_all_day
  * @property bool $is_recurring
  * @property array<array-key, mixed>|null $recurrence_pattern
-=======
-<<<<<<< HEAD
- * @property array|null $co_organizers
- * @property string $event_status
- * @property string $visibility
- * @property array|null $target_audience
-=======
- * @property array<string, mixed>|null $co_organizers
- * @property string $event_status
- * @property string $visibility
- * @property array<string, mixed>|null $target_audience
->>>>>>> edd328a (.)
- * @property \Carbon\Carbon|null $start_date
- * @property \Carbon\Carbon|null $end_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
- * @property string|null $timezone
- * @property bool $is_all_day
- * @property bool $is_recurring
-<<<<<<< HEAD
- * @property array|null $recurrence_pattern
-=======
- * @property array<string, mixed>|null $recurrence_pattern
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
  * @property string $location_type
  * @property string|null $venue_name
  * @property string|null $address
  * @property string|null $room
-<<<<<<< HEAD
  * @property array<array-key, mixed>|null $coordinates
-=======
-<<<<<<< HEAD
- * @property array|null $coordinates
-=======
- * @property array<string, mixed>|null $coordinates
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
  * @property string|null $online_url
  * @property string|null $streaming_url
  * @property bool $hybrid_mode
@@ -106,7 +57,6 @@ use Illuminate\Support\Str;
  * @property int $current_attendees
  * @property bool $registration_required
  * @property string|null $registration_url
-<<<<<<< HEAD
  * @property Carbon|null $registration_deadline
  * @property string|null $registration_cost
  * @property array<array-key, mixed>|null $contact_info
@@ -134,58 +84,6 @@ use Illuminate\Support\Str;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
-=======
- * @property \Carbon\Carbon|null $registration_deadline
- * @property float|null $registration_cost
-<<<<<<< HEAD
- * @property array|null $contact_info
- * @property array|null $speaker_info
- * @property array|null $agenda
- * @property array|null $materials
- * @property array|null $requirements
- * @property array|null $accessibility_info
- * @property array|null $transport_info
- * @property array|null $parking_info
- * @property array|null $catering_info
- * @property string|null $image
- * @property array|null $gallery
- * @property array|null $documents
- * @property array|null $related_events
- * @property array|null $tags
- * @property array|null $social_links
-=======
- * @property array<string, mixed>|null $contact_info
- * @property array<string, mixed>|null $speaker_info
- * @property array<string, mixed>|null $agenda
- * @property array<string, mixed>|null $materials
- * @property array<string, mixed>|null $requirements
- * @property array<string, mixed>|null $accessibility_info
- * @property array<string, mixed>|null $transport_info
- * @property array<string, mixed>|null $parking_info
- * @property array<string, mixed>|null $catering_info
- * @property string|null $image
- * @property array<string, mixed>|null $gallery
- * @property array<string, mixed>|null $documents
- * @property array<string, mixed>|null $related_events
- * @property array<string, mixed>|null $tags
- * @property array<string, mixed>|null $social_links
->>>>>>> edd328a (.)
- * @property string|null $feedback_url
- * @property string|null $recording_url
- * @property bool $is_published
- * @property \Carbon\Carbon|null $published_at
- * @property bool $featured
- * @property int $priority_level
-<<<<<<< HEAD
- * @property array|null $metadata
-=======
- * @property array<string, mixed>|null $metadata
->>>>>>> edd328a (.)
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
->>>>>>> laraxot/dev
  * @property-read string $event_type_name
  * @property-read string $event_status_name
  * @property-read string $location_type_name
@@ -197,7 +95,6 @@ use Illuminate\Support\Str;
  * @property-read int|null $available_spots
  * @property-read string|null $duration
  * @property-read string $url
-<<<<<<< HEAD
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read Collection<int, ContactPoint> $contacts
  * @property-read Collection<int, PublicPerson> $participants
@@ -209,29 +106,6 @@ class MunicipalEvent extends Model
     use HasFactory, SoftDeletes;
 
     /**
-=======
- *
- * @property-read OrganizationalUnit|null $organizationalUnit
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $participants
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicPerson> $speakers
- */
-<<<<<<< HEAD
-class MunicipalEvent extends Model
-{
-    use HasFactory, SoftDeletes;
-
-    /**
-=======
-class MunicipalEvent extends MunicipalBaseModel
-{
-    use SoftDeletes;
-
-    /**
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      * Tipologie di evento secondo AGID
      */
     public const EVENT_TYPES = [
@@ -351,7 +225,6 @@ class MunicipalEvent extends MunicipalBaseModel
         'metadata',
     ];
 
-<<<<<<< HEAD
     /**
      * Get the attributes that should be cast.
      *
@@ -402,52 +275,6 @@ class MunicipalEvent extends MunicipalBaseModel
      * Relazione con l'unità organizzativa
      *
      * @return BelongsTo<OrganizationalUnit, $this>
-=======
-    protected $casts = [
-        'start_date' => 'date',
-        'end_date' => 'date',
-        'start_time' => 'datetime',
-        'end_time' => 'datetime',
-        'registration_deadline' => 'datetime',
-        'published_at' => 'datetime',
-        'is_all_day' => 'boolean',
-        'is_recurring' => 'boolean',
-        'hybrid_mode' => 'boolean',
-        'registration_required' => 'boolean',
-        'is_published' => 'boolean',
-        'featured' => 'boolean',
-        'capacity' => 'integer',
-        'current_attendees' => 'integer',
-        'registration_cost' => 'decimal:2',
-        'priority_level' => 'integer',
-        'co_organizers' => 'json',
-        'target_audience' => 'json',
-        'recurrence_pattern' => 'json',
-        'coordinates' => 'json',
-        'contact_info' => 'json',
-        'speaker_info' => 'json',
-        'agenda' => 'json',
-        'materials' => 'json',
-        'requirements' => 'json',
-        'accessibility_info' => 'json',
-        'transport_info' => 'json',
-        'parking_info' => 'json',
-        'catering_info' => 'json',
-        'gallery' => 'json',
-        'documents' => 'json',
-        'related_events' => 'json',
-        'tags' => 'json',
-        'social_links' => 'json',
-        'metadata' => 'json',
-    ];
-
-    /**
-<<<<<<< HEAD
-     * Relazione con l'unità organizzativa
-=======
-     * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -455,17 +282,9 @@ class MunicipalEvent extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con i punti di contatto
      *
      * @return MorphMany<ContactPoint, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con i punti di contatto
-=======
-     * @return MorphMany<ContactPoint, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -473,17 +292,9 @@ class MunicipalEvent extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con le persone pubbliche (relatori, partecipanti)
      *
      * @return BelongsToMany<PublicPerson, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con le persone pubbliche (relatori, partecipanti)
-=======
-     * @return BelongsToMany<PublicPerson, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function participants(): BelongsToMany
     {
@@ -495,16 +306,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Relazione con i relatori
-<<<<<<< HEAD
      *
      * @return BelongsToMany<PublicPerson, $this>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return BelongsToMany<PublicPerson, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function speakers(): BelongsToMany
     {
@@ -512,84 +315,41 @@ class MunicipalEvent extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi pubblicati
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublished(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per eventi pubblicati
-     */
-    public function scopePublished($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi pubblicati
-     */
-    public function scopePublished(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('is_published', true)
             ->where('published_at', '<=', now());
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi pubblici
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublic(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per eventi pubblici
-     */
-    public function scopePublic($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi pubblici
-     */
-    public function scopePublic(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('visibility', 'public');
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi futuri
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeUpcoming(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per eventi futuri
-     */
-    public function scopeUpcoming($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi futuri
-     */
-    public function scopeUpcoming(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('start_date', '>=', now()->toDateString())
             ->where('event_status', '!=', 'cancelled');
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi passati
      *
      * @param  Builder<static>  $query
@@ -599,57 +359,23 @@ class MunicipalEvent extends MunicipalBaseModel
     {
         return $query->where('end_date', '<', now()->toDateString())
             ->orWhere(function (Builder $q): void {
-=======
-<<<<<<< HEAD
-     * Scope per eventi passati
-     */
-    public function scopePast($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi passati
-     */
-    public function scopePast(Builder $query): Builder
->>>>>>> edd328a (.)
-    {
-        return $query->where('end_date', '<', now()->toDateString())
-            ->orWhere(function ($q): void {
->>>>>>> laraxot/dev
                 $q->where('start_date', '<', now()->toDateString())
                     ->whereNull('end_date');
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi in corso
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOngoing(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per eventi in corso
-     */
-    public function scopeOngoing($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi in corso
-     */
-    public function scopeOngoing(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         $today = now()->toDateString();
 
         return $query->where('start_date', '<=', $today)
-<<<<<<< HEAD
             ->where(function (Builder $q) use ($today): void {
-=======
-            ->where(function ($q) use ($today): void {
->>>>>>> laraxot/dev
                 $q->where('end_date', '>=', $today)
                     ->orWhereNull('end_date');
             })
@@ -657,58 +383,28 @@ class MunicipalEvent extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per tipologia di evento
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfType(Builder $query, string $type): Builder
-=======
-<<<<<<< HEAD
-     * Scope per tipologia di evento
-     */
-    public function scopeOfType($query, string $type)
-=======
-     *
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per tipologia di evento
-     */
-    public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('event_type', $type);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per eventi in evidenza
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeFeatured(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per eventi in evidenza
-     */
-    public function scopeFeatured($query)
-=======
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope per eventi in evidenza
-     */
-    public function scopeFeatured(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('featured', true);
     }
 
     /**
-<<<<<<< HEAD
      * Scope ordinati per data di inizio
      *
      * @param  Builder<static>  $query
@@ -719,28 +415,6 @@ class MunicipalEvent extends MunicipalBaseModel
     {
         return $query->orderBy('start_date', $direction)
             ->orderBy('start_time', $direction);
-=======
-<<<<<<< HEAD
-     * Scope ordinati per data di inizio
-     */
-    public function scopeOrdered($query, string $direction = 'asc')
-    {
-        return $query->orderBy('start_date', $direction)
-            ->orderBy('start_time', $direction);
-=======
-     *
-     * @param  Builder<MunicipalEvent>  $query
-     * @return Builder<MunicipalEvent>
-     * Scope ordinati per data di inizio
-     */
-    public function scopeOrdered(Builder $query, string $direction = 'asc'): Builder
-    {
-        $dir = in_array($direction, ['asc', 'desc'], true) ? $direction : 'asc';
-
-        return $query->orderBy('start_date', $dir)
-            ->orderBy('start_time', $dir);
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
@@ -748,7 +422,6 @@ class MunicipalEvent extends MunicipalBaseModel
      */
     public function getStartDateTime(): Carbon
     {
-<<<<<<< HEAD
         $startDate = $this->start_date ?? Carbon::now();
 
         if ($this->is_all_day) {
@@ -756,23 +429,6 @@ class MunicipalEvent extends MunicipalBaseModel
         }
 
         return $this->start_time ?: $startDate->startOfDay();
-=======
-<<<<<<< HEAD
-        if ($this->is_all_day) {
-            return $this->start_date->startOfDay();
-        }
-
-        return $this->start_time ?: $this->start_date->startOfDay();
-=======
-        $startDate = $this->start_date ?? now();
-
-        if ($this->is_all_day) {
-            return $startDate->copy()->startOfDay();
-        }
-
-        return $this->start_time?->copy() ?? $startDate->copy()->startOfDay();
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
@@ -781,19 +437,11 @@ class MunicipalEvent extends MunicipalBaseModel
     public function getEndDateTime(): ?Carbon
     {
         if ($this->is_all_day) {
-<<<<<<< HEAD
             if ($this->end_date) {
                 return $this->end_date->endOfDay();
             }
 
             return $this->start_date?->endOfDay();
-=======
-<<<<<<< HEAD
-            return $this->end_date ? $this->end_date->endOfDay() : $this->start_date->endOfDay();
-=======
-            return ($this->end_date ?? $this->start_date ?? now())->copy()->endOfDay();
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
         }
 
         return $this->end_time;
@@ -804,7 +452,6 @@ class MunicipalEvent extends MunicipalBaseModel
      */
     public function getFormattedDateTime(): string
     {
-<<<<<<< HEAD
         $startDate = $this->start_date;
 
         if ($startDate === null) {
@@ -820,24 +467,6 @@ class MunicipalEvent extends MunicipalBaseModel
         }
 
         $formatted = $startDate->format('d/m/Y');
-=======
-<<<<<<< HEAD
-=======
-        if ($this->start_date === null) {
-            return '';
-        }
-
->>>>>>> edd328a (.)
-        if ($this->is_all_day) {
-            if ($this->end_date && ! $this->start_date->isSameDay($this->end_date)) {
-                return $this->start_date->format('d/m/Y').' - '.$this->end_date->format('d/m/Y');
-            }
-
-            return $this->start_date->format('d/m/Y').' (tutto il giorno)';
-        }
-
-        $formatted = $this->start_date->format('d/m/Y');
->>>>>>> laraxot/dev
 
         if ($this->start_time) {
             $formatted .= ' alle '.$this->start_time->format('H:i');
@@ -856,7 +485,6 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Ottiene l'agenda formattata
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -870,77 +498,29 @@ class MunicipalEvent extends MunicipalBaseModel
 
         return collect($agenda)
             ->map(function (mixed $item, int $index): mixed {
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedAgenda(): array
-    {
-        if (! $this->agenda || ! is_array($this->agenda)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->agenda)
-            ->map(function ($item, $index) {
-=======
-        $formatted = collect($this->agenda)
-            ->map(function (mixed $item, int|string $index): array {
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                 if (is_string($item)) {
                     return [
                         'time' => null,
                         'title' => $item,
                         'description' => null,
                         'speaker' => null,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> laraxot/dev
                         'order' => $index,
                     ];
                 }
 
-<<<<<<< HEAD
                 if (! is_array($item)) {
                     return $item;
                 }
 
-=======
->>>>>>> laraxot/dev
                 return array_merge(['order' => $index], $item);
             })
             ->sortBy('order')
             ->values()
             ->toArray();
-<<<<<<< HEAD
-=======
-=======
-                        'order' => (int) $index,
-                    ];
-                }
-
-                return is_array($item)
-                    ? array_merge(['order' => (int) $index], $item)
-                    : ['order' => (int) $index];
-            })
-            ->sortBy('order')
-            ->values()
-            ->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene i relatori formattati
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -954,49 +534,17 @@ class MunicipalEvent extends MunicipalBaseModel
 
         return collect($speakerInfo)
             ->map(function (mixed $speaker): mixed {
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedSpeakers(): array
-    {
-        if (! $this->speaker_info || ! is_array($this->speaker_info)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->speaker_info)
-=======
-        $formatted = collect($this->speaker_info)
->>>>>>> edd328a (.)
-            ->map(function ($speaker) {
->>>>>>> laraxot/dev
                 if (is_string($speaker)) {
                     return ['name' => $speaker];
                 }
 
                 return $speaker;
             })
-<<<<<<< HEAD
             ->toArray();
-=======
-<<<<<<< HEAD
-            ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene i requisiti di partecipazione
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -1010,44 +558,13 @@ class MunicipalEvent extends MunicipalBaseModel
 
         return collect($requirements)
             ->map(function (mixed $requirement): mixed {
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedRequirements(): array
-    {
-        if (! $this->requirements || ! is_array($this->requirements)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->requirements)
-=======
-        $formatted = collect($this->requirements)
->>>>>>> edd328a (.)
-            ->map(function ($requirement) {
->>>>>>> laraxot/dev
                 if (is_string($requirement)) {
                     return ['description' => $requirement, 'mandatory' => true];
                 }
 
                 return $requirement;
             })
-<<<<<<< HEAD
             ->toArray();
-=======
-<<<<<<< HEAD
-            ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
@@ -1063,11 +580,7 @@ class MunicipalEvent extends MunicipalBaseModel
             return false;
         }
 
-<<<<<<< HEAD
         if (! $this->has_available_spots) {
-=======
-        if (! $this->hasAvailableSpots) {
->>>>>>> laraxot/dev
             return false;
         }
 
@@ -1076,7 +589,6 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Verifica se l'evento è gratuito
-<<<<<<< HEAD
      *
      * registration_cost è castato 'decimal:2': Eloquent lo restituisce come stringa
      * numerica (es. "0.00"), mai come int 0, quindi il confronto va fatto sul
@@ -1085,30 +597,12 @@ class MunicipalEvent extends MunicipalBaseModel
     public function isFree(): bool
     {
         return $this->registration_cost === null || (float) $this->registration_cost === 0.0;
-=======
-     */
-    public function isFree(): bool
-    {
-<<<<<<< HEAD
-        return ! $this->registration_cost || $this->registration_cost === 0;
-=======
-        return $this->registration_cost === null || (float) $this->registration_cost === 0.0;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene informazioni complete sull'evento
-<<<<<<< HEAD
      *
      * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function getEventDetails(): array
     {
@@ -1158,16 +652,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del tipo di evento
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function eventTypeName(): Attribute
     {
@@ -1178,16 +664,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per il nome dello stato
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function eventStatusName(): Attribute
     {
@@ -1198,16 +676,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del tipo di location
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function locationTypeName(): Attribute
     {
@@ -1218,21 +688,12 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se l'evento è futuro
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isUpcoming(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): bool {
                 $startDate = $this->start_date;
 
@@ -1243,49 +704,24 @@ class MunicipalEvent extends MunicipalBaseModel
                 return $startDate->isFuture() ||
                     ($startDate->isToday() && ($this->start_time?->isFuture() ?? false));
             }
-=======
-<<<<<<< HEAD
-            get: fn () => $this->start_date->isFuture() ||
-                ($this->start_date->isToday() && $this->start_time?->isFuture())
-=======
-            get: fn () => $this->start_date?->isFuture() ||
-                ($this->start_date?->isToday() && $this->start_time?->isFuture())
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per verificare se l'evento è in corso
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isOngoing(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): bool {
-=======
-            get: function () {
->>>>>>> laraxot/dev
                 $now = now();
                 $startDateTime = $this->getStartDateTime();
                 $endDateTime = $this->getEndDateTime();
 
                 return $startDateTime <= $now &&
-<<<<<<< HEAD
                        ($endDateTime === null || $endDateTime >= $now) &&
-=======
-                       ($endDateTime >= $now || ! $endDateTime) &&
->>>>>>> laraxot/dev
                        $this->event_status === 'in_progress';
             }
         );
@@ -1293,21 +729,12 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se l'evento è passato
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isPast(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): bool {
                 $endDateTime = $this->getEndDateTime();
 
@@ -1316,32 +743,14 @@ class MunicipalEvent extends MunicipalBaseModel
                 }
 
                 return $this->start_date !== null && $this->start_date->isPast();
-=======
-            get: function () {
-                $endDateTime = $this->getEndDateTime();
-
-<<<<<<< HEAD
-                return $endDateTime ? $endDateTime->isPast() : $this->start_date->isPast();
-=======
-                return $endDateTime ? $endDateTime->isPast() : (bool) $this->start_date?->isPast();
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             }
         );
     }
 
     /**
      * Accessor per verificare se l'evento è cancellato
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isCancelled(): Attribute
     {
@@ -1352,16 +761,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se ha posti disponibili
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function hasAvailableSpots(): Attribute
     {
@@ -1372,16 +773,8 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per i posti rimanenti
-<<<<<<< HEAD
      *
      * @return Attribute<int|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<int, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function availableSpots(): Attribute
     {
@@ -1392,21 +785,12 @@ class MunicipalEvent extends MunicipalBaseModel
 
     /**
      * Accessor per la durata dell'evento
-<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string|null, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function duration(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): ?string {
                 $startDate = $this->start_date;
 
@@ -1417,16 +801,6 @@ class MunicipalEvent extends MunicipalBaseModel
 
                     return $this->end_date
                         ? $startDate->diffInDays($this->end_date) + 1 .' giorni'
-=======
-            get: function () {
-                if ($this->is_all_day) {
-                    return $this->end_date
-<<<<<<< HEAD
-                        ? $this->start_date->diffInDays($this->end_date) + 1 .' giorni'
-=======
-                        ? (($this->start_date?->diffInDays($this->end_date) ?? 0) + 1).' giorni'
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                         : '1 giorno';
                 }
 
@@ -1442,74 +816,33 @@ class MunicipalEvent extends MunicipalBaseModel
 
                     return "{$diff}m";
                 }
-<<<<<<< HEAD
 
                 return null;
-=======
-<<<<<<< HEAD
-=======
-            
-
-                return '';
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             }
         );
     }
 
     /**
      * Accessor per l'URL dell'evento
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn () => route('municipal.events.show', $this->slug)
-=======
-<<<<<<< HEAD
-            get: fn () => route('municipal.events.show', $this->slug)
-=======
-            get: fn () => app(BuildLocalizedFrontofficePathAction::class)->execute('/vivere-il-comune/eventi/'.$this->slug)
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< HEAD
      *
      * @return Attribute<string, string>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<mixed, mixed>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             set: function (string $value): string {
-=======
-            set: function ($value) {
-<<<<<<< HEAD
-=======
-                $value = (string) $value;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1528,34 +861,14 @@ class MunicipalEvent extends MunicipalBaseModel
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
         static::creating(function (self $model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug($model->title);
-=======
-        static::creating(function (MunicipalEvent $model): void {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug((string) $model->title);
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
         static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
-        static::creating(function (MunicipalEvent $model): void {
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1566,15 +879,7 @@ class MunicipalEvent extends MunicipalBaseModel
         });
 
         // Set default values
-<<<<<<< HEAD
         static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
-        static::creating(function (MunicipalEvent $model): void {
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             if (is_null($model->event_status)) {
                 $model->event_status = 'scheduled';
             }
