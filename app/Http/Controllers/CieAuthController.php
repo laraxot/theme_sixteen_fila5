@@ -78,7 +78,7 @@ class CieAuthController extends Controller
                     'success' => true,
                     'mobile_url' => $mobileUrl,
                     'fallback_url' => $this->cieService->getLoginUrl($returnUrl),
-                    'timeout' => config()->integer('cie.mobile.deep_link_timeout', 10) * 1000, // millisecondi
+                    'timeout' => config('cie.mobile.deep_link_timeout', 10) * 1000, // millisecondi
                 ]);
             }
 
@@ -133,8 +133,7 @@ class CieAuthController extends Controller
             ]);
 
             // Redirect all'URL di ritorno
-            $returnUrl = Session::pull('cie.return_url');
-            $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : route('dashboard');
+            $returnUrl = Session::pull('cie.return_url', route('dashboard'));
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione CIE completata con successo.');
@@ -160,11 +159,10 @@ class CieAuthController extends Controller
     {
         try {
             $user = Auth::user();
-            $sessionUserData = Session::get('cie.user_data');
-            $userData = is_array($sessionUserData) ? $sessionUserData : null;
+            $userData = Session::get('cie.user_data');
             $returnUrl = $request->query('return_url', route('home'));
 
-            if ($user !== null && $userData !== null) {
+            if ($user && $userData) {
                 Log::info('CIE logout initiated', [
                     'user_id' => $user->id,
                     'auth_method' => $userData['auth_method'] ?? 'cie',
@@ -296,8 +294,6 @@ class CieAuthController extends Controller
             abort(404);
         }
 
-        $authUser = Auth::user();
-
         return response()->json([
             'config_info' => $this->cieService->getConfigInfo(),
             'session_data' => [
@@ -307,43 +303,33 @@ class CieAuthController extends Controller
                 'state' => Session::get('cie.state'),
                 'auth_method' => Session::get('cie.auth_method'),
             ],
-            'auth_user' => $authUser !== null ? [
-                'id' => $authUser->id,
-                'email' => $authUser->email,
-                'fiscal_code' => $authUser->getAttribute('fiscal_code'),
+            'auth_user' => Auth::check() ? [
+                'id' => Auth::id(),
+                'email' => Auth::user()->email,
+                'fiscal_code' => Auth::user()->fiscal_code ?? null,
             ] : null,
         ]);
     }
 
     /**
      * Trova o crea un utente basato sui dati CIE
-     *
-     * @param  array<string, mixed>  $attributes
      */
-    protected function findOrCreateUser(array $attributes): UserContract
+    protected function findOrCreateUser(array $attributes): User
     {
-        $fiscalCode = $attributes['fiscal_code'] ?? null;
+        $fiscalCode = $attributes['fiscal_code'];
 
-        if (! is_string($fiscalCode) || $fiscalCode === '') {
+        if (empty($fiscalCode)) {
             throw new \Exception('Codice fiscale mancante nei dati CIE');
         }
 
         // Cerca utente per codice fiscale
-        $userClass = XotData::make()->getUserClass();
-        $user = $userClass::where('fiscal_code', $fiscalCode)->first();
+        $user = User::where('fiscal_code', $fiscalCode)->first();
 
-        if ($user instanceof UserContract) {
+        if ($user) {
             // Aggiorna i dati se necessario
             $this->updateUserFromCie($user, $attributes);
 
             return $user;
-        }
-
-        if ($user !== null) {
-            Log::error('CIE: existing user record does not implement UserContract', [
-                'user_class' => $user::class,
-                'fiscal_code' => $fiscalCode,
-            ]);
         }
 
         // Crea nuovo utente
@@ -352,58 +338,38 @@ class CieAuthController extends Controller
 
     /**
      * Crea un nuovo utente dai dati CIE
-     *
-     * @param  array<string, mixed>  $attributes
      */
-    protected function createUserFromCie(array $attributes): UserContract
+    protected function createUserFromCie(array $attributes): User
     {
-        $fiscalCode = $attributes['fiscal_code'] ?? null;
-
-        if (! is_string($fiscalCode) || $fiscalCode === '') {
-            throw new \Exception('Codice fiscale mancante nei dati CIE');
-        }
-
-        $emailVerified = (bool) ($attributes['email_verified'] ?? false);
-        $email = $attributes['email'] ?? null;
-
         $userData = [
-            'name' => $attributes['name'] ?? null,
-            'surname' => $attributes['surname'] ?? null,
-            'email' => is_string($email) ? $email : null,
-            'fiscal_code' => $fiscalCode,
-            'birth_date' => $attributes['birth_date'] ?? null,
-            'birth_place' => $attributes['birth_place'] ?? null,
-            'gender' => $attributes['gender'] ?? null,
-            'phone' => $attributes['phone'] ?? null,
-            'address' => $attributes['address'] ?? null,
+            'name' => $attributes['name'],
+            'surname' => $attributes['surname'],
+            'email' => $attributes['email'],
+            'fiscal_code' => $attributes['fiscal_code'],
+            'birth_date' => $attributes['birth_date'],
+            'birth_place' => $attributes['birth_place'],
+            'gender' => $attributes['gender'],
+            'phone' => $attributes['phone'],
+            'address' => $attributes['address'],
             'cie_provider' => 'cie',
             'auth_method' => 'cie',
-            'email_verified_at' => $emailVerified ? now() : null,
-            'phone_verified_at' => ($attributes['phone_verified'] ?? false) ? now() : null,
+            'email_verified_at' => $attributes['email_verified'] ?? false ? now() : null,
+            'phone_verified_at' => $attributes['phone_verified'] ?? false ? now() : null,
         ];
 
         // Genera email temporanea se mancante o non verificata
-        if (empty($userData['email']) || ! $emailVerified) {
-            $userData['email'] = 'cie.'.$fiscalCode.'@noemail.local';
+        if (empty($userData['email']) || ! ($attributes['email_verified'] ?? false)) {
+            $userData['email'] = 'cie.'.$attributes['fiscal_code'].'@noemail.local';
             $userData['email_verified_at'] = null;
         }
 
-        $userClass = XotData::make()->getUserClass();
-        $user = $userClass::create($userData);
-
-        if (! $user instanceof UserContract) {
-            throw new \Exception('La classe utente configurata non implementa UserContract');
-        }
-
-        return $user;
+        return User::create($userData);
     }
 
     /**
      * Aggiorna un utente esistente con i dati CIE
-     *
-     * @param  array<string, mixed>  $attributes
      */
-    protected function updateUserFromCie(UserContract $user, array $attributes): void
+    protected function updateUserFromCie(User $user, array $attributes): void
     {
         $updateData = [];
 
@@ -412,7 +378,7 @@ class CieAuthController extends Controller
             $updateData['name'] = $attributes['name'];
         }
 
-        if ($user->getAttribute('surname') !== $attributes['surname']) {
+        if ($user->surname !== $attributes['surname']) {
             $updateData['surname'] = $attributes['surname'];
         }
 
@@ -433,7 +399,7 @@ class CieAuthController extends Controller
         }
 
         // Aggiorna metodo auth se CIE
-        if ($user->getAttribute('auth_method') !== 'cie') {
+        if ($user->auth_method !== 'cie') {
             $updateData['auth_method'] = 'cie';
             $updateData['cie_provider'] = 'cie';
         }
@@ -441,6 +407,8 @@ class CieAuthController extends Controller
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
-        $user->update($updateData);
+        if (! empty($updateData)) {
+            $user->update($updateData);
+        }
     }
 }
