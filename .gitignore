@@ -76,25 +76,7 @@ laravel
 components
 layouts
 agentdb.rvf
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> laraxot/dev
 ruvector.db
 .cursor/
 .windsurf/
 .devcontainer/
-<<<<<<< HEAD
-=======
-=======
-
-# claude-audit bridge (non committare)
-audit-coverage/
-tests/AuditCoverage/*
-
-# claude-audit static — dev Playwright/smoke (non production runtime)
-*-test.mjs
-check-header-local.js
-scripts/*-smoke.cjs
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev

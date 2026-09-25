@@ -1,6 +1,5 @@
 # Body Structure Comparison Results
 
-<<<<<<< HEAD
 [![Module](https://img.shields.io/badge/Module-Body Structure Comparison Results-8B0000.svg)]()
 [![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge)](https://laravel.com/)](https://laravel.com/)
 [![Filament](https://img.shields.io/badge/Filament-5-ffab00?style=for-the-badge)](https://filamentphp.com/)](https://filamentphp.com/)
@@ -33,35 +32,3 @@ Core module for the FixCity Platform.
 ---
 
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
-=======
-Canonical output directory for HTML parity reports.
-
-## How To Run
-
-```bash
-bashscripts/html/html-structure-compare.sh segnalazione-dettaglio \
-  --output-dir laravel/Themes/Sixteen/docs/body-structure-comparison \
-  --threshold 90
-```
-
-## Output Layout
-
-- `<page>/report.md`
-- `<page>/diff_details.json`
-- `<page>/reference-body.html`
-- `<page>/local-body.html`
-- `<page>/reference-structure.json`
-- `<page>/local-structure.json`
-
-## Current Index
-
-See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
-
-## Governance
-
-- Bash scripts are reusable and project-agnostic.
-- Theme-specific artifacts stay under `laravel/Themes/Sixteen/docs/...`.
-- Raw HTML snapshots for manual analysis go in `laravel/Themes/Sixteen/docs/prompts/<page>/`.
-
-- Priority rule: structural HTML parity is essential first; visual/functional parity is addressed after via Tailwind @apply + Alpine.js.
->>>>>>> laraxot/dev
