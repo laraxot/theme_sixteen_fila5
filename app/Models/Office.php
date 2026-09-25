@@ -13,10 +13,10 @@ use Modules\Xot\Actions\Cast\SafeStringCastAction;
 /**
  * Ufficio comunale per prenotazioni (tema Sixteen).
  *
- * @property int         $id
- * @property int         $service_id
- * @property string      $name
- * @property bool        $is_active
+ * @property int $id
+ * @property int $service_id
+ * @property string $name
+ * @property bool $is_active
  * @property Service|null $service
  */
 class Office extends Model
