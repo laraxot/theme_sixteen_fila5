@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-<<<<<<< HEAD
 use Themes\Sixteen\Actions\MenuBuilderAction;
-=======
-use Themes\Sixteen\Services\MenuBuilder;
->>>>>>> edd328a (.)
 
 /**
  * Event che viene lanciato durante la costruzione del menu del tema Sixteen
@@ -22,23 +18,15 @@ class BuildingSixteenMenu
     use Dispatchable;
 
     public function __construct(
-<<<<<<< HEAD
         public MenuBuilderAction $menuBuilder,
-=======
-        public MenuBuilder $menuBuilder,
->>>>>>> edd328a (.)
         public string $location
     ) {}
 
     /**
      * Aggiunge elementi al menu corrente in base alla location
+     *
+     * @param  array<array-key, mixed>  $items
      */
-<<<<<<< HEAD
-=======
-    /**
-     * @param  array<int, array<string, mixed>|string>  $items
-     */
->>>>>>> edd328a (.)
     public function addMenuItems(array $items): void
     {
         match ($this->location) {
@@ -53,11 +41,7 @@ class BuildingSixteenMenu
     /**
      * Ottiene il menu builder per modifiche avanzate
      */
-<<<<<<< HEAD
     public function getMenuBuilder(): MenuBuilderAction
-=======
-    public function getMenuBuilder(): MenuBuilder
->>>>>>> edd328a (.)
     {
         return $this->menuBuilder;
     }

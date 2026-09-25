@@ -20,19 +20,11 @@
                         <p class="text-sm text-primary-100">Segnalazioni e servizi</p>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <nav class="hidden md:flex space-x-6">
                     <a href="#" class="hover:text-primary-100 transition">Amministrazione</a>
                     <a href="#" class="hover:text-primary-100 transition">Novità</a>
                     <a href="#" class="hover:text-primary-100 transition">Servizi</a>
                     <a href="#" class="hover:text-primary-100 transition">Vivere il Comune1</a>
-=======
-                <nav class="hidden md:flex space-x-6" aria-label="Navigazione principale">
-                    <a href="/administration" class="hover:text-primary-100 transition">Amministrazione</a>
-                    <a href="/news" class="hover:text-primary-100 transition">Novità</a>
-                    <a href="/services" class="hover:text-primary-100 transition">Servizi</a>
-                    <a href="/" class="hover:text-primary-100 transition">Vivere il Comune</a>
->>>>>>> edd328a (.)
                 </nav>
             </div>
         </div>
@@ -54,14 +46,8 @@
         {{-- Title --}}
         <div class="mb-6">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Elenco segnalazioni</h1>
-<<<<<<< HEAD
             <form class="w-full max-w-2xl mx-auto mb-2">
     <input type="text" name="search" placeholder="Cerca segnalazioni..." class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary-500">
-=======
-            <form class="w-full max-w-2xl mx-auto mb-2" role="search">
-    <label for="search" class="sr-only">Cerca segnalazioni</label>
-    <input id="search" type="text" name="search" placeholder="Cerca segnalazioni..." class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary-500">
->>>>>>> edd328a (.)
     <button type="submit" class="w-full bg-primary-500 text-white py-1 rounded-md hover:bg-primary-600 transition font-medium">Cerca</button>
 </form>
 <p class="text-gray-600">Segnalazioni trovate: <span id="search-results-count">0</span></p>
@@ -204,7 +190,6 @@
 </div>
 
 @push('scripts')
-<<<<<<< HEAD
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -220,8 +205,5 @@
     const marker = L.marker([43.7696, 11.2558]).addTo(map);
     marker.bindPopup('<b>Segnalazione</b><br>Esempio segnalazione').openPopup();
 </script>
-=======
-@vite(['resources/js/pages/home.js'], 'themes/Sixteen')
->>>>>>> edd328a (.)
 @endpush
 @endsection

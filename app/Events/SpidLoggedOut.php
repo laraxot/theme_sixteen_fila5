@@ -6,7 +6,7 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Modules\User\Models\User;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Evento lanciato quando un utente effettua il logout da SPID
@@ -18,14 +18,11 @@ class SpidLoggedOut
 {
     use Dispatchable, SerializesModels;
 
-<<<<<<< HEAD
-=======
     /**
-     * @param  array<string, mixed>  $spidAttributes
+     * @param  array<array-key, mixed>  $spidAttributes
      */
->>>>>>> edd328a (.)
     public function __construct(
-        public User $user,
+        public UserContract $user,
         public array $spidAttributes
     ) {}
 
@@ -52,12 +49,9 @@ class SpidLoggedOut
     /**
      * Ottiene attributi specifici per logging sicuro
      */
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, mixed>
      */
->>>>>>> edd328a (.)
     public function getLoggingData(): array
     {
         return [
