@@ -11,13 +11,29 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+<<<<<<< .merge_file_orBco5
+=======
+<<<<<<< .merge_file_XvAjfd
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Events\CieAuthenticated;
+use Themes\Sixteen\Events\CieLoggedOut;
+use Themes\Sixteen\Models\User;
+=======
+>>>>>>> .merge_file_yAYBA9
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 use Themes\Sixteen\Models\User;
 use Themes\Sixteen\Actions\CieAuthAction;
+<<<<<<< .merge_file_orBco5
 
 /**
  * Controller per l'autenticazione CIE
+=======
+>>>>>>> .merge_file_DDoq0e
+
+/**
+ * Controller per l'autenticazione CIE.
+>>>>>>> .merge_file_yAYBA9
  *
  * Gestisce il flusso completo di autenticazione CIE secondo le specifiche AGID
  */
@@ -25,10 +41,22 @@ class CieAuthController extends Controller
 {
     public function __construct(
         protected CieAuthAction $cieService
+<<<<<<< .merge_file_orBco5
     ) {}
 
     /**
      * Reindirizza a CIE per l'autenticazione web
+=======
+<<<<<<< .merge_file_XvAjfd
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> .merge_file_DDoq0e
+
+    /**
+     * Reindirizza a CIE per l'autenticazione web.
+>>>>>>> .merge_file_yAYBA9
      */
     public function login(Request $request): RedirectResponse
     {
@@ -41,7 +69,11 @@ class CieAuthController extends Controller
                 'user_agent' => $request->userAgent(),
             ]);
 
+<<<<<<< .merge_file_orBco5
             $loginUrl = $this->cieService->getLoginUrl($returnUrl);
+=======
+            $loginUrl = $this->cieService->getLoginUrl((string) $returnUrl);
+>>>>>>> .merge_file_yAYBA9
 
             return redirect()->to($loginUrl);
         } catch (\Exception $e) {
@@ -57,7 +89,11 @@ class CieAuthController extends Controller
     }
 
     /**
+<<<<<<< .merge_file_orBco5
      * Reindirizza all'app CieID mobile
+=======
+     * Reindirizza all'app CieID mobile.
+>>>>>>> .merge_file_yAYBA9
      */
     public function mobileLogin(Request $request): RedirectResponse|JsonResponse
     {
@@ -70,14 +106,22 @@ class CieAuthController extends Controller
                 'user_agent' => $request->userAgent(),
             ]);
 
+<<<<<<< .merge_file_orBco5
             $mobileUrl = $this->cieService->getMobileLoginUrl($returnUrl);
+=======
+            $mobileUrl = $this->cieService->getMobileLoginUrl((string) $returnUrl);
+>>>>>>> .merge_file_yAYBA9
 
             // Se è una richiesta AJAX, ritorna JSON per gestire il deep linking
             if ($request->wantsJson() || $request->ajax()) {
                 return response()->json([
                     'success' => true,
                     'mobile_url' => $mobileUrl,
+<<<<<<< .merge_file_orBco5
                     'fallback_url' => $this->cieService->getLoginUrl($returnUrl),
+=======
+                    'fallback_url' => $this->cieService->getLoginUrl((string) $returnUrl),
+>>>>>>> .merge_file_yAYBA9
                     'timeout' => config('cie.mobile.deep_link_timeout', 10) * 1000, // millisecondi
                 ]);
             }
@@ -105,7 +149,11 @@ class CieAuthController extends Controller
     }
 
     /**
+<<<<<<< .merge_file_orBco5
      * Gestisce il callback OAuth2 da CIE
+=======
+     * Gestisce il callback OAuth2 da CIE.
+>>>>>>> .merge_file_yAYBA9
      */
     public function callback(Request $request): RedirectResponse
     {
@@ -135,7 +183,11 @@ class CieAuthController extends Controller
             // Redirect all'URL di ritorno
             $returnUrl = Session::pull('cie.return_url', route('dashboard'));
 
+<<<<<<< .merge_file_orBco5
             return redirect()->to($returnUrl)
+=======
+            return redirect()->to((string) $returnUrl)
+>>>>>>> .merge_file_yAYBA9
                 ->with('success', 'Autenticazione CIE completata con successo.');
         } catch (\Exception $e) {
             Log::error('CIE callback error', [
@@ -153,7 +205,11 @@ class CieAuthController extends Controller
     }
 
     /**
+<<<<<<< .merge_file_orBco5
      * Gestisce il logout CIE
+=======
+     * Gestisce il logout CIE.
+>>>>>>> .merge_file_yAYBA9
      */
     public function logout(Request $request): RedirectResponse
     {
@@ -180,12 +236,20 @@ class CieAuthController extends Controller
 
             // Se configurato, usa il logout endpoint CIE
             if (config('cie.logout_endpoint_enabled', false)) {
+<<<<<<< .merge_file_orBco5
                 $logoutUrl = $this->cieService->getLogoutUrl($returnUrl);
+=======
+                $logoutUrl = $this->cieService->getLogoutUrl((string) $returnUrl);
+>>>>>>> .merge_file_yAYBA9
 
                 return redirect()->to($logoutUrl);
             }
 
+<<<<<<< .merge_file_orBco5
             return redirect()->to($returnUrl)
+=======
+            return redirect()->to((string) $returnUrl)
+>>>>>>> .merge_file_yAYBA9
                 ->with('success', 'Logout effettuato con successo.');
         } catch (\Exception $e) {
             Log::error('CIE logout error', [
@@ -206,6 +270,7 @@ class CieAuthController extends Controller
     }
 
     /**
+<<<<<<< .merge_file_orBco5
      * Rinnova l'access token usando il refresh token
      */
     public function refresh(Request $request): JsonResponse
@@ -368,11 +433,43 @@ class CieAuthController extends Controller
 
     /**
      * Aggiorna un utente esistente con i dati CIE
+=======
+     * Trova o crea un utente basato sugli attributi CIE.
+     *
+     * @param  array<string, mixed>  $attributes
+     */
+    protected function findOrCreateUser(array $attributes): User
+    {
+        $user = User::where('fiscal_code', $attributes['fiscal_code'])->first();
+
+        if (! $user) {
+            $user = User::create([
+                'name' => $attributes['given_name'].' '.$attributes['family_name'],
+                'email' => $attributes['email'] ?? $attributes['fiscal_code'].'@cie.internal',
+                'password' => bcrypt(str_random(16)),
+                'fiscal_code' => $attributes['fiscal_code'],
+                'given_name' => $attributes['given_name'],
+                'family_name' => $attributes['family_name'],
+                'birth_date' => $attributes['date_of_birth'],
+            ]);
+        }
+
+        $this->updateUserFromCie($user, $attributes);
+
+        return $user;
+    }
+
+    /**
+     * Aggiorna i dati dell'utente con le informazioni CIE più recenti.
+     *
+     * @param  array<string, mixed>  $attributes
+>>>>>>> .merge_file_yAYBA9
      */
     protected function updateUserFromCie(User $user, array $attributes): void
     {
         $updateData = [];
 
+<<<<<<< .merge_file_orBco5
         // Aggiorna campi se diversi e più recenti
         if ($user->name !== $attributes['name']) {
             $updateData['name'] = $attributes['name'];
@@ -400,6 +497,9 @@ class CieAuthController extends Controller
 
         // Aggiorna metodo auth se CIE
         if ($user->auth_method !== 'cie') {
+=======
+        if (isset($attributes['auth_method'])) {
+>>>>>>> .merge_file_yAYBA9
             $updateData['auth_method'] = 'cie';
             $updateData['cie_provider'] = 'cie';
         }
