@@ -11,11 +11,8 @@
 
 > **🇮🇹 Biglietto da visita (IT) · 🇬🇧 Business card (EN)**
 
-## Perché esiste
-
-🇮🇹 [Biglietto da visita (IT)](../README.md) · 🇬🇧 [Business card (EN)](./readme-en.md)
-
-## Superpoteri
+## Overview
+The Sixteen theme is the primary frontend theme for the Fixcity application, built on top of Bootstrap Italia (Design Comuni) framework. It provides a modern, accessible, and responsive interface for all application features.
 
 - **Bootstrap Italia**: Complete Bootstrap Italia framework integration
 - **Design System**: Consistent design language across all components

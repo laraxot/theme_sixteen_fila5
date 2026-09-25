@@ -17,11 +17,14 @@ use Spatie\QueueableAction\QueueableAction;
 use function Safe\base64_decode;
 use function Safe\gzdeflate;
 
+/**
+ * @phpstan-type SpidProvider array{name: string, entityId: string, sso_url: string, slo_url: string, cert: string, logo: string}
+ */
 class SpidAuthAction
 {
     use QueueableAction;
 
-    /** @var array<string, array<string, string>> */
+    /** @var array<string, SpidProvider> */
     protected array $providers = [];
 
     protected string $entityId;
@@ -32,7 +35,7 @@ class SpidAuthAction
 
     public function __construct()
     {
-        $this->entityId = config()->string('spid.entity_id', config()->string('app.url'));
+        $this->entityId = $this->configString('spid.entity_id', $this->configString('app.url', ''));
         $this->assertionConsumerServiceUrl = route('spid.callback');
         $this->singleLogoutServiceUrl = route('spid.slo');
         $this->loadProviders();
@@ -99,7 +102,7 @@ class SpidAuthAction
         $samlResponse = $request->string('SAMLResponse')->toString();
         $relayState = $request->string('RelayState')->toString();
 
-        if ($samlResponse === '') {
+        if (! is_string($samlResponse) || $samlResponse === '') {
             throw new Exception('SAMLResponse mancante');
         }
 
@@ -107,8 +110,7 @@ class SpidAuthAction
             throw new Exception('RelayState non valido');
         }
 
-        $decodedResponse = base64_decode($samlResponse);
-
+        $decodedResponse = base64_decode($samlResponse, true);
         if ($decodedResponse === '') {
             throw new Exception('SAMLResponse non decodificabile');
         }
@@ -154,7 +156,7 @@ class SpidAuthAction
         $metadata .= '                           Location="'.htmlspecialchars($this->singleLogoutServiceUrl).'"/>'.PHP_EOL;
 
         $metadata .= '    <md:AttributeConsumingService index="0">'.PHP_EOL;
-        $metadata .= '      <md:ServiceName xml:lang="it">'.config()->string('app.name').'</md:ServiceName>'.PHP_EOL;
+        $metadata .= '      <md:ServiceName xml:lang="it">'.htmlspecialchars($this->configString('app.name', '')).'</md:ServiceName>'.PHP_EOL;
 
         $spidAttributes = [
             'spidCode', 'name', 'familyName', 'placeOfBirth', 'countyOfBirth',
@@ -206,7 +208,39 @@ class SpidAuthAction
 
     protected function loadProviders(): void
     {
-        $default = [
+        $configured = config('spid.providers');
+
+        if (! is_array($configured)) {
+            $this->providers = $this->defaultProviders();
+
+            return;
+        }
+
+        $providers = [];
+        foreach ($configured as $key => $provider) {
+            if (! is_string($key) || ! is_array($provider)) {
+                continue;
+            }
+
+            $providers[$key] = [
+                'name' => $this->arrayString($provider, 'name'),
+                'entityId' => $this->arrayString($provider, 'entityId'),
+                'sso_url' => $this->arrayString($provider, 'sso_url'),
+                'slo_url' => $this->arrayString($provider, 'slo_url'),
+                'cert' => $this->arrayString($provider, 'cert'),
+                'logo' => $this->arrayString($provider, 'logo'),
+            ];
+        }
+
+        $this->providers = $providers;
+    }
+
+    /**
+     * @return array<string, SpidProvider>
+     */
+    protected function defaultProviders(): array
+    {
+        return [
             'poste' => [
                 'name' => 'Poste Italiane',
                 'entityId' => 'https://posteid.poste.it',
@@ -258,12 +292,7 @@ class SpidAuthAction
                 }
             }
 
-            if ($entry !== []) {
-                $normalized[$key] = $entry;
-            }
-        }
-
-        return $normalized;
+        return is_string($value) ? $value : $default;
     }
 
     protected function generateRequestId(): string
@@ -328,11 +357,8 @@ class SpidAuthAction
         $xpath->registerNamespace('saml', 'urn:oasis:names:tc:SAML:2.0:assertion');
 
         $statusCode = $xpath->query('//samlp:StatusCode/@Value');
-        if ($statusCode === false || $statusCode->length === 0) {
-            throw new Exception('SPID authentication failed');
-        }
-
-        if ($statusCode->item(0)?->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
+        $statusNode = $statusCode === false ? null : $statusCode->item(0);
+        if ($statusNode === null || $statusNode->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
             throw new Exception('SPID authentication failed');
         }
     }
@@ -348,20 +374,19 @@ class SpidAuthAction
         $attributes = [];
 
         $attributeNodes = $xpath->query('//saml:Attribute');
-        if ($attributeNodes === false) {
-            throw new Exception('SPID response contains no readable attributes');
-        }
+        if ($attributeNodes !== false) {
+            foreach ($attributeNodes as $attributeNode) {
+                if (! $attributeNode instanceof DOMElement) {
+                    continue;
+                }
 
-        foreach ($attributeNodes as $attributeNode) {
-            if (! $attributeNode instanceof DOMElement) {
-                continue;
-            }
+                $name = $attributeNode->getAttribute('Name');
+                $valueNodes = $xpath->query('saml:AttributeValue', $attributeNode);
+                $valueNode = $valueNodes === false ? null : $valueNodes->item(0);
 
-            $name = $attributeNode->getAttribute('Name');
-            $valueNodes = $xpath->query('saml:AttributeValue', $attributeNode);
-
-            if ($valueNodes === false || $valueNodes->length === 0) {
-                continue;
+                if ($valueNode !== null) {
+                    $attributes[$name] = $valueNode->nodeValue;
+                }
             }
 
             $attributes[$name] = $valueNodes->item(0)?->nodeValue;
@@ -388,6 +413,6 @@ class SpidAuthAction
 
     protected function getSigningCertificate(): string
     {
-        return config()->string('spid.signing_cert', '');
+        return $this->configString('spid.signing_cert', '');
     }
 }

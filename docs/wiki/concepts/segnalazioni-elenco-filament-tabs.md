@@ -31,7 +31,7 @@ Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/desig
 
 ## CSS
 
-Skin Design Comuni in `style-apply.css` — selettori `.ticket-list .segnalazioni-fi-tabs` e `.segnalazioni-elenco .nav-tabs`.
+Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
 
 ## Riferimenti
 
