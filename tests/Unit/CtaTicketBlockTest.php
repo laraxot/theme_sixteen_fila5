@@ -1,14 +1,11 @@
 <?php
 
 declare(strict_types=1);
-use Tests\TestCase;
 
-use function Safe\file_get_contents;
-
-uses(TestCase::class);
+uses(Tests\TestCase::class);
 
 test('cta ticket block renders with defaults', function (): void {
-    /** @var TestCase $this */
+    /** @var Tests\TestCase $this */
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [],
     ]);
@@ -19,7 +16,7 @@ test('cta ticket block renders with defaults', function (): void {
 });
 
 test('cta ticket block renders custom payload', function (): void {
-    /** @var TestCase $this */
+    /** @var Tests\TestCase $this */
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [
             'title' => 'Custom title',
@@ -36,7 +33,7 @@ test('cta ticket block renders custom payload', function (): void {
 
 test('cta ticket block does not use frontoffice url', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/components/blocks/cta/ticket.blade.php';
-    $html = file_get_contents($path);
+    $html = (string) file_get_contents($path);
 
     expect($html)->not->toContain('FrontofficeUrl');
 });
