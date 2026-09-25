@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< .merge_file_MKyblt
 ## [1.0.0-dev.9](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.8...theme-sixteen-v1.0.0-dev.9) (2026-09-24)
 
@@ -22,6 +23,8 @@
 
 =======
 >>>>>>> .merge_file_qp24Wy
+=======
+>>>>>>> edd328a (.)
 ## [1.0.0-dev.2](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.1...theme-sixteen-v1.0.0-dev.2) (2026-07-08)
 
 ### Bug Fixes

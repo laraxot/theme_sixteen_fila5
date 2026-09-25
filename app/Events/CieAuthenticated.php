@@ -18,6 +18,12 @@ class CieAuthenticated
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $cieAttributes
+     */
+>>>>>>> edd328a (.)
     public function __construct(
         public User $user,
         public array $cieAttributes
@@ -92,6 +98,12 @@ class CieAuthenticated
     /**
      * Ottiene tutti gli attributi CIE ricevuti
      */
+<<<<<<< HEAD
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> edd328a (.)
     public function getCieAttributes(): array
     {
         return $this->cieAttributes;
@@ -99,6 +111,11 @@ class CieAuthenticated
 
     /**
      * Ottiene attributi specifici per logging sicuro
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> edd328a (.)
      */
     public function getLoggingData(): array
     {
