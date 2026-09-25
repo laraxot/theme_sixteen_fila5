@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 /*
  * Solo valori di default: niente env() in questo file. Larastan vieta env()
  * fuori dalla config/ di root (stessa scelta di Modules/Catalog/config/metel.php,
@@ -13,6 +14,8 @@ declare(strict_types=1);
  * Illuminate\Support\Env::get() invece della funzione env()) — fuori scope qui:
  * il task copre solo i 4 file di config, non i Providers.
  */
+=======
+>>>>>>> laraxot/dev
 return [
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +35,11 @@ return [
     | Ambiente CIE da utilizzare: preprod (pre-produzione) o prod (produzione)
     |
     */
+<<<<<<< HEAD
     'environment' => 'preprod',
+=======
+    'environment' => env('CIE_ENVIRONMENT', 'preprod'),
+>>>>>>> laraxot/dev
 
     /*
     |--------------------------------------------------------------------------
@@ -59,8 +66,13 @@ return [
     | Ottenibili dal portale sviluppatori CIE
     |
     */
+<<<<<<< HEAD
     'client_id' => null,
     'client_secret' => null,
+=======
+    'client_id' => env('CIE_CLIENT_ID'),
+    'client_secret' => env('CIE_CLIENT_SECRET'),
+>>>>>>> laraxot/dev
 
     /*
     |--------------------------------------------------------------------------
@@ -71,8 +83,13 @@ return [
     |
     */
     'redirect_uris' => [
+<<<<<<< HEAD
         'callback' => route('cie.callback'),
         'logout' => route('home'),
+=======
+        'callback' => env('CIE_REDIRECT_URI', route('cie.callback')),
+        'logout' => env('CIE_LOGOUT_REDIRECT_URI', route('home')),
+>>>>>>> laraxot/dev
     ],
 
     /*
@@ -108,7 +125,11 @@ return [
     | Default Settings
     |--------------------------------------------------------------------------
     */
+<<<<<<< HEAD
     'default_level' => 'level_2',
+=======
+    'default_level' => env('CIE_DEFAULT_LEVEL', 'level_2'),
+>>>>>>> laraxot/dev
     'prompt' => 'login', // Forza sempre l'autenticazione
     'response_type' => 'code',
     'response_mode' => 'form_post',
@@ -122,9 +143,15 @@ return [
     |
     */
     'mobile' => [
+<<<<<<< HEAD
         'enabled' => true,
         'app_scheme' => 'cieid',
         'universal_link' => 'https://www.cartaidentita.interno.gov.it/cie-id',
+=======
+        'enabled' => env('CIE_MOBILE_ENABLED', true),
+        'app_scheme' => 'cieid',
+        'universal_link' => env('CIE_UNIVERSAL_LINK', 'https://www.cartaidentita.interno.gov.it/cie-id'),
+>>>>>>> laraxot/dev
         'deep_link_timeout' => 10, // secondi
         'fallback_to_web' => true,
     ],
@@ -178,9 +205,15 @@ return [
     |--------------------------------------------------------------------------
     */
     'session' => [
+<<<<<<< HEAD
         'timeout' => 3600, // 1 ora
         'extend_on_activity' => true,
         'remember_me' => false,
+=======
+        'timeout' => env('CIE_SESSION_TIMEOUT', 3600), // 1 ora
+        'extend_on_activity' => env('CIE_EXTEND_SESSION', true),
+        'remember_me' => env('CIE_REMEMBER_ME', false),
+>>>>>>> laraxot/dev
         'max_remember_duration' => 86400 * 30, // 30 giorni
     ],
 
@@ -194,7 +227,11 @@ return [
         'nonce_length' => 64,       // Lunghezza nonce
         'pkce_enabled' => true,     // Proof Key for Code Exchange
         'pkce_method' => 'S256',    // Challenge method
+<<<<<<< HEAD
         'require_https' => config('app.env') === 'production',
+=======
+        'require_https' => env('CIE_REQUIRE_HTTPS', env('APP_ENV') === 'production'),
+>>>>>>> laraxot/dev
     ],
 
     /*
@@ -203,7 +240,11 @@ return [
     |--------------------------------------------------------------------------
     */
     'routes' => [
+<<<<<<< HEAD
         'prefix' => 'auth/cie',
+=======
+        'prefix' => env('CIE_ROUTES_PREFIX', 'auth/cie'),
+>>>>>>> laraxot/dev
         'middleware' => ['web'],
         'names' => [
             'login' => 'cie.login',
@@ -223,7 +264,11 @@ return [
     |
     */
     'certificates' => [
+<<<<<<< HEAD
         'jwks_uri' => null, // URL dei certificati pubblici CIE
+=======
+        'jwks_uri' => env('CIE_JWKS_URI'), // URL dei certificati pubblici CIE
+>>>>>>> laraxot/dev
         'cache_ttl' => 3600, // Cache TTL per i certificati (1 ora)
         'local_cert_path' => storage_path('certificates/cie/'), // Path locale certificati
     ],
@@ -234,10 +279,17 @@ return [
     |--------------------------------------------------------------------------
     */
     'logging' => [
+<<<<<<< HEAD
         'enabled' => true,
         'level' => 'info',
         'channel' => 'cie',
         'log_tokens' => false, // ATTENZIONE: Non abilitare in produzione
+=======
+        'enabled' => env('CIE_LOGGING_ENABLED', true),
+        'level' => env('CIE_LOGGING_LEVEL', 'info'),
+        'channel' => env('CIE_LOGGING_CHANNEL', 'cie'),
+        'log_tokens' => env('CIE_LOG_TOKENS', false), // ATTENZIONE: Non abilitare in produzione
+>>>>>>> laraxot/dev
     ],
 
     /*
@@ -258,9 +310,15 @@ return [
     |--------------------------------------------------------------------------
     */
     'errors' => [
+<<<<<<< HEAD
         'redirect_on_error' => true,
         'error_route' => 'login',
         'show_technical_errors' => config('app.debug'),
+=======
+        'redirect_on_error' => env('CIE_REDIRECT_ON_ERROR', true),
+        'error_route' => env('CIE_ERROR_ROUTE', 'login'),
+        'show_technical_errors' => env('CIE_SHOW_TECHNICAL_ERRORS', env('APP_DEBUG', false)),
+>>>>>>> laraxot/dev
     ],
 
     /*
@@ -269,9 +327,15 @@ return [
     |--------------------------------------------------------------------------
     */
     'integration' => [
+<<<<<<< HEAD
         'auto_create_user' => true,
         'update_user_on_login' => true,
         'sync_attributes' => true,
+=======
+        'auto_create_user' => env('CIE_AUTO_CREATE_USER', true),
+        'update_user_on_login' => env('CIE_UPDATE_USER_ON_LOGIN', true),
+        'sync_attributes' => env('CIE_SYNC_ATTRIBUTES', true),
+>>>>>>> laraxot/dev
         'required_attributes' => ['fiscal_code'], // Attributi obbligatori per la registrazione
     ],
 
@@ -281,6 +345,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'development' => [
+<<<<<<< HEAD
         'mock_responses' => false,
         'test_user' => [
             'enabled' => config('app.env') !== 'production',
@@ -290,6 +355,17 @@ return [
             'email' => 'mario.rossi@example.com',
         ],
         'bypass_signature_validation' => config('app.env') !== 'production',
+=======
+        'mock_responses' => env('CIE_MOCK_RESPONSES', false),
+        'test_user' => [
+            'enabled' => env('CIE_TEST_USER_ENABLED', env('APP_ENV') !== 'production'),
+            'fiscal_code' => env('CIE_TEST_FISCAL_CODE', 'RSSMRA80A01H501U'),
+            'name' => env('CIE_TEST_NAME', 'Mario'),
+            'surname' => env('CIE_TEST_SURNAME', 'Rossi'),
+            'email' => env('CIE_TEST_EMAIL', 'mario.rossi@example.com'),
+        ],
+        'bypass_signature_validation' => env('CIE_BYPASS_SIGNATURE', env('APP_ENV') !== 'production'),
+>>>>>>> laraxot/dev
     ],
 
     /*
@@ -300,8 +376,14 @@ return [
     'compliance' => [
         'agid_compliant' => true,
         'gdpr_compliant' => true,
+<<<<<<< HEAD
         'privacy_policy_url' => '/privacy',
         'terms_of_service_url' => '/terms',
         'data_retention_days' => 365,
+=======
+        'privacy_policy_url' => env('CIE_PRIVACY_POLICY_URL', '/privacy'),
+        'terms_of_service_url' => env('CIE_TERMS_URL', '/terms'),
+        'data_retention_days' => env('CIE_DATA_RETENTION', 365),
+>>>>>>> laraxot/dev
     ],
 ];
