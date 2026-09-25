@@ -2,11 +2,16 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> laraxot/dev
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
 use Tests\TestCase;
 
+<<<<<<< HEAD
 uses(TestCase::class, DatabaseTransactions::class);
 
 beforeEach(function (): void {
@@ -14,6 +19,13 @@ beforeEach(function (): void {
     if (! class_exists(Ticket::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
+=======
+uses(TestCase::class, RefreshDatabase::class);
+
+beforeEach(function () {
+    /** @var TestCase $this */
+    $this->artisan('migrate', ['--database' => 'testing']);
+>>>>>>> laraxot/dev
 });
 
 test('homepage loads successfully', function () {
@@ -29,6 +41,7 @@ test('homepage loads successfully', function () {
 
 test('homepage displays recent tickets', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(Ticket::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -39,6 +52,12 @@ test('homepage displays recent tickets', function () {
         'name' => 'Buca Stradale',
         'description' => 'Buca pericolosa in via Roma',
     ]]);
+=======
+    $ticket = Ticket::factory()->create([
+        'name' => 'Buca Stradale',
+        'description' => 'Buca pericolosa in via Roma',
+    ]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -49,6 +68,7 @@ test('homepage displays recent tickets', function () {
 
 test('homepage displays recent news', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -59,6 +79,12 @@ test('homepage displays recent news', function () {
         'title' => 'Nuovo Servizio Online',
         'excerpt' => 'Il comune lancia un nuovo servizio digitale',
     ]]);
+=======
+    $news = News::factory()->create([
+        'title' => 'Nuovo Servizio Online',
+        'excerpt' => 'Il comune lancia un nuovo servizio digitale',
+    ]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -102,6 +128,7 @@ test('novita page loads successfully', function () {
 
 test('novita page displays news articles', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -121,6 +148,19 @@ test('novita page displays news articles', function () {
 
     $response->assertSee($title);
     $response->assertSee($excerpt);
+=======
+    $news = News::factory()->count(3)->create([
+        'title' => 'Notizia Test',
+        'excerpt' => 'Estratto notizia test',
+    ]);
+
+    $response = $this->get(route('comune.novita'));
+
+    foreach ($news as $article) {
+        $response->assertSee($article->title);
+        $response->assertSee($article->excerpt);
+    }
+>>>>>>> laraxot/dev
 });
 
 test('contatti page loads successfully', function () {
@@ -138,11 +178,19 @@ test('contatti page displays contact information', function () {
     /** @var TestCase $this */
     $response = $this->get(route('comune.contatti'));
 
+<<<<<<< HEAD
     $response->assertSee(config()->string('comune.nome'));
     $response->assertSee(config()->string('comune.indirizzo'));
     $response->assertSee(config()->string('comune.telefono'));
     $response->assertSee(config()->string('comune.email'));
     $response->assertSee(config()->string('comune.pec'));
+=======
+    $response->assertSee((string) config('comune.nome'));
+    $response->assertSee((string) config('comune.indirizzo'));
+    $response->assertSee((string) config('comune.telefono'));
+    $response->assertSee((string) config('comune.email'));
+    $response->assertSee((string) config('comune.pec'));
+>>>>>>> laraxot/dev
 });
 
 test('contatti page displays opening hours', function () {

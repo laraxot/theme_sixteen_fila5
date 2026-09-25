@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use function Safe\file_get_contents;
 use function Safe\glob;
 
+=======
+>>>>>>> laraxot/dev
 /**
  * Contratto pagine Folio dinamiche: mount() con params route, no request()->route() in @php.
  */
@@ -17,7 +20,11 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
     ];
 
     foreach ($paths as $path) {
+<<<<<<< HEAD
         $html = file_get_contents($path);
+=======
+        $html = (string) file_get_contents($path);
+>>>>>>> laraxot/dev
         expect($html)->toContain('extends Component');
         expect($html)->toContain('function mount(string $container0');
         expect($html)->not->toContain("request()->route('container0'");
@@ -28,15 +35,36 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
 
 test('folio pages con Component richiedono @volt statico uguale a name()', function (): void {
     $themeRoot = dirname(__DIR__, 2);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    $userRoot = dirname(__DIR__, 4).'/Modules/User';
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
     $expectations = [
         $themeRoot.'/resources/views/pages/[container0]/index.blade.php' => "@volt('container0.index')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/index.blade.php' => "@volt('container0.view')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/index.blade.php' => "@volt('container1.index')",
         $themeRoot.'/resources/views/pages/tests/[slug].blade.php' => "@volt('tests.view')",
+<<<<<<< HEAD
     ];
 
     foreach ($expectations as $path => $voltDirective) {
         $html = file_get_contents($path);
+=======
+<<<<<<< HEAD
+=======
+        $userRoot.'/resources/views/pages/area-personale/pratiche.blade.php' => "@volt('area-personale.pratiche')",
+        $userRoot.'/resources/views/pages/area-personale/servizi.blade.php' => "@volt('area-personale.servizi')",
+        $userRoot.'/resources/views/pages/area-personale/impostazioni.blade.php' => "@volt('area-personale.impostazioni')",
+        $userRoot.'/resources/views/pages/dashboard/index.blade.php' => "@volt('dashboard')",
+>>>>>>> edd328a (.)
+    ];
+
+    foreach ($expectations as $path => $voltDirective) {
+        $html = (string) file_get_contents($path);
+>>>>>>> laraxot/dev
         expect($html)->toContain($voltDirective);
         expect($html)->toContain('@endvolt');
     }
@@ -44,7 +72,11 @@ test('folio pages con Component richiedono @volt statico uguale a name()', funct
 
 test('container0 index usa mount lineare filament way senza logica dominio', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/index.blade.php';
+<<<<<<< HEAD
     $html = file_get_contents($path);
+=======
+    $html = (string) file_get_contents($path);
+>>>>>>> laraxot/dev
 
     expect($html)->toContain("name('container0.index')");
     expect($html)->toContain("\$this->pageSlug = \$container0.'.index'");
@@ -57,6 +89,7 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
 
 test('folio pages con Component vietano props extends section e php slug hack', function (): void {
     $themeRoot = dirname(__DIR__, 2);
+<<<<<<< HEAD
     foreach (glob($themeRoot.'/resources/views/pages/**/*.blade.php') as $path) {
         if (! is_string($path)) {
             continue;
@@ -65,17 +98,29 @@ test('folio pages con Component vietano props extends section e php slug hack', 
             continue;
         }
         $html = file_get_contents($path);
+=======
+    foreach (glob($themeRoot.'/resources/views/pages/**/*.blade.php') ?: [] as $path) {
+        if (str_contains($path, '.old')) {
+            continue;
+        }
+        $html = (string) file_get_contents($path);
+>>>>>>> laraxot/dev
         if (! str_contains($html, 'extends Component')) {
             continue;
         }
         expect($html)->not->toContain('@props(');
         expect($html)->not->toContain("@extends('layouts.app')");
+<<<<<<< HEAD
         expect($html)->not->toContain('@extends("layouts.app")');
+=======
+        expect($html)->not->toContain("@extends(\"layouts.app\")");
+>>>>>>> laraxot/dev
         expect($html)->not->toContain("@section('content')");
         expect($html)->not->toMatch('/@php\s+\$pageSlug\s*=/');
     }
 });
 
+<<<<<<< HEAD
 test('folio pages non usano @volt con variabile dinamica', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     foreach (glob($themeRoot.'/resources/views/pages/**/*.blade.php') as $path) {
@@ -83,6 +128,33 @@ test('folio pages non usano @volt con variabile dinamica', function (): void {
             continue;
         }
         $html = file_get_contents($path);
+=======
+<<<<<<< HEAD
+=======
+
+test('area personale app pages usano PageSlugMiddleware non auth hardcoded', function (): void {
+    $userRoot = dirname(__DIR__, 4).'/Modules/User';
+    $paths = [
+        $userRoot.'/resources/views/pages/area-personale/pratiche.blade.php',
+        $userRoot.'/resources/views/pages/area-personale/servizi.blade.php',
+        $userRoot.'/resources/views/pages/area-personale/impostazioni.blade.php',
+        $userRoot.'/resources/views/pages/dashboard/index.blade.php',
+    ];
+
+    foreach ($paths as $path) {
+        $html = (string) file_get_contents($path);
+        expect($html)->toContain('PageSlugMiddleware::class');
+        expect($html)->not->toContain("middleware(['web', 'auth'])");
+        expect($html)->not->toContain('middleware(["web", "auth"])');
+    }
+});
+
+>>>>>>> edd328a (.)
+test('folio pages non usano @volt con variabile dinamica', function (): void {
+    $themeRoot = dirname(__DIR__, 2);
+    foreach (glob($themeRoot.'/resources/views/pages/**/*.blade.php') ?: [] as $path) {
+        $html = (string) file_get_contents($path);
+>>>>>>> laraxot/dev
         if (! str_contains($html, 'extends Component')) {
             continue;
         }

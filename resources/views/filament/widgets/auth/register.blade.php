@@ -21,7 +21,15 @@
                         </span>
                         <div class="min-w-0">
                             <p class="text-sm font-semibold text-red-800">
+<<<<<<< HEAD
                                 {{ __('user::auth.register.failed.text') }}
+=======
+<<<<<<< HEAD
+                                {{ __('user::auth.register.failed.text') }}
+=======
+                                {{ __('user::registration.failed') }}
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
                             </p>
                             <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-red-700">
                                 @foreach ($registerErrors as $message)
@@ -54,17 +62,40 @@
                     wire:loading.attr="disabled"
                     class="w-full min-h-[44px]"
                 >
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> laraxot/dev
                     {{ __('user::auth.register.submit.text') }}
                 </x-filament::button>
 
                 <nav class="border-t border-slate-200 pt-4 text-sm" aria-label="{{ __('user::auth.register.already_have_account.text') }}">
                     <p class="text-slate-600">
                         {{ __('user::auth.register.already_have_account.text') }}
+<<<<<<< HEAD
+=======
+=======
+                    {{ __('user::registration.submit') }}
+                </x-filament::button>
+
+                <nav class="border-t border-slate-200 pt-4 text-sm" aria-label="{{ __('user::registration.already_have_account') }}">
+                    <p class="text-slate-600">
+                        {{ __('user::registration.already_have_account') }}
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
                         <a
                             href="{{ url('/' . app()->getLocale() . '/auth/login') }}"
                             class="font-semibold text-italia-blue-700 underline decoration-italia-blue-500 underline-offset-2 hover:text-italia-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                         >
+<<<<<<< HEAD
                             {{ __('user::auth.register.login.text') }}
+=======
+<<<<<<< HEAD
+                            {{ __('user::auth.register.login.text') }}
+=======
+                            {{ __('user::registration.login') }}
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
                         </a>
                     </p>
                 </nav>
