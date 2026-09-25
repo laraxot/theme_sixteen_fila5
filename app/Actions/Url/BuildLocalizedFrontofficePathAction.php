@@ -16,7 +16,7 @@ final class BuildLocalizedFrontofficePathAction
 
     public function execute(string $path): string
     {
-        if ('' === $path || ! str_starts_with($path, '/')) {
+        if ($path === '' || ! str_starts_with($path, '/')) {
             return $path;
         }
 
