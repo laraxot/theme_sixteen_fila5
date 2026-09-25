@@ -29,6 +29,13 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/app-test.css',
                 'resources/js/app.js',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                'resources/js/pages/home.js',
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
                 '../../Modules/Geo/resources/js/components/map-lit.js',
                 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
             ],

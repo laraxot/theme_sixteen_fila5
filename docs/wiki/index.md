@@ -38,12 +38,17 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 ## Testing / PHPStan (2026-06-13)
 
 - [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
+<<<<<<< HEAD
 - [theme-tests-data-sacred](./concepts/theme-tests-data-sacred.md) — policy dati sacri + skip onesti
 - [perfection-checklist](./overviews/perfection-checklist.md) — checklist verso tema perfetto
 - [page-directory-structure](../../page-directory-structure.md) — regola Folio canonica (root docs)
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
 - [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) — hub temi
+=======
+- [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
+- [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
+>>>>>>> laraxot/dev
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
