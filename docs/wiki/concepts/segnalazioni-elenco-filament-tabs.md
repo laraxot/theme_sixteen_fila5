@@ -3,12 +3,17 @@ title: "Segnalazioni elenco — tab Design Comuni su /it (Alpine.js)"
 type: concept
 status: active
 created: 2026-05-28
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 tags: [filament, tabs, ticket-list]
 =======
 updated: 2026-05-29
 tags: [tabs, design-comuni, alpine, segnalazioni-elenco]
 >>>>>>> Stashed changes
+=======
+updated: 2026-05-29
+tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
+>>>>>>> edd328a (.)
 related:
   - ../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
@@ -35,6 +40,7 @@ Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/desig
 
 ## CSS
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_sK3pj7
 Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
 =======
@@ -44,6 +50,9 @@ Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazion
 Skin Design Comuni in `style-apply.css` — selettore `.segnalazioni-elenco .nav-tabs`.
 >>>>>>> Stashed changes
 >>>>>>> .merge_file_HsCkpQ
+=======
+Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs` (alias `.segnalazioni-elenco .nav-tabs`).
+>>>>>>> edd328a (.)
 
 ## Riferimenti
 

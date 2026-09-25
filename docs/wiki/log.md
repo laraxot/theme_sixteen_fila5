@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+## [2026-07-13] architecture | Sixteen pages/ — solo auth, [container0], tests
+
+- Rimosse cartelle dominio da `resources/views/pages/`; app page → `Modules/User`, `lista-categorie` → `Modules/Fixcity`
+- `/segnalazioni` → `container0.index` (CMS `segnalazioni.index.json`)
+- Audit: `bashscripts/tools/audit-sixteen-pages-folders.sh`
+- Rule: `.cursor/rules/sixteen-pages-folder-religion.mdc`, wiki `rules/sixteen-pages-folder-religion.md`
+
+- 2026-07-13: Folio app pages area-personale — Volt + PageSlugMiddleware, JSON auth CMS, doc `concepts/folio-volt-app-pages.md`
+>>>>>>> edd328a (.)
 - 2026-06-10: docs Folio FO — fo-folio-routing-zen, route-not-found-view-cache, header `notifications` vs `area-personale.notifiche`
 ## [2026-06-09] cta/ticket | NO FrontofficeUrl — LaravelLocalization only
 
