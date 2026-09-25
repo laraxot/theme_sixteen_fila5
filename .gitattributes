@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * text=auto
 *.css linguist-vendored
 *.scss linguist-vendored
@@ -28,12 +29,17 @@ CHANGELOG.md export-ignore
 <<<<<<< .merge_file_VaiuFE
 *.psd !text !filter !merge !diff
 >>>>>>> .merge_file_OwyRr9
+=======
+>>>>>>> edd328a (.)
 *.png !text !filter !merge !diff
 *.svg !text !filter !merge !diff
 *.jpg !text !filter !merge !diff
 *.jpeg !text !filter !merge !diff
 *.gif !text !filter !merge !diff
 *.webp !text !filter !merge !diff
+<<<<<<< HEAD
 =======
 *.psd filter=lfs diff=lfs merge=lfs -text
 >>>>>>> .merge_file_JJeP6n
+=======
+>>>>>>> edd328a (.)
