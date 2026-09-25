@@ -13,10 +13,6 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
  */
 class GateMenuFilter implements MenuFilterInterface
 {
-    /**
-     * @param  array<array-key, mixed>  $item
-     * @return array<array-key, mixed>|false
-     */
     public function filter(array $item): array|false
     {
         // Controllo permesso con Laravel Gate

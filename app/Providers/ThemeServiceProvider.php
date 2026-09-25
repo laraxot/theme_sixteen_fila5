@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Blade;
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
@@ -19,9 +18,6 @@ use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\View\Composers\SixteenComposer;
-
-use function Safe\glob;
-use function Safe\realpath;
 
 /**
  * Enhanced Service Provider per il tema Sixteen.
@@ -179,7 +175,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerViewComposers(): void
     {
         // Composer per layout principali
-        $this->app->make('view')->composer([
+        $this->app['view']->composer([
             'pub_theme::layouts.app',
             'pub_theme::layouts.guest',
             'pub_theme::layouts.guest-agid',
@@ -240,12 +236,10 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         Blade::componentNamespace($componentNamespace, 'pub_theme');
 
         // Register anonymous components (default + pub_theme namespace)
-        try {
-            $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+        $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+        if ($componentsPath !== false) {
             Blade::anonymousComponentPath($componentsPath);
             Blade::anonymousComponentPath($componentsPath, 'pub_theme');
-        } catch (FilesystemException) {
-            // Directory dei componenti non presente: nessun componente anonimo da registrare.
         }
 
         // Register class-based components
@@ -269,11 +263,11 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerLayoutShortcuts(): void
     {
         // Registrazione dei layout shortcuts per facilitare l'uso
-        $this->app->make('view')->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+        $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
         // Enhanced composer per layout AGID-compliant
-        $this->app->make('view')->composer('layouts.guest-agid', function (View $view): void {
-            $themeService = app(ThemeAdapter::class);
+        $this->app['view']->composer('layouts.guest-agid', function ($view): void {
+            $themeService = app('sixteen.theme');
 
             $view->with([
                 'theme_name' => 'Sixteen',
@@ -290,23 +284,11 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function loadConfigFrom(string $path, string $namespace): void
     {
-        if (! is_dir($path)) {
-            return;
-        }
-
-        try {
-            $files = glob($path.'/*.php');
-        } catch (FilesystemException) {
-            return;
-        }
-
-        foreach ($files as $file) {
-            if (! is_string($file)) {
-                continue;
+        if (is_dir($path)) {
+            foreach (glob($path.'/*.php') as $file) {
+                $name = basename($file, '.php');
+                $this->mergeConfigFrom($file, $namespace.'.'.$name);
             }
-
-            $name = basename($file, '.php');
-            $this->mergeConfigFrom($file, $namespace.'.'.$name);
         }
     }
 }

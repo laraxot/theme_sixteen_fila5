@@ -4,7 +4,6 @@ namespace Themes\Sixteen\Http\Livewire\Appointment;
 
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -24,63 +23,51 @@ class CreateAppointment extends Component
     use WithPagination;
 
     // Step tracking
-    public int $currentStep = 1;
+    public $currentStep = 1;
 
-    public int $totalSteps = 6;
+    public $totalSteps = 6;
 
     // Step 1: Selezione servizio
-    public ?int $serviceId = null;
+    public $serviceId;
 
-    public ?int $officeId = null;
+    public $officeId;
 
-    public ?string $purpose = null;
+    public $purpose;
 
     // Step 2: Selezione data
-    public ?string $appointmentDate = null;
+    public $appointmentDate;
 
-    /** @var array<int, array{start: string, end: string}> */
-    public array $availableSlots = [];
+    public $availableSlots = [];
 
     // Step 3: Selezione orario
-    /** @var array{start: string, end: string}|null */
-    public ?array $selectedSlot = null;
+    public $selectedSlot;
 
     // Step 4: Dati richiedente
-    public bool $isSelf = true;
+    public $isSelf = true;
 
-    public ?int $citizenId = null;
+    public $citizenId;
 
-    /** @var array<array-key, mixed> */
-    public array $citizenData = [];
+    public $citizenData = [];
 
     // Step 5: Dettagli aggiuntivi
-    public ?string $notes = null;
+    public $notes;
 
-    /** @var array<int, string> */
-    public array $requiredDocuments = [];
+    public $requiredDocuments = [];
 
-    public ?string $emergencyContact = null;
+    public $emergencyContact;
 
     // Step 6: Riepilogo
-    public ?string $confirmationCode = null;
+    public $confirmationCode;
 
     // Data and services
-    /** @var array<int, Service> */
-    public array $services = [];
+    public $services = [];
 
-    /** @var array<int, Office> */
-    public array $offices = [];
+    public $offices = [];
 
-    /** @var array<int, string> */
-    public array $availableDates = [];
+    public $availableDates = [];
 
-    /** @var array<string, string> */
-    public array $availableDocuments = [];
-
-    /** @var array<int, string> */
     protected $queryString = ['currentStep'];
 
-    /** @var array<string, string> */
     protected $listeners = [
         'serviceSelected' => 'loadOffices',
         'officeSelected' => 'loadAvailableDates',
@@ -88,13 +75,12 @@ class CreateAppointment extends Component
         'slotSelected' => 'proceedToStep4',
     ];
 
-    public function mount(): void
+    public function mount()
     {
         $this->services = Service::where('is_active', true)
             ->where('requires_appointment', true)
             ->orderBy('name')
-            ->get()
-            ->all();
+            ->get();
 
         $this->availableDocuments = [
             'carta_identita' => 'Carta d\'Identità',
@@ -105,15 +91,15 @@ class CreateAppointment extends Component
         ];
     }
 
-    public function render(): View
+    public function render()
     {
-        return view()->make('livewire.appointment.create-appointment', [
+        return view('livewire.appointment.create-appointment', [
             'stepTitle' => $this->getStepTitle(),
             'stepProgress' => ($this->currentStep / $this->totalSteps) * 100,
         ]);
     }
 
-    public function getStepTitle(): string
+    public function getStepTitle()
     {
         return match ($this->currentStep) {
             1 => 'Selezione Servizio e Ufficio',
@@ -127,19 +113,18 @@ class CreateAppointment extends Component
     }
 
     // Step 1: Service selection
-    public function loadOffices(int $serviceId): void
+    public function loadOffices($serviceId)
     {
         $this->serviceId = $serviceId;
         $this->offices = Office::where('service_id', $serviceId)
             ->where('is_active', true)
             ->orderBy('name')
-            ->get()
-            ->all();
+            ->get();
 
-        $this->dispatch('officesLoaded', offices: $this->offices);
+        $this->emit('officesLoaded', $this->offices);
     }
 
-    public function selectOffice(int $officeId): void
+    public function selectOffice($officeId)
     {
         $this->officeId = $officeId;
         $this->loadAvailableDates();
@@ -147,20 +132,13 @@ class CreateAppointment extends Component
     }
 
     // Step 2: Date selection
-    public function loadAvailableDates(): void
+    public function loadAvailableDates()
     {
         $office = Office::find($this->officeId);
-
-        if ($office === null) {
-            $this->addError('officeId', 'Ufficio non trovato.');
-
-            return;
-        }
-
         $this->availableDates = $office->getAvailableDates(30); // Next 30 days
     }
 
-    public function selectDate(string $date): void
+    public function selectDate($date)
     {
         $this->appointmentDate = $date;
         $this->loadAvailableSlots();
@@ -168,36 +146,20 @@ class CreateAppointment extends Component
     }
 
     // Step 3: Time slot selection
-    public function loadAvailableSlots(): void
+    public function loadAvailableSlots()
     {
-        if ($this->appointmentDate === null) {
-            $this->addError('appointmentDate', 'Data non selezionata.');
-
-            return;
-        }
-
         $office = Office::find($this->officeId);
-
-        if ($office === null) {
-            $this->addError('officeId', 'Ufficio non trovato.');
-
-            return;
-        }
-
         $this->availableSlots = $office->getAvailableTimeSlots($this->appointmentDate);
     }
 
-    /**
-     * @param  array{start: string, end: string}  $slot
-     */
-    public function selectSlot(array $slot): void
+    public function selectSlot($slot)
     {
         $this->selectedSlot = $slot;
         $this->currentStep = 4;
     }
 
     // Step 4: Citizen data
-    public function toggleSelfBooking(): void
+    public function toggleSelfBooking()
     {
         $this->isSelf = ! $this->isSelf;
         if ($this->isSelf) {
@@ -206,20 +168,20 @@ class CreateAppointment extends Component
         }
     }
 
-    public function searchCitizen(string $fiscalCode): void
+    public function searchCitizen($fiscalCode)
     {
         $this->citizenData = Citizen::where('fiscal_code', $fiscalCode)
             ->first()?->toArray() ?? [];
     }
 
-    public function proceedToStep5(): void
+    public function proceedToStep5()
     {
         $this->validateStep4();
         $this->currentStep = 5;
     }
 
     // Step 5: Additional details
-    public function toggleDocument(string $document): void
+    public function toggleDocument($document)
     {
         if (in_array($document, $this->requiredDocuments)) {
             $this->requiredDocuments = array_diff($this->requiredDocuments, [$document]);
@@ -228,26 +190,26 @@ class CreateAppointment extends Component
         }
     }
 
-    public function proceedToStep6(): void
+    public function proceedToStep6()
     {
         $this->validateStep5();
         $this->currentStep = 6;
     }
 
     // Step 6: Confirmation
-    public function confirmAppointment(): void
+    public function confirmAppointment()
     {
         $this->validateStep6();
 
-        DB::transaction(function (): void {
+        DB::transaction(function () {
             $appointment = Appointment::create([
                 'user_id' => Auth::id(),
                 'service_id' => $this->serviceId,
                 'office_id' => $this->officeId,
                 'citizen_id' => $this->isSelf ? null : $this->citizenId,
                 'appointment_date' => $this->appointmentDate,
-                'start_time' => $this->selectedSlot['start'] ?? null,
-                'end_time' => $this->selectedSlot['end'] ?? null,
+                'start_time' => $this->selectedSlot['start'],
+                'end_time' => $this->selectedSlot['end'],
                 'purpose' => $this->purpose,
                 'notes' => $this->notes,
                 'required_documents' => $this->requiredDocuments,
@@ -260,43 +222,36 @@ class CreateAppointment extends Component
 
             $this->confirmationCode = $appointment->confirmation_code;
 
-            // NOTA: la notifica email di conferma non è ancora implementata.
-            // Appointment (Themes/Sixteen/app/Models/Appointment.php, fuori scope
-            // per questo intervento) non ha ne' il metodo sendConfirmationNotification()
-            // ne' il trait Notifiable: la chiamata precedente era una fatal-error
-            // certa a runtime (method.notFound) ed è stata rimossa. Va reintrodotta
-            // insieme a una Notification dedicata quando si lavorerà su quel modello.
+            // Invia notifica email
+            $appointment->sendConfirmationNotification();
         });
 
         $this->currentStep = 7; // Success step
     }
 
     // Navigation
-    public function nextStep(): void
+    public function nextStep()
     {
         if ($this->currentStep < $this->totalSteps) {
             $this->currentStep++;
         }
     }
 
-    public function previousStep(): void
+    public function previousStep()
     {
         if ($this->currentStep > 1) {
             $this->currentStep--;
         }
     }
 
-    public function restart(): void
+    public function restart()
     {
         $this->resetExcept('services', 'availableDocuments');
         $this->currentStep = 1;
     }
 
     // Validation rules
-    /**
-     * @return array<string, mixed>
-     */
-    protected function rules(): array
+    protected function rules()
     {
         return match ($this->currentStep) {
             1 => [
@@ -332,7 +287,7 @@ class CreateAppointment extends Component
         };
     }
 
-    protected function validateStep4(): void
+    protected function validateStep4()
     {
         $this->validate([
             'isSelf' => 'required|boolean',
@@ -340,7 +295,7 @@ class CreateAppointment extends Component
         ]);
     }
 
-    protected function validateStep5(): void
+    protected function validateStep5()
     {
         $this->validate([
             'requiredDocuments' => 'array',
@@ -348,60 +303,49 @@ class CreateAppointment extends Component
         ]);
     }
 
-    protected function validateStep6(): void
+    protected function validateStep6()
     {
         // Additional validation for final confirmation
-        if ($this->officeId === null || $this->appointmentDate === null || $this->selectedSlot === null) {
-            throw new Exception('Dati appuntamento incompleti.');
-        }
-
         $office = Office::find($this->officeId);
-
-        if ($office === null) {
-            throw new Exception('Ufficio non trovato.');
-        }
-
         if (! $office->isSlotAvailable($this->appointmentDate, $this->selectedSlot['start'])) {
             $this->addError('selectedSlot', 'Questo slot orario non è più disponibile.');
-
+            throw new Exception('Slot non disponibile');
             throw new Exception('Slot non disponibile');
         }
     }
 
     // Computed properties
-    public function getServiceProperty(): ?Service
+    public function getServiceProperty()
     {
         return Service::find($this->serviceId);
     }
 
-    public function getOfficeProperty(): ?Office
+    public function getOfficeProperty()
     {
         return Office::find($this->officeId);
     }
 
-    public function getSelectedDateFormattedProperty(): ?string
+    public function getSelectedDateFormattedProperty()
     {
-        return $this->appointmentDate !== null
+        return $this->appointmentDate
             ? Carbon::parse($this->appointmentDate)->translatedFormat('l d F Y')
             : null;
     }
 
-    public function getSelectedTimeFormattedProperty(): ?string
+    public function getSelectedTimeFormattedProperty()
     {
-        if ($this->selectedSlot === null) {
-            return null;
-        }
-
-        return Carbon::parse($this->selectedSlot['start'])->format('H:i').' - '.
-              Carbon::parse($this->selectedSlot['end'])->format('H:i');
+        return $this->selectedSlot
+            ? Carbon::parse($this->selectedSlot['start'])->format('H:i').' - '.
+              Carbon::parse($this->selectedSlot['end'])->format('H:i')
+            : null;
     }
 
-    public function getIsLastStepProperty(): bool
+    public function getIsLastStepProperty()
     {
         return $this->currentStep === $this->totalSteps;
     }
 
-    public function getIsFirstStepProperty(): bool
+    public function getIsFirstStepProperty()
     {
         return $this->currentStep === 1;
     }
