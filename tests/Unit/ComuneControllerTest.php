@@ -2,11 +2,16 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> laraxot/dev
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
 use Tests\TestCase;
 
+<<<<<<< HEAD
 uses(TestCase::class, DatabaseTransactions::class);
 
 beforeEach(function (): void {
@@ -14,6 +19,13 @@ beforeEach(function (): void {
     if (! class_exists(Ticket::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
+=======
+uses(TestCase::class, RefreshDatabase::class);
+
+beforeEach(function () {
+    /** @var TestCase $this */
+    $this->artisan('migrate', ['--database' => 'testing']);
+>>>>>>> laraxot/dev
 });
 
 test('homepage returns view', function () {
@@ -26,6 +38,7 @@ test('homepage returns view', function () {
 
 test('homepage displays recent tickets', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(Ticket::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -36,6 +49,12 @@ test('homepage displays recent tickets', function () {
         'name' => 'Test Ticket',
         'description' => 'Test Description',
     ]]);
+=======
+    $ticket = Ticket::factory()->create([
+        'name' => 'Test Ticket',
+        'description' => 'Test Description',
+    ]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -45,6 +64,7 @@ test('homepage displays recent tickets', function () {
 
 test('homepage displays recent news', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -55,6 +75,12 @@ test('homepage displays recent news', function () {
         'title' => 'Test News',
         'excerpt' => 'Test Excerpt',
     ]]);
+=======
+    $news = News::factory()->create([
+        'title' => 'Test News',
+        'excerpt' => 'Test Excerpt',
+    ]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -90,6 +116,7 @@ test('novita returns view', function () {
 
 test('novita displays news', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
@@ -109,6 +136,14 @@ test('novita displays news', function () {
 
     foreach ($titles as $title) {
         $response->assertSee($title);
+=======
+    $news = News::factory()->count(5)->create();
+
+    $response = $this->get(route('comune.novita'));
+
+    foreach ($news as $article) {
+        $response->assertSee($article->title);
+>>>>>>> laraxot/dev
     }
 });
 
@@ -124,10 +159,17 @@ test('contatti displays contact info', function () {
     /** @var TestCase $this */
     $response = $this->get(route('comune.contatti'));
 
+<<<<<<< HEAD
     $response->assertSee(config()->string('comune.nome'));
     $response->assertSee(config()->string('comune.indirizzo'));
     $response->assertSee(config()->string('comune.telefono'));
     $response->assertSee(config()->string('comune.email'));
+=======
+    $response->assertSee((string) config('comune.nome'));
+    $response->assertSee((string) config('comune.indirizzo'));
+    $response->assertSee((string) config('comune.telefono'));
+    $response->assertSee((string) config('comune.email'));
+>>>>>>> laraxot/dev
 });
 
 test('documenti returns view', function () {

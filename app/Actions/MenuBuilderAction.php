@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Actions;
 
 use Illuminate\Support\Collection;
+<<<<<<< HEAD
 use InvalidArgumentException;
+=======
+>>>>>>> laraxot/dev
 use Spatie\QueueableAction\QueueableAction;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
 
@@ -13,6 +16,7 @@ class MenuBuilderAction
 {
     use QueueableAction;
 
+<<<<<<< HEAD
     /** @var Collection<int, non-empty-array<array-key, mixed>> */
     protected Collection $slimHeader;
 
@@ -26,14 +30,31 @@ class MenuBuilderAction
     protected Collection $footerBar;
 
     /** @var array<int, MenuFilterInterface> */
+=======
+    protected Collection $slimHeader;
+
+    protected Collection $header;
+
+    protected Collection $footer;
+
+    protected Collection $footerBar;
+
+>>>>>>> laraxot/dev
     protected array $filters = [];
 
     public function __construct()
     {
+<<<<<<< HEAD
         $this->slimHeader = $this->emptyMenuCollection();
         $this->header = $this->emptyMenuCollection();
         $this->footer = $this->emptyMenuCollection();
         $this->footerBar = $this->emptyMenuCollection();
+=======
+        $this->slimHeader = collect();
+        $this->header = collect();
+        $this->footer = collect();
+        $this->footerBar = collect();
+>>>>>>> laraxot/dev
     }
 
     public function execute(): void
@@ -41,9 +62,12 @@ class MenuBuilderAction
         $this->build();
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $items
      */
+=======
+>>>>>>> laraxot/dev
     public function addSlimHeader(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -52,9 +76,12 @@ class MenuBuilderAction
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $items
      */
+=======
+>>>>>>> laraxot/dev
     public function addHeader(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -63,9 +90,12 @@ class MenuBuilderAction
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $items
      */
+=======
+>>>>>>> laraxot/dev
     public function addFooter(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -74,9 +104,12 @@ class MenuBuilderAction
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $items
      */
+=======
+>>>>>>> laraxot/dev
     public function addFooterBar(array $items): self
     {
         $processedItems = $this->transformItems($items);
@@ -85,9 +118,12 @@ class MenuBuilderAction
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<int, MenuFilterInterface>  $filters
      */
+=======
+>>>>>>> laraxot/dev
     public function setFilters(array $filters): self
     {
         $this->filters = $filters;
@@ -95,6 +131,7 @@ class MenuBuilderAction
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * Collection tipizzata e vuota per l'inizializzazione dei menu.
      *
@@ -135,30 +172,51 @@ class MenuBuilderAction
     /**
      * @return Collection<int, non-empty-array<array-key, mixed>>
      */
+=======
+    public function build(): array
+    {
+        return [
+            'slim_header' => $this->slimHeader->toArray(),
+            'header' => $this->header->toArray(),
+            'footer' => $this->footer->toArray(),
+            'footer_bar' => $this->footerBar->toArray(),
+        ];
+    }
+
+>>>>>>> laraxot/dev
     public function getHeader(): Collection
     {
         return $this->header;
     }
 
+<<<<<<< HEAD
     /**
      * @return Collection<int, non-empty-array<array-key, mixed>>
      */
+=======
+>>>>>>> laraxot/dev
     public function getSlimHeader(): Collection
     {
         return $this->slimHeader;
     }
 
+<<<<<<< HEAD
     /**
      * @return Collection<int, non-empty-array<array-key, mixed>>
      */
+=======
+>>>>>>> laraxot/dev
     public function getFooter(): Collection
     {
         return $this->footer;
     }
 
+<<<<<<< HEAD
     /**
      * @return Collection<int, non-empty-array<array-key, mixed>>
      */
+=======
+>>>>>>> laraxot/dev
     public function getFooterBar(): Collection
     {
         return $this->footerBar;
@@ -168,6 +226,7 @@ class MenuBuilderAction
     {
         $config = config('sixteen.menu', []);
 
+<<<<<<< HEAD
         if (! is_array($config)) {
             $config = [];
         }
@@ -190,6 +249,22 @@ class MenuBuilderAction
         $footerBar = $config['footer_bar'] ?? null;
         if (is_array($footerBar) && $footerBar !== []) {
             $this->addFooterBar($footerBar);
+=======
+        if (! empty($config['slim_header'])) {
+            $this->addSlimHeader($config['slim_header']);
+        }
+
+        if (! empty($config['header'])) {
+            $this->addHeader($config['header']);
+        }
+
+        if (! empty($config['footer'])) {
+            $this->addFooter($config['footer']);
+        }
+
+        if (! empty($config['footer_bar'])) {
+            $this->addFooterBar($config['footer_bar']);
+>>>>>>> laraxot/dev
         }
 
         return $this;
@@ -197,14 +272,22 @@ class MenuBuilderAction
 
     public function reset(): self
     {
+<<<<<<< HEAD
         $this->slimHeader = $this->emptyMenuCollection();
         $this->header = $this->emptyMenuCollection();
         $this->footer = $this->emptyMenuCollection();
         $this->footerBar = $this->emptyMenuCollection();
+=======
+        $this->slimHeader = collect();
+        $this->header = collect();
+        $this->footer = collect();
+        $this->footerBar = collect();
+>>>>>>> laraxot/dev
 
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @return array<array-key, mixed>|false
      */
@@ -219,6 +302,10 @@ class MenuBuilderAction
             ];
         }
 
+=======
+    public function processMenuItem($item): array|false|null
+    {
+>>>>>>> laraxot/dev
         if (is_string($item)) {
             return [
                 'type' => 'header',
@@ -226,6 +313,7 @@ class MenuBuilderAction
             ];
         }
 
+<<<<<<< HEAD
         if (! is_array($item)) {
             return false;
         }
@@ -238,10 +326,27 @@ class MenuBuilderAction
             }
 
             $item = $filtered;
+=======
+        if ($item === '-') {
+            return [
+                'type' => 'separator',
+            ];
+        }
+
+        foreach ($this->filters as $filter) {
+            if ($filter instanceof MenuFilterInterface) {
+                $item = $filter->filter($item);
+
+                if ($item === false) {
+                    return false;
+                }
+            }
+>>>>>>> laraxot/dev
         }
 
         $item['type'] = $this->determineItemType($item);
 
+<<<<<<< HEAD
         if (isset($item['dropdown']) && is_array($item['dropdown'])) {
             $item['dropdown'] = $this->transformItems($item['dropdown'])->toArray();
         }
@@ -250,6 +355,16 @@ class MenuBuilderAction
             $item['megamenu'] = collect($item['megamenu'])
                 ->map(function (mixed $column): array {
                     return is_array($column) ? $this->transformItems($column)->toArray() : [];
+=======
+        if (isset($item['dropdown'])) {
+            $item['dropdown'] = $this->transformItems($item['dropdown'])->toArray();
+        }
+
+        if (isset($item['megamenu'])) {
+            $item['megamenu'] = collect($item['megamenu'])
+                ->map(function ($column) {
+                    return $this->transformItems($column)->toArray();
+>>>>>>> laraxot/dev
                 })
                 ->toArray();
         }
@@ -285,6 +400,7 @@ class MenuBuilderAction
         };
     }
 
+<<<<<<< HEAD
     /**
      * @return array<array-key, mixed>|null
      */
@@ -298,6 +414,20 @@ class MenuBuilderAction
             );
 
             if ($found !== null) {
+=======
+    public function findItem(string $id, ?string $menu = null): ?array
+    {
+        $menus = $menu ? [$menu => $this->{$menu}] : [
+            'slim_header' => $this->slimHeader,
+            'header' => $this->header,
+            'footer' => $this->footer,
+            'footer_bar' => $this->footerBar,
+        ];
+
+        foreach ($menus as $menuItems) {
+            $found = $menuItems->firstWhere('id', $id);
+            if ($found) {
+>>>>>>> laraxot/dev
                 return $found;
             }
         }
@@ -307,6 +437,7 @@ class MenuBuilderAction
 
     public function removeItem(string $id, ?string $menu = null): self
     {
+<<<<<<< HEAD
         $menuNames = $menu !== null ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
 
         foreach ($menuNames as $menuName) {
@@ -316,11 +447,20 @@ class MenuBuilderAction
                     fn (array $item): bool => isset($item['id']) && $item['id'] === $id
                 )->values()
             );
+=======
+        $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
+
+        foreach ($menus as $menuName) {
+            $this->{$menuName} = $this->{$menuName}->reject(function ($item) use ($id) {
+                return isset($item['id']) && $item['id'] === $id;
+            });
+>>>>>>> laraxot/dev
         }
 
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $updates
      */
@@ -341,11 +481,26 @@ class MenuBuilderAction
                     }
                 )
             );
+=======
+    public function updateItem(string $id, array $updates, ?string $menu = null): self
+    {
+        $menus = $menu ? [$menu] : ['slim_header', 'header', 'footer', 'footer_bar'];
+
+        foreach ($menus as $menuName) {
+            $this->{$menuName} = $this->{$menuName}->map(function ($item) use ($id, $updates) {
+                if (isset($item['id']) && $item['id'] === $id) {
+                    return array_merge($item, $updates);
+                }
+
+                return $item;
+            });
+>>>>>>> laraxot/dev
         }
 
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @return array{
      *     slim_header_count: int,
@@ -357,6 +512,8 @@ class MenuBuilderAction
      *     has_megamenus: bool
      * }
      */
+=======
+>>>>>>> laraxot/dev
     public function getStats(): array
     {
         return [
@@ -373,6 +530,7 @@ class MenuBuilderAction
         ];
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $items
      * @return Collection<int, non-empty-array<array-key, mixed>>
@@ -381,13 +539,22 @@ class MenuBuilderAction
     {
         return collect($items)
             ->map(fn (mixed $item): array|false => $this->processMenuItem($item))
+=======
+    protected function transformItems(array $items): Collection
+    {
+        return collect($items)
+            ->map([$this, 'processMenuItem'])
+>>>>>>> laraxot/dev
             ->filter()
             ->values();
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $item
      */
+=======
+>>>>>>> laraxot/dev
     protected function determineItemType(array $item): string
     {
         if (isset($item['dropdown'])) {
@@ -404,6 +571,7 @@ class MenuBuilderAction
 
         return 'text';
     }
+<<<<<<< HEAD
 
     /**
      * @return Collection<int, non-empty-array<array-key, mixed>>
@@ -432,4 +600,6 @@ class MenuBuilderAction
             default => throw new InvalidArgumentException("Menu sconosciuto: {$menuName}"),
         };
     }
+=======
+>>>>>>> laraxot/dev
 }

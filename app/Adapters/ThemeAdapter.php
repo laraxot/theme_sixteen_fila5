@@ -12,6 +12,13 @@ class ThemeAdapter
 
     protected string $version = '1.0.0';
 
+<<<<<<< HEAD
+=======
+<<<<<<< .merge_file_2wnpHM
+=======
+
+>>>>>>> .merge_file_ooV6D8
+>>>>>>> laraxot/dev
     public function getName(): string
     {
         return $this->themeName;

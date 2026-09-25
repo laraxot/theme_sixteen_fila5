@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Spatie\QueueableAction\QueueableAction;
 
+<<<<<<< HEAD
 use function Safe\base64_decode;
 use function Safe\json_decode;
 
+=======
+>>>>>>> laraxot/dev
 class CieAuthAction
 {
     use QueueableAction;
@@ -28,9 +31,15 @@ class CieAuthAction
 
     public function __construct()
     {
+<<<<<<< HEAD
         $this->baseUrl = config()->string('cie.base_url', 'https://preprod.idserver.servizicie.interno.gov.it/idp');
         $this->clientId = config()->string('cie.client_id');
         $this->clientSecret = config()->string('cie.client_secret');
+=======
+        $this->baseUrl = config('cie.base_url', 'https://preprod.idserver.servizicie.interno.gov.it/idp');
+        $this->clientId = config('cie.client_id');
+        $this->clientSecret = config('cie.client_secret');
+>>>>>>> laraxot/dev
         $this->redirectUri = route('cie.callback');
     }
 
@@ -73,6 +82,7 @@ class CieAuthAction
 
         return 'cieid://login?'.http_build_query([
             'redirect_url' => $webLoginUrl,
+<<<<<<< HEAD
             'client_name' => config()->string('app.name'),
         ]);
     }
@@ -95,11 +105,33 @@ class CieAuthAction
         }
 
         if ($code === '') {
+=======
+            'client_name' => config('app.name'),
+        ]);
+    }
+
+    public function processCallback(Request $request): array
+    {
+        $code = $request->input('code');
+        $state = $request->input('state');
+        $error = $request->input('error');
+
+        if ($error) {
+            throw new Exception('CIE authentication error: '.$error);
+        }
+
+        if (! $state || $state !== Session::get('cie.state')) {
+            throw new Exception('State parameter mismatch');
+        }
+
+        if (! $code) {
+>>>>>>> laraxot/dev
             throw new Exception('Authorization code missing');
         }
 
         $tokenData = $this->exchangeCodeForToken($code);
 
+<<<<<<< HEAD
         $accessToken = $tokenData['access_token'] ?? null;
         if (! is_string($accessToken)) {
             throw new Exception('CIE token response missing access_token');
@@ -113,6 +145,11 @@ class CieAuthAction
         $userData = $this->getUserInfo($accessToken);
 
         $idTokenClaims = $this->validateIdToken($idToken);
+=======
+        $userData = $this->getUserInfo($tokenData['access_token']);
+
+        $idTokenClaims = $this->validateIdToken($tokenData['id_token']);
+>>>>>>> laraxot/dev
 
         $userAttributes = array_merge($userData, $idTokenClaims);
 
@@ -129,18 +166,25 @@ class CieAuthAction
         return Session::has('cie.authenticated') && Session::get('cie.authenticated') === true;
     }
 
+<<<<<<< HEAD
     /**
      * @return array<array-key, mixed>|null
      */
+=======
+>>>>>>> laraxot/dev
     public function getAuthenticatedUser(): ?array
     {
         if (! $this->isAuthenticated()) {
             return null;
         }
 
+<<<<<<< HEAD
         $userData = Session::get('cie.user_data');
 
         return is_array($userData) ? $userData : null;
+=======
+        return Session::get('cie.user_data');
+>>>>>>> laraxot/dev
     }
 
     public function logout(): void
@@ -180,9 +224,12 @@ class CieAuthAction
         return $this->baseUrl.'/oidc/logout?'.http_build_query($params);
     }
 
+<<<<<<< HEAD
     /**
      * @return array<array-key, mixed>|null
      */
+=======
+>>>>>>> laraxot/dev
     public function refreshToken(): ?array
     {
         $refreshToken = Session::get('cie.refresh_token');
@@ -202,6 +249,7 @@ class CieAuthAction
             if ($response->successful()) {
                 $tokenData = $response->json();
 
+<<<<<<< HEAD
                 if (! is_array($tokenData)) {
                     Log::warning('CIE token refresh returned an unexpected payload shape');
 
@@ -209,6 +257,9 @@ class CieAuthAction
                 }
 
                 Session::put('cie.access_token', $tokenData['access_token'] ?? null);
+=======
+                Session::put('cie.access_token', $tokenData['access_token']);
+>>>>>>> laraxot/dev
                 if (isset($tokenData['refresh_token'])) {
                     Session::put('cie.refresh_token', $tokenData['refresh_token']);
                 }
@@ -229,9 +280,12 @@ class CieAuthAction
                ! empty($this->baseUrl);
     }
 
+<<<<<<< HEAD
     /**
      * @return array<string, string|bool>
      */
+=======
+>>>>>>> laraxot/dev
     public function getConfigInfo(): array
     {
         return [
@@ -243,9 +297,12 @@ class CieAuthAction
         ];
     }
 
+<<<<<<< HEAD
     /**
      * @return array<array-key, mixed>
      */
+=======
+>>>>>>> laraxot/dev
     protected function exchangeCodeForToken(string $code): array
     {
         $response = Http::asForm()->post($this->baseUrl.'/oidc/token', [
@@ -260,6 +317,7 @@ class CieAuthAction
             throw new Exception('Token exchange failed: '.$response->body());
         }
 
+<<<<<<< HEAD
         $data = $response->json();
 
         if (! is_array($data)) {
@@ -272,6 +330,11 @@ class CieAuthAction
     /**
      * @return array<array-key, mixed>
      */
+=======
+        return $response->json();
+    }
+
+>>>>>>> laraxot/dev
     protected function getUserInfo(string $accessToken): array
     {
         $response = Http::withToken($accessToken)
@@ -281,6 +344,7 @@ class CieAuthAction
             throw new Exception('UserInfo request failed: '.$response->body());
         }
 
+<<<<<<< HEAD
         $data = $response->json();
 
         if (! is_array($data)) {
@@ -293,6 +357,11 @@ class CieAuthAction
     /**
      * @return array<array-key, mixed>
      */
+=======
+        return $response->json();
+    }
+
+>>>>>>> laraxot/dev
     protected function validateIdToken(string $idToken): array
     {
         $parts = explode('.', $idToken);
@@ -304,10 +373,13 @@ class CieAuthAction
         $header = json_decode(base64_decode($parts[0]), true);
         $payload = json_decode(base64_decode($parts[1]), true);
 
+<<<<<<< HEAD
         if (! is_array($payload)) {
             throw new Exception('Invalid JWT payload');
         }
 
+=======
+>>>>>>> laraxot/dev
         if (! isset($payload['nonce']) || $payload['nonce'] !== Session::get('cie.nonce')) {
             throw new Exception('Nonce verification failed');
         }
@@ -327,10 +399,13 @@ class CieAuthAction
         return $payload;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $attributes
      * @return array<string, mixed>
      */
+=======
+>>>>>>> laraxot/dev
     protected function mapCieAttributes(array $attributes): array
     {
         return [
@@ -353,6 +428,7 @@ class CieAuthAction
         ];
     }
 
+<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $attributes
      */
@@ -380,6 +456,26 @@ class CieAuthAction
 
         if (isset($address['country']) && is_string($address['country'])) {
             $addressParts[] = $address['country'];
+=======
+    protected function formatAddress(array $attributes): ?string
+    {
+        $addressParts = [];
+
+        if (isset($attributes['address']['street_address'])) {
+            $addressParts[] = $attributes['address']['street_address'];
+        }
+
+        if (isset($attributes['address']['locality'])) {
+            $addressParts[] = $attributes['address']['locality'];
+        }
+
+        if (isset($attributes['address']['postal_code'])) {
+            $addressParts[] = $attributes['address']['postal_code'];
+        }
+
+        if (isset($attributes['address']['country'])) {
+            $addressParts[] = $attributes['address']['country'];
+>>>>>>> laraxot/dev
         }
 
         return ! empty($addressParts) ? implode(', ', $addressParts) : null;
