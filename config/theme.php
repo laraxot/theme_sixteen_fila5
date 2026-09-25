@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 /*
  * Solo valori di default: niente env() in questo file. Larastan vieta env()
  * fuori dalla config/ di root (stessa scelta di Modules/Catalog/config/metel.php,
@@ -8,8 +7,6 @@
  * caricato da ThemeServiceProvider::loadConfigFrom() via mergeConfigFrom(), quindi
  * non e' sotto config_path() e Larastan lo tratta come codice applicativo.
  */
-=======
->>>>>>> laraxot/dev
 return [
     /*
     |--------------------------------------------------------------------------
@@ -230,11 +227,7 @@ return [
     ],
 
     'debug' => [
-<<<<<<< HEAD
         'enabled' => config('app.debug'),
-=======
-        'enabled' => env('APP_DEBUG', false),
->>>>>>> laraxot/dev
         'log_queries' => false,
         'log_views' => false,
         'log_assets' => false,

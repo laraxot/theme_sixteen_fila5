@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -12,33 +11,15 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-=======
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-=======
-use function Safe\filesize;
-use function Safe\hash_file;
-
-use Illuminate\Database\Eloquent\Builder;
-use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
-
-use Illuminate\Database\Eloquent\Casts\Attribute;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-<<<<<<< HEAD
 use function Safe\filesize;
 use function Safe\hash_file;
 
-=======
->>>>>>> laraxot/dev
 /**
  * Modello per i documenti pubblici (Public Document)
  *
@@ -64,7 +45,6 @@ use function Safe\hash_file;
  * @property string|null $legal_status
  * @property string|null $classification_code
  * @property string|null $subject_matter
-<<<<<<< HEAD
  * @property array<array-key, mixed>|null $keywords
  * @property string|null $language
  * @property Carbon|null $document_date
@@ -73,20 +53,6 @@ use function Safe\hash_file;
  * @property Carbon|null $effective_date
  * @property Carbon|null $expiry_date
  * @property Carbon|null $review_date
-=======
-<<<<<<< HEAD
- * @property array|null $keywords
-=======
- * @property array<string, mixed>|null $keywords
->>>>>>> edd328a (.)
- * @property string|null $language
- * @property \Carbon\Carbon|null $document_date
- * @property \Carbon\Carbon|null $approval_date
- * @property \Carbon\Carbon|null $publication_date
- * @property \Carbon\Carbon|null $effective_date
- * @property \Carbon\Carbon|null $expiry_date
- * @property \Carbon\Carbon|null $review_date
->>>>>>> laraxot/dev
  * @property string|null $file_path
  * @property string|null $file_name
  * @property int|null $file_size
@@ -95,54 +61,23 @@ use function Safe\hash_file;
  * @property string|null $original_format
  * @property string|null $accessible_format
  * @property string|null $signed_version
-<<<<<<< HEAD
  * @property array<array-key, mixed>|null $attachments
  * @property array<array-key, mixed>|null $versions
  * @property array<array-key, mixed>|null $related_documents
  * @property array<array-key, mixed>|null $legislative_references
  * @property array<array-key, mixed>|null $administrative_references
-=======
-<<<<<<< HEAD
- * @property array|null $attachments
- * @property array|null $versions
- * @property array|null $related_documents
- * @property array|null $legislative_references
- * @property array|null $administrative_references
-=======
- * @property array<string, mixed>|null $attachments
- * @property array<string, mixed>|null $versions
- * @property array<string, mixed>|null $related_documents
- * @property array<string, mixed>|null $legislative_references
- * @property array<string, mixed>|null $administrative_references
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
  * @property string|null $transparency_section
  * @property string|null $access_rights
  * @property string $privacy_level
  * @property int|null $retention_period
-<<<<<<< HEAD
  * @property Carbon|null $disposal_date
  * @property array<array-key, mixed>|null $digital_signature
  * @property array<array-key, mixed>|null $timestamp
-=======
- * @property \Carbon\Carbon|null $disposal_date
-<<<<<<< HEAD
- * @property array|null $digital_signature
- * @property array|null $timestamp
-=======
- * @property array<string, mixed>|null $digital_signature
- * @property array<string, mixed>|null $timestamp
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
  * @property bool $accessibility_compliance
  * @property bool $format_compliance
  * @property bool $metadata_compliance
  * @property int $download_count
-<<<<<<< HEAD
  * @property Carbon|null $last_accessed
-=======
- * @property \Carbon\Carbon|null $last_accessed
->>>>>>> laraxot/dev
  * @property string|null $checksum
  * @property bool $is_published
  * @property bool $is_active
@@ -150,7 +85,6 @@ use function Safe\hash_file;
  * @property bool $is_downloadable
  * @property bool $requires_authentication
  * @property string $visibility_level
-<<<<<<< HEAD
  * @property array<array-key, mixed>|null $metadata
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -177,37 +111,6 @@ class PublicDocument extends Model
     use HasFactory, SoftDeletes;
 
     /**
-=======
-<<<<<<< HEAD
- * @property array|null $metadata
-=======
- * @property array<string, mixed>|null $metadata
->>>>>>> edd328a (.)
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read OrganizationalUnit|null $organizationalUnit
- * @property-read PublicPerson|null $author
- * @property-read MunicipalService|null $service
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- */
-<<<<<<< HEAD
-class PublicDocument extends Model
-{
-    use HasFactory, SoftDeletes;
-
-    /**
-=======
-class PublicDocument extends MunicipalBaseModel
-{
-    use SoftDeletes;
-
-    /**
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      * Tipologie di documento secondo AGID
      */
     public const DOCUMENT_TYPES = [
@@ -379,7 +282,6 @@ class PublicDocument extends MunicipalBaseModel
         'metadata',
     ];
 
-<<<<<<< HEAD
     /**
      * @return array<string, string>
      */
@@ -422,46 +324,6 @@ class PublicDocument extends MunicipalBaseModel
      * Relazione con l'unità organizzativa
      *
      * @return BelongsTo<OrganizationalUnit, $this>
-=======
-    protected $casts = [
-        'document_date' => 'date',
-        'approval_date' => 'date',
-        'publication_date' => 'date',
-        'effective_date' => 'date',
-        'expiry_date' => 'date',
-        'review_date' => 'date',
-        'disposal_date' => 'date',
-        'last_accessed' => 'datetime',
-        'file_size' => 'integer',
-        'download_count' => 'integer',
-        'retention_period' => 'integer',
-        'is_published' => 'boolean',
-        'is_active' => 'boolean',
-        'is_searchable' => 'boolean',
-        'is_downloadable' => 'boolean',
-        'requires_authentication' => 'boolean',
-        'accessibility_compliance' => 'boolean',
-        'format_compliance' => 'boolean',
-        'metadata_compliance' => 'boolean',
-        'keywords' => 'json',
-        'attachments' => 'json',
-        'versions' => 'json',
-        'related_documents' => 'json',
-        'legislative_references' => 'json',
-        'administrative_references' => 'json',
-        'access_rights' => 'json',
-        'digital_signature' => 'json',
-        'timestamp' => 'json',
-        'metadata' => 'json',
-    ];
-
-    /**
-<<<<<<< HEAD
-     * Relazione con l'unità organizzativa
-=======
-     * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -469,17 +331,9 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con l'autore
      *
      * @return BelongsTo<PublicPerson, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con l'autore
-=======
-     * @return BelongsTo<PublicPerson, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function author(): BelongsTo
     {
@@ -487,17 +341,9 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con il servizio correlato
      *
      * @return BelongsTo<MunicipalService, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con il servizio correlato
-=======
-     * @return BelongsTo<MunicipalService, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function service(): BelongsTo
     {
@@ -505,17 +351,9 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con i punti di contatto
      *
      * @return MorphMany<ContactPoint, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con i punti di contatto
-=======
-     * @return MorphMany<ContactPoint, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -523,17 +361,9 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con le persone correlate
      *
      * @return BelongsToMany<PublicPerson, $this>
-=======
-<<<<<<< HEAD
-     * Relazione con le persone correlate
-=======
-     * @return BelongsToMany<PublicPerson, $this>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function people(): BelongsToMany
     {
@@ -544,26 +374,12 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti pubblicati
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublished(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per documenti pubblicati
-     */
-    public function scopePublished($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti pubblicati
-     */
-    public function scopePublished(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('is_published', true)
             ->where('publication_date', '<=', now())
@@ -571,7 +387,6 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti attivi
      *
      * @param  Builder<static>  $query
@@ -581,106 +396,45 @@ class PublicDocument extends MunicipalBaseModel
     {
         return $query->where('is_active', true)
             ->where(function (Builder $q): void {
-=======
-<<<<<<< HEAD
-     * Scope per documenti attivi
-     */
-    public function scopeActive($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti attivi
-     */
-    public function scopeActive(Builder $query): Builder
->>>>>>> edd328a (.)
-    {
-        return $query->where('is_active', true)
-            ->where(function ($q): void {
->>>>>>> laraxot/dev
                 $q->whereNull('expiry_date')
                     ->orWhere('expiry_date', '>', now());
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti ricercabili
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeSearchable(Builder $query): Builder
-=======
-<<<<<<< HEAD
-     * Scope per documenti ricercabili
-     */
-    public function scopeSearchable($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti ricercabili
-     */
-    public function scopeSearchable(Builder $query): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('is_searchable', true);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per tipologia di documento
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfType(Builder $query, string $type): Builder
-=======
-<<<<<<< HEAD
-     * Scope per tipologia di documento
-     */
-    public function scopeOfType($query, string $type)
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per tipologia di documento
-     */
-    public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('document_type', $type);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per sezione di trasparenza
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeInTransparencySection(Builder $query, string $section): Builder
-=======
-<<<<<<< HEAD
-     * Scope per sezione di trasparenza
-     */
-    public function scopeInTransparencySection($query, string $section)
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per sezione di trasparenza
-     */
-    public function scopeInTransparencySection(Builder $query, string $section): Builder
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     {
         return $query->where('transparency_section', $section);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti in vigore
      *
      * @param  Builder<static>  $query
@@ -690,29 +444,12 @@ class PublicDocument extends MunicipalBaseModel
     {
         return $query->where('document_status', 'effective')
             ->where(function (Builder $q): void {
-=======
-<<<<<<< HEAD
-     * Scope per documenti in vigore
-     */
-    public function scopeEffective($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti in vigore
-     */
-    public function scopeEffective(Builder $query): Builder
->>>>>>> edd328a (.)
-    {
-        return $query->where('document_status', 'effective')
-            ->where(function ($q): void {
->>>>>>> laraxot/dev
                 $q->whereNull('effective_date')
                     ->orWhere('effective_date', '<=', now());
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope ordinati per data
      *
      * @param  Builder<static>  $query
@@ -722,31 +459,10 @@ class PublicDocument extends MunicipalBaseModel
     public function scopeOrdered(Builder $query, string $field = 'document_date', string $direction = 'desc'): Builder
     {
         return $query->orderBy($field, $direction);
-=======
-<<<<<<< HEAD
-     * Scope ordinati per data
-     */
-    public function scopeOrdered($query, string $field = 'document_date', string $direction = 'desc')
-    {
-        return $query->orderBy($field, $direction);
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope ordinati per data
-     */
-    public function scopeOrdered(Builder $query, string $field = 'document_date', string $direction = 'desc'): Builder
-    {
-        $dir = in_array($direction, ['asc', 'desc'], true) ? $direction : 'desc';
-
-        return $query->orderBy($field, $dir);
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene le parole chiave formattate
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -763,41 +479,10 @@ class PublicDocument extends MunicipalBaseModel
                 return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
             })
             ->toArray();
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedKeywords(): array
-    {
-        if (! $this->keywords || ! is_array($this->keywords)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->keywords)
-            ->map(function ($keyword) {
-                return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
-            })
-            ->toArray();
-=======
-        $formatted = collect($this->keywords)
-            ->map(function ($keyword) {
-                return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
-            })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene gli allegati formattati
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -811,26 +496,6 @@ class PublicDocument extends MunicipalBaseModel
 
         return collect($attachments)
             ->map(function (mixed $attachment): mixed {
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedAttachments(): array
-    {
-        if (! $this->attachments || ! is_array($this->attachments)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->attachments)
-=======
-        $formatted = collect($this->attachments)
->>>>>>> edd328a (.)
-            ->map(function ($attachment) {
->>>>>>> laraxot/dev
                 if (is_string($attachment)) {
                     return [
                         'path' => $attachment,
@@ -840,7 +505,6 @@ class PublicDocument extends MunicipalBaseModel
                     ];
                 }
 
-<<<<<<< HEAD
                 if (! is_array($attachment)) {
                     return $attachment;
                 }
@@ -852,33 +516,10 @@ class PublicDocument extends MunicipalBaseModel
                 ], $attachment);
             })
             ->toArray();
-=======
-<<<<<<< HEAD
-                return array_merge([
-                    'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
-                ], $attachment);
-            })
-            ->toArray();
-=======
-                return is_array($attachment)
-                    ? array_merge([
-                        'url' => isset($attachment['path']) && is_string($attachment['path'])
-                            ? asset('storage/'.$attachment['path'])
-                            : null,
-                    ], $attachment)
-                    : [];
-            })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene le versioni del documento
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -894,31 +535,6 @@ class PublicDocument extends MunicipalBaseModel
             ->map(function (mixed $version, int|string $index): array {
                 return array_merge([
                     'version' => (is_int($index) ? $index : 0) + 1,
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedVersions(): array
-    {
-        if (! $this->versions || ! is_array($this->versions)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->versions)
-            ->map(function ($version, $index) {
-                return array_merge([
-                    'version' => $index + 1,
-=======
-        $formatted = collect($this->versions)
-            ->map(function (mixed $version, int|string $index): array {
-                return array_merge([
-                    'version' => (int) $index + 1,
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                     'date' => null,
                     'changes' => null,
                     'file' => null,
@@ -926,23 +542,11 @@ class PublicDocument extends MunicipalBaseModel
             })
             ->sortByDesc('version')
             ->values()
-<<<<<<< HEAD
             ->toArray();
-=======
-<<<<<<< HEAD
-            ->toArray();
-=======
-            ->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene i riferimenti normativi formattati
-<<<<<<< HEAD
      *
      * @return array<int|string, mixed>
      */
@@ -956,44 +560,13 @@ class PublicDocument extends MunicipalBaseModel
 
         return collect($references)
             ->map(function (mixed $reference): mixed {
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> edd328a (.)
-     */
-    public function getFormattedLegislativeReferences(): array
-    {
-        if (! $this->legislative_references || ! is_array($this->legislative_references)) {
-            return [];
-        }
-
-<<<<<<< HEAD
-        return collect($this->legislative_references)
-=======
-        $formatted = collect($this->legislative_references)
->>>>>>> edd328a (.)
-            ->map(function ($reference) {
->>>>>>> laraxot/dev
                 if (is_string($reference)) {
                     return ['title' => $reference];
                 }
 
                 return $reference;
             })
-<<<<<<< HEAD
             ->toArray();
-=======
-<<<<<<< HEAD
-            ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
@@ -1031,29 +604,13 @@ class PublicDocument extends MunicipalBaseModel
             return false;
         }
 
-<<<<<<< HEAD
         return hash_file('sha256', $filePath) === $this->checksum;
-=======
-<<<<<<< HEAD
-        return hash_file('sha256', $filePath) === $this->checksum;
-=======
-        return is_string($this->checksum) && hash_file('sha256', $filePath) === $this->checksum;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     }
 
     /**
      * Verifica la compliance AGID
-<<<<<<< HEAD
      *
      * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function checkAgidCompliance(): array
     {
@@ -1084,7 +641,6 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Ottiene il nome completo dell'autore, se presente
      */
     protected function authorFullName(): ?string
@@ -1108,17 +664,6 @@ class PublicDocument extends MunicipalBaseModel
             ? array_map(static fn (mixed $keyword): string => is_array($keyword) && is_string($keyword['name'] ?? null) ? $keyword['name'] : (is_scalar($keyword) ? (string) $keyword : ''), $keywords)
             : [];
 
-=======
-     * Ottiene i dati strutturati per SEO
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> edd328a (.)
-     */
-    public function getStructuredData(): array
-    {
->>>>>>> laraxot/dev
         return [
             '@context' => 'https://schema.org',
             '@type' => 'DigitalDocument',
@@ -1126,7 +671,6 @@ class PublicDocument extends MunicipalBaseModel
             'description' => $this->description,
             'dateCreated' => $this->document_date?->toISOString(),
             'datePublished' => $this->publication_date?->toISOString(),
-<<<<<<< HEAD
             'dateModified' => $this->updated_at?->toISOString(),
             'author' => [
                 '@type' => 'Person',
@@ -1139,37 +683,6 @@ class PublicDocument extends MunicipalBaseModel
             'encodingFormat' => $this->file_type,
             'contentSize' => $this->formatted_file_size,
             'keywords' => $keywordNames !== [] ? implode(', ', $keywordNames) : null,
-=======
-<<<<<<< HEAD
-            'dateModified' => $this->updated_at->toISOString(),
-=======
-            'dateModified' => $this->updated_at?->toISOString(),
->>>>>>> edd328a (.)
-            'author' => [
-                '@type' => 'Person',
-                'name' => $this->author?->full_name,
-            ],
-            'publisher' => [
-                '@type' => 'Organization',
-<<<<<<< HEAD
-                'name' => $this->organizationalUnit?->name ?? 'Comune',
-            ],
-            'encodingFormat' => $this->file_type,
-            'contentSize' => $this->formatted_file_size,
-            'keywords' => is_array($this->keywords) ? implode(', ', array_column($this->keywords, 'name')) : null,
-=======
-                'name' => $this->organizationalUnit->name ?? 'Comune',
-            ],
-            'encodingFormat' => $this->file_type,
-            'contentSize' => $this->formatted_file_size,
-            'keywords' => is_array($this->keywords)
-                ? implode(', ', array_map(
-                    static fn (mixed $name): string => (string) $name,
-                    array_column($this->keywords, 'name')
-                ))
-                : null,
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             'inLanguage' => $this->language ?? 'it',
             'isAccessibleForFree' => true,
             'license' => 'https://creativecommons.org/licenses/by/4.0/',
@@ -1178,16 +691,8 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Ottiene le informazioni complete del documento
-<<<<<<< HEAD
      *
      * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     public function getDocumentDetails(): array
     {
@@ -1225,15 +730,9 @@ class PublicDocument extends MunicipalBaseModel
                 'keywords' => $this->getFormattedKeywords(),
             ],
             'relationships' => [
-<<<<<<< HEAD
                 'author' => $this->authorFullName(),
                 'organizational_unit' => $this->organizationalUnit?->getAttribute('name'),
                 'service' => $this->service?->getAttribute('name'),
-=======
-                'author' => $this->author?->full_name,
-                'organizational_unit' => $this->organizationalUnit?->name,
-                'service' => $this->service?->name,
->>>>>>> laraxot/dev
                 'attachments' => $this->getFormattedAttachments(),
                 'versions' => $this->getFormattedVersions(),
             ],
@@ -1243,145 +742,73 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del tipo di documento
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function documentTypeName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): string => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
-=======
-            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per il nome dello stato
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function documentStatusName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): string => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
-=======
-            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per il nome dello stato di pubblicazione
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function publicationStatusName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): string => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
-=======
-            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per il nome del livello di privacy
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function privacyLevelName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): string => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
-=======
-            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per verificare se è scaduto
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isExpired(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): bool => (bool) ($this->expiry_date && $this->expiry_date->isPast())
-=======
-            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per verificare se è in vigore
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function isEffective(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): bool {
-=======
-            get: function () {
->>>>>>> laraxot/dev
                 if ($this->document_status !== 'effective') {
                     return false;
                 }
@@ -1401,59 +828,27 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se necessita revisione
-<<<<<<< HEAD
      *
      * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function needsReview(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): bool => (bool) ($this->review_date && $this->review_date->isPast())
-=======
-            get: fn () => $this->review_date && $this->review_date->isPast()
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per la dimensione del file formattata
-<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function formattedFileSize(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: function (): ?string {
                 if (! $this->file_size) {
                     return null;
-=======
-<<<<<<< HEAD
-            get: function (): void {
-                if (! $this->file_size) {
-                    return;
-=======
-            get: function (): ?string {
-                if (! $this->file_size) {
-                    return null;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                 }
 
                 $units = ['B', 'KB', 'MB', 'GB'];
@@ -1472,85 +867,37 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per l'URL del documento
-<<<<<<< HEAD
      *
      * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): string => route('municipal.documents.show', $this->slug)
-=======
-<<<<<<< HEAD
-            get: fn () => route('municipal.documents.show', $this->slug)
-=======
-            get: fn () => app(BuildLocalizedFrontofficePathAction::class)->execute('/amministrazione/documenti/'.$this->slug)
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per l'URL di download
-<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string|null, never>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function downloadUrl(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn (): ?string => $this->file_path ? route('municipal.documents.download', $this->id) : null
-=======
-<<<<<<< HEAD
-            get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null
-=======
-            get: fn () => $this->file_path ? app(BuildLocalizedFrontofficePathAction::class)->execute('/amministrazione/documenti/'.$this->id.'/download') : null
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< HEAD
      *
      * @return Attribute<string, string>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<mixed, mixed>
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             set: function (string $value): string {
-=======
-            set: function ($value) {
-<<<<<<< HEAD
-=======
-                $value = (string) $value;
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1569,34 +916,14 @@ class PublicDocument extends MunicipalBaseModel
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
         static::creating(function (self $model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug($model->title);
-=======
-        static::creating(function (PublicDocument $model): void {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug((string) $model->title);
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
         static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
-        static::creating(function (PublicDocument $model): void {
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1607,15 +934,7 @@ class PublicDocument extends MunicipalBaseModel
         });
 
         // Set default values
-<<<<<<< HEAD
         static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
-        static::creating(function (PublicDocument $model): void {
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
             if (is_null($model->document_status)) {
                 $model->document_status = 'draft';
             }
@@ -1638,28 +957,12 @@ class PublicDocument extends MunicipalBaseModel
         });
 
         // Calcola checksum del file se presente
-<<<<<<< HEAD
         static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
-        static::creating(function ($model): void {
->>>>>>> laraxot/dev
             if ($model->file_path && empty($model->checksum)) {
                 $filePath = storage_path('app/'.$model->file_path);
                 if (file_exists($filePath)) {
                     $model->checksum = hash_file('sha256', $filePath);
                     $model->file_size = filesize($filePath);
-<<<<<<< HEAD
-=======
-=======
-        static::creating(function (PublicDocument $model): void {
-            if ($model->file_path && empty($model->checksum)) {
-                $filePath = storage_path('app/'.$model->file_path);
-                if (file_exists($filePath)) {
-                    $model->checksum = (string) hash_file('sha256', $filePath);
-                    $model->file_size = (int) filesize($filePath);
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
                 }
             }
         });

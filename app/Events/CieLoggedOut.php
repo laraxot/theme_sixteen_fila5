@@ -6,11 +6,7 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
-=======
-use Modules\User\Models\User;
->>>>>>> laraxot/dev
 
 /**
  * Evento lanciato quando un utente effettua il logout da CIE
@@ -22,22 +18,11 @@ class CieLoggedOut
 {
     use Dispatchable, SerializesModels;
 
-<<<<<<< HEAD
     /**
      * @param  array<array-key, mixed>  $cieAttributes
      */
     public function __construct(
         public UserContract $user,
-=======
-<<<<<<< HEAD
-=======
-    /**
-     * @param  array<string, mixed>  $cieAttributes
-     */
->>>>>>> edd328a (.)
-    public function __construct(
-        public User $user,
->>>>>>> laraxot/dev
         public array $cieAttributes
     ) {}
 
@@ -74,18 +59,9 @@ class CieLoggedOut
     /**
      * Ottiene attributi specifici per logging sicuro
      */
-<<<<<<< HEAD
     /**
      * @return array<string, mixed>
      */
-=======
-<<<<<<< HEAD
-=======
-    /**
-     * @return array<string, mixed>
-     */
->>>>>>> edd328a (.)
->>>>>>> laraxot/dev
     public function getLoggingData(): array
     {
         return [
