@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * text=auto
 *.css linguist-vendored
 *.scss linguist-vendored
@@ -28,6 +29,7 @@ CHANGELOG.md export-ignore
 <<<<<<< .merge_file_VaiuFE
 *.psd !text !filter !merge !diff
 >>>>>>> .merge_file_OwyRr9
+>>>>>>> edd328a (.)
 *.png !text !filter !merge !diff
 *.svg !text !filter !merge !diff
 *.jpg !text !filter !merge !diff

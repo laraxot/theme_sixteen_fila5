@@ -17,6 +17,12 @@ class Page extends Component
     /**
      * Create a new component instance.
      */
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $data
+     */
+>>>>>>> edd328a (.)
     public function __construct(
         public string $side = 'content',
         public string $slug = '',

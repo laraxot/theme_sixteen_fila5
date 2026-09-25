@@ -15,6 +15,13 @@ use function Safe\preg_match;
  */
 class ActiveMenuFilter implements MenuFilterInterface
 {
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $item
+     * @return array<string, mixed>|false
+     */
+>>>>>>> edd328a (.)
     public function filter(array $item): array|false
     {
         // Non processare header e separatori
@@ -28,9 +35,18 @@ class ActiveMenuFilter implements MenuFilterInterface
         if (isset($item['dropdown']) && is_array($item['dropdown'])) {
             $hasActiveChild = false;
             foreach ($item['dropdown'] as $dropdownItem) {
+<<<<<<< HEAD
                 if (is_array($dropdownItem) && $this->isActive($dropdownItem)) {
                     $hasActiveChild = true;
                     break;
+=======
+                if (is_array($dropdownItem)) {
+                    /** @var array<string, mixed> $dropdownItem */
+                    if ($this->isActive($dropdownItem)) {
+                        $hasActiveChild = true;
+                        break;
+                    }
+>>>>>>> edd328a (.)
                 }
             }
 
@@ -45,9 +61,18 @@ class ActiveMenuFilter implements MenuFilterInterface
             foreach ($item['megamenu'] as $column) {
                 if (is_array($column)) {
                     foreach ($column as $megamenuItem) {
+<<<<<<< HEAD
                         if (is_array($megamenuItem) && $this->isActive($megamenuItem)) {
                             $hasActiveChild = true;
                             break 2;
+=======
+                        if (is_array($megamenuItem)) {
+                            /** @var array<string, mixed> $megamenuItem */
+                            if ($this->isActive($megamenuItem)) {
+                                $hasActiveChild = true;
+                                break 2;
+                            }
+>>>>>>> edd328a (.)
                         }
                     }
                 }
@@ -62,7 +87,11 @@ class ActiveMenuFilter implements MenuFilterInterface
     }
 
     /**
+<<<<<<< HEAD
      * Determina se un elemento del menu è attivo
+=======
+     * @param  array<string, mixed>  $item
+>>>>>>> edd328a (.)
      */
     protected function isActive(array $item): bool
     {

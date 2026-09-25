@@ -25,11 +25,22 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
 
 test('folio pages con Component richiedono @volt statico uguale a name()', function (): void {
     $themeRoot = dirname(__DIR__, 2);
+<<<<<<< HEAD
+=======
+    $userRoot = dirname(__DIR__, 4).'/Modules/User';
+>>>>>>> edd328a (.)
     $expectations = [
         $themeRoot.'/resources/views/pages/[container0]/index.blade.php' => "@volt('container0.index')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/index.blade.php' => "@volt('container0.view')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/index.blade.php' => "@volt('container1.index')",
         $themeRoot.'/resources/views/pages/tests/[slug].blade.php' => "@volt('tests.view')",
+<<<<<<< HEAD
+=======
+        $userRoot.'/resources/views/pages/area-personale/pratiche.blade.php' => "@volt('area-personale.pratiche')",
+        $userRoot.'/resources/views/pages/area-personale/servizi.blade.php' => "@volt('area-personale.servizi')",
+        $userRoot.'/resources/views/pages/area-personale/impostazioni.blade.php' => "@volt('area-personale.impostazioni')",
+        $userRoot.'/resources/views/pages/dashboard/index.blade.php' => "@volt('dashboard')",
+>>>>>>> edd328a (.)
     ];
 
     foreach ($expectations as $path => $voltDirective) {
@@ -70,6 +81,27 @@ test('folio pages con Component vietano props extends section e php slug hack', 
     }
 });
 
+<<<<<<< HEAD
+=======
+
+test('area personale app pages usano PageSlugMiddleware non auth hardcoded', function (): void {
+    $userRoot = dirname(__DIR__, 4).'/Modules/User';
+    $paths = [
+        $userRoot.'/resources/views/pages/area-personale/pratiche.blade.php',
+        $userRoot.'/resources/views/pages/area-personale/servizi.blade.php',
+        $userRoot.'/resources/views/pages/area-personale/impostazioni.blade.php',
+        $userRoot.'/resources/views/pages/dashboard/index.blade.php',
+    ];
+
+    foreach ($paths as $path) {
+        $html = (string) file_get_contents($path);
+        expect($html)->toContain('PageSlugMiddleware::class');
+        expect($html)->not->toContain("middleware(['web', 'auth'])");
+        expect($html)->not->toContain('middleware(["web", "auth"])');
+    }
+});
+
+>>>>>>> edd328a (.)
 test('folio pages non usano @volt con variabile dinamica', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     foreach (glob($themeRoot.'/resources/views/pages/**/*.blade.php') ?: [] as $path) {

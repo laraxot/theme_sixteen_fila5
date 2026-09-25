@@ -15,10 +15,13 @@ The Sixteen theme is the primary frontend theme for the Fixcity application, bui
 
 ## Architecture
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_RaF1Dg
 ## Overview
 The Sixteen theme is the primary frontend theme for the Fixcity application, built on top of Bootstrap Italia (Design Comuni) framework. It provides a modern, accessible, and responsive interface for all application features.
 =======
+=======
+>>>>>>> edd328a (.)
 ### Theme Structure
 
 ```
@@ -50,7 +53,10 @@ Themes/Sixteen/
 ```
 
 ### Key Features
+<<<<<<< HEAD
 >>>>>>> .merge_file_gdDzXO
+=======
+>>>>>>> edd328a (.)
 
 #### 1. Design Comuni Integration
 - **Bootstrap Italia**: Complete Bootstrap Italia framework integration

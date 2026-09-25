@@ -3,7 +3,11 @@ title: "R2 UX religion — register form password stacked + WCAG 2.1 AA (Sixteen
 type: religion
 tags: [sixteen, design-comuni, ux, religion-r2, code, auth, register, wcag, a11y, opencode-minimax-m3]
 created: 2026-06-05
+<<<<<<< HEAD
 updated: 2026-06-05
+=======
+updated: 2026-07-13
+>>>>>>> edd328a (.)
 qmd: "r2 ux religion register form password stacked wcag 2.1 aa sixteen theme design-comuni a11y opencode minimax"
 issues:
   - "https://github.com/laraxot/theme_sixteen_fila5/issues/58"
@@ -37,12 +41,23 @@ related:
 
 ### Stack Filament (NO `Grid(2)`)
 
+<<<<<<< HEAD
 In `laravel/Modules/User/app/Filament/Widgets/Auth/Schemas/UserForm.php`:
 
 ```php
 public static function getRegisterFormSchema(Schema $schema, ?Model $record = null): Schema
 {
     return $schema->components([
+=======
+In `laravel/Modules/User/app/Filament/Resources/UserResource/Schemas/UserForm.php`:
+
+**Divieto architetturale:** il tema non deve puntare a `laravel/Modules/User/app/Filament/Widgets/Auth/Schemas/UserForm.php`; quella duplicazione e vietata. Il tema rende la UX, il modulo User possiede lo schema canonico.
+
+```php
+public static function getRegisterFormSchema(): array
+{
+    return [
+>>>>>>> edd328a (.)
         TextInput::make('first_name')->required()->autofocus(),
         TextInput::make('last_name')->required(),
         TextInput::make('email')->required()->email()->unique(...),
@@ -63,7 +78,11 @@ public static function getRegisterFormSchema(Schema $schema, ?Model $record = nu
             ->autocomplete('new-password')
             ->extraInputAttributes(['class' => 'fo-auth-input fo-auth-input--password']),
         // ↑ STACKED
+<<<<<<< HEAD
     ])->statePath('data');
+=======
+    ];
+>>>>>>> edd328a (.)
 }
 ```
 

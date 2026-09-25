@@ -6,7 +6,11 @@ namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
+<<<<<<< HEAD
 use Themes\Sixteen\Actions\MenuBuilderAction;
+=======
+use Themes\Sixteen\Services\MenuBuilder;
+>>>>>>> edd328a (.)
 
 /**
  * View Composer per il tema Sixteen
@@ -17,7 +21,11 @@ use Themes\Sixteen\Actions\MenuBuilderAction;
 class SixteenComposer
 {
     public function __construct(
+<<<<<<< HEAD
         protected MenuBuilderAction $menuBuilder
+=======
+        protected MenuBuilder $menuBuilder
+>>>>>>> edd328a (.)
     ) {}
 
     /**
@@ -69,6 +77,7 @@ class SixteenComposer
      */
     protected function initializeMenusFromConfig(): void
     {
+<<<<<<< HEAD
         $menuConfig = config('sixteen.menu', []);
 
         if (isset($menuConfig['slim_header'])) {
@@ -85,6 +94,33 @@ class SixteenComposer
 
         if (isset($menuConfig['footer_bar'])) {
             $this->menuBuilder->addFooterBar($menuConfig['footer_bar']);
+=======
+        /** @var array<string, mixed> $menuConfig */
+        $menuConfig = config('sixteen.menu', []);
+
+        if (isset($menuConfig['slim_header']) && is_array($menuConfig['slim_header'])) {
+            /** @var array<int, array<string, mixed>|string> $items */
+            $items = $menuConfig['slim_header'];
+            $this->menuBuilder->addSlimHeader($items);
+        }
+
+        if (isset($menuConfig['header']) && is_array($menuConfig['header'])) {
+            /** @var array<int, array<string, mixed>|string> $items */
+            $items = $menuConfig['header'];
+            $this->menuBuilder->addHeader($items);
+        }
+
+        if (isset($menuConfig['footer']) && is_array($menuConfig['footer'])) {
+            /** @var array<int, array<string, mixed>|string> $items */
+            $items = $menuConfig['footer'];
+            $this->menuBuilder->addFooter($items);
+        }
+
+        if (isset($menuConfig['footer_bar']) && is_array($menuConfig['footer_bar'])) {
+            /** @var array<int, array<string, mixed>|string> $items */
+            $items = $menuConfig['footer_bar'];
+            $this->menuBuilder->addFooterBar($items);
+>>>>>>> edd328a (.)
         }
     }
 }
