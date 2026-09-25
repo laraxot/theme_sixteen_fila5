@@ -4,9 +4,17 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+=======
+use function Safe\preg_replace;
+
+use Illuminate\Database\Eloquent\Builder;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
+>>>>>>> edd328a (.)
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -25,15 +33,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $description
  * @property bool $is_primary
  * @property bool $is_public
+<<<<<<< HEAD
  * @property array|null $office_hours
  * @property array|null $languages
  * @property array|null $accessibility_notes
  * @property int $position
  * @property array|null $metadata
+=======
+ * @property array<string, mixed>|null $office_hours
+ * @property array<string, mixed>|null $languages
+ * @property array<string, mixed>|null $accessibility_notes
+ * @property int $position
+ * @property array<string, mixed>|null $metadata
+>>>>>>> edd328a (.)
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
+<<<<<<< HEAD
  * @property-read Model|\Eloquent $contactable
  */
 class ContactPoint extends Model
@@ -41,6 +58,17 @@ class ContactPoint extends Model
     use HasFactory, SoftDeletes;
 
     /**
+=======
+ * @property-read \Illuminate\Database\Eloquent\Model|null $contactable
+ */
+class ContactPoint extends MunicipalBaseModel
+{
+    use SoftDeletes;
+
+    /**
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
+>>>>>>> edd328a (.)
      * Tipi di contatto supportati secondo AGID
      */
     public const TYPES = [
@@ -90,7 +118,11 @@ class ContactPoint extends Model
     ];
 
     /**
+<<<<<<< HEAD
      * Relazione polimorfica con l'entità che possiede il contatto
+=======
+     * @return MorphTo<\Illuminate\Database\Eloquent\Model, $this>
+>>>>>>> edd328a (.)
      */
     public function contactable(): MorphTo
     {
@@ -98,33 +130,66 @@ class ContactPoint extends Model
     }
 
     /**
+<<<<<<< HEAD
      * Scope per contatti pubblici
      */
     public function scopePublic($query)
+=======
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
+     * Scope per contatti pubblici
+     */
+    public function scopePublic(Builder $query): Builder
+>>>>>>> edd328a (.)
     {
         return $query->where('is_public', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per contatti primari
      */
     public function scopePrimary($query)
+=======
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
+     * Scope per contatti primari
+     */
+    public function scopePrimary(Builder $query): Builder
+>>>>>>> edd328a (.)
     {
         return $query->where('is_primary', true);
     }
 
     /**
+<<<<<<< HEAD
      * Scope per tipo di contatto
      */
     public function scopeOfType($query, string $type)
+=======
+     *
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
+     * Scope per tipo di contatto
+     */
+    public function scopeOfType(Builder $query, string $type): Builder
+>>>>>>> edd328a (.)
     {
         return $query->where('type', $type);
     }
 
     /**
+<<<<<<< HEAD
      * Scope ordinati per posizione
      */
     public function scopeOrdered($query)
+=======
+     * @param  Builder<ContactPoint>  $query
+     * @return Builder<ContactPoint>
+     * Scope ordinati per posizione
+     */
+    public function scopeOrdered(Builder $query): Builder
+>>>>>>> edd328a (.)
     {
         return $query->orderBy('position')->orderBy('is_primary', 'desc');
     }
@@ -210,6 +275,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il nome del tipo di contatto
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> edd328a (.)
      */
     protected function typeName(): Attribute
     {
@@ -220,6 +290,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il valore formattato del contatto
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> edd328a (.)
      */
     protected function formattedValue(): Attribute
     {
@@ -230,6 +305,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un indirizzo email
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> edd328a (.)
      */
     protected function isEmail(): Attribute
     {
@@ -240,6 +320,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un numero di telefono
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> edd328a (.)
      */
     protected function isPhone(): Attribute
     {
@@ -250,6 +335,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un social media
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> edd328a (.)
      */
     protected function isSocial(): Attribute
     {
@@ -260,6 +350,11 @@ class ContactPoint extends Model
 
     /**
      * Accessor per l'icona del tipo di contatto
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> edd328a (.)
      */
     protected function icon(): Attribute
     {
@@ -357,9 +452,14 @@ class ContactPoint extends Model
         // Auto-increment position
         static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
+<<<<<<< HEAD
                 $model->position = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
                     ->max('position') + 1;
+=======
+                $model->position = (int) (static::where('contactable_type', $model->contactable_type)
+                    ->where('contactable_id', $model->contactable_id)->max('position') ?? 0) + 1;
+>>>>>>> edd328a (.)
             }
         });
 

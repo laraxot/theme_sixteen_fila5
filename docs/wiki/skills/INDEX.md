@@ -34,6 +34,7 @@ Le Skills progettuali vivono qui, nel wiki del Theme **Sixteen**, e vengono cari
 
 - La sorgente di verita' per le Skills e' sempre il wiki locale
 - Non embeddare Skills nei prompt di avvio
+<<<<<<< HEAD
 <<<<<<< .merge_file_yxkuNU
 - Per Skills globali, consulta il [wiki root](../../../../../../docs/wiki/skills/INDEX.md)
 =======
@@ -43,6 +44,9 @@ Le Skills progettuali vivono qui, nel wiki del Theme **Sixteen**, e vengono cari
 >>>>>>> .merge_file_7nTeyB
 - Per Skills globali, consulta il [wiki root](../../docs/wiki/skills/INDEX.md)
 >>>>>>> .merge_file_T1gXnO
+=======
+- Per Skills globali, consulta il [wiki root](../../../../../../docs/wiki/skills/INDEX.md)
+>>>>>>> edd328a (.)
 
 ## Aggiungere una Nuova SKILLS
 

@@ -1,5 +1,6 @@
 # Sixteen Theme — Scripts
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_Le3xGb
 =======
 <<<<<<< .merge_file_9FlOcQ
@@ -40,6 +41,8 @@
 =======
 =======
 >>>>>>> .merge_file_3oFtHo
+=======
+>>>>>>> edd328a (.)
 Tutti gli script ad-hoc / di tooling vivono qui sotto, mai nella root del tema.
 La root deve restare pulita: solo file essenziali (build config, package, docs/, resources/, public/, app/, lang/, views/, node_modules/).
 
@@ -106,7 +109,10 @@ Il build canonico usa `vite.config.js` + `package.json` + `tailwind.config.js` d
 - Se uno script viene chiamato da `package.json`, l'`scripts.*` path in `package.json` punta a `scripts/<...>/<file>`.
 
 Vedi memoria [feedback-theme-root-clean](../../../../../home/zorin/.claude/projects/-var-www--bases-base-fixcity-fila5/memory/feedback_theme_root_clean.md) e issue GitHub di tracking.
+<<<<<<< HEAD
 <<<<<<< .merge_file_Le3xGb
 =======
 >>>>>>> .merge_file_la6fk9
 >>>>>>> .merge_file_3oFtHo
+=======
+>>>>>>> edd328a (.)
