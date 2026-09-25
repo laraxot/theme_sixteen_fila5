@@ -1,5 +1,6 @@
 # Sixteen — troubleshooting wiki
 
+<<<<<<< HEAD
 [![Module](https://img.shields.io/badge/Module-Sixteen — troubleshooting wiki-8B0000.svg)]()
 [![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge)](https://laravel.com/)](https://laravel.com/)
 [![Filament](https://img.shields.io/badge/Filament-5-ffab00?style=for-the-badge)](https://filamentphp.com/)](https://filamentphp.com/)
@@ -32,3 +33,23 @@ Core module for the FixCity Platform.
 ---
 
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+=======
+Runbook specifici del tema (build Vite, CSS parity, conflitti Leaflet).
+
+## Mappa /it
+
+- [global-header-css-leak-leaflet-popup.md](./global-header-css-leak-leaflet-popup.md) — `header { min-height: 222px }` nel popup marker
+- [map-lit-vite-build-troubleshooting.md](../concepts/map-lit-vite-build-troubleshooting.md) — bundle 404, alias Vite
+
+## Ricostruzione
+
+- Hub root: [map-lit-reconstruction-hub.md](../../../../../docs/wiki/memories/map-lit-reconstruction-hub.md)
+- SSoT modulo Geo: [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
+- Registro correzioni: [geo-map-fixes-registry.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-fixes-registry.md)
+
+## Altro
+
+- [git-merge-conflict-inventory-2026-04-28.md](./git-merge-conflict-inventory-2026-04-28.md)
+
+- [route-not-found-view-cache](route-not-found-view-cache.md) — `area-personale.notifiche` / cache Blade
+>>>>>>> laraxot/dev

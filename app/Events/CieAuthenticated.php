@@ -6,7 +6,11 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
+=======
+use Modules\User\Models\User;
+>>>>>>> laraxot/dev
 
 /**
  * Evento lanciato quando un utente si autentica con successo tramite CIE
@@ -18,11 +22,22 @@ class CieAuthenticated
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< HEAD
     /**
      * @param  array<string, mixed>  $cieAttributes
      */
     public function __construct(
         public UserContract $user,
+=======
+<<<<<<< HEAD
+=======
+    /**
+     * @param  array<string, mixed>  $cieAttributes
+     */
+>>>>>>> edd328a (.)
+    public function __construct(
+        public User $user,
+>>>>>>> laraxot/dev
         public array $cieAttributes
     ) {}
 
@@ -95,9 +110,18 @@ class CieAuthenticated
     /**
      * Ottiene tutti gli attributi CIE ricevuti
      */
+<<<<<<< HEAD
     /**
      * @return array<string, mixed>
      */
+=======
+<<<<<<< HEAD
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
     public function getCieAttributes(): array
     {
         return $this->cieAttributes;
@@ -105,9 +129,17 @@ class CieAuthenticated
 
     /**
      * Ottiene attributi specifici per logging sicuro
+<<<<<<< HEAD
      */
     /**
      * @return array<string, mixed>
+=======
+<<<<<<< HEAD
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
      */
     public function getLoggingData(): array
     {
