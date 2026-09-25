@@ -7,11 +7,26 @@ use Filament\Notifications\Actions\Action;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
 use Livewire\Volt\Component;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use Modules\Tenant\Services\TenantService;
+>>>>>>> 464cfc5 (.)
+>>>>>>> laraxot/dev
 use Modules\Cms\Models\Page;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
 /** @var array */
+<<<<<<< HEAD
 //$middleware=app(\Modules\Tenant\Actions\Config\ResolveTenantConfigValueAction::class)->execute('middleware');
+=======
+<<<<<<< HEAD
+//$middleware=app(\Modules\Tenant\Actions\Config\ResolveTenantConfigValueAction::class)->execute('middleware');
+=======
+//$middleware=TenantService::config('middleware');
+>>>>>>> 464cfc5 (.)
+>>>>>>> laraxot/dev
 //$base_middleware=Arr::get($middleware,'base',[]);
 
 $base_middleware=[];

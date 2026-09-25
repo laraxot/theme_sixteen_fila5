@@ -1,9 +1,45 @@
 # PHPStan Level 10 Compliance Status
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> laraxot/dev
 **Status**: ✅ NOT APPLICABLE (Theme)
 
 ## Summary
 The Sixteen theme is a frontend theme and doesn't contain PHP code that requires PHPStan analysis. The theme focuses on AGID (Agenzia per l'Italia Digitale) compliance and provides a comprehensive Italian government design system.
+<<<<<<< HEAD
+=======
+=======
+**Status**: ✅ **0 errori codice** su `phpstan analyse Themes` (2026-07-09)
+
+## Aggiornamento 2026-07-09
+
+- Rimossi duplicati PHP legacy in `src/` (autoload canonico: `composer.json` → `app/`).
+- `RegisterRuntimePsr4NamespacesAction` allinea solo `Themes/Sixteen/app`.
+- Modelli municipal: `MunicipalBaseModel`, scope `Builder`, generics relazioni, `FrontofficeUrl`.
+- Auth: `XotData::getUserClass()` (no `Themes\Sixteen\Models\User`).
+- Exit code 1 residuo: pattern `ignoreErrors` obsoleto in `laravel/phpstan.neon` (solo utente).
+
+```bash
+cd laravel && php -d memory_limit=2048M vendor/bin/phpstan analyse Themes --no-progress
+```
+
+## Aggiornamento 2026-07-06
+
+Questa nota affermava "NOT APPLICABLE, doesn't contain PHP code" — **falso**:
+il tema ha 38 file PHP sotto `app/` (Filters, Http/Controllers, Models,
+Providers, Services). Il vero motivo per cui PHPStan non segnala nulla e'
+che `laravel/phpstan.neon` ha `paths: ['./Modules/']` — `Themes/` non e'
+incluso nello scan. Non e' quindi "compliant per assenza di codice", e'
+"mai analizzato". Se si vuole una copertura reale, va chiesto al
+maintainer di `phpstan.neon` di aggiungere `./Themes/` ai `paths` (fuori
+scope per un agente, quel file lo modifica solo lui).
+
+## Summary
+The Sixteen theme is a frontend theme with AGID (Agenzia per l'Italia Digitale) compliance and provides a comprehensive Italian government design system.
+>>>>>>> edd328a (.)
+>>>>>>> laraxot/dev
 
 ## Theme Overview
 
