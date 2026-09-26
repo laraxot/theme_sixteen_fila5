@@ -18,6 +18,11 @@ class PWAMiddleware
 {
     /**
      * Handle an incoming request.
+<<<<<<< HEAD
+=======
+     *
+     * @param  Closure(Request): Response  $next
+>>>>>>> laraxot/dev
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -52,8 +57,13 @@ class PWAMiddleware
         $response->headers->set('Link', '</manifest.json>; rel="manifest"');
 
         // Header per viewport mobile
+<<<<<<< HEAD
         if ($response->headers->has('Content-Type') &&
             str_contains($response->headers->get('Content-Type'), 'text/html')) {
+=======
+        $contentType = $response->headers->get('Content-Type');
+        if (is_string($contentType) && str_contains($contentType, 'text/html')) {
+>>>>>>> laraxot/dev
             $this->addViewportMeta($response);
         }
     }
@@ -95,8 +105,13 @@ class PWAMiddleware
         }
 
         // Aggiungi meta tag per offline
+<<<<<<< HEAD
         if ($response->headers->has('Content-Type') &&
             str_contains($response->headers->get('Content-Type'), 'text/html')) {
+=======
+        $contentType = $response->headers->get('Content-Type');
+        if (is_string($contentType) && str_contains($contentType, 'text/html')) {
+>>>>>>> laraxot/dev
             $this->addOfflineMeta($response);
         }
     }
@@ -108,6 +123,13 @@ class PWAMiddleware
     {
         $content = $response->getContent();
 
+<<<<<<< HEAD
+=======
+        if (! is_string($content)) {
+            return;
+        }
+
+>>>>>>> laraxot/dev
         // Verifica se viewport meta è già presente
         if (str_contains($content, 'name="viewport"')) {
             return;
@@ -129,6 +151,13 @@ class PWAMiddleware
     {
         $content = $response->getContent();
 
+<<<<<<< HEAD
+=======
+        if (! is_string($content)) {
+            return;
+        }
+
+>>>>>>> laraxot/dev
         // Meta tag per PWA
         $pwaMeta = implode("\n    ", [
             '<meta name="theme-color" content="#0066cc">',
@@ -166,7 +195,13 @@ class PWAMiddleware
      */
     private function isPageRequest(Request $request): bool
     {
+<<<<<<< HEAD
         return $request->header('Accept') &&
                str_contains($request->header('Accept'), 'text/html');
+=======
+        $accept = $request->header('Accept');
+
+        return is_string($accept) && str_contains($accept, 'text/html');
+>>>>>>> laraxot/dev
     }
 }

@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
+=======
+use function Safe\file_get_contents;
+
+>>>>>>> laraxot/dev
 /**
  * Contratto Story 7-54: slim header section — dropdown lingua/utente via data-bs-toggle + app.js (no Alpine inline).
  */
@@ -11,7 +16,11 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     $bladePath = $laravelRoot.'/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php';
     expect(file_exists($bladePath))->toBeTrue('Blade header v1 mancante: '.$bladePath);
 
+<<<<<<< HEAD
     $v1 = (string) file_get_contents($bladePath);
+=======
+    $v1 = file_get_contents($bladePath);
+>>>>>>> laraxot/dev
     expect($v1)->toContain('language-switcher');
     expect($v1)->toContain('user-dropdown');
 
@@ -20,8 +29,13 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     expect(file_exists($langPath))->toBeTrue('Partial language-switcher mancante');
     expect(file_exists($userPath))->toBeTrue('Partial user-dropdown mancante');
 
+<<<<<<< HEAD
     $langHtml = (string) file_get_contents($langPath);
     $userHtml = (string) file_get_contents($userPath);
+=======
+    $langHtml = file_get_contents($langPath);
+    $userHtml = file_get_contents($userPath);
+>>>>>>> laraxot/dev
 
     expect($langHtml)->toContain('data-bs-toggle="dropdown"');
     expect($langHtml)->toContain('aria-controls="languages"');
@@ -44,7 +58,11 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
 
 test('header v1 slim wrapper non forza background hex inline (token CSS)', function (): void {
     $bladePath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php';
+<<<<<<< HEAD
     $html = (string) file_get_contents($bladePath);
+=======
+    $html = file_get_contents($bladePath);
+>>>>>>> laraxot/dev
 
     expect($html)->not->toContain('style="background-color: #0066CC"');
     expect($html)->not->toContain("style='background-color: #0066CC'");
@@ -54,7 +72,11 @@ test('story 8-105: app.css slim usa token --dc-green-dark e nav attivo centrato'
     $cssPath = dirname(__DIR__, 2).'/resources/css/app.css';
     expect(file_exists($cssPath))->toBeTrue('app.css tema mancante: '.$cssPath);
 
+<<<<<<< HEAD
     $css = (string) file_get_contents($cssPath);
+=======
+    $css = file_get_contents($cssPath);
+>>>>>>> laraxot/dev
 
     expect($css)->toContain('.it-header-slim-wrapper');
     expect($css)->toContain('background: var(--dc-green-dark)');
@@ -65,7 +87,11 @@ test('story 8-105: app.css slim usa token --dc-green-dark e nav attivo centrato'
 
 test('story 8-105: desktop ricerca stack verticale Cerca sopra lente', function (): void {
     $cssPath = dirname(__DIR__, 2).'/resources/css/app.css';
+<<<<<<< HEAD
     $css = (string) file_get_contents($cssPath);
+=======
+    $css = file_get_contents($cssPath);
+>>>>>>> laraxot/dev
 
     expect($css)->toContain('@media (min-width: 992px)');
     expect($css)->toContain('.it-header-center-content-wrapper .it-search-wrapper');
@@ -74,7 +100,11 @@ test('story 8-105: desktop ricerca stack verticale Cerca sopra lente', function 
 
 test('story 8-105: CTA header btn-primary mappa verde comune', function (): void {
     $cssPath = dirname(__DIR__, 2).'/resources/css/app.css';
+<<<<<<< HEAD
     $css = (string) file_get_contents($cssPath);
+=======
+    $css = file_get_contents($cssPath);
+>>>>>>> laraxot/dev
 
     expect($css)->toContain('.it-header-center-wrapper .btn-primary');
     expect($css)->toContain('background: var(--dc-green)');

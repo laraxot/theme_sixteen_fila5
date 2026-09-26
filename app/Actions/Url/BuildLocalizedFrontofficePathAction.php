@@ -16,7 +16,11 @@ final class BuildLocalizedFrontofficePathAction
 
     public function execute(string $path): string
     {
+<<<<<<< HEAD
         if ('' === $path || ! str_starts_with($path, '/')) {
+=======
+        if ($path === '' || ! str_starts_with($path, '/')) {
+>>>>>>> laraxot/dev
             return $path;
         }
 

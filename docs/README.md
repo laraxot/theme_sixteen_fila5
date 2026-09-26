@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Sixteen Module Documentation"
 type: documentation
@@ -48,10 +49,32 @@ Themes/Sixteen/
 ### Key Features
 
 #### 1. Design Comuni Integration
+=======
+# Sixteen
+
+[![Module](https://img.shields.io/badge/Module-Sixteen-8B0000.svg)]()
+[![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge)](https://laravel.com/)](https://laravel.com/)
+[![Filament](https://img.shields.io/badge/Filament-5-ffab00?style=for-the-badge)](https://filamentphp.com/)](https://filamentphp.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=for-the-badge)](https://php.net/)](https://php.net/)
+[![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=for-the-badge)](https://php.net/)](https://phpstan.org/)
+[![PSR-12](https://img.shields.io/badge/Code-PSR--12-blue?style=for-the-badge)](https://www.php-fig.org/psr/psr-12/)](https://www.php-fig.org/psr/psr-12/)
+[![Architecture](https://img.shields.io/badge/Architecture-Modular-purple?style=for-the-badge)](https://martinfowler.com/articles/paradigm-shifts.html)]()
+]()
+
+> **🇮🇹 Biglietto da visita (IT) · 🇬🇧 Business card (EN)**
+
+## Perché esiste
+
+🇮🇹 [Biglietto da visita (IT)](../README.md) · 🇬🇧 [Business card (EN)](./readme-en.md)
+
+## Superpoteri
+
+>>>>>>> laraxot/dev
 - **Bootstrap Italia**: Complete Bootstrap Italia framework integration
 - **Design System**: Consistent design language across all components
 - **Accessibility**: WCAG 2.1 compliant design
 - **Responsive**: Mobile-first responsive design
+<<<<<<< HEAD
 
 #### 2. Asset Management
 - **Vite**: Modern build tool for asset compilation
@@ -355,3 +378,18 @@ I temi **non** contano modelli/migrazioni, ma gli agenti che toccano Fixcity/Use
 
 *Last Updated: June 2026*  
 *Version: 1.0.0*
+=======
+- **Vite**: Modern build tool for asset compilation
+
+## Documentazione
+
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](./docs/readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](./docs/) |
+
+---
+
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> laraxot/dev

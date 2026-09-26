@@ -4,19 +4,25 @@ declare(strict_types=1);
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+<<<<<<< HEAD
 <<<<<<< .merge_file_nxfCl4
 =======
 use Modules\Fixcity\Actions\BuildAuthenticatedUserTicketsQueryAction;
 >>>>>>> .merge_file_BmNkUm
+=======
+>>>>>>> laraxot/dev
 
 name('area-personale.pratiche');
 middleware(['web', 'auth']);
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_nxfCl4
 =======
 $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->paginate(15);
 
 >>>>>>> .merge_file_BmNkUm
+=======
+>>>>>>> laraxot/dev
 ?><x-layouts.app>
     <x-slot name="title">
         {{ __('pub_theme::ui.header_area_personale.my_practices.label') }}
@@ -32,7 +38,10 @@ $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->pagi
                     </p>
                 </header>
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_nxfCl4
+=======
+>>>>>>> laraxot/dev
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <p class="text-muted">Questa pagina mostrerà le pratiche disponibili presto.</p>
@@ -41,6 +50,7 @@ $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->pagi
             </div>
         </div>
     </main>
+<<<<<<< HEAD
 </x-layouts.app>
 =======
                 @if ($tickets->isEmpty())
@@ -89,3 +99,6 @@ $tickets = app(BuildAuthenticatedUserTicketsQueryAction::class)->execute()->pagi
     </main>
 </x-layouts.app>
 >>>>>>> .merge_file_BmNkUm
+=======
+</x-layouts.app>
+>>>>>>> laraxot/dev

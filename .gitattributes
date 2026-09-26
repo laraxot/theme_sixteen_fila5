@@ -3,10 +3,12 @@
 *.scss linguist-vendored
 *.js linguist-vendored
 CHANGELOG.md export-ignore
+<<<<<<< HEAD
 <<<<<<< .merge_file_ZFlbww
 =======
 <<<<<<< .merge_file_VaiuFE
 >>>>>>> .merge_file_WpDwjR
+>>>>>>> laraxot/dev
 *.psd !text !filter !merge !diff
 *.png !text !filter !merge !diff
 *.svg !text !filter !merge !diff

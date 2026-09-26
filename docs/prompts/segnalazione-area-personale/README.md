@@ -1,5 +1,6 @@
 # HTML Parity Analysis: `segnalazione-area-personale`
 
+<<<<<<< HEAD
 **Date:** 2026-04-08
 **Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
 **Local:** http://127.0.0.1:8000/it/tests/segnalazione-area-personale
@@ -48,3 +49,37 @@
 - `body-structure-comparison-pass2/` contains the dashboard-based attempt.
 - `body-structure-comparison-pass5/report_20260408_164500.md` contains the first stable post-reset baseline.
 - `body-structure-comparison-pass11/report_20260408_172952.md` contains the successful parity report above threshold.
+=======
+[![Module](https://img.shields.io/badge/Module-HTML Parity Analysis: `segnalazione-area-personale`-8B0000.svg)]()
+[![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge)](https://laravel.com/)](https://laravel.com/)
+[![Filament](https://img.shields.io/badge/Filament-5-ffab00?style=for-the-badge)](https://filamentphp.com/)](https://filamentphp.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=for-the-badge)](https://php.net/)](https://php.net/)
+[![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=for-the-badge)](https://php.net/)](https://phpstan.org/)
+[![PSR-12](https://img.shields.io/badge/Code-PSR--12-blue?style=for-the-badge)](https://www.php-fig.org/psr/psr-12/)](https://www.php-fig.org/psr/psr-12/)
+[![Architecture](https://img.shields.io/badge/Architecture-Modular-purple?style=for-the-badge)](https://martinfowler.com/articles/paradigm-shifts.html)]()
+]()
+
+> **Core module for the FixCity Platform.**
+
+## Perché esiste
+
+Core module for the FixCity Platform.
+
+## Superpoteri
+
+- Modular component with XotBase patterns
+- Professional-grade implementation
+- Integrated with FixCity Platform
+
+## Documentazione
+
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](./docs/readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](./docs/) |
+
+---
+
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> laraxot/dev

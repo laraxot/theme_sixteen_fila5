@@ -1,0 +1,67 @@
+{
+  "url": "http://127.0.0.1:8002/it",
+  "timestamp": "2026-06-06T16:07:18.358Z",
+  "httpStatus": 200,
+  "title": "Consulenza Sicurezza Studi Professionali | Sottana Service",
+  "console": {
+    "errors": [],
+    "warnings": [],
+    "logs": []
+  },
+  "pageErrors": [],
+  "network": {
+    "failed": [],
+    "ok404": [],
+    "themeAssets": [
+      {
+        "url": "/themes/Sixteen/assets/app-QozM7Bnc.css",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/assets/app-DkCtDZrC.js",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/design-comuni/assets/images/logo-comune.svg",
+        "status": 200
+      },
+      {
+        "url": "/themes/Two/images/medical-equipment.jpg",
+        "status": 200
+      },
+      {
+        "url": "/themes/Two/images/veterinary-radiology.jpg",
+        "status": 200
+      }
+    ]
+  },
+  "debugbar": {
+    "present": false,
+    "open": false,
+    "tabCount": 0,
+    "tabs": [],
+    "badgeText": null
+  },
+  "dom": {
+    "hasHeader": true,
+    "hasMain": true,
+    "hasFooter": true,
+    "hasLanguageSwitcher": true,
+    "hasSkipLink": true,
+    "h1Count": 1,
+    "bodyTextLength": 5215
+  },
+  "themeRefs": {
+    "sixteen": 35,
+    "two": 2
+  },
+  "screenshot": "/var/www/_bases/base_techplanner_fila5/laravel/Themes/Sixteen/docs/screenshots/audit-it/homepage-it-1780762041279.png"
+}
