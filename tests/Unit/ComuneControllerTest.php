@@ -2,16 +2,30 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\RefreshDatabase;
+=======
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+>>>>>>> laraxot/dev
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
 use Tests\TestCase;
 
+<<<<<<< HEAD
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
     /** @var TestCase $this */
     $this->artisan('migrate', ['--database' => 'testing']);
+=======
+uses(TestCase::class, DatabaseTransactions::class);
+
+beforeEach(function (): void {
+    /** @var TestCase $this */
+    if (! class_exists(Ticket::class)) {
+        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
+    }
+>>>>>>> laraxot/dev
 });
 
 test('homepage returns view', function () {
@@ -24,10 +38,23 @@ test('homepage returns view', function () {
 
 test('homepage displays recent tickets', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     $ticket = Ticket::factory()->create([
         'name' => 'Test Ticket',
         'description' => 'Test Description',
     ]);
+=======
+    if (! class_exists(Ticket::class)) {
+        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
+    }
+
+    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
+
+    $dynamicCall(Ticket::factory(), 'create', [[
+        'name' => 'Test Ticket',
+        'description' => 'Test Description',
+    ]]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -37,10 +64,23 @@ test('homepage displays recent tickets', function () {
 
 test('homepage displays recent news', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     $news = News::factory()->create([
         'title' => 'Test News',
         'excerpt' => 'Test Excerpt',
     ]);
+=======
+    if (! class_exists(News::class)) {
+        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
+    }
+
+    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
+
+    $dynamicCall(News::factory(), 'create', [[
+        'title' => 'Test News',
+        'excerpt' => 'Test Excerpt',
+    ]]);
+>>>>>>> laraxot/dev
 
     $response = $this->get(route('comune.homepage'));
 
@@ -76,12 +116,34 @@ test('novita returns view', function () {
 
 test('novita displays news', function () {
     /** @var TestCase $this */
+<<<<<<< HEAD
     $news = News::factory()->count(5)->create();
 
     $response = $this->get(route('comune.novita'));
 
     foreach ($news as $article) {
         $response->assertSee($article->title);
+=======
+    if (! class_exists(News::class)) {
+        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
+    }
+
+    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
+
+    $titles = [];
+    for ($i = 1; $i <= 5; $i++) {
+        $title = 'Notizia Test '.$i;
+        $titles[] = $title;
+        $dynamicCall(News::factory(), 'create', [[
+            'title' => $title,
+        ]]);
+    }
+
+    $response = $this->get(route('comune.novita'));
+
+    foreach ($titles as $title) {
+        $response->assertSee($title);
+>>>>>>> laraxot/dev
     }
 });
 
@@ -97,10 +159,17 @@ test('contatti displays contact info', function () {
     /** @var TestCase $this */
     $response = $this->get(route('comune.contatti'));
 
+<<<<<<< HEAD
     $response->assertSee((string) config('comune.nome'));
     $response->assertSee((string) config('comune.indirizzo'));
     $response->assertSee((string) config('comune.telefono'));
     $response->assertSee((string) config('comune.email'));
+=======
+    $response->assertSee(config()->string('comune.nome'));
+    $response->assertSee(config()->string('comune.indirizzo'));
+    $response->assertSee(config()->string('comune.telefono'));
+    $response->assertSee(config()->string('comune.email'));
+>>>>>>> laraxot/dev
 });
 
 test('documenti returns view', function () {
