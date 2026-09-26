@@ -2,13 +2,9 @@
 
 namespace Themes\Sixteen\Http\Controllers;
 
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-=======
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
->>>>>>> laraxot/dev
 use Illuminate\View\View;
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
@@ -16,8 +12,6 @@ use Modules\Fixcity\App\Models\Ticket;
 class ComuneController extends Controller
 {
     /**
-<<<<<<< HEAD
-=======
      * Inoltra una chiamata dinamica su un target di tipo sconosciuto a livello statico.
      *
      * Modules\Fixcity non e' presente in questa base (modulo agnostico/esterno):
@@ -33,21 +27,10 @@ class ComuneController extends Controller
     }
 
     /**
->>>>>>> laraxot/dev
      * Homepage del comune
      */
     public function homepage(): View
     {
-<<<<<<< HEAD
-        $recentTickets = Ticket::with(['user', 'status', 'priority'])
-            ->orderBy('created_at', 'desc')
-            ->limit(5)
-            ->get();
-
-        $recentNews = News::orderBy('created_at', 'desc')
-            ->limit(3)
-            ->get();
-=======
         if (! class_exists(Ticket::class) || ! class_exists(News::class)) {
             return view('sixteen::pages.comune.homepage', ['recentTickets' => collect(), 'recentNews' => collect()]);
         }
@@ -61,7 +44,6 @@ class ComuneController extends Controller
 
         $newsQuery = $this->dynamicCall($newsClass::orderBy('created_at', 'desc'), 'limit', [3]);
         $recentNews = $this->dynamicCall($newsQuery, 'get');
->>>>>>> laraxot/dev
 
         return view('sixteen::pages.comune.homepage', compact('recentTickets', 'recentNews'));
     }
@@ -118,17 +100,12 @@ class ComuneController extends Controller
      */
     public function novita(): View
     {
-<<<<<<< HEAD
-        $news = News::orderBy('created_at', 'desc')
-            ->paginate(10);
-=======
         if (! class_exists(News::class)) {
             abort(404);
         }
 
         $newsClass = News::class;
         $news = $this->dynamicCall($newsClass::orderBy('created_at', 'desc'), 'paginate', [10]);
->>>>>>> laraxot/dev
 
         return view('sixteen::pages.comune.novita', compact('news'));
     }
@@ -136,11 +113,6 @@ class ComuneController extends Controller
     /**
      * Dettaglio notizia
      */
-<<<<<<< HEAD
-    public function showNews(News $news): View
-    {
-        return view('sixteen::pages.comune.novita-detail', compact('news'));
-=======
     public function showNews(int $news): View
     {
         if (! class_exists(News::class)) {
@@ -151,7 +123,6 @@ class ComuneController extends Controller
         $newsModel = $this->dynamicCall($newsClass::query(), 'findOrFail', [$news]);
 
         return view('sixteen::pages.comune.novita-detail', ['news' => $newsModel]);
->>>>>>> laraxot/dev
     }
 
     /**
@@ -165,11 +136,7 @@ class ComuneController extends Controller
     /**
      * Invia messaggio di contatto
      */
-<<<<<<< HEAD
-    public function sendContact(Request $request)
-=======
     public function sendContact(Request $request): RedirectResponse
->>>>>>> laraxot/dev
     {
         $request->validate([
             'nome' => 'required|string|max:255',

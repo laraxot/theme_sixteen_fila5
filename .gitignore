@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-# Node.js
-node_modules/
-npm-debug.log
-yarn-error.log
-package-lock.json
-yarn.lock
-
-# Vendor (per PHP, Composer, ecc.)
-vendor/
-
-# Build outputs (per progetti frontend, React, Angular, Vue, ecc.)
-build/
-dist/
-
-
-# Cache e temporary files
-.cache/
-tmp/
-temp/
-
-# IDEs e editor (Visual Studio Code, JetBrains, ecc.)
-.vscode/
-.idea/
-
-# Sistema operativo (macOS, Windows, Linux)
-.DS_Store
-Thumbs.db
-*.bak
-
-# Log files
-*.log
-
-# Environment files
-=======
 # Dependencies
 node_modules/
 vendor/
@@ -53,35 +18,10 @@ temp/
 docs/cache/
 
 # Environment
->>>>>>> laraxot/dev
 .env
 .env.local
 .env.*.local
 
-<<<<<<< HEAD
-# Documentation Cache (siti generati da strumenti come Jekyll, Hugo, ecc.)
-docs/cache/
-
-# Git-specific
-.git-blame-ignore-revs
-
-# Standard ignores (auto)
-*.old
-*.old1
-*.bakcup
-*.backup
-*.backup.*
-*.backup
-*.backup
-*.backup.*
-*.backup
-*.backup.*
-_docs/
-
-# Second brain: no-docs-archive (wiki) — non tracciare albero legacy docs/archive/
-docs/archive/
-# Copie residue da merge/rebase o editor (mai committare — es. `.agent~HEAD`, `*.md~head`)
-=======
 # Logs
 *.log
 npm-debug.log
@@ -113,32 +53,10 @@ Main_files/
 *.bakcup
 
 # Merge/rebase leftovers — never commit
->>>>>>> laraxot/dev
 *~HEAD
 *~BASE
 *~LOCAL
 *~REMOTE
-<<<<<<< HEAD
-*.orig
-*.rej
-*~head
-
-.c*
-.claude-flow
-.supermemory
-bmad
-Main_files
-test-results
-laravel
-.supermemory
-components
-layouts
-agentdb.rvf
-ruvector.db
-.cursor/
-.windsurf/
-.devcontainer/
-=======
 *~head
 *.orig
 *.rej
@@ -175,4 +93,3 @@ tests/AuditCoverage/
 phpinsights.php
 rector.php
 storage/
->>>>>>> laraxot/dev

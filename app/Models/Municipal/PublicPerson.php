@@ -4,24 +4,17 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\Pivot;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
@@ -40,11 +33,7 @@ use Illuminate\Support\Str;
  * @property string|null $qualification
  * @property string|null $role
  * @property string $category
-<<<<<<< HEAD
- * @property \Carbon\Carbon|null $birth_date
-=======
  * @property Carbon|null $birth_date
->>>>>>> laraxot/dev
  * @property string|null $birth_place
  * @property string|null $fiscal_code
  * @property string|null $email
@@ -56,30 +45,6 @@ use Illuminate\Support\Str;
  * @property string|null $cv_file_path
  * @property float|null $compensation
  * @property float|null $travel_expenses
-<<<<<<< HEAD
- * @property \Carbon\Carbon|null $start_date
- * @property \Carbon\Carbon|null $end_date
- * @property bool $is_active
- * @property bool $is_public
- * @property \Carbon\Carbon|null $publication_date
- * @property array|null $privacy_settings
- * @property array|null $social_profiles
- * @property array|null $education
- * @property array|null $work_experience
- * @property array|null $skills
- * @property array|null $languages
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant
- */
-class PublicPerson extends Model
-{
-=======
  * @property Carbon|null $start_date
  * @property Carbon|null $end_date
  * @property bool $is_active
@@ -110,7 +75,6 @@ class PublicPerson extends Model
 class PublicPerson extends Model
 {
     /** @use HasFactory<Factory<static>> */
->>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -202,11 +166,8 @@ class PublicPerson extends Model
 
     /**
      * Relazione con i punti di contatto
-<<<<<<< HEAD
-=======
      *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -215,11 +176,8 @@ class PublicPerson extends Model
 
     /**
      * Relazione con le unità organizzative
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
->>>>>>> laraxot/dev
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -230,11 +188,8 @@ class PublicPerson extends Model
 
     /**
      * Relazione con le unità organizzative attive
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
->>>>>>> laraxot/dev
      */
     public function activeOrganizationalUnits(): BelongsToMany
     {
@@ -246,11 +201,8 @@ class PublicPerson extends Model
 
     /**
      * Relazione con i documenti associati
-<<<<<<< HEAD
-=======
      *
      * @return HasMany<PublicDocument, $this>
->>>>>>> laraxot/dev
      */
     public function documents(): HasMany
     {
@@ -259,77 +211,50 @@ class PublicPerson extends Model
 
     /**
      * Scope per persone attive
-<<<<<<< HEAD
-     */
-    public function scopeActive($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeActive(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_active', true);
     }
 
     /**
      * Scope per persone pubbliche
-<<<<<<< HEAD
-     */
-    public function scopePublic($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublic(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per categoria
-<<<<<<< HEAD
-     */
-    public function scopeOfCategory($query, string $category)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfCategory(Builder $query, string $category): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('category', $category);
     }
 
     /**
      * Scope per ruolo
-<<<<<<< HEAD
-     */
-    public function scopeWithRole($query, string $role)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeWithRole(Builder $query, string $role): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('role', $role);
     }
 
     /**
      * Scope per persone in carica
-<<<<<<< HEAD
-     */
-    public function scopeInOffice($query)
-    {
-        return $query->where('start_date', '<=', now())
-            ->where(function ($q): void {
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
@@ -338,7 +263,6 @@ class PublicPerson extends Model
     {
         return $query->where('start_date', '<=', now())
             ->where(function (Builder $q): void {
->>>>>>> laraxot/dev
                 $q->whereNull('end_date')
                     ->orWhere('end_date', '>', now());
             });
@@ -346,27 +270,19 @@ class PublicPerson extends Model
 
     /**
      * Scope ordinati per cognome e nome
-<<<<<<< HEAD
-     */
-    public function scopeOrdered($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOrdered(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->orderBy('last_name')->orderBy('first_name');
     }
 
     /**
      * Ottiene le qualifiche formattate
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedEducation(): array
     {
@@ -387,11 +303,8 @@ class PublicPerson extends Model
 
     /**
      * Ottiene l'esperienza lavorativa formattata
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedWorkExperience(): array
     {
@@ -414,11 +327,8 @@ class PublicPerson extends Model
 
     /**
      * Ottiene i profili social formattati
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedSocialProfiles(): array
     {
@@ -474,11 +384,8 @@ class PublicPerson extends Model
 
     /**
      * Ottiene informazioni per il profilo pubblico
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getPublicProfile(): array
     {
@@ -515,11 +422,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome completo
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function fullName(): Attribute
     {
@@ -530,11 +434,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome invertito (Cognome, Nome)
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function displayName(): Attribute
     {
@@ -545,11 +446,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome della categoria
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function categoryName(): Attribute
     {
@@ -560,11 +458,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome del ruolo
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function roleName(): Attribute
     {
@@ -575,11 +470,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per l'età
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<int|null, never>
->>>>>>> laraxot/dev
      */
     protected function age(): Attribute
     {
@@ -590,11 +482,8 @@ class PublicPerson extends Model
 
     /**
      * Accessor per verificare se è in carica
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isInOffice(): Attribute
     {
@@ -611,41 +500,26 @@ class PublicPerson extends Model
 
     /**
      * Accessor per i giorni rimanenti in carica
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<float|null, never>
->>>>>>> laraxot/dev
      */
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: function (): void {
-                if (! $this->is_in_office) {
-                    return;
-                }
-
-                return $this->end_date?->diffInDays(now()) ?? null;
-=======
             get: function (): ?float {
                 if (! $this->is_in_office) {
                     return null;
                 }
 
                 return $this->end_date?->diffInDays(now());
->>>>>>> laraxot/dev
             }
         );
     }
 
     /**
      * Accessor per l'URL della persona
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
@@ -656,26 +530,16 @@ class PublicPerson extends Model
 
     /**
      * Mutator per nome (genera automaticamente lo slug)
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<never, string>
->>>>>>> laraxot/dev
      */
     protected function lastName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function ($value) {
-                $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
-=======
             set: function (string $value): string {
                 $this->attributes['last_name'] = $value;
                 if (empty($this->attributes['slug']) && ! empty($this->first_name)) {
                     $this->attributes['slug'] = Str::slug($this->first_name.' '.$value);
->>>>>>> laraxot/dev
                 }
 
                 return $value;
@@ -691,22 +555,14 @@ class PublicPerson extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
                 $model->slug = Str::slug($model->first_name.' '.$model->last_name);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -717,11 +573,7 @@ class PublicPerson extends Model
         });
 
         // Set default privacy settings
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,

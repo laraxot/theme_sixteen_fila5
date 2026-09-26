@@ -5,13 +5,8 @@ declare(strict_types=1);
 namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
-<<<<<<< HEAD
-use Themes\Sixteen\Events\BuildingSixteenMenu;
-use Themes\Sixteen\Actions\MenuBuilderAction;
-=======
 use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
->>>>>>> laraxot/dev
 
 /**
  * View Composer per il tema Sixteen
@@ -76,21 +71,6 @@ class SixteenComposer
     {
         $menuConfig = config('sixteen.menu', []);
 
-<<<<<<< HEAD
-        if (isset($menuConfig['slim_header'])) {
-            $this->menuBuilder->addSlimHeader($menuConfig['slim_header']);
-        }
-
-        if (isset($menuConfig['header'])) {
-            $this->menuBuilder->addHeader($menuConfig['header']);
-        }
-
-        if (isset($menuConfig['footer'])) {
-            $this->menuBuilder->addFooter($menuConfig['footer']);
-        }
-
-        if (isset($menuConfig['footer_bar'])) {
-=======
         if (! is_array($menuConfig)) {
             $menuConfig = [];
         }
@@ -108,7 +88,6 @@ class SixteenComposer
         }
 
         if (isset($menuConfig['footer_bar']) && is_array($menuConfig['footer_bar'])) {
->>>>>>> laraxot/dev
             $this->menuBuilder->addFooterBar($menuConfig['footer_bar']);
         }
     }

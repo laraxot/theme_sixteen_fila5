@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,11 +17,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-<<<<<<< HEAD
-=======
 use function Safe\parse_url;
 
->>>>>>> laraxot/dev
 /**
  * Modello per le notizie comunali (Municipal News)
  *
@@ -49,33 +42,12 @@ use function Safe\parse_url;
  * @property string $visibility
  * @property int $priority_level
  * @property int $urgency_level
-<<<<<<< HEAD
- * @property array|null $target_audience
- * @property array|null $geographic_scope
-=======
  * @property array<array-key, mixed>|null $target_audience
  * @property array<array-key, mixed>|null $geographic_scope
->>>>>>> laraxot/dev
  * @property string|null $language
  * @property string|null $featured_image
  * @property string|null $image_caption
  * @property string|null $image_alt_text
-<<<<<<< HEAD
- * @property array|null $gallery
- * @property array|null $attachments
- * @property array|null $related_services
- * @property array|null $related_events
- * @property array|null $related_people
- * @property array|null $related_documents
- * @property array|null $external_links
- * @property array|null $tags
- * @property string|null $social_summary
- * @property string|null $meta_description
- * @property array|null $seo_keywords
- * @property \Carbon\Carbon|null $publication_date
- * @property \Carbon\Carbon|null $expiry_date
- * @property \Carbon\Carbon|null $last_modified
-=======
  * @property array<int, mixed>|null $gallery
  * @property array<int, mixed>|null $attachments
  * @property array<array-key, mixed>|null $related_services
@@ -90,7 +62,6 @@ use function Safe\parse_url;
  * @property Carbon|null $publication_date
  * @property Carbon|null $expiry_date
  * @property Carbon|null $last_modified
->>>>>>> laraxot/dev
  * @property int $revision_number
  * @property bool $is_published
  * @property bool $is_featured
@@ -101,27 +72,6 @@ use function Safe\parse_url;
  * @property int $view_count
  * @property int $share_count
  * @property int $reading_time
-<<<<<<< HEAD
- * @property array|null $accessibility_notes
- * @property string|null $feedback_url
- * @property string|null $correction_notice
- * @property array|null $translation_links
- * @property array|null $structured_data
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read OrganizationalUnit|null $organizationalUnit
- * @property-read PublicPerson|null $author
- * @property-read PublicPerson|null $editor
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $categories
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $tags
- */
-class MunicipalNews extends Model
-{
-=======
  * @property array<array-key, mixed>|null $accessibility_notes
  * @property string|null $feedback_url
  * @property string|null $correction_notice
@@ -150,7 +100,6 @@ class MunicipalNews extends Model
 class MunicipalNews extends Model
 {
     /** @use HasFactory<Factory<self>> */
->>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -278,43 +227,6 @@ class MunicipalNews extends Model
         'metadata',
     ];
 
-<<<<<<< HEAD
-    protected $casts = [
-        'publication_date' => 'datetime',
-        'expiry_date' => 'datetime',
-        'last_modified' => 'datetime',
-        'is_published' => 'boolean',
-        'is_featured' => 'boolean',
-        'is_breaking' => 'boolean',
-        'is_archived' => 'boolean',
-        'show_on_homepage' => 'boolean',
-        'allow_comments' => 'boolean',
-        'priority_level' => 'integer',
-        'urgency_level' => 'integer',
-        'view_count' => 'integer',
-        'share_count' => 'integer',
-        'reading_time' => 'integer',
-        'revision_number' => 'integer',
-        'target_audience' => 'json',
-        'geographic_scope' => 'json',
-        'gallery' => 'json',
-        'attachments' => 'json',
-        'related_services' => 'json',
-        'related_events' => 'json',
-        'related_people' => 'json',
-        'related_documents' => 'json',
-        'external_links' => 'json',
-        'tags' => 'json',
-        'seo_keywords' => 'json',
-        'accessibility_notes' => 'json',
-        'translation_links' => 'json',
-        'structured_data' => 'json',
-        'metadata' => 'json',
-    ];
-
-    /**
-     * Relazione con l'unità organizzativa
-=======
     /**
      * Get the attributes that should be cast.
      *
@@ -360,7 +272,6 @@ class MunicipalNews extends Model
      * Relazione con l'unità organizzativa
      *
      * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> laraxot/dev
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -369,11 +280,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con l'autore
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<PublicPerson, $this>
->>>>>>> laraxot/dev
      */
     public function author(): BelongsTo
     {
@@ -382,11 +290,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con l'editor
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<PublicPerson, $this>
->>>>>>> laraxot/dev
      */
     public function editor(): BelongsTo
     {
@@ -395,11 +300,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con i punti di contatto
-<<<<<<< HEAD
-=======
      *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -408,11 +310,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con i servizi correlati
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<MunicipalService, $this>
->>>>>>> laraxot/dev
      */
     public function services(): BelongsToMany
     {
@@ -421,11 +320,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con gli eventi correlati
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<MunicipalEvent, $this>
->>>>>>> laraxot/dev
      */
     public function events(): BelongsToMany
     {
@@ -434,11 +330,8 @@ class MunicipalNews extends Model
 
     /**
      * Relazione con le persone correlate
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<PublicPerson, $this>
->>>>>>> laraxot/dev
      */
     public function people(): BelongsToMany
     {
@@ -447,25 +340,16 @@ class MunicipalNews extends Model
 
     /**
      * Scope per notizie pubblicate
-<<<<<<< HEAD
-     */
-    public function scopePublished($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublished(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_published', true)
             ->where('news_status', 'published')
             ->where('publication_date', '<=', now())
-<<<<<<< HEAD
-            ->where(function ($q): void {
-=======
             ->where(function (Builder $q): void {
->>>>>>> laraxot/dev
                 $q->whereNull('expiry_date')
                     ->orWhere('expiry_date', '>', now());
             });
@@ -473,129 +357,89 @@ class MunicipalNews extends Model
 
     /**
      * Scope per notizie in evidenza
-<<<<<<< HEAD
-     */
-    public function scopeFeatured($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeFeatured(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_featured', true);
     }
 
     /**
      * Scope per notizie breaking
-<<<<<<< HEAD
-     */
-    public function scopeBreaking($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeBreaking(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_breaking', true);
     }
 
     /**
      * Scope per notizie da homepage
-<<<<<<< HEAD
-     */
-    public function scopeHomepage($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeHomepage(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('show_on_homepage', true);
     }
 
     /**
      * Scope per tipologia di notizia
-<<<<<<< HEAD
-     */
-    public function scopeOfType($query, string $type)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('news_type', $type);
     }
 
     /**
      * Scope per categoria
-<<<<<<< HEAD
-     */
-    public function scopeInCategory($query, string $category)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeInCategory(Builder $query, string $category): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('category', $category);
     }
 
     /**
      * Scope per priorità minima
-<<<<<<< HEAD
-     */
-    public function scopeMinPriority($query, int $priority)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeMinPriority(Builder $query, int $priority): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('priority_level', '>=', $priority);
     }
 
     /**
      * Scope per notizie recenti
-<<<<<<< HEAD
-     */
-    public function scopeRecent($query, int $days = 30)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeRecent(Builder $query, int $days = 30): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('publication_date', '>=', now()->subDays($days));
     }
 
     /**
      * Scope ordinati per pubblicazione
-<<<<<<< HEAD
-     */
-    public function scopeOrdered($query, string $direction = 'desc')
-=======
      *
      * @param  Builder<static>  $query
      * @param  'asc'|'desc'  $direction
      * @return Builder<static>
      */
     public function scopeOrdered(Builder $query, string $direction = 'desc'): Builder
->>>>>>> laraxot/dev
     {
         return $query->orderBy('publication_date', $direction)
             ->orderBy('priority_level', 'desc');
@@ -610,26 +454,11 @@ class MunicipalNews extends Model
             return $this->excerpt;
         }
 
-<<<<<<< HEAD
-        return Str::limit(strip_tags($this->content), $length);
-=======
         return Str::limit(strip_tags((string) $this->content), $length);
->>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene i tag formattati
-<<<<<<< HEAD
-     */
-    public function getFormattedTags(): array
-    {
-        if (! $this->tags || ! is_array($this->tags)) {
-            return [];
-        }
-
-        return collect($this->tags)
-            ->map(function ($tag) {
-=======
      *
      * @return array<int|string, mixed>
      */
@@ -643,7 +472,6 @@ class MunicipalNews extends Model
 
         return collect($tags)
             ->map(function (mixed $tag): mixed {
->>>>>>> laraxot/dev
                 return is_string($tag) ? ['name' => $tag, 'slug' => Str::slug($tag)] : $tag;
             })
             ->toArray();
@@ -651,17 +479,6 @@ class MunicipalNews extends Model
 
     /**
      * Ottiene i link esterni formattati
-<<<<<<< HEAD
-     */
-    public function getFormattedExternalLinks(): array
-    {
-        if (! $this->external_links || ! is_array($this->external_links)) {
-            return [];
-        }
-
-        return collect($this->external_links)
-            ->map(function ($link) {
-=======
      *
      * @return array<int|string, mixed>
      */
@@ -675,7 +492,6 @@ class MunicipalNews extends Model
 
         return collect($externalLinks)
             ->map(function (mixed $link): mixed {
->>>>>>> laraxot/dev
                 if (is_string($link)) {
                     return ['url' => $link, 'title' => parse_url($link, PHP_URL_HOST)];
                 }
@@ -687,17 +503,6 @@ class MunicipalNews extends Model
 
     /**
      * Ottiene gli allegati formattati
-<<<<<<< HEAD
-     */
-    public function getFormattedAttachments(): array
-    {
-        if (! $this->attachments || ! is_array($this->attachments)) {
-            return [];
-        }
-
-        return collect($this->attachments)
-            ->map(function ($attachment) {
-=======
      *
      * @return array<int|string, mixed>
      */
@@ -711,7 +516,6 @@ class MunicipalNews extends Model
 
         return collect($attachments)
             ->map(function (mixed $attachment): mixed {
->>>>>>> laraxot/dev
                 if (is_string($attachment)) {
                     return [
                         'path' => $attachment,
@@ -722,10 +526,6 @@ class MunicipalNews extends Model
                     ];
                 }
 
-<<<<<<< HEAD
-                return array_merge([
-                    'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
-=======
                 if (! is_array($attachment)) {
                     return $attachment;
                 }
@@ -734,7 +534,6 @@ class MunicipalNews extends Model
 
                 return array_merge([
                     'url' => is_string($path) ? asset('storage/'.$path) : null,
->>>>>>> laraxot/dev
                 ], $attachment);
             })
             ->toArray();
@@ -742,17 +541,6 @@ class MunicipalNews extends Model
 
     /**
      * Ottiene la galleria immagini formattata
-<<<<<<< HEAD
-     */
-    public function getFormattedGallery(): array
-    {
-        if (! $this->gallery || ! is_array($this->gallery)) {
-            return [];
-        }
-
-        return collect($this->gallery)
-            ->map(function ($image) {
-=======
      *
      * @return array<int|string, mixed>
      */
@@ -766,7 +554,6 @@ class MunicipalNews extends Model
 
         return collect($gallery)
             ->map(function (mixed $image): mixed {
->>>>>>> laraxot/dev
                 if (is_string($image)) {
                     return [
                         'path' => $image,
@@ -776,10 +563,6 @@ class MunicipalNews extends Model
                     ];
                 }
 
-<<<<<<< HEAD
-                return array_merge([
-                    'url' => isset($image['path']) ? asset('storage/'.$image['path']) : null,
-=======
                 if (! is_array($image)) {
                     return $image;
                 }
@@ -788,7 +571,6 @@ class MunicipalNews extends Model
 
                 return array_merge([
                     'url' => is_string($path) ? asset('storage/'.$path) : null,
->>>>>>> laraxot/dev
                 ], $image);
             })
             ->toArray();
@@ -815,12 +597,8 @@ class MunicipalNews extends Model
      */
     public function canBePublished(): bool
     {
-<<<<<<< HEAD
-        return in_array($this->news_status, ['approved']) &&
-=======
         return $this->news_status === 'approved' &&
                $this->publication_date !== null &&
->>>>>>> laraxot/dev
                $this->publication_date <= now();
     }
 
@@ -834,12 +612,6 @@ class MunicipalNews extends Model
     }
 
     /**
-<<<<<<< HEAD
-     * Ottiene i dati strutturati per SEO
-     */
-    public function getStructuredData(): array
-    {
-=======
      * Ottiene il nome completo dell'autore, se presente
      */
     protected function authorFullName(): ?string
@@ -860,7 +632,6 @@ class MunicipalNews extends Model
     {
         $seoKeywords = $this->seo_keywords;
 
->>>>>>> laraxot/dev
         return [
             '@context' => 'https://schema.org',
             '@type' => 'NewsArticle',
@@ -871,18 +642,6 @@ class MunicipalNews extends Model
             'dateModified' => $this->last_modified?->toISOString(),
             'author' => [
                 '@type' => 'Person',
-<<<<<<< HEAD
-                'name' => $this->author?->full_name,
-            ],
-            'publisher' => [
-                '@type' => 'Organization',
-                'name' => $this->organizationalUnit?->name ?? 'Comune',
-            ],
-            'mainEntityOfPage' => $this->url,
-            'articleSection' => $this->category,
-            'keywords' => is_array($this->seo_keywords) ? implode(', ', $this->seo_keywords) : null,
-            'wordCount' => str_word_count(strip_tags($this->content)),
-=======
                 'name' => $this->authorFullName(),
             ],
             'publisher' => [
@@ -898,18 +657,14 @@ class MunicipalNews extends Model
                 ))
                 : null,
             'wordCount' => str_word_count(strip_tags((string) $this->content)),
->>>>>>> laraxot/dev
             'timeRequired' => 'PT'.$this->estimated_reading_time.'M',
         ];
     }
 
     /**
      * Ottiene le informazioni complete della notizia
-<<<<<<< HEAD
-=======
      *
      * @return array<string, mixed>
->>>>>>> laraxot/dev
      */
     public function getNewsDetails(): array
     {
@@ -940,11 +695,7 @@ class MunicipalNews extends Model
                 'age_in_days' => $this->age_in_days,
             ],
             'metadata' => [
-<<<<<<< HEAD
-                'author' => $this->author?->full_name,
-=======
                 'author' => $this->authorFullName(),
->>>>>>> laraxot/dev
                 'source' => $this->source,
                 'tags' => $this->getFormattedTags(),
                 'external_links' => $this->getFormattedExternalLinks(),
@@ -956,11 +707,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome del tipo di notizia
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function newsTypeName(): Attribute
     {
@@ -971,11 +719,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome dello stato
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function newsStatusName(): Attribute
     {
@@ -986,11 +731,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome della priorità
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function priorityName(): Attribute
     {
@@ -1001,11 +743,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per il nome dell'urgenza
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function urgencyName(): Attribute
     {
@@ -1016,59 +755,38 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per verificare se è scaduta
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isExpired(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
-=======
             get: fn (): bool => (bool) ($this->expiry_date && $this->expiry_date->isPast())
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per verificare se è attuale
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isCurrent(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: function () {
-=======
             get: function (): bool {
->>>>>>> laraxot/dev
                 if ($this->is_expired) {
                     return false;
                 }
 
-<<<<<<< HEAD
-                return $this->publication_date <= now();
-=======
                 return $this->publication_date !== null && $this->publication_date <= now();
->>>>>>> laraxot/dev
             }
         );
     }
 
     /**
      * Accessor per l'età della notizia in giorni
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<int|null, never>
->>>>>>> laraxot/dev
      */
     protected function ageInDays(): Attribute
     {
@@ -1079,64 +797,41 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per verificare se è una notizia fresca
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isFresh(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn () => $this->age_in_days <= 7
-=======
             get: fn (): bool => $this->age_in_days !== null && $this->age_in_days <= 7
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Accessor per il tempo di lettura stimato
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<int, never>
->>>>>>> laraxot/dev
      */
     protected function estimatedReadingTime(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: function () {
-=======
             get: function (): int {
->>>>>>> laraxot/dev
                 if ($this->reading_time) {
                     return $this->reading_time;
                 }
 
                 // Stima basata su 200 parole al minuto
-<<<<<<< HEAD
-                $wordCount = str_word_count(strip_tags($this->content));
-
-                return max(1, ceil($wordCount / 200));
-=======
                 $wordCount = str_word_count(strip_tags((string) $this->content));
 
                 return max(1, (int) ceil($wordCount / 200));
->>>>>>> laraxot/dev
             }
         );
     }
 
     /**
      * Accessor per l'URL della notizia
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
@@ -1147,11 +842,8 @@ class MunicipalNews extends Model
 
     /**
      * Accessor per l'URL dell'immagine in evidenza
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string|null, never>
->>>>>>> laraxot/dev
      */
     protected function featuredImageUrl(): Attribute
     {
@@ -1162,20 +854,13 @@ class MunicipalNews extends Model
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, string>
->>>>>>> laraxot/dev
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function ($value) {
-=======
             set: function (string $value): string {
->>>>>>> laraxot/dev
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1188,30 +873,19 @@ class MunicipalNews extends Model
 
     /**
      * Mutator per il contenuto (aggiorna reading_time)
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, string>
->>>>>>> laraxot/dev
      */
     protected function content(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function ($value) {
-=======
             set: function (string $value): string {
->>>>>>> laraxot/dev
                 $this->attributes['content'] = $value;
 
                 // Auto-calcola reading time se non impostato
                 if (! isset($this->attributes['reading_time'])) {
                     $wordCount = str_word_count(strip_tags($value));
-<<<<<<< HEAD
-                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
-=======
                     $this->attributes['reading_time'] = max(1, (int) ceil($wordCount / 200));
->>>>>>> laraxot/dev
                 }
 
                 return $value;
@@ -1227,22 +901,14 @@ class MunicipalNews extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1253,11 +919,7 @@ class MunicipalNews extends Model
         });
 
         // Set default values
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (is_null($model->news_status)) {
                 $model->news_status = 'draft';
             }
@@ -1280,14 +942,9 @@ class MunicipalNews extends Model
         });
 
         // Auto-publish se la data è raggiunta
-<<<<<<< HEAD
-        static::updating(function ($model): void {
-            if ($model->news_status === 'approved' &&
-=======
         static::updating(function (self $model): void {
             if ($model->news_status === 'approved' &&
                 $model->publication_date !== null &&
->>>>>>> laraxot/dev
                 $model->publication_date <= now() &&
                 ! $model->is_published) {
                 $model->is_published = true;
@@ -1296,11 +953,7 @@ class MunicipalNews extends Model
         });
 
         // Increment revision number on updates
-<<<<<<< HEAD
-        static::updating(function ($model): void {
-=======
         static::updating(function (self $model): void {
->>>>>>> laraxot/dev
             if ($model->isDirty(['title', 'content', 'excerpt'])) {
                 $model->revision_number++;
                 $model->last_modified = now();

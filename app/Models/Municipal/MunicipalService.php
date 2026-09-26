@@ -4,25 +4,18 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\Pivot;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
@@ -44,32 +37,6 @@ use Illuminate\Support\Str;
  * @property int|null $parent_service_id
  * @property string $service_status
  * @property string $service_level
-<<<<<<< HEAD
- * @property array|null $target_audience
- * @property array|null $geographic_coverage
- * @property array|null $requirements
- * @property array|null $procedures
- * @property array|null $required_documents
- * @property array|null $costs
- * @property string|null $processing_time
- * @property array|null $delivery_methods
- * @property array|null $digital_channels
- * @property array|null $physical_locations
- * @property array|null $opening_hours
- * @property bool $appointment_required
- * @property string|null $appointment_url
- * @property string|null $online_form_url
- * @property array|null $legislation_references
- * @property array|null $accessibility_info
- * @property array|null $contact_info
- * @property array|null $faq
- * @property array|null $related_services
- * @property array|null $service_outcomes
- * @property array|null $quality_standards
- * @property array|null $satisfaction_metrics
- * @property \Carbon\Carbon|null $last_updated
- * @property \Carbon\Carbon|null $next_review_date
-=======
  * @property array<array-key, mixed>|null $target_audience
  * @property array<array-key, mixed>|null $geographic_coverage
  * @property array<array-key, mixed>|null $requirements
@@ -94,28 +61,11 @@ use Illuminate\Support\Str;
  * @property array<array-key, mixed>|null $satisfaction_metrics
  * @property Carbon|null $last_updated
  * @property Carbon|null $next_review_date
->>>>>>> laraxot/dev
  * @property bool $is_active
  * @property bool $is_public
  * @property bool $is_digital
  * @property bool $is_accessible
  * @property int $priority_level
-<<<<<<< HEAD
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read OrganizationalUnit|null $organizationalUnit
- * @property-read self|null $parentService
- * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $subServices
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, PublicDocument> $documents
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalLocation> $locations
- */
-class MunicipalService extends Model
-{
-=======
  * @property array<array-key, mixed>|null $metadata
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -136,7 +86,6 @@ class MunicipalService extends Model
 class MunicipalService extends Model
 {
     /** @use HasFactory<Factory<static>> */
->>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -273,11 +222,8 @@ class MunicipalService extends Model
 
     /**
      * Relazione con l'unità organizzativa responsabile
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> laraxot/dev
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -286,45 +232,28 @@ class MunicipalService extends Model
 
     /**
      * Relazione con il servizio padre (per sottocategorie)
-<<<<<<< HEAD
-     */
-    public function parentService(): BelongsTo
-    {
-        return $this->belongsTo(self::class, 'parent_service_id');
-=======
      *
      * @return BelongsTo<static, $this>
      */
     public function parentService(): BelongsTo
     {
         return $this->belongsTo(static::class, 'parent_service_id');
->>>>>>> laraxot/dev
     }
 
     /**
      * Relazione con i servizi figlio
-<<<<<<< HEAD
-     */
-    public function subServices(): HasMany
-    {
-        return $this->hasMany(self::class, 'parent_service_id')->ordered();
-=======
      *
      * @return HasMany<static, $this>
      */
     public function subServices(): HasMany
     {
         return $this->hasMany(static::class, 'parent_service_id')->ordered();
->>>>>>> laraxot/dev
     }
 
     /**
      * Relazione con i punti di contatto
-<<<<<<< HEAD
-=======
      *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -333,11 +262,8 @@ class MunicipalService extends Model
 
     /**
      * Relazione con i documenti associati
-<<<<<<< HEAD
-=======
      *
      * @return HasMany<PublicDocument, $this>
->>>>>>> laraxot/dev
      */
     public function documents(): HasMany
     {
@@ -346,11 +272,8 @@ class MunicipalService extends Model
 
     /**
      * Relazione con le sedi di erogazione
-<<<<<<< HEAD
-=======
      *
      * @return BelongsToMany<MunicipalLocation, $this, Pivot, 'pivot'>
->>>>>>> laraxot/dev
      */
     public function locations(): BelongsToMany
     {
@@ -359,16 +282,11 @@ class MunicipalService extends Model
 
     /**
      * Scope per servizi attivi
-<<<<<<< HEAD
-     */
-    public function scopeActive($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeActive(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_active', true)
             ->where('service_status', 'active');
@@ -376,107 +294,74 @@ class MunicipalService extends Model
 
     /**
      * Scope per servizi pubblici
-<<<<<<< HEAD
-     */
-    public function scopePublic($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublic(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per servizi digitali
-<<<<<<< HEAD
-     */
-    public function scopeDigital($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeDigital(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_digital', true);
     }
 
     /**
      * Scope per tipologia di servizio
-<<<<<<< HEAD
-     */
-    public function scopeOfType($query, string $type)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('service_type', $type);
     }
 
     /**
      * Scope per categoria
-<<<<<<< HEAD
-     */
-    public function scopeInCategory($query, string $category)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeInCategory(Builder $query, string $category): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('category', $category);
     }
 
     /**
      * Scope per servizi principali (senza parent)
-<<<<<<< HEAD
-     */
-    public function scopeMain($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeMain(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->whereNull('parent_service_id');
     }
 
     /**
      * Scope ordinati per priorità e nome
-<<<<<<< HEAD
-     */
-    public function scopeOrdered($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOrdered(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->orderByDesc('priority_level')->orderBy('name');
     }
 
     /**
      * Ottiene i requisiti formattati
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedRequirements(): array
     {
@@ -497,11 +382,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene le procedure formattate
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedProcedures(): array
     {
@@ -515,26 +397,19 @@ class MunicipalService extends Model
                     return ['step' => $index + 1, 'description' => $procedure];
                 }
 
-<<<<<<< HEAD
-                return array_merge(['step' => $index + 1], $procedure);
-=======
                 if (is_array($procedure)) {
                     return array_merge(['step' => $index + 1], $procedure);
                 }
 
                 return ['step' => $index + 1, 'description' => $procedure];
->>>>>>> laraxot/dev
             })
             ->toArray();
     }
 
     /**
      * Ottiene i documenti richiesti formattati
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedRequiredDocuments(): array
     {
@@ -555,11 +430,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene i costi formattati
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedCosts(): array
     {
@@ -580,11 +452,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene i canali digitali formattati
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedDigitalChannels(): array
     {
@@ -611,11 +480,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene le FAQ formattate
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getFormattedFaq(): array
     {
@@ -694,11 +560,8 @@ class MunicipalService extends Model
 
     /**
      * Ottiene informazioni per il citizen journey
-<<<<<<< HEAD
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> laraxot/dev
      */
     public function getCitizenJourney(): array
     {
@@ -733,11 +596,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del tipo di servizio
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function serviceTypeName(): Attribute
     {
@@ -748,11 +608,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome dello stato
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function serviceStatusName(): Attribute
     {
@@ -763,11 +620,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del livello
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function serviceLevelName(): Attribute
     {
@@ -778,11 +632,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se il servizio è disponibile
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isAvailable(): Attribute
     {
@@ -793,11 +644,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se richiede appuntamento
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function requiresAppointment(): Attribute
     {
@@ -808,11 +656,8 @@ class MunicipalService extends Model
 
     /**
      * Accessor per l'URL del servizio
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
@@ -823,20 +668,13 @@ class MunicipalService extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, string>
->>>>>>> laraxot/dev
      */
     protected function name(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function ($value) {
-=======
             set: function (string $value): string {
->>>>>>> laraxot/dev
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -855,22 +693,14 @@ class MunicipalService extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -881,11 +711,7 @@ class MunicipalService extends Model
         });
 
         // Set default values
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> laraxot/dev
             if (is_null($model->service_status)) {
                 $model->service_status = 'active';
             }

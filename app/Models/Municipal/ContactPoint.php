@@ -4,24 +4,17 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-<<<<<<< HEAD
-=======
 use function Safe\preg_replace;
 
->>>>>>> laraxot/dev
 /**
  * Modello per i punti di contatto (Contact Point)
  *
@@ -37,21 +30,6 @@ use function Safe\preg_replace;
  * @property string|null $description
  * @property bool $is_primary
  * @property bool $is_public
-<<<<<<< HEAD
- * @property array|null $office_hours
- * @property array|null $languages
- * @property array|null $accessibility_notes
- * @property int $position
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read Model|\Eloquent $contactable
- */
-class ContactPoint extends Model
-{
-=======
  * @property array<array-key, mixed>|null $office_hours
  * @property array<array-key, mixed>|null $languages
  * @property array<array-key, mixed>|null $accessibility_notes
@@ -71,7 +49,6 @@ class ContactPoint extends Model
 class ContactPoint extends Model
 {
     /** @use HasFactory<Factory<static>> */
->>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -125,11 +102,8 @@ class ContactPoint extends Model
 
     /**
      * Relazione polimorfica con l'entità che possiede il contatto
-<<<<<<< HEAD
-=======
      *
      * @return MorphTo<Model, $this>
->>>>>>> laraxot/dev
      */
     public function contactable(): MorphTo
     {
@@ -138,64 +112,44 @@ class ContactPoint extends Model
 
     /**
      * Scope per contatti pubblici
-<<<<<<< HEAD
-     */
-    public function scopePublic($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePublic(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per contatti primari
-<<<<<<< HEAD
-     */
-    public function scopePrimary($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopePrimary(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('is_primary', true);
     }
 
     /**
      * Scope per tipo di contatto
-<<<<<<< HEAD
-     */
-    public function scopeOfType($query, string $type)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('type', $type);
     }
 
     /**
      * Scope ordinati per posizione
-<<<<<<< HEAD
-     */
-    public function scopeOrdered($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeOrdered(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->orderBy('position')->orderBy('is_primary', 'desc');
     }
@@ -281,11 +235,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il nome del tipo di contatto
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function typeName(): Attribute
     {
@@ -296,11 +247,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il valore formattato del contatto
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function formattedValue(): Attribute
     {
@@ -311,11 +259,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un indirizzo email
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isEmail(): Attribute
     {
@@ -326,11 +271,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un numero di telefono
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isPhone(): Attribute
     {
@@ -341,11 +283,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un social media
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> laraxot/dev
      */
     protected function isSocial(): Attribute
     {
@@ -356,11 +295,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per l'icona del tipo di contatto
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function icon(): Attribute
     {
@@ -458,16 +394,10 @@ class ContactPoint extends Model
         // Auto-increment position
         static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
-<<<<<<< HEAD
-                $model->position = static::where('contactable_type', $model->contactable_type)
-                    ->where('contactable_id', $model->contactable_id)
-                    ->max('position') + 1;
-=======
                 $maxPosition = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
                     ->max('position');
                 $model->position = is_numeric($maxPosition) ? ((int) $maxPosition + 1) : 1;
->>>>>>> laraxot/dev
             }
         });
 

@@ -24,11 +24,8 @@ class BuildingSixteenMenu
 
     /**
      * Aggiunge elementi al menu corrente in base alla location
-<<<<<<< HEAD
-=======
      *
      * @param  array<array-key, mixed>  $items
->>>>>>> laraxot/dev
      */
     public function addMenuItems(array $items): void
     {

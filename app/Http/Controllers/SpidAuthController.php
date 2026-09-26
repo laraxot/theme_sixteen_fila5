@@ -11,18 +11,11 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-<<<<<<< HEAD
-use Themes\Sixteen\Events\SpidAuthenticated;
-use Themes\Sixteen\Events\SpidLoggedOut;
-use Themes\Sixteen\Models\User;
-use Themes\Sixteen\Actions\SpidAuthAction;
-=======
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Events\SpidAuthenticated;
 use Themes\Sixteen\Events\SpidLoggedOut;
->>>>>>> laraxot/dev
 
 /**
  * Controller per l'autenticazione SPID
@@ -106,12 +99,8 @@ class SpidAuthController extends Controller
             ]);
 
             // Redirect all'URL di ritorno
-<<<<<<< HEAD
-            $returnUrl = Session::pull('spid.return_url', route('dashboard'));
-=======
             $returnUrl = Session::pull('spid.return_url');
             $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : route('dashboard');
->>>>>>> laraxot/dev
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione SPID completata con successo.');
@@ -137,14 +126,6 @@ class SpidAuthController extends Controller
     {
         try {
             $user = Auth::user();
-<<<<<<< HEAD
-            $userData = Session::get('spid.user_data');
-            $provider = Session::get('spid.provider');
-
-            if ($user && $userData && $provider) {
-                // Se abbiamo i dati per il Single Logout, usiamoli
-                if (isset($userData['name_id']) && isset($userData['session_index'])) {
-=======
             $sessionUserData = Session::get('spid.user_data');
             $userData = is_array($sessionUserData) ? $sessionUserData : null;
             $sessionProvider = Session::get('spid.provider');
@@ -156,7 +137,6 @@ class SpidAuthController extends Controller
                 $sessionIndex = $userData['session_index'] ?? null;
 
                 if (is_string($nameId) && is_string($sessionIndex)) {
->>>>>>> laraxot/dev
                     Log::info('SPID logout initiated', [
                         'user_id' => $user->id,
                         'provider' => $provider,
@@ -164,13 +144,8 @@ class SpidAuthController extends Controller
 
                     $logoutUrl = $this->spidService->getLogoutUrl(
                         $provider,
-<<<<<<< HEAD
-                        $userData['name_id'],
-                        $userData['session_index']
-=======
                         $nameId,
                         $sessionIndex
->>>>>>> laraxot/dev
                     );
 
                     // Effettua logout locale
@@ -193,11 +168,7 @@ class SpidAuthController extends Controller
             Session::invalidate();
             Session::regenerateToken();
 
-<<<<<<< HEAD
-            if ($user && $userData) {
-=======
             if ($user !== null && $userData !== null) {
->>>>>>> laraxot/dev
                 event(new SpidLoggedOut($user, $userData));
             }
 
@@ -229,11 +200,7 @@ class SpidAuthController extends Controller
         try {
             // Processa la richiesta SLO
             $logoutRequest = $request->input('SAMLRequest');
-<<<<<<< HEAD
-            $relayState = $request->input('RelayState');
-=======
             $relayState = $request->string('RelayState')->toString();
->>>>>>> laraxot/dev
 
             Log::info('SPID SLO received', [
                 'relay_state' => $relayState,
@@ -243,24 +210,16 @@ class SpidAuthController extends Controller
             // Effettua logout se l'utente è loggato
             if (Auth::check()) {
                 $user = Auth::user();
-<<<<<<< HEAD
-                $userData = Session::get('spid.user_data', []);
-=======
                 $sessionUserData = Session::get('spid.user_data', []);
                 $userData = is_array($sessionUserData) ? $sessionUserData : [];
->>>>>>> laraxot/dev
 
                 Auth::logout();
                 $this->spidService->logout();
                 Session::invalidate();
 
-<<<<<<< HEAD
-                event(new SpidLoggedOut($user, $userData));
-=======
                 if ($user !== null) {
                     event(new SpidLoggedOut($user, $userData));
                 }
->>>>>>> laraxot/dev
             }
 
             // Genera response SLO
@@ -305,14 +264,6 @@ class SpidAuthController extends Controller
 
     /**
      * Trova o crea un utente basato sui dati SPID
-<<<<<<< HEAD
-     */
-    protected function findOrCreateUser(array $attributes): User
-    {
-        $fiscalCode = $attributes['fiscal_code'];
-
-        if (empty($fiscalCode)) {
-=======
      *
      * @param  array<string, mixed>  $attributes
      */
@@ -321,29 +272,20 @@ class SpidAuthController extends Controller
         $fiscalCode = $attributes['fiscal_code'] ?? null;
 
         if (! is_string($fiscalCode) || $fiscalCode === '') {
->>>>>>> laraxot/dev
             throw new \Exception('Codice fiscale mancante nei dati SPID');
         }
 
         // Cerca utente per codice fiscale
-<<<<<<< HEAD
-        $user = User::where('fiscal_code', $fiscalCode)->first();
-
-        if ($user) {
-=======
         $userClass = XotData::make()->getUserClass();
         $user = $userClass::where('fiscal_code', $fiscalCode)->first();
 
         if ($user instanceof UserContract) {
->>>>>>> laraxot/dev
             // Aggiorna i dati se necessario
             $this->updateUserFromSpid($user, $attributes);
 
             return $user;
         }
 
-<<<<<<< HEAD
-=======
         if ($user !== null) {
             Log::error('SPID: existing user record does not implement UserContract', [
                 'user_class' => $user::class,
@@ -351,31 +293,12 @@ class SpidAuthController extends Controller
             ]);
         }
 
->>>>>>> laraxot/dev
         // Crea nuovo utente
         return $this->createUserFromSpid($attributes);
     }
 
     /**
      * Crea un nuovo utente dai dati SPID
-<<<<<<< HEAD
-     */
-    protected function createUserFromSpid(array $attributes): User
-    {
-        $userData = [
-            'name' => $attributes['name'],
-            'surname' => $attributes['surname'],
-            'email' => $attributes['email'],
-            'fiscal_code' => $attributes['fiscal_code'],
-            'birth_date' => $attributes['birth_date'],
-            'birth_place' => $attributes['birth_place'],
-            'gender' => $attributes['gender'],
-            'mobile_phone' => $attributes['mobile'],
-            'address' => $attributes['address'],
-            'spid_provider' => $attributes['provider'],
-            'auth_method' => 'spid',
-            'email_verified_at' => $attributes['email'] ? now() : null,
-=======
      *
      * @param  array<string, mixed>  $attributes
      */
@@ -403,17 +326,10 @@ class SpidAuthController extends Controller
             'spid_provider' => $attributes['provider'] ?? null,
             'auth_method' => 'spid',
             'email_verified_at' => $emailIsValid ? now() : null,
->>>>>>> laraxot/dev
         ];
 
         // Genera email temporanea se mancante
         if (empty($userData['email'])) {
-<<<<<<< HEAD
-            $userData['email'] = 'spid.'.$attributes['fiscal_code'].'@noemail.local';
-        }
-
-        return User::create($userData);
-=======
             $userData['email'] = 'spid.'.$fiscalCode.'@noemail.local';
         }
 
@@ -425,20 +341,14 @@ class SpidAuthController extends Controller
         }
 
         return $user;
->>>>>>> laraxot/dev
     }
 
     /**
      * Aggiorna un utente esistente con i dati SPID
-<<<<<<< HEAD
-     */
-    protected function updateUserFromSpid(User $user, array $attributes): void
-=======
      *
      * @param  array<string, mixed>  $attributes
      */
     protected function updateUserFromSpid(UserContract $user, array $attributes): void
->>>>>>> laraxot/dev
     {
         $updateData = [];
 
@@ -447,11 +357,7 @@ class SpidAuthController extends Controller
             $updateData['name'] = $attributes['name'];
         }
 
-<<<<<<< HEAD
-        if ($user->surname !== $attributes['surname']) {
-=======
         if ($user->getAttribute('surname') !== $attributes['surname']) {
->>>>>>> laraxot/dev
             $updateData['surname'] = $attributes['surname'];
         }
 
@@ -460,33 +366,19 @@ class SpidAuthController extends Controller
             $updateData['email_verified_at'] = now();
         }
 
-<<<<<<< HEAD
-        if ($attributes['mobile'] && $user->mobile_phone !== $attributes['mobile']) {
-=======
         if ($attributes['mobile'] && $user->getAttribute('mobile_phone') !== $attributes['mobile']) {
->>>>>>> laraxot/dev
             $updateData['mobile_phone'] = $attributes['mobile'];
         }
 
         // Aggiorna provider se diverso
-<<<<<<< HEAD
-        if ($user->spid_provider !== $attributes['provider']) {
-=======
         if ($user->getAttribute('spid_provider') !== $attributes['provider']) {
->>>>>>> laraxot/dev
             $updateData['spid_provider'] = $attributes['provider'];
         }
 
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
-<<<<<<< HEAD
-        if (! empty($updateData)) {
-            $user->update($updateData);
-        }
-=======
         $user->update($updateData);
->>>>>>> laraxot/dev
     }
 
     /**
@@ -503,11 +395,7 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
-<<<<<<< HEAD
-               '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
-=======
                '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
->>>>>>> laraxot/dev
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.
@@ -528,11 +416,7 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
-<<<<<<< HEAD
-               '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
-=======
                '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
->>>>>>> laraxot/dev
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.

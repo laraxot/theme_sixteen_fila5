@@ -20,20 +20,7 @@ class BuildingSixteenMenu
     public function __construct(
         public MenuBuilderAction $menuBuilder,
         public string $location
-<<<<<<< HEAD
-<<<<<<< .merge_file_CqbAx0
     ) {}
-=======
-<<<<<<< .merge_file_QBpwrb
-    ) {}
-=======
-    ) {
-    }
->>>>>>> .merge_file_LpvRCl
->>>>>>> .merge_file_8svbps
-=======
-    ) {}
->>>>>>> laraxot/dev
 
     /**
      * Aggiunge elementi al menu corrente in base alla location
@@ -45,11 +32,7 @@ class BuildingSixteenMenu
             'header' => $this->menuBuilder->addHeader($items),
             'footer' => $this->menuBuilder->addFooter($items),
             'footer_bar' => $this->menuBuilder->addFooterBar($items),
-<<<<<<< HEAD
-            default => throw new \InvalidArgumentException("Unknown menu location: {$this->location}"),
-=======
             default => throw new \InvalidArgumentException("Unknown menu location: {$this->location}")
->>>>>>> laraxot/dev
         };
     }
 

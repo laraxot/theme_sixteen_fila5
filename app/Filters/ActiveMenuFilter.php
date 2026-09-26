@@ -6,10 +6,7 @@ namespace Themes\Sixteen\Filters;
 
 use Illuminate\Support\Facades\Request;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
-<<<<<<< HEAD
-=======
 
->>>>>>> laraxot/dev
 use function Safe\parse_url;
 use function Safe\preg_match;
 
@@ -19,13 +16,10 @@ use function Safe\preg_match;
  */
 class ActiveMenuFilter implements MenuFilterInterface
 {
-<<<<<<< HEAD
-=======
     /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> laraxot/dev
     public function filter(array $item): array|false
     {
         // Non processare header e separatori
@@ -74,11 +68,8 @@ class ActiveMenuFilter implements MenuFilterInterface
 
     /**
      * Determina se un elemento del menu è attivo
-<<<<<<< HEAD
-=======
      *
      * @param  array<array-key, mixed>  $item
->>>>>>> laraxot/dev
      */
     protected function isActive(array $item): bool
     {
