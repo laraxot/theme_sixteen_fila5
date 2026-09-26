@@ -7,10 +7,7 @@ namespace Themes\Sixteen\Filters;
 use Exception;
 use Illuminate\Support\Facades\Route;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
-<<<<<<< HEAD
-=======
 
->>>>>>> laraxot/dev
 use function Safe\parse_url;
 
 /**
@@ -19,13 +16,10 @@ use function Safe\parse_url;
  */
 class HrefMenuFilter implements MenuFilterInterface
 {
-<<<<<<< HEAD
-=======
     /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> laraxot/dev
     public function filter(array $item): array|false
     {
         // Converti route in URL

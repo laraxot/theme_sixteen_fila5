@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Actions;
 
 use DOMDocument;
-<<<<<<< HEAD
-=======
 use DOMElement;
->>>>>>> laraxot/dev
 use DOMXPath;
 use Exception;
 use Illuminate\Http\Request;
@@ -17,20 +14,14 @@ use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use Spatie\QueueableAction\QueueableAction;
 
-<<<<<<< HEAD
-=======
 use function Safe\base64_decode;
 use function Safe\gzdeflate;
 
->>>>>>> laraxot/dev
 class SpidAuthAction
 {
     use QueueableAction;
 
-<<<<<<< HEAD
-=======
     /** @var array<string, array<string, string>> */
->>>>>>> laraxot/dev
     protected array $providers = [];
 
     protected string $entityId;
@@ -41,11 +32,7 @@ class SpidAuthAction
 
     public function __construct()
     {
-<<<<<<< HEAD
-        $this->entityId = config('spid.entity_id', config('app.url'));
-=======
         $this->entityId = config()->string('spid.entity_id', config()->string('app.url'));
->>>>>>> laraxot/dev
         $this->assertionConsumerServiceUrl = route('spid.callback');
         $this->singleLogoutServiceUrl = route('spid.slo');
         $this->loadProviders();
@@ -53,12 +40,9 @@ class SpidAuthAction
 
     public function execute(): void {}
 
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, array<string, string>>
      */
->>>>>>> laraxot/dev
     public function getProviders(): array
     {
         return $this->providers;
@@ -107,18 +91,6 @@ class SpidAuthAction
         ]);
     }
 
-<<<<<<< HEAD
-    public function processCallback(Request $request): array
-    {
-        $samlResponse = $request->input('SAMLResponse');
-        $relayState = $request->input('RelayState');
-
-        if (! $samlResponse) {
-            throw new Exception('SAMLResponse mancante');
-        }
-
-        if (! $relayState || $relayState !== Session::get('spid.request_id')) {
-=======
     /**
      * @return array<string, mixed>
      */
@@ -132,29 +104,16 @@ class SpidAuthAction
         }
 
         if ($relayState === '' || $relayState !== Session::get('spid.request_id')) {
->>>>>>> laraxot/dev
             throw new Exception('RelayState non valido');
         }
 
         $decodedResponse = base64_decode($samlResponse);
-<<<<<<< HEAD
-<<<<<<< .merge_file_fdfRwD
-        $responseDoc = new DOMDocument();
-=======
-<<<<<<< .merge_file_jvPsck
-        $responseDoc = new DOMDocument();
-=======
-        $responseDoc = new DOMDocument;
->>>>>>> .merge_file_07TFJO
->>>>>>> .merge_file_OH69nz
-=======
 
         if ($decodedResponse === '') {
             throw new Exception('SAMLResponse non decodificabile');
         }
 
         $responseDoc = new DOMDocument();
->>>>>>> laraxot/dev
         $responseDoc->loadXML($decodedResponse);
 
         $this->validateSamlResponse($responseDoc);
@@ -195,11 +154,7 @@ class SpidAuthAction
         $metadata .= '                           Location="'.htmlspecialchars($this->singleLogoutServiceUrl).'"/>'.PHP_EOL;
 
         $metadata .= '    <md:AttributeConsumingService index="0">'.PHP_EOL;
-<<<<<<< HEAD
-        $metadata .= '      <md:ServiceName xml:lang="it">'.config('app.name').'</md:ServiceName>'.PHP_EOL;
-=======
         $metadata .= '      <md:ServiceName xml:lang="it">'.config()->string('app.name').'</md:ServiceName>'.PHP_EOL;
->>>>>>> laraxot/dev
 
         $spidAttributes = [
             'spidCode', 'name', 'familyName', 'placeOfBirth', 'countyOfBirth',
@@ -224,25 +179,18 @@ class SpidAuthAction
         return Session::has('spid.authenticated') && Session::get('spid.authenticated') === true;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @return array<array-key, mixed>|null
      */
->>>>>>> laraxot/dev
     public function getAuthenticatedUser(): ?array
     {
         if (! $this->isAuthenticated()) {
             return null;
         }
 
-<<<<<<< HEAD
-        return Session::get('spid.user_data');
-=======
         $userData = Session::get('spid.user_data');
 
         return is_array($userData) ? $userData : null;
->>>>>>> laraxot/dev
     }
 
     public function logout(): void
@@ -258,11 +206,7 @@ class SpidAuthAction
 
     protected function loadProviders(): void
     {
-<<<<<<< HEAD
-        $this->providers = config('spid.providers', [
-=======
         $default = [
->>>>>>> laraxot/dev
             'poste' => [
                 'name' => 'Poste Italiane',
                 'entityId' => 'https://posteid.poste.it',
@@ -287,9 +231,6 @@ class SpidAuthAction
                 'cert' => 'tim.crt',
                 'logo' => 'tim-logo.svg',
             ],
-<<<<<<< HEAD
-        ]);
-=======
         ];
 
         $configured = config('spid.providers');
@@ -323,7 +264,6 @@ class SpidAuthAction
         }
 
         return $normalized;
->>>>>>> laraxot/dev
     }
 
     protected function generateRequestId(): string
@@ -331,12 +271,9 @@ class SpidAuthAction
         return 'req_'.bin2hex(random_bytes(16));
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @param  array<string, string>  $provider
      */
->>>>>>> laraxot/dev
     protected function buildSamlAuthRequest(string $requestId, array $provider, int $level): string
     {
         $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
@@ -361,12 +298,9 @@ class SpidAuthAction
         return $request;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @param  array<string, string>  $provider
      */
->>>>>>> laraxot/dev
     protected function buildSamlLogoutRequest(string $requestId, string $nameId, string $sessionIndex, array $provider): string
     {
         $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
@@ -394,25 +328,18 @@ class SpidAuthAction
         $xpath->registerNamespace('saml', 'urn:oasis:names:tc:SAML:2.0:assertion');
 
         $statusCode = $xpath->query('//samlp:StatusCode/@Value');
-<<<<<<< HEAD
-        if ($statusCode->length === 0 || $statusCode->item(0)->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
-=======
         if ($statusCode === false || $statusCode->length === 0) {
             throw new Exception('SPID authentication failed');
         }
 
         if ($statusCode->item(0)?->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
->>>>>>> laraxot/dev
             throw new Exception('SPID authentication failed');
         }
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, mixed>
      */
->>>>>>> laraxot/dev
     protected function extractUserAttributes(DOMDocument $responseDoc): array
     {
         $xpath = new DOMXPath($responseDoc);
@@ -421,15 +348,6 @@ class SpidAuthAction
         $attributes = [];
 
         $attributeNodes = $xpath->query('//saml:Attribute');
-<<<<<<< HEAD
-        foreach ($attributeNodes as $attributeNode) {
-            $name = $attributeNode->getAttribute('Name');
-            $valueNodes = $xpath->query('saml:AttributeValue', $attributeNode);
-
-            if ($valueNodes->length > 0) {
-                $attributes[$name] = $valueNodes->item(0)->nodeValue;
-            }
-=======
         if ($attributeNodes === false) {
             throw new Exception('SPID response contains no readable attributes');
         }
@@ -447,7 +365,6 @@ class SpidAuthAction
             }
 
             $attributes[$name] = $valueNodes->item(0)?->nodeValue;
->>>>>>> laraxot/dev
         }
 
         return [
@@ -471,10 +388,6 @@ class SpidAuthAction
 
     protected function getSigningCertificate(): string
     {
-<<<<<<< HEAD
-        return config('spid.signing_cert', '');
-=======
         return config()->string('spid.signing_cert', '');
->>>>>>> laraxot/dev
     }
 }

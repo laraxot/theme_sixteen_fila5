@@ -1,13 +1,6 @@
 <?php
 
 declare(strict_types=1);
-<<<<<<< HEAD
-
-uses(Tests\TestCase::class);
-
-test('cta ticket block renders with defaults', function (): void {
-    /** @var Tests\TestCase $this */
-=======
 use Tests\TestCase;
 
 use function Safe\file_get_contents;
@@ -16,7 +9,6 @@ uses(TestCase::class);
 
 test('cta ticket block renders with defaults', function (): void {
     /** @var TestCase $this */
->>>>>>> laraxot/dev
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [],
     ]);
@@ -27,11 +19,7 @@ test('cta ticket block renders with defaults', function (): void {
 });
 
 test('cta ticket block renders custom payload', function (): void {
-<<<<<<< HEAD
-    /** @var Tests\TestCase $this */
-=======
     /** @var TestCase $this */
->>>>>>> laraxot/dev
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [
             'title' => 'Custom title',
@@ -48,11 +36,7 @@ test('cta ticket block renders custom payload', function (): void {
 
 test('cta ticket block does not use frontoffice url', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/components/blocks/cta/ticket.blade.php';
-<<<<<<< HEAD
-    $html = (string) file_get_contents($path);
-=======
     $html = file_get_contents($path);
->>>>>>> laraxot/dev
 
     expect($html)->not->toContain('FrontofficeUrl');
 });

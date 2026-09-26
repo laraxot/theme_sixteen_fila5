@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Casts\Attribute;
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,30 +23,6 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
-<<<<<<< HEAD
- * @property \Carbon\Carbon|null $appointment_date
- * @property \Carbon\Carbon|null $start_time
- * @property \Carbon\Carbon|null $end_time
- * @property string $status
- * @property string|null $purpose
- * @property string|null $notes
- * @property array|null $required_documents
- * @property string|null $confirmation_code
- * @property bool $reminder_sent
- * @property string|null $cancellation_reason
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Modules\User\Models\User|null $user
- * @property-read \Modules\User\Models\User|null $citizen
- * @property-read self|null $office
- * @property-read self|null $service
- */
-class Appointment extends Model
-{
-=======
  * @property Carbon|null $appointment_date
  * @property Carbon|null $start_time
  * @property Carbon|null $end_time
@@ -78,7 +50,6 @@ class Appointment extends Model
 class Appointment extends Model
 {
     /** @use HasFactory<Factory<static>> */
->>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -138,11 +109,8 @@ class Appointment extends Model
 
     /**
      * Relazione con l'utente che ha prenotato
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<User, $this>
->>>>>>> laraxot/dev
      */
     public function user(): BelongsTo
     {
@@ -151,11 +119,8 @@ class Appointment extends Model
 
     /**
      * Relazione con il cittadino (se diverso dall'utente)
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<Citizen, $this>
->>>>>>> laraxot/dev
      */
     public function citizen(): BelongsTo
     {
@@ -164,11 +129,8 @@ class Appointment extends Model
 
     /**
      * Relazione con l'ufficio
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<Office, $this>
->>>>>>> laraxot/dev
      */
     public function office(): BelongsTo
     {
@@ -177,11 +139,8 @@ class Appointment extends Model
 
     /**
      * Relazione con il servizio
-<<<<<<< HEAD
-=======
      *
      * @return BelongsTo<Service, $this>
->>>>>>> laraxot/dev
      */
     public function service(): BelongsTo
     {
@@ -190,16 +149,11 @@ class Appointment extends Model
 
     /**
      * Scope per appuntamenti futuri
-<<<<<<< HEAD
-     */
-    public function scopeUpcoming($query)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeUpcoming(Builder $query): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
             ->where('status', self::STATUS_CONFIRMED);
@@ -207,32 +161,22 @@ class Appointment extends Model
 
     /**
      * Scope per appuntamenti di un utente
-<<<<<<< HEAD
-     */
-    public function scopeForUser($query, $userId)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeForUser(Builder $query, int $userId): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('user_id', $userId);
     }
 
     /**
      * Scope per appuntamenti di un ufficio
-<<<<<<< HEAD
-     */
-    public function scopeForOffice($query, $officeId)
-=======
      *
      * @param  Builder<static>  $query
      * @return Builder<static>
      */
     public function scopeForOffice(Builder $query, int $officeId): Builder
->>>>>>> laraxot/dev
     {
         return $query->where('office_id', $officeId);
     }
@@ -270,21 +214,14 @@ class Appointment extends Model
     {
         return ! $this->reminder_sent
             && $this->status === self::STATUS_CONFIRMED
-<<<<<<< HEAD
-            && $this->appointment_date->isTomorrow()
-=======
             && ($this->appointment_date?->isTomorrow() ?? false)
->>>>>>> laraxot/dev
             && now()->hour < 18; // Invio solo prima delle 18
     }
 
     /**
      * Array di stati validi
-<<<<<<< HEAD
-=======
      *
      * @return array<string, string>
->>>>>>> laraxot/dev
      */
     public static function getStatuses(): array
     {
@@ -299,11 +236,8 @@ class Appointment extends Model
 
     /**
      * Array di tipi servizio
-<<<<<<< HEAD
-=======
      *
      * @return array<string, string>
->>>>>>> laraxot/dev
      */
     public static function getServiceTypes(): array
     {
@@ -318,39 +252,25 @@ class Appointment extends Model
 
     /**
      * Formatta l'orario per display
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<string, never>
->>>>>>> laraxot/dev
      */
     protected function timeSlot(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn () => $this->start_time->format('H:i').' - '.$this->end_time->format('H:i')
-=======
             get: fn () => ($this->start_time?->format('H:i') ?? '').' - '.($this->end_time?->format('H:i') ?? '')
->>>>>>> laraxot/dev
         );
     }
 
     /**
      * Durata appuntamento in minuti
-<<<<<<< HEAD
-=======
      *
      * @return Attribute<int|null, never>
->>>>>>> laraxot/dev
      */
     protected function duration(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn () => $this->start_time->diffInMinutes($this->end_time)
-=======
             get: fn () => $this->start_time?->diffInMinutes($this->end_time)
->>>>>>> laraxot/dev
         );
     }
 
@@ -359,21 +279,13 @@ class Appointment extends Model
      */
     protected static function booted(): void
     {
-<<<<<<< HEAD
-        static::creating(function ($appointment): void {
-=======
         static::creating(function (self $appointment): void {
->>>>>>> laraxot/dev
             if (empty($appointment->confirmation_code)) {
                 $appointment->confirmation_code = self::generateConfirmationCode();
             }
         });
 
-<<<<<<< HEAD
-        static::updating(function ($appointment): void {
-=======
         static::updating(function (self $appointment): void {
->>>>>>> laraxot/dev
             if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
                 $appointment->cancelled_at = now();
             }
