@@ -3,7 +3,11 @@ title: "Sixteen Theme Wiki Index"
 type: index
 tags: [sixteen, theme, wiki, index, frontoffice]
 created: 2026-04-15
+<<<<<<< HEAD
 updated: 2026-06-13
+=======
+updated: 2026-07-27
+>>>>>>> laraxot/dev
 qmd: "sixteen theme wiki index frontoffice folio filament parity docs"
 issues:
   - "https://github.com/laraxot/theme_sixteen_fila5/issues/54"
@@ -35,11 +39,34 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 - [llm-wiki prompt](../../../../bashscripts/tools/prompts/llm-wiki.txt) — router agente
 - [bmad/architecture](../../../../docs/wiki/bmad/architecture.md)
 
+<<<<<<< HEAD
 ## Testing / PHPStan (2026-06-13)
 
 - [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
+=======
+## Gestionale / moduli (2026-07-27)
+
+Menu admin Filament **non** dipende dal tema — dipende da `config/local/workorder/modules_statuses.json`:
+
+- [tenant-modules-navigation-discipline.md](../../docs/tenant-modules-navigation-discipline.md) — hub Themes
+- [runtime-config-religion-hub.md](../../docs/shared-components/runtime-config-religion-hub.md) — permission + config.php + statuses + Dashboard
+- [module-dashboard-page-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-dashboard-page-mandatory.md) — landing `{modulo}/admin`
+- [module-admin-panel-provider-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-admin-panel-provider-mandatory.md) — panel `{modulo}/admin`
+- [module-providers-dual-registration-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-providers-dual-registration-mandatory.md) — 2 provider in module.json + composer.json
+- [tenant-module-status-registry](../../../Modules/Tenant/docs/tenant-module-status-registry.md) — canon Tenant
+
+## Testing / PHPStan (2026-06-13)
+
+- [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
+- [theme-tests-data-sacred](./concepts/theme-tests-data-sacred.md) — policy dati sacri + skip onesti
+- [perfection-checklist](./overviews/perfection-checklist.md) — checklist verso tema perfetto
+- [page-directory-structure](../../page-directory-structure.md) — regola Folio canonica (root docs)
+- [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
+- [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
+- [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) — hub temi
+>>>>>>> laraxot/dev
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
