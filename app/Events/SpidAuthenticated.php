@@ -6,11 +6,7 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-<<<<<<< HEAD
-use Modules\User\Models\User;
-=======
 use Modules\Xot\Contracts\UserContract;
->>>>>>> laraxot/dev
 
 /**
  * Evento lanciato quando un utente si autentica con successo tramite SPID
@@ -22,16 +18,11 @@ class SpidAuthenticated
 {
     use Dispatchable, SerializesModels;
 
-<<<<<<< HEAD
-    public function __construct(
-        public User $user,
-=======
     /**
      * @param  array<string, mixed>  $spidAttributes
      */
     public function __construct(
         public UserContract $user,
->>>>>>> laraxot/dev
         public array $spidAttributes
     ) {}
 
@@ -76,12 +67,9 @@ class SpidAuthenticated
     /**
      * Ottiene tutti gli attributi SPID ricevuti
      */
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, mixed>
      */
->>>>>>> laraxot/dev
     public function getSpidAttributes(): array
     {
         return $this->spidAttributes;
@@ -90,12 +78,9 @@ class SpidAuthenticated
     /**
      * Ottiene attributi specifici per logging sicuro
      */
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, mixed>
      */
->>>>>>> laraxot/dev
     public function getLoggingData(): array
     {
         return [

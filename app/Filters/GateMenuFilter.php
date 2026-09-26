@@ -13,13 +13,10 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
  */
 class GateMenuFilter implements MenuFilterInterface
 {
-<<<<<<< HEAD
-=======
     /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> laraxot/dev
     public function filter(array $item): array|false
     {
         // Controllo permesso con Laravel Gate
