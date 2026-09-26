@@ -1,12 +1,3 @@
-<<<<<<< HEAD
----
-module: theme
-topic: README
-canonical: ../../../docs/shared-components/README-Themes.md
----
-
-See canonical documentation: ../../../docs/shared-components/README-Themes.md
-=======
 # Sixteen
 
 [![Module](https://img.shields.io/badge/Module-Sixteen-8B0000.svg)]()
@@ -41,4 +32,3 @@ Core module for the FixCity Platform.
 ---
 
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> laraxot/dev
