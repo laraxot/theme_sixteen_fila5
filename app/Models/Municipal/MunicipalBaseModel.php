@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Models\Municipal;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Factories\Factory;
+>>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +21,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 abstract class MunicipalBaseModel extends Model
 {
+<<<<<<< HEAD
     /** @use HasFactory<\Illuminate\Database\Eloquent\Factories\Factory<static>> */
+=======
+    /** @use HasFactory<Factory<static>> */
+>>>>>>> laraxot/dev
     use HasFactory;
 }

@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\View\Components;
 
+<<<<<<< HEAD
 use Illuminate\View\Component;
 use Illuminate\View\View;
+=======
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+>>>>>>> laraxot/dev
 use Modules\Cms\Datas\BlockData;
 use Modules\Cms\Models\Page as PageModel;
 
@@ -16,6 +21,11 @@ class Page extends Component
 
     /**
      * Create a new component instance.
+<<<<<<< HEAD
+=======
+     *
+     * @param  array<string, mixed>  $data
+>>>>>>> laraxot/dev
      */
     public function __construct(
         public string $side = 'content',
@@ -32,7 +42,11 @@ class Page extends Component
      */
     public function render(): View
     {
+<<<<<<< HEAD
         return view('pub_theme::components.page', [
+=======
+        return view()->make('pub_theme::components.page', [
+>>>>>>> laraxot/dev
             'side' => $this->side,
             'slug' => $this->slug,
             'data' => $this->data,

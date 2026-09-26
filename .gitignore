@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node.js
 node_modules/
 npm-debug.log
@@ -31,10 +32,33 @@ Thumbs.db
 *.log
 
 # Environment files
+=======
+# Dependencies
+node_modules/
+vendor/
+
+# Lockfiles (managed at monorepo root)
+package-lock.json
+yarn.lock
+
+# Build outputs
+build/
+dist/
+test-results/
+
+# Cache / temp
+.cache/
+tmp/
+temp/
+docs/cache/
+
+# Environment
+>>>>>>> laraxot/dev
 .env
 .env.local
 .env.*.local
 
+<<<<<<< HEAD
 # Documentation Cache (siti generati da strumenti come Jekyll, Hugo, ecc.)
 docs/cache/
 
@@ -57,10 +81,44 @@ _docs/
 # Second brain: no-docs-archive (wiki) — non tracciare albero legacy docs/archive/
 docs/archive/
 # Copie residue da merge/rebase o editor (mai committare — es. `.agent~HEAD`, `*.md~head`)
+=======
+# Logs
+*.log
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / AI tool workspaces
+.vscode/
+.idea/
+.cursor/
+.windsurf/
+.claude-flow
+.supermemory
+agentdb.rvf
+ruvector.db
+
+# Stray browser-saved-page dump (not theme source, keep out of history)
+Main_files/
+
+# Backups / stray artifacts
+*.bak
+*.old
+*.old1
+*.backup
+*.backup.*
+*.bakcup
+
+# Merge/rebase leftovers — never commit
+>>>>>>> laraxot/dev
 *~HEAD
 *~BASE
 *~LOCAL
 *~REMOTE
+<<<<<<< HEAD
 *.orig
 *.rej
 *~head
@@ -80,3 +138,41 @@ ruvector.db
 .cursor/
 .windsurf/
 .devcontainer/
+=======
+*~head
+*.orig
+*.rej
+
+# AI/TOOL SCAFFOLD — must never exist in module/theme tree (see docs/wiki/rules/module-theme-root-cleanup.md, Rule 5)
+# Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
+_docs/
+scripts/
+bashscripts/
+docs/archive/
+docs/archived/
+docs/legacy/
+docs/workbench/
+.circleci/
+.claude-audit/
+tests/.claude-audit/
+_bmad-output/
+.devcontainer/
+.kilocode/
+.kiro/
+.ralph/
+tests/AuditCoverage/
+
+# Git internals
+.git-blame-ignore-revs
+
+# Laraxot — IDE folders forbidden at module/theme root (see module-theme-root-hygiene)
+.cursor/
+.devcontainer/
+.vscode/
+.windsurf/
+
+# Laraxot — quality tool configs forbidden in module/theme root (use laravel/phpinsights.php, laravel/rector.php)
+phpinsights.php
+rector.php
+storage/
+>>>>>>> laraxot/dev

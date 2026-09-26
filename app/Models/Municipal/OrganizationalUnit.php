@@ -4,13 +4,24 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Casts\Attribute;
+=======
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\Factory;
+>>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Relations\Pivot;
+>>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -36,6 +47,7 @@ use Illuminate\Support\Str;
  * @property string|null $pec
  * @property string|null $phone
  * @property string|null $address
+<<<<<<< HEAD
  * @property array|null $office_hours
  * @property bool $is_active
  * @property bool $is_public
@@ -48,13 +60,38 @@ use Illuminate\Support\Str;
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
+=======
+ * @property array<array-key, mixed>|null $office_hours
+ * @property bool $is_active
+ * @property bool $is_public
+ * @property int $position
+ * @property array<array-key, mixed>|null $competences
+ * @property array<array-key, mixed>|null $services_provided
+ * @property array<array-key, mixed>|null $accessibility_info
+ * @property array<array-key, mixed>|null $metadata
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+>>>>>>> laraxot/dev
  * @property-read self|null $parent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $children
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $allChildren
+<<<<<<< HEAD
  */
 class OrganizationalUnit extends Model
 {
+=======
+ * @property-read string $type_name
+ * @property-read string $hierarchy_path
+ * @property-read bool $has_children
+ * @property-read int $level
+ * @property-read string $url
+ */
+class OrganizationalUnit extends Model
+{
+    /** @use HasFactory<Factory<static>> */
+>>>>>>> laraxot/dev
     use HasFactory, SoftDeletes;
 
     /**
@@ -116,30 +153,62 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con l'unità parent
+<<<<<<< HEAD
      */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');
+=======
+     *
+     * @return BelongsTo<static, $this>
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(static::class, 'parent_id');
+>>>>>>> laraxot/dev
     }
 
     /**
      * Relazione con le unità figlie
+<<<<<<< HEAD
      */
     public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id')->ordered();
+=======
+     *
+     * @return HasMany<static, $this>
+     */
+    public function children(): HasMany
+    {
+        return $this->hasMany(static::class, 'parent_id')->ordered();
+>>>>>>> laraxot/dev
     }
 
     /**
      * Relazione con tutti i discendenti
+<<<<<<< HEAD
      */
     public function descendants(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id')->with('descendants');
+=======
+     *
+     * @return HasMany<static, $this>
+     */
+    public function descendants(): HasMany
+    {
+        return $this->hasMany(static::class, 'parent_id')->with('descendants');
+>>>>>>> laraxot/dev
     }
 
     /**
      * Relazione con i punti di contatto
+<<<<<<< HEAD
+=======
+     *
+     * @return MorphMany<ContactPoint, $this>
+>>>>>>> laraxot/dev
      */
     public function contacts(): MorphMany
     {
@@ -148,6 +217,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con le persone pubbliche
+<<<<<<< HEAD
+=======
+     *
+     * @return BelongsToMany<PublicPerson, $this, Pivot, 'pivot'>
+>>>>>>> laraxot/dev
      */
     public function people(): BelongsToMany
     {
@@ -158,6 +232,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con i responsabili attuali
+<<<<<<< HEAD
+=======
+     *
+     * @return BelongsToMany<PublicPerson, $this, Pivot, 'pivot'>
+>>>>>>> laraxot/dev
      */
     public function managers(): BelongsToMany
     {
@@ -169,6 +248,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con i servizi erogati
+<<<<<<< HEAD
+=======
+     *
+     * @return HasMany<MunicipalService, $this>
+>>>>>>> laraxot/dev
      */
     public function services(): HasMany
     {
@@ -177,6 +261,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con le location
+<<<<<<< HEAD
+=======
+     *
+     * @return BelongsToMany<MunicipalLocation, $this, Pivot, 'pivot'>
+>>>>>>> laraxot/dev
      */
     public function locations(): BelongsToMany
     {
@@ -185,46 +274,91 @@ class OrganizationalUnit extends Model
 
     /**
      * Scope per unità attive
+<<<<<<< HEAD
      */
     public function scopeActive($query)
+=======
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeActive(Builder $query): Builder
+>>>>>>> laraxot/dev
     {
         return $query->where('is_active', true);
     }
 
     /**
      * Scope per unità pubbliche
+<<<<<<< HEAD
      */
     public function scopePublic($query)
+=======
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopePublic(Builder $query): Builder
+>>>>>>> laraxot/dev
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per tipo di unità
+<<<<<<< HEAD
      */
     public function scopeOfType($query, string $type)
+=======
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeOfType(Builder $query, string $type): Builder
+>>>>>>> laraxot/dev
     {
         return $query->where('type', $type);
     }
 
     /**
      * Scope per unità radice (senza parent)
+<<<<<<< HEAD
      */
     public function scopeRoot($query)
+=======
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeRoot(Builder $query): Builder
+>>>>>>> laraxot/dev
     {
         return $query->whereNull('parent_id');
     }
 
     /**
      * Scope ordinato per posizione
+<<<<<<< HEAD
      */
     public function scopeOrdered($query)
+=======
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeOrdered(Builder $query): Builder
+>>>>>>> laraxot/dev
     {
         return $query->orderBy('position')->orderBy('name');
     }
 
     /**
      * Ottiene le competenze formattate
+<<<<<<< HEAD
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> laraxot/dev
      */
     public function getFormattedCompetences(): array
     {
@@ -245,6 +379,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene i servizi forniti formattati
+<<<<<<< HEAD
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> laraxot/dev
      */
     public function getFormattedServices(): array
     {
@@ -265,6 +404,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene gli orari di apertura formattati
+<<<<<<< HEAD
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> laraxot/dev
      */
     public function getFormattedOfficeHours(): array
     {
@@ -309,7 +453,15 @@ class OrganizationalUnit extends Model
         }
 
         foreach ($todayHours as $period) {
+<<<<<<< HEAD
             if (isset($period['open']) && isset($period['close'])) {
+=======
+            if (! is_array($period)) {
+                continue;
+            }
+
+            if (isset($period['open'], $period['close'])) {
+>>>>>>> laraxot/dev
                 if ($currentTime >= $period['open'] && $currentTime <= $period['close']) {
                     return true;
                 }
@@ -321,6 +473,7 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene tutti gli antenati
+<<<<<<< HEAD
      */
     public function getAncestors(): Collection
     {
@@ -333,10 +486,27 @@ class OrganizationalUnit extends Model
         }
 
         return $ancestors;
+=======
+     *
+     * @return Collection<int, self>
+     */
+    public function getAncestors(): Collection
+    {
+        $ancestors = [];
+        $current = $this->parent;
+
+        while ($current) {
+            array_unshift($ancestors, $current);
+            $current = $current->parent;
+        }
+
+        return new Collection($ancestors);
+>>>>>>> laraxot/dev
     }
 
     /**
      * Ottiene tutti i discendenti (recursivo)
+<<<<<<< HEAD
      */
     public function getAllDescendants(): Collection
     {
@@ -348,6 +518,21 @@ class OrganizationalUnit extends Model
         }
 
         return $descendants;
+=======
+     *
+     * @return Collection<int, self>
+     */
+    public function getAllDescendants(): Collection
+    {
+        $descendants = [];
+
+        foreach ($this->children as $child) {
+            $descendants[] = $child;
+            $descendants = array_merge($descendants, $child->getAllDescendants()->all());
+        }
+
+        return new Collection($descendants);
+>>>>>>> laraxot/dev
     }
 
     /**
@@ -368,6 +553,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il nome del tipo
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> laraxot/dev
      */
     protected function typeName(): Attribute
     {
@@ -378,6 +568,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il percorso gerarchico
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> laraxot/dev
      */
     protected function hierarchyPath(): Attribute
     {
@@ -398,6 +593,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per verificare se ha figli
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> laraxot/dev
      */
     protected function hasChildren(): Attribute
     {
@@ -408,6 +608,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il livello gerarchico
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<int, never>
+>>>>>>> laraxot/dev
      */
     protected function level(): Attribute
     {
@@ -428,6 +633,11 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per l'URL dell'unità
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> laraxot/dev
      */
     protected function url(): Attribute
     {
@@ -438,11 +648,20 @@ class OrganizationalUnit extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
+<<<<<<< HEAD
+=======
+     *
+     * @return Attribute<string, string>
+>>>>>>> laraxot/dev
      */
     protected function name(): Attribute
     {
         return Attribute::make(
+<<<<<<< HEAD
             set: function ($value) {
+=======
+            set: function (string $value): string {
+>>>>>>> laraxot/dev
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -461,23 +680,40 @@ class OrganizationalUnit extends Model
         parent::boot();
 
         // Auto-increment position nella stessa categoria
+<<<<<<< HEAD
         static::creating(function ($model): void {
             if (is_null($model->position)) {
                 $model->position = static::where('parent_id', $model->parent_id)
                     ->where('type', $model->type)
                     ->max('position') + 1;
+=======
+        static::creating(function (self $model): void {
+            if (is_null($model->position)) {
+                $maxPosition = static::where('parent_id', $model->parent_id)
+                    ->where('type', $model->type)
+                    ->max('position');
+                $model->position = is_numeric($maxPosition) ? ((int) $maxPosition + 1) : 1;
+>>>>>>> laraxot/dev
             }
         });
 
         // Genera slug se mancante
+<<<<<<< HEAD
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> laraxot/dev
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
+<<<<<<< HEAD
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> laraxot/dev
             $originalSlug = $model->slug;
             $counter = 1;
 

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use Illuminate\Http\RedirectResponse;
+>>>>>>> laraxot/dev
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -12,14 +16,44 @@ use Modules\Fixcity\Models\Ticket;
 class ComuneController extends Controller
 {
     /**
+<<<<<<< HEAD
+=======
+     * Inoltra una chiamata dinamica su un target di tipo sconosciuto a livello statico.
+     *
+     * Modules\Fixcity non e' presente in questa base (modulo agnostico/esterno):
+     * Ticket non e' risolvibile staticamente da PHPStan. Il dispatch dinamico evita
+     * di dichiarare un tipo falso, mantenendo il comportamento reale invariato
+     * quando il modulo e' installato altrove.
+     *
+     * @param  array<int, mixed>  $args
+     */
+    private function dynamicCall(mixed $target, string $method, array $args = []): mixed
+    {
+        return $target->{$method}(...$args);
+    }
+
+    /**
+>>>>>>> laraxot/dev
      * Homepage del comune
      */
     public function homepage(): View
     {
+<<<<<<< HEAD
         $recentTickets = Ticket::with(['user', 'status', 'priority'])
             ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
+=======
+        if (! class_exists(Ticket::class)) {
+            return view('sixteen::pages.comune.homepage', ['recentTickets' => collect()]);
+        }
+
+        $ticketClass = Ticket::class;
+
+        $ticketsQuery = $this->dynamicCall($ticketClass::with(['user', 'status', 'priority']), 'orderBy', ['created_at', 'desc']);
+        $ticketsQuery = $this->dynamicCall($ticketsQuery, 'limit', [5]);
+        $recentTickets = $this->dynamicCall($ticketsQuery, 'get');
+>>>>>>> laraxot/dev
 
         return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
     }
@@ -82,7 +116,11 @@ class ComuneController extends Controller
     /**
      * Invia messaggio di contatto
      */
+<<<<<<< HEAD
     public function sendContact(Request $request): \Illuminate\Http\RedirectResponse
+=======
+    public function sendContact(Request $request): RedirectResponse
+>>>>>>> laraxot/dev
     {
         $request->validate([
             'nome' => 'required|string|max:255',
