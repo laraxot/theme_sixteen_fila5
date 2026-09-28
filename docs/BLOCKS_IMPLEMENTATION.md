@@ -1,3 +1,14 @@
+---
+title: "BLOCKS IMPLEMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCKS IMPLEMENTATION"
+issues: []
+discussions: []
+---
+
 # Blocks Implementation - Complete
 
 > **Documentazione implementazione blocchi universali per Design Comuni**
@@ -10,6 +21,14 @@
 
 ---
 
+title: "BLOCKS IMPLEMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCKS IMPLEMENTATION"
+issues: []
+discussions: []
 ## 🧩 Blocchi Implementati
 
 ### 1. Navigation Main

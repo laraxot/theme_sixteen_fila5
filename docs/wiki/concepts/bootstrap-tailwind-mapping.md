@@ -1,4 +1,7 @@
 ---
+qmd: "bootstrap tailwind mapping"
+issues: []
+discussions: []
 title: "Bootstrap → Tailwind Mapping for Design Comuni Parity"
 type: reference
 sources: ["https://italia.github.io/design-comuni-pagine-statiche/"]

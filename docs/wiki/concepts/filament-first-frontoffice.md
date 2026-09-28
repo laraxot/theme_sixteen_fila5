@@ -1,4 +1,8 @@
 ---
+updated: 2026-09-26
+qmd: "filament first frontoffice"
+issues: []
+discussions: []
 title: "Filament-first sul frontoffice Sixteen"
 type: concept
 status: active

@@ -1,3 +1,14 @@
+---
+title: "HTML BODY COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML BODY COMPARISON"
+issues: []
+discussions: []
+---
+
 # HTML Body Comparison - Design Comuni vs FixCity
 
 > **Obiettivo:** Rendere l'HTML dentro `<body>` (esclusi script) IDENTICO tra originale e replica
@@ -10,6 +21,14 @@
 
 ---
 
+title: "HTML BODY COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML BODY COMPARISON"
+issues: []
+discussions: []
 ## 🎯 Pagina Analizzata: Homepage
 
 ### URL di Riferimento

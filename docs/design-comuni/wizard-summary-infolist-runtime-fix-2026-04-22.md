@@ -1,3 +1,14 @@
+---
+title: "wizard summary infolist runtime fix 2026 04 22"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard summary infolist runtime fix 2026 04 22"
+issues: []
+discussions: []
+---
+
 # wizard summary infolist runtime fix 2026-04-22
 
 ## contesto tema

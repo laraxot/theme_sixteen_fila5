@@ -25,6 +25,12 @@ middleware(['web', 'auth']);
                     </p>
                 </header>
 
+                <nav class="mb-3" aria-label="{{ __('fixcity::ticket.subscription.personal_area_navigation') }}">
+                    <a class="btn btn-outline-primary" href="{{ url('/'.request()->segment(1).'/area-personale/impostazioni') }}">
+                        {{ __('fixcity::ticket_notification_preferences.page_title') }}
+                    </a>
+                </nav>
+
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         @livewire(\Modules\User\Filament\Widgets\Auth\NotificationsCenterWidget::class)

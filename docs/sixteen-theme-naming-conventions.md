@@ -1,3 +1,14 @@
+---
+title: "sixteen theme naming conventions"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "sixteen theme naming conventions"
+issues: []
+discussions: []
+---
+
 # Convenzioni di Naming per il Tema Sixteen
 
 ## 🚨 REGOLA FONDAMENTALE - Naming Generico per Tema AGID-Centric
@@ -226,6 +237,14 @@ Dopo il refactoring completo:
 
 ---
 
+title: "sixteen theme naming conventions"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "sixteen theme naming conventions"
+issues: []
+discussions: []
 **Regola stabilita**: 1 Agosto 2025  
 **Autorità**: Analisi logica del tema AGID-centric  
 **Stato**: REGOLA FONDAMENTALE  

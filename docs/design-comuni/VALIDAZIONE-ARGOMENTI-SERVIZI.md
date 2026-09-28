@@ -1,9 +1,28 @@
+---
+title: "VALIDAZIONE ARGOMENTI SERVIZI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VALIDAZIONE ARGOMENTI SERVIZI"
+issues: []
+discussions: []
+---
+
 # Validazione Strutturale - Argomenti e Servizi
 
 **Data**: 2026-04-07
 
 ---
 
+title: "VALIDAZIONE ARGOMENTI SERVIZI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VALIDAZIONE ARGOMENTI SERVIZI"
+issues: []
+discussions: []
 ## Argomenti
 
 ### Stato Attuale

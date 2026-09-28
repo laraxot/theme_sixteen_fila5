@@ -1,3 +1,14 @@
+---
+title: "wizard step visibility"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard step visibility"
+issues: []
+discussions: []
+---
+
 # Wizard Step Visibility Mechanism
 
 ## Documentazione Tecnica - Perché il 1° Step Rimane Visibile

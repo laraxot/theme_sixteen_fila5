@@ -1,3 +1,14 @@
+---
+title: "MULTI AGENT COORDINATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MULTI AGENT COORDINATION"
+issues: []
+discussions: []
+---
+
 # Multi-Agent Coordination: FAQ Visual Replication
 
 ## Task Context
@@ -85,6 +96,14 @@ Replicate https://italia.github.io/design-comuni-pagine-statiche/sito/domande-fr
 
 ---
 
+title: "MULTI AGENT COORDINATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MULTI AGENT COORDINATION"
+issues: []
+discussions: []
 ## Synchronization Points
 
 ### Daily Standup (Every 15-20 minutes)

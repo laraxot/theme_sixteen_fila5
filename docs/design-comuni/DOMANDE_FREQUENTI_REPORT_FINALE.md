@@ -1,3 +1,14 @@
+---
+title: "DOMANDE FREQUENTI REPORT FINALE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI REPORT FINALE"
+issues: []
+discussions: []
+---
+
 # Report Finale Differenze - Domande Frequenti
 
 ## Stato: 90% Completato ✅
@@ -9,6 +20,14 @@
 
 ---
 
+title: "DOMANDE FREQUENTI REPORT FINALE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI REPORT FINALE"
+issues: []
+discussions: []
 ## Riepilogo Esecuzione
 
 ### ✅ Completato (90%)

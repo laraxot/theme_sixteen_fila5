@@ -1,3 +1,14 @@
+---
+title: "LAYOUT ARCHITECTURE MAP"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT ARCHITECTURE MAP"
+issues: []
+discussions: []
+---
+
 # Layout Architecture Map - Sixteen Theme
 
 **Created:** 2026-04-01  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "LAYOUT ARCHITECTURE MAP"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT ARCHITECTURE MAP"
+issues: []
+discussions: []
 ## 🎯 Purpose
 
 Questo documento crea **collegamenti bidirezionali** tra tutti i documenti relativi all'architettura layout del tema Sixteen, per garantire:

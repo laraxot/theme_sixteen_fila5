@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "Theme bridge-only — Sixteen app/ remediation"
 type: concept
 module: Sixteen

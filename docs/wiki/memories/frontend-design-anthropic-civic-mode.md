@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "frontend design anthropic civic mode"
+issues: []
+discussions: []
 title: frontend design anthropic — modalità civic su sixteen
 type: memory
 module: Sixteen

@@ -1,3 +1,14 @@
+---
+title: "STRATEGY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRATEGY"
+issues: []
+discussions: []
+---
+
 # Design Comuni Replication - Strategic Implementation Plan
 
 ## Status: HTML Structure ✅ VERIFIED (99% match across all 32 pages)
@@ -15,6 +26,14 @@
 
 ---
 
+title: "STRATEGY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRATEGY"
+issues: []
+discussions: []
 ## Phase 1: CSS Mapping & Analysis
 
 ### Bootstrap Italia → Tailwind Mapping

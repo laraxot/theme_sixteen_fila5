@@ -1,3 +1,14 @@
+---
+title: "vite configuration correction complete"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite configuration correction complete"
+issues: []
+discussions: []
+---
+
 # Correzione Completa: Configurazione Vite nel Tema Sixteen
 
 ## Problema Identificato
@@ -150,4 +161,12 @@ grep -r "'themes/Sixteen'" Themes/Sixteen/resources/views/
 
 ---
 
+title: "vite configuration correction complete"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite configuration correction complete"
+issues: []
+discussions: []
 *Questa correzione garantisce la coerenza e il corretto funzionamento degli asset in tutto il tema Sixteen.*

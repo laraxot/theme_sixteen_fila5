@@ -4,22 +4,46 @@
     $blockData = is_array($data) ? $data : [];
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
 
-    $title = (string) ($blockData['title'] ?? '');
-    $summaryHtml = (string) ($blockData['summary_html'] ?? '');
-    $visibilityHtml = (string) ($blockData['visibility_html'] ?? '');
-    $emailIntroHtml = (string) ($blockData['email_intro_html'] ?? '');
+    $hasConfirmationCode = (string) ($blockData['code'] ?? '') !== '';
+    $title = (string) __('fixcity::ticket_confirmation.title');
+    $summaryHtml = $hasConfirmationCode
+        ? (string) ($blockData['summary_html'] ?? '')
+        : (string) __('fixcity::ticket_confirmation.summary.without_code');
+    $visibilityHtml = $hasConfirmationCode
+        ? (string) ($blockData['visibility_html'] ?? '')
+        : (string) __('fixcity::ticket_confirmation.visibility', ['url' => '/'.app()->getLocale().'/tickets']);
+    $emailIntroHtml = $hasConfirmationCode
+        ? (string) ($blockData['email_intro_html'] ?? '')
+        : (string) __('fixcity::ticket_confirmation.email_intro');
     $email = (string) ($blockData['email'] ?? '');
-    $receipt = $blockData['receipt'] ?? [];
-    $reservedArea = $blockData['reserved_area'] ?? [];
+    $receipt = $hasConfirmationCode && is_array($blockData['receipt'] ?? null) ? $blockData['receipt'] : [];
+    $reservedArea = [
+        'link_label' => (string) __('fixcity::ticket_confirmation.reserved_area.link_label'),
+        'text' => (string) __('fixcity::ticket_confirmation.reserved_area.text'),
+        'url' => $hasConfirmationCode
+            ? (string) data_get($blockData, 'reserved_area.url', '/'.app()->getLocale().'/area-personale/pratiche')
+            : '/'.app()->getLocale().'/area-personale/pratiche',
+    ];
     $relatedServices = $blockData['related_services'] ?? [];
-    $contacts = $blockData['contacts'] ?? [];
+    $contacts = [
+        'title' => (string) __('fixcity::ticket_confirmation.contacts.title'),
+        'links' => [[
+            'label' => (string) __('fixcity::ticket_confirmation.contacts.assistance'),
+            'url' => '/'.app()->getLocale().'/contacts',
+            'icon' => 'it-mail',
+            'data_element' => 'contacts',
+        ]],
+    ];
     $showRating = (bool) ($blockData['show_rating'] ?? true);
-    $ratingData = $blockData['rating'] ?? [];
+    $ratingData = [];
 @endphp
 
 <div class="container" id="main-container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
+            <p class="text-paragraph-small mb-3">
+                {{ __('fixcity::segnalazione.steps.current_of_total.label', ['current' => 4, 'total' => 4]) }}
+            </p>
             <div class="cmp-heading p-0">
                 <div class="categoryicon-top d-flex">
                     <svg class="icon icon-success mr-10 icon-md" aria-hidden="true">

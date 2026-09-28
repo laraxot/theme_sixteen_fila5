@@ -1,3 +1,14 @@
+---
+title: "homepage"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage"
+issues: []
+discussions: []
+---
+
 # Homepage
 
 # 🎯 HOMEPAGE FIX - DESIGN COMUNI ALIGNMENT
@@ -7,6 +18,14 @@
 
 ---
 
+title: "homepage"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage"
+issues: []
+discussions: []
 ## 📋 EXECUTIVE SUMMARY
 
 **Obiettivo**: Allineare homepage locale completamente a Design Comuni reference design

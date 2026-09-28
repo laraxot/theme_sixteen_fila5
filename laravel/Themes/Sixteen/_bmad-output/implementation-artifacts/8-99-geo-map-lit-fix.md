@@ -1,3 +1,14 @@
+---
+title: "8 99 geo map lit fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "8 99 geo map lit fix"
+issues: []
+discussions: []
+---
+
 # 8-99 geo-map-lit Fix
 
 ## Story

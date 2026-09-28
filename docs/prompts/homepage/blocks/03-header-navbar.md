@@ -1,3 +1,14 @@
+---
+title: "03 header navbar"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "03 header navbar"
+issues: []
+discussions: []
+---
+
 # Block 03: Header Navbar
 
 **Fonte**: `https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html`

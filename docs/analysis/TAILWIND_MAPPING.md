@@ -1,3 +1,14 @@
+---
+title: "TAILWIND MAPPING"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "TAILWIND MAPPING"
+issues: []
+discussions: []
+---
+
 # Bootstrap Italia → Tailwind CSS Mapping
 
 ## Overview
@@ -6,6 +17,14 @@ Complete mapping of Bootstrap Italia classes to Tailwind CSS equivalents for the
 
 ---
 
+title: "TAILWIND MAPPING"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "TAILWIND MAPPING"
+issues: []
+discussions: []
 ## 1. LAYOUT & GRID SYSTEM
 
 ### Container & Grid

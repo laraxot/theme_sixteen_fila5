@@ -1,3 +1,14 @@
+---
+title: "FAIL PAGES FIX REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES FIX REPORT"
+issues: []
+discussions: []
+---
+
 # Fix Pagine FAIL - Report Aggiornato
 
 ## Panoramica
@@ -53,6 +64,14 @@
 
 ---
 
+title: "FAIL PAGES FIX REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES FIX REPORT"
+issues: []
+discussions: []
 **Data**: 2026-04-03  
 **Stato**: Fix in corso  
 **Prossimo**: Verificare match % dopo fix, creare componenti rimanenti

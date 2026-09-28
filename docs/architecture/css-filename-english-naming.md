@@ -1,3 +1,14 @@
+---
+title: "css filename english naming"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "css filename english naming"
+issues: []
+discussions: []
+---
+
 # Architettura — nomi file CSS solo in inglese
 
 **Riferimento esterno (commenti):** [design-comuni-pagine-statiche](https://github.com/italia/design-comuni-pagine-statiche)  
@@ -5,6 +16,14 @@
 
 ---
 
+title: "css filename english naming"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "css filename english naming"
+issues: []
+discussions: []
 ## Religione
 
 Il codice tecnico è **language-agnostic**. L’italiano è solo in `lang/`, copy UI e slug route pubblici.

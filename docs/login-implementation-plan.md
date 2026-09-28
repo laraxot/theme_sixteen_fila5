@@ -1,3 +1,14 @@
+---
+title: "login implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login implementation plan"
+issues: []
+discussions: []
+---
+
 # Piano di Implementazione - Pagina Login AGID Compliant
 
 ## 🎯 Obiettivo Implementazione
@@ -298,6 +309,14 @@ module.exports = {
 
 ---
 
+title: "login implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login implementation plan"
+issues: []
+discussions: []
 **Data Piano**: Dicembre 2024  
 **Versione**: 1.0  
 **Status**: Piano Completato  

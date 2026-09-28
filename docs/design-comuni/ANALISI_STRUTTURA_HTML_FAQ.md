@@ -1,3 +1,14 @@
+---
+title: "ANALISI STRUTTURA HTML FAQ"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ANALISI STRUTTURA HTML FAQ"
+issues: []
+discussions: []
+---
+
 # Analisi Differenze Strutturali HTML - Domande Frequenti
 
 ## Panoramica
@@ -11,6 +22,14 @@ Analisi dettagliata della struttura HTML dei componenti FAQ specifici, confronta
 
 ---
 
+title: "ANALISI STRUTTURA HTML FAQ"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ANALISI STRUTTURA HTML FAQ"
+issues: []
+discussions: []
 ## 📊 Struttura HTML per Componenti FAQ
 
 ### Posizione Componenti

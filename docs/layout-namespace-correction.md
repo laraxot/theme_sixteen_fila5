@@ -1,3 +1,14 @@
+---
+title: "layout namespace correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout namespace correction"
+issues: []
+discussions: []
+---
+
 # Correzione Namespace Layout - Tema Sixteen
 
 ## 🚨 Problema Identificato
@@ -356,6 +367,14 @@ grep -r "auth-agid" laravel/Themes/Sixteen/resources/views/
 
 ---
 
+title: "layout namespace correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout namespace correction"
+issues: []
+discussions: []
 **Data Correzione**: Dicembre 2024  
 **Tema**: Sixteen  
 **Stato**: Namespace Layout Corretto  

@@ -1,4 +1,7 @@
 ---
+qmd: "QMD SETUP"
+issues: []
+discussions: []
 title: "QMD Setup — Theme Sixteen"
 type: documentation
 created: 2026-05-11

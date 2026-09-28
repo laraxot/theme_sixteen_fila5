@@ -1,3 +1,14 @@
+---
+title: "gap analysis sixteen vs agid"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "gap analysis sixteen vs agid"
+issues: []
+discussions: []
+---
+
 # Gap Analysis: Tema Sixteen vs Siti Comunali AGID
 
 ## Analisi Comparativa e Cosa Manca a Sixteen

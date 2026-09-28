@@ -1,3 +1,14 @@
+---
+title: "new components implementation summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "new components implementation summary"
+issues: []
+discussions: []
+---
+
 # Implementazione Nuovi Componenti Bootstrap Italia - Settembre 2025
 
 ## 🎯 Executive Summary
@@ -298,6 +309,14 @@ L'implementazione dei 6 nuovi componenti rappresenta un **significativo passo av
 **Il tema Sixteen è ora pronto per deployment in produzione** per la maggior parte dei casi d'uso PA, con una solida base per completare il restante 41% di componenti nei prossimi sviluppi.
 
 ---
+title: "new components implementation summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "new components implementation summary"
+issues: []
+discussions: []
 *Documento generato: Settembre 1, 2025*  
 *Componenti implementati: 7*  
 *Copertura AGID: 59%*  

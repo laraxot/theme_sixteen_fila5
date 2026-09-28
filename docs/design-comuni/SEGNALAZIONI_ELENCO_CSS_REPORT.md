@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONI ELENCO CSS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO CSS REPORT"
+issues: []
+discussions: []
+---
+
 # Segnalazioni Elenco - CSS/JS Fix Report
 
 ## Panoramica
@@ -133,6 +144,14 @@
 
 ---
 
+title: "SEGNALAZIONI ELENCO CSS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO CSS REPORT"
+issues: []
+discussions: []
 **Stato**: ✅ CSS 90%+ Completato  
 **HTML**: ✅ 95.7%  
 **Prossimo**: Test visivo nel browser  

@@ -12,9 +12,21 @@
     $collapseId = 'collapse' . ($loop->iteration ?? 1);
     $demoImages = (int) ($item->demo_images ?? 0);
     $imageSrc = '/themes/Sixteen/design-comuni/assets/images/image-disservizio.png';
+    $rawType = $item->type ?? null;
+    $ticketTypeValue = $rawType instanceof \BackedEnum
+        ? $rawType->value
+        : (is_string($rawType) ? $rawType : '');
+    $ticketStatusValue = method_exists($item, 'resolveTicketStatusValue')
+        ? $item->resolveTicketStatusValue()
+        : (is_string($item->status ?? null) ? $item->status : '');
 @endphp
 
-<div class="cmp-card mb-4 mb-lg-30">
+<div
+    class="cmp-card mb-4 mb-lg-30"
+    data-public-ticket-card
+    data-filter-type="{{ $ticketTypeValue }}"
+    data-filter-status="{{ $ticketStatusValue }}"
+>
     <div class="card has-bkg-grey shadow-sm">
         <div class="card-body p-0">
             <div class="cmp-info-button-card">

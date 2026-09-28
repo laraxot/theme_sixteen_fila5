@@ -1,3 +1,14 @@
+---
+title: "css js phase report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "css js phase report"
+issues: []
+discussions: []
+---
+
 # CSS/JS Phase - Segnalazione Pages Parity Report
 
 **Date**: 2026-04-09

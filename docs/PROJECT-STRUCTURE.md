@@ -1,4 +1,7 @@
 ---
+qmd: "PROJECT STRUCTURE"
+issues: []
+discussions: []
 title: "Project Structure — Theme Sixteen"
 type: documentation
 created: 2026-05-11

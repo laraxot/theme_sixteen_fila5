@@ -1,3 +1,14 @@
+---
+title: "FOLIO HELPERS RULE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FOLIO HELPERS RULE"
+issues: []
+discussions: []
+---
+
 Motivazione
 
 Alcune view usano helper di Laravel\Folio (middleware, name, title, render, ecc.). Questi helpers sono funzioni globali nel namespace Laravel\Folio e devono essere importate esplicitamente nelle view quando il compilatore Blade e gli interceptor di Folio iniettano chiamate a queste funzioni.

@@ -1,4 +1,10 @@
 ---
+type: note
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header authenticated parity"
+issues: []
+discussions: []
 title: Header Authenticated State Parity
 description: Regole per il rendering dell'header quando l'utente è autenticato
 tags: [header, authentication, area-personale, bootstrap-italia]

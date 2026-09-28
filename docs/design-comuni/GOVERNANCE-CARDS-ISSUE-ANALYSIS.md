@@ -1,3 +1,14 @@
+---
+title: "GOVERNANCE CARDS ISSUE ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GOVERNANCE CARDS ISSUE ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Analisi Problema Governance Cards - Sessione 2026-04-07
 
 ## Stato Attuale
@@ -141,6 +152,14 @@ document.querySelector('#calendario .card-wrapper').innerHTML
 
 ---
 
+title: "GOVERNANCE CARDS ISSUE ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GOVERNANCE CARDS ISSUE ANALYSIS"
+issues: []
+discussions: []
 **Data**: 2026-04-07
 **Priorità**: Alta
 **Assegnato a**: Dev team

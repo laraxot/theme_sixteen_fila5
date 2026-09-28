@@ -1,4 +1,7 @@
 ---
+qmd: "leaflet no transform on marker icon"
+issues: []
+discussions: []
 title: "Map-lit cluster fix — lezione cascade + lezioni operative multi-repo"
 type: concept
 confidence: high

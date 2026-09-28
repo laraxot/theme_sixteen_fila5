@@ -1,3 +1,14 @@
+---
+title: "DOMANDE FREQUENTI IMPLEMENTAZIONE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI IMPLEMENTAZIONE"
+issues: []
+discussions: []
+---
+
 # Domande Frequenti - Implementazione Completata
 
 ## Panoramica
@@ -289,6 +300,14 @@ La pagina è pronta per il testing visivo. Per completare l'interattività, impl
 
 ---
 
+title: "DOMANDE FREQUENTI IMPLEMENTAZIONE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI IMPLEMENTAZIONE"
+issues: []
+discussions: []
 **Prossimi Passi**:
 1. Test visivo con screenshot comparativi
 2. Implementare Alpine.js per interattività

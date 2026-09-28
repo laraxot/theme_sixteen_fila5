@@ -1,4 +1,7 @@
 ---
+qmd: "cms block naming tailwind flowbite"
+issues: []
+discussions: []
 title: "CMS Block naming — Tailwind UI / Flowbite (Sixteen)"
 type: rule
 confidence: high

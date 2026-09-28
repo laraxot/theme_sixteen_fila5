@@ -1,3 +1,14 @@
+---
+title: "VISUAL ANALYSIS v2"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL ANALYSIS v2"
+issues: []
+discussions: []
+---
+
 # FAQ Visual Analysis - Complete Comparison (v2)
 
 **Date:** 2026-04-03  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "VISUAL ANALYSIS v2"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL ANALYSIS v2"
+issues: []
+discussions: []
 ## 1. Header - ✅ FIXED
 
 | Element | Reference | Local | Status |

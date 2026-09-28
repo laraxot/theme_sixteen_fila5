@@ -1,3 +1,14 @@
+---
+title: "code quality report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "code quality report"
+issues: []
+discussions: []
+---
+
 # Code quality — tema Sixteen
 
 Report locale (2026-07-17). Metodo: `phpstan analyse` (sweep repo-wide, incluso nei Themes), `phpmd` (codesize+unusedcode), grep mirati (TODO/FIXME, dd()/dump() nei .blade.php, facade dirette in app/Actions).

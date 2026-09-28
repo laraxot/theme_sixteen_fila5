@@ -1,3 +1,14 @@
+---
+title: "filament integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament integration"
+issues: []
+discussions: []
+---
+
 # Integrazione con Filament Form Fields Builder
 
 ## Panoramica
@@ -383,6 +394,14 @@ Ogni componente valida le prop ricevute:
 
 ---
 
+title: "filament integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament integration"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: Dicembre 2024
 **Versione**: 1.0
 **Compatibilità**: Filament 3.x, Laravel 10.x, Tailwind CSS 3.x 

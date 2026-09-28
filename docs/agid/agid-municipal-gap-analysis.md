@@ -1,3 +1,14 @@
+---
+title: "agid municipal gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid municipal gap analysis"
+issues: []
+discussions: []
+---
+
 # Analisi Completa: Tema Sixteen vs Requisiti AGID per Siti Comunali
 
 ## 📋 Executive Summary
@@ -298,6 +309,14 @@ Con questi sviluppi, il tema Sixteen diventerà una soluzione completa e conform
 
 ---
 
+title: "agid municipal gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid municipal gap analysis"
+issues: []
+discussions: []
 *Documento generato il: 2025-09-02*  
 *Versione: 1.0*  
 *Autore: Claude Code Analysis System*

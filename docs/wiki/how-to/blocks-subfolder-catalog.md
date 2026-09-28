@@ -1,4 +1,7 @@
 ---
+qmd: "blocks subfolder catalog"
+issues: []
+discussions: []
 title: "Catalogo sottocartelle blocks/ (Flowbite + Tailwind UI)"
 type: how-to
 confidence: high

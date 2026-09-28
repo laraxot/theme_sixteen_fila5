@@ -1,3 +1,14 @@
+---
+title: "wizard governance bridge"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard governance bridge"
+issues: []
+discussions: []
+---
+
 # wizard governance bridge
 
 ## scopo

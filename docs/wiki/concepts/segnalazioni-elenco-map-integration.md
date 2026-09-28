@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco map integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco map integration"
+issues: []
+discussions: []
+---
+
 # Segnalazioni elenco — integrazione mappa in Sixteen
 
 ## Ownership

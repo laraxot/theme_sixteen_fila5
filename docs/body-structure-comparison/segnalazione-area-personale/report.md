@@ -1,3 +1,14 @@
+---
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
+---
+
 # Confronto struttura HTML — `segnalazione-area-personale`
 
 **Aggiornato**: 2026-04-20  
@@ -47,4 +58,12 @@ I file timestampati (`report_*.md`, `diff_*.txt`, `page*.html`) generati nello s
 
 ---
 
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
 *Script: [`bashscripts/html/compare-html.sh`](../../../../../../bashscripts/html/compare-html.sh)*

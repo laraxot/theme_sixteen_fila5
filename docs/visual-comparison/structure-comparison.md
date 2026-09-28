@@ -1,3 +1,14 @@
+---
+title: "structure comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "structure comparison"
+issues: []
+discussions: []
+---
+
 # Structure comparison
 
 === REFERENCE HTML STRUCTURE ===

@@ -1,4 +1,7 @@
 ---
+qmd: "fo pa tokens uniformity"
+issues: []
+discussions: []
 title: "FO PA tokens — uniformità Design Comuni"
 type: concept
 confidence: high

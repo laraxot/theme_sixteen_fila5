@@ -1,3 +1,14 @@
+---
+title: "ticket area personale local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket area personale local"
+issues: []
+discussions: []
+---
+
 # Ticket area personale local
 
 <body>

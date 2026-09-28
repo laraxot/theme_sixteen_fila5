@@ -1,3 +1,14 @@
+---
+title: "BUILD TROUBLESHOOTING"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BUILD TROUBLESHOOTING"
+issues: []
+discussions: []
+---
+
 # Build Troubleshooting Guide
 
 **Tema:** Sixteen  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "BUILD TROUBLESHOOTING"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BUILD TROUBLESHOOTING"
+issues: []
+discussions: []
 ## Comandi Standard
 
 ```bash

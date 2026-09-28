@@ -1,3 +1,14 @@
+---
+title: "agid login problems analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login problems analysis"
+issues: []
+discussions: []
+---
+
 # Analisi Problemi Pagina Login - AGID Compliance
 
 ## Problemi Identificati

@@ -1,3 +1,14 @@
+---
+title: "BMAD STRATEGIC DECISIONS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD STRATEGIC DECISIONS"
+issues: []
+discussions: []
+---
+
 # BMAD: Strategic Decisions for UI Fixes
 
 **Date**: 2026-04-02  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "BMAD STRATEGIC DECISIONS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD STRATEGIC DECISIONS"
+issues: []
+discussions: []
 ## 📋 Executive Summary
 
 After comprehensive analysis of 3 critical UI issues in the Design Comuni homepage replication project, we've defined a **parallel execution strategy** maintaining 100% HTML structure parity with the reference implementation.

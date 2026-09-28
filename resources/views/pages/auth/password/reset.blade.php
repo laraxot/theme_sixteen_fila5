@@ -32,22 +32,23 @@ new class extends Component
 
 ?>
 
-<x-layouts.main>
+<x-layouts.main
+    :title="__('user::login.password_reset_page.title')"
+    :description="__('user::login.password_reset_page.intro')"
+>
 
     <div class="flex flex-col items-stretch justify-center w-screen min-h-screen py-10 sm:items-center">
 
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <x-ui.link href="{{ route('home') }}">
                 <x-ui.logo class="w-auto h-10 mx-auto text-gray-700 fill-current dark:text-gray-100" />
-                <x-ui.logo class="w-auto h-10 mx-auto text-gray-700 fill-current dark:text-gray-100" />
             </x-ui.link>
 
             <h2 class="mt-5 text-2xl font-extrabold leading-9 text-center text-gray-800 dark:text-gray-200">
-                Reset password
+                {{ __('user::login.password_reset_page.title') }}
             </h2>
             <div class="text-sm leading-5 text-center text-gray-600 dark:text-gray-400 space-x-0.5">
-                <span>Or</span>
-                <x-ui.text-link href="{{ route('login') }}">return to login</x-ui.text-link>
+                <x-ui.text-link href="{{ route('login') }}">{{ __('user::login.password_reset_page.return_to_login') }}</x-ui.text-link>
             </div>
         </div>
 
@@ -72,8 +73,8 @@ new class extends Component
                 </div>
                 @else
                 <form wire:submit="sendResetPasswordLink" class="space-y-6">
-                    <x-ui.input label="Email address" type="email" id="email" name="email" wire:model="email" />
-                    <x-ui.button type="primary" rounded="md" submit="true">Send password reset link</x-ui.button>
+                    <x-ui.input :label="__('user::login.password_reset_page.email_label')" type="email" id="email" name="email" wire:model="email" />
+                    <x-ui.button type="primary" rounded="md" submit="true">{{ __('user::login.password_reset_page.submit') }}</x-ui.button>
                 </form>
                 @endif
             </div>

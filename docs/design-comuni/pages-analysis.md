@@ -1,3 +1,14 @@
+---
+title: "pages analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "pages analysis"
+issues: []
+discussions: []
+---
+
 # Design Comuni Pages Analysis
 
 **Analysis Date:** 2026-03-30  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "pages analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "pages analysis"
+issues: []
+discussions: []
 ## Table of Contents
 
 1. [Pages Overview](#pages-overview)

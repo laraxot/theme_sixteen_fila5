@@ -1,3 +1,14 @@
+---
+title: "log"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "log"
+issues: []
+discussions: []
+---
+
 ## [2026-07-24] second-brain | max workflow + composer-go concept
 
 - Link da [composer-go-theme-impact](concepts/composer-go-theme-impact.md) a skill second-brain max

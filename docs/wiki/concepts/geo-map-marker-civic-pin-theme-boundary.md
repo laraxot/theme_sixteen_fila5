@@ -1,3 +1,14 @@
+---
+title: "geo map marker civic pin theme boundary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "geo map marker civic pin theme boundary"
+issues: []
+discussions: []
+---
+
 # marker mappa — confine tema (civic pin)
 
 ## scopo
@@ -6,6 +17,14 @@ Il tema Sixteen **non** ridefinisce la struttura HTML del marker (owned by Geo `
 
 ---
 
+title: "geo map marker civic pin theme boundary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "geo map marker civic pin theme boundary"
+issues: []
+discussions: []
 ## responsabilità
 
 | layer | file | cosa fa |

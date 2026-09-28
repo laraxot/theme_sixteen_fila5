@@ -1,4 +1,4 @@
-@extends('sixteen::layouts.app')
+@extends('pub_theme::layouts.app')
 
 @section('title', 'Elenco Segnalazioni')
 

@@ -2,6 +2,7 @@
 
 @php
     $items = $data['items'] ?? [];
+    $translationNamespace = (string) ($data['translation_namespace'] ?? '');
 @endphp
 
 <div class="container">
@@ -14,6 +15,10 @@
                             @php
                                 $isLast = $loop->last;
                                 $label = $item['label'] ?? '';
+                                if ($translationNamespace !== '') {
+                                    $translated = __($translationNamespace.'.breadcrumb.'.$loop->index);
+                                    $label = is_string($translated) ? $translated : $label;
+                                }
                                 $url = $item['url'] ?? '#';
                             @endphp
                             <li class="breadcrumb-item{{ $isLast ? ' active' : '' }}"{{ $isLast ? ' aria-current="page"' : '' }}>

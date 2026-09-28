@@ -1,3 +1,14 @@
+---
+title: "homepage structure diff"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage structure diff"
+issues: []
+discussions: []
+---
+
 # Homepage - Analisi Strutturale Dettagliata
 
 **Data Analisi**: 2026-04-07  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "homepage structure diff"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage structure diff"
+issues: []
+discussions: []
 ## 📊 Statistiche Strutturali
 
 | Metrica | Reference | Local | Differenza |

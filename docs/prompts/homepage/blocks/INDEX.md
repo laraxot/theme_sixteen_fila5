@@ -1,3 +1,14 @@
+---
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
+---
+
 # Homepage Blocks - Index Completo
 
 **Pagina di Riferimento:** https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
@@ -49,6 +60,14 @@ La homepage di riferimento contiene **6 blocchi principali** organizzati vertica
 
 ---
 
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
 ### Block 01: Hero/Contenuti in Evidenza
 
 **Sezione principale** - Notizia in primo piano con immagine

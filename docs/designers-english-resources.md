@@ -1,3 +1,14 @@
+---
+title: "designers english resources"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "designers english resources"
+issues: []
+discussions: []
+---
+
 # 🎨 Risorse Designers Italia - Integrazione Tema Sixteen
 
 ## 📋 Panoramica Risorse
@@ -337,6 +348,14 @@ composer require italia/bootstrap-italia:^2.16
 
 ---
 
+title: "designers english resources"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "designers english resources"
+issues: []
+discussions: []
 **Ultimo Aggiornamento**: 1 Settembre 2025  
 **Stato Implementazione**: 76% Completato  
 **Target Compliance**: 100% entro Ottobre 2025  

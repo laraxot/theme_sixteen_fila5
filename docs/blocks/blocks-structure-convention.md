@@ -1,3 +1,14 @@
+---
+title: "blocks structure convention"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "blocks structure convention"
+issues: []
+discussions: []
+---
+
 # Blocks Structure Convention
 
 > *"La struttura segue il pattern. Il tipo determina il percorso. La vista segue il tipo."*
@@ -30,6 +41,14 @@ components/blocks/fixcity/ticket-form.blade.php  (project-specific)
 
 ---
 
+title: "blocks structure convention"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "blocks structure convention"
+issues: []
+discussions: []
 ## 📚 Pattern da Framework UI
 
 ### 1. Flowbite Blocks

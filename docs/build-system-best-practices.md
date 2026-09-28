@@ -1,3 +1,14 @@
+---
+title: "build system best practices"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build system best practices"
+issues: []
+discussions: []
+---
+
 # Build System Best Practices - Tema Sixteen
 
 ## 🚀 Panoramica
@@ -558,6 +569,14 @@ npm audit
 
 ---
 
+title: "build system best practices"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build system best practices"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: Gennaio 2025  
 **Versione**: 1.0.0  
 **Compatibilità**: Vite 6.x, Laravel 10+, Node.js 18+

@@ -1,3 +1,14 @@
+---
+title: "00 CSS JS VISUAL FIX PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 CSS JS VISUAL FIX PLAN"
+issues: []
+discussions: []
+---
+
 # 🎨 CSS/JS Visual Fix Plan - NO Bootstrap Italia
 
 > Focus: Making the local homepage VISUALLY IDENTICAL to reference  
@@ -10,6 +21,14 @@
 
 ---
 
+title: "00 CSS JS VISUAL FIX PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 CSS JS VISUAL FIX PLAN"
+issues: []
+discussions: []
 ## 🎯 Visual Gap Analysis
 
 ### CURRENT STATE

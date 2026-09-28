@@ -1,3 +1,14 @@
+---
+title: "UI FIXES MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UI FIXES MASTER PLAN"
+issues: []
+discussions: []
+---
+
 # UI Layout & Visibility Fixes - Master Plan
 
 **Date**: 2026-04-02  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "UI FIXES MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UI FIXES MASTER PLAN"
+issues: []
+discussions: []
 ## 📋 Issues Overview
 
 | Issue | Severity | Impact | Status |

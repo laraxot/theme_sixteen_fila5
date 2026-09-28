@@ -1,3 +1,14 @@
+---
+title: "components directory structure"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "components directory structure"
+issues: []
+discussions: []
+---
+
 # Components Directory Structure
 
 **Type**: Architecture Documentation  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "components directory structure"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "components directory structure"
+issues: []
+discussions: []
 ## 📁 Directory Overview
 
 ```

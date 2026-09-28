@@ -1,3 +1,14 @@
+---
+title: "7 3 segnalazione 02 dati html visual parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "7 3 segnalazione 02 dati html visual parity"
+issues: []
+discussions: []
+---
+
 # Story 7.3: segnalazione-02-dati — aumento HTML parity e visual parity
 
 Status: review

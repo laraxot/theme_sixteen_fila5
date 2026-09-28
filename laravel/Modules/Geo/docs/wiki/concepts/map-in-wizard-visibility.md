@@ -1,3 +1,14 @@
+---
+title: "map in wizard visibility"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "map in wizard visibility"
+issues: []
+discussions: []
+---
+
 ## REGOLA PERMANENTE: Visibilità mappa nel wizard di segnalazione
 
 ### Visibilità absoluta

@@ -1,3 +1,14 @@
+---
+title: "daisyui summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "daisyui summary"
+issues: []
+discussions: []
+---
+
 # DaisyUI Integration Summary
 
 ## Pros
@@ -36,6 +47,14 @@ Using `@apply` keeps HTML clean and centralises style changes. Update your compo
 
 ---
 
+title: "daisyui summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "daisyui summary"
+issues: []
+discussions: []
 **Next steps**
 - Review the summary in each module’s docs folder.
 - Adjust the adoption percentage if you have precise metrics.

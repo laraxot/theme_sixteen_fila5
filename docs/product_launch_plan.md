@@ -1,3 +1,14 @@
+---
+title: "product launch plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "product launch plan"
+issues: []
+discussions: []
+---
+
 # Product Launch Plan - Theme Sixteen
 
 ## AGID-Compliant Public Administration Theme
@@ -9,6 +20,14 @@
 
 ---
 
+title: "product launch plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "product launch plan"
+issues: []
+discussions: []
 ## Executive Summary
 
 This document outlines the comprehensive launch plan for Theme Sixteen v2.0, marking the transition to Filament v5 compatibility and the introduction of significant new features. The launch positions Theme Sixteen as the premier choice for Italian public administration websites requiring full AGID compliance with modern development tools.

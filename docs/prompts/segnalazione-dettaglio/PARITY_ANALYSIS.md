@@ -1,3 +1,14 @@
+---
+title: "PARITY ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PARITY ANALYSIS"
+issues: []
+discussions: []
+---
+
 # HTML Parity Analysis - segnalazione-dettaglio
 
 Questo file riassume la fase corrente. I punteggi storici precedenti non sono piu canonici perché il comparatore è stato rifatto.

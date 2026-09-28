@@ -6,6 +6,7 @@
     $ns = 'fixcity::ticket';
     $initialSelectedTypes = $vm->selectedTypes();
     $initialSelectedStatuses = $vm->selectedStatuses();
+    $hasSidebarFilters = $vm->hasSidebarFilters();
 @endphp
 
 {{-- Design Comuni reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html --}}
@@ -51,8 +52,8 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-lg-3 d-none d-lg-block" id="{{ $vm->filtersSectionId() }}" aria-label="{{ $vm->filtersTitle() }}">
-            @if ($vm->hasSidebarFilters())
+        @if ($hasSidebarFilters)
+            <div class="col-lg-3 d-none d-lg-block" id="{{ $vm->filtersSectionId() }}" aria-label="{{ $vm->filtersTitle() }}">
                 @include('pub_theme::components.blocks.ticket.filters-sidebar', [
                     'filters' => $vm->filters(),
                     'statusFilters' => $vm->statusFilters(),
@@ -60,12 +61,10 @@
                     'selectedStatuses' => $initialSelectedStatuses,
                     'context' => 'desktop',
                 ])
-            @else
-                <p class="subtitle-small text-muted p-3">{{ __($ns . '.filters.empty') }}</p>
-            @endif
-        </div>
+            </div>
+        @endif
 
-        <div class="col-lg-8 offset-lg-1">
+        <div class="{{ $hasSidebarFilters ? 'col-lg-8 offset-lg-1' : 'col-12' }}">
             @include('pub_theme::components.blocks.ticket.results-header', [
                 'ns' => $ns,
                 'resultsCount' => $vm->resultsCount(),
@@ -108,28 +107,6 @@
                                 </div>
                             </div>
                         </div>
-                        @if (!empty($cta))
-                            <div class="row mt-50 mb-4 mb-lg-0">
-                                <div class="col-lg-6">
-                                    <div class="cmp-text-button mt-0">
-                                        <h2 class="title-xxlarge mb-0">{{ $cta['title'] }}</h2>
-                                        <div class="text-wrapper">
-                                            <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
-                                        </div>
-                                        <div class="button-wrapper">
-                                            <button
-                                                type="button"
-                                                class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modal-disservizio"
-                                            >
-                                                <span>{{ $cta['button_text'] }}</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
                     </div>
 
                     <div
@@ -151,36 +128,43 @@
                                 </div>
                             @endforelse
                         </div>
-                        <button type="button" class="btn btn-outline-primary mobile-full py-3 mt-10 mx-auto">
-                            <span>{{ __($ns . '.load-more.button.label') }}</span>
-                        </button>
-                        @if (!empty($cta))
-                            <div class="row mt-50 mb-4 mb-lg-0">
-                                <div class="col-lg-6">
-                                    <div class="cmp-text-button mt-0">
-                                        <h2 class="title-xxlarge mb-0">{{ $cta['title'] }}</h2>
-                                        <div class="text-wrapper">
-                                            <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
-                                        </div>
-                                        <div class="button-wrapper">
-                                            <button
-                                                type="button"
-                                                class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modal-disservizio"
-                                            >
-                                                <span>{{ $cta['button_text'] }}</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        @if ($vm->hasPreviousListPage() || $vm->hasNextListPage())
+                            <nav class="d-flex justify-content-between align-items-center gap-3 mt-4" aria-label="{{ __('fixcity::pagination.next') }}">
+                                @if ($vm->hasPreviousListPage())
+                                    <a class="btn btn-outline-primary" href="{{ $vm->listPageUrl($vm->listPage() - 1) }}">
+                                        {{ __('fixcity::pagination.previous') }}
+                                    </a>
+                                @else
+                                    <span aria-hidden="true"></span>
+                                @endif
+                                <span class="text-muted" aria-live="polite">Pagina {{ $vm->listPage() }}</span>
+                                @if ($vm->hasNextListPage())
+                                    <a class="btn btn-outline-primary" href="{{ $vm->listPageUrl($vm->listPage() + 1) }}">
+                                        {{ __($ns . '.load-more.button.label') }}
+                                    </a>
+                                @else
+                                    <span aria-hidden="true"></span>
+                                @endif
+                            </nav>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @if (!empty($cta))
+        <section class="row mt-50 mb-4 mb-lg-0" aria-labelledby="ticket-create-cta-title">
+            <div class="col-lg-6">
+                <div class="cmp-text-button mt-0">
+                    <h2 class="title-xxlarge mb-0" id="create-ticket-heading">{{ $cta['title'] }}</h2>
+                    <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
+                    <a class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0" href="{{ $cta['button_url'] }}">
+                        {{ $cta['button_text'] }}
+                    </a>
+                </div>
+            </div>
+        </section>
+    @endif
 </div>{{-- /x-data wrapper --}}
 
 </div>{{-- /#main-container --}}
@@ -192,8 +176,6 @@
     'contactsId' => $vm->contactsId(),
     'sprite' => $vm->sprite(),
 ])
-
-@include('pub_theme::components.blocks.ticket.modal-disservizio', ['sprite' => $vm->sprite()])
 
 @if ($vm->hasSidebarFilters())
     <div class="modal fade d-lg-none" id="modal-categories" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">

@@ -1,3 +1,14 @@
+---
+title: "design comuni census blocks"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "design comuni census blocks"
+issues: []
+discussions: []
+---
+
 # Design Comuni Pages Census - Blocchi Riusabili
 
 ## Panoramica Census
@@ -6,6 +17,14 @@ Totale pagine: **38** (9 Generali + 2 Amministrazione + 2 Novità + 3 Servizi + 
 
 ---
 
+title: "design comuni census blocks"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "design comuni census blocks"
+issues: []
+discussions: []
 ## Blocchi Comuni (RIUSABILI)
 
 ### 🔴 HEADER (100% - TUTTE LE PAGINE)

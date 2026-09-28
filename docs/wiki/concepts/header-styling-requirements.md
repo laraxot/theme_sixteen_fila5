@@ -1,3 +1,14 @@
+---
+title: "header styling requirements"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header styling requirements"
+issues: []
+discussions: []
+---
+
 ## Header Styling Requirements
 
 ### Fixed Requirements

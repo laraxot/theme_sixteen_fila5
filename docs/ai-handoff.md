@@ -1,4 +1,8 @@
 ---
+created: 2026-09-26
+qmd: "ai handoff"
+issues: []
+discussions: []
 title: ai handoff — Theme Sixteen
 type: handoff
 tags: [theme, sixteen, pest, data-sacred]

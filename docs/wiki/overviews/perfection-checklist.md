@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: Perfection checklist — Theme Sixteen
 type: overview
 tags: [sixteen, perfection, folio, bootstrap-italia, tests, fixcity]

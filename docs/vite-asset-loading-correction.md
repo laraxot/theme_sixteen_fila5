@@ -1,3 +1,14 @@
+---
+title: "vite asset loading correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite asset loading correction"
+issues: []
+discussions: []
+---
+
 # Vite Asset Loading Correction - Theme-Specific Assets
 
 ## Problem Analysis
@@ -246,6 +257,14 @@ VITE_THEME_PATH=themes/Sixteen
 
 ---
 
+title: "vite asset loading correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite asset loading correction"
+issues: []
+discussions: []
 **Analysis Date**: July 31, 2025  
 **Issue Type**: Incorrect Vite Asset Loading  
 **Solution**: Add 'themes/Sixteen' as second parameter to @vite directive  

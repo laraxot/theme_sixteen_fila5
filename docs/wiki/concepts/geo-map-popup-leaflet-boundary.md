@@ -1,3 +1,14 @@
+---
+title: "geo map popup leaflet boundary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "geo map popup leaflet boundary"
+issues: []
+discussions: []
+---
+
 # geo-map-popup — confine tema sixteen / leaflet
 
 ## scopo

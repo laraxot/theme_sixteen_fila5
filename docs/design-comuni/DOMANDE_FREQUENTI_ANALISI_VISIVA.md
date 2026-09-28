@@ -1,3 +1,14 @@
+---
+title: "DOMANDE FREQUENTI ANALISI VISIVA"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI ANALISI VISIVA"
+issues: []
+discussions: []
+---
+
 # Analisi Visiva Domande Frequenti - Screenshot Comparativi
 
 ## Panoramica
@@ -48,6 +59,14 @@ Analisi dettagliata delle differenze visive tra pagina di riferimento e implemen
 
 ---
 
+title: "DOMANDE FREQUENTI ANALISI VISIVA"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI ANALISI VISIVA"
+issues: []
+discussions: []
 ### 2. HERO SECTION - Differenza ALTA ⚠️
 
 **Stato**: ⚠️ PARZIALMENTE ALLINEATO

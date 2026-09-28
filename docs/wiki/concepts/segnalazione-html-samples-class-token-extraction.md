@@ -1,4 +1,7 @@
 ---
+qmd: "segnalazione html samples class token extraction"
+issues: []
+discussions: []
 title: "Estrazione token class= — 7 HTML segnalazione (fonte .planning/research)"
 type: concept
 sources:

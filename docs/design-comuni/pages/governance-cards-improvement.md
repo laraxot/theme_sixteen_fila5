@@ -1,3 +1,14 @@
+---
+title: "governance cards improvement"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "governance cards improvement"
+issues: []
+discussions: []
+---
+
 # 🎯 Governance Cards + Events Calendar - CSS Improvement Plan
 
 **File**: `laravel/Themes/Sixteen/resources/views/components/blocks/governance/cards.blade.php`

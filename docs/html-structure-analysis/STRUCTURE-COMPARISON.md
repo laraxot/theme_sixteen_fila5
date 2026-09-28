@@ -1,3 +1,14 @@
+---
+title: "STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRUCTURE COMPARISON"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison Report
 
 ## Executive Summary
@@ -9,6 +20,14 @@ The local homepage has **EXCELLENT** structural alignment with the reference. To
 
 ---
 
+title: "STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRUCTURE COMPARISON"
+issues: []
+discussions: []
 ## Element Count Analysis
 
 ### Overall Comparison

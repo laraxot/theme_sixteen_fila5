@@ -1,3 +1,14 @@
+---
+title: "RISULTATI RICERCA HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA HTML COMPARISON"
+issues: []
+discussions: []
+---
+
 # Risultati Ricerca - HTML & Visual Comparison
 
 **Date:** 2026-04-03
@@ -16,6 +27,14 @@
 
 ---
 
+title: "RISULTATI RICERCA HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA HTML COMPARISON"
+issues: []
+discussions: []
 All 10 key structural elements verified as present and matching:
 
 | # | Element | Status | Count |

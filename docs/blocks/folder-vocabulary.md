@@ -1,4 +1,5 @@
 ---
+qmd: "folder vocabulary"
 title: "Blocks folder vocabulary — Flowbite / Tailwind UI"
 type: concept
 confidence: high

@@ -1,3 +1,14 @@
+---
+title: "header nav dynamic architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header nav dynamic architecture"
+issues: []
+discussions: []
+---
+
 # Header Navigation Dynamic Architecture (Sixteen Theme)
 
 ## Overview

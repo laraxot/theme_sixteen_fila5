@@ -1,3 +1,14 @@
+---
+title: "bmad gsd status 2026 04 03"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bmad gsd status 2026 04 03"
+issues: []
+discussions: []
+---
+
 # BMAD + GSD Status 2026-04-03
 
 Documento collegato: [work-plan.md](./work-plan.md)

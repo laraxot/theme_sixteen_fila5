@@ -129,6 +129,53 @@ h3, h4, h5, h6 {
   color: #1a1a1a !important;
 }
 
+/* The public FixCity hero uses Tailwind text utilities on a dark background.
+   Restore their intended contrast after the legacy global color overrides. */
+main section:has(#welcome-heading) h1,
+main section:has(#welcome-heading) h2,
+main section:has(#welcome-heading) p {
+  color: #fff !important;
+}
+
+main section:has(#welcome-heading) a {
+  color: #fff !important;
+}
+
+main section:has(#welcome-heading) a:first-of-type {
+  color: #172554 !important;
+}
+
+main section:has(#welcome-heading) a.btn:first-of-type {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #007a52 !important;
+}
+
+main section:has(#welcome-heading) a.btn-outline-light {
+  background-color: transparent !important;
+  border: 1px solid #fff !important;
+}
+
+main section:has(#welcome-heading) {
+  padding-inline: 1.5rem !important;
+}
+
+/* The services page has a green hero; override the legacy global heading color. */
+main section:has(#services-title) #services-title,
+main section:has(#services-title) p {
+  color: #fff !important;
+}
+
+main section:has(#welcome-heading) a {
+  text-decoration: none !important;
+}
+
+@media (min-width: 640px) {
+  main section:has(#welcome-heading) {
+    padding-inline: 2.5rem !important;
+  }
+}
+
 p, span, body {
   color: #1a1a1a !important;
 }

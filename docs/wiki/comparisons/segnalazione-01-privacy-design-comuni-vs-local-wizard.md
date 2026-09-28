@@ -1,4 +1,7 @@
 ---
+qmd: "segnalazione 01 privacy design comuni vs local wizard"
+issues: []
+discussions: []
 title: "Segnalazione step 1 — Design Comuni static vs wizard locale"
 type: comparison
 sources:

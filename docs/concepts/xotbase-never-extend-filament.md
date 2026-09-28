@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "Sixteen — mai Filament\*, sempre XotBase*"
 type: concept
 theme: Sixteen

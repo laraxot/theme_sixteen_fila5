@@ -15,8 +15,7 @@ use Laravel\Folio\{title, middleware, name};
 
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
-        {{-- Cookie consent: asset() perché Vite @import fallisce --}}
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
         @stack('styles')
     </head>
     <body>

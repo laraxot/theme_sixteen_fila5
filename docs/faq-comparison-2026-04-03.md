@@ -1,3 +1,14 @@
+---
+title: "faq comparison 2026 04 03"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "faq comparison 2026 04 03"
+issues: []
+discussions: []
+---
+
 # Analisi Confronto FAQ: Riferimento vs Locale
 
 ## Panoramica

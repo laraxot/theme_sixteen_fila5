@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "anthropic frontend design skill adapted"
+issues: []
+discussions: []
 title: anthropic frontend design skill adapted
 type: memory
 module: Sixteen

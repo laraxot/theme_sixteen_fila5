@@ -1,3 +1,14 @@
+---
+title: "segnalazione 04 conferma reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 04 conferma reference"
+issues: []
+discussions: []
+---
+
 # Segnalazione 04 conferma reference
 
 <body>

@@ -1,3 +1,14 @@
+---
+title: "ticket 04 conferma local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 04 conferma local"
+issues: []
+discussions: []
+---
+
 # Ticket 04 conferma local
 
 <body>

@@ -1,4 +1,7 @@
 ---
+qmd: "coordinate picker design comuni parity rule"
+issues: []
+discussions: []
 title: CoordinatePicker Design Comuni Parity Rule
 type: concept
 tags: [sixteen, design-comuni, coordinate-picker, leaflet, css, wizard]

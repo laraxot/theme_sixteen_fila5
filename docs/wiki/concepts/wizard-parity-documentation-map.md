@@ -1,4 +1,7 @@
 ---
+qmd: "wizard parity documentation map"
+issues: []
+discussions: []
 title: "wizard parity documentation map — segnalazione theme sixteen"
 type: concept
 confidence: medium

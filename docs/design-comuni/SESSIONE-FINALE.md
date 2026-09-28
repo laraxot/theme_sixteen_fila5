@@ -1,3 +1,14 @@
+---
+title: "SESSIONE FINALE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SESSIONE FINALE"
+issues: []
+discussions: []
+---
+
 # Sessione REPLIKATE - Report Finale
 
 **Data**: 2026-04-07
@@ -5,6 +16,14 @@
 
 ---
 
+title: "SESSIONE FINALE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SESSIONE FINALE"
+issues: []
+discussions: []
 ## Riepilogo Progressi
 
 ### 1. Homepage (tests.homepage) - ✅ COMPLETATA 100%

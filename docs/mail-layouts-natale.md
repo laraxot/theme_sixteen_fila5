@@ -1,3 +1,14 @@
+---
+title: "mail layouts natale"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "mail layouts natale"
+issues: []
+discussions: []
+---
+
 # Mail Layouts Natale
 
 **Date**: 2025-12-19  
@@ -252,5 +263,13 @@ $template = MailTemplate::create([
 
 ---
 
+title: "mail layouts natale"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "mail layouts natale"
+issues: []
+discussions: []
 **Creato con ❄️ per le festività 2025-2026**  
 **Compliance: DRY + KISS + Clean Code** 🎄

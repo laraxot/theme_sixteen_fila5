@@ -1,3 +1,14 @@
+---
+title: "vite theme integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite theme integration"
+issues: []
+discussions: []
+---
+
 # Integrazione Vite con Temi - Tema Sixteen
 
 ## Problema Identificato

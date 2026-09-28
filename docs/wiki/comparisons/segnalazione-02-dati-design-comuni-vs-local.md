@@ -1,4 +1,7 @@
 ---
+qmd: "segnalazione 02 dati design comuni vs local"
+issues: []
+discussions: []
 title: "Segnalazione step2 (dati) — Design Comuni static vs wizard locale"
 type: comparison
 sources:

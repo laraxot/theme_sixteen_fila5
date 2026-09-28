@@ -1,3 +1,14 @@
+---
+title: "final correction folio volt"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "final correction folio volt"
+issues: []
+discussions: []
+---
+
 # ✅ Correzione Finale - Folio + Volt Pattern
 
 **Data**: 2026-03-31  
@@ -202,6 +213,14 @@ http://fixcity.local/it/tests/amministrazione
 
 ---
 
+title: "final correction folio volt"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "final correction folio volt"
+issues: []
+discussions: []
 **Stato**: ✅ **CORRETTO - Pattern Folio + Volt**  
 **File Blade**: **2 ([slug].blade.php + index.blade.php)**  
 **JSON Files**: **17 (uno per pagina)**  

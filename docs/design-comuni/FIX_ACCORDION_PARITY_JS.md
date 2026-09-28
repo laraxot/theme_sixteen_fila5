@@ -1,3 +1,14 @@
+---
+title: "FIX ACCORDION PARITY JS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FIX ACCORDION PARITY JS"
+issues: []
+discussions: []
+---
+
 # Report Fix Accordion - Rimozione domande-frequenti-parity.js
 
 ## Problema Identificato
@@ -19,6 +30,14 @@ Il file `domande-frequenti-parity.js` stava **sovrascrivendo** completamente l'H
 
 ---
 
+title: "FIX ACCORDION PARITY JS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FIX ACCORDION PARITY JS"
+issues: []
+discussions: []
 ## Soluzione Applicata
 
 ### 1. Disabilitato Import

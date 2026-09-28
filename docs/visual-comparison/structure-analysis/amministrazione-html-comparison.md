@@ -1,3 +1,14 @@
+---
+title: "amministrazione html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "amministrazione html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: amministrazione
 
 **Generated**: 2026-04-05T07:52:55.569Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "amministrazione html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "amministrazione html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

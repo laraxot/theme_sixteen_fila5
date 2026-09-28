@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE HTML ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Structure Analysis — Reference vs Local
 
 > **Data**: 2026-04-07
@@ -7,6 +18,14 @@
 
 ---
 
+title: "HOMEPAGE HTML ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML ANALYSIS"
+issues: []
+discussions: []
 ## Executive Summary
 
 | Metric | Value |

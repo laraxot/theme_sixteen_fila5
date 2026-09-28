@@ -1,3 +1,14 @@
+---
+title: "layout fix summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout fix summary"
+issues: []
+discussions: []
+---
+
 # Layout Fix Summary - x-layouts.app extends x-layouts.main
 
 **Date**: 2026-04-01  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "layout fix summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout fix summary"
+issues: []
+discussions: []
 ## 🎯 Problem Identified
 
 ### Before (❌ WRONG)

@@ -1,4 +1,10 @@
 ---
+title: "sixteen theme"
+tags: [documentation]
+created: 2026-09-26
+qmd: "sixteen theme"
+issues: []
+discussions: []
 type: overview
 theme: Sixteen
 sources:

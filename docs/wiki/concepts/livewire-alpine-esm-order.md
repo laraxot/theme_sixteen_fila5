@@ -1,4 +1,7 @@
 ---
+qmd: "livewire alpine esm order"
+issues: []
+discussions: []
 title: livewire alpine esm order (tema sixteen)
 type: troubleshooting
 confidence: high

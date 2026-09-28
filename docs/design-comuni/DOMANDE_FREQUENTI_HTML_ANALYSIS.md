@@ -1,3 +1,14 @@
+---
+title: "DOMANDE FREQUENTI HTML ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI HTML ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Analisi Differenze HTML: Domande Frequenti
 
 ## Panoramica
@@ -337,6 +348,14 @@ Confronto tra la pagina di riferimento e l'implementazione locale per `domande-f
 
 ---
 
+title: "DOMANDE FREQUENTI HTML ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DOMANDE FREQUENTI HTML ANALYSIS"
+issues: []
+discussions: []
 **Data**: 2026-04-03
 **File correlati**: 
 - [JSON Content](../../../config/local/fixcity/database/content/pages/tests.domande-frequenti.json)

@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+updated: 2026-09-26
+qmd: "map lit ticket api"
+issues: []
+discussions: []
 title: map-lit — API ticket Folio
 type: concept
 created: 2026-05-29

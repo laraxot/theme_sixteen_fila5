@@ -1,3 +1,14 @@
+---
+title: "MASTER DOCUMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MASTER DOCUMENTATION"
+issues: []
+discussions: []
+---
+
 # Design Comuni Replication - Master Documentation
 
 **Project**: FixCity - Sixteen Theme  
@@ -8,6 +19,14 @@
 
 ---
 
+title: "MASTER DOCUMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MASTER DOCUMENTATION"
+issues: []
+discussions: []
 ## 🎯 Project Overview
 
 Replicate the Italian Design Comuni template using **Tailwind CSS + Alpine.js** (NOT Bootstrap Italia) following **DRY + KISS** principles.

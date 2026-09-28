@@ -1,3 +1,14 @@
+---
+title: " audit wcag seo snippet parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: " audit wcag seo snippet parity"
+issues: []
+discussions: []
+---
+
 # Audit `/it` — WCAG, SEO, Rich Snippet, Visual Parity (2026-05-29)
 
 **URL:** http://127.0.0.1:8000/it
@@ -6,6 +17,14 @@
 
 ---
 
+title: " audit wcag seo snippet parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: " audit wcag seo snippet parity"
+issues: []
+discussions: []
 ## WCAG2AA (pa11y) — Issues Reali
 
 ### CRITICAL (bloccante)

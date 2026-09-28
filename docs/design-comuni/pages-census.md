@@ -1,3 +1,14 @@
+---
+title: "pages census"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "pages census"
+issues: []
+discussions: []
+---
+
 # Design Comuni - Pages Census
 
 > **Censimento completo di tutte le 38 pagine del progetto Design Comuni Italia**
@@ -11,6 +22,14 @@
 
 ---
 
+title: "pages census"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "pages census"
+issues: []
+discussions: []
 ## 🗂️ Sezione 1: Pagine Generali (9 pagine)
 
 ### 1.1 Homepage

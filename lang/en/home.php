@@ -1,0 +1,67 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'meta' => [
+        'description' => 'Browse open reports in the area and filter results by category.',
+    ],
+    'heading' => [
+        'title' => 'Reports',
+    ],
+    'hero' => [
+        'title' => 'Reports and services for your community',
+        'subtitle' => 'Submit a report to the municipality and follow updates from your personal area.',
+        'cta_create' => 'Submit a report',
+        'cta_practices' => 'My cases',
+        'cta_login' => 'Access personal area',
+        'cta_register' => 'Create an account',
+    ],
+    'how' => [
+        'title' => 'How it works',
+        'intro' => 'Sign in or create an account, describe the issue and mark the location. You can find your cases in the personal area.',
+        'step1_title' => '1. Describe',
+        'step1_body' => 'Explain what happened and choose the most suitable category.',
+        'step2_title' => '2. Set the place',
+        'step2_body' => 'Add the location and useful details for the intervention.',
+        'step3_title' => '3. Follow updates',
+        'step3_body' => 'Check your cases after signing in.',
+    ],
+    'map' => [
+        'caption' => 'Public reports on the map',
+        'cta_list' => 'Browse the list',
+        'details' => 'Details',
+        'type' => 'Report type',
+        'address' => 'Address',
+        'description' => 'Description',
+        'not_available' => 'Information unavailable',
+        'back_to_map' => 'Back to map',
+    ],
+    'list' => [
+        'title' => 'Reports list',
+        'subtitle' => 'Browse public reports and filter by category or keyword.',
+        'breadcrumb_current' => 'Reports',
+        'breadcrumb_aria' => 'Breadcrumb',
+        'filters_aria' => 'Report filters',
+        'search_label' => 'Search by description',
+        'search_placeholder' => 'e.g. lighting',
+        'category_legend' => 'Category',
+        'no_categories' => 'No categories available.',
+        'clear_filters' => 'Clear all filters',
+        'results' => ':count results among the 100 most recent public reports.',
+        'view_mode_aria' => 'View mode',
+        'map' => 'Map',
+        'list' => 'List',
+        'map_aria' => 'Map of public reports',
+        'list_aria' => 'Public reports',
+        'empty' => 'No public reports available.',
+        'empty_title' => 'No results',
+        'empty_hint' => 'Try changing the search or clearing the filters.',
+        'clear_filters_short' => 'Clear filters',
+        'category_prefix' => 'Category: :name',
+        'cta_heading' => 'Did you notice a problem?',
+        'cta_body' => 'Submit a report to the municipality and follow the updates.',
+        'cta_button' => 'Report a problem',
+        'track' => 'Track',
+    ],
+];

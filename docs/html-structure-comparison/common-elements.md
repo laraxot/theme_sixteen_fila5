@@ -1,3 +1,14 @@
+---
+title: "common elements"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "common elements"
+issues: []
+discussions: []
+---
+
 # Common elements
 
 <a class="chip chip-simple" href="...">

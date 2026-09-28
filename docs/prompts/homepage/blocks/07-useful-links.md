@@ -1,9 +1,28 @@
+---
+title: "07 useful links"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "07 useful links"
+issues: []
+discussions: []
+---
+
 # Block 07: Useful Links Section
 
 > Ricerca rapida + link utili
 
 ---
 
+title: "07 useful links"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "07 useful links"
+issues: []
+discussions: []
 ## Reference
 **URL**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
 **Selettore**: `section.useful-links-section`  

@@ -1,3 +1,14 @@
+---
+title: "login ux fixes"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login ux fixes"
+issues: []
+discussions: []
+---
+
 # Login `/it/auth/login` — fix UX/a11y (2026-06-04)
 
 ## Bottone submit + campo password (2026-06-04)

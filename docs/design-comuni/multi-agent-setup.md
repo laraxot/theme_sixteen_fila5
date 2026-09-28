@@ -1,3 +1,14 @@
+---
+title: "multi agent setup"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "multi agent setup"
+issues: []
+discussions: []
+---
+
 # 🚀 Multi-Agent Setup - Complete Installation Guide
 
 **Data**: 2026-03-31  
@@ -353,6 +364,14 @@ diff -u /tmp/original-homepage.html /tmp/fixcity-homepage.html
 
 ---
 
+title: "multi agent setup"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "multi agent setup"
+issues: []
+discussions: []
 **Stato**: ✅ **100% COMPLETATO**  
 **Agenti**: **6/6 operativi**  
 **Homepage**: **95.7% HTML, 100% Visual**  

@@ -1,3 +1,14 @@
+---
+title: "HYBRID EXECUTION TRACK A B"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HYBRID EXECUTION TRACK A B"
+issues: []
+discussions: []
+---
+
 # HYBRID EXECUTION PLAN
 ## Phase 1 Blocker Fixes + Phase 2 Research in Parallel
 
@@ -8,6 +19,14 @@
 
 ---
 
+title: "HYBRID EXECUTION TRACK A B"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HYBRID EXECUTION TRACK A B"
+issues: []
+discussions: []
 ## 🎯 EXECUTION MODEL
 
 ### Track A: Phase 1 HTML Blocker Fixes

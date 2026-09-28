@@ -1,3 +1,14 @@
+---
+title: "block 01 hero evidence"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 01 hero evidence"
+issues: []
+discussions: []
+---
+
 # Block 01: Hero / Contenuti in Evidenza
 
 **ID:** `head-section`  
@@ -147,4 +158,12 @@
 
 ---
 
+title: "block 01 hero evidence"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 01 hero evidence"
+issues: []
+discussions: []
 *Blocco 01/11 — Fonte: italia.github.io/design-comuni-pagine-statiche/sito/homepage.html*

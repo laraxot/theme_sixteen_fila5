@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE STRUCTURE CRITICAL DIFF"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE STRUCTURE CRITICAL DIFF"
+issues: []
+discussions: []
+---
+
 # 🚨 HOMEPAGE: CRITICAL HTML DIFFERENCES
 
 **Status**: BLOCKER - HTML is only ~60% aligned, not 90%

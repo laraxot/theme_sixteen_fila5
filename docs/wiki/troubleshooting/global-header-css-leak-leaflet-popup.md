@@ -1,4 +1,7 @@
 ---
+qmd: "global header css leak leaflet popup"
+issues: []
+discussions: []
 title: "Leak CSS header sito su popup Leaflet"
 type: troubleshooting
 confidence: high

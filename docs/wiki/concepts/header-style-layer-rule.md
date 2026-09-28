@@ -1,4 +1,8 @@
 ---
+created: 2026-09-26
+qmd: "header style layer rule"
+issues: []
+discussions: []
 title: "Header style layer rule"
 type: concept
 confidence: high

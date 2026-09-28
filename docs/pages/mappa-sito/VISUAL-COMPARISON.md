@@ -1,3 +1,14 @@
+---
+title: "VISUAL COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL COMPARISON"
+issues: []
+discussions: []
+---
+
 # Visual Comparison: mappa-sito
 
 **Page URLs:**

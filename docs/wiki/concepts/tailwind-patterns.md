@@ -1,4 +1,7 @@
 ---
+qmd: "tailwind patterns"
+issues: []
+discussions: []
 title: "Sixteen Theme — Tailwind CSS Patterns"
 type: concept
 tags: [sixteen, tailwind, css, design-system, patterns, daisyui, bootstrap-italia]

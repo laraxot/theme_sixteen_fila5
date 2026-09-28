@@ -1,3 +1,14 @@
+---
+title: "agid login compliance analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login compliance analysis"
+issues: []
+discussions: []
+---
+
 # Analisi Conformità AGID - Pagina di Login
 
 ## 🚨 **PROBLEMA IDENTIFICATO**
@@ -302,6 +313,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
+title: "agid login compliance analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login compliance analysis"
+issues: []
+discussions: []
 **Creato**: 2025-07-31  
 **Autore**: Sistema di Analisi AGID  
 **Versione**: 1.0  

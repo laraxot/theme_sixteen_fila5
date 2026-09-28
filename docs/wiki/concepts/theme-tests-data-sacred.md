@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: Theme Sixteen tests — dati sacri e skip onesti
 type: concept
 tags: [sixteen, theme, tests, data-sacred, fixcity]

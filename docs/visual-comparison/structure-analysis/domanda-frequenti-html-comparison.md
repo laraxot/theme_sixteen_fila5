@@ -1,3 +1,14 @@
+---
+title: "domanda frequenti html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domanda frequenti html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: domanda-frequenti
 
 **Generated**: 2026-04-05T07:51:24.370Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "domanda frequenti html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domanda frequenti html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

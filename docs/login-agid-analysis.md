@@ -1,4 +1,12 @@
 ---
+title: "login agid analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login agid analysis"
+issues: []
+discussions: []
 module: theme
 topic: login-agid-analysis
 canonical: ../../docs/shared-components/login-agid-analysis.md

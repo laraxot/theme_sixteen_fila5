@@ -1,3 +1,14 @@
+---
+title: "tests pages architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "tests pages architecture"
+issues: []
+discussions: []
+---
+
 # Tests Pages Architecture Rules
 
 **Scope:** `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`

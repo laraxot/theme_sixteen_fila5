@@ -1,3 +1,14 @@
+---
+title: "IMPLEMENTATION MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "IMPLEMENTATION MASTER PLAN"
+issues: []
+discussions: []
+---
+
 # Design Comuni Conversion - Master Implementation Plan
 
 **Status**: Framework Complete | Phase 2 Ready | Multi-Agent Coordination Active  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "IMPLEMENTATION MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "IMPLEMENTATION MASTER PLAN"
+issues: []
+discussions: []
 ## 🎯 Executive Summary
 
 **Mission**: Convert 40+ Design Comuni pages from Bootstrap Italia to Tailwind CSS + Alpine.js  

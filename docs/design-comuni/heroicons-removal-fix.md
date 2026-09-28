@@ -1,3 +1,14 @@
+---
+title: "heroicons removal fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "heroicons removal fix"
+issues: []
+discussions: []
+---
+
 # 🐛 Heroicons Removal - Complete Fix
 
 **Data**: 2026-03-31  
@@ -189,6 +200,14 @@ http://fixcity.local/it/tests/homepage
 
 ---
 
+title: "heroicons removal fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "heroicons removal fix"
+issues: []
+discussions: []
 **Stato**: ✅ **CORREZIONE IN CORSO**  
 **Files Corretti**: **1**  
 **Files Rimanenti**: **9**  

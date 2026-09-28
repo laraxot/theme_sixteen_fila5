@@ -1,3 +1,14 @@
+---
+title: "STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRUCTURE COMPARISON"
+issues: []
+discussions: []
+---
+
 # Page Structure Comparison: ARGOMENTI
 
 **Analysis Date:** 2026-04-03T09:51:42.295Z

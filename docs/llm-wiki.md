@@ -1,3 +1,14 @@
+---
+title: "llm wiki"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "llm wiki"
+issues: []
+discussions: []
+---
+
 # Sixteen Theme LLM Wiki
 
 The Sixteen theme is a strong candidate for an LLM wiki because the team repeatedly revisits the same parity, layout, accessibility, and asset questions.

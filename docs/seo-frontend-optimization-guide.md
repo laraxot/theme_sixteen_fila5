@@ -1,3 +1,14 @@
+---
+title: "seo frontend optimization guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "seo frontend optimization guide"
+issues: []
+discussions: []
+---
+
 # SEO & Frontend Optimization Guide - Sixteen Theme
 
 ## Executive Summary
@@ -6,6 +17,14 @@ This document provides comprehensive SEO and performance optimization strategies
 
 ---
 
+title: "seo frontend optimization guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "seo frontend optimization guide"
+issues: []
+discussions: []
 ## Frontend SEO Architecture
 
 ### 1. HTML Semantic Structure

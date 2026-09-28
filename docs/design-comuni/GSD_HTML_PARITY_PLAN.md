@@ -1,3 +1,14 @@
+---
+title: "GSD HTML PARITY PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GSD HTML PARITY PLAN"
+issues: []
+discussions: []
+---
+
 # GSD Plan: HTML Structure Parity Fix
 
 **Goal**: Reach 95%+ HTML structural match between AGID and FixCity homepage
@@ -7,6 +18,14 @@
 
 ---
 
+title: "GSD HTML PARITY PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GSD HTML PARITY PLAN"
+issues: []
+discussions: []
 ## 🎯 Critical Issues (Must Fix)
 
 ### 1. Header Attributes Mismatch ❌

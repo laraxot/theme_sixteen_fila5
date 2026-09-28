@@ -1,4 +1,5 @@
 ---
+qmd: "no italian component names"
 title: "No Italian File Names in Code"
 type: rule
 confidence: high

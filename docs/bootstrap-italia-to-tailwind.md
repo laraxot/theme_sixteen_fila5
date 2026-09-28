@@ -1,3 +1,14 @@
+---
+title: "bootstrap italia to tailwind"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bootstrap italia to tailwind"
+issues: []
+discussions: []
+---
+
 # Migrazione Bootstrap Italia → Tailwind CSS
 
 ## Panoramica
@@ -452,6 +463,14 @@ Ogni componente include:
 
 ---
 
+title: "bootstrap italia to tailwind"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bootstrap italia to tailwind"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: Dicembre 2024
 **Versione**: 1.0
 **Compatibilità**: Tailwind CSS 3.x, Alpine.js 3.x, Laravel 10.x

@@ -1,3 +1,14 @@
+---
+title: "vite audit report 2025"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite audit report 2025"
+issues: []
+discussions: []
+---
+
 # Audit Report: Configurazione @vite nel Tema Sixteen
 
 **Data Audit**: 01 Agosto 2025  
@@ -76,5 +87,13 @@ Verificare che tutti i layout e componenti del tema Sixteen utilizzino correttam
 
 ---
 
+title: "vite audit report 2025"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite audit report 2025"
+issues: []
+discussions: []
 **Audit completato con successo** ✅  
 **Prossimo audit raccomandato**: Ogni major release del tema

@@ -1,3 +1,14 @@
+---
+title: "FAQ PARITY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ PARITY"
+issues: []
+discussions: []
+---
+
 # FAQ Page Documentation
 
 Documentation for making the local FAQ page visually identical to the reference.

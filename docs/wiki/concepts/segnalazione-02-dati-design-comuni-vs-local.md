@@ -1,4 +1,7 @@
 ---
+qmd: "segnalazione 02 dati design comuni vs local"
+issues: []
+discussions: []
 title: "Segnalazione-02-Dati: Design Comuni vs Local Wizard"
 type: comparison
 sources: 

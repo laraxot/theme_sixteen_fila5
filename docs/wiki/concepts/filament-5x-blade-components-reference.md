@@ -1,4 +1,7 @@
 ---
+qmd: "filament 5x blade components reference"
+issues: []
+discussions: []
 title: "Filament 5.x Blade Components — Reference e Regola Filament-First"
 type: concept
 sources: ["https://filamentphp.com/docs/5.x/components/overview"]

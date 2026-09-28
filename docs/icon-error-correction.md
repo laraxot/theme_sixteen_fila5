@@ -1,3 +1,14 @@
+---
+title: "icon error correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "icon error correction"
+issues: []
+discussions: []
+---
+
 # Correzione Errore Icone Heroicons - Tema Sixteen
 
 ## 🚨 Problema Identificato
@@ -313,6 +324,14 @@ grep -r "x-heroicon-s-" laravel/Themes/Sixteen/resources/views/
 
 ---
 
+title: "icon error correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "icon error correction"
+issues: []
+discussions: []
 **Data Correzione**: Dicembre 2024  
 **Tema**: Sixteen  
 **Stato**: Errore Icone Risolto  

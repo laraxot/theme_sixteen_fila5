@@ -1,4 +1,5 @@
 ---
+qmd: "folio page shell pattern"
 title: "Folio Page Shell Pattern - Volt Component"
 type: concept
 tags: [folio, volt, page-shell, pattern, architecture]

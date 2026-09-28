@@ -1,3 +1,14 @@
+---
+title: "bootstrap italia components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bootstrap italia components"
+issues: []
+discussions: []
+---
+
 # Bootstrap Italia Components Implementation Status
 
 ## Overview
@@ -168,4 +179,12 @@ The Sixteen theme has successfully implemented all 54 Bootstrap Italia component
 
 ---
 
+title: "bootstrap italia components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bootstrap italia components"
+issues: []
+discussions: []
 *Last updated: 2025-09-08*

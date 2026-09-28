@@ -1,3 +1,14 @@
+---
+title: "mcp validation fo pages"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "mcp validation fo pages"
+issues: []
+discussions: []
+---
+
 # Validazione MCP — pagine FO Sixteen
 
 **Boundary:** il tema Sixteen **non** implementa motori MAUVE/PSI/GSC; espone le URL FO che entrano nel gate agente ([mcp-validation-quality-gate.md](../../../../../docs/wiki/mcp-validation-quality-gate.md)).
@@ -6,6 +17,14 @@
 
 ---
 
+title: "mcp validation fo pages"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "mcp validation fo pages"
+issues: []
+discussions: []
 ## URL smoke (ordine consigliato)
 
 | Priorità | Path | Perché |

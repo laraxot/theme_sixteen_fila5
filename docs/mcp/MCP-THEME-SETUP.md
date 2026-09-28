@@ -1,3 +1,14 @@
+---
+title: "MCP THEME SETUP"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP THEME SETUP"
+issues: []
+discussions: []
+---
+
 # MCP Configuration - Sixteen Theme
 
 **Ultimo aggiornamento**: 2026-04-09  

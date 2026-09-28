@@ -1,3 +1,14 @@
+---
+title: "report header"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report header"
+issues: []
+discussions: []
+---
+
 # HTML Parity Report (header)
 
 - **Score: 99.39%**

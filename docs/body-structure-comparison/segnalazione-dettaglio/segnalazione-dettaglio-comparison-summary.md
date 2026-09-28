@@ -1,3 +1,14 @@
+---
+title: "segnalazione dettaglio comparison summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione dettaglio comparison summary"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: segnalazione-dettaglio
 
 | Metric | Value |
