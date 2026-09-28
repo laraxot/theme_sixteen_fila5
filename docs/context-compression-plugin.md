@@ -1,3 +1,14 @@
+---
+title: "context compression plugin"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "context compression plugin"
+issues: []
+discussions: []
+---
+
 # Context compression (theme notes)
 
 Breve: spiegazione per i designer/templating del tema su come usare il compressore contestuale lato server.

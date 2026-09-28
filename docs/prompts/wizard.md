@@ -1,3 +1,14 @@
+---
+title: "wizard"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard"
+issues: []
+discussions: []
+---
+
 # Wizard
 
 # Wizard prompt operativo (Fixcity + Sixteen)

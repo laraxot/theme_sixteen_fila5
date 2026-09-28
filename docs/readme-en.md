@@ -1,3 +1,14 @@
+---
+title: "readme en"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "readme en"
+issues: []
+discussions: []
+---
+
 # 🇮🇹 Sixteen — English presentation
 
 [![Design-Comuni](https://img.shields.io/badge/Parity-Design%20Comuni-008758.svg)](https://italia.github.io/design-comuni-pagine-statiche/)
@@ -16,6 +27,14 @@
 
 ---
 
+title: "readme en"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "readme en"
+issues: []
+discussions: []
 ## Why it exists
 
 Active frontoffice theme: PA parity, map, wizard, homepage.

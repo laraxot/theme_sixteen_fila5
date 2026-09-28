@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "frontend design fixcity overlay"
+issues: []
+discussions: []
 title: frontend design fixcity overlay
 type: concept
 module: Sixteen

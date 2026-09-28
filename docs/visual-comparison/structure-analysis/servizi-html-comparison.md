@@ -1,3 +1,14 @@
+---
+title: "servizi html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "servizi html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: servizi
 
 **Generated**: 2026-04-05T07:29:39.641Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "servizi html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "servizi html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco reference body"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco reference body"
+issues: []
+discussions: []
+---
+
 # Segnalazioni elenco reference body
 
 <div class="skiplink">

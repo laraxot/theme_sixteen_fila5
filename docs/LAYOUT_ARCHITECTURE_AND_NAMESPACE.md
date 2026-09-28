@@ -1,3 +1,14 @@
+---
+title: "LAYOUT ARCHITECTURE AND NAMESPACE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT ARCHITECTURE AND NAMESPACE"
+issues: []
+discussions: []
+---
+
 # Layout Architecture & Component Namespace - Design Comuni
 
 **Project:** FixCity Fila5
@@ -7,6 +18,14 @@
 
 ---
 
+title: "LAYOUT ARCHITECTURE AND NAMESPACE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT ARCHITECTURE AND NAMESPACE"
+issues: []
+discussions: []
 ## 🎯 Scopo e Architettura
 
 Questo documento spiega l'architettura dei layout e dei componenti nel tema Sixteen, gli errori da evitare, e le convenzioni da seguire.

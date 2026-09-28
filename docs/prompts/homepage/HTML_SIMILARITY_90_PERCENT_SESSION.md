@@ -1,3 +1,14 @@
+---
+title: "HTML SIMILARITY 90 PERCENT SESSION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML SIMILARITY 90 PERCENT SESSION"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Similarity Improvement Session - 90% Target
 
 > **Data**: 2026-04-07
@@ -7,6 +18,14 @@
 
 ---
 
+title: "HTML SIMILARITY 90 PERCENT SESSION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML SIMILARITY 90 PERCENT SESSION"
+issues: []
+discussions: []
 ## Executive Summary
 
 ### Work Completed

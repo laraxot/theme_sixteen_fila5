@@ -1,3 +1,14 @@
+---
+title: "login refactoring plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login refactoring plan"
+issues: []
+discussions: []
+---
+
 # Piano Rifattorizzazione Pagina Login - AGID Compliance
 
 ## Obiettivo

@@ -1,3 +1,14 @@
+---
+title: "phpstan zero themes debt.story"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "phpstan zero themes debt.story"
+issues: []
+discussions: []
+---
+
 # Story: PHPStan zero debt — tema Sixteen (path mai coperto dal comando canonico)
 
 Status: done (residuo infra: 22 view-string argument.type, categoria unica, vedi log)

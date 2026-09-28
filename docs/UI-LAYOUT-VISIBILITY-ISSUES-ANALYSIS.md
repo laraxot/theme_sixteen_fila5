@@ -1,3 +1,14 @@
+---
+title: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
+issues: []
+discussions: []
+---
+
 # UI Layout & Visibility Issues - Comprehensive Analysis
 
 **Date**: 2026-04-02  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
+issues: []
+discussions: []
 ## 🔍 Issues Identified
 
 ### 1. Layout Centering Issue

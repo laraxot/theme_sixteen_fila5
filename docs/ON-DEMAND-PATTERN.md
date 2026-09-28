@@ -1,4 +1,7 @@
 ---
+qmd: "ON DEMAND PATTERN"
+issues: []
+discussions: []
 title: "On-Demand Pattern — Theme Sixteen"
 type: documentation
 created: 2026-05-11

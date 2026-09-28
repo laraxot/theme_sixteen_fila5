@@ -1,4 +1,7 @@
 ---
+qmd: "no bootstrap runtime assets rule"
+issues: []
+discussions: []
 title: "No Bootstrap Runtime Assets Rule"
 type: concept
 confidence: high

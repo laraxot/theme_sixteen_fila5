@@ -1,3 +1,14 @@
+---
+title: "local structure"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "local structure"
+issues: []
+discussions: []
+---
+
 # Local structure
 
 <div class="min-h-dvh">

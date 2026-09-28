@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco html parity analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco html parity analysis"
+issues: []
+discussions: []
+---
+
 # Fase 1: HTML Body Structure Parity
 
 - Data: 2026-04-08

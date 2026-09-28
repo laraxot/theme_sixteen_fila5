@@ -1,3 +1,14 @@
+---
+title: "ARGOMENTI ANALISI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ANALISI"
+issues: []
+discussions: []
+---
+
 # Argomenti - Analisi Struttura HTML
 
 ## Panoramica
@@ -45,6 +56,14 @@ Confronto tra pagina di riferimento e implementazione locale per `argomenti`.
 
 ---
 
+title: "ARGOMENTI ANALISI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ANALISI"
+issues: []
+discussions: []
 ### In Evidenza Section ✅ MATCH
 
 **Reference**:

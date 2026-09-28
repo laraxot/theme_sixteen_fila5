@@ -1,3 +1,14 @@
+---
+title: "design comuni html parity plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "design comuni html parity plan"
+issues: []
+discussions: []
+---
+
 # Piano di Replicazione Design Comuni - HTML Parity
 
 ## Obiettivo

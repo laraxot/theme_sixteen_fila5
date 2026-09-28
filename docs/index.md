@@ -1,3 +1,14 @@
+---
+title: "index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "index"
+issues: []
+discussions: []
+---
+
 # Indice Documentazione - Tema Sixteen
 
 Indice unico e canonico della documentazione sotto `Themes/Sixteen/docs/` (1436 file `.md` complessivi, 412 direttamente in questa cartella). Sostituisce, come punto di ingresso, i precedenti tentativi di indice root (`INDEX.md`, `00-index.md`, `00-INDEX.md`, `DOCUMENTATION_INDEX.md`, `MASTER_DOCUMENTATION.md`), che restano in repo e sono elencati in [Storico / da consolidare](#storico--da-consolidare) senza essere stati cancellati o rinominati.
@@ -726,6 +737,14 @@ Nota separata: **llm-wiki/** e **wiki/** condividono struttura e nomi di file (`
 
 ---
 
+title: "index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "index"
+issues: []
+discussions: []
 **Story BMAD collegata**: [stories/docs-index-audit.story.md](stories/docs-index-audit.story.md)
 
 **Ultimo aggiornamento indice**: 2026-09-03

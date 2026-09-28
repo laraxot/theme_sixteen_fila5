@@ -1,3 +1,14 @@
+---
+title: "accessibility components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "accessibility components"
+issues: []
+discussions: []
+---
+
 # Componenti di Accessibilità - Tema Sixteen
 
 ## Panoramica
@@ -412,6 +423,14 @@ I componenti sono testati per:
 
 ---
 
+title: "accessibility components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "accessibility components"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: Gennaio 2025  
 **Versione**: 1.0.0  
 **Compatibilità**: Laravel 10+, Filament 4.x, Tailwind CSS 3.x

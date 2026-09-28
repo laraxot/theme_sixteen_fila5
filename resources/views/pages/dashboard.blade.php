@@ -1,14 +1,14 @@
 <?php
 
-use function Laravel\Folio\{middleware, name};
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+
 use Livewire\Volt\Component;
 
 name('dashboard');
 middleware(['auth', 'verified']);
 
-new class extends Component
-{
-};
+new class extends Component {};
 ?>
 
 <x-layouts.app>
@@ -32,8 +32,8 @@ new class extends Component
                             <p class="mb-5 text-sm text-zinc-500">This is the default dashboard which you can use and customize. Alternatively we also have three dashboard starter templates available.</p>
                             <p class="text-sm text-zinc-500">You can get all three designs, each with dark mode for only $29. Learn more below.</p>
                             <div class="flex items-center my-6 space-x-3">
-                                <x-ui.button href="https://tonylea.lemonsqueezy.com/checkout/buy/7b997498-2512-4d24-8aa6-6027c5a22922?logo=0" tag="a" target="_blank" type="primary"><x-phosphor-storefront-duotone class="w-4 h-4 mr-1" /> Get It Here</x-ui.button>
-                                <x-ui.button href="https://www.youtube.com/watch?v=bkdXxmeh0Aw" tag="a" target="_blank" type="secondary"><x-phosphor-popcorn-duotone class="w-4 h-4 mr-1" />Video Preview</x-ui.button>
+                                <x-ui.button href="https://tonylea.lemonsqueezy.com/checkout/buy/7b997498-2512-4d24-8aa6-6027c5a22922?logo=0" tag="a" target="_blank" type="primary"><x-heroicon-o-building-storefront class="w-4 h-4 mr-1" /> Get It Here</x-ui.button>
+                                <x-ui.button href="https://www.youtube.com/watch?v=bkdXxmeh0Aw" tag="a" target="_blank" type="secondary"><x-heroicon-o-play-circle class="w-4 h-4 mr-1" />Video Preview</x-ui.button>
                             </div>
                             <p class="text-sm text-zinc-600">Thanks for using Genesis ✌️</p>
                         </div>

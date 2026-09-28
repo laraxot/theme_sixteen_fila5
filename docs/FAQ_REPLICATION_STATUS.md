@@ -1,3 +1,14 @@
+---
+title: "FAQ REPLICATION STATUS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ REPLICATION STATUS"
+issues: []
+discussions: []
+---
+
 # FAQ Replication Status (domande-frequenti)
 
 > [Index](#index) | [📋 Design Comuni Index](./00-INDEX.md) | [🔗 Back to Theme Docs](./00-INDEX.md)
@@ -8,6 +19,14 @@
 
 ---
 
+title: "FAQ REPLICATION STATUS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ REPLICATION STATUS"
+issues: []
+discussions: []
 ## Index
 - [Current Implementation](#current-implementation)
 - [Reference Structure](#reference-structure)

@@ -1,3 +1,14 @@
+---
+title: "ticket dettaglio local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket dettaglio local"
+issues: []
+discussions: []
+---
+
 # Ticket dettaglio local
 
 <body>

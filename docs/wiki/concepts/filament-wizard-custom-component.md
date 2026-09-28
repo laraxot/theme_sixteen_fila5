@@ -1,4 +1,7 @@
 ---
+qmd: "filament wizard custom component"
+issues: []
+discussions: []
 title: "Filament Wizard Custom Component - Theme Sixteen"
 type: concept
 sources: []

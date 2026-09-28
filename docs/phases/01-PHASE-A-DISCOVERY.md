@@ -1,3 +1,14 @@
+---
+title: "01 PHASE A DISCOVERY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "01 PHASE A DISCOVERY"
+issues: []
+discussions: []
+---
+
 # Phase A: Discovery & Analysis
 
 > Complete inventory of HTML structure, CSS, and component differences
@@ -9,6 +20,14 @@
 
 ---
 
+title: "01 PHASE A DISCOVERY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "01 PHASE A DISCOVERY"
+issues: []
+discussions: []
 ## 🎯 Objective
 
 Complete a comprehensive analysis of differences between the reference Design Comuni homepage and the local Laravel implementation. This analysis feeds all subsequent phases.

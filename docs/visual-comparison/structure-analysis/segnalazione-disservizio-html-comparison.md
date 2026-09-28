@@ -1,3 +1,14 @@
+---
+title: "segnalazione disservizio html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione disservizio html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: segnalazione-disservizio
 
 **Generated**: 2026-04-06T19:25:11.809Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "segnalazione disservizio html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione disservizio html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

@@ -1,3 +1,14 @@
+---
+title: "PAGE ROUTING ARCHITECTURE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGE ROUTING ARCHITECTURE"
+issues: []
+discussions: []
+---
+
 # Page Routing Architecture - Folio + Volt
 
 **Data**: 2026-04-01  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "PAGE ROUTING ARCHITECTURE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGE ROUTING ARCHITECTURE"
+issues: []
+discussions: []
 ## 🎯 Architectural Principle
 
 ### ONE `[slug].blade.php` for ALL Pages

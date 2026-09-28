@@ -1,3 +1,14 @@
+---
+title: "segnalazione 01 privacy reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 01 privacy reference"
+issues: []
+discussions: []
+---
+
 # Segnalazione 01 privacy reference
 
 <body>

@@ -1,3 +1,14 @@
+---
+title: "css js alignment plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "css js alignment plan"
+issues: []
+discussions: []
+---
+
 # Piano di Lavoro: Homepage HTML Parity → CSS/JS Alignment
 
 **Data**: 2026-04-02
@@ -8,6 +19,14 @@
 
 ---
 
+title: "css js alignment plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "css js alignment plan"
+issues: []
+discussions: []
 ## 🎯 Obiettivo
 
 Rendere la pagina `http://127.0.0.1:8000/it/tests/homepage` **visivamente identica** a

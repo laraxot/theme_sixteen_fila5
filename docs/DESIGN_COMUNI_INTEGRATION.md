@@ -1,3 +1,14 @@
+---
+title: "DESIGN COMUNI INTEGRATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI INTEGRATION"
+issues: []
+discussions: []
+---
+
 # 🏛️ DESIGN COMUNI ITALIANI - INTEGRATION GUIDE
 
 **Data**: 2025-10-02  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "DESIGN COMUNI INTEGRATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI INTEGRATION"
+issues: []
+discussions: []
 ## 📊 ANALISI DESIGN COMUNI
 
 ### Scopo

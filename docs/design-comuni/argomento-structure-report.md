@@ -1,3 +1,14 @@
+---
+title: "argomento structure report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "argomento structure report"
+issues: []
+discussions: []
+---
+
 # Argomento Structure Report
 
 Date: 2026-04-03

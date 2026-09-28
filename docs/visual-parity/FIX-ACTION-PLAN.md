@@ -1,3 +1,14 @@
+---
+title: "FIX ACTION PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FIX ACTION PLAN"
+issues: []
+discussions: []
+---
+
 # VISUAL PARITY - Fix Action Plan
 
 ## Current Status: ~70% Parity

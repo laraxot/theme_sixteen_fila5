@@ -1,3 +1,14 @@
+---
+title: "README old"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README old"
+issues: []
+discussions: []
+---
+
 # Sixteen Theme Documentation Index
 
 **Theme:** Sixteen  
@@ -8,6 +19,14 @@
 
 ---
 
+title: "README old"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README old"
+issues: []
+discussions: []
 ## 🎯 Quick Navigation
 
 | Category | Document | Description |

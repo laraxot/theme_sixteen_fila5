@@ -1,3 +1,14 @@
+---
+title: "obsidian vault alignment"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "obsidian vault alignment"
+issues: []
+discussions: []
+---
+
 # Obsidian vault alignment
 
 ## Scopo

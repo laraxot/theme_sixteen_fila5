@@ -1,3 +1,14 @@
+---
+title: "fo pa tokens uniformity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fo pa tokens uniformity"
+issues: []
+discussions: []
+---
+
 # Architettura FO — uniformità token PA (no hex per pagina)
 
 **Riferimento istituzionale:** [design-comuni-pagine-statiche](https://github.com/italia/design-comuni-pagine-statiche)  
@@ -5,6 +16,14 @@
 
 ---
 
+title: "fo pa tokens uniformity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fo pa tokens uniformity"
+issues: []
+discussions: []
 ## Religione (regola permanente)
 
 | Vietato | Obbligatorio |

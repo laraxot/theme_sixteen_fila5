@@ -1,4 +1,8 @@
 ---
+updated: 2026-09-26
+qmd: "area personale pratiche placeholder"
+issues: []
+discussions: []
 title: "area-personale/pratiche — perché è un placeholder"
 type: incident
 tags: [folio, homepage, routing, incident]

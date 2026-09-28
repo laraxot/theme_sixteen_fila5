@@ -1,3 +1,14 @@
+---
+title: "multi agent status"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "multi agent status"
+issues: []
+discussions: []
+---
+
 # ✅ Homepage Fix - Multi-Agent Integration Complete
 
 **Data**: 2026-03-31  
@@ -91,6 +102,14 @@ Output: Homepage ottimizzata
 
 ---
 
+title: "multi agent status"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "multi agent status"
+issues: []
+discussions: []
 **Stato**: ✅ **MULTI-AGENT INTEGRATION COMPLETATA**  
 **Agenti**: **4 pronti, 2 in configurazione**  
 **Block Views**: **5 create**  

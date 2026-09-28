@@ -1,3 +1,14 @@
+---
+title: "routing patterns correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "routing patterns correction"
+issues: []
+discussions: []
+---
+
 # Routing Patterns Correction - Dynamic Page System
 
 ## Problem Analysis
@@ -266,6 +277,14 @@ After implementing corrections:
 
 ---
 
+title: "routing patterns correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "routing patterns correction"
+issues: []
+discussions: []
 **Analysis Date**: July 31, 2025  
 **Issue Type**: Incorrect Route Pattern Usage  
 **Solution**: Use dynamic `pages.view` route with slug parameter  

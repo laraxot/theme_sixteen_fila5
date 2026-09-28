@@ -1,8 +1,19 @@
+---
+title: "summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "summary"
+issues: []
+discussions: []
+---
+
 # Summary
 
-============================================
+---
 HTML Body Structure Comparison Summary
-============================================
+---
 Date: 2026-04-07T16:53:44+02:00
 Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
 Local:     http://127.0.0.1:8000/it/tests/homepage
@@ -117,7 +128,7 @@ Structural Elements (unique):
 <a class="read-more pb-3" href="...">
 <a class="visually-hidden-focusable" href="...">
 
-============================================
+---
 Files produced:
 - reference-body.html     (1306 lines)
 - local-body.html         (815 lines)
@@ -126,4 +137,4 @@ Files produced:
 - common-elements.txt     (517 elements)
 - reference-only.txt      (320 elements)
 - local-only.txt          (21 elements)
-============================================
+---

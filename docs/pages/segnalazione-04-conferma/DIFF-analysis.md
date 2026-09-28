@@ -1,3 +1,14 @@
+---
+title: "DIFF analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DIFF analysis"
+issues: []
+discussions: []
+---
+
 # DIFF Analysis: segnalazione-04-conferma
 
 **Data**: 2026-04-06

@@ -1,3 +1,14 @@
+---
+title: "VITE MANIFEST ROOT CAUSE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VITE MANIFEST ROOT CAUSE"
+issues: []
+discussions: []
+---
+
 # Vite Manifest Error - Root Cause Analysis
 
 ## Problem Description

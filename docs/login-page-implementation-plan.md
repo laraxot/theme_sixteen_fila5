@@ -1,3 +1,14 @@
+---
+title: "login page implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login page implementation plan"
+issues: []
+discussions: []
+---
+
 # Piano di Implementazione Pagina Login AGID-Compliant
 
 ## Panoramica del Piano
@@ -352,6 +363,14 @@ resources/views/pages/auth/login.blade.php (modifica)
 
 ---
 
+title: "login page implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login page implementation plan"
+issues: []
+discussions: []
 *Piano creato: Luglio 2025*
 *Conforme a: AGID, Bootstrap Italia, WCAG 2.1 AA*
 *Compatibile con: Filament Livewire, Tema Sixteen*

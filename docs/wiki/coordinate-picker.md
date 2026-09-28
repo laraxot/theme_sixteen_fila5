@@ -1,3 +1,14 @@
+---
+title: "coordinate picker"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "coordinate picker"
+issues: []
+discussions: []
+---
+
 # CoordinatePicker: Integration Guide for Themes
 
 The `CoordinatePicker` component is available for both Back Office and Front Office usage. It utilizes a LitElement Web Component (`coordinate-picker-lit`) for map rendering and Leaflet for interactivity.

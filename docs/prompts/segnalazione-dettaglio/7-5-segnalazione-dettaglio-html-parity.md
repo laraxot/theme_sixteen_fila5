@@ -1,3 +1,14 @@
+---
+title: "7 5 segnalazione dettaglio html parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "7 5 segnalazione dettaglio html parity"
+issues: []
+discussions: []
+---
+
 # Story 7.5: HTML Parity — segnalazione-dettaglio
 
 Status: in-progress

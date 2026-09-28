@@ -1,3 +1,14 @@
+---
+title: "header logged in parity delta"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header logged in parity delta"
+issues: []
+discussions: []
+---
+
 # Header slim — utente loggato vs Design Comuni (delta)
 
 ## Scopo

@@ -1,3 +1,14 @@
+---
+title: "homepage gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage gap analysis"
+issues: []
+discussions: []
+---
+
 # 🏠 HOMEPAGE GAP ANALYSIS
 
 **Data**: 2026-03-31  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "homepage gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage gap analysis"
+issues: []
+discussions: []
 ## 📊 CURRENT STATUS
 
 ### Homepage URL

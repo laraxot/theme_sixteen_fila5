@@ -1,3 +1,14 @@
+---
+title: "STEPPER MOBILE FIRST RULE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STEPPER MOBILE FIRST RULE"
+issues: []
+discussions: []
+---
+
 # Stepper Mobile-First Rule - CSS Responsive Enforcement
 
 **Status**: Active  

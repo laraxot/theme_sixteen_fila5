@@ -1,3 +1,14 @@
+---
+title: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+issues: []
+discussions: []
+---
+
 # Implementazione Alpine.js per Accordion FAQ
 
 ## Panoramica
@@ -10,6 +21,14 @@ Implementazione dell'interattività accordion utilizzando Alpine.js invece di Bo
 
 ---
 
+title: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+issues: []
+discussions: []
 ## 🎯 Obiettivo
 
 Sostituire `data-bs-toggle="collapse"` (Bootstrap JS) con Alpine.js per:

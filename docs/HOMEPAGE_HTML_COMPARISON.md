@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML COMPARISON"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Body Comparison - Originale vs Replica
 
 > **Confronto STRUTTURA HTML tra Design Comuni originale e replica FixCity**
@@ -12,6 +23,14 @@
 
 ---
 
+title: "HOMEPAGE HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML COMPARISON"
+issues: []
+discussions: []
 ## 🎯 Struttura HTML Attesa (Originale)
 
 ```html

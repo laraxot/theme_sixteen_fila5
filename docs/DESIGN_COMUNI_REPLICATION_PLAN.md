@@ -1,3 +1,14 @@
+---
+title: "DESIGN COMUNI REPLICATION PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI REPLICATION PLAN"
+issues: []
+discussions: []
+---
+
 # Design Comuni Replication Plan
 
 ## Overview

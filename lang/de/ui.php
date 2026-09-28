@@ -11,4 +11,9 @@ return [
     'menu' => 'Menü',
     'close' => 'Schließen',
     'open' => 'Öffnen',
+    'skip_to_content' => 'Zum Inhalt springen',
+    'skip_to_footer' => 'Zum Fußbereich springen',
+    'personal_area' => 'Persönlichen Bereich öffnen',
+    'search_site_aria' => 'Website durchsuchen',
+    'logo' => 'FixCity',
 ];

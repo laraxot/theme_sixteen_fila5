@@ -1,3 +1,14 @@
+---
+title: "HEADER BOOT BUILD INTEGRATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HEADER BOOT BUILD INTEGRATION"
+issues: []
+discussions: []
+---
+
 # Integrare header-mobile-nav nel bundle principale app.js
 
 Obiettivo

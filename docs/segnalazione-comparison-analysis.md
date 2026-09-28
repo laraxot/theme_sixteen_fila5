@@ -1,3 +1,14 @@
+---
+title: "segnalazione comparison analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione comparison analysis"
+issues: []
+discussions: []
+---
+
 # Analisi Comparativa Pagine Segnalazione - Task Attivo
 
 **Data**: 2026-04-06

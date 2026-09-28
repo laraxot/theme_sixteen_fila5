@@ -1,3 +1,14 @@
+---
+title: "vite lit integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite lit integration"
+issues: []
+discussions: []
+---
+
 # Vite + Lit Web Components Integration
 
 ## Problem Statement
@@ -29,6 +40,14 @@ When building the Sixteen theme with Vite, the build process failed with:
 
 ---
 
+title: "vite lit integration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite lit integration"
+issues: []
+discussions: []
 ## Solution Implemented
 
 ### Step 1: Install Rollup Node Resolution Plugin

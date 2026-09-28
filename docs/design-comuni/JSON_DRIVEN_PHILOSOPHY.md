@@ -1,3 +1,14 @@
+---
+title: "JSON DRIVEN PHILOSOPHY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "JSON DRIVEN PHILOSOPHY"
+issues: []
+discussions: []
+---
+
 # Filosofia JSON-Driven — La Religione Laraxot
 
 **Status**: Active  

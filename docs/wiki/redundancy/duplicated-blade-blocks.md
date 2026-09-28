@@ -1,4 +1,7 @@
 ---
+qmd: "duplicated blade blocks"
+issues: []
+discussions: []
 title: "Duplicated Blade Blocks Across Modules and Themes"
 type: redundancy
 owner: Themes/Sixteen

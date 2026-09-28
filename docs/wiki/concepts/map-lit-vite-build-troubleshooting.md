@@ -1,3 +1,14 @@
+---
+title: "map lit vite build troubleshooting"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "map lit vite build troubleshooting"
+issues: []
+discussions: []
+---
+
 # map-lit — build Vite e mappa non visibile
 
 ## Scopo

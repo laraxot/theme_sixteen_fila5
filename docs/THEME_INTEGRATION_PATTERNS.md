@@ -1,3 +1,14 @@
+---
+title: "THEME INTEGRATION PATTERNS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "THEME INTEGRATION PATTERNS"
+issues: []
+discussions: []
+---
+
 # Theme Sixteen: Integration Patterns
 
 **Data:** 2026-06-03  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "THEME INTEGRATION PATTERNS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "THEME INTEGRATION PATTERNS"
+issues: []
+discussions: []
 ## Map-Lit Integration Pattern
 
 ### Blade Component Usage

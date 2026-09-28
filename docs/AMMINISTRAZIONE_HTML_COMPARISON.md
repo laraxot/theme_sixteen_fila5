@@ -1,3 +1,14 @@
+---
+title: "AMMINISTRAZIONE HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "AMMINISTRAZIONE HTML COMPARISON"
+issues: []
+discussions: []
+---
+
 # Amministrazione Page - HTML Body Comparison
 
 > **Confronto HTML tra originale Design Comuni e replica FixCity**
@@ -12,6 +23,14 @@
 
 ---
 
+title: "AMMINISTRAZIONE HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "AMMINISTRAZIONE HTML COMPARISON"
+issues: []
+discussions: []
 ## 🔍 Differenze Strutturali
 
 ### 1. Skip Links

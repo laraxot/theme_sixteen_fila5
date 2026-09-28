@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE HTML BODY COMPARISON FINAL"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML BODY COMPARISON FINAL"
+issues: []
+discussions: []
+---
+
 # ✅ Homepage HTML Body Comparison - FINALE
 
 > **Confronto STRUTTURA HTML tra Design Comuni originale e replica FixCity**
@@ -12,6 +23,14 @@
 
 ---
 
+title: "HOMEPAGE HTML BODY COMPARISON FINAL"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML BODY COMPARISON FINAL"
+issues: []
+discussions: []
 ## ✅ Confronto Diretto
 
 ### Skip Links

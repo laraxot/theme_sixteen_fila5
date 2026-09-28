@@ -1,3 +1,14 @@
+---
+title: "VITE SECOND PARAMETER GUIDE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VITE SECOND PARAMETER GUIDE"
+issues: []
+discussions: []
+---
+
 # Vite @vite() Second Parameter - Complete Guide
 
 **Date:** 2026-04-01  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "VITE SECOND PARAMETER GUIDE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VITE SECOND PARAMETER GUIDE"
+issues: []
+discussions: []
 ## 🎯 Problem Statement
 
 ### Error Message

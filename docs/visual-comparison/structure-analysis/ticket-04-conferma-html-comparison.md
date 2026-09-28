@@ -1,3 +1,14 @@
+---
+title: "ticket 04 conferma html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 04 conferma html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: segnalazione-04-conferma
 
 **Generated**: 2026-04-06T19:30:13.546Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "ticket 04 conferma html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 04 conferma html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

@@ -1,6 +1,7 @@
 @php
   /** @var array $headerNavSecondary */
   /** @var string $headerNavTopicsUrl */
+  /** @var bool $headerNavTopicsEnabled */
   /** @var callable $headerNavItemIsActive */
   /** @var callable $headerFolioUrl */
 @endphp
@@ -16,14 +17,16 @@
         </a>
       </li>
     @endforeach
-    <li class="nav-item">
-      <a class="nav-link" href="{{ $headerNavTopicsUrl }}" data-element="all-topics">
-        <span>{{ __('pub_theme::header.center.nav.argomenti.label') }}
-          <svg class="icon icon-sm">
-            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
-          </svg>
-        </span>
-      </a>
-    </li>
+    @if ($headerNavTopicsEnabled)
+      <li class="nav-item">
+        <a class="nav-link" href="{{ $headerNavTopicsUrl }}" data-element="all-topics">
+          <span>{{ __('pub_theme::header.center.nav.argomenti.label') }}
+            <svg class="icon icon-sm" aria-hidden="true">
+              <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
+            </svg>
+          </span>
+        </a>
+      </li>
+    @endif
   </ul>
 </nav>

@@ -1,3 +1,14 @@
+---
+title: "UCFIRST ARRAY ERROR FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UCFIRST ARRAY ERROR FIX"
+issues: []
+discussions: []
+---
+
 # ucfirst() Array Error Fix - Header Social
 
 > **Risolto: ucfirst(): Argument #1 ($string) must be of type string, array given**
@@ -11,6 +22,14 @@
 
 ---
 
+title: "UCFIRST ARRAY ERROR FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UCFIRST ARRAY ERROR FIX"
+issues: []
+discussions: []
 ## 🐛 Errore
 
 ```

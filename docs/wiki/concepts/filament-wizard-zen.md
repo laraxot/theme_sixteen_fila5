@@ -1,3 +1,14 @@
+---
+title: "filament wizard zen"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament wizard zen"
+issues: []
+discussions: []
+---
+
 # Filament Wizard: Philosophy, Religion, Zen
 
 ## Date

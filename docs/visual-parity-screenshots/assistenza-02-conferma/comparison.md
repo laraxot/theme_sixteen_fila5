@@ -1,3 +1,14 @@
+---
+title: "comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "comparison"
+issues: []
+discussions: []
+---
+
 # Visual Comparison: assistenza-02-conferma
 
 **Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/assistenza-02-conferma.html
