@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "theme page shell"
+issues: []
+discussions: []
 title: folio page-shell — data-page presentation only
 type: concept
 theme: sixteen

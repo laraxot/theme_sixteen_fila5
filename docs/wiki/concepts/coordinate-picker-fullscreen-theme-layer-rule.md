@@ -1,3 +1,14 @@
+---
+title: "coordinate picker fullscreen theme layer rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "coordinate picker fullscreen theme layer rule"
+issues: []
+discussions: []
+---
+
 # Coordinate Picker Fullscreen Theme Layer Rule
 
 ## Regola

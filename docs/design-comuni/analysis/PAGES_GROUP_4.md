@@ -1,9 +1,28 @@
+---
+title: "PAGES GROUP 4"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGES GROUP 4"
+issues: []
+discussions: []
+---
+
 # Design Comuni Pages HTML Structure Parity Analysis
 
 ## Group 4 Analysis Results
 
 ---
 
+title: "PAGES GROUP 4"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGES GROUP 4"
+issues: []
+discussions: []
 ## Page: documenti-dati
 
 ### Status: Error (500)

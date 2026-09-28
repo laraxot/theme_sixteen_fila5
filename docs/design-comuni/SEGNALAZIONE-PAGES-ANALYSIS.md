@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONE PAGES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONE PAGES ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Segnalazione Pages Analysis Report
 
 **Date**: 2026-04-04  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "SEGNALAZIONE PAGES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONE PAGES ANALYSIS"
+issues: []
+discussions: []
 ## Visual Parity Results
 
 | Page | HTTP Status | HTML Similarity | Visual Parity | Height (Local/Ref) | Status |

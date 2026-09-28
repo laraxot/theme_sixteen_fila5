@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONE FIX SESSION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONE FIX SESSION"
+issues: []
+discussions: []
+---
+
 # Segnalazione Pages - Fix Session Summary
 
 **Data**: 2026-04-07  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "SEGNALAZIONE FIX SESSION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONE FIX SESSION"
+issues: []
+discussions: []
 ## 🎯 Obiettivo
 
 Rendere le 8 pagine di segnalazione (`http://127.0.0.1:8000/it/tests/<pagina>`) **visivamente identiche** a `https://italia.github.io/design-comuni-pagine-statiche/sito/<pagina>.html` utilizzando Tailwind CSS + Bootstrap Italia classes (NO Bootstrap Italia runtime).

@@ -25,7 +25,7 @@
                 >
                     {{ $stepLabel }}
                     <span class="visually-hidden" x-show="getStepIndex(step) === {{ $index }}">
-                        ({{ __('fixcity::segnalazione.steps.active.label') }})
+                        ({{ __('fixcity::ticket.steps.active.label') }})
                     </span>
                 </li>
             @endforeach

@@ -1,3 +1,14 @@
+---
+title: "filament 4x upgrade report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament 4x upgrade report"
+issues: []
+discussions: []
+---
+
 # Rapporto Aggiornamento Filament 4.x - Tema Sixteen
 
 **Data**: 2025-09-30

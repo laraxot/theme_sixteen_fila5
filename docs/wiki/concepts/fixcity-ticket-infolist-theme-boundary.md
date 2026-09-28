@@ -1,3 +1,14 @@
+---
+title: "fixcity ticket infolist theme boundary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fixcity ticket infolist theme boundary"
+issues: []
+discussions: []
+---
+
 # Fixcity Ticket Infolist Theme Boundary
 
 ## Scopo

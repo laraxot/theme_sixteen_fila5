@@ -1,3 +1,14 @@
+---
+title: "domande frequenti analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domande frequenti analysis"
+issues: []
+discussions: []
+---
+
 # Analysis: Domande Frequenti (FAQ) - Structural Parity
 
 ## Objective

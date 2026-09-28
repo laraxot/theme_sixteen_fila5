@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco comparison summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco comparison summary"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: ticket-list
 
 ## Summary
@@ -25,6 +36,14 @@
 
 ---
 
+title: "segnalazioni elenco comparison summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco comparison summary"
+issues: []
+discussions: []
 ## Bidirectional Links
 
 - **Script**: [`bashscripts/html/html-structure-compare.sh`](../../../../../bashscripts/html/html-structure-compare.sh)

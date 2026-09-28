@@ -1,4 +1,7 @@
 ---
+qmd: "header nav dynamic links"
+issues: []
+discussions: []
 title: "Header Nav Dynamic Links — Sixteen Theme"
 type: concept
 sources: ["../../Modules/Cms/docs/wiki/concepts/header-nav-block-architecture.md"]

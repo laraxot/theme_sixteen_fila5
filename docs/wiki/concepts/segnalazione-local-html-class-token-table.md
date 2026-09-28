@@ -1,4 +1,7 @@
 ---
+qmd: "segnalazione local html class token table"
+issues: []
+discussions: []
 title: "Tabella token class= — 7 HTML locali (.planning/research)"
 type: concept
 sources:

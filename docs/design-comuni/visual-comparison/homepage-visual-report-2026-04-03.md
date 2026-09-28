@@ -1,3 +1,14 @@
+---
+title: "homepage visual report 2026 04 03"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage visual report 2026 04 03"
+issues: []
+discussions: []
+---
+
 # Homepage Visual Comparison Report
 
 **Date:** 2026-04-03  
@@ -12,6 +23,14 @@
 
 ---
 
+title: "homepage visual report 2026 04 03"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage visual report 2026 04 03"
+issues: []
+discussions: []
 ## Executive Summary
 
 Visual comparison reveals **significant layout differences** between reference and local implementation. The HTML structure is mostly correct, but CSS styling needs substantial work to match the Bootstrap Italia design using Tailwind CSS.

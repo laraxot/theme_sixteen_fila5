@@ -1,3 +1,14 @@
+---
+title: "PHASE 8 ALPINE ROOT CAUSE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PHASE 8 ALPINE ROOT CAUSE"
+issues: []
+discussions: []
+---
+
 # Phase 8: Root Cause Found! - Alpine Directives Being Stripped
 
 **Date**: 2026-04-02  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "PHASE 8 ALPINE ROOT CAUSE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PHASE 8 ALPINE ROOT CAUSE"
+issues: []
+discussions: []
 ## The Problem (CONFIRMED)
 
 ### Evidence Chain

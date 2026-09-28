@@ -1,3 +1,14 @@
+---
+title: "STATUS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STATUS"
+issues: []
+discussions: []
+---
+
 # REPLIKATE — Design Comuni → Tailwind (Status Report)
 
 **Data**: 2026-04-07
@@ -5,6 +16,14 @@
 
 ---
 
+title: "STATUS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STATUS"
+issues: []
+discussions: []
 ## Pagine Analizzate
 
 ### ✅ Homepage (tests.homepage)

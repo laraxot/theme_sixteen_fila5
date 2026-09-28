@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONI ELENCO RATING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO RATING FIX"
+issues: []
+discussions: []
+---
+
 # Segnalazioni Elenco - Fix Rating Duplicato
 
 ## Panoramica
@@ -56,5 +67,13 @@ grep -c "Quanto sono chiare" local-structure.html
 
 ---
 
+title: "SEGNALAZIONI ELENCO RATING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO RATING FIX"
+issues: []
+discussions: []
 **Stato**: ✅ 99.1% - Rating duplicato rimosso  
 **Data**: 2026-04-03

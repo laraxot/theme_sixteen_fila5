@@ -1,4 +1,7 @@
 ---
+qmd: "frontend design civic anthropic adaptation"
+issues: []
+discussions: []
 title: frontend design — adattamento plugin anthropic al tema sixteen
 type: concept
 module: Sixteen

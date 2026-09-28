@@ -1,3 +1,14 @@
+---
+title: "leaflet shadow dom visual verification rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "leaflet shadow dom visual verification rule"
+issues: []
+discussions: []
+---
+
 # Leaflet Shadow DOM Visual Verification Rule
 
 ## Regola Tema

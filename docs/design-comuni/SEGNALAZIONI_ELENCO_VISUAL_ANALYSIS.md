@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Analisi Visiva Segnalazioni Elenco - CSS/JS Fix Plan
 
 ## Panoramica
@@ -206,6 +217,14 @@
 
 ---
 
+title: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+issues: []
+discussions: []
 **Data**: 2026-04-03  
 **Stato HTML**: ✅ 95.7%  
 **Focus**: CSS/JS per allineamento visivo  

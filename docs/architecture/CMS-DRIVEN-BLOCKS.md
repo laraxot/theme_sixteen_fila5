@@ -1,3 +1,14 @@
+---
+title: "CMS DRIVEN BLOCKS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "CMS DRIVEN BLOCKS"
+issues: []
+discussions: []
+---
+
 # CMS-Driven Blocks Philosophy
 
 > **Date:** 2026-04-13

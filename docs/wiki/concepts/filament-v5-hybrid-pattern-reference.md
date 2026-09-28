@@ -1,3 +1,14 @@
+---
+title: "filament v5 hybrid pattern reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament v5 hybrid pattern reference"
+issues: []
+discussions: []
+---
+
 # Filament v5 Hybrid Pattern - Theme Reference
 
 **Status**: Reference  
@@ -199,4 +210,12 @@ Themes/Sixteen/lang/it/ticket.php
 
 ---
 
+title: "filament v5 hybrid pattern reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament v5 hybrid pattern reference"
+issues: []
+discussions: []
 *Theme reference for Filament v5 Hybrid Pattern. Implementation lives in Fixcity module.*

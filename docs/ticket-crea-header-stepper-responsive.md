@@ -1,3 +1,14 @@
+---
+title: "ticket crea header stepper responsive"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket crea header stepper responsive"
+issues: []
+discussions: []
+---
+
 # segnalazione-crea Header/Stepper Responsive - Fix Plan
 
 **Status**: Active  

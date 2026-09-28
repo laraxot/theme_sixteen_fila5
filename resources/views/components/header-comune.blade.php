@@ -99,7 +99,7 @@
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
-                                <a href="{{ url('/') }}" title="Vai alla homepage">
+                                <a href="{{ url('/'.app()->getLocale()) }}" title="Vai alla homepage">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
                                         <image xlink:href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
                                     </svg>
@@ -152,7 +152,7 @@
                                     </button>
                                 </div>
                                 <div class="menu-wrapper">
-                                    <a href="{{ url('/') }}" class="logo-hamburger">
+                                    <a href="{{ url('/'.app()->getLocale()) }}" class="logo-hamburger">
                                         <svg class="icon" aria-hidden="true"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use></svg>
                                         <div class="it-brand-text">
                                             <div class="it-brand-title">{{ config('app.name', 'Nome del Comune') }}</div>

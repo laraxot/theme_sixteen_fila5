@@ -1,3 +1,14 @@
+---
+title: "design comuni compliance"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "design comuni compliance"
+issues: []
+discussions: []
+---
+
 # Design Comuni Compliance - Sixteen Theme
 **Date**: 2025-02-02
 **Theme**: Sixteen (FixCity Frontend)
@@ -6,6 +17,14 @@
 
 ---
 
+title: "design comuni compliance"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "design comuni compliance"
+issues: []
+discussions: []
 ## Overview
 
 This document tracks the Sixteen theme's adherence to the design-comuni-pagine-statiche standard for Italian municipal websites.

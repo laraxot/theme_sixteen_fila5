@@ -1,4 +1,5 @@
 ---
+qmd: "fo folio links multilingua"
 title: "Link FO multilingua — path Folio + FrontofficeUrl"
 type: concept
 tags: [folio, localization, frontoffice, header, navigation, dry]

@@ -125,8 +125,6 @@
             ])
         </div>
 
-        @include('pub_theme::components.blocks.ticket.modal-disservizio', ['sprite' => $vm->sprite()])
-
         @if ($vm->hasSidebarFilters())
             <div class="modal d-lg-none" id="modal-categories" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">

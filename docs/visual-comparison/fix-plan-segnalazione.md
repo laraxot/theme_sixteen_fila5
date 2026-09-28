@@ -1,3 +1,14 @@
+---
+title: "fix plan segnalazione"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fix plan segnalazione"
+issues: []
+discussions: []
+---
+
 # Visual Parity Fix Plan - Segnalazione Pages
 
 **Generated**: 2026-04-06
@@ -5,6 +16,14 @@
 
 ---
 
+title: "fix plan segnalazione"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fix plan segnalazione"
+issues: []
+discussions: []
 ## Executive Summary
 
 After analyzing all 8 pages, the main issues are:

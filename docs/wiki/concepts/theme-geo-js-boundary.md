@@ -1,4 +1,8 @@
 ---
+updated: 2026-09-26
+qmd: "theme geo js boundary"
+issues: []
+discussions: []
 title: "Theme Geo JS Boundary"
 type: concept
 module: Sixteen

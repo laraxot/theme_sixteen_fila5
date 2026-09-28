@@ -4,6 +4,7 @@
     $title = (string) ($data['title'] ?? '');
     $description = (string) ($data['description'] ?? '');
     $steps = (array) ($data['steps'] ?? []);
+    $translationNamespace = (string) ($data['translation_namespace'] ?? '');
     $currentStep = (int) ($data['currentStep'] ?? 1);
     $navigable = (bool) ($data['navigable'] ?? false);
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
@@ -14,7 +15,7 @@
         <svg class="icon icon-primary mr-10 icon-md" aria-hidden="true">
             <use href="{{ $sprite }}#it-warning"></use>
         </svg>
-        <h1 class="title-xxxlarge">{{ $title }}</h1>
+        <h1 class="title-xxxlarge">{{ $translationNamespace !== '' ? __($translationNamespace.'.stepper.title') : $title }}</h1>
     </div>
     @if ($description !== '')
         <p class="subtitle-small">{{ $description }}</p>
@@ -22,6 +23,12 @@
 </div>
 
 @if ($steps !== [])
+@php
+    if ($translationNamespace !== '') {
+        $translatedSteps = __($translationNamespace.'.stepper.steps');
+        $steps = is_array($translatedSteps) ? $translatedSteps : $steps;
+    }
+@endphp
 <div class="col-12">
     <div class="steppers">
         <div class="steppers-header">

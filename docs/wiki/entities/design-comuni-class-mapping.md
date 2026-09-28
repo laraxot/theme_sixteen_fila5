@@ -1,4 +1,8 @@
 ---
+title: "design comuni class mapping"
+qmd: "design comuni class mapping"
+issues: []
+discussions: []
 type: entity
 created: 2026-05-04
 updated: 2026-05-15

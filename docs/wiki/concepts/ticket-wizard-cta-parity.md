@@ -1,3 +1,14 @@
+---
+title: "ticket wizard cta parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket wizard cta parity"
+issues: []
+discussions: []
+---
+
 # segnalazione wizard cta parity
 
 ## Obiettivo

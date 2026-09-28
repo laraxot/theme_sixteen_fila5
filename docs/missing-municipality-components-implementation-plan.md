@@ -1,3 +1,14 @@
+---
+title: "missing municipality components implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "missing municipality components implementation plan"
+issues: []
+discussions: []
+---
+
 # Piano di Implementazione Componenti Mancanti per Sito Comunale AGID
 
 ## 📋 Overview
@@ -362,6 +373,14 @@ Appointment.php           // Appuntamenti
 
 ---
 
+title: "missing municipality components implementation plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "missing municipality components implementation plan"
+issues: []
+discussions: []
 ## 📄 Conclusioni
 
 L'implementazione completa di tutti i componenti mancanti trasformerà il tema Sixteen in una soluzione **enterprise-ready** per i Italian municipalities, garantendo:

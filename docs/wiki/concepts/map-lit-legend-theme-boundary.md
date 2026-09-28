@@ -1,3 +1,14 @@
+---
+title: "map lit legend theme boundary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "map lit legend theme boundary"
+issues: []
+discussions: []
+---
+
 # Legenda mappa — confine tema vs modulo Geo
 
 ## Scopo

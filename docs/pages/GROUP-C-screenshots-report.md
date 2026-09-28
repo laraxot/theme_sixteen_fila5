@@ -1,3 +1,14 @@
+---
+title: "GROUP C screenshots report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GROUP C screenshots report"
+issues: []
+discussions: []
+---
+
 # Group C - Screenshot Capture Report
 
 **Generated**: 2026-04-06T19:14:57.030Z

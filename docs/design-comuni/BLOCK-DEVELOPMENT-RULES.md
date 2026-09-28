@@ -1,3 +1,14 @@
+---
+title: "BLOCK DEVELOPMENT RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCK DEVELOPMENT RULES"
+issues: []
+discussions: []
+---
+
 # Design Comuni - Block Development Rules
 
 **Created:** 2026-04-08  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "BLOCK DEVELOPMENT RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCK DEVELOPMENT RULES"
+issues: []
+discussions: []
 ## 1. Tech Stack: TailwindCSS + Alpine.js ONLY
 
 ### Core Principle

@@ -25,7 +25,7 @@ middleware(['web', 'auth']);
 
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
-                        <p class="text-muted">Questa pagina mostrerà le impostazioni disponibili presto.</p>
+                        @livewire(\Modules\Fixcity\Livewire\TicketNotificationPreferencesWidget::class)
                     </div>
                 </div>
             </div>

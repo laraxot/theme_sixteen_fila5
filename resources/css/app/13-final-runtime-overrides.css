@@ -14,6 +14,13 @@
   color: #fff !important;
 }
 
+@media (max-width: 359.98px) {
+  .it-header-center-content-wrapper .it-brand-title {
+    font-size: 1rem !important;
+    letter-spacing: -0.015em !important;
+  }
+}
+
 .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full:hover,
 .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full:focus-visible {
   background: #00684a !important;
@@ -497,4 +504,22 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
     pointer-events: auto !important;
   }
 }
+/* Tracking search: keep the complete code field usable on narrow screens. */
+.ticket-track-search-group {
+  column-gap: 0.5rem;
+}
 
+@media (max-width: 575.98px) {
+  .ticket-track-search-group {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ticket-track-search-group > .form-control,
+  .ticket-track-search-group > .btn {
+    width: 100%;
+    flex: 0 0 auto;
+    border-radius: 0.25rem;
+  }
+}

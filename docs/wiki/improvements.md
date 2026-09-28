@@ -1,4 +1,7 @@
 ---
+qmd: "improvements"
+issues: []
+discussions: []
 title: "Miglioramenti"
 type: improvements
 created: 2026-04-28

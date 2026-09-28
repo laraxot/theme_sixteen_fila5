@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco fase01"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco fase01"
+issues: []
+discussions: []
+---
+
 # Segnalazioni elenco fase01
 
 <pagina> = segnalazione-area-personale

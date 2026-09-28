@@ -1,3 +1,14 @@
+---
+title: "blade component extraction rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "blade component extraction rule"
+issues: []
+discussions: []
+---
+
 # Blade Component Extraction Rule — Tema Sixteen
 
 ## Principio

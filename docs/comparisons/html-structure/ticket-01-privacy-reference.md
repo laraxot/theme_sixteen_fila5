@@ -1,3 +1,14 @@
+---
+title: "ticket 01 privacy reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 01 privacy reference"
+issues: []
+discussions: []
+---
+
 # Ticket 01 privacy reference
 
 <body>

@@ -1,3 +1,14 @@
+---
+title: "dynamic route correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "dynamic route correction"
+issues: []
+discussions: []
+---
+
 # 🔄 Dynamic Route Correction - [slug].blade.php Only
 
 **Date**: 2026-03-30  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "dynamic route correction"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "dynamic route correction"
+issues: []
+discussions: []
 ## 🚨 Error Fixed
 
 **WRONG**: Created specific blade files for each page

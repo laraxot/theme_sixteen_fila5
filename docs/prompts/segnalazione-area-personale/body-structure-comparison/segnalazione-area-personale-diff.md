@@ -1,3 +1,14 @@
+---
+title: "segnalazione area personale diff"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione area personale diff"
+issues: []
+discussions: []
+---
+
 # Segnalazione area personale diff
 
 ```text

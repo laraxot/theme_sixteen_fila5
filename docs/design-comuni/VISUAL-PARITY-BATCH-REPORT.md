@@ -1,3 +1,14 @@
+---
+title: "VISUAL PARITY BATCH REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL PARITY BATCH REPORT"
+issues: []
+discussions: []
+---
+
 # Design Comuni Visual Parity - Batch Analysis Report
 
 **Date:** 2026-04-03  
@@ -11,6 +22,14 @@
 
 ---
 
+title: "VISUAL PARITY BATCH REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL PARITY BATCH REPORT"
+issues: []
+discussions: []
 ## Summary
 
 | Status | Count | Percentage |

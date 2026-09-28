@@ -1,3 +1,14 @@
+---
+title: "user research"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "user research"
+issues: []
+discussions: []
+---
+
 # User Research - Theme Sixteen
 
 ## AGID-Compliant Public Administration Theme
@@ -8,6 +19,14 @@
 
 ---
 
+title: "user research"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "user research"
+issues: []
+discussions: []
 ## Executive Summary
 
 This document presents comprehensive user research findings for Theme Sixteen, the AGID-compliant public administration theme. Research was conducted between October 2025 and February 2026, involving 45 participants across Italian public administrations, digital agencies, and freelance developers.

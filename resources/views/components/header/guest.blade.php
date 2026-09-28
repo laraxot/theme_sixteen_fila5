@@ -92,7 +92,7 @@
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('fixcity.*') ? 'active' : '' }}" 
-                                            href="{{ route('fixcity.tickets.index') }}"
+                                            href="{{ url('/'.app()->getLocale().'/tickets') }}"
                                             @click="closeOnItemClick()"
                                         >Segnalazioni</a>
                                     </li>

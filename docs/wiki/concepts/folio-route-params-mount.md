@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "Folio — parametri route via mount(), non request()->route()"
 type: concept
 tags: [folio, volt, mount, container0, slug0, six]

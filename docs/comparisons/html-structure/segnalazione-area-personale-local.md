@@ -1,3 +1,14 @@
+---
+title: "segnalazione area personale local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione area personale local"
+issues: []
+discussions: []
+---
+
 # Segnalazione area personale local
 
 <body>

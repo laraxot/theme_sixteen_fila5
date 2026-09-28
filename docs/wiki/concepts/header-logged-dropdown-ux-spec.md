@@ -1,4 +1,5 @@
 ---
+created: 2026-09-26
 title: "Header logged — dropdown UX spec"
 type: concept
 updated: 2026-06-05

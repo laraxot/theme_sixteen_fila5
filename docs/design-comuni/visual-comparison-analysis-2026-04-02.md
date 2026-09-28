@@ -1,3 +1,14 @@
+---
+title: "visual comparison analysis 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual comparison analysis 2026 04 02"
+issues: []
+discussions: []
+---
+
 # Visual Comparison Analysis - Homepage
 
 **Data**: 2026-04-02
@@ -7,6 +18,14 @@
 
 ---
 
+title: "visual comparison analysis 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual comparison analysis 2026 04 02"
+issues: []
+discussions: []
 ## 📊 Risultato Comparazione per Sezione
 
 | Sezione | REF Size | FIX Size | Ratio | Stato | Note |

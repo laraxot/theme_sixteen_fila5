@@ -1,3 +1,14 @@
+---
+title: "agid login implementation"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login implementation"
+issues: []
+discussions: []
+---
+
 # Implementazione Login AGID-Compliant - Tema Sixteen
 
 ## Panoramica

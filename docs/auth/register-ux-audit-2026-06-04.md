@@ -1,3 +1,14 @@
+---
+title: "register ux audit 2026 06 04"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "register ux audit 2026 06 04"
+issues: []
+discussions: []
+---
+
 # Register `/it/auth/register` — audit UX/WCAG/funzionamento (2026-06-04)
 
 ## Problemi trovati (prima)

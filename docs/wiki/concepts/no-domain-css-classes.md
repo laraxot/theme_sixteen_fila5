@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "no domain css classes"
+issues: []
+discussions: []
 title: no domain css classes in theme
 type: concept
 theme: sixteen

@@ -1,3 +1,14 @@
+---
+title: "login card component analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login card component analysis"
+issues: []
+discussions: []
+---
+
 # Analisi Componente Login Card AGID - Tema Sixteen
 
 ## 🚨 PROBLEMA IDENTIFICATO
@@ -470,6 +481,14 @@ touch laravel/Themes/Sixteen/resources/views/components/blocks/forms/password-re
 
 ---
 
+title: "login card component analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login card component analysis"
+issues: []
+discussions: []
 **Data Analisi**: Dicembre 2024  
 **Problema Identificato**: ✅ Namespace sbagliato  
 **Soluzione Proposta**: ✅ Namespace corretto + componenti migliorati  

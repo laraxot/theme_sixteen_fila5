@@ -1,3 +1,14 @@
+---
+title: "accessibility implementation guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "accessibility implementation guide"
+issues: []
+discussions: []
+---
+
 # WCAG 2.1 Accessibility Implementation Guide - Sixteen Theme
 
 ## Executive Summary
@@ -6,6 +17,14 @@ This document provides specific accessibility implementation guidelines for the 
 
 ---
 
+title: "accessibility implementation guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "accessibility implementation guide"
+issues: []
+discussions: []
 ## Theme-Specific Accessibility Requirements
 
 ### 1. Color Palette & Contrast Compliance

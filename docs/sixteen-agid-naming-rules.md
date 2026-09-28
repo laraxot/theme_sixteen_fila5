@@ -1,3 +1,14 @@
+---
+title: "sixteen agid naming rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "sixteen agid naming rules"
+issues: []
+discussions: []
+---
+
 # Regole di Naming AGID per Tema Sixteen
 
 ## 🚨 **REGOLA CRITICA: Mai Suffissi -agid**
@@ -219,6 +230,14 @@ Tutti i blocchi nella stessa categoria condividono **identici props**:
 
 ---
 
+title: "sixteen agid naming rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "sixteen agid naming rules"
+issues: []
+discussions: []
 **Creato**: 2025-08-01  
 **Autore**: Sistema Correzione Errori  
 **Versione**: 1.0  

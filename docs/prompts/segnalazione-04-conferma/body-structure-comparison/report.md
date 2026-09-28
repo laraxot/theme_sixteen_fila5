@@ -1,3 +1,14 @@
+---
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison Report
 
 **Generated**: 2026-04-08 17:09:03
@@ -6,6 +17,14 @@
 
 ---
 
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
 ## Summary
 
 | Metric                        | Value          |

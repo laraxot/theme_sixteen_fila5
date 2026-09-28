@@ -1,3 +1,14 @@
+---
+title: "login agid fix complete"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login agid fix complete"
+issues: []
+discussions: []
+---
+
 # Correzione Login AGID Completata - Tema Sixteen
 
 ## ✅ STATO: CORREZIONE COMPLETATA
@@ -342,6 +353,14 @@ cat laravel/Themes/Sixteen/resources/views/components/blocks/forms/login-card-ag
 
 ---
 
+title: "login agid fix complete"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login agid fix complete"
+issues: []
+discussions: []
 **Data Correzione**: Dicembre 2024  
 **Problemi Risolti**: ✅ COMPLETI  
 **Conformità AGID**: ✅ 100%  

@@ -1,3 +1,14 @@
+---
+title: "HTML PARITY VERIFICATION REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML PARITY VERIFICATION REPORT"
+issues: []
+discussions: []
+---
+
 # HTML Parity Verification Report - Design Comuni Italia
 
 **Data**: 2026-04-01  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "HTML PARITY VERIFICATION REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML PARITY VERIFICATION REPORT"
+issues: []
+discussions: []
 ## 📊 Executive Summary
 
 ### Obiettivo

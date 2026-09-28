@@ -1,3 +1,14 @@
+---
+title: "ARGOMENTI ARGOMENTO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ARGOMENTO COMPARISON"
+issues: []
+discussions: []
+---
+
 # Argomenti & Argomento - HTML Comparison
 
 **Date:** 2026-04-03
@@ -7,6 +18,14 @@
 
 ---
 
+title: "ARGOMENTI ARGOMENTO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ARGOMENTO COMPARISON"
+issues: []
+discussions: []
 ## ARGOMENTI (Topics Listing) - Status: ✅ 95%+ Match
 
 ### Structure Match

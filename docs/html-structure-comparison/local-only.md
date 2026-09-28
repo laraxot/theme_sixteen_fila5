@@ -1,3 +1,14 @@
+---
+title: "local only"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "local only"
+issues: []
+discussions: []
+---
+
 # Local only
 
 <a class="btn btn-outline-light btn-icon" href="..." data-element="personal-area-login" aria-label="Accedi all'area personale">

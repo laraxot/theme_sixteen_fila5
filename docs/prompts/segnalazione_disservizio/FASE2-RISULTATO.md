@@ -1,3 +1,14 @@
+---
+title: "FASE2 RISULTATO"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FASE2 RISULTATO"
+issues: []
+discussions: []
+---
+
 # HTML Body Structure Comparison — comparison
 
 - Data: 2026-04-08 11:45:14

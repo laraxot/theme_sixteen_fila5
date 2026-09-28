@@ -1,3 +1,14 @@
+---
+title: "LAYOUT CENTERING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT CENTERING FIX"
+issues: []
+discussions: []
+---
+
 # Layout Centering Fix Report
 
 ## Issue
@@ -92,6 +103,14 @@ npm run copy     # Deploy to public_html
 
 ---
 
+title: "LAYOUT CENTERING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT CENTERING FIX"
+issues: []
+discussions: []
 ## 📚 Related Documentation
 
 - **[← INDEX](./INDEX.md)** - Documentation overview

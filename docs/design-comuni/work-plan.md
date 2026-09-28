@@ -1,3 +1,14 @@
+---
+title: "work plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "work plan"
+issues: []
+discussions: []
+---
+
 # Piano di Lavoro: Homepage Visual Parity
 
 **Data**: 2026-04-02
@@ -8,6 +19,14 @@
 
 ---
 
+title: "work plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "work plan"
+issues: []
+discussions: []
 ## Obiettivo
 
 Rendere `http://127.0.0.1:8000/it/tests/homepage` il piu' vicino possibile a

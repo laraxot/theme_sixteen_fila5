@@ -1,3 +1,14 @@
+---
+title: "FAIL PAGES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Analisi Dettagliata Pagine Fail (<50%)
 
 ## Data: 2026-04-03
@@ -27,6 +38,14 @@
 
 ---
 
+title: "FAIL PAGES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES ANALYSIS"
+issues: []
+discussions: []
 ## evento-dettaglio (43.0%)
 
 - Reference: 1448 righe

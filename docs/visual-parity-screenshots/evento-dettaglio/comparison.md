@@ -1,3 +1,14 @@
+---
+title: "comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "comparison"
+issues: []
+discussions: []
+---
+
 # Visual Comparison: evento-dettaglio
 
 **Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/evento-dettaglio.html
