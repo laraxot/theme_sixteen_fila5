@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE VISUAL DIFF ANALYSIS 2026 04 07"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE VISUAL DIFF ANALYSIS 2026 04 07"
+issues: []
+discussions: []
+---
+
 # Homepage Visual Difference Analysis - 2026-04-07
 
 **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
@@ -5,6 +16,14 @@
 
 ---
 
+title: "HOMEPAGE VISUAL DIFF ANALYSIS 2026 04 07"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE VISUAL DIFF ANALYSIS 2026 04 07"
+issues: []
+discussions: []
 ## 1. Header & Navigation
 
 ### 1.1 Hamburger Menu Position

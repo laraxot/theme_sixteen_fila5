@@ -1,3 +1,14 @@
+---
+title: "block 02 calendario eventi"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 02 calendario eventi"
+issues: []
+discussions: []
+---
+
 # Block 02: Governance + Calendario Eventi
 
 **ID:** `calendario`  
@@ -196,4 +207,12 @@
 
 ---
 
+title: "block 02 calendario eventi"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 02 calendario eventi"
+issues: []
+discussions: []
 *Blocco 02/11 — Fonte: italia.github.io/design-comuni-pagine-statiche/sito/homepage.html*

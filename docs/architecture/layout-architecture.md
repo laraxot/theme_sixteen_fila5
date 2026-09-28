@@ -1,3 +1,14 @@
+---
+title: "layout architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout architecture"
+issues: []
+discussions: []
+---
+
 # Layout Architecture - DRY + KISS
 
 > **Perché `[slug].blade.php` NON deve contenere header, footer e skiplink**
@@ -8,6 +19,14 @@ Questo documento spiega l'architettura dei layout nel tema Sixteen, seguendo i p
 
 ---
 
+title: "layout architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout architecture"
+issues: []
+discussions: []
 ## 🎯 Obiettivo
 
 Separare chiaramente:

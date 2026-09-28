@@ -1,3 +1,14 @@
+---
+title: "header navbar background cascade rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header navbar background cascade rule"
+issues: []
+discussions: []
+---
+
 # Header Navbar Background Cascade Rule
 
 ## Regola

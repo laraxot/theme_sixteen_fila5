@@ -1,3 +1,14 @@
+---
+title: "header navigation background fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header navigation background fix"
+issues: []
+discussions: []
+---
+
 # Header Navigation Background Fix
 
 ## Issue
@@ -34,4 +45,12 @@ Bootstrap Italia applies its own background color to `.navbar-nav .nav-link`. Th
 - Design Comuni reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html
 
 ---
+title: "header navigation background fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "header navigation background fix"
+issues: []
+discussions: []
 *Created by the Bmad‑Create‑Story skill (Story 8‑45).*

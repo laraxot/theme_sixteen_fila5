@@ -1,3 +1,14 @@
+---
+title: "filament 4x styles configuration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament 4x styles configuration"
+issues: []
+discussions: []
+---
+
 # Configurazione Stili Filament 4.x - Tema Sixteen
 
 ## Panoramica
@@ -490,6 +501,14 @@ npm run build --verbose
 
 ---
 
+title: "filament 4x styles configuration"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "filament 4x styles configuration"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: Gennaio 2025
 **Versione**: 1.0
 **Compatibilità**: Filament 4.x, Tailwind CSS 3.x, Laravel 10.x

@@ -1,3 +1,14 @@
+---
+title: "auth login ux design wcag"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "auth login ux design wcag"
+issues: []
+discussions: []
+---
+
 # UX design — `/it/auth/login` (accessibilità e CTA)
 
 **URL:** `http://127.0.0.1:8000/it/auth/login`  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "auth login ux design wcag"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "auth login ux design wcag"
+issues: []
+discussions: []
 ## User flow
 
 ```mermaid

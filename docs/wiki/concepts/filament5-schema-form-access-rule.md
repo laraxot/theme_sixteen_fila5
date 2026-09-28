@@ -1,4 +1,7 @@
 ---
+qmd: "filament5 schema form access rule"
+issues: []
+discussions: []
 title: "Filament 5 Schema — accesso form nelle view Sixteen"
 type: concept
 module: Sixteen

@@ -1,329 +1,97 @@
-{{-- Template Pagina Servizi - AGID Compliant --}}
-<x-layouts.main 
-    title="Servizi del Comune"
-    metaDescription="Tutti i servizi digitali e tradizionali del Comune - Accesso rapido e semplice ai servizi per i cittadini"
-    breadcrumbTitle="Servizi"
+{{-- Fixcity civic services entry point. All public copy belongs to locale files. --}}
+<x-layouts.app
+    :title="__('pub_theme::services.meta.title')"
+    :metaDescription="__('pub_theme::services.meta.description')"
+    :breadcrumbTitle="__('pub_theme::services.meta.breadcrumb')"
 >
-    
-    {{-- Hero Section --}}
-    <section class="bg-primary-600 text-white py-12">
-        <div class="container-italia">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl font-bold mb-6">Servizi del Comune</h1>
-                <p class="text-xl text-primary-100 mb-8">
-                    Accedi a tutti i servizi digitali e tradizionali del Comune in modo semplice e rapido
-                </p>
-                
-                {{-- Quick Search --}}
-                <div class="relative max-w-2xl mx-auto">
-                    <input 
-                        type="text" 
-                        placeholder="Cerca servizi..." 
-                        class="w-full px-6 py-4 pr-12 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+    <div
+        x-data="{
+            query: '',
+            get resultCount() {
+                const search = this.query.trim().toLocaleLowerCase();
+                return [...this.$refs.catalogue.querySelectorAll('[data-service-searchable]')]
+                    .filter((item) => item.dataset.search.includes(search)).length;
+            }
+        }"
+    >
+        <section id="fixcity-services-hero" class="bg-white py-10 text-gray-900" aria-labelledby="services-title">
+            <div class="container-italia mx-auto px-4">
+                <div class="mx-auto max-w-4xl text-center">
+                    <h1 id="services-title" class="mb-5 text-4xl font-bold text-gray-900">{{ __('pub_theme::services.hero.title') }}</h1>
+                    <p class="mb-8 text-xl text-gray-700">{{ __('pub_theme::services.hero.subtitle') }}</p>
+                    <label for="service-search" class="sr-only">{{ __('pub_theme::services.hero.search_label') }}</label>
+                    <input
+                        id="service-search"
+                        type="search"
+                        x-model.debounce.150ms="query"
+                        aria-controls="service-catalogue"
+                        placeholder="{{ __('pub_theme::services.hero.search_placeholder') }}"
+                        class="w-full rounded-lg border border-gray-300 bg-white px-5 py-4 text-gray-900 focus:border-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-700"
                     >
-                    <x-heroicon-o-magnifying-glass class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+                    <p class="mt-3 text-sm text-gray-700" role="status" aria-live="polite" aria-atomic="true">
+                        <span x-text="resultCount"></span>
+                        <span x-text="resultCount === 1 ? @js(__('pub_theme::services.results.singular')) : @js(__('pub_theme::services.results.plural'))"></span>
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    {{-- Services Navigation --}}
-    <section class="py-8 bg-gray-50 border-b border-gray-200">
-        <div class="container-italia">
-            <nav aria-label="Categorie servizi" class="flex flex-wrap justify-center gap-4">
-                <a href="#tutti" class="px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg">
-                    Tutti i servizi
-                </a>
-                <a href="#anagrafe" class="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    Anagrafe e Stato Civile
-                </a>
-                <a href="#tributi" class="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    Tributi e Imposte
-                </a>
-                <a href="#urbanistica" class="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    Urbanistica e Edilizia
-                </a>
-                <a href="#sociale" class="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    Servizi Sociali
-                </a>
-                <a href="#ambiente" class="px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    Ambiente e Verde
-                </a>
+        <section class="border-b border-gray-200 bg-gray-50 py-6" aria-label="{{ __('pub_theme::services.nav.aria') }}">
+            <nav class="container-italia mx-auto grid grid-cols-1 justify-center gap-3 px-4 sm:flex sm:flex-wrap">
+                <a href="#report" class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-center font-semibold text-gray-900 hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 sm:w-auto">{{ __('pub_theme::services.nav.report') }}</a>
+                <a href="#browse" class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-center font-semibold text-gray-900 hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 sm:w-auto">{{ __('pub_theme::services.nav.browse') }}</a>
+                <a href="#track" class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-center font-semibold text-gray-900 hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 sm:w-auto">{{ __('pub_theme::services.nav.track') }}</a>
             </nav>
-        </div>
-    </section>
+        </section>
 
-    {{-- Featured Services --}}
-    <section class="py-16 bg-white" aria-labelledby="featured-services-heading">
-        <div class="container-italia">
-            <div class="text-center mb-12">
-                <h2 id="featured-services-heading" class="text-3xl font-bold text-gray-900 mb-4">Servizi in Evidenza</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    I servizi più richiesti e utilizzati dai cittadini
-                </p>
+        <section id="service-catalogue" x-ref="catalogue" class="container-italia mx-auto px-4 py-12" aria-labelledby="catalogue-title">
+            <div class="mb-8 max-w-3xl">
+                <h2 id="catalogue-title" class="mb-3 text-3xl font-bold text-gray-900">{{ __('pub_theme::services.featured.title') }}</h2>
+                <p class="text-lg text-gray-700">{{ __('pub_theme::services.featured.subtitle') }}</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                {{-- SUAP --}}
-                <x-pub_theme::blocks.services.service-card
-                    title="SUAP - Sportello Unico"
-                    description="Presenta pratiche edilizie, richieste di permessi e consulta lo stato delle procedure online"
-                    icon="heroicon-o-building-office"
-                    url="/servizi/suap"
-                    category="urbanistica"
-                    status="active"
-                    requiresAuth="true"
-                    badge="Nuovo"
-                />
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <article id="report" data-service-searchable data-search="{{ mb_strtolower(__('pub_theme::services.tasks.report_title').' '.__('pub_theme::services.tasks.report_body').' '.__('pub_theme::services.tasks.report_auth_note')) }}" x-show="!query.trim() || $el.dataset.search.includes(query.trim().toLocaleLowerCase())" class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <x-heroicon-o-exclamation-triangle class="mb-4 h-8 w-8 text-primary-700" aria-hidden="true" />
+                    <h3 class="mb-2 text-xl font-semibold text-gray-900">{{ __('pub_theme::services.tasks.report_title') }}</h3>
+                    <p class="mb-5 text-gray-700">{{ __('pub_theme::services.tasks.report_body') }}</p>
+                    <p class="mb-5 text-sm text-gray-700">{{ __('pub_theme::services.tasks.report_auth_note') }}</p>
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/services/report-issue') }}" class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700">{{ __('pub_theme::services.tasks.report_action') }} <span aria-hidden="true" class="ml-2">→</span></a>
+                </article>
 
-                {{-- Anagrafe --}}
-                <x-pub_theme::blocks.services.service-card
-                    title="Certificati Anagrafici"
-                    description="Richiedi e scarica certificati di nascita, residenza e stato di famiglia direttamente online"
-                    icon="heroicon-o-document-text"
-                    url="/servizi/anagrafe/certificati"
-                    category="anagrafe"
-                    status="active"
-                    requiresAuth="true"
-                />
+                <article id="browse" data-service-searchable data-search="{{ mb_strtolower(__('pub_theme::services.tasks.browse_title').' '.__('pub_theme::services.tasks.browse_body')) }}" x-show="!query.trim() || $el.dataset.search.includes(query.trim().toLocaleLowerCase())" class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <x-heroicon-o-map class="mb-4 h-8 w-8 text-primary-700" aria-hidden="true" />
+                    <h3 class="mb-2 text-xl font-semibold text-gray-900">{{ __('pub_theme::services.tasks.browse_title') }}</h3>
+                    <p class="mb-5 text-gray-700">{{ __('pub_theme::services.tasks.browse_body') }}</p>
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets') }}" class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700">{{ __('pub_theme::services.tasks.browse_action') }} <span aria-hidden="true" class="ml-2">→</span></a>
+                </article>
 
-                {{-- Tributi --}}
-                <x-ui.service-card
-                    title="Pagamento Tributi"
-                    description="Paga tasse, multe e tributi comunali in modo sicuro con il sistema PagoPA"
-                    icon="heroicon-o-currency-euro"
-                    url="/servizi/tributi/pagamento"
-                    category="tributi"
-                    status="active"
-                />
-
-                {{-- Segnalazioni --}}
-                <x-ui.service-card
-                    title="Segnalazioni"
-                    description="Segnala guasti, disservizi o problematiche sul territorio comunale"
-                    icon="heroicon-o-exclamation-triangle"
-                    url="/servizi/segnalazioni"
-                    category="ambiente"
-                    status="active"
-                />
-
-                {{-- Prenotazioni --}}
-                <x-ui.service-card
-                    title="Prenotazione Appuntamenti"
-                    description="Prenota online appuntamenti con gli uffici comunali senza code né attese"
-                    icon="heroicon-o-calendar"
-                    url="/servizi/prenotazioni"
-                    category="anagrafe"
-                    status="active"
-                />
-
-                {{-- Sociali --}}
-                <x-ui.service-card
-                    title="Servizi Sociali"
-                    description="Accedi ai servizi sociali, richiedi contributi e supporto per le famiglie"
-                    icon="heroicon-o-heart"
-                    url="/servizi/sociali"
-                    category="sociale"
-                    status="active"
-                    requiresAuth="true"
-                />
-            </div>
-        </div>
-    </section>
-
-    {{-- All Services by Category --}}
-    <section class="py-16 bg-gray-50" aria-labelledby="all-services-heading">
-        <div class="container-italia">
-            <div class="text-center mb-12">
-                <h2 id="all-services-heading" class="text-3xl font-bold text-gray-900 mb-4">Tutti i Servizi per Categoria</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Scegli la categoria di servizi che ti interessa
-                </p>
+                <article id="track" data-service-searchable data-search="{{ mb_strtolower(__('pub_theme::services.tasks.track_title').' '.__('pub_theme::services.tasks.track_body')) }}" x-show="!query.trim() || $el.dataset.search.includes(query.trim().toLocaleLowerCase())" class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <x-heroicon-o-magnifying-glass class="mb-4 h-8 w-8 text-primary-700" aria-hidden="true" />
+                    <h3 class="mb-2 text-xl font-semibold text-gray-900">{{ __('pub_theme::services.tasks.track_title') }}</h3>
+                    <p class="mb-5 text-gray-700">{{ __('pub_theme::services.tasks.track_body') }}</p>
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track') }}" class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700">{{ __('pub_theme::services.tasks.track_action') }} <span aria-hidden="true" class="ml-2">→</span></a>
+                </article>
             </div>
 
-            {{-- Anagrafe e Stato Civile --}}
-            <div id="anagrafe" class="mb-16">
-                <div class="flex items-center mb-8">
-                    <x-heroicon-o-user-circle class="w-8 h-8 text-primary-600 mr-3" />
-                    <h3 class="text-2xl font-semibold text-gray-900">Anagrafe e Stato Civile</h3>
+            <p x-show="resultCount === 0" x-cloak class="mt-8 rounded-lg border border-gray-300 bg-gray-50 p-5 text-gray-800" role="status">{{ __('pub_theme::services.results.empty') }}</p>
+        </section>
+
+        <section id="categories" class="border-t border-gray-200 bg-gray-50 py-12" aria-labelledby="categories-title">
+            <div class="container-italia mx-auto px-4">
+                <div class="mb-8 max-w-3xl">
+                    <h2 id="categories-title" class="mb-3 text-3xl font-bold text-gray-900">{{ __('pub_theme::services.categories.title') }}</h2>
+                    <p class="text-lg text-gray-700">{{ __('pub_theme::services.categories.subtitle') }}</p>
                 </div>
-                
-                <x-pub_theme::blocks.services.services-grid 
-                    :services="[
-                        ['title' => 'Certificati Anagrafici', 'description' => 'Richiedi e scarica certificati online', 'category' => 'anagrafe', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Iscrizione Anagrafica', 'description' => 'Iscrizione e variazione residenza', 'category' => 'anagrafe', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Stato Civile', 'description' => 'Atti di nascita, matrimonio, morte', 'category' => 'anagrafe', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Carta d\'Identità', 'description' => 'Richiesta e rinnovo carta d\'identità', 'category' => 'anagrafe', 'status' => 'active', 'requiresAuth' => true],
-                    ]"
-                    :columns="2"
-                />
-            </div>
-
-            {{-- Tributi e Imposte --}}
-            <div id="tributi" class="mb-16">
-                <div class="flex items-center mb-8">
-                    <x-heroicon-o-currency-euro class="w-8 h-8 text-primary-600 mr-3" />
-                    <h3 class="text-2xl font-semibold text-gray-900">Tributi e Imposte</h3>
-                </div>
-                
-                <x-pub_theme::blocks.services.services-grid 
-                    :services="[
-                        ['title' => 'Pagamento TASI', 'description' => 'Pagamento tassa sui servizi indivisibili', 'category' => 'tributi', 'status' => 'active'],
-                        ['title' => 'Pagamento IMU', 'description' => 'Pagamento imposta municipale propria', 'category' => 'tributi', 'status' => 'active'],
-                        ['title' => 'TARI - Tassa Rifiuti', 'description' => 'Pagamento tassa rifiuti', 'category' => 'tributi', 'status' => 'active'],
-                        ['title' => 'Multe e Sanzioni', 'description' => 'Pagamento multe e sanzioni amministrative', 'category' => 'tributi', 'status' => 'active'],
-                    ]"
-                    :columns="2"
-                />
-            </div>
-
-            {{-- Urbanistica e Edilizia --}}
-            <div id="urbanistica" class="mb-16">
-                <div class="flex items-center mb-8">
-                    <x-heroicon-o-building-office class="w-8 h-8 text-primary-600 mr-3" />
-                    <h3 class="text-2xl font-semibold text-gray-900">Urbanistica e Edilizia</h3>
-                </div>
-                
-                <x-ui.services-grid 
-                    :services="[
-                        ['title' => 'SUAP Online', 'description' => 'Sportello Unico Attività Produttive', 'category' => 'urbanistica', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Permessi di Costruire', 'description' => 'Richiesta permessi edilizi', 'category' => 'urbanistica', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Certificazioni Urbanistiche', 'description' => 'Certificati di destinazione urbanistica', 'category' => 'urbanistica', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Mappa Catastale', 'description' => 'Consultazione mappe e cartografia', 'category' => 'urbanistica', 'status' => 'active'],
-                    ]"
-                    :columns="2"
-                />
-            </div>
-
-            {{-- Servizi Sociali --}}
-            <div id="sociale" class="mb-16">
-                <div class="flex items-center mb-8">
-                    <x-heroicon-o-heart class="w-8 h-8 text-primary-600 mr-3" />
-                    <h3 class="text-2xl font-semibold text-gray-900">Servizi Sociali</h3>
-                </div>
-                
-                <x-ui.services-grid 
-                    :services="[
-                        ['title' => 'Asili Nido', 'description' => 'Iscrizione e informazioni asili nido', 'category' => 'sociale', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Contributi Famiglie', 'description' => 'Richiesta contributi economici', 'category' => 'sociale', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Assistenza Anziani', 'description' => 'Servizi di assistenza domiciliare', 'category' => 'sociale', 'status' => 'active', 'requiresAuth' => true],
-                        ['title' => 'Centri Sociali', 'description' => 'Attività e servizi centri sociali', 'category' => 'sociale', 'status' => 'active'],
-                    ]"
-                    :columns="2"
-                />
-            </div>
-
-            {{-- Ambiente e Verde --}}
-            <div id="ambiente">
-                <div class="flex items-center mb-8">
-                    {{--  
-                    <x-heroicon-o-leaf class="w-8 h-8 text-primary-600 mr-3" />
-                    --}}}
-                    <h3 class="text-2xl font-semibold text-gray-900">Ambiente e Verde</h3>
-                </div>
-                
-                <x-ui.services-grid 
-                    :services="[
-                        ['title' => 'Raccolta Differenziata', 'description' => 'Informazioni e calendario raccolta', 'category' => 'ambiente', 'status' => 'active'],
-                        ['title' => 'Segnalazione Rifiuti', 'description' => 'Segnala abbandono rifiuti', 'category' => 'ambiente', 'status' => 'active'],
-                        ['title' => 'Parchi e Giardini', 'description' => 'Informazioni aree verdi comunali', 'category' => 'ambiente', 'status' => 'active'],
-                        ['title' => 'Inquinamento Acustico', 'description' => 'Segnalazione disturbi acustici', 'category' => 'ambiente', 'status' => 'active'],
-                    ]"
-                    :columns="2"
-                />
-            </div>
-        </div>
-    </section>
-
-    {{-- How to Access Services --}}
-    <section class="py-16 bg-white" aria-labelledby="access-heading">
-        <div class="container-italia">
-            <div class="text-center mb-12">
-                <h2 id="access-heading" class="text-3xl font-bold text-gray-900 mb-4">Come Accedere ai Servizi</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Diverse modalità per utilizzare i servizi del Comune
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {{-- Online --}}
-                <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <x-heroicon-o-computer-desktop class="w-8 h-8 text-primary-600" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Online</h3>
-                    <p class="text-gray-600 mb-4">
-                        Accedi ai servizi digitali 24/7 da computer, tablet o smartphone
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Servizi sempre disponibili</li>
-                        <li>• Nessuna coda né attese</li>
-                        <li>• Documenti immediati</li>
-                    </ul>
-                </div>
-
-                {{-- Sportello --}}
-                <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <x-heroicon-o-building-storefront class="w-8 h-8 text-primary-600" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Sportello</h3>
-                    <p class="text-gray-600 mb-4">
-                        Presso gli uffici comunali con assistenza del personale
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Assistenza personalizzata</li>
-                        <li>• Supporto per pratiche complesse</li>
-                        <li>• Orari di apertura stabiliti</li>
-                    </ul>
-                </div>
-
-                {{-- Telefono --}}
-                <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <x-heroicon-o-phone class="w-8 h-8 text-primary-600" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Telefono</h3>
-                    <p class="text-gray-600 mb-4">
-                        Contatta gli uffici per informazioni e supporto
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Assistenza telefonica</li>
-                        <li>• Informazioni rapide</li>
-                        <li>• Prenotazione appuntamenti</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Assistance Section --}}
-    <section class="py-16 bg-primary-600 text-white">
-        <div class="container-italia">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6">Hai bisogno di aiuto?</h2>
-                <p class="text-xl text-primary-100 mb-8">
-                    Il nostro servizio di assistenza è a tua disposizione per supportarti
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('pages.view', ['slug' => 'assistenza']) }}" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
-                        <x-heroicon-o-lifebuoy class="w-5 h-5 mr-2" />
-                        Assistenza Online
-                    </a>
-                    
-                    <a href="tel:+390612345678" class="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-colors">
-                        <x-heroicon-o-phone class="w-5 h-5 mr-2" />
-                        Chiama: 06 1234567
-                    </a>
-                    
-                    <a href="{{ route('pages.view', ['slug' => 'urp']) }}" class="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-colors">
-                        <x-heroicon-o-chat-bubble-left-right class="w-5 h-5 mr-2" />
-                        Contatta URP
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/lista-categorie#reports') }}" class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-700">
+                        <h3 class="mb-2 text-lg font-semibold text-gray-900">{{ __('pub_theme::services.categories.items.reports.title') }}</h3>
+                        <p class="mb-4 text-gray-700">{{ __('pub_theme::services.categories.items.reports.description') }}</p>
+                        <span class="font-semibold text-primary-700 underline underline-offset-4">{{ __('pub_theme::services.tasks.browse_action') }} <span aria-hidden="true">→</span></span>
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+    </div>
+</x-layouts.app>

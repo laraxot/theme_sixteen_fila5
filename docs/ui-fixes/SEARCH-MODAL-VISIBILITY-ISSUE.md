@@ -1,3 +1,14 @@
+---
+title: "SEARCH MODAL VISIBILITY ISSUE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEARCH MODAL VISIBILITY ISSUE"
+issues: []
+discussions: []
+---
+
 # Search Modal Visibility Issue - Detailed Analysis
 
 **Issue**: Search modal should be hidden by default but might be visible  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "SEARCH MODAL VISIBILITY ISSUE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEARCH MODAL VISIBILITY ISSUE"
+issues: []
+discussions: []
 ## 🔍 Problem Details
 
 ### HTML Structure

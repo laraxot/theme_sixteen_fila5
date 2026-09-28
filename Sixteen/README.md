@@ -1,3 +1,14 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+---
+
 # 🇮🇹 Sixteen
 
 [![Stars](https://img.shields.io/github/stars/laraxot/base_workorder_fila5?style=plastic&color=yellow)]()
@@ -61,4 +72,12 @@ Attiva il tema e il gioco è fatto.
 
 ---
 
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
 **Tema** `Sixteen` · **Laraxot** · PHPStan 10 · Filament 5

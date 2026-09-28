@@ -1,3 +1,14 @@
+---
+title: "BATCH PAGES ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BATCH PAGES ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Analisi Batch Tutte le Pagine Design Comuni
 
 ## Panoramica

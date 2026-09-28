@@ -1,4 +1,11 @@
 ---
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ VISUAL ANALYSIS"
+issues: []
+discussions: []
 title: FAQ Page Visual Comparison Analysis
 page: domande-frequenti
 analysis-date: 2026-04-03

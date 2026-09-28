@@ -81,7 +81,7 @@
                     <div class="it-header-center-content-wrapper">
                         {{-- Logo --}}
                         <div class="it-brand-wrapper">
-                            <a href="{{ url('/') }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                            <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
                                 <svg class="icon" role="img" aria-labelledby="logo-title">
                                     <title id="logo-title">{{ config('app.name') }}</title>
                                     <use href="#it-pa"></use>
@@ -167,17 +167,17 @@
                                 <div class="menu-wrapper">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/') }}" aria-current="page">
+                                            <a class="nav-link" href="{{ url('/'.app()->getLocale()) }}" aria-current="page">
                                                 <span>{{ __('Home') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('tickets.index') }}">
+                                            <a class="nav-link" href="{{ url('/'.app()->getLocale().'/tickets') }}">
                                                 <span>{{ __('Segnalazioni') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('tickets.create') }}">
+                                            <a class="nav-link" href="{{ url('/'.app()->getLocale().'/tickets/create') }}">
                                                 <span>{{ __('Nuova Segnalazione') }}</span>
                                             </a>
                                         </li>

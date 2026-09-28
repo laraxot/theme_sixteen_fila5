@@ -1,3 +1,14 @@
+---
+title: "zen pubthemewizard philosophy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "zen pubthemewizard philosophy"
+issues: []
+discussions: []
+---
+
 # Filosofia Zen: PubThemeWizard Architecture
 
 ## 🧘 Zen del Wizard Filament
@@ -41,6 +52,14 @@ PubThemeWizard::make(static::getSteps())  // ← USA QUESTO!
 
 ---
 
+title: "zen pubthemewizard philosophy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "zen pubthemewizard philosophy"
+issues: []
+discussions: []
 ## 🏛️ Zen dell'Header Dynamic
 
 ### Architecture Chain (Recap)

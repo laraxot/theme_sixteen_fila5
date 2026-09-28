@@ -1,3 +1,14 @@
+---
+title: "session report 2026 04 09"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "session report 2026 04 09"
+issues: []
+discussions: []
+---
+
 # Sessione CSS/JS Segnalazione - Report Completo
 
 **Data**: 2026-04-09  

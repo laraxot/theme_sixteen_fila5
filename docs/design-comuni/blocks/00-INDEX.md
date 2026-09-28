@@ -1,3 +1,14 @@
+---
+title: "00 INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 INDEX"
+issues: []
+discussions: []
+---
+
 # Universal Blocks System Index
 
 > **Blocchi universali, riutilizzabili, NON specifici per pagina**
@@ -88,6 +99,14 @@ Themes/Sixteen/resources/views/components/blocks/
 
 ---
 
+title: "00 INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 INDEX"
+issues: []
+discussions: []
 ### 2. Card Grid
 
 **Scopo:** Griglie di card per governance, topics, events

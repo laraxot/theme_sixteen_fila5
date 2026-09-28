@@ -1,3 +1,14 @@
+---
+title: "HTML STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML STRUCTURE COMPARISON"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: Reference vs Local
 
 **Date:** 2026-04-05T07:30:14.922Z
@@ -51,4 +62,12 @@
 4. Update CSS until all pages reach >=90% similarity
 
 ---
+title: "HTML STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML STRUCTURE COMPARISON"
+issues: []
+discussions: []
 *See also: [Visual Comparison](../screenshots/comparisons/) | [CSS Fix Plan](../design-comuni-css-fix-plan.md)*

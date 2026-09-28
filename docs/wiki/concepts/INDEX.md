@@ -1,4 +1,7 @@
 ---
+qmd: "INDEX"
+issues: []
+discussions: []
 title: "concepts index — Sixteen"
 type: index
 tags: [concepts, Sixteen]

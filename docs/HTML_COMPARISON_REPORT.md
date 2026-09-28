@@ -1,3 +1,14 @@
+---
+title: "HTML COMPARISON REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML COMPARISON REPORT"
+issues: []
+discussions: []
+---
+
 # ✅ HTML Body Comparison Report - Homepage
 
 > **Confronto AUTOMATIZZATO tra originale e replica**
@@ -11,6 +22,14 @@
 
 ---
 
+title: "HTML COMPARISON REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML COMPARISON REPORT"
+issues: []
+discussions: []
 ## ✅ Risultato Finale
 
 ### Struttura HTML Body (esclusi script)

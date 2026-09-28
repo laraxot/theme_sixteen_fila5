@@ -1,3 +1,14 @@
+---
+title: "roadmap and issues"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "roadmap and issues"
+issues: []
+discussions: []
+---
+
 # Sixteen Theme - Roadmap, Issues & Optimization
 
 **Tema**: Sixteen (Frontend Cittadini)  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "roadmap and issues"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "roadmap and issues"
+issues: []
+discussions: []
 ## 📊 STATO ATTUALE
 
 ### Completezza Funzionale: 85%

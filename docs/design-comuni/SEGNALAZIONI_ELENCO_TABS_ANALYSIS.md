@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONI ELENCO TABS ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO TABS ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Segnalazioni Elenco - Tabs e Bottoni Analisi
 
 ## Panoramica
@@ -131,6 +142,14 @@
 
 ---
 
+title: "SEGNALAZIONI ELENCO TABS ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO TABS ANALYSIS"
+issues: []
+discussions: []
 **Data**: 2026-04-03  
 **Stato**: ✅ Tabs funzionanti con Alpine.js  
 **Prossimo**: Test interattività nel browser

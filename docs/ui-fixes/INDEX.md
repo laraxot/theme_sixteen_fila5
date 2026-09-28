@@ -1,3 +1,14 @@
+---
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
+---
+
 # UI Layout & Visibility Fixes - Documentation Index
 
 **Created**: 2026-04-02  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
 ## 📚 Documentation Structure
 
 ### 📋 Master Analysis

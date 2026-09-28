@@ -1,3 +1,14 @@
+---
+title: "text paragraph font fix"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "text paragraph font fix"
+issues: []
+discussions: []
+---
+
 # Text-Paragraph Font Fix
 
 ## Problema

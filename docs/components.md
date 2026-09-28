@@ -1,3 +1,14 @@
+---
+title: "components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "components"
+issues: []
+discussions: []
+---
+
 # Componenti del Tema Sixteen
 
 ## Panoramica
@@ -613,6 +624,14 @@ Tutti i componenti sono progettati per essere accessibili:
 
 ---
 
+title: "components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "components"
+issues: []
+discussions: []
 **Versione**: 1.0.0  
 **Ultimo aggiornamento**: Gennaio 2025  
 **Compatibilità**: Laravel 10+, Filament 3.x, Tailwind CSS 3.x 

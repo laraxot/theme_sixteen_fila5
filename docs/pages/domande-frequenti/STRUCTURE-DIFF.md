@@ -1,3 +1,14 @@
+---
+title: "STRUCTURE DIFF"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRUCTURE DIFF"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: DOMANDE FREQUENTI
 
 **Analysis Date:** 2026-04-03T09:16:45.823Z

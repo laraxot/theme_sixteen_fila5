@@ -28,7 +28,6 @@ new class extends Component {
         $resolved = app(ResolvePageAction::class)->execute($container0, $slug0);
 
         $this->pageSlug = $resolved->pageSlug;
-
         $item = $resolved->item;
 
         $this->data = [
@@ -41,7 +40,12 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app>
+@php
+    $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug(request()->segment(2).'.'.request()->segment(3));
+    $pageTitle = $cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name');
+    $pageDescription = $cmsPage?->getAttribute('description') ?? '';
+@endphp
+<x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
     @volt('container0.view')
     <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
         <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />

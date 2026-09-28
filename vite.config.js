@@ -32,10 +32,7 @@ export default defineConfig({
                 '../../Modules/Geo/resources/js/components/map-lit.js',
                 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
             ],
-            refresh: [
-                ...refreshPaths,
-                'app/Livewire/**',
-            ],
+            refresh: false,
         }),
         tailwindcss(),
         {
@@ -109,6 +106,10 @@ export default defineConfig({
         },
     },
     server: {
-        hmr: { host: 'localhost' }
+        host: '127.0.0.1',
+        // Demo mode does not need HMR. Disabling chokidar prevents recursive
+        // .claude/.agents symlinks in modules from causing an ELOOP crash.
+        watch: null,
+        hmr: { host: '127.0.0.1' }
     },
 });

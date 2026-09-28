@@ -1,3 +1,14 @@
+---
+title: "ticket 03 riepilogo local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 03 riepilogo local"
+issues: []
+discussions: []
+---
+
 # Ticket 03 riepilogo local
 
 <body>

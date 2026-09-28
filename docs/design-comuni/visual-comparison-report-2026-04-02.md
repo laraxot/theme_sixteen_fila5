@@ -1,3 +1,14 @@
+---
+title: "visual comparison report 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual comparison report 2026 04 02"
+issues: []
+discussions: []
+---
+
 # Visual Comparison Report - Homepage
 
 **Data**: 2026-04-02
@@ -7,6 +18,14 @@
 
 ---
 
+title: "visual comparison report 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual comparison report 2026 04 02"
+issues: []
+discussions: []
 ## 📊 Risultato Comparazione
 
 ### Classi CSS

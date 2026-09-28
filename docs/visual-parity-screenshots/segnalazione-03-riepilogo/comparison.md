@@ -1,3 +1,14 @@
+---
+title: "comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "comparison"
+issues: []
+discussions: []
+---
+
 # Visual Comparison: segnalazione-03-riepilogo
 
 **Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html

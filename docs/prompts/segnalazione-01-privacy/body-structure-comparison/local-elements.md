@@ -1,3 +1,14 @@
+---
+title: "local elements"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "local elements"
+issues: []
+discussions: []
+---
+
 # Local elements
 
 ```text

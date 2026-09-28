@@ -1,3 +1,14 @@
+---
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
+---
+
 # HTML Body Structure Comparison — ticket-list
 
 **Date:** 2026-04-08 09:32
@@ -6,6 +17,14 @@
 
 ---
 
+title: "report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "report"
+issues: []
+discussions: []
 ## 📊 Parity Score
 
 | Metric | Value |

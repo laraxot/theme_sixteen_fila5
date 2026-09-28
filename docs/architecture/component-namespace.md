@@ -1,3 +1,14 @@
+---
+title: "component namespace"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "component namespace"
+issues: []
+discussions: []
+---
+
 # Component Namespace Architecture - DRY + KISS
 
 > **Perché usiamo `<x-pub_theme::*>` e NON `<x-sixteen::*>`**
@@ -10,6 +21,14 @@
 
 ---
 
+title: "component namespace"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "component namespace"
+issues: []
+discussions: []
 ## 🐛 Errori da Evitare
 
 ### ❌ ERRORE 1: Usare `<x-sixteen::page>`

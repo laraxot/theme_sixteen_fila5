@@ -1,3 +1,14 @@
+---
+title: "implementation plan missing components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "implementation plan missing components"
+issues: []
+discussions: []
+---
+
 # Implementation Plan: Componenti Bootstrap Italia Mancanti
 
 ## 📊 Stato Attuale vs Reale
@@ -295,6 +306,14 @@ Ogni componente deve includere:
 
 ---
 
+title: "implementation plan missing components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "implementation plan missing components"
+issues: []
+discussions: []
 **Ultimo Aggiornamento**: 8 Settembre 2025  
 **Stato**: Piano di Implementazione Creato  
 **Progresso**: 43/54 componenti (80%) implementati  

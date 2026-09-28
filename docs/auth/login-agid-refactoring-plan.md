@@ -1,3 +1,14 @@
+---
+title: "login agid refactoring plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login agid refactoring plan"
+issues: []
+discussions: []
+---
+
 # Piano di Refactoring Login AGID - Implementazione Dettagliata
 
 ## 🎯 Obiettivo
@@ -638,5 +649,13 @@ name('login');
 
 ---
 
+title: "login agid refactoring plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "login agid refactoring plan"
+issues: []
+discussions: []
 **Questo piano garantisce una trasformazione completa della pagina di login da un approccio ibrido a una soluzione nativa AGID-compliant al 100%.**
 

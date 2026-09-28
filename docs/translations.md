@@ -1,3 +1,14 @@
+---
+title: "translations"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "translations"
+issues: []
+discussions: []
+---
+
 # Traduzioni del Tema Sixteen
 
 ## Panoramica
@@ -481,6 +492,14 @@ php artisan translation:preload --theme=sixteen
 
 ---
 
+title: "translations"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "translations"
+issues: []
+discussions: []
 **Versione**: 1.0.0  
 **Ultimo aggiornamento**: Gennaio 2025  
 **Compatibilità**: Laravel 10+, Filament 3.x, Tailwind CSS 3.x 

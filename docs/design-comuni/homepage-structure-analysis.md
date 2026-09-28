@@ -1,3 +1,14 @@
+---
+title: "homepage structure analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage structure analysis"
+issues: []
+discussions: []
+---
+
 # Homepage Analysis: Design Comuni vs Current Implementation
 
 ## Reference: `https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html`
@@ -11,6 +22,14 @@
 
 ---
 
+title: "homepage structure analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage structure analysis"
+issues: []
+discussions: []
 ## 1. Reference Homepage Structure
 
 Il body della reference homepage contiene queste sezioni:

@@ -1,4 +1,7 @@
 ---
+qmd: "no italian css filenames"
+issues: []
+discussions: []
 title: "No Italian CSS filenames"
 type: rule
 confidence: high

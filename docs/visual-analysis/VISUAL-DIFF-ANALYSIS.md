@@ -1,3 +1,14 @@
+---
+title: "VISUAL DIFF ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL DIFF ANALYSIS"
+issues: []
+discussions: []
+---
+
 # Visual Differences Analysis
 ## Reference vs. Local Homepage (Screenshot Comparison)
 
@@ -8,6 +19,14 @@
 
 ---
 
+title: "VISUAL DIFF ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL DIFF ANALYSIS"
+issues: []
+discussions: []
 ## Screenshots Captured
 
 | Screenshot | Size | Status |

@@ -1,3 +1,14 @@
+---
+title: "svg icon convention"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "svg icon convention"
+issues: []
+discussions: []
+---
+
 # 🎨 SVG Icon Convention - Automatic Registration
 
 **Version**: 1.0  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "svg icon convention"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "svg icon convention"
+issues: []
+discussions: []
 ## 🚨 Golden Rule
 
 > **GLI SVG SONO REGISTRATI AUTOMATICAMENTE - NON CREARE FILE MANUALMENTE**

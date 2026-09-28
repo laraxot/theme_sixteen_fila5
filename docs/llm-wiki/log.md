@@ -1,3 +1,14 @@
+---
+title: "log"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "log"
+issues: []
+discussions: []
+---
+
 # Sixteen Activity Log
 
 > **Module**: Sixteen
@@ -6,6 +17,14 @@
 
 ---
 
+title: "log"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "log"
+issues: []
+discussions: []
 ## [2026-04-15] maintenance | Initial wiki setup
 - Created: llm-wiki/ directory structure
 - Created: AGENTS.md (agent instructions)
@@ -20,6 +39,11 @@
 ---
 
 _Log entries appended chronologically below_
+
+## [2026-09-26] fixcity | Public ticket list live-data contract
+- Documented active CMS ticket-layout ownership and live map/list/filter behavior in `bmad/README.md`.
+- Automated verification: FixCity SQLite suite 334 tests / 1,377 assertions; PHPStan Modules clean; Blade cache and JS syntax clean.
+- Remaining: responsive browser screenshots and accessibility review; see FixCity `docs/bmad/workflows/07-ui-ux.md`.
 
 ## [2026-04-21] governance | no docs/archive in Sixteen documentation flow
 - Added concept: `concepts/no-docs-archive-rule.md`

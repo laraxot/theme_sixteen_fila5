@@ -1,3 +1,14 @@
+---
+title: "blocks implementation"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "blocks implementation"
+issues: []
+discussions: []
+---
+
 # 🛠️ BLADE COMPONENTS IMPLEMENTATION
 
 **Data**: 2026-03-30  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "blocks implementation"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "blocks implementation"
+issues: []
+discussions: []
 ## 📊 COMPONENTS STATUS
 
 ### Created (11/26) ✅

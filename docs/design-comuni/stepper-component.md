@@ -1,3 +1,14 @@
+---
+title: "stepper component"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "stepper component"
+issues: []
+discussions: []
+---
+
 # Stepper Component - Design Comuni Parity
 
 **Page**: segnalazione-02-dati  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "stepper component"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "stepper component"
+issues: []
+discussions: []
 ## Overview
 
 The stepper component displays the multi-step progress indicator for the segnalazione (disruption report) flow. It shows completed, active, and pending steps with proper visual styling at all breakpoints.

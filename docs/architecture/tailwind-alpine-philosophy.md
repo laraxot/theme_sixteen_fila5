@@ -1,3 +1,14 @@
+---
+title: "tailwind alpine philosophy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "tailwind alpine philosophy"
+issues: []
+discussions: []
+---
+
 # Filosofia TailwindCSS + Alpine (NO Bootstrap Italia)
 
 > **REGOLA FONDAMENTALE**: Il tema Sixteen usa TailwindCSS + Alpine.js. MAI Bootstrap Italia JS/CSS.

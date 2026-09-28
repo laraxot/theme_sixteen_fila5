@@ -1,3 +1,14 @@
+---
+title: "SEGNALAZIONI ELENCO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO COMPARISON"
+issues: []
+discussions: []
+---
+
 # Segnalazioni Elenco - HTML Comparison
 
 **Date:** 2026-04-03
@@ -8,6 +19,14 @@
 
 ---
 
+title: "SEGNALAZIONI ELENCO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO COMPARISON"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Match |

@@ -1,3 +1,14 @@
+---
+title: "DESIGN COMUNI REPLICATION INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI REPLICATION INDEX"
+issues: []
+discussions: []
+---
+
 # Design Comuni Replication - Master Index
 
 > **Project Goal**: Replicate all 32 Design Comuni pages locally using Tailwind CSS + Alpine.js (NO Bootstrap Italia)  
@@ -5,6 +16,14 @@
 
 ---
 
+title: "DESIGN COMUNI REPLICATION INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI REPLICATION INDEX"
+issues: []
+discussions: []
 ## 📋 Quick Navigation
 
 ### Project Status

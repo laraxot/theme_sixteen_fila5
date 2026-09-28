@@ -1,3 +1,14 @@
+---
+title: "argomenti parity 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "argomenti parity 2026 04 02"
+issues: []
+discussions: []
+---
+
 # Argomenti Parity Report
 
 ## Scope

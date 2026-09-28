@@ -1,3 +1,14 @@
+---
+title: "cache troubleshooting"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "cache troubleshooting"
+issues: []
+discussions: []
+---
+
 # Cache troubleshooting (theme notes)
 
 When Livewire or other components throw SQL errors referencing the `cache` table:

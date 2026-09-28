@@ -1,3 +1,14 @@
+---
+title: "agid gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid gap analysis"
+issues: []
+discussions: []
+---
+
 # 🔍 AGID Design System - Gap Analysis
 
 > Confronto tra design-comuni-pagine-statiche ufficiale e implementazione FixCity
@@ -8,6 +19,14 @@
 
 ---
 
+title: "agid gap analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid gap analysis"
+issues: []
+discussions: []
 ## 📊 Executive Summary
 
 **Conformità attuale**: ~35%  

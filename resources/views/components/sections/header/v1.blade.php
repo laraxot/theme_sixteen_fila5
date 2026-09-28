@@ -63,7 +63,39 @@
     $testsPath = (string) request()->path();
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
-    $headerRegionLabel = __('pub_theme::header.slim.region.name.label');
+    $headerRegionLabel = trim((string) config('comune.regione', ''));
+    if (in_array(mb_strtolower($headerRegionLabel), ['', 'regione', 'nome della regione'], true)) {
+        $headerRegionLabel = '';
+    }
+
+    $headerBrandTitle = trim((string) config('comune.nome', ''));
+    if (in_array(mb_strtolower($headerBrandTitle), ['', 'nome comune', 'il mio comune', '<nome progetto>'], true)) {
+        $headerBrandTitle = trim((string) config('app.name', ''));
+    }
+    if (in_array(mb_strtolower($headerBrandTitle), ['', 'laravel'], true)) {
+        $headerBrandTitle = 'FixCity';
+    }
+    $headerBrandTagline = trim((string) config('comune.sottotitolo', ''));
+    if ($headerBrandTagline === '') {
+        $headerBrandTagline = (string) __('pub_theme::header.center.brand.tagline.label');
+    }
+    $headerSocialLinks = collect(config('comune.social', []))
+        ->filter(static fn ($url): bool => is_string($url) && filter_var($url, FILTER_VALIDATE_URL) !== false && in_array(parse_url($url, PHP_URL_SCHEME), ['https', 'http'], true))
+        ->map(static fn (string $url, string $network): array => [
+            'url' => $url,
+            'network' => $network,
+            'icon' => match ($network) {
+                'twitter', 'x' => 'twitter',
+                'facebook' => 'facebook',
+                'youtube' => 'youtube',
+                'telegram' => 'telegram',
+                'whatsapp' => 'whatsapp',
+                'rss' => 'rss',
+                default => null,
+            },
+        ])
+        ->filter(static fn (array $link): bool => $link['icon'] !== null)
+        ->values();
 
     // Story 8-107: nav items dinamici da header.json (no hardcoded)
     $headerNavConfig = [];
@@ -72,6 +104,23 @@
         $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
     }
     $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
+    $headerNavLabelKeys = [
+        'amministrazione' => 'amministrazione',
+        'novita' => 'novita',
+        'servizi' => 'servizi',
+        'vivere-il-comune' => 'vivere',
+        'iscrizioni' => 'iscrizioni',
+        'estate-in-citta' => 'estate',
+        'polizia-locale' => 'polizia',
+    ];
+    $headerNavAllItems = array_map(static function (array $item) use ($headerNavLabelKeys): array {
+        $labelKey = $headerNavLabelKeys[(string) ($item['id'] ?? '')] ?? null;
+        if ($labelKey !== null) {
+            $item['label'] = __('pub_theme::header.center.nav.'.$labelKey.'.label');
+        }
+
+        return $item;
+    }, $headerNavAllItems);
     $headerFolioUrl = static function (string $url): string {
         if ($url === '' || $url === '#') {
             return $url;
@@ -90,7 +139,7 @@
 
         $container = $segments[0] ?? '';
         if ($container === '') {
-            return route('home');
+            return url('/'.app()->getLocale());
         }
 
         $container = match ($container) {
@@ -105,12 +154,13 @@
             default => $container,
         };
 
-        return route('container0.index', ['container0' => $container]);
+        return url('/'.app()->getLocale().'/'.$container);
     };
 
     $headerNavTopicsUrl = $headerFolioUrl(
         (string) ($headerNavConfig['sections']['primary_nav']['topics_url'] ?? '/argomenti')
     );
+    $headerNavTopicsEnabled = ($headerNavConfig['sections']['primary_nav']['topics_enabled'] ?? false) === true;
     $headerNavItems     = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'primary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     $headerNavSecondary = array_values(array_filter($headerNavAllItems, fn ($i) => ($i['nav_group'] ?? 'primary') === 'secondary' && ($i['enabled'] ?? true) && ($i['visible'] ?? true)));
     usort($headerNavItems,     fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
@@ -162,14 +212,14 @@
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
                         {{-- Transparent bg: shows slim dark green (#00402b) underneath, text-white for contrast --}}
+                        @if ($headerRegionLabel !== '')
                         <a
                             class="d-lg-block navbar-brand"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="#"
+                            href="{{ config('comune.regione_url') }}"
                             aria-label="{{ __('pub_theme::header.slim.region.portal_aria.label', ['region' => $headerRegionLabel]) }}"
                             title="{{ __('pub_theme::header.slim.region.portal_title.label', ['region' => $headerRegionLabel]) }}"
                         >{{ $headerRegionLabel }}</a>
+                        @endif
 
                         <div class="it-header-slim-right-zone" role="navigation">
                             @include('pub_theme::components.sections.header.partials.language-switcher')
@@ -197,70 +247,30 @@
                     <div class="col-12">
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
-                                <a href="/" title="{{ __('pub_theme::header.center.brand.home_link.title.label') }}">
+                                <a href="{{ route('home') }}" title="{{ __('pub_theme::header.center.brand.home_link.title.label') }}">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
                                         <image xlink:href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
                                     </svg>
                                     <div class="it-brand-text">
-                                        <div class="it-brand-title">{{ __('pub_theme::header.center.brand.title.label') }}</div>
-                                        <div class="it-brand-tagline d-none d-md-block">{{ __('pub_theme::header.center.brand.tagline.label') }}</div>
+                                        <div class="it-brand-title">{{ $headerBrandTitle }}</div>
+                                        <div class="it-brand-tagline d-none d-md-block">{{ $headerBrandTagline }}</div>
                                     </div>
                                 </a>
                             </div>
                             <div class="it-right-zone">
+                                @if ($headerSocialLinks->isNotEmpty())
                                 <div class="it-socials d-none d-lg-flex">
                                     <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                     <ul>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <svg class="icon icon-sm icon-white align-top">
-                                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
-                                                </svg>
-                                                <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
-                                            </a>
-                                        </li>
+                                        @foreach ($headerSocialLinks as $socialLink)
+                                        <li><a href="{{ $socialLink['url'] }}" target="_blank" rel="noopener noreferrer">
+                                            <svg class="icon icon-sm icon-white align-top"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-{{ $socialLink['icon'] }}"></use></svg>
+                                            <span class="visually-hidden">{{ __('pub_theme::header.social.'.$socialLink['network'].'.label') }}</span>
+                                        </a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
+                                @endif
                                 <div class="it-search-wrapper">
                                     <span class="d-none d-md-block">{{ __('pub_theme::header.center.search.label') }}</span>
                                     <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
@@ -310,7 +320,7 @@
                                             <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                                         </svg>
                                         <div class="it-brand-text">
-                                            <div class="it-brand-title">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</div>
+                                            <div class="it-brand-title">{{ $headerBrandTitle }}</div>
                                         </div>
                                     </a>
                                     @include('pub_theme::components.sections.header.partials.nav-primary', [
@@ -320,61 +330,22 @@
                                     @include('pub_theme::components.sections.header.partials.nav-secondary', [
                                         'headerNavSecondary' => $headerNavSecondary,
                                         'headerNavTopicsUrl' => $headerNavTopicsUrl,
+                                        'headerNavTopicsEnabled' => $headerNavTopicsEnabled,
                                         'headerNavItemIsActive' => $headerNavItemIsActive
                                     ])
+                                    @if ($headerSocialLinks->isNotEmpty())
                                     <div class="it-socials">
                                         <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                         <ul>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.twitter.label') }}</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.facebook.label') }}</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.youtube.label') }}</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.telegram.label') }}</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.whatsapp.label') }}</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <svg class="icon icon-sm icon-white align-top">
-                                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
-                                                    </svg>
-                                                    <span class="visually-hidden">{{ __('pub_theme::header.social.rss.label') }}</span>
-                                                </a>
-                                            </li>
+                                            @foreach ($headerSocialLinks as $socialLink)
+                                            <li><a href="{{ $socialLink['url'] }}" target="_blank" rel="noopener noreferrer">
+                                                <svg class="icon icon-sm icon-white align-top"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-{{ $socialLink['icon'] }}"></use></svg>
+                                                <span class="visually-hidden">{{ __('pub_theme::header.social.'.$socialLink['network'].'.label') }}</span>
+                                            </a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

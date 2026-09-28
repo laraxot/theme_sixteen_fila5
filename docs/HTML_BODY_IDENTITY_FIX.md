@@ -1,3 +1,14 @@
+---
+title: "HTML BODY IDENTITY FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML BODY IDENTITY FIX"
+issues: []
+discussions: []
+---
+
 # HTML Body Identity - Correzioni Applicate
 
 > **Task:** Rendere l'HTML dentro `<body>` (esclusi script) IDENTICO a Design Comuni
@@ -10,6 +21,14 @@
 
 ---
 
+title: "HTML BODY IDENTITY FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML BODY IDENTITY FIX"
+issues: []
+discussions: []
 ## ✅ Correzioni Applicate
 
 ### 1. Header Wrapper

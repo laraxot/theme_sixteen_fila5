@@ -1,3 +1,14 @@
+---
+title: "BODY NO CLASSES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BODY NO CLASSES"
+issues: []
+discussions: []
+---
+
 # <body> NO CLASSES — Design Comuni Fidelity Rule
 
 **Severity**: 🟡 HIGH  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "BODY NO CLASSES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BODY NO CLASSES"
+issues: []
+discussions: []
 ## ❌ FORBIDDEN
 
 ```blade

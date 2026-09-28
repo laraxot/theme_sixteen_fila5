@@ -1,3 +1,14 @@
+---
+title: "HTML STRUCTURE DIFF"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML STRUCTURE DIFF"
+issues: []
+discussions: []
+---
+
 # HTML Structure Difference Analysis: ticket-list
 
 ## Overall Metrics

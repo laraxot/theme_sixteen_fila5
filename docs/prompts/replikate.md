@@ -1,3 +1,14 @@
+---
+title: "replikate"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "replikate"
+issues: []
+discussions: []
+---
+
 # Replikate
 
 # REPLIKATE — Design Comuni → Tailwind
@@ -5,6 +16,14 @@
 
 ---
 
+title: "replikate"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "replikate"
+issues: []
+discussions: []
 ## 🎯 GOAL
 
 Replica ogni pagina di Design Comuni rendendo:

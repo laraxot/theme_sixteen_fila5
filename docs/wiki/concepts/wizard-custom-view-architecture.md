@@ -1,4 +1,7 @@
 ---
+qmd: "wizard custom view architecture"
+issues: []
+discussions: []
 title: "Wizard Custom View Architecture - Theme Sixteen"
 type: concept
 sources:

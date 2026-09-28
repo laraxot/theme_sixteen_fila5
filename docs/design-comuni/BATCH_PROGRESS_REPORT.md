@@ -1,3 +1,14 @@
+---
+title: "BATCH PROGRESS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BATCH PROGRESS REPORT"
+issues: []
+discussions: []
+---
+
 # Report Progresso Batch - Tutte le Pagine Design Comuni
 
 ## Panoramica
@@ -88,6 +99,14 @@
 
 ---
 
+title: "BATCH PROGRESS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BATCH PROGRESS REPORT"
+issues: []
+discussions: []
 **Data**: 2026-04-03  
 **Stato Globale**: ✅ 61.2% OK (30/49 pagine)  
 **Target**: 90%+ OK (44/49 pagine)  

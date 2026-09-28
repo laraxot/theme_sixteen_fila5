@@ -1,3 +1,14 @@
+---
+title: "GROUP D patterns"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GROUP D patterns"
+issues: []
+discussions: []
+---
+
 # GROUP D - Pattern CSS Comuni (Appuntamenti e Segnalazioni)
 
 **Data analisi**: 2026-04-06
@@ -6,6 +17,14 @@
 
 ---
 
+title: "GROUP D patterns"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GROUP D patterns"
+issues: []
+discussions: []
 ## PATTERN 1: Steppers Component (CRITICO - presente in 13/20 pagine)
 
 ### Struttura HTML di riferimento (Bootstrap Italia)

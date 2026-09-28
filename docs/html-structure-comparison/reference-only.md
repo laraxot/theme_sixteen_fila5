@@ -1,3 +1,14 @@
+---
+title: "reference only"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "reference only"
+issues: []
+discussions: []
+---
+
 # Reference only
 
 <a class="btn btn-primary btn-icon btn-full" href="..." data-element="personal-area-login">

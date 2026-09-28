@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "FO Folio — zen routing (file = rotta)"
 type: concept
 tags: [folio, sixteen, routing, frontoffice, theme]

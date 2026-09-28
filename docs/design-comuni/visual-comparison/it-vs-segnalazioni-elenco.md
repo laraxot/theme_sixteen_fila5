@@ -1,3 +1,14 @@
+---
+title: "it vs segnalazioni elenco"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "it vs segnalazioni elenco"
+issues: []
+discussions: []
+---
+
 # Confronto visivo: `/it` vs Design Comuni «Elenco segnalazioni»
 
 **Data audit:** 2026-05-28  

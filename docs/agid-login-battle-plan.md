@@ -1,3 +1,14 @@
+---
+title: "agid login battle plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login battle plan"
+issues: []
+discussions: []
+---
+
 # Piano di Battaglia - Login AGID Compliant
 
 ## 🚨 PROBLEMA IDENTIFICATO
@@ -388,6 +399,14 @@ php artisan serve
 
 ---
 
+title: "agid login battle plan"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid login battle plan"
+issues: []
+discussions: []
 **Data Creazione**: Dicembre 2024  
 **Priorità**: ASSOLUTA  
 **Stato**: Piano di Battaglia Completato  

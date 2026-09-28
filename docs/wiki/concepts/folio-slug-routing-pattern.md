@@ -1,3 +1,14 @@
+---
+title: "folio slug routing pattern"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "folio slug routing pattern"
+issues: []
+discussions: []
+---
+
 # Folio Slug Routing Pattern
 
 ## REGOLA PERMANENTE: Mai creare file blade specifici per slug in pages/

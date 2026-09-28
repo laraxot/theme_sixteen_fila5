@@ -1,3 +1,14 @@
+---
+title: "TAILWIND IMPLEMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "TAILWIND IMPLEMENTATION"
+issues: []
+discussions: []
+---
+
 # 🎯 Design Comuni with Tailwind CSS - Implementation Guide
 
 **Date**: 2026-03-31  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "TAILWIND IMPLEMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "TAILWIND IMPLEMENTATION"
+issues: []
+discussions: []
 ## 🎨 Design Philosophy
 
 ### What We're Building

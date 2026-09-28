@@ -1,3 +1,14 @@
+---
+title: "BATCH BODY PARITY REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BATCH BODY PARITY REPORT"
+issues: []
+discussions: []
+---
+
 # Batch Body Parity Report
 
 Date: 2026-04-03

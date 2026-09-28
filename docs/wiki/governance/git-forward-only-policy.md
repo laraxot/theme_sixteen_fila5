@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "Politica Git Forward-Only — Tema Sixteen"
 type: rule
 tags: [git, forward-only, sixteen, themes]

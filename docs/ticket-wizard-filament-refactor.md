@@ -1,3 +1,14 @@
+---
+title: "ticket wizard filament refactor"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket wizard filament refactor"
+issues: []
+discussions: []
+---
+
 # Ticket Wizard Filament Refactor
 
 **Status**: Active  

@@ -1,3 +1,14 @@
+---
+title: "page component architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "page component architecture"
+issues: []
+discussions: []
+---
+
 # Page Component Architecture - DRY + KISS
 
 > **Perché `<x-page>` funziona e `<x-sixteen::page>` no**
@@ -10,6 +21,14 @@
 
 ---
 
+title: "page component architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "page component architecture"
+issues: []
+discussions: []
 ## 🐛 I 2 Errori Fondamentali
 
 ### ❌ ERRORE 1: `<x-sixteen::page>` - Namespace non registrato

@@ -1,3 +1,14 @@
+---
+title: "organi di governo"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "organi di governo"
+issues: []
+discussions: []
+---
+
 # Organi di governo
 
 # 🎯 ORGANI DI GOVERNO - FIX LAYOUT 3 COLONNE
@@ -6,6 +17,14 @@
 
 ---
 
+title: "organi di governo"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "organi di governo"
+issues: []
+discussions: []
 ## 📸 SCREENSHOT 8 ANALYSIS
 
 **Problema**: Card "Organi di Governo" sono UNA SOTTO L'ALTRA (verticali) invece che AFFIANCATE (3 colonne)

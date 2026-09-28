@@ -1,3 +1,14 @@
+---
+title: "batch body parity 2026 04 03"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "batch body parity 2026 04 03"
+issues: []
+discussions: []
+---
+
 # Batch Body Parity Audit
 
 Date: 2026-04-03

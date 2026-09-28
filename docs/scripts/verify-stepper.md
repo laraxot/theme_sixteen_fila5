@@ -1,3 +1,14 @@
+---
+title: "verify stepper"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "verify stepper"
+issues: []
+discussions: []
+---
+
 # verify-stepper.cjs
 
 - **movement**: moved from theme root to `scripts/` — 2026-05-16

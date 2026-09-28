@@ -1,4 +1,11 @@
 ---
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ STRUCTURE ANALYSIS"
+issues: []
+discussions: []
 title: FAQ Page Structure Analysis
 page: domande-frequenti
 analysis-date: 2026-04-03

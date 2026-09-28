@@ -1,4 +1,8 @@
 ---
+created: 2026-09-26
+qmd: "header partials location rule"
+issues: []
+discussions: []
 title: "Header partials location rule"
 type: concept
 confidence: high

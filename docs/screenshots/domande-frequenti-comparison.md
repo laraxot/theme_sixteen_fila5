@@ -1,3 +1,14 @@
+---
+title: "domande frequenti comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domande frequenti comparison"
+issues: []
+discussions: []
+---
+
 # Visual Comparison: Domande Frequenti (FAQ)
 
 ## Objective

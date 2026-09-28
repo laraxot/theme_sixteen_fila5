@@ -1,3 +1,14 @@
+---
+title: "wizard review parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard review parity"
+issues: []
+discussions: []
+---
+
 # Wizard Review Step — Parity tema Sixteen
 
 ## Semantica schema (priorità tecnica Filament)
@@ -24,4 +35,12 @@ Raggiungere la massima fedeltà visiva con il template statico `segnalazione-03-
 - I link "Modifica" devono avere una transizione fluida e un'icona pencil centrata verticalmente rispetto al testo.
 
 ---
+title: "wizard review parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard review parity"
+issues: []
+discussions: []
 *Creato in risposta alla Story 8.51*

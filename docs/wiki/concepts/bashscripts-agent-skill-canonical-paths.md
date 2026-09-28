@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "bashscripts agent skill canonical paths"
+issues: []
+discussions: []
 title: "Percorsi canonici skill agenti (bashscripts) e tema Sixteen"
 module: "theme-sixteen"
 type: "concept"

@@ -1,4 +1,7 @@
 ---
+qmd: "context compression plugin"
+issues: []
+discussions: []
 title: "Sixteen theme context compression boundary"
 type: concept
 created: 2026-05-11

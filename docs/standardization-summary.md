@@ -1,3 +1,14 @@
+---
+title: "standardization summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "standardization summary"
+issues: []
+discussions: []
+---
+
 # Riassunto Standardizzazione Componenti - Tema Sixteen
 
 ## 🎯 Obiettivo Raggiunto
@@ -323,6 +334,14 @@ Tutti i componenti del tema Sixteen sono stati **standardizzati** per essere com
 
 ---
 
+title: "standardization summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "standardization summary"
+issues: []
+discussions: []
 **Data Completamento**: Dicembre 2024  
 **Versione**: 1.0  
 **Status**: ✅ Completato  

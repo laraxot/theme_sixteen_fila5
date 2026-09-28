@@ -1,3 +1,14 @@
+---
+title: "MCP SERVERS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP SERVERS"
+issues: []
+discussions: []
+---
+
 # MCP Servers - Theme Context
 
 **Theme**: Sixteen (Active)  
@@ -110,4 +121,12 @@ This document provides Sixteen theme-specific MCP usage guidelines only.
 
 ---
 
+title: "MCP SERVERS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP SERVERS"
+issues: []
+discussions: []
 *This document follows DRY+KISS principles. Server list and configuration are in the master doc.*

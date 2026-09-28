@@ -16,7 +16,7 @@
                 {{-- Logo e descrizione ente --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
                     <div class="it-brand-wrapper">
-                        <a href="{{ url('/') }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
                             <svg class="icon" role="img" aria-labelledby="footer-logo-title">
                                 <title id="footer-logo-title">{{ config('app.name') }}</title>
                                 <use href="#it-pa"></use>

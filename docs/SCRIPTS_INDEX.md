@@ -1,3 +1,14 @@
+---
+title: "SCRIPTS INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SCRIPTS INDEX"
+issues: []
+discussions: []
+---
+
 # Sixteen Theme Scripts Index
 
 > Utility screenshot/parity scripts executed with Playwright or Puppeteer.
@@ -62,6 +73,14 @@ node map-picker-smoke.cjs
 
 ---
 
+title: "SCRIPTS INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SCRIPTS INDEX"
+issues: []
+discussions: []
 ## Pre-existing scripts
 
 ### inspect-fixcity-admin-ticket-create-map.cjs

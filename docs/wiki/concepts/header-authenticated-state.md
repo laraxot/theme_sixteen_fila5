@@ -1,4 +1,7 @@
 ---
+created: 2026-09-26
+qmd: "header authenticated state"
+discussions: []
 title: "Header slim — stato autenticazione (Design Comuni)"
 type: concept
 confidence: high

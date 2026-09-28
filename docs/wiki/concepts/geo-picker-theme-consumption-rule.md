@@ -1,3 +1,14 @@
+---
+title: "geo picker theme consumption rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "geo picker theme consumption rule"
+issues: []
+discussions: []
+---
+
 # Geo Picker Theme Consumption Rule
 
 ## Regola

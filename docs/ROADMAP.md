@@ -1,9 +1,28 @@
+---
+title: "ROADMAP"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ROADMAP"
+issues: []
+discussions: []
+---
+
 # 🎨 theme sixteen - roadmap
 
 > **tema frontend**: agid design system, bootstrap italia, tailwind css
 
 ---
 
+title: "ROADMAP"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ROADMAP"
+issues: []
+discussions: []
 ## 🚨 problemi critici
 
 ### 1. size esplosivo - 347mb! 🔴

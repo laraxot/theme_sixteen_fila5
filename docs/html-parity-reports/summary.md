@@ -1,3 +1,14 @@
+---
+title: "summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "summary"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison - Batch Summary
 
 **Generated**: 2026-04-10 22:37:45
@@ -7,6 +18,14 @@
 
 ---
 
+title: "summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "summary"
+issues: []
+discussions: []
 ## Overview
 
 | Metric | Value |

@@ -1,3 +1,14 @@
+---
+title: "quality tools"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "quality tools"
+issues: []
+discussions: []
+---
+
 # Quality Tools Usage (Theme Sixteen)
 
 Theme-specific guidance for PHPMD, PHP-CS-Fixer, Laravel Pint, Psalm, PHPQA, actionlint. Canonical reference: `Modules/Xot/docs/QUALITY_TOOLS.md`.

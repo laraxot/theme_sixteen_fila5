@@ -1,3 +1,14 @@
+---
+title: "detailed visual compare"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "detailed visual compare"
+issues: []
+discussions: []
+---
+
 # detailed-visual-compare.cjs
 
 - **movement**: moved from theme root to `scripts/` — 2026-05-16

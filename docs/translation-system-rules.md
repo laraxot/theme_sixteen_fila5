@@ -1,3 +1,14 @@
+---
+title: "translation system rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "translation system rules"
+issues: []
+discussions: []
+---
+
 # Translation System Rules - CRITICAL RULES
 
 ## ❌ ERRORE GRAVE COMMESSO

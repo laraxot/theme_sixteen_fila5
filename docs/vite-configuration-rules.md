@@ -1,3 +1,14 @@
+---
+title: "vite configuration rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite configuration rules"
+issues: []
+discussions: []
+---
+
 # Regole per la Configurazione Vite - Tema Sixteen
 
 ## 🚨 REGOLA FONDAMENTALE - Direttiva @vite
@@ -292,6 +303,14 @@ Prima di utilizzare Vite in un layout del tema Sixteen:
 
 ---
 
+title: "vite configuration rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite configuration rules"
+issues: []
+discussions: []
 **Regola stabilita**: 31 Luglio 2025  
 **Autorità**: Analisi dei layout esistenti del tema Sixteen  
 **Stato**: REGOLA FONDAMENTALE  
