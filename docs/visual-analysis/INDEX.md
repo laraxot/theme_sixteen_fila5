@@ -1,3 +1,14 @@
+---
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
+---
+
 # Visual Analysis & Implementation Documentation Index
 
 **Project**: FixCity Homepage Design Replication  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
 ## 📑 Documentation Structure
 
 This folder contains comprehensive analysis, strategy, and implementation planning for achieving visual parity between the reference Design Comuni homepage and our local FixCity implementation.

@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco structure"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco structure"
+issues: []
+discussions: []
+---
+
 # Segnalazioni Elenco - Structure Analysis
 
 - **Batch score**: 32.4% (see `laravel/Themes/Sixteen/docs/design-comuni/BATCH_BODY_PARITY_REPORT.md`). Both reference and local endpoints return HTTP 200, but the ordered tag sequence diverges heavily.

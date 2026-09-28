@@ -1,3 +1,14 @@
+---
+title: "SKILLS RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SKILLS RULES"
+issues: []
+discussions: []
+---
+
 # Design Comuni - Skills & Rules Documentation
 
 ## Panoramica
@@ -128,6 +139,14 @@ Documentazione delle skills, rules e best practices per il progetto Design Comun
 
 ---
 
+title: "SKILLS RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SKILLS RULES"
+issues: []
+discussions: []
 **Data**: 2026-04-03  
 **Stato**: ✅ 63.0% OK  
 **Target**: 90%+ OK  

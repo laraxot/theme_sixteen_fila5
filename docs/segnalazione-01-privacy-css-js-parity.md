@@ -1,3 +1,14 @@
+---
+title: "segnalazione 01 privacy css js parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 01 privacy css js parity"
+issues: []
+discussions: []
+---
+
 # segnalazione-01-privacy — CSS/JS Visual Parity Report
 
 **Date**: 2026-04-09  
@@ -8,6 +19,14 @@
 
 ---
 
+title: "segnalazione 01 privacy css js parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 01 privacy css js parity"
+issues: []
+discussions: []
 ## Visual Parity Score: ~95%
 
 ### Font Parity (CRITICAL FIX)

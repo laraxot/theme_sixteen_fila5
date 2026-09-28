@@ -1,3 +1,14 @@
+---
+title: "inspect fixcity admin ticket create map"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "inspect fixcity admin ticket create map"
+issues: []
+discussions: []
+---
+
 # inspect-fixcity-admin-ticket-create-map.cjs
 
 - **movement**: already in scripts/ before this cleanup pass (pre-existing)

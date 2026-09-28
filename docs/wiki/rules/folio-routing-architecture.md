@@ -1,4 +1,9 @@
 ---
+type: note
+created: 2026-09-26
+qmd: "folio routing architecture"
+issues: []
+discussions: []
 title: Folio Frontend Architecture - No Controller/Routes
 description: Regola architettonica per il frontend: routing basato su file, named route Folio verificate
 tags: [architecture, folio, routing, frontend, controllers]

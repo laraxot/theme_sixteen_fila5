@@ -1,4 +1,7 @@
 ---
+qmd: "sixteen best practices"
+issues: []
+discussions: []
 title: "Sixteen Theme Best Practices"
 type: concept
 sources: ["../../Themes/Sixteen/resources/"]

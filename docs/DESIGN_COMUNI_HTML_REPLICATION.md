@@ -1,3 +1,14 @@
+---
+title: "DESIGN COMUNI HTML REPLICATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI HTML REPLICATION"
+issues: []
+discussions: []
+---
+
 # Design Comuni HTML Replication - Body Structure Analysis
 
 **Project:** FixCity Fila5
@@ -7,6 +18,14 @@
 
 ---
 
+title: "DESIGN COMUNI HTML REPLICATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI HTML REPLICATION"
+issues: []
+discussions: []
 ## 🎯 Obiettivo
 
 Replicare l'HTML esatto di Design Comuni all'interno del tag `<body>` (esclusi gli `<script>`).

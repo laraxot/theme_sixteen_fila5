@@ -1,3 +1,14 @@
+---
+title: "block 03 argomenti evidenza"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 03 argomenti evidenza"
+issues: []
+discussions: []
+---
+
 # Block 03: Argomenti in Evidenza
 
 **ID:** `evidence-section` (classe, no id)  
@@ -191,4 +202,12 @@
 
 ---
 
+title: "block 03 argomenti evidenza"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "block 03 argomenti evidenza"
+issues: []
+discussions: []
 *Blocco 03/11 — Fonte: italia.github.io/design-comuni-pagine-statiche/sito/homepage.html*

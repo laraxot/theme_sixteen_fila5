@@ -1,3 +1,14 @@
+---
+title: "analisi struttura"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "analisi struttura"
+issues: []
+discussions: []
+---
+
 # Analisi Struttura HTML - Segnalazioni Elenco
 
 ## Data Analisi
@@ -9,6 +20,14 @@
 
 ---
 
+title: "analisi struttura"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "analisi struttura"
+issues: []
+discussions: []
 ## Confronto Strutturale
 
 ### Reference Structure (Bootstrap Italia)

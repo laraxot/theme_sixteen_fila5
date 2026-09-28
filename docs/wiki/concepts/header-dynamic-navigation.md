@@ -1,4 +1,7 @@
 ---
+qmd: "header dynamic navigation"
+issues: []
+discussions: []
 title: "Header Dynamic Navigation"
 type: concept
 sources: ["raw/headers/ui-app-header-blade.php", "raw/headers/layout-design-comuni-header-blade.php"]

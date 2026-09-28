@@ -1,3 +1,14 @@
+---
+title: "batch parity 2026 04 09"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "batch parity 2026 04 09"
+issues: []
+discussions: []
+---
+
 # Batch CSS Parity Session - All 7 Segnalazione Pages
 
 **Date**: 2026-04-09  

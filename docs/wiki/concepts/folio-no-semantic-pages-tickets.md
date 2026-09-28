@@ -1,4 +1,7 @@
 ---
+qmd: "folio no semantic pages tickets"
+issues: []
+discussions: []
 title: "folio — vietato pages/tickets e namespace sixteen nelle view"
 type: concept
 module: Sixteen

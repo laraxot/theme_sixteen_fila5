@@ -1,3 +1,14 @@
+---
+title: "structural plan 2026 04 06"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "structural plan 2026 04 06"
+issues: []
+discussions: []
+---
+
 # Structural Parity Plan – 2026-04-06
 
 ## Context

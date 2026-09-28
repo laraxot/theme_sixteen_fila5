@@ -1,4 +1,8 @@
 ---
+updated: 2026-09-26
+qmd: "no controllers folio volt filament"
+issues: []
+discussions: []
 title: "No Controllers — Solo Folio + Volt + Filament"
 type: concept
 confidence: high

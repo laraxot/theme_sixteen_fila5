@@ -1,3 +1,14 @@
+---
+title: "bmad method"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "bmad method"
+issues: []
+discussions: []
+---
+
 # bmad method nel tema sixteen
 
 ## scopo

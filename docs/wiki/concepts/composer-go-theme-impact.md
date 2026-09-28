@@ -1,4 +1,7 @@
 ---
+qmd: "composer go theme impact"
+issues: []
+discussions: []
 title: "composer go — impatto tema (Sixteen)"
 type: concept
 module: Sixteen

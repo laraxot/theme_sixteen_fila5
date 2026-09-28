@@ -1,3 +1,14 @@
+---
+title: "SET BODY TAG SIMPLE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SET BODY TAG SIMPLE"
+issues: []
+discussions: []
+---
+
 Motivazione
 
 La pagina sorgente di design-comuni usa un tag <body> senza classi. Per garantire compatibilità e ridurre differenze stilistiche indesiderate, il body del tema Sixteen è stato reso semplicemente <body>.

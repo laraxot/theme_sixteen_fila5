@@ -1,3 +1,14 @@
+---
+title: "VISUAL COMPARISON DETAILED"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL COMPARISON DETAILED"
+issues: []
+discussions: []
+---
+
 # ticket-list - Detailed Visual Comparison
 
 **Analysis Date**: 2026-04-04T19:50:43.134Z

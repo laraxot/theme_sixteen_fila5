@@ -1,3 +1,14 @@
+---
+title: "VITE MANIFEST ERROR FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VITE MANIFEST ERROR FIX"
+issues: []
+discussions: []
+---
+
 # Vite Manifest Error Fix - @vite() Second Parameter
 
 **Date:** 2026-04-01  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "VITE MANIFEST ERROR FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VITE MANIFEST ERROR FIX"
+issues: []
+discussions: []
 ## 🎯 Error
 
 ```

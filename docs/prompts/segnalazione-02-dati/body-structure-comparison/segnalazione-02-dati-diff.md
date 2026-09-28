@@ -1,3 +1,14 @@
+---
+title: "segnalazione 02 dati diff"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 02 dati diff"
+issues: []
+discussions: []
+---
+
 # Segnalazione 02 dati diff
 
 ```text

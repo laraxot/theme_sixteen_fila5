@@ -1,3 +1,14 @@
+---
+title: "CSS VISUAL ALIGNMENT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "CSS VISUAL ALIGNMENT"
+issues: []
+discussions: []
+---
+
 # 🎨 CSS Visual Alignment Plan
 
 **Date**: 2026-03-30  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "CSS VISUAL ALIGNMENT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "CSS VISUAL ALIGNMENT"
+issues: []
+discussions: []
 ## 📸 Screenshot Analysis
 
 ### Upstream (AGID) vs FixCity

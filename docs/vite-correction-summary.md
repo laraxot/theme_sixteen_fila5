@@ -1,3 +1,14 @@
+---
+title: "vite correction summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite correction summary"
+issues: []
+discussions: []
+---
+
 # Riepilogo Correzione Vite - Tema Sixteen
 
 ## Problema Risolto

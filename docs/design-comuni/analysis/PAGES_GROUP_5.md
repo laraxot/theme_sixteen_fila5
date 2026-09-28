@@ -1,9 +1,28 @@
+---
+title: "PAGES GROUP 5"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGES GROUP 5"
+issues: []
+discussions: []
+---
+
 # Design Comuni Pages HTML Structure Parity Analysis
 
 ## Group 5 Analysis Results
 
 ---
 
+title: "PAGES GROUP 5"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGES GROUP 5"
+issues: []
+discussions: []
 ## Page: eventi
 
 ### Status: Error (500)

@@ -1,3 +1,14 @@
+---
+title: "domande frequenti element trees"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domande frequenti element trees"
+issues: []
+discussions: []
+---
+
 # Domande frequenti element trees
 
 # HTML Structure Comparison - domande-frequenti

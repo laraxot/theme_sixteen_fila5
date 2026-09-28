@@ -1,4 +1,5 @@
 ---
+discussions: []
 title: "Area personale — rotte FO (deprecato, vedi canon)"
 type: concept
 tags: [folio, header, routing, deprecated, sixteen]

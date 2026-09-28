@@ -1,4 +1,7 @@
 ---
+qmd: "design comuni header structure delta"
+issues: []
+discussions: []
 title: "Segnalazione step 1 — Design Comuni header HTML structure delta"
 type: comparison
 sources:

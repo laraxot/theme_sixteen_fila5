@@ -1,3 +1,14 @@
+---
+title: "agid components reorganization"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid components reorganization"
+issues: []
+discussions: []
+---
+
 # 🏛️ AGID Components Reorganization Plan
 
 ## 🎯 Obiettivo
@@ -269,6 +280,14 @@ Artisan::command('theme:agid-components:verify', function () {
 
 ---
 
+title: "agid components reorganization"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid components reorganization"
+issues: []
+discussions: []
 **🎯 Obiettivo**: Struttura componenti chiara e organizzata per funzione  
 **📅 Durata**: 3 giorni (migrazione controllata)  
 **👥 Team**: 2 sviluppatori (1 migrazione, 1 testing)  

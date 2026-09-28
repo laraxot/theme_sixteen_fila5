@@ -16,6 +16,11 @@ use Themes\Sixteen\Http\Controllers\ComuneController;
 */
 
 Route::prefix('comune')->name('comune.')->group(function (): void {
+    // Alias pubblico: /segnalazioni → /tickets (un solo nome SSoT)
+    Route::get('/segnalazioni', static function (): \Illuminate\Http\RedirectResponse {
+        return redirect('/'.app()->getLocale().'/tickets', 301);
+    })->name('segnalazioni');
+
     // Homepage
     Route::get('/', [ComuneController::class, 'homepage'])->name('homepage');
 

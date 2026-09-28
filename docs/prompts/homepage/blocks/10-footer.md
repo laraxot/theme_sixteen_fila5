@@ -1,9 +1,28 @@
+---
+title: "10 footer"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "10 footer"
+issues: []
+discussions: []
+---
+
 # Block 10: Footer
 
 > Footer con link utili, contatti, Europa
 
 ---
 
+title: "10 footer"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "10 footer"
+issues: []
+discussions: []
 ## Reference
 **URL**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
 **Selettore**: `footer.it-footer`  

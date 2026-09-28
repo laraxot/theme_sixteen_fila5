@@ -1,3 +1,14 @@
+---
+title: "product brief"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "product brief"
+issues: []
+discussions: []
+---
+
 # Design Comuni Replication - Product Brief
 
 > **BMAD Product Brief: Replica completa delle pagine Design Comuni Italia**
@@ -23,6 +34,14 @@ Creare un sistema di **componenti riutilizzabili** che permetta di:
 
 ---
 
+title: "product brief"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "product brief"
+issues: []
+discussions: []
 ## 🎯 Obiettivi Strategici
 
 ### Obiettivo 1: Censimento Completo

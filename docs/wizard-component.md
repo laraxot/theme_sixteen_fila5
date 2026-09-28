@@ -1,3 +1,14 @@
+---
+title: "wizard component"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "wizard component"
+issues: []
+discussions: []
+---
+
 # Wizard Component Template
 
 The `wizard.blade.php` component in the Sixteen theme implements the Design Comuni (Italia.it) visual standards for multi-step forms.

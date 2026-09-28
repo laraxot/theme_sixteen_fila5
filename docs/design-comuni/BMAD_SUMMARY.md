@@ -1,3 +1,14 @@
+---
+title: "BMAD SUMMARY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD SUMMARY"
+issues: []
+discussions: []
+---
+
 # BMAD Design Comuni Replication - Complete Summary
 
 > **Sintesi completa del progetto di replica Design Comuni Italia**
@@ -11,6 +22,14 @@
 
 ---
 
+title: "BMAD SUMMARY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD SUMMARY"
+issues: []
+discussions: []
 ## 📊 Risultati Fase 1: Analisi e Censimento
 
 ### ✅ Deliverables Completati

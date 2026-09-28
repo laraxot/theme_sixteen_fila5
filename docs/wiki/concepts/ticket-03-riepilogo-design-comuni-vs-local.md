@@ -1,4 +1,7 @@
 ---
+qmd: "ticket 03 riepilogo design comuni vs local"
+issues: []
+discussions: []
 title: "Segnalazione-03-Riepilogo: Design Comuni vs Local Wizard"
 type: comparison
 sources: 

@@ -1,4 +1,7 @@
 ---
+qmd: "design comuni site wide component css rule"
+issues: []
+discussions: []
 title: Design Comuni Site-Wide Component CSS Rule
 type: concept
 tags: [sixteen, design-comuni, css, parity, governance, daisyui]

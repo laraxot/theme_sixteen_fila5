@@ -1,3 +1,14 @@
+---
+title: "html structure comparison 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "html structure comparison 2026 04 02"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison - Homepage
 
 **Data**: 2026-04-02
@@ -8,6 +19,14 @@
 
 ---
 
+title: "html structure comparison 2026 04 02"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "html structure comparison 2026 04 02"
+issues: []
+discussions: []
 ## Risultato Comparazione Strutturale
 
 | Metrica | Reference | FixCity | Match |

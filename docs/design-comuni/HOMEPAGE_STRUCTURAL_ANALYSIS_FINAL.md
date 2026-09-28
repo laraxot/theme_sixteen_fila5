@@ -1,3 +1,14 @@
+---
+title: "HOMEPAGE STRUCTURAL ANALYSIS FINAL"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE STRUCTURAL ANALYSIS FINAL"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Structural Analysis - Final Report
 
 > **Data**: 2026-04-07  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "HOMEPAGE STRUCTURAL ANALYSIS FINAL"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE STRUCTURAL ANALYSIS FINAL"
+issues: []
+discussions: []
 ## Executive Summary
 
 | Metric | Value |

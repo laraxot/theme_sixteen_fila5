@@ -1,4 +1,7 @@
 ---
+qmd: "filament custom field binding modifiers theme boundary"
+issues: []
+discussions: []
 title: "Filament Custom Field — State Binding Modifiers: confine tema/modulo"
 type: concept
 confidence: verified

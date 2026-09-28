@@ -1,3 +1,14 @@
+---
+title: "layout usage rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout usage rules"
+issues: []
+discussions: []
+---
+
 # Regole per l'Uso dei Layout - Tema Sixteen
 
 ## 🚨 REGOLA FONDAMENTALE - Layout per Autenticazione
@@ -175,6 +186,14 @@ Prima di implementare una pagina di autenticazione:
 
 ---
 
+title: "layout usage rules"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout usage rules"
+issues: []
+discussions: []
 **Regola stabilita**: 31 Luglio 2025  
 **Autorità**: Analisi del tema Sixteen esistente  
 **Stato**: REGOLA FONDAMENTALE  

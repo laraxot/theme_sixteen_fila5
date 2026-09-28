@@ -4,7 +4,7 @@
     Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
 --}}
 
-@extends('sixteen::layouts.app')
+@extends('pub_theme::layouts.app')
 
 @section('content')
 <div class="min-h-screen bg-gray-50" x-data="{ activeTab: 'map' }">

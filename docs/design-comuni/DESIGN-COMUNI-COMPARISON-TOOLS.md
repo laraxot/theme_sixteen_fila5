@@ -1,3 +1,14 @@
+---
+title: "DESIGN COMUNI COMPARISON TOOLS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI COMPARISON TOOLS"
+issues: []
+discussions: []
+---
+
 # Design Comuni Visual Comparison Tools
 
 **Purpose:** Systematically compare and align local Design Comuni pages with the reference implementation (italia.github.io) to achieve visual parity using Tailwind CSS + Alpine.js (no Bootstrap Italia).
@@ -8,6 +19,14 @@
 
 ---
 
+title: "DESIGN COMUNI COMPARISON TOOLS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI COMPARISON TOOLS"
+issues: []
+discussions: []
 ## Overview
 
 This suite of tools automates the comparison of 47+ Design Comuni static pages between:

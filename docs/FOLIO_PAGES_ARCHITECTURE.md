@@ -1,3 +1,14 @@
+---
+title: "FOLIO PAGES ARCHITECTURE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FOLIO PAGES ARCHITECTURE"
+issues: []
+discussions: []
+---
+
 # Folio Pages Architecture - FixCity Fila5
 
 **Project:** FixCity Fila5
@@ -7,6 +18,14 @@
 
 ---
 
+title: "FOLIO PAGES ARCHITECTURE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FOLIO PAGES ARCHITECTURE"
+issues: []
+discussions: []
 ## 🎯 Scopo
 
 Questo documento definisce l'architettura delle pagine Folio nel tema Sixteen, applicando i principi **DRY** e **KISS**.

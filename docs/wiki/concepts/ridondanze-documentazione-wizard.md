@@ -1,4 +1,8 @@
 ---
+tags: [documentation]
+qmd: "ridondanze documentazione wizard"
+issues: []
+discussions: []
 title: "Documentazione wizard Sixteen ridondanza intenzionale vs duplicabile"
 type: concept
 theme: sixteen

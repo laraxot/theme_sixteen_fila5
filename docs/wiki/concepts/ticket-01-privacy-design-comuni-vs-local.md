@@ -1,4 +1,7 @@
 ---
+qmd: "ticket 01 privacy design comuni vs local"
+issues: []
+discussions: []
 title: "Segnalazione-01-Privacy: Design Comuni vs Local Wizard"
 type: comparison
 sources: 

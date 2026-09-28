@@ -1,3 +1,14 @@
+---
+title: "HTML SIMILARITY 90 PERCENT PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML SIMILARITY 90 PERCENT PLAN"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Similarity: 81% → 90% Action Plan
 
 > **Data**: 2026-04-07
@@ -8,6 +19,14 @@
 
 ---
 
+title: "HTML SIMILARITY 90 PERCENT PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML SIMILARITY 90 PERCENT PLAN"
+issues: []
+discussions: []
 ## Executive Summary
 
 ### Element Breakdown by Category

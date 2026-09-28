@@ -1,3 +1,14 @@
+---
+title: "postcss config note"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "postcss config note"
+issues: []
+discussions: []
+---
+
 # postcss.config.cjs — Design Decision
 
 - **location**: **theme root** (`laravel/Themes/Sixteen/postcss.config.cjs`), NOT in `scripts/`

@@ -1,3 +1,14 @@
+---
+title: "visual parity report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual parity report"
+issues: []
+discussions: []
+---
+
 # Visual Parity Report - Homepage
 
 **Data**: 2026-04-02
@@ -7,6 +18,14 @@
 
 ---
 
+title: "visual parity report"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual parity report"
+issues: []
+discussions: []
 ## 📊 Risultato Finale
 
 | Metrica | Valore |

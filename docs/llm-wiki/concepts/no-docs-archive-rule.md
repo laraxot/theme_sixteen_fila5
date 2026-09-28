@@ -1,4 +1,7 @@
 ---
+qmd: "no docs archive rule"
+issues: []
+discussions: []
 title: "No Docs Archive Rule"
 type: concept
 sources: ["../wiki/concepts/no-docs-archive-rule.md"]

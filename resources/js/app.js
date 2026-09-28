@@ -625,6 +625,12 @@ function initTicketFilters() {
             .map((input) => input.value);
         const mapEl = document.getElementById('block-map');
 
+        root.querySelectorAll('[data-public-ticket-card]').forEach((card) => {
+            const matchesType = checkedTypes.length === 0 || checkedTypes.includes(card.dataset.filterType || '');
+            const matchesStatus = checkedStatuses.length === 0 || checkedStatuses.includes(card.dataset.filterStatus || '');
+            card.hidden = !matchesType || !matchesStatus;
+        });
+
         if (
             mapEl
             && Array.isArray(mapEl._allFeatures)
@@ -644,8 +650,7 @@ function initTicketFilters() {
 
         const featureCount = countMatchingFeatures(mapEl, checkedTypes, checkedStatuses);
         if (featureCount !== null) {
-            const total = featureCount > 0 ? featureCount : (referenceTotal > 0 ? referenceTotal : 0);
-            countEl.textContent = template.replace(':count', String(total));
+            countEl.textContent = template.replace(':count', String(featureCount));
 
             return;
         }

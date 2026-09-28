@@ -1,3 +1,14 @@
+---
+title: "homepage html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage html comparison"
+issues: []
+discussions: []
+---
+
 # Homepage HTML Structure Comparison Analysis
 
 **Date:** 2026-04-07

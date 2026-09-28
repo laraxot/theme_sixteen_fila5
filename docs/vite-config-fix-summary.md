@@ -1,3 +1,14 @@
+---
+title: "vite config fix summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite config fix summary"
+issues: []
+discussions: []
+---
+
 # Vite Configuration Fix - outDir: './public'
 
 **Date**: 2026-04-01  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "vite config fix summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "vite config fix summary"
+issues: []
+discussions: []
 ## 🎯 Problem Statement
 
 **Configuration**: `laravel/Themes/Sixteen/vite.config.js`

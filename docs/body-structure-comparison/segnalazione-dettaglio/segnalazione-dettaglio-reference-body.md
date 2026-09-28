@@ -1,3 +1,14 @@
+---
+title: "segnalazione dettaglio reference body"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione dettaglio reference body"
+issues: []
+discussions: []
+---
+
 # Segnalazione dettaglio reference body
 
 <body>

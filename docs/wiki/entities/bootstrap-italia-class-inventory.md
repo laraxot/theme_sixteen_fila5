@@ -1,4 +1,7 @@
 ---
+qmd: "bootstrap italia class inventory"
+issues: []
+discussions: []
 title: "Bootstrap Italia — inventario classi per le 7 pagine segnalazione"
 type: entity
 sources:

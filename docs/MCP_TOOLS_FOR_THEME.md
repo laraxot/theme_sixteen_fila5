@@ -1,3 +1,14 @@
+---
+title: "MCP TOOLS FOR THEME"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP TOOLS FOR THEME"
+issues: []
+discussions: []
+---
+
 # MCP Tools for Sixteen Theme
 
 **Data:** 2026-06-03  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "MCP TOOLS FOR THEME"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP TOOLS FOR THEME"
+issues: []
+discussions: []
 ## Overview
 
 This document describes how MCP (Model Context Protocol) tools enhance the Sixteen theme development workflow.

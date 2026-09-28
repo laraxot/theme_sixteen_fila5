@@ -1,3 +1,14 @@
+---
+title: "SOCIAL ICONS VISIBILITY ISSUE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SOCIAL ICONS VISIBILITY ISSUE"
+issues: []
+discussions: []
+---
+
 # Social Icons Visibility Issue - Detailed Analysis
 
 **Issue**: Social icons not visible in header  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "SOCIAL ICONS VISIBILITY ISSUE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SOCIAL ICONS VISIBILITY ISSUE"
+issues: []
+discussions: []
 ## 🔍 Problem Details
 
 ### HTML Structure

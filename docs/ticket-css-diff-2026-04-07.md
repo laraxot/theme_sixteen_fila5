@@ -1,3 +1,14 @@
+---
+title: "ticket css diff 2026 04 07"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket css diff 2026 04 07"
+issues: []
+discussions: []
+---
+
 # Analisi Differenze CSS/JS - Pagine Segnalazione
 
 **Data**: 2026-04-07

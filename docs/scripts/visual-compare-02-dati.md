@@ -1,3 +1,14 @@
+---
+title: "visual compare 02 dati"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "visual compare 02 dati"
+issues: []
+discussions: []
+---
+
 # visual-compare-02-dati.cjs
 
 - **movement**: moved from theme root to `scripts/` — 2026-05-16

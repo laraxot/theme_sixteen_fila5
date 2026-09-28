@@ -1,3 +1,14 @@
+---
+title: "badge components implementation"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "badge components implementation"
+issues: []
+discussions: []
+---
+
 # Implementazione Componenti Badge
 
 ## Data Implementazione

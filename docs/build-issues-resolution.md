@@ -1,3 +1,14 @@
+---
+title: "build issues resolution"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build issues resolution"
+issues: []
+discussions: []
+---
+
 # Risoluzione Problemi Build - Tema Sixteen con Filament 4.x
 
 ## Panoramica
@@ -162,6 +173,14 @@ npm run copy:filament
 
 ---
 
+title: "build issues resolution"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build issues resolution"
+issues: []
+discussions: []
 **Data Risoluzione**: 23 Settembre 2025  
 **Versione**: 1.0.0  
 **Stato**: ✅ Risolto e Testato

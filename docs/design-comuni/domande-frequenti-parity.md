@@ -1,3 +1,14 @@
+---
+title: "domande frequenti parity"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domande frequenti parity"
+issues: []
+discussions: []
+---
+
 # Domande Frequenti Parity Report
 
 Data: 2026-04-03

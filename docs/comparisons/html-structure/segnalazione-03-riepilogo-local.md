@@ -1,3 +1,14 @@
+---
+title: "segnalazione 03 riepilogo local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 03 riepilogo local"
+issues: []
+discussions: []
+---
+
 # Segnalazione 03 riepilogo local
 
 <body>

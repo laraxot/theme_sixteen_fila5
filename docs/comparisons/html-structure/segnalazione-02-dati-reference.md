@@ -1,3 +1,14 @@
+---
+title: "segnalazione 02 dati reference"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 02 dati reference"
+issues: []
+discussions: []
+---
+
 # Segnalazione 02 dati reference
 
 <body>

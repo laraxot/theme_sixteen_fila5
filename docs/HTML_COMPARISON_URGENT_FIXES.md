@@ -1,3 +1,14 @@
+---
+title: "HTML COMPARISON URGENT FIXES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML COMPARISON URGENT FIXES"
+issues: []
+discussions: []
+---
+
 # 🚨 HTML Body Comparison - URGENT FIXES NEEDED
 
 > **GSD Analysis: 397 Structural Differences Found**
@@ -20,6 +31,14 @@
 
 ---
 
+title: "HTML COMPARISON URGENT FIXES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML COMPARISON URGENT FIXES"
+issues: []
+discussions: []
 ## 🔴 Critical Issues
 
 ### 1. Header Structure WRONG

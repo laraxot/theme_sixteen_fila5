@@ -1,3 +1,14 @@
+---
+title: "homepage"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage"
+issues: []
+discussions: []
+---
+
 # Homepage Replication
 
 > **Replicare la homepage di Design Comuni Italia**
@@ -36,6 +47,14 @@
 
 ---
 
+title: "homepage"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage"
+issues: []
+discussions: []
 ### Main Content
 
 #### 1. Hero Newscard

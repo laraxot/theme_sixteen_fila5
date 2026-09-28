@@ -1,3 +1,14 @@
+---
+title: "segnalazione 02 dati html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 02 dati html comparison"
+issues: []
+discussions: []
+---
+
 # HTML Structure Comparison: segnalazione-02-dati
 
 **Generated**: 2026-04-06T19:25:15.240Z
@@ -6,6 +17,14 @@
 
 ---
 
+title: "segnalazione 02 dati html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione 02 dati html comparison"
+issues: []
+discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

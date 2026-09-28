@@ -1,4 +1,6 @@
 ---
+issues: []
+discussions: []
 title: "Token efficiency agente — tema Sixteen"
 type: concept
 module: Sixteen

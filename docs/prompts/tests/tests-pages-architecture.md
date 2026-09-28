@@ -1,3 +1,14 @@
+---
+title: "tests pages architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "tests pages architecture"
+issues: []
+discussions: []
+---
+
 # Tests Pages Architecture: Why NO design-comuni.blade.php
 
 **Decision:** We DO NOT use `<x-layouts.design-comuni>` for tests pages.
@@ -6,6 +17,14 @@
 
 ---
 
+title: "tests pages architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "tests pages architecture"
+issues: []
+discussions: []
 ## ✅ Correct Pattern
 
 ### File: `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`

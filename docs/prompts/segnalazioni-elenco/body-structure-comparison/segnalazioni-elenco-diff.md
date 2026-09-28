@@ -1,3 +1,14 @@
+---
+title: "segnalazioni elenco diff"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazioni elenco diff"
+issues: []
+discussions: []
+---
+
 # Segnalazioni elenco diff
 
 ```text

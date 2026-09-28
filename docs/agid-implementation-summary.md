@@ -1,3 +1,14 @@
+---
+title: "agid implementation summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid implementation summary"
+issues: []
+discussions: []
+---
+
 # Sommario Implementazioni AGID - Tema Sixteen
 
 ## 📊 Stato Conformità AGID
@@ -217,6 +228,14 @@ docs/
 
 ---
 
+title: "agid implementation summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "agid implementation summary"
+issues: []
+discussions: []
 **Ultimo aggiornamento**: 2025-09-02  
 **Stato**: Implementazione in corso - 60% completato  
 **Prossima revisione**: 2025-09-09

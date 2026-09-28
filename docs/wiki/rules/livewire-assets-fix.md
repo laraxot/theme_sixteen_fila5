@@ -1,4 +1,9 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "livewire assets fix"
+issues: []
+discussions: []
 title: "Livewire Assets Out‑of‑Date Fix"
 type: rule
 updated: 2026-06-10

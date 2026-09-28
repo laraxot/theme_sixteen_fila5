@@ -1,4 +1,11 @@
 ---
+title: "ticket crea navbar green contract"
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket crea navbar green contract"
+issues: []
+discussions: []
 name: segnalazione-crea-navbar-green-contract
 description: Header navbar green contract for the segnalazione-crea wizard
 type: concept

@@ -1,3 +1,14 @@
+---
+title: "MERGE CONFLICT RESOLUTION LOG"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MERGE CONFLICT RESOLUTION LOG"
+issues: []
+discussions: []
+---
+
 # Merge Conflict Resolution Log
 
 > **Data inizio**: 2026-04-07
@@ -6,6 +17,14 @@
 
 ---
 
+title: "MERGE CONFLICT RESOLUTION LOG"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MERGE CONFLICT RESOLUTION LOG"
+issues: []
+discussions: []
 ## File Risolti
 
 ### 1. skills-lock.json

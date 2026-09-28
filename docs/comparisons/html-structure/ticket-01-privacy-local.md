@@ -1,3 +1,14 @@
+---
+title: "ticket 01 privacy local"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ticket 01 privacy local"
+issues: []
+discussions: []
+---
+
 # Ticket 01 privacy local
 
 <body>

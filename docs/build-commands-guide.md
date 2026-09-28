@@ -1,3 +1,14 @@
+---
+title: "build commands guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build commands guide"
+issues: []
+discussions: []
+---
+
 # Build Commands - Sixteen Theme
 
 **Type**: Build & Deployment Documentation  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "build commands guide"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "build commands guide"
+issues: []
+discussions: []
 ## 🎯 Overview
 
 The Sixteen theme uses **Vite** for building CSS and JavaScript assets.

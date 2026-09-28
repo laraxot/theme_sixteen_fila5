@@ -1,3 +1,14 @@
+---
+title: "VIEW PATH FIX REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VIEW PATH FIX REPORT"
+issues: []
+discussions: []
+---
+
 # View Path Fix - Progress Report
 
 **Date**: 2026-04-04  
@@ -6,6 +17,14 @@
 
 ---
 
+title: "VIEW PATH FIX REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VIEW PATH FIX REPORT"
+issues: []
+discussions: []
 ## Problem Identified
 
 Pages were broken with error:

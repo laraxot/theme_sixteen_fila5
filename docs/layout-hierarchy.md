@@ -1,3 +1,14 @@
+---
+title: "layout hierarchy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout hierarchy"
+issues: []
+discussions: []
+---
+
 # Layout Hierarchy - Sixteen Theme
 
 **Type**: Architecture Documentation  
@@ -7,6 +18,14 @@
 
 ---
 
+title: "layout hierarchy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout hierarchy"
+issues: []
+discussions: []
 ## 🎯 Overview
 
 The Sixteen theme uses a **layered layout architecture** following **DRY (Don't Repeat Yourself)** and **KISS (Keep It Simple, Stupid)** principles.

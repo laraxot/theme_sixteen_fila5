@@ -1,3 +1,14 @@
+---
+title: "GROUP A index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GROUP A index"
+issues: []
+discussions: []
+---
+
 # GROUP A - Analisi Parità Visiva
 
 **Agente**: GROUP-A Agent
@@ -6,6 +17,14 @@
 
 ---
 
+title: "GROUP A index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "GROUP A index"
+issues: []
+discussions: []
 ## Indice Pagine Analizzate
 
 | Pagina | Reference Disponibile | Status | Priorità Intervento | DIFF Analysis |
