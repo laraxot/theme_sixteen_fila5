@@ -20,11 +20,11 @@ return [
     'how' => [
         'title' => 'How it works',
         'intro' => 'Sign in or create an account, describe the issue and mark the location. You can find your cases in the personal area.',
-        'step1_title' => '1. Describe',
+        'step1_title' => 'Describe the issue',
         'step1_body' => 'Explain what happened and choose the most suitable category.',
-        'step2_title' => '2. Set the place',
+        'step2_title' => 'Set the location',
         'step2_body' => 'Add the location and useful details for the intervention.',
-        'step3_title' => '3. Follow updates',
+        'step3_title' => 'Follow updates',
         'step3_body' => 'Check your cases after signing in.',
     ],
     'map' => [
@@ -62,6 +62,9 @@ return [
         'cta_heading' => 'Did you notice a problem?',
         'cta_body' => 'Submit a report to the municipality and follow the updates.',
         'cta_button' => 'Report a problem',
+        'track_heading' => 'Already submitted a report?',
+        'track_body' => 'Enter the code you received to check its status.',
+        'track_button' => 'Track a report',
         'track' => 'Track',
     ],
 ];
