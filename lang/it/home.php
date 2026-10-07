@@ -20,11 +20,11 @@ return [
     'how' => [
         'title' => 'Come funziona',
         'intro' => 'Accedi o crea un account, descrivi il problema e indica dove si trova. Potrai ritrovare le tue pratiche nell’area personale.',
-        'step1_title' => '1. Descrivi',
+        'step1_title' => 'Descrivi il problema',
         'step1_body' => 'Spiega cosa è successo e scegli la categoria più adatta.',
-        'step2_title' => '2. Indica il luogo',
+        'step2_title' => 'Indica il luogo',
         'step2_body' => 'Aggiungi la posizione e le informazioni utili per intervenire.',
-        'step3_title' => '3. Segui gli aggiornamenti',
+        'step3_title' => 'Segui gli aggiornamenti',
         'step3_body' => 'Consulta le tue pratiche dopo aver effettuato l’accesso.',
     ],
     'map' => [
@@ -62,6 +62,9 @@ return [
         'cta_heading' => 'Hai notato un problema?',
         'cta_body' => 'Invia una segnalazione al Comune e segui gli aggiornamenti.',
         'cta_button' => 'Segnala un problema',
+        'track_heading' => 'Hai già inviato una segnalazione?',
+        'track_body' => 'Inserisci il codice ricevuto per controllare lo stato della pratica.',
+        'track_button' => 'Traccia una segnalazione',
         'track' => 'Traccia',
     ],
 ];
