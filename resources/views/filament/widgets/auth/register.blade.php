@@ -35,6 +35,7 @@
         wire:submit="submit"
         class="w-full min-w-0 space-y-6"
         aria-labelledby="auth-register-heading"
+        aria-describedby="auth-register-hint-email auth-register-hint-password"
         novalidate
     >
         {{-- Su mobile niente riquadro interno: il campo password con il pulsante "Mostra password" ha bisogno di tutta la larghezza. --}}

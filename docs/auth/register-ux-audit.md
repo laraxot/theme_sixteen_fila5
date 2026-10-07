@@ -3,10 +3,12 @@ title: "register ux audit"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-10-07
 qmd: "register ux audit"
-issues: []
-discussions: []
+issues:
+  - "https://github.com/laraxot/base_fixcity_fila5/issues/572"
+discussions:
+  - "https://github.com/laraxot/base_fixcity_fila5/discussions/573"
 ---
 
 # Register `/it/auth/register` — audit UX/WCAG/funzionamento (2026-06-04)
@@ -64,6 +66,19 @@ curl -sL http://127.0.0.1:8000/it/auth/register | grep -E 'auth-register|aria-li
 ```
 
 Registrazione test: email unica, password `TestPassword1!` (12+ char, maiusc, minus, num, simbolo).
+
+## UX pass 2026-10-07
+
+- mantenuti password e conferma in colonna singola anche su mobile;
+- mantenuti error summary annunciato con `role="alert"` e `aria-live`;
+- CTA a tutta larghezza con target minimo 44px e link di accesso sempre visibile;
+- il form usa le traduzioni auto-configurate dal LangServiceProvider: non si
+  aggiungono `->label()` nei widget Filament;
+- la verifica email è demandata al modulo User e non introduce logica di dominio
+  nel tema.
+
+Il certificato locale HTTPS già attivo è il prerequisito per testare la pagina
+dal browser in LAN; la consegna email resta separata dal rendering della pagina.
 
 ## Collegamenti
 

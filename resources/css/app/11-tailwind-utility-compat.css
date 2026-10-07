@@ -186,7 +186,7 @@
 }
 
 /* Submit button (wizard segnalazione — escluso login FO) */
-body:not([data-page='auth-login']) button[type="submit"].fi-btn {
+body:not([data-page^='auth-']) button[type="submit"].fi-btn {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;
@@ -195,7 +195,7 @@ body:not([data-page='auth-login']) button[type="submit"].fi-btn {
     --c-600: none !important;
     cursor: pointer;
 }
-body:not([data-page='auth-login']) button[type="submit"].fi-btn:hover {
+body:not([data-page^='auth-']) button[type="submit"].fi-btn:hover {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;
