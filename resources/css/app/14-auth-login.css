@@ -97,3 +97,86 @@ body[data-page='auth-register'] .fo-filament-form-shell .fi-grid-col:has([id='fo
         flex: 1 1 0%;
     }
 }
+
+/* ── auth-submit-fill: bottone di invio pieno (login e registrazione) ──────
+ * Lato FO le variabili colore di Filament (fi-bg-color-*) non sono definite:
+ * `x-filament::button` resta bianco con bordo verde e testo scuro. Qui il colore
+ * viene dal token tema `--bs-primary` (bianco su verde: contrasto 5,4:1, AA).
+ */
+body[data-page='auth-login'] form button[type='submit'].fi-btn,
+body[data-page='auth-register'] form button[type='submit'].fi-btn {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: center;
+    background-color: var(--bs-primary, #007a52);
+    border-color: var(--bs-primary, #007a52);
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
+}
+
+body[data-page='auth-login'] form button[type='submit'].fi-btn:hover:not(:disabled),
+body[data-page='auth-register'] form button[type='submit'].fi-btn:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--bs-primary, #007a52) 85%, #000);
+}
+
+body[data-page='auth-login'] form button[type='submit'].fi-btn:focus-visible,
+body[data-page='auth-register'] form button[type='submit'].fi-btn:focus-visible {
+    outline: 2px solid var(--bs-primary, #007a52);
+    outline-offset: 2px;
+}
+
+body[data-page='auth-login'] form button[type='submit'].fi-btn:disabled,
+body[data-page='auth-register'] form button[type='submit'].fi-btn:disabled {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* ── Registrazione, mobile (< 640px): stesse regole del login ──────────────
+ * Senza queste il padding si somma (card 3rem + riquadro form 1.5rem) e i campi
+ * restano larghi ~190px: email e placeholder tagliati.
+ */
+@media (max-width: 639px) {
+    body[data-page='auth-register'] .auth-register-card {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        border-radius: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+
+    body[data-page='auth-register'] .auth-register-card > div {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    body[data-page='auth-register'] .fo-filament-form-shell {
+        border-width: 0;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    body[data-page='auth-register'] .fi-input-wrp,
+    body[data-page='auth-register'] .fi-input-wrp > * {
+        min-width: 0;
+    }
+
+    body[data-page='auth-register'] .fi-input {
+        min-width: 0;
+        flex: 1 1 0%;
+    }
+
+    /* "Mostra password": su mobile solo icona (il testo resta nel DOM per i lettori di schermo) */
+    body[data-page='auth-register'] .fi-input-wrp-actions .fi-ac-btn-action,
+    body[data-page='auth-login'] .fi-input-wrp-actions .fi-ac-btn-action {
+        font-size: 0;
+        padding: 0.5rem;
+    }
+
+    body[data-page='auth-register'] .fi-input-wrp-actions .fi-ac-btn-action .fi-icon,
+    body[data-page='auth-login'] .fi-input-wrp-actions .fi-ac-btn-action .fi-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
