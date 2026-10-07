@@ -105,6 +105,7 @@ class MunicipalNews extends Model
     /**
      * Tipologie di notizia secondo AGID
      */
+    /** @var array<mixed> */
     public const NEWS_TYPES = [
         'news' => 'Notizia',
         'press_release' => 'Comunicato Stampa',
@@ -126,6 +127,7 @@ class MunicipalNews extends Model
     /**
      * Stati della notizia
      */
+    /** @var array<mixed> */
     public const NEWS_STATUSES = [
         'draft' => 'Bozza',
         'review' => 'In Revisione',
@@ -139,6 +141,7 @@ class MunicipalNews extends Model
     /**
      * Livelli di priorità
      */
+    /** @var array<mixed> */
     public const PRIORITY_LEVELS = [
         1 => 'Bassa',
         2 => 'Normale',
@@ -150,6 +153,7 @@ class MunicipalNews extends Model
     /**
      * Livelli di urgenza
      */
+    /** @var array<mixed> */
     public const URGENCY_LEVELS = [
         1 => 'Non Urgente',
         2 => 'Normale',
@@ -161,6 +165,7 @@ class MunicipalNews extends Model
     /**
      * Ambiti geografici
      */
+    /** @var array<mixed> */
     public const GEOGRAPHIC_SCOPES = [
         'municipal' => 'Comunale',
         'district' => 'Quartiere/Circoscrizione',
