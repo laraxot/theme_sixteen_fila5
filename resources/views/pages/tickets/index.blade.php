@@ -8,6 +8,7 @@ name('tickets.list');
 ?>
 
 <x-layouts.app
+    bodyPage="ticket-list"
     :title="__('fixcity::ticket.heading.title.label')"
     :meta-description="__('fixcity::ticket.heading.subtitle.text')"
 >
