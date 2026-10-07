@@ -23,8 +23,11 @@
 
             <div class="grid gap-6 lg:grid-cols-3">
                 <div class="lg:col-span-2">
-                    <div class="auth-register-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                        @livewire(\Modules\User\Filament\Widgets\Auth\RegisterWidget::class)
+                    {{-- Mobile: card a tutta larghezza (-mx-4 annulla il px-4 del container) per dare spazio al campo password --}}
+                    <div class="auth-register-card -mx-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:mx-0">
+                        <div class="p-5 sm:p-7">
+                            @livewire(\Modules\User\Filament\Widgets\Auth\RegisterWidget::class)
+                        </div>
                     </div>
                 </div>
 
