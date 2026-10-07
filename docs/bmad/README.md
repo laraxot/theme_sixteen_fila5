@@ -21,6 +21,16 @@ Indice: [FixCity workflows](../../../../Modules/Fixcity/docs/bmad/workflows/READ
 
 ## Homepage guest (2026-09-27)
 
+### Contratti correnti 2026-10-07
+
+- [Audit visuale e piano taste-skill](homepage-taste-contract-2026-10-07.md)
+- [Contratto presentazione flusso cittadino](citizen-journey-presentation-contract-2026-10-07.md)
+- [Audit dominio FixCity](../../../Modules/Fixcity/docs/bmad/homepage-audit-2026-10-07.md)
+- [Audit flusso cittadino](../../../Modules/Fixcity/docs/bmad/citizen-journey-audit-2026-10-07.md)
+
+La view homepage runtime è `resources/views/pages/index.blade.php`. Il file parallelo
+`pages/[locale]/index.blade.php` non è montato dai provider attuali.
+
 - Contratto: [homepage-guest-visual-contract.md](./homepage-guest-visual-contract.md)
 - Atteso dominio: [homepage-guest-expected-visual.md](../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md)
 - Confronto PASS: [homepage-guest-visual-comparison.md](../../../../Modules/Fixcity/docs/bmad/homepage-guest-visual-comparison.md)
