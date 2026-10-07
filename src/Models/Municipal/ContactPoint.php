@@ -57,6 +57,7 @@ class ContactPoint extends Model
     /**
      * Tipi di contatto supportati secondo AGID
      */
+    /** @var array<mixed> */
     public const TYPES = [
         'email' => 'Email',
         'pec' => 'PEC (Posta Elettronica Certificata)',
@@ -380,7 +381,6 @@ class ContactPoint extends Model
         });
     }
 }
-
 
 
 

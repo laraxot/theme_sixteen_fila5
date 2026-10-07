@@ -108,6 +108,7 @@ class MunicipalEvent extends Model
     /**
      * Tipologie di evento secondo AGID
      */
+    /** @var array<mixed> */
     public const EVENT_TYPES = [
         'council_meeting' => 'Consiglio Comunale',
         'committee_meeting' => 'Commissione',
@@ -133,6 +134,7 @@ class MunicipalEvent extends Model
     /**
      * Stati dell'evento
      */
+    /** @var array<mixed> */
     public const EVENT_STATUSES = [
         'scheduled' => 'Programmato',
         'confirmed' => 'Confermato',
@@ -146,6 +148,7 @@ class MunicipalEvent extends Model
     /**
      * Tipologie di location
      */
+    /** @var array<mixed> */
     public const LOCATION_TYPES = [
         'physical' => 'Fisica',
         'online' => 'Online',
@@ -156,6 +159,7 @@ class MunicipalEvent extends Model
     /**
      * Livelli di visibilità
      */
+    /** @var array<mixed> */
     public const VISIBILITY_LEVELS = [
         'public' => 'Pubblico',
         'restricted' => 'Riservato',

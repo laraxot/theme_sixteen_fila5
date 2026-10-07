@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
+use Themes\Sixteen\Enums\AppointmentServiceTypeEnum;
+use Themes\Sixteen\Enums\AppointmentStatusEnum;
 
 /**
  * Modello Appuntamento - Gestione prenotazioni servizi comunali
@@ -42,42 +44,11 @@ class Appointment extends Model
         'appointment_date' => 'date',
         'start_time' => 'datetime',
         'end_time' => 'datetime',
+        'status' => AppointmentStatusEnum::class,
         'required_documents' => 'array',
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
     ];
-
-    /**
-     * Stati appuntamento conformi AGID
-     */
-    const STATUS_PENDING = 'pending';      // In attesa di conferma
-
-    const STATUS_CONFIRMED = 'confirmed';  // Confermato
-
-    const STATUS_COMPLETED = 'completed';  // Completato
-
-    const STATUS_CANCELLED = 'cancelled';  // Cancellato
-
-    const STATUS_CONFIRMED = 'confirmed';  // Confermato
-    const STATUS_COMPLETED = 'completed';  // Completato
-    const STATUS_CANCELLED = 'cancelled';  // Cancellato
-    const STATUS_NO_SHOW = 'no_show';      // Non presentato
-
-    /**
-     * Tipi di servizio supportati
-     */
-    const SERVICE_ANAGRAFE = 'anagrafe';
-
-    const SERVICE_TRIBUTI = 'tributi';
-
-    const SERVICE_SUAP = 'suap';
-
-    const SERVICE_URP = 'urp';
-
-    const SERVICE_TRIBUTI = 'tributi';
-    const SERVICE_SUAP = 'suap';
-    const SERVICE_URP = 'urp';
-    const SERVICE_OTHER = 'other';
 
     /**
      * Relazione con l'utente che ha prenotato
@@ -117,7 +88,7 @@ class Appointment extends Model
     public function scopeUpcoming($query)
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
-            ->where('status', self::STATUS_CONFIRMED);
+            ->where('status', AppointmentStatusEnum::CONFIRMED->value);
     }
 
     /**
@@ -141,7 +112,7 @@ class Appointment extends Model
      */
     public function getIsCancellableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
+        return ($this->status?->isOpen() ?? false)
             && $this->appointment_date > now()->addHours(24); // Cancellabile fino a 24h prima
     }
 
@@ -150,7 +121,7 @@ class Appointment extends Model
      */
     public function getIsModifiableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
+        return ($this->status?->isOpen() ?? false)
             && $this->appointment_date > now()->addHours(48); // Modificabile fino a 48h prima
     }
 
@@ -188,7 +159,7 @@ class Appointment extends Model
     public function needsReminder(): bool
     {
         return ! $this->reminder_sent
-            && $this->status === self::STATUS_CONFIRMED
+            && $this->status === AppointmentStatusEnum::CONFIRMED
             && $this->appointment_date->isTomorrow()
             && now()->hour < 18; // Invio solo prima delle 18
     }
@@ -205,41 +176,39 @@ class Appointment extends Model
         });
 
         static::updating(function ($appointment) {
-            if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
+            if ($appointment->isDirty('status') && $appointment->status === AppointmentStatusEnum::CANCELLED) {
                 $appointment->cancelled_at = now();
             }
         });
     }
 
     /**
-     * Array di stati validi
+     * Stati validi come [valore => label tradotta].
+     *
+     * @return array<string, string>
      */
     public static function getStatuses(): array
     {
-        return [
-            self::STATUS_PENDING => 'In attesa',
-            self::STATUS_CONFIRMED => 'Confermato',
-            self::STATUS_COMPLETED => 'Completato',
-            self::STATUS_CANCELLED => 'Cancellato',
-            self::STATUS_NO_SHOW => 'Non presentato',
-        ];
+        $statuses = [];
+        foreach (AppointmentStatusEnum::cases() as $status) {
+            $statuses[$status->value] = $status->getLabel();
+        }
+
+        return $statuses;
     }
 
     /**
-     * Array di tipi servizio
+     * Tipi di servizio come [valore => label tradotta].
+     *
+     * @return array<string, string>
      */
     public static function getServiceTypes(): array
     {
-        return [
-            self::SERVICE_ANAGRAFE => 'Anagrafe',
-            self::SERVICE_TRIBUTI => 'Tributi',
-            self::SERVICE_SUAP => 'SUAP',
-            self::SERVICE_URP => 'URP',
-            self::SERVICE_OTHER => 'Altro',
-        ];
+        $types = [];
+        foreach (AppointmentServiceTypeEnum::cases() as $type) {
+            $types[$type->value] = $type->getLabel();
+        }
+
+        return $types;
     }
 }
-
-
-
-
