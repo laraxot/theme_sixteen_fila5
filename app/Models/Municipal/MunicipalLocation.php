@@ -98,6 +98,7 @@ class MunicipalLocation extends Model
     /**
      * Tipologie di location secondo AGID
      */
+    /** @var array<mixed> */
     public const LOCATION_TYPES = [
         'headquarters' => 'Sede Principale',
         'office' => 'Ufficio',
@@ -123,6 +124,7 @@ class MunicipalLocation extends Model
     /**
      * Categorie principali
      */
+    /** @var array<mixed> */
     public const CATEGORIES = [
         'administrative' => 'Amministrativo',
         'cultural' => 'Culturale',
@@ -139,6 +141,7 @@ class MunicipalLocation extends Model
     /**
      * Servizi disponibili
      */
+    /** @var array<mixed> */
     public const AVAILABLE_SERVICES = [
         'citizen_services' => 'Servizi al Cittadino',
         'document_collection' => 'Ritiro Documenti',

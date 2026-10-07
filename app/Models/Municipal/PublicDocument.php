@@ -113,6 +113,7 @@ class PublicDocument extends Model
     /**
      * Tipologie di documento secondo AGID
      */
+    /** @var array<mixed> */
     public const DOCUMENT_TYPES = [
         // Atti normativi
         'statute' => 'Statuto',
@@ -163,6 +164,7 @@ class PublicDocument extends Model
     /**
      * Stati del documento
      */
+    /** @var array<mixed> */
     public const DOCUMENT_STATUSES = [
         'draft' => 'Bozza',
         'review' => 'In Revisione',
@@ -178,6 +180,7 @@ class PublicDocument extends Model
     /**
      * Stati di pubblicazione
      */
+    /** @var array<mixed> */
     public const PUBLICATION_STATUSES = [
         'unpublished' => 'Non Pubblicato',
         'scheduled' => 'Programmato',
@@ -189,6 +192,7 @@ class PublicDocument extends Model
     /**
      * Livelli di privacy secondo GDPR
      */
+    /** @var array<mixed> */
     public const PRIVACY_LEVELS = [
         'public' => 'Pubblico',
         'restricted' => 'Accesso Limitato',
@@ -201,6 +205,7 @@ class PublicDocument extends Model
     /**
      * Sezioni di Amministrazione Trasparente
      */
+    /** @var array<mixed> */
     public const TRANSPARENCY_SECTIONS = [
         'organization' => 'Organizzazione',
         'consulting' => 'Consulenti e Collaboratori',

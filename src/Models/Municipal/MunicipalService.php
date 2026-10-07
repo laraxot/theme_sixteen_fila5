@@ -106,6 +106,7 @@ class MunicipalService extends Model
     /**
      * Tipologie di servizio secondo AGID
      */
+    /** @var array<mixed> */
     public const SERVICE_TYPES = [
         'administrative' => 'Servizio Amministrativo',
         'demographic' => 'Servizio Demografico',
@@ -127,6 +128,7 @@ class MunicipalService extends Model
     /**
      * Stati del servizio
      */
+    /** @var array<mixed> */
     public const SERVICE_STATUSES = [
         'active' => 'Attivo',
         'suspended' => 'Sospeso',
@@ -139,6 +141,7 @@ class MunicipalService extends Model
     /**
      * Livelli di servizio
      */
+    /** @var array<mixed> */
     public const SERVICE_LEVELS = [
         'essential' => 'Servizio Essenziale',
         'standard' => 'Servizio Standard',
@@ -149,6 +152,7 @@ class MunicipalService extends Model
     /**
      * Metodi di erogazione
      */
+    /** @var array<mixed> */
     public const DELIVERY_METHODS = [
         'online' => 'Online',
         'in_person' => 'Di Persona',
@@ -609,7 +613,6 @@ class MunicipalService extends Model
         });
     }
 }
-
 
 
 

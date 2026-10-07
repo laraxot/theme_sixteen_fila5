@@ -495,6 +495,7 @@ La cartella [design-comuni/](design-comuni/README.md) e' il cantiere piu' grande
 - [merge-conflicts-list.md](merge-conflicts-list.md)
 - [merge-conflicts-resolution.md](merge-conflicts-resolution.md)
 - [MERGE_CONFLICT_RESOLUTION_LOG.md](MERGE_CONFLICT_RESOLUTION_LOG.md)
+- [appointment-enums.md](appointment-enums.md) - enum `AppointmentStatusEnum`/`AppointmentServiceTypeEnum` al posto delle costanti di `Appointment` (story: [stories/2026-10-06-const-to-enum-sixteen-appointment.story.md](stories/2026-10-06-const-to-enum-sixteen-appointment.story.md))
 - [phpstan-compliance-status.md](phpstan-compliance-status.md)
 - [ponytail-audit-over-engineering.md](ponytail-audit-over-engineering.md)
 - [quality-tools.md](quality-tools.md)

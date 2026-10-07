@@ -69,6 +69,7 @@ class OrganizationalUnit extends Model
     /**
      * Tipi di unità organizzative secondo AGID
      */
+    /** @var array<mixed> */
     public const TYPES = [
         'municipality' => 'Comune',
         'department' => 'Dipartimento',
