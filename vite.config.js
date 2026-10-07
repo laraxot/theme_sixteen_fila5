@@ -7,6 +7,7 @@ import fs from 'fs';
 
 export default defineConfig({
     base: '/themes/Sixteen/',
+    publicDir: false,
     resolve: {
         alias: {
             '@modules': path.resolve(__dirname, '../../Modules'),
@@ -78,8 +79,9 @@ export default defineConfig({
         },
     ],
     build: {
+        // public_html/themes/Sixteen e' un symlink a ./public (tracciato): non svuotarlo
         outDir: '../../../public_html/themes/Sixteen',
-        emptyOutDir: true,
+        emptyOutDir: false,
         manifest: 'manifest.json',
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
