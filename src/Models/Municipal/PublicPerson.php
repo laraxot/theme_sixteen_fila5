@@ -90,6 +90,7 @@ class PublicPerson extends Model
     /**
      * Categorie di persone pubbliche secondo AGID
      */
+    /** @var array<mixed> */
     public const CATEGORIES = [
         'politician' => 'Politico/Amministratore',
         'manager' => 'Dirigente',
@@ -104,6 +105,7 @@ class PublicPerson extends Model
     /**
      * Ruoli principali secondo AGID
      */
+    /** @var array<mixed> */
     public const ROLES = [
         'mayor' => 'Sindaco',
         'deputy_mayor' => 'Vicesindaco',
@@ -506,7 +508,6 @@ class PublicPerson extends Model
         });
     }
 }
-
 
 
 

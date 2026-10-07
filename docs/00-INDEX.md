@@ -33,6 +33,7 @@ Folio + Volt e le Actions appartengono al modulo owner.
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
 | Build asset | `vite-theme-integration.md` | log di singole sessioni |
 | FixCity journeys | `Modules/Fixcity/docs/actor-flows.md` | duplicati nel tema |
+| Modelli/enum prenotazioni | `appointment-enums.md` | costanti `Appointment::STATUS_*` (rimosse) |
 
 ## Regola di consolidamento
 
