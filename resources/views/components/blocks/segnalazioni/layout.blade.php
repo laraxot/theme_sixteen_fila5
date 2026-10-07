@@ -225,7 +225,7 @@
                                             <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
                                         </div>
                                         <div class="button-wrapper">
-                                            <a href="/it/tests/ticket-crea" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create') }}" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                                 <span>{{ $cta['button_text'] }}</span>
                                             </a>
                                         </div>
@@ -295,6 +295,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 @endif
+                                                                                <a class="btn btn-outline-primary mt-3" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/'.rawurlencode((string) $item->getKey())) }}">
+                                                                                    {{ __('fixcity::ticket.card.detail.label') }}
+                                                                                </a>
                                                                             </div>
                                                                             <div class="card-footer p-0 d-none"></div>
                                                                         </div>

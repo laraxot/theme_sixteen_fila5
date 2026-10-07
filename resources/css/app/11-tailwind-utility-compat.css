@@ -282,3 +282,8 @@ button[type="button"].fi-btn-color-gray:hover {
    Keep this block last: older imported parity chunks must not override it.
    Scope must remain component/theme-level; never use module/domain hooks.
 ======================================== */
+
+/* === HOMEPAGE AUDIT FIX — taste-skill states + motion + token links === */
+.btn:focus-visible, .chip:focus-visible, .nav-link:focus-visible, .form-control:focus-visible { outline: 2px solid var(--fixcity-primary); outline-offset: 2px; }
+.btn:disabled, .chip:disabled { opacity: 0.5; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .btn, .chip, .nav-link, .form-control { transition: none; } }
