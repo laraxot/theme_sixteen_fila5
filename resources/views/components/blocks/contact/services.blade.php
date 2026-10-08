@@ -69,7 +69,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card card-teaser shadow-sm h-100">
                     <div class="card-body p-4">
-                        <h3 class="h5 mb-3">Forse stavi cercando</h3>
+                        <h3 class="h5 mb-3">{{ __('fixcity::global.related_title') }}</h3>
                         
                         <ul class="list-unstyled mb-4">
                             <li class="mb-2">

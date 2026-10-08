@@ -106,7 +106,7 @@
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a href="{{ route('logout') }}" class="dropdown-item text-danger" role="menuitem">
+                                    <a href="{{ url('/'.app()->getLocale().'/auth/logout') }}" class="dropdown-item text-danger" role="menuitem">
                                         <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
                                         {{ __('pub_theme::header.user.dropdown.logout.label') }}
                                     </a>

@@ -80,7 +80,22 @@ Registrazione test: email unica, password `TestPassword1!` (12+ char, maiusc, mi
 Il certificato locale HTTPS già attivo è il prerequisito per testare la pagina
 dal browser in LAN; la consegna email resta separata dal rendering della pagina.
 
+## Regola di parità locale 2026-10-07
+
+Ogni chiave usata da `Themes/Sixteen/resources/views/pages/auth/login.blade.php`
+deve avere una traduzione esplicita in `Modules/User/lang/{locale}/auth.php` o
+`login.php`. Il fallback italiano è vietato per URL `/en/*`: un URL localizzato
+deve cambiare anche `app()->getLocale()` e tutto il copy visibile.
+
 ## Collegamenti
 
 - [login-ux-fixes-2026-06-04.md](./login-ux-fixes-2026-06-04.md)
 - [filament-pa-design-colors.md](../../../Modules/Xot/docs/wiki/concepts/filament-pa-design-colors.md)
+
+## Pass 2026-10-07 (seconda): chiavi grezze, card annidate, mobile
+
+- Causa delle 9 chiavi grezze (`user::auth.register_page.*`, `user::registration.actions.register.*`, `user::registration.already_registered`): chiavi mai definite nei lang `it`. Aggiunte in `Modules/User/lang/it/auth.php` e `registration.php`; il test `Modules/User/tests/Feature/LoginPageTranslationsTest.php` le copre insieme a quelle del login.
+- Il widget non annida più `x-filament-widgets::widget` + `x-filament::section` + `div p-5` dentro la card della pagina (quattro riquadri impilati, contenuto tagliato su mobile). Struttura come `login.blade.php`: card e padding nella pagina, widget con un solo `div`.
+- Mobile (390px): card a tutta larghezza (`-mx-4 sm:mx-0`) e riquadro interno del form solo da `sm` (`border-0 p-0 sm:border sm:p-6`), così il campo password convive con il pulsante "Mostra password".
+- Regola pratica: le utility Tailwind disponibili sono solo quelle presenti nell'ultimo build. Mancavano `sm:p-4`, `sm:p-5`, `sm:rounded-2xl`, `border-x-0`; verificare con `grep -c '\.sm\\:p-6{' public/assets/app-*.css` prima di usare una classe nuova in un blade, altrimenti serve un rebuild.
+- CTA: la regola globale `body:not([data-page='auth-login']) button[type=submit].fi-btn` rendeva "Crea account" un contorno bianco; ora esclude tutte le pagine `auth-*` (commit 2b37f9c).
