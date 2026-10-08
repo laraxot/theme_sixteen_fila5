@@ -7,6 +7,7 @@ namespace Themes\Sixteen\Enums;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
+use Themes\Sixteen\Enums\Concerns\HasLangLabel;
 
 /**
  * Stati appuntamento conformi AGID (sixteen_appointments.status).
@@ -16,6 +17,8 @@ use Filament\Support\Contracts\HasLabel;
  */
 enum AppointmentStatusEnum: string implements HasColor, HasIcon, HasLabel
 {
+    use HasLangLabel;
+
     /** In attesa di conferma */
     case PENDING = 'pending';
 
@@ -41,11 +44,6 @@ enum AppointmentStatusEnum: string implements HasColor, HasIcon, HasLabel
             self::PENDING, self::CONFIRMED => true,
             self::COMPLETED, self::CANCELLED, self::NO_SHOW => false,
         };
-    }
-
-    public function getLabel(): string
-    {
-        return $this->translate('label');
     }
 
     public function getColor(): string
