@@ -11,5 +11,6 @@ return [
     'information' => 'Informazioni',
     'faq' => 'Domande frequenti',
     'sitemap' => 'Mappa del sito',
+    'contact_municipality' => 'Contatta il comune',
     'information_unavailable' => 'I recapiti e le informazioni legali dell’ente non sono ancora configurati.',
 ];

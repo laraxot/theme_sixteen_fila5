@@ -264,7 +264,7 @@
         <div class="row justify-content-center mb-md-40 mb-lg-80">
           <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
-              <nav class="breadcrumb-container" aria-label="breadcrumb">
+              <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                 <ol class="breadcrumb p-0" data-element="breadcrumb">
                   <li class="breadcrumb-item"><a href="homepage.html">Home</a><span class="separator">/</span></li>
                   <li class="breadcrumb-item active" aria-current="page">Elenco segnalazioni</li>

@@ -39,7 +39,7 @@
         </li>
         <li><span class="divider"></span></li>
         <li>
-          <a class="dropdown-item list-item" href="{{ route('logout') }}" role="menuitem">
+          <a class="dropdown-item list-item" href="{{ url('/'.app()->getLocale().'/auth/logout') }}" role="menuitem">
             <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2"/>
             {{ __('pub_theme::header.user.dropdown.logout.label') }}
           </a>

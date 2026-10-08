@@ -41,7 +41,7 @@
     <div class="row justify-content-center mb-md-40 mb-lg-80">
         <div class="col-12 col-lg-10">
             <!-- Breadcrumbs -->
-            <nav class="breadcrumb-container" aria-label="breadcrumb">
+            <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                 <ol class="breadcrumb" data-element="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="/it/tests/homepage">Home</a>
@@ -269,7 +269,7 @@
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
+                            <h2 class="title-medium-2-semi-bold">{{ __('sixteen::footer.contact_municipality') }}</h2>
                             <ul class="contact-list p-0">
                                 <li>
                                     <a class="list-item" href="#">

@@ -132,7 +132,7 @@
         <div class="row justify-content-center mb-md-40 mb-lg-80">
             <div class="col-12 col-lg-10">
                 <div class="cmp-breadcrumbs" role="navigation">
-                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                    <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                         <ol class="breadcrumb p-0" data-element="breadcrumb">
                             @foreach ($breadcrumbItems as $item)
                                 <li class="breadcrumb-item{{ $item['active'] ?? false ? ' active' : '' }}"{{ $item['active'] ?? false ? ' aria-current="page"' : '' }}>
@@ -188,9 +188,9 @@
                         <span class="t-primary title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.button.label') }}</span>
                     </button>
 
-                    <a href="#" id="segnalazioni-clear-filters" class="btn p-0 pe-2 d-none d-lg-block text-decoration-none">
-                        <span class="title-xsmall-semi-bold ms-1">{{ __($ns . '.filter.remove.label') }}</span>
-                    </a>
+                    <button type="button" id="segnalazioni-clear-filters" class="btn btn-outline-primary btn-sm d-none d-lg-block">
+                        <span class="title-xsmall-semi-bold">{{ __($ns . '.filter.remove.label') }}</span>
+                    </button>
                 </div>
 
                 @if (!empty($tabs))

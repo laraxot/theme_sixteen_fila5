@@ -201,6 +201,12 @@
         // Marker cluster group
         const markerCluster = L.markerClusterGroup();
 
+        const escapeHtml = (value) => {
+            const element = document.createElement('div');
+            element.textContent = String(value ?? '');
+            return element.innerHTML;
+        };
+
         // Build markers from the SAME JSON data used for filters
         ticketData.forEach(function (ticket) {
             if (!ticket.geometry || !ticket.geometry.coordinates) return;
@@ -212,11 +218,14 @@
 
             // Build popup content from ticket properties
             const props = ticket.properties || {};
+            const detailUrl = typeof props.detail_url === 'string' && /^(https?:\/\/|\/)/.test(props.detail_url)
+                ? props.detail_url
+                : '#';
             const popupContent = `
                 <div class="ticket-popup">
-                    <strong>${props.title || 'Segnalazione'}</strong><br>
-                    ${props.address || ''}<br>
-                    <a href="${props.detail_url || '#'}" class="text-blue-600 underline">Dettagli</a>
+                    <strong>${escapeHtml(props.title || 'Segnalazione')}</strong>
+                    <span>${escapeHtml(props.address || '')}</span>
+                    <a href="${escapeHtml(detailUrl)}" class="text-blue-600 underline">Dettagli</a>
                 </div>
             `;
             marker.bindPopup(popupContent);

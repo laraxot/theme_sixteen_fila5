@@ -36,7 +36,7 @@ return [
         'rate_4' => 'Valuta 4 stelle su 5',
         'rate_3' => 'Valuta 3 stelle su 5',
         'rate_2' => 'Valuta 2 stelle su 5',
-        'rate_1' => 'Valuta 1 stelle su 5',
+        'rate_1' => 'Valuta 1 stella su 5',
         'positive_feedback' => 'Cosa ti è piaciuto di questa pagina?',
         'negative_feedback' => 'Cosa non hai trovato chiaro?',
         'add_details' => 'Vuoi aggiungere altri dettagli?',

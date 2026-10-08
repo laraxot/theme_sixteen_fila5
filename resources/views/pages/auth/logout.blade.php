@@ -18,6 +18,8 @@ new class extends Component
 
 ?>
 
+@volt('auth.logout')
 <div wire:init="logout" class="d-flex align-items-center justify-content-center min-vh-100">
-    <p class="text-muted">Disconnessione in corso…</p>
+    <p class="text-muted">{{ __('user::login.logout_in_progress') }}</p>
 </div>
+@endvolt

@@ -11,5 +11,6 @@ return [
     'information' => 'Information',
     'faq' => 'Frequently asked questions',
     'sitemap' => 'Site map',
+    'contact_municipality' => 'Contact the municipality',
     'information_unavailable' => 'The municipality’s contact details and legal information have not been configured yet.',
 ];
