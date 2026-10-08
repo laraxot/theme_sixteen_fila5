@@ -46,7 +46,7 @@ resources/views/components/blocks/
 
 ## Slug canonici (nuovi blocchi)
 
-SSoT codice: `Themes\Sixteen\Support\BlockCategoryRegistry::CANONICAL_FOLDERS`.
+SSoT codice: `Themes\Sixteen\Datas\BlockCategoryRegistryData::CANONICAL_FOLDERS` (interrogata dalle Action in `app/Actions/Block/`; `Support/BlockCategoryRegistry` rimossa il 2026-10-08, duplicato morto).
 
 Esempi: `hero`, `grid`, `cta`, `tabs`, `filters`, `vertical-navigation`, `feedback`, `breadcrumb`, `layout`, `sidebar`, `modal`, `form`, `faq`, `stats`, `newsletter`, `footer`, `error`.
 
@@ -85,4 +85,4 @@ cd laravel && ./vendor/bin/pest Themes/Sixteen/tests/Unit/BlockSubfolderNamingTe
 
 - [Regola on-demand](../rules/cms-block-naming-tailwind-flowbite.md)
 - [011-blocks-view-convention](../../../../../../docs/wiki/rules/011-blocks-view-convention.md)
-- [Registry PHP](../../../app/Support/BlockCategoryRegistry.php)
+- [Registry PHP](../../../app/Datas/BlockCategoryRegistryData.php)
