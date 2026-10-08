@@ -3,7 +3,7 @@ title: "Appointment enums (Sixteen)"
 type: reference
 tags: [sixteen, appointment, enum, filament, i18n]
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Appointment enums (Sixteen)
@@ -55,3 +55,11 @@ eliminare `src/` (il resto di `src/` contiene anche conflitti di merge non risol
 
 `Themes/Sixteen/tests/Unit/AppointmentEnumsTest.php` (Pest, sqlite in-memory): valori, `isOpen()`, risoluzione
 delle chiavi lang it/en, cast del modello.
+
+## Aggiornamento 2026-10-08
+
+Il merge da `laraxot/dev` aveva riportato `Models/Appointment.php` e `CreateAppointment` alle `const` (enum, lang e test erano
+rimasti): conversione ri-applicata. `getLabel()` e `options()` degli enum vengono ora dal trait `Enums/Concerns/HasLangLabel`,
+condiviso con i 21 enum dei modelli `Municipal`. Il `fallback_locale` dell'app e' `it` (de/es tornano in italiano). `src/` non
+esiste piu' nel tema: la sezione "Duplicazione" sopra e' storica. Story:
+[stories/2026-10-08-services-to-actions-sixteen.story.md](stories/2026-10-08-services-to-actions-sixteen.story.md).
