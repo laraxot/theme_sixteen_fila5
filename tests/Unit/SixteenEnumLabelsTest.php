@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 use Filament\Support\Contracts\HasLabel;
 use PHPUnit\Framework\Assert;
+use Symfony\Component\Finder\Finder;
 use Tests\TestCase;
-
-use function Safe\glob;
 
 uses(TestCase::class);
 
@@ -16,15 +15,15 @@ beforeEach(function (): void {
 });
 
 test('every sixteen enum resolves a translated label for each case in it and en', function (): void {
-    $files = glob(dirname(__DIR__, 2).'/app/Enums/*Enum.php');
+    $files = Finder::create()->files()->in(dirname(__DIR__, 2).'/app/Enums')->depth(0)->name('*Enum.php');
 
-    expect($files)->not->toBeEmpty();
+    expect($files->hasResults())->toBeTrue();
 
     foreach (['it', 'en'] as $locale) {
         app()->setLocale($locale);
 
         foreach ($files as $file) {
-            $enum = 'Themes\\Sixteen\\Enums\\'.basename($file, '.php');
+            $enum = 'Themes\\Sixteen\\Enums\\'.$file->getBasename('.php');
 
             if (! enum_exists($enum)) {
                 Assert::fail("{$enum} non e' un enum");
