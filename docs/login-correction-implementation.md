@@ -11,6 +11,11 @@ discussions: []
 
 # Correzione Implementazione Login - Tema Sixteen
 
+> **Nota 2026-10-08**: `Themes\Sixteen\Services\ThemeService` (descritto sotto) e' stato eliminato: il sostituto vivo e'
+> `Themes\Sixteen\Adapters\ThemeAdapter` (singleton `sixteen.theme`); `MenuBuilder`, `CieAuthService` e `SpidAuthService` sono
+> ora `Actions/MenuBuilderAction`, `Actions/CieAuthAction`, `Actions/SpidAuthAction`. Il tema non ha piu' `app/Services/`
+> (regola: `ARCHITECTURE-QUEUEABLE-ACTION.md`). Dettagli: [stories/2026-10-08-services-to-actions-sixteen.story.md](stories/2026-10-08-services-to-actions-sixteen.story.md).
+
 ## 🚨 REGOLA CRITICA FONDAMENTALE
 
 ### AdminPanelProvider - LEGGE ASSOLUTA

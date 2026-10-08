@@ -51,3 +51,7 @@ verificata non garantisce tutti i riferimenti.
 Ogni modifica deve avere: mobile/tablet/desktop evidence, zero overflow, focus visibile,
 target touch adeguato, contrasto e reduced-motion verificati. Un screenshot isolato non
 chiude il gate.
+
+## Story BMAD recenti (standard di codice)
+
+- [Services -> Actions e const -> enum (2026-10-08)](stories/2026-10-08-services-to-actions-sixteen.story.md) — il tema non ha piu' `app/Services/`; 31 const in enum con lang it/en.
