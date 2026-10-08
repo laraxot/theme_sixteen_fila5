@@ -126,10 +126,14 @@
                                         </li>
                                         <li><span class="divider"></span></li>
                                         <li>
-                                            <a class="list-item" href="/{{ app()->getLocale() }}/auth/logout">
-                                                <svg class="icon icon-sm me-2" aria-hidden="true"><use xlink:href="#it-close-circle"></use></svg>
-                                                <span>Esci</span>
-                                            </a>
+                                            <form method="POST" action="{{ url('/'.app()->getLocale().'/auth/logout') }}">
+                                                @csrf
+                                                <button type="submit" class="list-item w-100 text-start p-0 border-0 bg-transparent"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                    <svg class="icon icon-sm me-2" aria-hidden="true"><use xlink:href="#it-close-circle"></use></svg>
+                                                    <span>Esci</span>
+                                                </button>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>

@@ -15,7 +15,7 @@
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
+                            <h2 class="title-medium-2-semi-bold">{{ __('sixteen::footer.contact_municipality') }}</h2>
                             <ul class="contact-list p-0">
                                 @foreach($contact_links as $link)
                                 <li>

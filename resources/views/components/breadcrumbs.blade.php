@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                     <ol class="breadcrumb p-0" data-element="breadcrumb">
                         @foreach($items as $item)
                             @php

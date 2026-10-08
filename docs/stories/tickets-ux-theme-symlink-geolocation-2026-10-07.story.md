@@ -55,3 +55,9 @@ Il `rm -rf Sixteen` ha pero' cancellato la build vite che viveva li.
 - Riprodotto in headless: origine HTTP -> messaggio HTTPS (corretto), nessun `Permissions-Policy` inviato dal server. Il caso dell'utente non e' riproducibile senza il suo browser.
 - Da fare: l'utente incolla l'output della diagnostica in console (`isSecureContext`, `permissions.query`, `error.code` e `error.message`). `error.message` distingue "User denied Geolocation" da "Only secure origins..." o da un errore del servizio di localizzazione del sistema.
 - Ipotesi in ordine: servizi di localizzazione del sistema spenti, permesso del sito in blocco senza stato `denied`, flag insecure-origin non effettivo dopo il riavvio del browser.
+
+## Aggiornamento 20:00: popup dei marker e lingue
+
+- Popup con testo bianco su bianco sulla home, popup tagliato e azioni fuori vista: vedi `Modules/Geo/docs/stories/map-popup-contrast-and-fit-2026-10-07.story.md`.
+  Causa: regola hero `main section:has(#welcome-heading) p {color:#fff !important}` che includeva la mappa.
+- Pagine in de/es e `/en/auth/login` in italiano per via del fallback `it`: vedi `Modules/User/docs/stories/auth-i18n-all-locales-2026-10-07.story.md`.

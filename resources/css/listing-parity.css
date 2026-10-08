@@ -9,6 +9,64 @@
   --dc-text-muted: #5c6f82;
 }
 
+/* Ticket marker popup: explicit surface and foreground prevent white-on-white
+ * inheritance from map/hero rules. */
+.leaflet-popup-content-wrapper:has(.ticket-popup),
+.leaflet-popup-content-wrapper:has(.ticket-popup) .leaflet-popup-content {
+    background: #ffffff !important;
+    color: #17324d !important;
+}
+
+.leaflet-popup-content-wrapper:has(.ticket-popup) {
+    border: 1px solid #c9d6df !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 0.5rem 1.5rem rgba(23, 50, 77, 0.2) !important;
+}
+
+.leaflet-popup-content-wrapper:has(.ticket-popup) .ticket-popup {
+    background: #ffffff !important;
+    color: #17324d !important;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    min-width: 12rem;
+    padding: 0.25rem;
+}
+
+.leaflet-popup-content-wrapper:has(.ticket-popup) .ticket-popup strong {
+    color: #17324d !important;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.leaflet-popup-content-wrapper:has(.ticket-popup) .ticket-popup a {
+    color: #005ea8 !important;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.leaflet-popup-content-wrapper:has(.ticket-popup) .ticket-popup a:focus-visible {
+    outline: 2px solid #005ea8;
+    outline-offset: 3px;
+}
+
+.leaflet-popup:has(.ticket-popup) .leaflet-popup-close-button {
+    color: #17324d !important;
+    font-size: 1.25rem !important;
+    font-weight: 700;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0.5rem !important;
+}
+
+.leaflet-popup:has(.ticket-popup) .leaflet-popup-tip {
+    background: #ffffff !important;
+    box-shadow: 1px 1px 0 #c9d6df;
+}
+
 .it-header-navbar-wrapper .nav-link.active {
   position: relative;
   font-weight: 600 !important;

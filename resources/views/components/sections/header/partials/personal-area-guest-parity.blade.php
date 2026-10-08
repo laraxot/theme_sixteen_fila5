@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li>
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ url('/'.app()->getLocale().'/auth/logout') }}">
                                 @csrf
                                 <button type="submit" class="list-item left-icon">
                                     <svg class="icon icon-primary icon-sm left" aria-hidden="true">
