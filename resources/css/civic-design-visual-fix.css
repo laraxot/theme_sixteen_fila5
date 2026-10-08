@@ -130,28 +130,30 @@ h3, h4, h5, h6 {
 }
 
 /* The public FixCity hero uses Tailwind text utilities on a dark background.
-   Restore their intended contrast after the legacy global color overrides. */
-main section:has(#welcome-heading) h1,
-main section:has(#welcome-heading) h2,
-main section:has(#welcome-heading) p {
+   Restore their intended contrast after the legacy global color overrides.
+   The map (and its Leaflet popups, white cards) lives in the same section: exclude it, otherwise
+   popup text becomes white on white. */
+main section:has(#welcome-heading) h1:not(.leaflet-container *),
+main section:has(#welcome-heading) h2:not(.leaflet-container *),
+main section:has(#welcome-heading) p:not(.leaflet-container *) {
   color: #fff !important;
 }
 
-main section:has(#welcome-heading) a {
+main section:has(#welcome-heading) a:not(.leaflet-container *) {
   color: #fff !important;
 }
 
-main section:has(#welcome-heading) a:first-of-type {
+main section:has(#welcome-heading) a:first-of-type:not(.leaflet-container *) {
   color: #172554 !important;
 }
 
-main section:has(#welcome-heading) a.btn:first-of-type {
+main section:has(#welcome-heading) a.btn:first-of-type:not(.leaflet-container *) {
   background-color: #fff !important;
   border-color: #fff !important;
   color: #007a52 !important;
 }
 
-main section:has(#welcome-heading) a.btn-outline-light {
+main section:has(#welcome-heading) a.btn-outline-light:not(.leaflet-container *) {
   background-color: transparent !important;
   border: 1px solid #fff !important;
 }
@@ -166,7 +168,7 @@ main section:has(#services-title) p {
   color: #fff !important;
 }
 
-main section:has(#welcome-heading) a {
+main section:has(#welcome-heading) a:not(.leaflet-container *) {
   text-decoration: none !important;
 }
 
