@@ -55,10 +55,6 @@ export default defineConfig({
                 const outBase = path.resolve(__dirname, '../../../public_html/themes/Sixteen/design-comuni');
                 const copies = [
                     {
-                        src: path.resolve(__dirname, 'node_modules/bootstrap-italia/dist/svg/sprites.svg'),
-                        dst: path.join(outBase, 'assets/bootstrap-italia/dist/svg/sprites.svg'),
-                    },
-                    {
                         src: path.resolve(__dirname, 'Main_files/five/assets/images/logo-eu-inverted.svg'),
                         dst: path.join(outBase, 'assets/images/logo-eu-inverted.svg'),
                     },
