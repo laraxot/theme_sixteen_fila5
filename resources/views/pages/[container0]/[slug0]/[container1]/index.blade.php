@@ -35,10 +35,24 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app>
-    @volt('container1.index')
-    <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
-        <x-page side="content" :slug="$pageSlug" :data="$data" />
-    </div>
-    @endvolt
+@php
+    $specialPage = $container0 === 'auth' && $slug0 === 'password' && $container1 === 'reset'
+        ? 'auth-password-reset'
+        : ($container0 === 'auth' && $slug0 === 'password' && $container1 === 'confirm'
+            ? 'auth-password-confirm'
+            : null);
+    $pageTitle = $specialPage === 'auth-password-reset' || $specialPage === 'auth-password-confirm'
+        ? __('Reimposta la password')
+        : config('app.name');
+@endphp
+<x-layouts.app :title="$pageTitle">
+    @if ($container0 === 'auth' && $slug0 === 'password' && $container1 === 'reset')
+        @include('pub_theme::components.pages.auth-password-reset')
+    @else
+        @volt('container1.index')
+            <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
+                <x-page side="content" :slug="$pageSlug" :data="$data" />
+            </div>
+        @endvolt
+    @endif
 </x-layouts.app>

@@ -69,7 +69,7 @@
             #head-section #welcome-heading,
             #head-section .lead,
             #head-section .title-xsmall-semi-bold { color: #ffffff !important; }
-            .modal.search-modal:not(.show) { display: none !important; visibility: hidden !important; }
+            [x-cloak] { display: none !important; }
         </style>
         @stack('styles')
     </head>

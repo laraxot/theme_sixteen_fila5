@@ -82,6 +82,32 @@ return [
         'rating_legend' => 'Valuta da 1 a 5 stelle',
     ],
 
+    'filters' => [
+        'legend' => ['label' => 'Filtra per categoria'],
+    ],
+    'filter' => [
+        'button' => ['label' => 'Filtra'],
+        'remove' => ['label' => 'Rimuovi filtri'],
+    ],
+    'results' => [
+        'count' => ['text' => ':count Risultati'],
+        'empty' => 'Nessuna segnalazione corrisponde ai filtri selezionati.',
+    ],
+    'card' => [
+        'type' => ['label' => 'Categoria'],
+        'expand' => ['button' => ['label' => 'Mostra dettagli']],
+        'address' => ['label' => 'Luogo'],
+        'detail' => ['label' => 'Descrizione'],
+    ],
+    'map' => [
+        'image' => ['alt' => 'Mappa delle segnalazioni pubbliche'],
+        'cta' => [
+            'title' => 'Fai una segnalazione',
+            'text' => 'Segnala un problema al Comune dopo aver effettuato l’accesso.',
+            'button' => 'Segnala disservizio',
+        ],
+    ],
+
     // Contacts
     'contacts' => [
         'title' => 'Contatta il comune',
