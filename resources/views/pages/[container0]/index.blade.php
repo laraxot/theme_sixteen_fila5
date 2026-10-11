@@ -34,17 +34,22 @@ new class extends Component {
         'mappa-sito' => 'sitemap',
         default => null,
     };
-    abort_if($cmsPage === null && $utilityPage === null && $container0 !== 'lista-categorie', 404);
+    $nativePage = in_array($container0, ['services', 'segnalazioni'], true) ? $container0 : null;
+    abort_if($cmsPage === null && $utilityPage === null && $nativePage === null && $container0 !== 'lista-categorie', 404);
     $pageTitle = match (true) {
         $container0 === 'lista-categorie' => __('pub_theme::services.categories.title'),
         $utilityPage === 'faq' => __('pub_theme::faq.meta.title'),
         $utilityPage === 'sitemap' => __('pub_theme::sitemap.meta.title'),
+        $nativePage === 'services' => __('pub_theme::services.meta.title'),
+        $nativePage === 'segnalazioni' => __('pub_theme::segnalazione.elenco.title'),
         default => $cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name'),
     };
     $pageDescription = match (true) {
         $container0 === 'lista-categorie' => __('pub_theme::services.categories.subtitle'),
         $utilityPage === 'faq' => __('pub_theme::faq.meta.description'),
         $utilityPage === 'sitemap' => __('pub_theme::sitemap.meta.description'),
+        $nativePage === 'services' => __('pub_theme::services.meta.description'),
+        $nativePage === 'segnalazioni' => __('pub_theme::segnalazione.elenco.subtitle', ['count' => 73]),
         default => $cmsPage?->getAttribute('description') ?? '',
     };
 @endphp
@@ -57,6 +62,10 @@ new class extends Component {
             @include('pub_theme::components.pages.faq')
         @elseif ($container0 === 'mappa-sito')
             @include('pub_theme::components.pages.sitemap')
+        @elseif ($container0 === 'services')
+            @include('pub_theme::components.pages.services')
+        @elseif ($container0 === 'segnalazioni')
+            @include('pub_theme::components.pages.segnalazioni')
         @else
             <x-page side="content" :slug="$pageSlug" :data="$data" />
         @endif
