@@ -62,7 +62,7 @@
 @import './components/filament-select-wizard-fix.css';
 @import "./container-override.css";
 @import "./footer-override.css";
-@import "./bootstrap-italia.css";
+/* Bootstrap Italia is reference-only; the runtime is owned by Tailwind utilities. */
 
 /* ========================================
    IMPORT DESIGN COMUNI COMPONENT CLASSES
@@ -131,3 +131,14 @@
 
 /* Motion Reveal — scroll-triggered animations */
 @import './components/motion-reveal.css';
+@import './tests-index-parity.css';
+@import './tests-design-comuni-parity.css';
+
+/* Flowbite for dropdown menus, modals, tooltips */
+@import 'flowbite/dist/flowbite.css';
+
+/* Design Comuni shell geometry: the reference desktop header is 222px high. */
+@media (min-width: 1024px) {
+    #site-header #sixteen-primary-nav { min-height: 53px; }
+    #site-header #sixteen-primary-nav > div > ul { padding-top: 0; padding-bottom: 0; }
+}

@@ -26,13 +26,18 @@ discussions: []
 
 🇮🇹 [Biglietto da visita (IT)](../README.md) · 🇬🇧 [Business card (EN)](./readme-en.md)
 
-## Superpoteri
+## Ownership e stack canonico
 
-- **Bootstrap Italia**: Complete Bootstrap Italia framework integration
-- **Design System**: Consistent design language across all components
-- **Accessibility**: WCAG 2.1 compliant design
-- **Responsive**: Mobile-first responsive design
-- **Vite**: Modern build tool for asset compilation
+Sixteen è già il tema Design Comuni: non si crea un secondo tema, layout o
+namespace `design-comuni`. Il rendering usa TailwindCSS (`@apply`), Alpine.js,
+Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
+
+- contenuti: JSON CMS, con view block riusabili;
+- shell pubblica: `x-layouts.app` e, quando dichiarato dal contratto pagina,
+  `x-layouts.test`;
+- routing pubblico: Folio e `PageSlugMiddleware`;
+- accessibilità: WCAG 2.1 AA come requisito minimo, con verifica manuale e automatizzata;
+- build: Vite, con asset generati nella public del tema.
 
 ## Documentazione
 
@@ -40,7 +45,7 @@ discussions: []
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
 | 🇬🇧 Business card | [docs/readme-en.md](./docs/readme-en.md) |
-| 📚 Wiki tecnica | [./docs/wiki/](./docs/) |
+| 📚 Wiki tecnica | [./wiki/](./wiki/) |
 
 ---
 

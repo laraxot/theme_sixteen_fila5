@@ -9,19 +9,31 @@ qmd: "sixteen theme design comuni folio volt accessibility documentation index"
 
 # Sixteen — indice canonico
 
-Sixteen è il tema web/PWA pubblico: Design Comuni, responsive, accessibilità e
-componenti visuali. Non contiene business logic, controller o rotte; le pagine sono
-Folio + Volt e le Actions appartengono al modulo owner.
+Sixteen è il tema web/PWA pubblico di FixCity: è il proprietario della resa
+Design Comuni, del markup e dei componenti visuali. Non contiene business logic,
+controller o rotte; le pagine sono Folio + Blade/Volt e le Actions appartengono
+al modulo owner.
+
+Questo file è l'indice operativo unico. `INDEX.md`,
+`DOCUMENTATION_INDEX.md` e `MASTER_DOCUMENTATION.md` sono indici storici:
+non usarli per decidere una nuova struttura.
 
 ## Percorsi di lettura
 
-1. [README](README.md) — identità e setup;
-2. [layout architecture](layout-architecture.md) — shell e namespace;
-3. [accessibility](accessibility.md) — criteri WCAG/AGID;
-4. [components](components.md) — componenti riusabili;
-5. [header mobile overlay](header-mobile-overlay.md) — comportamento responsive;
-6. [mobile accessibility contract](mobile-demo-accessibility-contract.md) — gate demo;
-7. [visual parity plan](visual-parity-plan.md) — backlog visuale verificabile.
+1. [README](README.md) — identità, ownership e stack;
+2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
+3. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
+4. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
+5. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
+6. [header/footer data model](bmad/header-footer-data-model.md) — elementi, forma JSON e AC;
+7. [header/footer rationale](second-brain/header-footer-rationale.md) — decisione e perché;
+8. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
+9. [design-comuni](design-comuni/DESIGN-COMUNI-CANONICAL.md) — vincoli visuali;
+10. [design-system](design-system/README.md) — token e componenti del tema;
+11. [pages](pages/) — contratti delle pagine e parity;
+12. [stories](stories/) — storie BMAD e acceptance criteria;
+13. [visual-parity](visual-parity/) — verifiche, screenshot e report;
+14. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
 
 ## SSoT per area
 
@@ -29,7 +41,7 @@ Folio + Volt e le Actions appartengono al modulo owner.
 |---|---|---|
 | Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` |
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
-| Design Comuni | `design-comuni/` + documenti parity + `design-system/MASTER.md` | screenshot raw o root design-system |
+| Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
 | Build asset | `vite-theme-integration.md` | log di singole sessioni |
 | FixCity journeys | `Modules/Fixcity/docs/actor-flows.md` | duplicati nel tema |

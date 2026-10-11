@@ -7,10 +7,10 @@
     </div><!-- /skiplink -->
 
     <x-section slug="header" />
-    {{-- 
+    {{--
     <x-breadcrumbs />
     --}}
-    
+
     <main id="main-container" tabindex="-1">
         {{ $slot }}
     </main>

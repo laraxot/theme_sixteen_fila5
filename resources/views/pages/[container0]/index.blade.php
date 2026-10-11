@@ -54,8 +54,11 @@ new class extends Component {
         $nativePage === 'segnalazioni' => __('pub_theme::segnalazione.elenco.subtitle', ['count' => 73]),
         default => $cmsPage?->getAttribute('description') ?? '',
     };
+    $layoutComponent = ($cmsPage?->getAttribute('layout') ?? 'app') === 'test'
+        ? 'layouts.test'
+        : 'layouts.app';
 @endphp
-<x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
+<x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription">
     <div class="page-content content" data-slug="{{ request()->segment(2).'.index' }}" data-side="content">
         @if ($nativePage === 'services')
             @include('pub_theme::components.pages.services')
@@ -73,4 +76,4 @@ new class extends Component {
             @endvolt
         @endif
     </div>
-</x-layouts.app>
+</x-dynamic-component>

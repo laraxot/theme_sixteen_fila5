@@ -1,7 +1,20 @@
+@props(['links' => []])
+
 @php
     $searchCreateUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create');
     $searchListUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/segnalazioni');
     $searchTrackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
+
+    $defaultLinks = [
+        ['label' => 'Rilascio Carta Identità Elettronica (CIE)', 'url' => '#'],
+        ['label' => 'Cambio di residenza', 'url' => '#'],
+        ['label' => 'Tributi online', 'url' => '#'],
+        ['label' => 'Prenotazione appuntamenti', 'url' => '#'],
+        ['label' => 'Rilascio tessera elettorale', 'url' => '#'],
+        ['label' => 'Voucher connettività', 'url' => '#'],
+    ];
+
+    $displayLinks = !empty($links) ? $links : $defaultLinks;
 @endphp
 
 <div id="search-modal" x-data="{ open: false }" x-cloak x-show="open" x-trap.noscroll="open" x-on:open-search.window="open = true; $nextTick(() => $refs.searchInput.focus())" x-on:keydown.escape.window="open = false" class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
@@ -19,10 +32,10 @@
 
         <div class="mt-8 border-t border-slate-200 pt-6">
             <h3 class="text-sm font-bold uppercase tracking-wide text-slate-700">{{ __('pub_theme::navigation.homepage.maybe_searching') }}</h3>
-            <ul class="mt-3 grid gap-2 sm:grid-cols-3">
-                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchCreateUrl }}">{{ __('pub_theme::footer.create_ticket') }}</a></li>
-                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchListUrl }}">{{ __('pub_theme::footer.services') }}</a></li>
-                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchTrackUrl }}">{{ __('pub_theme::footer.track_ticket') }}</a></li>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+                @foreach ($displayLinks as $link)
+                    <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $link['url'] ?? '#' }}">{{ $link['label'] ?? '' }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>
