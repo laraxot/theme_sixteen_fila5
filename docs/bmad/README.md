@@ -81,3 +81,11 @@ Il browser verifica la route a 320/768/1.440 px e i tab Mappa/Elenco; screenshot
 e limiti sono registrati nei report collegati. Il tracking guest/owner e il wizard
 IT/EN hanno smoke su dati isolati; questi non provano pagina seguite, coda PA,
 accessibilità completa né staging.
+## Tooling AI
+
+- [FreeLLMAPI theme boundary](./freellmapi-theme-boundary.md) — nessuna dipendenza dal runtime visuale
+
+## DesignComuni
+
+- [Information architecture presentation](./design-comuni-information-architecture.md) — contratto di resa ODS
+- [Theme identity decision](./design-comuni-theme-identity-decision.md) — nessun layout DesignComuni parallelo

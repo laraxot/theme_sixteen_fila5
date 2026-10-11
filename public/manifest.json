@@ -1,6 +1,6 @@
 {
   "../../Modules/Geo/resources/js/components/map-lit.js": {
-    "file": "assets/map-lit-DjHJ1tVU.js",
+    "file": "assets/map-lit-BIcR9GDi.js",
     "name": "map-lit",
     "src": "../../Modules/Geo/resources/js/components/map-lit.js",
     "isEntry": true,
@@ -18,12 +18,6 @@
     "file": "assets/leaflet.markercluster-kYRFWcpd.js",
     "name": "leaflet.markercluster"
   },
-  "node_modules/@splidejs/splide/dist/js/splide.esm.js": {
-    "file": "assets/splide.esm-BWa4TFV4.js",
-    "name": "splide.esm",
-    "src": "node_modules/@splidejs/splide/dist/js/splide.esm.js",
-    "isDynamicEntry": true
-  },
   "node_modules/leaflet.heat/dist/leaflet-heat.js": {
     "file": "assets/leaflet-heat-hQeRTJ38.js",
     "name": "leaflet-heat",
@@ -40,7 +34,7 @@
     ]
   },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-BYxi86RM.css",
+    "file": "assets/app-test-gRkM-SZq.css",
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -49,7 +43,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-DQMRd2gs.css",
+    "file": "assets/app-CiFmPZXH.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -58,16 +52,13 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CsZ2fXmF.js",
+    "file": "assets/app-CMjes-F7.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
       "../../Modules/Geo/resources/js/components/map-lit.js",
       "_leaflet.markercluster-kYRFWcpd.js"
-    ],
-    "dynamicImports": [
-      "node_modules/@splidejs/splide/dist/js/splide.esm.js"
     ],
     "css": [
       "assets/app-DEMCkssF.css"

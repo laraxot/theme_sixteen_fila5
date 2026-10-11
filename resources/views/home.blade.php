@@ -190,20 +190,16 @@
 </div>
 
 @push('scripts')
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Initialize map
-    const map = L.map('map').setView([43.7696, 11.2558], 13); // Firenze
-
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Add sample marker
-    const marker = L.marker([43.7696, 11.2558]).addTo(map);
-    marker.bindPopup('<b>Segnalazione</b><br>Esempio segnalazione').openPopup();
+    // Local Leaflet (asset locale, no CDN) — DesignComuni
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.L) {
+            const map = L.map('map').setView([43.7696, 11.2558], 13);
+            L.tileLayer('/assets/leaflet-tiles/{z}/{x}/{y}.png', { attribution: '© DesignComuni' }).addTo(map);
+            const customIcon = L.divIcon({ html: '<svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007a52" stroke="#fff" stroke-width="2"/></svg>', className: 'ticket-marker-visible', iconSize: [24,24], iconAnchor: [12,24] });
+            L.marker([43.7696, 11.2558], {icon: customIcon}).addTo(map).bindPopup('<b>Segnalazione</b>');
+        }
+    });
 </script>
 @endpush
 @endsection
