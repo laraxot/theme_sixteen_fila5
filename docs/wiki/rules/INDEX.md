@@ -39,6 +39,10 @@ Le Rules progettuali vivono qui, nel wiki del Theme **Sixteen**, e vengono caric
 - Non embeddare Rules nei prompt di avvio
 - Per Rules globali, consulta il [wiki root](../../docs/wiki/rules/INDEX.md)
 
+## Regole Sixteen ricorrenti
+
+- [No parallel DesignComuni layout](no-parallel-design-comuni-layout.md) — Sixteen è già il tema DesignComuni; usare la shell pubblica canonica `x-layouts.app`, non creare `x-layouts.design-comuni`.
+
 ## Aggiungere una Nuova RULES
 
 1. Crea `../rules/<nome>.md` con contenuto completo

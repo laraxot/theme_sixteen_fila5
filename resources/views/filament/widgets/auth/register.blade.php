@@ -38,14 +38,60 @@
         aria-describedby="auth-register-hint-email auth-register-hint-password"
         novalidate
     >
-        {{-- Su mobile niente riquadro interno: il campo password con il pulsante "Mostra password" ha bisogno di tutta la larghezza. --}}
-        <div
-            @class([
-                'fo-filament-form-shell rounded-xl border-0 border-slate-200 p-0 transition-colors sm:border sm:p-6',
-                'border-red-300 bg-red-50/40' => $registerErrors->isNotEmpty(),
-            ])
-        >
-            {{ $this->form }}
+        <div @class(['space-y-6', 'rounded-xl border-2 border-red-300 bg-red-50/40 p-4' => $registerErrors->isNotEmpty()])>
+            <fieldset class="space-y-5">
+                <legend class="text-lg font-semibold text-slate-950">{{ __('gdpr::register.sections.user_info') }}</legend>
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block text-sm font-semibold text-slate-900">
+                        <span>{{ __('gdpr::register.fields.first_name.label') }}</span>
+                        <input id="first_name" type="text" wire:model="first_name" autocomplete="given-name" required class="mt-2 block min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-base text-slate-950 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800" />
+                        @error('first_name') <span class="mt-1 block text-sm font-normal text-red-700">{{ $message }}</span> @enderror
+                    </label>
+                    <label class="block text-sm font-semibold text-slate-900">
+                        <span>{{ __('gdpr::register.fields.last_name.label') }}</span>
+                        <input id="last_name" type="text" wire:model="last_name" autocomplete="family-name" required class="mt-2 block min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-base text-slate-950 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800" />
+                        @error('last_name') <span class="mt-1 block text-sm font-normal text-red-700">{{ $message }}</span> @enderror
+                    </label>
+                </div>
+                <label class="block text-sm font-semibold text-slate-900">
+                    <span>{{ __('gdpr::register.fields.email.label') }}</span>
+                    <input id="email" type="email" wire:model="email" autocomplete="email" required class="mt-2 block min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-base text-slate-950 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800" />
+                    <span id="auth-register-hint-email" class="mt-1 block text-sm font-normal text-slate-600">{{ __('gdpr::register.fields.email.helper_text') }}</span>
+                    @error('email') <span class="mt-1 block text-sm font-normal text-red-700">{{ $message }}</span> @enderror
+                </label>
+                <div x-data="{show:false}">
+                    <label class="block text-sm font-semibold text-slate-900">
+                        <span>{{ __('gdpr::register.fields.password.label') }}</span>
+                        <input id="password" :type="show ? 'text' : 'password'" wire:model="password" autocomplete="new-password" required class="mt-2 block min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-base text-slate-950 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800" />
+                    </label>
+                    <p id="auth-register-hint-password" class="mt-1 text-sm text-slate-600">{{ __('gdpr::register.fields.password.helper_text') }}</p>
+                    <button type="button" class="mt-2 min-h-11 rounded-lg px-2 text-sm font-semibold text-sky-900 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800" @click="show = !show" :aria-pressed="show">
+                        <span x-text="show ? '{{ __('Nascondi password') }}' : '{{ __('Mostra password') }}'"></span>
+                    </button>
+                    @error('password') <span class="mt-1 block text-sm text-red-700">{{ $message }}</span> @enderror
+                </div>
+                <label class="block text-sm font-semibold text-slate-900">
+                    <span>{{ __('gdpr::register.fields.password_confirmation.label') }}</span>
+                    <input id="password_confirmation" type="password" wire:model="password_confirmation" autocomplete="new-password" required class="mt-2 block min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-base text-slate-950 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800" />
+                    @error('password_confirmation') <span class="mt-1 block text-sm text-red-700">{{ $message }}</span> @enderror
+                </label>
+            </fieldset>
+
+            <fieldset class="space-y-4 border-t border-slate-200 pt-5">
+                <legend class="text-lg font-semibold text-slate-950">{{ __('gdpr::register.consents.title') }}</legend>
+                <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
+                    <input type="checkbox" wire:model="privacy_accepted" required class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />
+                    <span>{{ __('gdpr::register.consents.privacy_policy_label') }}</span>
+                </label>
+                <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
+                    <input type="checkbox" wire:model="terms_accepted" required class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />
+                    <span>{{ __('gdpr::register.consents.terms_label') }}</span>
+                </label>
+                <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
+                    <input type="checkbox" wire:model="marketing_consent" class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />
+                    <span>{{ __('gdpr::register.consents.marketing_label') }}</span>
+                </label>
+            </fieldset>
         </div>
 
         <x-filament::button

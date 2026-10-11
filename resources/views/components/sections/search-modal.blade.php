@@ -1,58 +1,29 @@
 @php
-    use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-    $searchCreateUrl = LaravelLocalization::localizeURL('/tickets/create');
-    $searchListUrl = LaravelLocalization::localizeURL('/tickets');
-    $searchTrackUrl = LaravelLocalization::localizeURL('/tickets/track');
+    $searchCreateUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create');
+    $searchListUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/segnalazioni');
+    $searchTrackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
 @endphp
-<div class="modal fade search-modal" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content perfect-scrollbar">
-            <div class="modal-body">
-                <form>
-                    <div class="container">
-                        <div class="row variable-gutters">
-                            <div class="col">
-                                <div class="modal-title">
-                                    <button class="search-link d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::ui.close') }}">
-                                        <svg class="icon icon-md">
-                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-left"></use>
-                                        </svg>
-                                    </button>
-                                    <h2>{{ __('pub_theme::ui.search') }}</h2>
-                                    <button class="search-link d-none d-md-block" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::ui.close') }}">
-                                        <svg class="icon icon-md">
-                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="form-group autocomplete-wrapper">
-                                    <label for="autocomplete-two" class="visually-hidden">{{ __('pub_theme::ui.search_site_aria') }}</label>
-                                    <input type="search" class="autocomplete ps-5" placeholder="{{ __('pub_theme::ui.search_site_aria') }}" id="autocomplete-two" name="autocomplete-two" data-bs-autocomplete="[]">
-                                    <span class="autocomplete-icon" aria-hidden="true">
-                                        <svg class="icon"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use></svg>
-                                    </span>
-                                    <button type="button" class="btn btn-primary">
-                                        <span class="">{{ __('pub_theme::ui.search') }}</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row variable-gutters">
-                            <div class="col-lg-5">
-                                <div class="searches-list-wrapper">
-                                    <div class="other-link-title">{{ __('pub_theme::navigation.homepage.maybe_searching') }}</div>
-                                    <ul class="searches-list">
-                                        <li><a href="{{ $searchCreateUrl }}">{{ __('pub_theme::footer.create_ticket') }}</a></li>
-                                        <li><a href="{{ $searchListUrl }}">{{ __('pub_theme::footer.services') }}</a></li>
-                                        <li><a href="{{ $searchTrackUrl }}">{{ __('pub_theme::footer.track_ticket') }}</a></li>
-                                    </ul><!-- /searches-list -->
-                                </div><!-- /searches-list-wrapper -->
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
+<div id="search-modal" x-data="{ open: false }" x-cloak x-show="open" x-trap.noscroll="open" x-on:open-search.window="open = true; $nextTick(() => $refs.searchInput.focus())" x-on:keydown.escape.window="open = false" class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <div class="mx-auto mt-4 max-w-3xl rounded-2xl bg-white p-6 shadow-2xl sm:mt-12 sm:p-8" @click.outside="open = false">
+        <div class="flex items-start justify-between gap-4">
+            <h2 id="search-modal-title" class="text-2xl font-bold text-slate-950">{{ __('pub_theme::ui.search') }}</h2>
+            <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-2xl text-slate-700 transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-sky-800/30" aria-label="{{ __('pub_theme::ui.close') }}" @click="open = false">&times;</button>
+        </div>
+
+        <form class="mt-6 flex flex-col gap-3 sm:flex-row" action="{{ $searchListUrl }}" method="get" role="search">
+            <label class="sr-only" for="search-modal-input">{{ __('pub_theme::ui.search_site_aria') }}</label>
+            <input x-ref="searchInput" id="search-modal-input" name="q" type="search" class="min-h-12 flex-1 rounded-lg border-2 border-slate-300 px-4 text-base text-slate-950 focus:border-sky-800 focus:outline-none focus:ring-4 focus:ring-sky-800/20" placeholder="{{ __('pub_theme::ui.search_site_aria') }}">
+            <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-sky-800 px-6 font-semibold text-white transition hover:bg-sky-900 focus:outline-none focus:ring-4 focus:ring-sky-800/30">{{ __('pub_theme::ui.search') }}</button>
+        </form>
+
+        <div class="mt-8 border-t border-slate-200 pt-6">
+            <h3 class="text-sm font-bold uppercase tracking-wide text-slate-700">{{ __('pub_theme::navigation.homepage.maybe_searching') }}</h3>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-3">
+                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchCreateUrl }}">{{ __('pub_theme::footer.create_ticket') }}</a></li>
+                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchListUrl }}">{{ __('pub_theme::footer.services') }}</a></li>
+                <li><a class="block rounded-lg p-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 transition hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $searchTrackUrl }}">{{ __('pub_theme::footer.track_ticket') }}</a></li>
+            </ul>
         </div>
     </div>
 </div>

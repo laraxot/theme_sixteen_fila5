@@ -9,6 +9,14 @@ issues: []
 discussions: []
 ---
 
+## [2026-10-11] architecture | Sixteen è già DesignComuni
+
+- Regola locale: [no-parallel-design-comuni-layout](rules/no-parallel-design-comuni-layout.md)
+- Decisione BMAD: [design-comuni-theme-identity-decision](../bmad/design-comuni-theme-identity-decision.md)
+- Contratto: nessun `resources/views/layouts/design-comuni.blade.php`, nessun `components/layouts/design-comuni.blade.php`, nessun `<x-layouts.design-comuni>`.
+- Shell pubblica canonica: `x-layouts.app` / `resources/views/layouts/app.blade.php`, con `components/layouts/main.blade.php` come base HTML.
+- Le vecchie citazioni di `design-comuni.blade.php` sono storico/anti-pattern: non sono istruzioni runtime.
+
 ## [2026-07-24] second-brain | max workflow + composer-go concept
 
 - Link da [composer-go-theme-impact](concepts/composer-go-theme-impact.md) a skill second-brain max
