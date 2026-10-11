@@ -93,6 +93,9 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 - [map-lit-legend-theme-boundary.md](./concepts/map-lit-legend-theme-boundary.md) — STORY-094 confine tema/Geo
 - [map-lit-cluster-type-icons](../../../../../Modules/Geo/docs/wiki/concepts/map-lit-cluster-type-icons.md) — sizing pallini cluster
 - [ui-ai-tooling-on-demand.md](./concepts/ui-ai-tooling-on-demand.md) — STORY-126 strumenti UI/AI e MCP
+- [freellmapi-boundary.md](./concepts/freellmapi-boundary.md) — tooling AI locale fuori dal runtime visuale
+- [design-comuni-ods-presentation.md](./concepts/design-comuni-ods-presentation.md) — resa visuale dell’IA comunale
+- [sixteen-design-comuni-theme-identity.md](./concepts/sixteen-design-comuni-theme-identity.md) — Sixteen è già il tema DesignComuni
 - [frontend-design-fixcity-overlay.md](./concepts/frontend-design-fixcity-overlay.md) — skill Anthropic frontend-design adattata PA/Fixcity
 
 - [map-lit-ticket-api](../concepts/map-lit-ticket-api.md) — consumer API Folio `/api/tickets/geojson` e ticket-details (STORY-052/069)
