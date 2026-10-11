@@ -34,6 +34,7 @@ $svg = match($name) {
     'it-funnel' => '<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 12H10m12 0l-4-4m4 4-4 4M2 5v14a2 2 0 0 0 2 2h12.59l3.41 3.41a1 1 0 0 0 1.66-.67V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v3z"/>',
     'it-services' => '<circle stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="10"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l2 2"/>',
     'it-folder' => '<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>',
+    'it-star' => '<polygon stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="12 2 15 11 22 11 17 17 20 26 12 21 4 26 7 17 2 11 9 9"/>',
     default => '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>',
 };
 @endphp

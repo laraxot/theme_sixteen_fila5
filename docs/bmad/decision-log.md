@@ -72,3 +72,18 @@ links:
 **Decisione**: Tutte le cartelle relative al redesign (docs, design-system, scripts, implementation, tests) dentro `laravel/Themes/Sixteen/`. Se serve qualcosa a livello progetto, solo symlink o riferimento, mai copia.
 **Rationale**: Il tema è il proprietario della grafica, non il repo.
 **Stato**: ✅ Confirmato
+
+## D11: Header e footer sono sections CMS del tema
+**Contesto**: Le shell pubbliche chiamano `<x-section slug="header" />` e
+`<x-section slug="footer" tpl="full" />`; il CMS passa i blocchi localizzati al
+renderer risolto dal tema.
+**Decisione**: `header.json` e `footer.json` del tenant sono la fonte dei dati
+per logo, nome, slogan, navigazione, lingua, account, contatti, social e link
+legali. Sixteen possiede un solo renderer Tailwind/Alpine per ciascuna section;
+non si usano `header-comune`, `footer-comune` o view Bootstrap come renderer
+paralleli.
+**Rationale**: una section è il confine corretto tra contenuto tenant e
+presentazione del tema; mantiene SSR, accessibilità e riuso su `app`, `test` e
+`guest` senza duplicare Design Comuni.
+**Stato**: ✅ Implementato e verificato con view cache, test di localizzazione e
+Playwright su 375/768/1440.

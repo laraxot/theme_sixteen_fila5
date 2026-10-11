@@ -16,6 +16,7 @@ import '@modules/Geo/resources/js/components/coordinate-picker-lit.js';
 
 import '@splidejs/splide/dist/css/splide.min.css';
 import '@theme-leaflet-css';
+import 'flowbite';
 import { initDarkModeToggle, toggleDarkMode } from './theme/dark-mode.js';
 import focus from '@alpinejs/focus';
 import { dropdownToggle } from './components/dropdown';

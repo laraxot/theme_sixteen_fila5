@@ -1,158 +1,94 @@
-<footer class="it-footer" id="footer" role="contentinfo">
-    <div class="it-footer-main">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+@props([
+    'blocks' => [],
+    'view' => null,
+    'brand' => null,
+    'columns' => [],
+    'contact' => null,
+    'legal_links' => [],
+    'social' => [],
+    'copyright' => null,
+])
 
-            {{-- Logo Row --}}
-            <div class="mb-6 flex items-center gap-3">
-                <img class="h-8 w-auto" src="/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg" alt="logo Unione Europea">
-                <div class="it-brand-wrapper">
-                    <a href="/" class="flex items-center gap-2">
-                        @include('pub_theme::components.ui.icon', ['name' => 'it-pa', 'class' => 'h-7 w-7 text-emerald-700'])
-                        <h2 class="no_toc mb-0 text-xl font-bold">Nome del Comune</h2>
-                    </a>
-                </div>
-            </div>
+@php
+    $configuredBlock = collect($blocks)->first();
+    $configuredData = is_object($configuredBlock)
+        ? ($configuredBlock->data ?? [])
+        : (is_array($configuredBlock) ? ($configuredBlock['data'] ?? []) : []);
 
-            {{-- Main Links Grid --}}
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
+    // x-section supplies the locale-resolved CMS block; direct props remain a test/fallback API.
+    if (is_array($configuredData) && $configuredData !== []) {
+        $brand = $configuredData['brand'] ?? $brand;
+        $columns = $configuredData['columns'] ?? $columns;
+        $contact = $configuredData['contact'] ?? $contact;
+        $legal_links = $configuredData['legal_links'] ?? $legal_links;
+        $social = $configuredData['social'] ?? $social;
+        $copyright = $configuredData['copyright'] ?? $copyright;
+    }
 
-                {{-- Amministrazione --}}
-                <div class="md:col-span-3">
-                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Amministrazione</h4>
-                    <ul class="footer-list space-y-2">
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Organi di governo</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Aree amministrative</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Uffici</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Enti e fondazioni</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Politici</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Personale amministrativo</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Documenti e dati</a></li>
-                    </ul>
-                </div>
+    $locale = app()->getLocale();
+    if ($brand === null && $columns === [] && $contact === null) {
+        $english = $locale === 'en';
+        $footer = [
+            'brand' => ['name' => 'FixCity', 'description' => $english ? 'City reports and services.' : 'Segnalazioni e servizi della città.'],
+            'columns' => [
+                ['title' => $english ? 'Services' : 'Servizi', 'links' => [
+                    ['label' => $english ? 'Submit a report' : 'Invia una segnalazione', 'url' => '/tickets/create'],
+                    ['label' => $english ? 'Track a report' : 'Segui una segnalazione', 'url' => '/tickets/track'],
+                ]],
+                ['title' => $english ? 'Information' : 'Informazioni', 'links' => [
+                    ['label' => $english ? 'Frequently asked questions' : 'Domande frequenti', 'url' => '/domande-frequenti'],
+                    ['label' => $english ? 'Sitemap' : 'Mappa del sito', 'url' => '/mappa-sito'],
+                ]],
+            ],
+            'legal_links' => [
+                ['label' => $english ? 'Privacy' : 'Privacy', 'url' => '/privacy'],
+                ['label' => $english ? 'Accessibility' : 'Accessibilità', 'url' => '/accessibilita'],
+            ],
+        ];
+    } else {
+        $footer = [
+            'brand' => $brand,
+            'columns' => $columns,
+            'contact' => $contact,
+            'legal_links' => $legal_links,
+            'social' => $social,
+            'copyright' => $copyright,
+        ];
+    }
 
-                {{-- Categorie di servizio --}}
-                <div class="md:col-span-6">
-                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Categorie di servizio</h4>
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <ul class="footer-list space-y-2">
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Anagrafe e stato civile</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Cultura e tempo libero</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Vita lavorativa</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Imprese e commercio</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Appalti pubblici</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Catasto e urbanistica</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Turismo</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Mobilità e trasporti</a></li>
-                        </ul>
-                        <ul class="footer-list space-y-2">
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Educazione e formazione</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Giustizia e sicurezza pubblica</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Tributi, finanze e contravvenzioni</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Ambiente</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Salute, benessere e assistenza</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Autorizzazioni</a></li>
-                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Agricoltura e pesca</a></li>
-                        </ul>
-                    </div>
-                </div>
+    $value = static function (mixed $value, string $fallback = '') use ($locale): string {
+        if (is_array($value)) return (string) ($value[$locale] ?? $value['it'] ?? reset($value) ?: $fallback);
+        return trim((string) $value) !== '' ? (string) $value : $fallback;
+    };
+    $localize = static function (string $path): string {
+        if ($path === '' || str_starts_with($path, '#') || preg_match('/^https?:\\/\\//', $path)) return $path === '' ? url('/') : $path;
+        try { return \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/'.ltrim($path, '/')); } catch (\Throwable) { return url('/'.ltrim($path, '/')); }
+    };
 
-                {{-- Novità + Vivere il comune --}}
-                <div class="md:col-span-3">
-                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Novità</h4>
-                    <ul class="footer-list space-y-2">
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Notizie</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Comunicati</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Avvisi</a></li>
-                    </ul>
-                    <h4 class="footer-heading-title mt-4 mb-3 text-lg font-semibold">Vivere il comune</h4>
-                    <ul class="footer-list space-y-2">
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Luoghi</a></li>
-                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Eventi</a></li>
-                    </ul>
-                </div>
+    $brand = is_array($footer['brand'] ?? null) ? $footer['brand'] : [];
+    $columns = is_array($footer['columns'] ?? null) ? $footer['columns'] : [];
+    $contact = is_array($footer['contact'] ?? null) ? $footer['contact'] : [];
+    $legal = is_array($footer['legal_links'] ?? null) ? $footer['legal_links'] : [];
+    $social = is_array($footer['social'] ?? null) ? $footer['social'] : [];
+@endphp
 
-                {{-- Contatti --}}
-                <div class="md:col-span-3 md:col-start-1 md:mt-4 border-t pt-4 md:border-0 md:pt-0">
-                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Contatti</h4>
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div>
-                            <p class="footer-info text-sm text-slate-700">
-                                Comune di Nome Comune<br>
-                                Via Roma 123 - 00100 Comune<br>
-                                Codice fiscale / P. IVA: 00123456789<br><br>
-                                <a href="#" class="text-emerald-700 hover:text-emerald-800">Ufficio Relazioni con il Pubblico</a><br>
-                                Numero verde: 800 016 123<br>
-                                SMS e WhatsApp: +39 320 1234567<br>
-                                Posta Elettronica Certificata<br>
-                                Centralino unico: 012 3456
-                            </p>
-                        </div>
-                        <div>
-                            <ul class="footer-list space-y-2">
-                                <li><a href="#" data-element="faq" class="text-slate-700 hover:text-emerald-700">Leggi le FAQ</a></li>
-                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Prenotazione appuntamento</a></li>
-                                <li><a href="#" data-element="report-inefficiency" class="text-slate-700 hover:text-emerald-700">Segnalazione disservizio</a></li>
-                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Richiesta d'assistenza</a></li>
-                            </ul>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <ul class="footer-list space-y-2">
-                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Amministrazione trasparente</a></li>
-                                <li><a href="#" data-element="privacy-policy-link" class="text-slate-700 hover:text-emerald-700">Informativa privacy</a></li>
-                                <li><a href="#" data-element="legal-notes" class="text-slate-700 hover:text-emerald-700">Note legali</a></li>
-                                <li><a href="#" data-element="accessibility-link" class="text-slate-700 hover:text-emerald-700">Dichiarazione di accessibilità</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Seguici su --}}
-                <div class="md:col-span-3 md:mt-4">
-                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Seguici su</h4>
-                    <ul class="flex flex-wrap gap-2 text-start">
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Twitter">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-twitter', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Facebook">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-facebook', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="YouTube">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-youtube', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Telegram">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-telegram', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Whatsapp">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-whatsapp', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-1 text-white" href="#" target="_blank" aria-label="RSS">
-                                @include('pub_theme::components.ui.icon', ['name' => 'it-rss', 'class' => 'h-5 w-5 text-emerald-700'])
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            {{-- Bottom Row --}}
-            <div class="mt-6 border-t pt-4">
-                <div class="footer-bottom flex gap-4 text-sm text-slate-600">
-                    <a href="#" class="hover:text-emerald-700">Media policy</a>
-                    <a href="#" class="hover:text-emerald-700">Mappa del sito</a>
-                </div>
-            </div>
-
+<footer id="footer" class="border-t border-slate-700 bg-slate-950 text-slate-100" role="contentinfo">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:min-h-[714px] lg:px-8">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div><a class="inline-flex items-start gap-3 rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40" href="{{ $localize('/') }}"><img class="h-12 w-12 object-contain" src="{{ asset((string) ($brand['logo'] ?? 'themes/Sixteen/design-comuni/assets/images/logo-comune.svg')) }}" alt=""><span><span class="block text-xl font-bold">{{ $value($brand['name'] ?? null, config('app.name', 'Comune')) }}</span><span class="mt-2 block max-w-xs text-sm leading-6 text-slate-300">{{ $value($brand['description'] ?? null, 'Servizi e informazioni del Comune.') }}</span></span></a></div>
+            @foreach ($columns as $column)
+                <div><h2 class="text-lg font-bold text-white">{{ $value($column['title'] ?? null) }}</h2><ul class="mt-4 space-y-3">@foreach (($column['links'] ?? []) as $link)<li><a class="underline decoration-slate-500 underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '/')) }}">{{ $value($link['label'] ?? null) }}</a></li>@endforeach</ul></div>
+            @endforeach
         </div>
+        @if ($contact !== [])
+            <div class="mt-10 grid gap-6 border-t border-white/20 pt-8 md:grid-cols-2"><div><h2 class="text-lg font-bold text-white">{{ $value($contact['title'] ?? null, 'Contatti') }}</h2><address class="mt-3 text-sm not-italic leading-6 text-slate-300">{{ $value($contact['address'] ?? null) }}<br>@if (!empty($contact['email']))<a class="underline hover:text-white" href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>@endif @if (!empty($contact['phone']))<a class="underline hover:text-white" href="tel:{{ preg_replace('/[^0-9+]/', '', (string) $contact['phone']) }}">{{ $contact['phone'] }}</a>@endif</address></div><div><h2 class="text-lg font-bold text-white">{{ $value($contact['hours_label'] ?? null, 'Orari') }}</h2><p class="mt-3 text-sm leading-6 text-slate-300">{{ $value($contact['hours'] ?? null) }}</p></div></div>
+        @endif
+        @php
+            $social = array_values(array_filter($social, static fn (mixed $item): bool => is_array($item) && trim((string) ($item['url'] ?? '')) !== ''));
+        @endphp
+        @if ($social !== [])
+            <div class="mt-8 flex flex-wrap gap-4 border-t border-white/20 pt-6">@foreach ($social as $item)<a class="rounded underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) $item['url']) }}" @if (str_starts_with((string) $item['url'], 'http')) target="_blank" rel="noopener noreferrer" @endif>{{ $value($item['label'] ?? null) }}</a>@endforeach</div>
+        @endif
     </div>
+    <div class="border-t border-white/20"><div class="mx-auto flex max-w-7xl flex-wrap gap-x-6 gap-y-2 px-4 py-5 text-sm text-slate-300 sm:px-6 lg:px-8">@foreach ($legal as $link)<a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '/')) }}">{{ $value($link['label'] ?? null) }}</a>@endforeach<span class="ml-auto">{{ $value($footer['copyright'] ?? null, '© '.date('Y').' '.config('app.name', 'Comune')) }}</span></div></div>
 </footer>

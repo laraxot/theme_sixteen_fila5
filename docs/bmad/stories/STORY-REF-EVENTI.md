@@ -1,0 +1,1 @@
+---\ntype: epic-story\ntitle: "Design Comuni Reference - eventi"\nfrontmatter:\n  links: {github_issue: "#ref-eventi", discussion: "#design-comuni-ref-eventi"}\n---
