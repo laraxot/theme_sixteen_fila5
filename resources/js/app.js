@@ -23,6 +23,7 @@ import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import { initHeaderMobileNav } from './theme/header-mobile-nav.js';
+import motionReveal from './components/motion-reveal.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
 // import { domandeFrequentiParity } from './domande-frequenti-parity';
@@ -58,6 +59,21 @@ function registerAlpineComponents(AlpineInstance) {
     // Work around Alpine 3.15.x object-literal issues inside inline x-data.
     AlpineInstance.data('accordionItem', () => ({ open: false }));
     AlpineInstance.data('ratingInline', () => ({ rating: 0, hover: 0 }));
+
+    AlpineInstance.data('howItWorks', () => ({
+        ...motionReveal(),
+        init() {
+            this.setupReveal('[data-section="how-it-works"] [data-reveal]');
+            this.setupCardHover('.fc-how-card');
+        }
+    }));
+
+    AlpineInstance.data('quickActions', () => ({
+        ...motionReveal(),
+        init() {
+            this.setupReveal('[data-section="quick-actions"] [data-reveal]');
+        }
+    }));
 
     AlpineInstance.data('ticketLayout', () => ({
         activeTab: 'map',

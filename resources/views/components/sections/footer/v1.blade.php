@@ -1,171 +1,143 @@
 <footer class="it-footer" id="footer" role="contentinfo">
     <div class="it-footer-main">
-        <div class="container">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             {{-- Logo Row --}}
-            <div class="row">
-                <div class="col-12 footer-items-wrapper logo-wrapper">
-                    <img class="ue-logo" src="/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg" alt="logo Unione Europea">
-                    <div class="it-brand-wrapper">
-                        <a href="/">
-                            <svg class="icon" aria-hidden="true">
-                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
-                            </svg>
-                            <div class="it-brand-text">
-                                <h2 class="no_toc">Nome del Comune</h2>
-                            </div>
-                        </a>
-                    </div>
+            <div class="mb-6 flex items-center gap-3">
+                <img class="h-8 w-auto" src="/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg" alt="logo Unione Europea">
+                <div class="it-brand-wrapper">
+                    <a href="/" class="flex items-center gap-2">
+                        @include('pub_theme::components.ui.icon', ['name' => 'it-pa', 'class' => 'h-7 w-7 text-emerald-700'])
+                        <h2 class="no_toc mb-0 text-xl font-bold">Nome del Comune</h2>
+                    </a>
                 </div>
             </div>
 
-            {{-- Main Links Row --}}
-            <div class="row">
+            {{-- Main Links Grid --}}
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
 
                 {{-- Amministrazione --}}
-                <div class="col-md-3 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Amministrazione</h4>
-                    <ul class="footer-list">
-                        <li><a href="#">Organi di governo</a></li>
-                        <li><a href="#">Aree amministrative</a></li>
-                        <li><a href="#">Uffici</a></li>
-                        <li><a href="#">Enti e fondazioni</a></li>
-                        <li><a href="#">Politici</a></li>
-                        <li><a href="#">Personale amministrativo</a></li>
-                        <li><a href="#">Documenti e dati</a></li>
+                <div class="md:col-span-3">
+                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Amministrazione</h4>
+                    <ul class="footer-list space-y-2">
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Organi di governo</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Aree amministrative</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Uffici</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Enti e fondazioni</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Politici</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Personale amministrativo</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Documenti e dati</a></li>
                     </ul>
                 </div>
 
                 {{-- Categorie di servizio --}}
-                <div class="col-md-6 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Categorie di servizio</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="footer-list">
-                                <li><a href="#">Anagrafe e stato civile</a></li>
-                                <li><a href="#">Cultura e tempo libero</a></li>
-                                <li><a href="#">Vita lavorativa</a></li>
-                                <li><a href="#">Imprese e commercio</a></li>
-                                <li><a href="#">Appalti pubblici</a></li>
-                                <li><a href="#">Catasto e urbanistica</a></li>
-                                <li><a href="#">Turismo</a></li>
-                                <li><a href="#">Mobilità e trasporti</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="footer-list">
-                                <li><a href="#">Educazione e formazione</a></li>
-                                <li><a href="#">Giustizia e sicurezza pubblica</a></li>
-                                <li><a href="#">Tributi, finanze e contravvenzioni</a></li>
-                                <li><a href="#">Ambiente</a></li>
-                                <li><a href="#">Salute, benessere e assistenza</a></li>
-                                <li><a href="#">Autorizzazioni</a></li>
-                                <li><a href="#">Agricoltura e pesca</a></li>
-                            </ul>
-                        </div>
+                <div class="md:col-span-6">
+                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Categorie di servizio</h4>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <ul class="footer-list space-y-2">
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Anagrafe e stato civile</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Cultura e tempo libero</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Vita lavorativa</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Imprese e commercio</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Appalti pubblici</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Catasto e urbanistica</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Turismo</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Mobilità e trasporti</a></li>
+                        </ul>
+                        <ul class="footer-list space-y-2">
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Educazione e formazione</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Giustizia e sicurezza pubblica</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Tributi, finanze e contravvenzioni</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Ambiente</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Salute, benessere e assistenza</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Autorizzazioni</a></li>
+                            <li><a href="#" class="text-slate-700 hover:text-emerald-700">Agricoltura e pesca</a></li>
+                        </ul>
                     </div>
                 </div>
 
                 {{-- Novità + Vivere il comune --}}
-                <div class="col-md-3 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Novità</h4>
-                    <ul class="footer-list">
-                        <li><a href="#">Notizie</a></li>
-                        <li><a href="#">Comunicati</a></li>
-                        <li><a href="#">Avvisi</a></li>
+                <div class="md:col-span-3">
+                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Novità</h4>
+                    <ul class="footer-list space-y-2">
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Notizie</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Comunicati</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Avvisi</a></li>
                     </ul>
-                    <h4 class="footer-heading-title">Vivere il comune16</h4>
-                    <ul class="footer-list">
-                        <li><a href="#">Luoghi</a></li>
-                        <li><a href="#">Eventi</a></li>
+                    <h4 class="footer-heading-title mt-4 mb-3 text-lg font-semibold">Vivere il comune</h4>
+                    <ul class="footer-list space-y-2">
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Luoghi</a></li>
+                        <li><a href="#" class="text-slate-700 hover:text-emerald-700">Eventi</a></li>
                     </ul>
                 </div>
 
                 {{-- Contatti --}}
-                <div class="col-md-9 mt-md-4 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Contatti</h4>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p class="footer-info">
+                <div class="md:col-span-3 md:col-start-1 md:mt-4 border-t pt-4 md:border-0 md:pt-0">
+                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Contatti</h4>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div>
+                            <p class="footer-info text-sm text-slate-700">
                                 Comune di Nome Comune<br>
                                 Via Roma 123 - 00100 Comune<br>
                                 Codice fiscale / P. IVA: 00123456789<br><br>
-                                <a href="#">Ufficio Relazioni con il Pubblico</a><br>
+                                <a href="#" class="text-emerald-700 hover:text-emerald-800">Ufficio Relazioni con il Pubblico</a><br>
                                 Numero verde: 800 016 123<br>
                                 SMS e WhatsApp: +39 320 1234567<br>
                                 Posta Elettronica Certificata<br>
                                 Centralino unico: 012 3456
                             </p>
                         </div>
-                        <div class="col-md-4">
-                            <ul class="footer-list">
-                                <li><a href="#" data-element="faq">Leggi le FAQ</a></li>
-                                <li><a href="#">Prenotazione appuntamento</a></li>
-                                <li><a href="#" data-element="report-inefficiency">Segnalazione disservizio</a></li>
-                                <li><a href="#">Richiesta d'assistenza</a></li>
+                        <div>
+                            <ul class="footer-list space-y-2">
+                                <li><a href="#" data-element="faq" class="text-slate-700 hover:text-emerald-700">Leggi le FAQ</a></li>
+                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Prenotazione appuntamento</a></li>
+                                <li><a href="#" data-element="report-inefficiency" class="text-slate-700 hover:text-emerald-700">Segnalazione disservizio</a></li>
+                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Richiesta d'assistenza</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4">
-                            <ul class="footer-list">
-                                <li><a href="#">Amministrazione trasparente</a></li>
-                                <li><a href="#" data-element="privacy-policy-link">Informativa privacy</a></li>
-                                <li><a href="#" data-element="legal-notes">Note legali</a></li>
-                                <li><a href="#" data-element="accessibility-link">Dichiarazione di accessibilità</a></li>
+                        <div class="sm:col-span-2">
+                            <ul class="footer-list space-y-2">
+                                <li><a href="#" class="text-slate-700 hover:text-emerald-700">Amministrazione trasparente</a></li>
+                                <li><a href="#" data-element="privacy-policy-link" class="text-slate-700 hover:text-emerald-700">Informativa privacy</a></li>
+                                <li><a href="#" data-element="legal-notes" class="text-slate-700 hover:text-emerald-700">Note legali</a></li>
+                                <li><a href="#" data-element="accessibility-link" class="text-slate-700 hover:text-emerald-700">Dichiarazione di accessibilità</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 {{-- Seguici su --}}
-                <div class="col-md-3 mt-md-4 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Seguici su</h4>
-                    <ul class="list-inline text-start social">
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use>
-                                </svg>
-                                <span class="visually-hidden">Twitter</span>
+                <div class="md:col-span-3 md:mt-4">
+                    <h4 class="footer-heading-title mb-3 text-lg font-semibold">Seguici su</h4>
+                    <ul class="flex flex-wrap gap-2 text-start">
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Twitter">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-twitter', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
-                                </svg>
-                                <span class="visually-hidden">Facebook</span>
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Facebook">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-facebook', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use>
-                                </svg>
-                                <span class="visually-hidden">YouTube</span>
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="YouTube">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-youtube', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
-                                </svg>
-                                <span class="visually-hidden">Telegram</span>
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Telegram">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-telegram', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
-                                </svg>
-                                <span class="visually-hidden">Whatsapp</span>
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="Whatsapp">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-whatsapp', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="p-1 text-white" href="#" target="_blank">
-                                <svg class="icon icon-sm icon-white align-top">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use>
-                                </svg>
-                                <span class="visually-hidden">RSS</span>
+                        <li>
+                            <a class="p-1 text-white" href="#" target="_blank" aria-label="RSS">
+                                @include('pub_theme::components.ui.icon', ['name' => 'it-rss', 'class' => 'h-5 w-5 text-emerald-700'])
                             </a>
                         </li>
                     </ul>
@@ -174,12 +146,10 @@
             </div>
 
             {{-- Bottom Row --}}
-            <div class="row">
-                <div class="col-12 footer-items-wrapper">
-                    <div class="footer-bottom">
-                        <a href="#">Media policy</a>
-                        <a href="#">Mappa del sito</a>
-                    </div>
+            <div class="mt-6 border-t pt-4">
+                <div class="footer-bottom flex gap-4 text-sm text-slate-600">
+                    <a href="#" class="hover:text-emerald-700">Media policy</a>
+                    <a href="#" class="hover:text-emerald-700">Mappa del sito</a>
                 </div>
             </div>
 
