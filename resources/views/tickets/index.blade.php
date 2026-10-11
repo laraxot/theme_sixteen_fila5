@@ -208,13 +208,23 @@
         };
 
         // Build markers from the SAME JSON data used for filters
+        // DesignComuni / WCAG 2.1 AA: high-contrast marker with aria-label for accessibility
         ticketData.forEach(function (ticket) {
             if (!ticket.geometry || !ticket.geometry.coordinates) return;
 
             const coords = ticket.geometry.coordinates;
-            const latlng = [coords[1], coords[0]]; // [lat, lng]
+            const latlng = [coords[1], coords[0]];
 
-            const marker = L.marker(latlng);
+            // Custom high-contrast DivIcon (no CDN CSS) — visible at all zoom levels, WCAG compliant
+            const markerIcon = L.divIcon({
+                className: 'ticket-marker-visible',
+                html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#007a52" stroke="#ffffff" stroke-width="2" aria-label="Segnalazione" role="img"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="#ffffff"/></svg>`,
+                iconSize: [36, 48],
+                iconAnchor: [18, 48],
+                popupAnchor: [0, -48]
+            });
+
+            const marker = L.marker(latlng, { icon: markerIcon, title: escapeHtml(props.title || 'Segnalazione') });
 
             // Build popup content from ticket properties
             const props = ticket.properties || {};

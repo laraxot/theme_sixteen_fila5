@@ -39,8 +39,7 @@ Folio preferisce path statico `pages/tickets/index` rispetto a `[container0]/ind
 |-----|-------|----------|
 | `/it/tickets` | `pages/[container0]/index.blade.php` | `tickets.index` |
 | `/it/tickets/{id}` | `pages/[container0]/[slug0]/index.blade.php` | `tickets.view` |
-| `/it/tickets/create` | `Modules/Fixcity/resources/views/pages/tickets/create.blade.php` | `tickets.create` |
-
+| `/it/tickets/create` | `pages/[container0]/[slug0]/index.blade.php` | `tickets.create` via `container0.view` |
 ## Checklist agente (prima di creare file sotto `pages/`)
 
 1. Leggere [page-directory-structure.md](../../page-directory-structure.md)
