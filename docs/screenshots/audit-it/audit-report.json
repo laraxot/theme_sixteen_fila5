@@ -1,8 +1,8 @@
 {
-  "url": "http://127.0.0.1:8002/it",
-  "timestamp": "2026-06-06T16:07:18.358Z",
+  "url": "http://127.0.0.1:8000/it/auth/register",
+  "timestamp": "2026-10-11T10:19:05.206Z",
   "httpStatus": 200,
-  "title": "Consulenza Sicurezza Studi Professionali | Sottana Service",
+  "title": "Crea il tuo account",
   "console": {
     "errors": [],
     "warnings": [],
@@ -14,19 +14,7 @@
     "ok404": [],
     "themeAssets": [
       {
-        "url": "/themes/Sixteen/assets/app-QozM7Bnc.css",
-        "status": 200
-      },
-      {
-        "url": "/themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg",
-        "status": 200
-      },
-      {
-        "url": "/themes/Sixteen/assets/app-DkCtDZrC.js",
-        "status": 200
-      },
-      {
-        "url": "/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg",
+        "url": "/themes/Sixteen/assets/app-C_yfZ_jS.css",
         "status": 200
       },
       {
@@ -34,34 +22,61 @@
         "status": 200
       },
       {
-        "url": "/themes/Two/images/medical-equipment.jpg",
+        "url": "/themes/Sixteen/assets/app-CMjes-F7.js",
         "status": 200
       },
       {
-        "url": "/themes/Two/images/veterinary-radiology.jpg",
+        "url": "/themes/Sixteen/assets/map-lit-BIcR9GDi.js",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/assets/leaflet.markercluster-kYRFWcpd.js",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/assets/map-lit-25t4MxmA.css",
+        "status": 200
+      },
+      {
+        "url": "/themes/Sixteen/assets/app-DEMCkssF.css",
         "status": 200
       }
     ]
   },
   "debugbar": {
-    "present": false,
-    "open": false,
-    "tabCount": 0,
-    "tabs": [],
-    "badgeText": null
+    "present": true,
+    "open": true,
+    "tabCount": 14,
+    "tabs": [
+      "Request",
+      "Exceptions0",
+      "Messages0",
+      "Timeline",
+      "Views12",
+      "Route",
+      "Queries0",
+      "Models0",
+      "Livewire1",
+      "Mails0",
+      "Gate0",
+      "Session",
+      "Http client0",
+      "Settings"
+    ],
+    "badgeText": ""
   },
   "dom": {
-    "hasHeader": true,
+    "hasHeader": false,
     "hasMain": true,
     "hasFooter": true,
-    "hasLanguageSwitcher": true,
+    "hasLanguageSwitcher": false,
     "hasSkipLink": true,
     "h1Count": 1,
-    "bodyTextLength": 5215
+    "bodyTextLength": 1011
   },
   "themeRefs": {
-    "sixteen": 35,
-    "two": 2
+    "sixteen": 12,
+    "two": 0
   },
-  "screenshot": "/var/www/_bases/base_techplanner_fila5/laravel/Themes/Sixteen/docs/screenshots/audit-it/homepage-it-1780762041279.png"
+  "screenshot": "/mnt/nas07/var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen/docs/screenshots/audit-it/homepage-it-1791713948750.png"
 }

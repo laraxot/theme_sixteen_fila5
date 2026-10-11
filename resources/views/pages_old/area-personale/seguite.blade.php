@@ -33,41 +33,39 @@ render(function (View $view): View {
         {{ __('fixcity::ticket.subscription.followed_title') }}
     </x-slot>
 
-    <main id="main-container" class="container py-4 py-lg-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <header class="cmp-heading mb-4">
-                    <h1 class="title-xxxlarge">{{ __('fixcity::ticket.subscription.followed_title') }}</h1>
-                    <p class="subtitle-small mb-0">{{ __('fixcity::ticket.subscription.followed_description') }}</p>
+    <main id="main-container" class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+        <div>
+                <header class="mb-8 max-w-3xl">
+                    <h1 class="text-3xl font-bold tracking-tight text-slate-950">{{ __('fixcity::ticket.subscription.followed_title') }}</h1>
+                    <p class="mt-2 text-lg text-slate-700">{{ __('fixcity::ticket.subscription.followed_description') }}</p>
                 </header>
 
-                <nav class="d-flex gap-2 flex-wrap mb-3" aria-label="{{ __('fixcity::ticket.subscription.personal_area_navigation') }}">
-                    <a class="btn btn-outline-primary" href="{{ url('/'.request()->segment(1).'/area-personale/pratiche') }}">
+                <nav class="mb-6 flex flex-wrap gap-3" aria-label="{{ __('fixcity::ticket.subscription.personal_area_navigation') }}">
+                    <a class="inline-flex min-h-11 items-center rounded-lg border border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800" href="{{ url('/'.request()->segment(1).'/area-personale/pratiche') }}">
                         {{ __('fixcity::ticket.subscription.my_tickets') }}
                     </a>
-                    <span class="btn btn-primary" aria-current="page">
+                    <span class="inline-flex min-h-11 items-center rounded-lg bg-sky-900 px-4 py-2 font-semibold text-white" aria-current="page">
                         {{ __('fixcity::ticket.subscription.followed_title') }}
                     </span>
-                    <a class="btn btn-outline-primary" href="{{ url('/'.request()->segment(1).'/area-personale/impostazioni') }}">
+                    <a class="inline-flex min-h-11 items-center rounded-lg border border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus:ring-sky-800" href="{{ url('/'.request()->segment(1).'/area-personale/impostazioni') }}">
                         {{ __('fixcity::ticket_notification_preferences.page_title') }}
                     </a>
                 </nav>
 
-                <p class="mb-3 text-muted" role="status">
+                <p class="mb-5 text-slate-700" role="status">
                     {{ trans_choice('fixcity::ticket.subscription.followed_count', $tickets->count(), ['count' => $tickets->count()]) }}
                 </p>
 
                 @if ($tickets->isEmpty())
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <p class="mb-3">{{ __('fixcity::ticket.subscription.followed_empty') }}</p>
-                            <a class="btn btn-primary" href="{{ url('/'.request()->segment(1).'/tickets') }}">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <p class="mb-5 text-slate-700">{{ __('fixcity::ticket.subscription.followed_empty') }}</p>
+                            <a class="inline-flex min-h-11 items-center rounded-lg bg-sky-900 px-5 py-3 font-semibold text-white hover:bg-sky-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800 focus-visible:ring-offset-2" href="{{ url('/'.request()->segment(1).'/tickets') }}">
                                 {{ __('fixcity::ticket.subscription.discover_tickets') }}
                             </a>
                         </div>
                     </div>
                 @else
-                    <ul class="list-group shadow-sm" aria-label="{{ __('fixcity::ticket.subscription.followed_title') }}">
+                    <ul class="divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm" aria-label="{{ __('fixcity::ticket.subscription.followed_title') }}">
                         @foreach ($tickets as $ticket)
                             @php
                                 /** @var Ticket $ticket */
@@ -78,21 +76,21 @@ render(function (View $view): View {
                                     ? url('/'.request()->segment(1).'/tickets/track?code='.rawurlencode($ticketCode))
                                     : null;
                             @endphp
-                            <li class="list-group-item py-3">
-                                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+                            <li class="p-5">
+                                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                                     <div>
-                                        <h2 class="h5 mb-1">{{ $ticket->name }}</h2>
-                                        <p class="mb-0 text-muted small">
+                                        <h2 class="text-lg font-semibold text-slate-950">{{ $ticket->name }}</h2>
+                                        <p class="mb-0 text-sm text-slate-700">
                                             <span>{{ __('fixcity::ticket.fields.status.label') }}: {{ $status }}</span>
                                         </p>
                                     </div>
                                     @if (is_string($trackUrl))
-                                        <a class="btn btn-outline-primary flex-shrink-0" href="{{ $trackUrl }}">
+                                        <a class="inline-flex min-h-11 shrink-0 items-center rounded-lg border border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800" href="{{ $trackUrl }}">
                                             {{ __('fixcity::ticket.track.submit') }}
                                             <span class="visually-hidden">: {{ $ticket->name }}</span>
                                         </a>
                                     @else
-                                        <span class="text-muted small" role="status">
+                                        <span class="text-sm text-slate-600" role="status">
                                             {{ __('fixcity::ticket.subscription.tracking_unavailable') }}
                                         </span>
                                     @endif
@@ -101,7 +99,6 @@ render(function (View $view): View {
                         @endforeach
                     </ul>
                 @endif
-            </div>
         </div>
     </main>
 </x-layouts.app>

@@ -1,181 +1,80 @@
-{{--
-    Bootstrap Italia Header — EXACT match of Design Comuni reference
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
---}}
 @php
-    /** HTML parity: slug route non è sempre disponibile nel contesto della section header; path è stabile. */
-    $testsPath = (string) request()->path();
-    $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
+    $brandTitle = trim((string) config('comune.nome', ''));
+    if (in_array(mb_strtolower($brandTitle), ['', 'nome comune', 'il mio comune', 'laravel'], true)) {
+        $brandTitle = trim((string) config('app.name', 'FixCity')) ?: 'FixCity';
+    }
+    $brandTagline = trim((string) config('comune.sottotitolo', '')) ?: __('pub_theme::header.center.brand.tagline.label');
+    $region = trim((string) config('comune.regione', ''));
+    if (in_array(mb_strtolower($region), ['', 'regione', 'nome della regione'], true)) $region = '';
+    $homeUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/');
+    $loginUrl = route('login');
+    $navConfig = [];
+    $navPath = app(\Modules\Tenant\Actions\Config\GetTenantFilePathAction::class)->execute('database/content/sections/header.json');
+    if (is_string($navPath) && file_exists($navPath)) {
+        $navConfig = \Illuminate\Support\Facades\File::json($navPath);
+    }
+    $labelKeys = ['amministrazione' => 'amministrazione', 'novita' => 'novita', 'servizi' => 'servizi', 'vivere-il-comune' => 'vivere', 'iscrizioni' => 'iscrizioni', 'estate-in-citta' => 'estate', 'polizia-locale' => 'polizia'];
+    $navItems = collect($navConfig['sections']['primary_nav']['items'] ?? [])->filter(fn ($item) => ($item['enabled'] ?? true) && ($item['visible'] ?? true))->sortBy('order')->map(function (array $item) use ($labelKeys): array {
+        $key = $labelKeys[(string) ($item['id'] ?? '')] ?? null;
+        $item['label'] = $key ? __('pub_theme::header.center.nav.'.$key.'.label') : (string) ($item['label'] ?? '');
+        $path = (string) ($item['url'] ?? '/');
+        $segments = array_values(array_filter(explode('/', trim((string) parse_url($path, PHP_URL_PATH), '/'))));
+        if ($segments !== [] && in_array($segments[0], array_keys(config('laravellocalization.supportedLocales', [])), true)) array_shift($segments);
+        $item['href'] = url('/'.app()->getLocale().'/'.(match ($segments[0] ?? '') { 'servizi', 'lista-categorie' => 'services', 'novita' => 'news', 'amministrazione' => 'administration', 'eventi', 'vivere-il-comune' => 'events', default => $segments[0] ?? '' }));
+        return $item;
+    })->values();
+    try { $locales = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales(); } catch (\Throwable) { $locales = ['it' => ['native' => 'Italiano'], 'en' => ['native' => 'English']]; }
+    $locale = app()->getLocale();
 @endphp
-<header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
-    <div class="it-header-slim-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="it-header-slim-wrapper-content">
-                        <a class="d-lg-block navbar-brand" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
-                        <div class="it-header-slim-right-zone" role="navigation">
-                            <div class="nav-item dropdown">
-                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
-                                    <span class="visually-hidden">Lingua attiva:</span>
-                                    <span>ITA</span>
-                                    <svg class="icon">
-                                        <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="link-list-wrapper">
-                                                <ul class="link-list">
-                                                    <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-                                                    <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @guest
-                                @include('pub_theme::components.sections.header.partials.personal-area-guest-cta')
-                            @else
-                                @php
-                                    $authUser = auth()->user();
-                                    $headerProfile = $authUser?->profile;
-                                    $headerUserDisplayName = trim((string) ($headerProfile->user_name ?? ''));
-                                    if ($headerUserDisplayName === '') {
-                                        $headerUserDisplayName = trim((string) ($headerProfile->full_name ?? ''));
-                                    }
-                                    if ($headerUserDisplayName === '') {
-                                        $headerUserDisplayName = (string) ($authUser->name ?? $authUser->email ?? 'Account');
-                                    }
-                                    $headerAvatarUrl = null;
-                                    if (\is_object($headerProfile) && method_exists($headerProfile, 'getFirstMediaUrl')) {
-                                        $mediaAvatar = (string) $headerProfile->getFirstMediaUrl('avatar');
-                                        if ($mediaAvatar !== '') {
-                                            $headerAvatarUrl = $mediaAvatar;
-                                        }
-                                    }
-                                    if ($headerAvatarUrl === null && filled($headerProfile->avatar_url ?? null) && \is_string($headerProfile->avatar_url)) {
-                                        $headerAvatarUrl = $headerProfile->avatar_url;
-                                    }
-                                    $headerUserInitial = strtoupper((string) \Illuminate\Support\Str::substr($headerUserDisplayName, 0, 1));
-                                @endphp
-                                @include('pub_theme::components.sections.header.partials.user-dropdown', [
-                                    'avatarUrl' => $headerAvatarUrl,
-                                    'displayName' => $headerUserDisplayName,
-                                    'unreadNotificationsCount' => $authUser->unreadNotificationsCount ?? 0,
-                                    'userInitial' => $headerUserInitial,
-                                ])
-                            @endguest
-                        </div>
+
+<header class="border-b border-slate-200 bg-white text-slate-950 shadow-sm" x-data="{ mobileOpen: false, languageOpen: false, userOpen: false }">
+    <div class="bg-emerald-950 text-white">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-sm sm:px-6 lg:px-8">
+            @if ($region !== '')<a class="underline decoration-white underline-offset-4 hover:text-emerald-100 focus:outline-none focus:ring-2 focus:ring-white" href="{{ config('comune.regione_url') }}">{{ $region }}</a>@else<span></span>@endif
+            <div class="flex items-center gap-2">
+                <div class="relative" @click.outside="languageOpen = false">
+                    <button type="button" class="inline-flex min-h-10 items-center gap-1 rounded-lg px-3 py-2 font-semibold hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" @click="languageOpen = !languageOpen" :aria-expanded="languageOpen.toString()" aria-haspopup="true"><span class="sr-only">{{ __('pub_theme::header.language.active_prefix.label') }}</span>{{ strtoupper(substr($locale, 0, 2)) }}<span aria-hidden="true">⌄</span></button>
+                    <div x-cloak x-show="languageOpen" class="absolute right-0 z-40 mt-1 min-w-32 rounded-lg bg-white p-1 text-slate-950 shadow-xl ring-1 ring-slate-200" role="menu">
+                        @foreach ($locales as $code => $_meta)
+                            <a class="block rounded-md px-3 py-2 font-semibold hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($code) }}" role="menuitem" @if ($code === $locale) aria-current="page" @endif>{{ strtoupper(substr((string) $code, 0, 2)) }}</a>
+                        @endforeach
                     </div>
                 </div>
+                @guest
+                    <a class="inline-flex min-h-10 items-center rounded-lg bg-white px-3 py-2 font-semibold text-emerald-950 hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-white" href="{{ $loginUrl }}">{{ __('pub_theme::header.guest.cta.label') }}</a>
+                @else
+                    <div class="relative" @click.outside="userOpen = false">
+                        <button type="button" class="inline-flex min-h-10 items-center rounded-lg px-3 py-2 font-semibold hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" @click="userOpen = !userOpen" :aria-expanded="userOpen.toString()" aria-haspopup="true">{{ auth()->user()->name ?? auth()->user()->email }} <span class="ml-1" aria-hidden="true">⌄</span></button>
+                        <div x-cloak x-show="userOpen" class="absolute right-0 z-40 mt-1 min-w-56 rounded-lg bg-white p-2 text-slate-950 shadow-xl ring-1 ring-slate-200" role="menu">
+                            <a class="block rounded-md px-3 py-2 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ route('dashboard') }}" role="menuitem">{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</a>
+                            <a class="block rounded-md px-3 py-2 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ route('profile.edit') }}" role="menuitem">{{ __('pub_theme::header.user.dropdown.settings.label') }}</a>
+                            <form method="POST" action="{{ url('/'.app()->getLocale().'/auth/logout') }}">@csrf<button class="block w-full rounded-md px-3 py-2 text-left hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-800" type="submit">{{ __('pub_theme::header.user.dropdown.logout.label') }}</button></form>
+                        </div>
+                    </div>
+                @endguest
             </div>
         </div>
     </div>
 
-    <div class="it-nav-wrapper">
-        <div class="it-header-center-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="it-header-center-content-wrapper">
-                            <div class="it-brand-wrapper">
-                                <a href="/">
-                                    <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image xlink:href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
-                                    </svg>
-                                    <div class="it-brand-text">
-                                        <div class="it-brand-title">Il mio Comune</div>
-                                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="it-right-zone">
-                                <div class="it-socials d-none d-lg-flex">
-                                    <span>Seguici su</span>
-                                    <ul>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use></svg><span class="visually-hidden">Twitter</span></a></li>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use></svg><span class="visually-hidden">Facebook</span></a></li>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use></svg><span class="visually-hidden">YouTube</span></a></li>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use></svg><span class="visually-hidden">Telegram</span></a></li>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use></svg><span class="visually-hidden">Whatsapp</span></a></li>
-                                        <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use></svg><span class="visually-hidden">RSS</span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="it-search-wrapper">
-                                    <span class="d-none d-md-block">Cerca</span>
-                                    <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
-                                        <svg class="icon">
-                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="navbar navbar-expand-lg has-megamenu">
-                            <button class="custom-navbar-toggler" type="button" data-bs-toggle="navbarcollapsible" data-bs-target="#nav4" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione">
-                                <svg class="icon">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
-                                </svg>
-                            </button>
-                            <div class="navbar-collapsable" id="nav4">
-                                <div class="overlay" style="display: none;"></div>
-                                <div class="close-div">
-                                    <button class="btn close-menu" type="button">
-                                        <span class="visually-hidden">Nascondi la navigazione</span>
-                                        <svg class="icon">
-                                            <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="menu-wrapper">
-                                    <a href="/" class="logo-hamburger">
-                                        <svg class="icon" aria-hidden="true"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use></svg>
-                                        <div class="it-brand-text"><div class="it-brand-title">Nome del Comune</div></div>
-                                    </a>
-                                    <nav aria-label="Principale">
-                                        <ul class="navbar-nav" data-element="main-navigation">
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/amministrazione" data-element="management"><span>Amministrazione</span></a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/novita" data-element="news"><span>Novità</span></a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/servizi" data-element="all-services"><span>Servizi</span></a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/eventi" data-element="live"><span>Vivere il Comune</span></a></li>
-                                        </ul>
-                                    </nav>
-                                    <nav aria-label="Secondaria">
-                                        <ul class="navbar-nav navbar-secondary">
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/argomento">Iscrizioni</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/argomento">Estate in città</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/argomento">Polizia locale</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/it/tests/argomenti" data-element="all-topics"><span>Tutti gli argomenti <svg class="icon icon-sm"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use></svg></span></a></li>
-                                        </ul>
-                                    </nav>
-                                    <div class="it-socials">
-                                        <span>Seguici su</span>
-                                        <ul>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-twitter"></use></svg><span class="visually-hidden">Twitter</span></a></li>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use></svg><span class="visually-hidden">Facebook</span></a></li>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-youtube"></use></svg><span class="visually-hidden">YouTube</span></a></li>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use></svg><span class="visually-hidden">Telegram</span></a></li>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use></svg><span class="visually-hidden">Whatsapp</span></a></li>
-                                            <li><a href="#" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-rss"></use></svg><span class="visually-hidden">RSS</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
+        <a class="flex min-w-0 items-center gap-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $homeUrl }}">
+            <img class="h-14 w-14 shrink-0 object-contain" src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}" alt="">
+            <span class="min-w-0"><span class="block truncate text-xl font-bold text-slate-950 sm:text-2xl">{{ $brandTitle }}</span><span class="hidden text-sm text-slate-700 sm:block">{{ $brandTagline }}</span></span>
+        </a>
+        <div class="flex items-center gap-2">
+            <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-800 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-sky-800/20" @click="$dispatch('open-search')" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}"><svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg></button>
+            <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-800 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-sky-800/20 lg:hidden" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen.toString()" aria-controls="sixteen-primary-nav" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}"><svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
         </div>
     </div>
+
+    <nav id="sixteen-primary-nav" class="border-t border-slate-200" aria-label="{{ __('pub_theme::header.center.nav.primary_aria.label') }}" :class="mobileOpen ? 'block' : 'hidden lg:block'">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ul class="flex flex-col gap-1 py-2 lg:flex-row lg:flex-wrap lg:items-center lg:gap-2">
+                @foreach ($navItems as $item)
+                    <li><a class="block rounded-lg px-4 py-3 font-semibold text-slate-800 transition hover:bg-sky-50 hover:text-sky-900 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ $item['href'] }}" @if (request()->is(trim(parse_url($item['href'], PHP_URL_PATH), '/'))) aria-current="page" @endif>{{ $item['label'] }}</a></li>
+                @endforeach
+                <li class="lg:ml-auto"><a class="block rounded-lg px-4 py-3 font-semibold text-sky-900 underline decoration-slate-400 underline-offset-4 hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/segnalazioni') }}">{{ __('pub_theme::segnalazione.elenco.title') }}</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
