@@ -1,0 +1,1 @@
+---\ntype: epic-story\ntitle: "Design Comuni Reference - segnalazione-dettaglio"\nfrontmatter:\n  links: {github_issue: "#ref-segnalazione-dettaglio", discussion: "#design-comuni-ref-segnalazione-dettaglio"}\n---
