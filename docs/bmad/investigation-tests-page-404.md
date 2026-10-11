@@ -16,6 +16,26 @@ updated: 2026-10-11
 
 # Investigazione: `http://localhost:8000/it/tests` restituisce 404
 
+## Aggiornamento: errore runtime del blocco tabs risolto
+
+La successiva richiesta `/it/tests` non era più un 404: il CMS caricava il
+contenuto, ma una sorgente del modulo conteneva ancora
+`pub_theme::components.blocks.tabs.design-comuni`. Quel namespace non deve
+generare una replica: `pub_theme` è già Sixteen e il blocco canonico è
+`pub_theme::components.blocks.tabs.default`.
+
+Correzioni applicate:
+
+- `laravel/Modules/Fixcity/config/database/content/pages/tests.json` ora usa il
+  blocco `tabs.default`;
+- `laravel/Themes/Sixteen/resources/views/components/blocks/tabs/default.blade.php`
+  non contiene più il token Blade invalido `@json($tabs)|>`;
+- `laravel/config/local/fixcity/database/content/pages/tests.index.json` resta la
+  sorgente locale con `id` e `slug` uguali a `tests.index`.
+
+Evidenza verificata: `php artisan view:cache` riuscito e `GET /it/tests` ha
+restituito HTTP 200 mostrando entrambe le tab `Generali` e `Sito`.
+
 ## Osservazione (evidenza)
 
 `curl -s http://192.168.1.40:8000/it/tests` → **404 Not Found** (Laravel default page).
@@ -139,3 +159,11 @@ oppure lasciare che Folio gestisca `name('tests.index')` tramite il registration
 
 ## Documentazione creata
 - `laravel/Themes/Sixteen/docs/bmad/investigation-tests-page-404.md` (questo file)
+
+## Aggiornamento: dettaglio `[slug]` e variabile non dichiarata
+
+La navigazione da `/it/tests` verso `/it/tests/homepage` passava
+`:body-page="$bodyPage"` a `x-layouts.app`, ma il componente Volt non dichiarava
+`$bodyPage`. Il prop non era necessario: è stato rimosso da
+`resources/views/pages/tests/[slug].blade.php`, lasciando al layout Sixteen il
+suo valore predefinito.

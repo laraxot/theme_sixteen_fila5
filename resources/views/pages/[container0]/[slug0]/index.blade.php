@@ -58,8 +58,11 @@ new class extends Component {
         : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
         : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
     $pageDescription = $cmsPage?->getAttribute('description') ?? '';
+    $layoutComponent = ($cmsPage?->getAttribute('layout') ?? 'app') === 'test'
+        ? 'layouts.test'
+        : 'layouts.app';
 @endphp
-<x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
+<x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription">
     <div class="page-content content" data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
         @if ($specialPage === 'auth-login')
             @include('pub_theme::components.pages.auth-login')
@@ -75,4 +78,4 @@ new class extends Component {
             @endvolt
         @endif
     </div>
-</x-layouts.app>
+</x-dynamic-component>

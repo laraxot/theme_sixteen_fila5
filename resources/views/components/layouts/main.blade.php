@@ -74,10 +74,12 @@
         @stack('styles')
     </head>
     <body @if(!empty($bodyPage)) data-page="{{ $bodyPage }}" @endif>
-        
+
         {{ $slot }}
         @livewireScripts
         @filamentScripts
         @vite(['resources/js/app.js'], 'themes/Sixteen')
+
+
     </body>
 </html>

@@ -1,0 +1,47 @@
+@props(['blocks' => []])
+
+@php
+    $headerData = [];
+    foreach ($blocks as $block) {
+        if (isset($block['data']) && is_array($block['data'])) {
+            $headerData = array_merge($headerData, $block['data']);
+        }
+    }
+    $brand = $headerData['brand'] ?? ['name' => '', 'tagline' => '', 'logo' => ''];
+    $region = $headerData['region'] ?? ['name' => '', 'url' => ''];
+    $utilityLinks = $headerData['utility_links'] ?? [];
+    $account = $headerData['account'] ?? ['label' => '', 'url' => ''];
+    $navigation = $headerData['navigation'] ?? [];
+    $secondaryNavigation = $headerData['secondary_navigation'] ?? [];
+    $social = $headerData['social'] ?? [];
+@endphp
+
+<header class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4">
+        <!-- Top bar -->
+        <div class="flex items-center justify-between py-2">
+            <div class="flex items-center space-x-4">
+                <a href="{{ url('/') }}" class="flex items-center space-x-2">
+                    <img src="{{ $brand['logo'] }}" alt="{{ $brand['name'] }}" class="h-10">
+                    <div>
+                        <div class="font-bold text-lg">{{ $brand['name'] }}</div>
+                        <div class="text-sm text-gray-600">{{ $brand['tagline'] }}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{{ $region['url'] }}" class="text-sm text-gray-700 hover:underline">{{ $region['name'] }}</a>
+                @foreach($utilityLinks as $link)
+                    <a href="{{ $link['url'] }}" class="text-sm text-gray-700 hover:underline">{{ $link['label'] }}</a>
+                @endforeach
+                <a href="{{ $account['url'] }}" class="text-sm font-medium text-blue-600 hover:underline">{{ $account['label'] }}</a>
+            </div>
+        </div>
+        <!-- Primary navigation -->
+        <nav class="flex items-center space-x-6 py-3 border-t border-gray-200">
+            @foreach($navigation as $item)
+                <a href="{{ $item['url'] }}" class="text-base font-medium text-gray-800 hover:text-blue-600">{{ $item['label'] }}</a>
+            @endforeach
+        </nav>
+    </div>
+</header>

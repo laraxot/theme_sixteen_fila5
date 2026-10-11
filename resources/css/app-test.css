@@ -16,7 +16,7 @@
    IMPORT DESIGN COMUNI COMPONENT CLASSES
    Bootstrap Italia classes → Tailwind CSS
 ======================================== */
-@import './components/bootstrap-italia-classes.css';
+/* DesignComuni-compatible utility classes are maintained locally in Tailwind. */
 
 /* ========================================
    FINAL HOMEPAGE PARITY OVERRIDES
