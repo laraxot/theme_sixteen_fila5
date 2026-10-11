@@ -27,9 +27,9 @@ Folio + Volt e le Actions appartengono al modulo owner.
 
 | Area | Canonico | Non usare come SSoT |
 |---|---|---|
-| Layout/Folio | `layout-architecture.md` | report di confronto duplicati |
+| Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` |
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
-| Design Comuni | `design-comuni/` + documenti parity | screenshot raw |
+| Design Comuni | `design-comuni/` + documenti parity + `design-system/MASTER.md` | screenshot raw o root design-system |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
 | Build asset | `vite-theme-integration.md` | log di singole sessioni |
 | FixCity journeys | `Modules/Fixcity/docs/actor-flows.md` | duplicati nel tema |

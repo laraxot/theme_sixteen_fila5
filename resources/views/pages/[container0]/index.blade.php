@@ -34,7 +34,9 @@ new class extends Component {
         'mappa-sito' => 'sitemap',
         default => null,
     };
-    $nativePage = in_array($container0, ['services', 'segnalazioni'], true) ? $container0 : null;
+    $nativePage = in_array($container0, ['services', 'segnalazioni', 'tickets'], true)
+        ? ($container0 === 'tickets' ? 'segnalazioni' : $container0)
+        : null;
     abort_if($cmsPage === null && $utilityPage === null && $nativePage === null && $container0 !== 'lista-categorie', 404);
     $pageTitle = match (true) {
         $container0 === 'lista-categorie' => __('pub_theme::services.categories.title'),
@@ -54,21 +56,21 @@ new class extends Component {
     };
 @endphp
 <x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
-    @volt('container0.index')
-    <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
-        @if ($container0 === 'lista-categorie')
+    <div class="page-content content" data-slug="{{ request()->segment(2).'.index' }}" data-side="content">
+        @if ($nativePage === 'services')
+            @include('pub_theme::components.pages.services')
+        @elseif ($nativePage === 'segnalazioni')
+            @include('pub_theme::components.pages.segnalazioni')
+        @elseif ($container0 === 'lista-categorie')
             @include('pub_theme::pages.services.categories-content')
         @elseif ($container0 === 'domande-frequenti')
             @include('pub_theme::components.pages.faq')
         @elseif ($container0 === 'mappa-sito')
             @include('pub_theme::components.pages.sitemap')
-        @elseif ($container0 === 'services')
-            @include('pub_theme::components.pages.services')
-        @elseif ($container0 === 'segnalazioni')
-            @include('pub_theme::components.pages.segnalazioni')
         @else
-            <x-page side="content" :slug="$pageSlug" :data="$data" />
+            @volt('container0.index')
+                <x-page side="content" :slug="$pageSlug" :data="$data" />
+            @endvolt
         @endif
     </div>
-    @endvolt
 </x-layouts.app>

@@ -4,7 +4,7 @@
     $trackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
 @endphp
 
-<main id="main-container" class="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+<div class="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div class="mx-auto max-w-5xl">
         <nav aria-label="{{ __('fixcity::global.breadcrumb') }}">
             <ol class="flex flex-wrap gap-2 text-sm text-slate-700">
@@ -35,4 +35,4 @@
             </a>
         </div>
     </div>
-</main>
+</div>

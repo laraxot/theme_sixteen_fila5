@@ -42,13 +42,37 @@ new class extends Component {
 
 @php
     $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug(request()->segment(2).'.'.request()->segment(3));
-    $pageTitle = $cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name');
+    $specialPage = $container0 === 'auth' && $slug0 === 'login'
+        ? 'auth-login'
+        : ($container0 === 'auth' && $slug0 === 'register'
+        ? 'auth-register'
+        : ($container0 === 'tickets' && $slug0 === 'track'
+        ? 'ticket-track'
+        : ($container0 === 'tickets' && ctype_digit($slug0) ? 'ticket-detail' : null)));
+    $pageTitle = $specialPage === 'auth-login'
+        ? __('Accedi a FixCity')
+        : ($specialPage === 'auth-register'
+        ? __('Crea il tuo account')
+        : ($specialPage === 'ticket-track'
+        ? __('fixcity::ticket.track.title')
+        : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
+        : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
     $pageDescription = $cmsPage?->getAttribute('description') ?? '';
 @endphp
 <x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
-    @volt('container0.view')
-    <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
-        <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+    <div class="page-content content" data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
+        @if ($specialPage === 'auth-login')
+            @include('pub_theme::components.pages.auth-login')
+        @elseif ($specialPage === 'auth-register')
+            @include('pub_theme::components.pages.auth-register')
+        @elseif ($specialPage === 'ticket-track')
+            @include('pub_theme::components.pages.ticket-track')
+        @elseif ($specialPage === 'ticket-detail')
+            @include('pub_theme::components.pages.ticket-detail')
+        @else
+            @volt('container0.view')
+                <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+            @endvolt
+        @endif
     </div>
-    @endvolt
 </x-layouts.app>
