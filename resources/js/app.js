@@ -23,8 +23,8 @@ import { dropdownToggle } from './components/dropdown';
 import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
-import { initHeaderMobileNav } from './theme/header-mobile-nav.js';
-import { dcCalendar, dcRating } from './theme/design-comuni-home.js';
+import { initHeaderMobileNav, isDesignComuniPage } from './theme/header-mobile-nav.js';
+import { dcCarousel, dcFormValidate, dcNavscroll, dcRating, mountDesignComuniComponents } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
@@ -50,8 +50,11 @@ function registerAlpineComponents(AlpineInstance) {
     AlpineInstance.data('modal', modal);
     AlpineInstance.data('mobileMenu', mobileMenu);
     AlpineInstance.data('governanceCarousel', governanceCarousel);
-    AlpineInstance.data('dcCalendar', dcCalendar);
+    AlpineInstance.data('dcCarousel', dcCarousel);
     AlpineInstance.data('dcRating', dcRating);
+    AlpineInstance.data('dcNavscroll', dcNavscroll);
+    AlpineInstance.data('dcFormValidate', dcFormValidate);
+    mountDesignComuniComponents();
 
     AlpineInstance.data('dropdown', () => ({
         open: false,
@@ -165,16 +168,40 @@ initHeaderMobileNav();
 function closeDropdownMenu(menu) {
     if (!menu) { return; }
     menu.classList.remove('show');
-    menu.style.display = 'none';
+    if (isDesignComuniPage()) {
+        menu.removeAttribute('data-popper-placement');
+        menu.removeAttribute('style');
+        menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]')?.classList.remove('show');
+    } else {
+        menu.style.display = 'none';
+    }
     const openDropdown = menu.closest('.dropdown');
     openDropdown?.classList.remove('is-open');
     openDropdown?.querySelector('[data-bs-toggle="dropdown"]')?.setAttribute('aria-expanded', 'false');
 }
 
+/**
+ * Posizione del menu come fa Popper nel riferimento (pagine /tests): `data-popper-placement` e `transform` sotto il pulsante,
+ * relativi al contenitore `.dropdown` (position: relative).
+ */
+const DROPDOWN_OFFSET_Y = 2; // scarto misurato nel riferimento tra il bordo del pulsante e il `translate` del menu
+
+function placeDropdownMenu(menu, toggle) {
+    const anchor = toggle.getBoundingClientRect();
+    const parent = (menu.offsetParent || toggle.parentElement).getBoundingClientRect();
+    menu.setAttribute('data-popper-placement', 'bottom-start');
+    menu.setAttribute('style', `position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(${Math.round(anchor.left - parent.left)}px, ${Math.round(anchor.bottom - parent.top) + DROPDOWN_OFFSET_Y}px);`);
+    toggle.classList.add('show');
+}
+
 function openDropdownMenu(menu, dropdown, toggle) {
     if (!menu || !toggle) { return; }
     menu.classList.add('show');
-    menu.style.display = 'block';
+    if (isDesignComuniPage()) {
+        placeDropdownMenu(menu, toggle);
+    } else {
+        menu.style.display = 'block';
+    }
     dropdown?.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
 }
@@ -290,12 +317,27 @@ if (document.readyState !== 'loading') {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Modali con markup Design Comuni (`.modal.fade`, solo pagine /tests): display block, aria-modal, backdrop e `modal-open` sul body, come nel
+    // riferimento. Le altre modali del tema (senza `fade`) restano flex senza backdrop.
     const closeModal = function(modal) {
         if (!modal) {
             return;
         }
 
         modal.classList.remove('show');
+        if (isDesignComuniPage() && modal.classList.contains('fade')) {
+            modal.style.display = '';
+            modal.removeAttribute('aria-modal');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.classList.remove('focus--mouse');
+            modal.removeAttribute('data-focus-mouse');
+            document.querySelectorAll('.modal-backdrop').forEach(function(backdrop) { backdrop.remove(); });
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+            return;
+        }
+
         modal.style.display = 'none';
         document.body.style.overflow = '';
     };
@@ -306,6 +348,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         modal.classList.add('show');
+        if (isDesignComuniPage() && modal.classList.contains('fade')) {
+            modal.style.display = 'block';
+            modal.removeAttribute('aria-hidden');
+            modal.setAttribute('aria-modal', 'true');
+            modal.classList.add('focus--mouse');
+            modal.setAttribute('data-focus-mouse', 'true');
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop fade show';
+            document.body.appendChild(backdrop);
+            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = '0px';
+            return;
+        }
+
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     };
@@ -314,7 +371,8 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('data-bs-target');
-            const modal = document.querySelector(targetId);
+            // `data-bs-target="#"` e' un segnaposto del riferimento (es. pulsante "Avanti"): `querySelector('#')` lancerebbe un errore
+            const modal = targetId && targetId !== '#' ? document.querySelector(targetId) : null;
 
             if (!modal) {
                 return;
@@ -375,8 +433,9 @@ document.addEventListener('DOMContentLoaded', function() {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
 
-            const targetId = this.getAttribute('data-bs-target');
-            const panel = targetId ? document.querySelector(targetId) : null;
+            // Bootstrap accetta anche `href="#id"` quando manca `data-bs-target` (es. "Vedi altri" nel riferimento)
+            const targetId = this.getAttribute('data-bs-target') || (this.getAttribute('href')?.startsWith('#') ? this.getAttribute('href') : null);
+            const panel = targetId && targetId !== '#' ? document.querySelector(targetId) : null;
 
             if (!panel) {
                 return;

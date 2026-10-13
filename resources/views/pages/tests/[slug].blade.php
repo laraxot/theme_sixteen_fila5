@@ -29,10 +29,11 @@ new class extends Component
 };
 ?>
 
-<x-layouts.test>
+{{-- Layout dal JSON (`layout`): `design-comuni-bare` per i cataloghi senza header/footer (servizi/index.html), altrimenti il chrome completo. --}}
+<x-dynamic-component :component="\Modules\Cms\Models\Page::findUniqueBySlug('tests.'.$slug)?->layout === 'design-comuni-bare' ? 'layouts.design-comuni-bare' : 'layouts.design-comuni'">
     @volt('tests.view')
     <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>
     @endvolt
-</x-layouts.test>
+</x-dynamic-component>

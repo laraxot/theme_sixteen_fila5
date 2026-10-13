@@ -26,10 +26,10 @@ new class extends Component
 };
 ?>
 
-<x-layouts.test body-page="tests-index">
+<x-layouts.design-comuni-bare>
     @volt('tests.index')
     <div class="design-comuni-template-index page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>
     @endvolt
-</x-layouts.test>
+</x-layouts.design-comuni-bare>

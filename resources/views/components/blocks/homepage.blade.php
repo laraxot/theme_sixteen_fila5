@@ -12,8 +12,7 @@
     $hero = $d('hero', []);
 @endphp
 
-<div class="dc-page">
-<h1 class="visually-hidden">{{ $d('hero.title') }}</h1>
+<h1 class="visually-hidden" id="main-container">{{ $d('hero.title') }}</h1>
 
 <section id="head-section">
     <h2 class="visually-hidden">{{ $d('hero.eyebrow') }}</h2>
@@ -76,7 +75,7 @@
                 <div class="col-12 d-lg-flex justify-content-between"><h2>{{ $d('events.title') }}</h2></div>
             </div>
             <div class="row row-calendar">
-                <div class="it-carousel-wrapper it-carousel-landscape-abstract-four-cols it-calendar-wrapper splide" data-bs-carousel-splide x-data="dcCalendar">
+                <div class="it-carousel-wrapper it-carousel-landscape-abstract-four-cols it-calendar-wrapper splide" data-bs-carousel-splide>
                     <div class="it-header-block">
                         <div class="it-header-block-title"><h3 class="mb-0 text-center home-carousel-title">{{ $d('events.month') }}</h3></div>
                     </div>
@@ -92,7 +91,7 @@
                                                         <span>{{ $day['weekday'] ?? '' }}</span></h4>
                                                     @foreach ($day['items'] ?? [] as $event)
                                                         @php($img = data_get($event, 'image.src'))
-                                                        <p @class(['card-text', 'px-2', 'pb-10 mb-10' => ! ($loop->last && $loop->parent->first), 'd-flex' => $img])>
+                                                        <p @class(['card-text', 'px-2', 'pb-10 mb-10' => ! ($loop->last && $loop->count > 3), 'd-flex' => $img])>
                                                             @if ($img)<img src="{{ $img }}" alt="{{ $event['image']['alt'] ?? '' }}" class="me-3 rounded">@endif
                                                             <a href="{{ $event['url'] ?? '#' }}">{{ $event['title'] ?? '' }}</a></p>
                                                     @endforeach
@@ -150,8 +149,10 @@
                                 @endif
                             </div>
                             <a class="read-more pt-0" href="{{ $topic['url'] ?? '#' }}">
+                                @if ($topic['cta_wrapped'] ?? false)<span class="list-item-title-icon-wrapper">@endif
                                 <span class="text">{{ $d('topics.cta') }}</span>
                                 <svg @class(['icon', 'ms-0' => filled($topic['site'] ?? null)])><use xlink:href="{{ $icon('it-arrow-right') }}"></use></svg>
+                                @if ($topic['cta_wrapped'] ?? false)</span>@endif
                             </a>
                         </div>
                     @endforeach
@@ -224,4 +225,3 @@
 
 @include('pub_theme::components.blocks.partials.dc-rating', ['data' => $data])
 @include('pub_theme::components.blocks.partials.dc-contacts', ['data' => $data])
-</div>
