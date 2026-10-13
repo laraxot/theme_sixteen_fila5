@@ -24,6 +24,7 @@ import { modal } from './components/modal';
 import { mobileMenu } from './components/mobile-menu';
 import { governanceCarousel } from './components/carousel';
 import { initHeaderMobileNav } from './theme/header-mobile-nav.js';
+import { dcCalendar, dcRating } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
 // DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
 // Now using blade template directly with Alpine.js for accordion
@@ -49,6 +50,8 @@ function registerAlpineComponents(AlpineInstance) {
     AlpineInstance.data('modal', modal);
     AlpineInstance.data('mobileMenu', mobileMenu);
     AlpineInstance.data('governanceCarousel', governanceCarousel);
+    AlpineInstance.data('dcCalendar', dcCalendar);
+    AlpineInstance.data('dcRating', dcRating);
 
     AlpineInstance.data('dropdown', () => ({
         open: false,

@@ -111,7 +111,7 @@ Render → <x-pub_theme::components.blocks.topics-grid :data="$block['data']" />
 laravel/Themes/Sixteen/
 ├── resources/
 │   ├── css/
-│   │   └── app.css (with @apply for Bootstrap Italia)
+│   │   └── app.css (Tailwind layers and local Design Comuni-compatible primitives)
 │   ├── js/
 │   │   └── app.js (Alpine.js, NOT Bootstrap Italia JS)
 │   └── views/

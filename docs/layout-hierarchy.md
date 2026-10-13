@@ -175,7 +175,7 @@ laravel/Themes/Sixteen/resources/views/layouts/
 
 ### Example 1: Public Page with Sections
 ```blade
-{{-- pages/tests/homepage.blade.php --}}
+{{-- pages/tests/[slug].blade.php: vale per /it/tests/{slug} --}}
 <x-layouts.app>
     <x-section slug="header" />
     <main id="main-container">
@@ -184,6 +184,12 @@ laravel/Themes/Sixteen/resources/views/layouts/
     <x-section slug="footer" tpl="full" />
 </x-layouts.app>
 ```
+
+`homepage`, `segnalazione-dettaglio`, `segnalazioni-elenco` e ogni altro
+segmento dopo `/tests/` sono valori di slug, non nomi di file Blade. Non creare
+quindi `pages/tests/homepage.blade.php`, `pages/tests/segnalazioni/` o altri
+sotto-router semantici: il CMS risolve `tests.<slug>` dal JSON tenant e i
+blocchi riutilizzabili appartengono a `resources/views/components/blocks/`.
 
 ### Example 2: Custom Structure
 ```blade

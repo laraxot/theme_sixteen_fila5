@@ -71,6 +71,9 @@ Non devono esistere directory semantiche hardcoded come:
 
 Il file [`[slug].blade.php`](../resources/views/pages/tests/[slug].blade.php) è l'unico entrypoint dinamico per tutte le pagine `tests/*`.
 
+Non creare sotto-directory semantiche come `pages/tests/segnalazioni/`: il
+segmento `segnalazioni-*` è parte dello slug CMS, non una directory Folio.
+
 Il file [`index.blade.php`](../resources/views/pages/tests/index.blade.php) è l'entrypoint per `/tests`.
 
 ### Frontoffice dinamico

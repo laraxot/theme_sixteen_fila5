@@ -119,9 +119,9 @@
             <h2 id="service-rating-title" class="text-2xl font-semibold text-white">{{ $data['rating_title'] ?? 'Quanto è stato facile usare questo servizio?' }}</h2>
             <p x-cloak x-show="rated > 0" class="mt-4 font-semibold text-white">{{ $data['rating_success'] ?? 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!' }}</p>
             <div x-show="rated === 0" class="mt-5 flex justify-center gap-2" role="radiogroup" aria-label="Valuta da 1 a 5">
-                @for($star = 1; $star <= 5; $star++)
-                    <button type="button" class="min-h-11 min-w-11 text-3xl focus:outline-none focus:ring-2 focus:ring-white" role="radio" :aria-checked="rated === {{ $star }}" @click="rated = {{ $star }}" aria-label="{{ $star }} stelle">★</button>
-                @endfor
+                <template x-for="star in [1,2,3,4,5]" :key="star">
+                    <button type="button" class="min-h-11 min-w-11 text-3xl focus:outline-none focus:ring-2 focus:ring-white" role="radio" :aria-checked="rated === star" x-on:click="rated = star" :aria-label="star + ' stelle'">★</button>
+                </template>
             </div>
         </div>
     </section>
