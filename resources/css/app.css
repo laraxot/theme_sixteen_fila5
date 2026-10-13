@@ -175,37 +175,8 @@
     #site-header #sixteen-primary-nav > div > ul { padding-top: 0; padding-bottom: 0; }
 }
 
-/* Design Comuni: blocco homepage (stili generati, scope .dc-home) */
+/* Design Comuni: blocco homepage (stili generati, scope .dc-page) */
 @import './design-comuni/fonts.css';
 @import './design-comuni/isolation.css';
-
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
-
-/* Search results CTA: final cascade layer, matching Design Comuni at rest. */
-.dc-page .cmp-input-search-button > button.btn.btn-primary {
-  --bs-btn-border-width: 0px !important;
-  --bs-btn-border-color: #007a52 !important;
-  background-color: #007a52 !important;
-  border: 0 solid #007a52 !important;
-  color: #ffffff !important;
-  box-sizing: border-box;
-  height: 48px !important;
-  min-height: 48px !important;
-  line-height: 24px !important;
-}
-
-.dc-page .cmp-input-search-button > button.btn.btn-primary:hover,
-.dc-page .cmp-input-search-button > button.btn.btn-primary:focus-visible {
-  background-color: #007a52 !important;
-  border-color: #007a52 !important;
-  color: #ffffff !important;
-}
-
-/* Search page uses the full reference column for feedback and contacts. */
-.dc-page #rating .card,
-.dc-page .cmp-contacts .card {
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
