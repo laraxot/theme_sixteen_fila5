@@ -103,4 +103,4 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 - [README.md](./README.md)
 - [layout-runtime-contract.md](./layout-runtime-contract.md)
 - [component-page-runtime.md](./component-page-runtime.md)
-- [../../Modules/Cms/docs/page-directory-structure.md](../../Modules/Cms/docs/page-directory-structure.md)
+- [../../Modules/Cms/docs/page-directory-structure.md](../../../Modules/Cms/docs/page-directory-structure.md)

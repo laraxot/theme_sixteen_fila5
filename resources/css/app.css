@@ -132,6 +132,7 @@
 @import './app/14-auth-login.css';
 @import './services-hero-contrast.css';
 @import './app/16-homepage-civic-reframe.css';
+@import './app/17-dc-chrome-mobile-nav.css'; /* generato: menu mobile dell'header Design Comuni sulle pagine reali (DCP-121) */
 
 /* Motion Reveal — scroll-triggered animations */
 @import './components/motion-reveal.css';

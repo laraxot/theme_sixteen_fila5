@@ -61,3 +61,5 @@ find laravel/Themes/Sixteen/resources/views/pages -name "segnalazione-*.blade.ph
 - `laravel/Themes/Sixteen/docs/wiki/concepts/blade-component-extraction-rule.md`
 - `bashscripts/ai/.claude/rules/no-page-specific-css.md`
 - Story: 8-41 (Folio routing architecture)
+
+Correzione verificata 2026-10-13 (DCP-35 S4): `tests.segnalazione-crea.json` è stato eliminato (commit 260f3bcc5, `git log --diff-filter=D`) e oggi non esiste in nessun tenant; la risposta di `/it/tests/segnalazione-crea` (200) non contiene il wizard (0 occorrenze di `fi-sc-wizard` e `$wire.save()`). Il flusso vive su `/it/tickets/create` (`tickets.create.json`, blocco `components/blocks/tests/ticket-crea.blade.php`). Questo documento descrive lo stato precedente; stato attuale in `Modules/Fixcity/docs/wiki/concepts/ticket-crea-url-routing-chain.md`.

@@ -71,7 +71,7 @@ Il lavoro visivo resta limitato a:
 ## 🔗 Link Bidirezionali
 
 ### Master Index
-- [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md) - Index globale progetto
+- [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md) - Index globale progetto
 
 ### Visual Comparison Reports
 - [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage screenshot comparison
@@ -83,19 +83,19 @@ Il lavoro visivo resta limitato a:
 - [screenshots/](./screenshots/) - All 54 pages (reference + local)
 
 ### Scripts
-- [bashscripts/design-comuni/](../../../bashscripts/design-comuni/) - Screenshot capture scripts
+- [bashscripts/design-comuni/](../../../../../bashscripts/design-comuni) - Screenshot capture scripts
 - [bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md](../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md) - Scripts documentation
 
 ### Modulo Cms
-- [Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md) - Index completo modulo Cms
-- [Modules/Cms/docs/00-index.md](../../../Modules/Cms/docs/00-index.md) - Indice modulo Cms
+- [Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md) - Index completo modulo Cms
+- [Modules/Cms/docs/00-index.md](../../../../Modules/Cms/docs/00-index.md) - Indice modulo Cms
 
 ### Modulo UI
-- [Modules/UI/docs/00-index.md](../../../Modules/UI/docs/00-index.md) - Indice modulo UI
+- [Modules/UI/docs/00-index.md](../../../../Modules/UI/docs/00-INDEX.md) - Indice modulo UI
 - [Modules/UI/docs/design-comuni-faq-components.md](../../../Modules/UI/docs/design-comuni-faq-components.md) - Componenti UI FAQ
 
 ### Scripts
-- [bashscripts/design-comuni/](../../../bashscripts/design-comuni/) - Scripts automatizzati
+- [bashscripts/design-comuni/](../../../../../bashscripts/design-comuni) - Scripts automatizzati
 - [bashscripts/docs/DESIGN_COMUNI_SCREENSHOT_SCRIPT.md](../../../bashscripts/docs/DESIGN_COMUNI_SCREENSHOT_SCRIPT.md) - Documentazione scripts
 
 ## Active audit documents
@@ -127,9 +127,9 @@ Il batch del 2026-04-03 mostra tre cluster operativi:
 
 ## Cross links
 
-- [../00-index.md](../00-index.md) - Indice generale docs del tema
+- [../00-index.md](../00-INDEX.md) - Indice generale docs del tema
 - [../prompts/replikate.txt](../prompts/replikate.txt) - 🔴 REPLIKATE Prompt v2.0.0 (BMAD+GSD, 2026-04-07)
-- [../../../Modules/Cms/docs/design-comuni-batch-parity.md](../../../Modules/Cms/docs/design-comuni-batch-parity.md) - Coordinamento lato Cms
+- [../../../Modules/Cms/docs/design-comuni-batch-parity.md](../../../../Modules/Cms/docs/design-comuni-batch-parity.md) - Coordinamento lato Cms
 - [../../../bashscripts/docs/design-comuni-batch-body-parity.md](../../../bashscripts/docs/design-comuni-batch-body-parity.md) - Documentazione script batch
 - [../design-comuni/STATUS.md](STATUS.md) - Status report operativo
 - [../design-comuni/screenshots/](screenshots/) - Screenshots comparativi

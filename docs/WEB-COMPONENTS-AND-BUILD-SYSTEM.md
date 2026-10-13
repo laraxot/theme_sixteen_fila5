@@ -350,7 +350,7 @@ npm run copy:filament
 ## References
 
 - [Sixteen Theme Documentation](./00-INDEX.md)
-- [Geo Module: Filament Forms Components](../../Modules/Geo/docs/filament-forms-components.md)
+- [Geo Module: Filament Forms Components](../../../Modules/Geo/docs/filament-forms-components.md)
 - [Story 8-10: Map Bidirectional Sync](../../../_bmad-output/implementation-artifacts/8-10-segnalazione-crea-map-bidirectional-sync-and-no-refresh-on-marker-drag.md)
 - [Lit.dev Official](https://lit.dev/)
 - [Web Components on MDN](https://developer.mozilla.org/en-US/docs/web/web_components)

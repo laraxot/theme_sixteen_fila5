@@ -63,6 +63,11 @@ export const dcCarousel = () => ({
  */
 export const dcRating = () => ({
     step: 0,
+    rating: 0,
+    hover: 0,
+    feedbackType: '',
+    selectedOption: '',
+    textFeedback: '',
 
     init() {
         this.$el.querySelectorAll('.rating input').forEach((input) => input.addEventListener('change', () => {
@@ -215,6 +220,46 @@ export const initProcedureSteps = () => {
 };
 
 /**
+ * Campi dei moduli IMU/permessi (script `scripts.js` del riferimento):
+ * - `#toggle-toggle` su change: `.infoWrapper` alterna `d-none`.
+ * - `.check-input` su change: la `.cmp-info-checkbox` con lo stesso indice alterna `has-border-green`.
+ * - `input[type="text"]` su input: con testo inserisce dopo il campo `button.clean-input` (clic: svuota il campo, rimuove il pulsante e toglie
+ *   `active` dall'etichetta `.cmp-input__label`), senza testo lo rimuove. Lo sprite dell'icona si ricava dalle `<use>` gia' nella pagina.
+ * ponytail: nel riferimento un campo vuoto senza pulsante lancia un errore; qui `?.` lo ignora.
+ */
+const CLEAN_INPUT_LABEL = 'Elimina testo di ricerca';
+
+const spriteOf = (icon) => {
+    const href = document.querySelector('use[href*="sprites.svg#"]')?.getAttribute('href');
+    return href ? `${href.split('#')[0]}#${icon}` : `#${icon}`;
+};
+
+const syncCleanInput = (field) => {
+    const holder = field.parentElement;
+    const existing = holder.querySelector('.clean-input');
+    if (!field.value.length) return existing?.remove();
+    if (existing) return;
+    field.insertAdjacentHTML('afterend', `<button type="button" class="clean-input" aria-label="${CLEAN_INPUT_LABEL}"><svg class="icon"><use href="${spriteOf('it-close')}"></use></svg></button>`);
+    const button = holder.querySelector('.clean-input');
+    button.addEventListener('click', () => {
+        field.value = '';
+        button.remove();
+        holder.querySelector('.cmp-input__label')?.classList.remove('active');
+    });
+};
+
+export const initFormFields = () => {
+    const toggle = document.querySelector('#toggle-toggle');
+    const info = document.querySelector('.infoWrapper');
+    toggle?.addEventListener('change', () => info?.classList.toggle('d-none'));
+
+    const boxes = [...document.querySelectorAll('.cmp-info-checkbox')];
+    document.querySelectorAll('.check-input').forEach((input, index) => input.addEventListener('change', () => boxes[index]?.classList.toggle('has-border-green')));
+
+    document.querySelectorAll('input[type="text"]').forEach((field) => field.addEventListener('input', () => syncCleanInput(field)));
+};
+
+/**
  * Validazione dei form del riferimento (libreria JustValidate nel riferimento: `#justValidateForm`, `#justValidateMulta`).
  * Alla conferma ogni campo `[required]` vuoto (e le email non valide) riceve `is-invalid`, `aria-invalid`, `aria-describedby` e un'etichetta
  * `div.form-feedback.just-validate-error-label` in coda al contenitore del campo; dopo il primo tentativo ogni campo si ricontrolla mentre
@@ -252,7 +297,8 @@ export const dcFormValidate = () => ({
     },
 
     check(field) {
-        if (!field?.matches?.('input, select, textarea')) return true;
+        // il voto (`.cmp-rating`) non e' un campo del modulo: JustValidate nel riferimento valida solo i campi dichiarati
+        if (!field?.matches?.('input, select, textarea') || field.closest('.cmp-rating')) return true;
         const label = field.parentElement.querySelector(`.just-validate-error-label[id="${field.id}-error-0"]`);
         const error = this.message(field);
         label?.remove();
@@ -308,9 +354,10 @@ export const initTabs = () => {
  * i componenti sugli elementi che hanno quegli hook. Chiamata da app.js su `alpine:init`, prima che Alpine scansioni il DOM.
  */
 export const mountDesignComuniComponents = () => {
-    if (document.querySelector('.page-content[data-slug*="tests."]')) {
+    if (document.querySelector('.page-content[data-dc]')) {
         initFocusMouse();
         initProcedureSteps();
+        initFormFields();
         initTabs();
     }
     document.querySelectorAll('[data-bs-carousel-splide], .carousel-4-card').forEach((el) => el.setAttribute('x-data', 'dcCarousel'));

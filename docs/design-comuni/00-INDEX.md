@@ -138,9 +138,9 @@ docs/design-comuni/
 - [CSS Strategy](../CSS_STRATEGY.md)
 
 ### Verso Laravel Structure
-- [Blade File](../../../../resources/views/pages/tests/[slug].blade.php)
-- [JSON Config](../../../../../config/local/fixcity/database/content/pages/tests.homepage.json)
-- [Blocks Components](../../../../resources/views/components/blocks/)
+- [Blade File](../../resources/views/pages/tests/[slug].blade.php)
+- [JSON Config](../../../../config/local/fixcity/database/content/pages/tests.homepage.json)
+- [Blocks Components](../../resources/views/components/blocks)
 
 ---
 

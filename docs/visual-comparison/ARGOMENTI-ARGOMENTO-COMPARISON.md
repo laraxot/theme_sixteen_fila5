@@ -97,7 +97,7 @@ Lower div count because local themed sections use simpler card nesting. The refe
 - `read-more` hover animation
 
 ### Cross-references
-- [Theme Index](../00-index.md) - Main documentation index
+- [Theme Index](../00-INDEX.md) - Main documentation index
 - [Risultati Ricerca Comparison](./RISULTATI-RICERCA-HTML-COMPARISON.md) - Related page comparison
 - [Hero Argomento Template](../../resources/views/components/blocks/hero/argomento.blade.php) - New hero template
 - [Sections Themed Template](../../resources/views/components/blocks/sections/themed.blade.php) - New section block

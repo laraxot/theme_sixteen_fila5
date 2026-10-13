@@ -82,4 +82,4 @@ Quindi il prossimo step corretto e:
 
 - [Analisi storica precedente](./RISULTATI_RICERCA_ANALISI.md)
 - [Screenshot folder](./screenshots/risultati-ricerca-parity/)
-- [CMS note](../../../Modules/Cms/docs/design-comuni-risultati-ricerca.md)
+- [CMS note](../../../../Modules/Cms/docs/design-comuni-risultati-ricerca.md)

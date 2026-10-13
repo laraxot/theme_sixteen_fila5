@@ -27,9 +27,9 @@ Generato il 2026-10-13 da `laravel/config/local/fixcity/database/content/pages` 
 | 21 | `servizi/pagamenti-multa-area-personale.html` | `tests.pagamenti-multa-area-personale` | presente | in verifica |
 | 22 | `servizi/pagamenti-multa-conferma.html` | `tests.pagamenti-multa-conferma` | presente | in verifica |
 | 23 | `servizi/pagamenti-multa-dati-personali.html` | `tests.pagamenti-multa-dati-personali` | presente | in verifica |
-| 24 | `servizi/pagamenti-multa-dati-specifci-fase1.html` | `tests.pagamenti-multa-dati-specifci-fase1` | presente | in verifica |
-| 25 | `servizi/pagamenti-multa-dati-specifci-fase2.html` | `tests.pagamenti-multa-dati-specifci-fase2` | presente | in verifica |
-| 26 | `servizi/pagamenti-multa-dati-specifci-fase3.html` | `tests.pagamenti-multa-dati-specifci-fase3` | presente | in verifica |
+| 24 | `servizi/pagamenti-multa-dati-specifici-fase1.html` | `tests.pagamenti-multa-dati-specifici-fase1` | presente | in verifica |
+| 25 | `servizi/pagamenti-multa-dati-specifici-fase2.html` | `tests.pagamenti-multa-dati-specifici-fase2` | presente | in verifica |
+| 26 | `servizi/pagamenti-multa-dati-specifici-fase3.html` | `tests.pagamenti-multa-dati-specifici-fase3` | presente | in verifica |
 | 27 | `servizi/pagamenti-multa-pagamento.html` | `tests.pagamenti-multa-pagamento` | mancante | da creare |
 | 28 | `servizi/pagamenti-multa-riepilogo.html` | `tests.pagamenti-multa-riepilogo` | presente | in verifica |
 | 29 | `servizi/pagamenti-multa-scheda-servizio.html` | `tests.pagamenti-multa-scheda-servizio` | presente | in verifica |

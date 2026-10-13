@@ -121,8 +121,8 @@ Copied to: `public_html/themes/Sixteen/`
 - → [reference-html/](./reference-html/) - Reference HBS templates
 
 ### Theme Documentation
-- → [00-index.md](../../../00-index.md) - Theme docs index
-- → [work-plan.md](../../../work-plan.md) - Work plan
+- → [00-index.md](../../00-INDEX.md) - Theme docs index
+- → [work-plan.md](../work-plan.md) - Work plan
 - → [visual-parity-report-2026-04-02.md](./visual-parity-report-2026-04-02.md) - Previous parity report
 - → [css-js-parity-2026-04-04.md](./css-js-parity-2026-04-04.md) - Previous CSS/JS parity
 
@@ -139,7 +139,7 @@ Copied to: `public_html/themes/Sixteen/`
 - → [tailwind-bootstrap-mapping.css](../../../resources/css/tailwind-bootstrap-mapping.css) - Bootstrap mapping
 
 ### Module Docs
-- → [Modules/Cms/docs/design-comuni-homepage.md](../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
+- → [Modules/Cms/docs/design-comuni-homepage.md](../../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
 
 ### Scripts
 - → [bashscripts/docs/design-comuni-selected-page-comparisons.md](../../../../../bashscripts/docs/design-comuni-selected-page-comparisons.md) - Scripts docs

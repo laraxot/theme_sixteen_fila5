@@ -17,7 +17,7 @@ related:
 sources:
   - ../../../resources/views/components/sections/header/v1.blade.php
   - ../../../lang/it/ui.php
-  - ../../../Main_files/five/segnalazione-area-personale.html
+  - ../../Main_files/five/segnalazione-area-personale.html
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
 ---
 

@@ -142,3 +142,24 @@ body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__ga
     body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__hero-image { margin-bottom:24px; }
     body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
+
+/* Pulsante "cancella testo" dei campi cmp-input (js/theme/design-comuni-home.js, initFormFields): esiste solo dopo aver digitato, quindi
+   extract-used-css.mjs non lo vede (i suoi stati sono clic, non digitazione). Regola dal riferimento (bootstrap-italia-comuni.css). */
+body:has(.page-content[data-dc]) .cmp-input .clean-input{position:absolute;right:0;top:10px}
+
+/* Wizard Filament sulle pagine data-dc (DCP-32/33): le regole legacy del wizard sono isolate e il CSS dei passi di Filament non e' nel bundle
+   (arriva da @filamentStyles solo per i componenti base), quindi i passi non attivi vanno nascosti qui. `fi-active` la mette Alpine al cambio di passo. */
+body:has(.page-content[data-dc]) .fi-sc-wizard-step:not(.fi-active){display:none}
+
+/* Navigazione di ripiego del wizard (components/wizard.blade.php, DCP-33/91): se il passo attivo porta la propria `[data-wizard-nav]` (viste del passo,
+   DCP-43/46) non va duplicata. */
+body:has(.page-content[data-dc]) .fi-sc-wizard:has(.fi-sc-wizard-step.fi-active [data-wizard-nav]) .dc-wizard-footer{display:none}
+
+
+/* Toggle del menu utente (DCP-124): il riferimento usa `<a class="btn btn-primary btn-icon btn-full">`, il tema usa `<button>` (menu con aria-haspopup).
+   Le regole di Bootstrap Italia `.it-header-wrapper .nav-item.dropdown button` e `.it-header-slim-right-zone button` (pensate per il selettore lingua:
+   trasparente, 14px, padding verticale 7.5px) colpirebbero anche questo bottone: si ripristina l'aspetto di `a.btn-primary.btn-icon.btn-full`
+   (sfondo primario, 16px, padding verticale 12px sotto i 576px e 16px sopra, come `.btn` e `.btn-full`). */
+body:has(.page-content[data-dc]) .it-header-wrapper .it-user-wrapper>button.btn.btn-primary.btn-icon.btn-full{display:inline-flex;padding-block:12px;background:var(--bs-primary);color:#fff;font-size:1rem}
+body:has(.page-content[data-dc]) .it-header-wrapper .it-user-wrapper>button.btn.btn-primary.btn-icon.btn-full:hover{background:#006342;text-decoration:none}
+@media(min-width:576px){body:has(.page-content[data-dc]) .it-header-wrapper .it-user-wrapper>button.btn.btn-primary.btn-icon.btn-full{padding-block:16px}}

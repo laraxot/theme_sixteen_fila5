@@ -14,7 +14,7 @@ qmd: "design comuni canonical"
 
 **Reference visivo**: https://italia.github.io/design-comuni-pagine-statiche/index.html
 **Tema**: `laravel/Themes/Sixteen/`
-**Stato**: Front-office pages conversion in progress. Vedi [Front Office Redesign Status](../../../docs/bmad/front-office-redesign-tech-spec.md).
+**Stato**: Front-office pages conversion in progress. Vedi [Front Office Redesign Status](../bmad/front-office-redesign-tech-spec.md).
 
 ---
 

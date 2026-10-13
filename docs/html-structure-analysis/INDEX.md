@@ -68,7 +68,7 @@ discussions: []
 
 ## 📁 Related Documents
 
-- **[← INDEX](../INDEX.md)** - Main theme docs
+- **[← INDEX](../index.md)** - Main theme docs
 - **[PHASE6-ALPINE-STATUS.md](../PHASE6-ALPINE-STATUS.md)** - Alpine.js status (blocked)
 - **[FINAL-VISUAL-PARITY-REPORT.md](../FINAL-VISUAL-PARITY-REPORT.md)** - Previous visual analysis
 

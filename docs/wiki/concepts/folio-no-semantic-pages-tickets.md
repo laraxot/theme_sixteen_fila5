@@ -10,7 +10,7 @@ created: 2026-06-06
 updated: 2026-06-06
 related:
   - ../../page-directory-structure.md
-  - ../../../../Modules/Fixcity/docs/wiki/concepts/tickets-view-cms-folio-page.md
+  - ../../../../../Modules/Fixcity/docs/wiki/concepts/tickets-view-cms-folio-page.md
   - ../../../../../../docs/stories/STORY-285-folio-no-pages-tickets-pub-theme.md
 ---
 

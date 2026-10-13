@@ -1,10 +1,10 @@
 {{--
-    Elenco filtrabile di pratiche o pagamenti. `section`: id, class, title, filter {label}, sort {id, label, items[]}, search {id, name, label, placeholder},
-    attachment_class, more, items[] {n (numero per gli id), title, date, status {label, class, image, alt}, details[] {label, value}, link, chips[],
-    attachments[] {label, aria, class}, button}.
+    Elenco filtrabile di pratiche o pagamenti. `section`: id, class, title, accordion_id (id dell'accordion, default vuoto), filter {label}, sort {id, label, items[]},
+    search {id, name, label, placeholder}, attachment_class, more, items[] {n (numero per gli id), title, date, status {label, class, image, image_class (default `icon-folder`), alt},
+    details[] {label, value}, link, chips[], attachments[] {label, aria (assente = nessun aria-label), class}, button}.
 --}}
 @php
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <section class="{{ trim('it-page-section '.($section['class'] ?? '')) }}" id="{{ $section['id'] ?? '' }}">
@@ -42,14 +42,14 @@
         </div>
     </div>
     <div class="cmp-accordion">
-        <div class="accordion" id="">
+        <div class="accordion" id="{{ $section['accordion_id'] ?? '' }}">
             @foreach ($section['items'] ?? [] as $item)
                 <div class="accordion-item">
                     <div class="accordion-header" id="heading{{ $item['n'] ?? $loop->iteration }}">
                         <button class="accordion-button collapsed title-snall-semi-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $item['n'] ?? $loop->iteration }}" aria-expanded="true" aria-controls="collapse{{ $item['n'] ?? $loop->iteration }}">
                             <div class="button-wrapper"> {{ $item['title'] ?? '' }}
                                 <div class="icon-wrapper">
-                                    <img class="icon-folder" src="{{ $assets }}/images/{{ data_get($item, 'status.image') }}" alt="{{ data_get($item, 'status.alt') }}" role="img">
+                                    <img class="{{ data_get($item, 'status.image_class', 'icon-folder') }}" src="{{ $assets }}/images/{{ data_get($item, 'status.image') }}" alt="{{ data_get($item, 'status.alt') }}" role="img">
                                     <span class="{{ data_get($item, 'status.class', '') }}">{{ data_get($item, 'status.label') }}</span>
                                 </div>
                             </div></button>
@@ -69,7 +69,7 @@
                                     <ul class="link-list">
                                         @foreach ($item['attachments'] ?? [] as $attachment)
                                             <li class="{{ $attachment['class'] ?? $section['attachment_class'] ?? 'shadow p-0' }}">
-                                                <a class="list-item icon-left t-primary title-small-semi-bold" href="#" aria-label="{{ $attachment['aria'] ?? '' }}">
+                                                <a class="list-item icon-left t-primary title-small-semi-bold" href="#"@if (array_key_exists('aria', $attachment)) aria-label="{{ $attachment['aria'] }}"@endif>
                                                     <span class="list-item-title-icon-wrapper">
                                                         <svg class="icon icon-sm align-self-start icon-color" aria-hidden="true"><use href="{{ $icon('it-clip') }}"></use></svg>
                                                         <span class="list-item-title title-small-semi-bold">{{ $attachment['label'] ?? '' }}</span></span></a>

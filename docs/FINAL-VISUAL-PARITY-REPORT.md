@@ -173,7 +173,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[← LAYOUT-CENTERING-FIX](./LAYOUT-CENTERING-FIX.md)** - Previous: Container centering
 - **[→ PHASE3-ALPINE-PLAN](./PHASE3-ALPINE-PLAN.md)** - Next: Alpine.js implementation
 

@@ -13,7 +13,7 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/392"
 related:
   - ../public-ticket-listing-visual-contract.md
-  - ../../../../Modules/Fixcity/docs/bmad/public-ticket-listing-experience.md
+  - ../../../../../Modules/Fixcity/docs/bmad/public-ticket-listing-experience.md
 ---
 
 # Public listing demo: problema osservato e piano di correzione

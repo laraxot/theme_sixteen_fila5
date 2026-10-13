@@ -152,7 +152,7 @@ La differenza di 211 righe è principalmente dovuta a:
 - **Report Aggiornato**: [ARGOMENTI_REPORT_AGGIORNATO.md](./ARGOMENTI_REPORT_AGGIORNATO.md) (questo file)
 - **Screenshots**: [screenshots/argomenti/](./screenshots/argomenti/)
 - **Script**: [bashscripts/design-comuni/capture-argomenti.js](../../../bashscripts/design-comuni/capture-argomenti.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

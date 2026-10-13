@@ -38,7 +38,7 @@ Il layout `layouts/test.blade.php` ora usa header/footer/modale Design Comuni (s
 ## Layout e scope (2026-10-13 sera) — non cambiare senza rimisurare
 - `layouts/design-comuni.blade.php`: usato SOLO da `pages/tests/[slug]` e `pages/tests/index`. Header/footer/modale/skiplink Design Comuni, `<main>` bare, `<body>` plain.
 - `layouts/test.blade.php`: usato anche da pagine del front office reale (`/it/tickets` ecc.): NON modificarlo per le pagine di prova.
-- Scope CSS: `body:has(.page-content[data-slug*="tests."])` (stesso valore in `postcss/isolate-legacy-important.cjs` e in `extract-used-css.mjs --scope`). Niente `class="dc-page"`, niente wrapper: non servono a nessuno stile.
+- Scope CSS: `body:has(.page-content[data-dc])` (stesso valore in `postcss/isolate-legacy-important.cjs` e in `extract-used-css.mjs --scope`). Niente `class="dc-page"`, niente wrapper: non servono a nessuno stile.
 - Misure: con scope solo su `<main>` header 95,5% e footer 76,6%; con scope sul body header 100% e footer 100%.
 
 ## ATTENZIONE: eventi in parallelo (2026-10-13 11:45)
@@ -59,3 +59,10 @@ Fonte: `docs/layout-runtime-contract.md`, `docs/architecture/tailwind-alpine-phi
 | `app.css` e file `*-parity.css` | libero, un solo agente per volta | DCP-03 |
 
 Se due approcci confliggono, si confrontano con i numeri del gate (`bashscripts/tools/visual/`) e il risultato si scrive qui.
+
+
+## tickets/create (DCP-35, 2026-10-13 12:57)
+Tabella dei file contesi e protocollo: `Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md`.
+Passi 3 e 4: DCP-33 e DCP-34. Aggiornare la tabella della story prima e dopo ogni lavoro; prossimo numero di decisione libero: D18 (D15 e D16 doppie, D17 e' `tickets-create-richiede-auth`).
+
+Blocco id DCP-40..49 riservato alle story tickets/create di DCP-35 (DCP-40 radice Volt ... DCP-46 passo 1). Chi crea una nuova story DCP usi 50 o piu', oppure controlli `ls` su Fixcity, Sixteen, Cms e Xot prima.

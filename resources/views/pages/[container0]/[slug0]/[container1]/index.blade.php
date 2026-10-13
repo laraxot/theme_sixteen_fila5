@@ -2,13 +2,32 @@
 
 declare(strict_types=1);
 
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+use function Laravel\Folio\render;
 use Livewire\Volt\Component;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
 name('container1.index');
 middleware(PageSlugMiddleware::class);
+
+/**
+ * DCP-90: questa pagina generica (montata prima dei moduli) oscura Modules/Fixcity/.../tickets/track/[code].blade.php,
+ * che porta `/tickets/track/{code}` (link della ricevuta) a `/tickets/track?code={code}`. Stesso redirect, qui.
+ */
+render(function (View $view, string $container0, string $slug0, string $container1): View|RedirectResponse {
+    if ($container0 !== 'tickets' || $slug0 !== 'track') {
+        return $view;
+    }
+
+    $path = '/tickets/track?code='.rawurlencode($container1);
+    $localized = LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), $path);
+
+    return redirect()->to($localized !== false ? $localized : $path);
+});
 
 new class extends Component {
     public string $container0 = '';

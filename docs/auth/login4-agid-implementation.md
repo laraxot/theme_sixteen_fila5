@@ -246,9 +246,9 @@ Il tema Sixteen usa `<x-layouts.guest>` che include già:
 ## Collegamenti
 
 ### Documentazione Correlata
-- [Auth Implementation Guide](../../../laravel/Modules/User/docs/auth_login_implementation.md)
-- [Volt Folio Auth](../../../laravel/Modules/User/docs/volt_folio_auth_implementation.md)
-- [Theme Translation Rules](../../../laravel/Modules/User/docs/theme-translation-conflicts-resolution.md)
+- [Auth Implementation Guide](../../../../Modules/User/docs/auth_login_implementation.md)
+- [Volt Folio Auth](../../../../Modules/User/docs/volt_folio_auth_implementation.md)
+- [Theme Translation Rules](../../../../Modules/User/docs/theme-translation-conflicts-resolution.md)
 - [Sixteen Theme Naming Conventions](./sixteen-theme-naming-conventions.md)
 - [Critical Rules](./critical-rules.md)
 

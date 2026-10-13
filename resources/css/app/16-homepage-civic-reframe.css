@@ -48,7 +48,7 @@
   width: 18rem;
 }
 
-.fc-home-hero > .container {
+.fc-home-hero > div {
   align-items: end;
   display: grid;
   gap: clamp(2rem, 7vw, 7rem);
@@ -59,7 +59,7 @@
 
 .fc-home-hero .fc-eyebrow,
 .fc-home-hero__signal .fc-eyebrow {
-  color: var(--fc-sun);
+  color: var(--fc-sun) !important;
 }
 
 .fc-home-hero__copy {
@@ -103,7 +103,7 @@
   justify-content: center;
   min-height: 3rem;
   padding: 0.75rem 1.2rem;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .fc-home-hero__signal-value {
-  color: #fff;
+  color: #fff !important;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 750;
   letter-spacing: -0.04em;
@@ -166,7 +166,7 @@
 }
 
 .fc-home-hero__signal-body {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7) !important;
   line-height: 1.55;
   margin: 1rem 0 0;
 }
@@ -373,6 +373,16 @@
   max-width: 34rem;
 }
 
+/* The legacy reset is intentionally scoped out by the build guard, but keep
+   the home contract explicit for pages served from an already-built bundle. */
+body:has(.fc-home) .fc-track-section .fc-eyebrow {
+  color: var(--fc-sun) !important;
+}
+
+body:has(.fc-home) .fc-track-section p:not(.fc-eyebrow) {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
 /* WCAG 2.1 AA: verde Design Comuni (#007a52) solo su fondo chiaro.
    Su fondo verde il testo è bianco. Le card restano bianche con testo inchiostro. */
 #main-container .how-step-card,
@@ -446,7 +456,7 @@
 }
 
 @media (max-width: 767.98px) {
-  .fc-home-hero > .container,
+  .fc-home-hero > div,
   .fc-how-grid {
     grid-template-columns: 1fr;
   }
@@ -487,3 +497,30 @@
     transform: none;
   }
 }
+
+/* DCP-106: rifiniture della home dopo l'isolamento delle regole legacy (postcss/isolate-legacy-important.cjs: dentro `.fc-home` non valgono piu' le
+   regole globali con `!important`; i colori, i padding e le dimensioni previsti da questo file tornano a valere senza `!important`). */
+
+/* il layout mette `#main-container` su <main>: la regola legacy `#main-container{padding-block:2rem}` lasciava una striscia bianca sopra l'hero e sopra il footer */
+#main-container:has(> .fc-home) {
+  padding-block: 0;
+}
+
+/* con i corpi dei titoli ora alla dimensione prevista (fino a 5,2rem) la spaziatura -0.05em fa sovrapporre le lettere del Titillium Web */
+.fc-home-hero h1 {
+  letter-spacing: -0.025em;
+}
+
+.fc-section-heading h2,
+.fc-track-section h2 {
+  letter-spacing: -0.025em;
+}
+
+.fc-how-card h3 {
+  letter-spacing: -0.01em;
+}
+
+.fc-home-hero__signal-value {
+  letter-spacing: -0.02em;
+}
+

@@ -70,6 +70,6 @@ qmd: "VISUAL PARITY REPORT"
 issues: []
 discussions: []
 **Related Docs**:
-- [Visual Comparison README](../../../laravel/Themes/Sixteen/docs/visual-comparison/README.md)
-- [CSS/JS Plan](../../../laravel/Themes/Sixteen/docs/design-comuni-html-match-css-js-plan.md)
+- [Visual Comparison README](../README.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../bashscripts/docs/SCREENSHOT-TOOLS.md)

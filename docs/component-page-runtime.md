@@ -15,7 +15,7 @@ discussions: []
 
 La blade [page.blade.php](../resources/views/components/page.blade.php) deve restare minimale.
 
-La logica del componente pagina vive nel file PHP [Page.php](../../../../Modules/Cms/app/View/Components/Page.php).
+La logica del componente pagina vive nel file PHP [Page.php](../../../Modules/Cms/app/View/Components/Page.php).
 
 ## Responsabilita di `Page.php`
 
@@ -63,4 +63,4 @@ La blade del tema e identica a quella del modulo CMS e rispetta questa regola.
 
 - [layout-runtime-contract.md](./layout-runtime-contract.md)
 - [component-page-alias-rule.md](./component-page-alias-rule.md)
-- [../../Modules/Cms/docs/component-page-runtime.md](../../Modules/Cms/docs/component-page-runtime.md)
+- [../../Modules/Cms/docs/component-page-runtime.md](../../../Modules/Cms/docs/component-page-runtime.md)

@@ -42,7 +42,7 @@ discussions: []
 
 ## Elementi già allineati (non rifare)
 
-- `GET /it` → 200; nessun `@livewire(TicketList)` ([STORY-059](../../../../docs/stories/STORY-059-it-ticketlist-500-uninitialized-fix.md)).
+- `GET /it` → 200; nessun `@livewire(TicketList)` ([STORY-059](../../../../../../docs/stories/STORY-059-it-ticketlist-500-uninitialized-fix.md)).
 - `cmp-breadcrumbs`, `cmp-heading`, tab Filament `fi-tabs` (Mappa/Elenco), `accordion`, `modal-categories` (mobile), `cmp-rating`, `info-contacts`.
 - Percorso canonico: `pages/index.blade.php` → `<x-page slug="home" />` → blocco `segnalazioni-layout`.
 

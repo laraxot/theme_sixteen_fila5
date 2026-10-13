@@ -203,7 +203,7 @@ discussions: []
 - ← [Indice Blocchi](./00-index.md)
 - ← [INDEX.md](./INDEX.md)
 - → [05-governance-calendar.md](./05-governance-calendar.md) — dettaglio struttura
-- → [Blade Component](../../../../../laravel/Themes/Sixteen/resources/views/components/blocks/governance/cards.blade.php)
+- → [Blade Component](../../../../resources/views/components/blocks/governance/cards.blade.php)
 
 ---
 

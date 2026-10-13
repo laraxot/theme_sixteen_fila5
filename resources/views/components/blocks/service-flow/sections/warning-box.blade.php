@@ -1,6 +1,6 @@
 {{-- Avviso con elenco di collegamenti. `section`: icon, icon_xlink, title, text, links[] {label, url}. --}}
 @php
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="cmp-warning-box border-start border-warning border-2 mb-50">

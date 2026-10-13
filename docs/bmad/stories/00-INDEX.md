@@ -1,0 +1,54 @@
+---
+title: "BMAD story index — Design Comuni and ticket flow"
+type: index
+status: active
+updated: 2026-10-13
+---
+
+# Story index
+
+Questo indice è il punto di coordinamento per gli agenti. Le story canoniche sono
+quelle `2026-10-13-dcp-*`; le story più vecchie restano archivio di contesto e non
+devono introdurre percorsi, JSON o componenti che non esistono nel repository.
+
+## Wave A — wizard Filament, in ordine di dipendenza
+
+| Story | Scope | Stato | File owner principale |
+|---|---|---|---|
+| [DCP-32](2026-10-13-dcp-32-wizard-step1-privacy.story.md) | Privacy / consenso | ready-for-dev | `TicketForm.php`, privacy view |
+| [DCP-33](2026-10-13-dcp-33-wizard-step2-dati.story.md) | Dati + CoordinatePicker | ready-for-dev | `TicketForm.php`, Geo map |
+| [DCP-34](2026-10-13-dcp-34-wizard-step3-riepilogo.story.md) | Riepilogo readonly + mappa | ready-for-dev | summary schema/infolist |
+| [DCP-35](2026-10-13-dcp-35-conferma-parity.story.md) | Conferma post-save | ready-for-dev | confirmation block/action |
+
+## Wave B — pagine Design Comuni
+
+La story [DCP-32S](2026-10-13-dcp-32-scope-data-dc-pagine-reali.story.md) copre
+lo scope CSS/layout sulle pagine reali e non è lo step privacy: il suffisso `S`
+evita l’ID duplicato. Le story DCP-04–DCP-31 coprono homepage, header/footer, ricerca, FAQ, servizi,
+eventi, liste e flussi. Ogni agente deve leggere i documenti BMAD radice, dichiarare
+Owned File/Module Scope, usare JSON/CMS e componenti condivisi, e consegnare
+screenshot 375/768/1440, DOM evidence e WCAG evidence.
+
+## Wave C — area personale vera (menu utente, DCP-106)
+
+| Story | Scope | Stato | Owner principale |
+|---|---|---|---|
+| [DCP-106](2026-10-13-dcp-106-header-area-personale-reale-e-pagine-collegate.story.md) | specifica, coordinamento e causa radice delle pagine vuote | in-progress | tema |
+| [DCP-110](2026-10-13-dcp-110-area-personale-pratiche-e-seguite.story.md) | "Le mie segnalazioni" e "Segnalazioni che seguo" | done | modulo Fixcity |
+| [DCP-111](2026-10-13-dcp-111-area-personale-notifiche-e-impostazioni.story.md) | "Notifiche" (tabella `notifications`, segna come letta) e "Impostazioni e privacy" (preferenza email, dati dell'account, diritti GDPR) | done | modulo Fixcity |
+
+## Story hygiene
+
+- `fil-*`, `dcp-22` e `dcp-23` sono riferimenti storici: usare DCP-32–35 come
+  contratto corrente per il wizard e la conferma.
+- Nessuna story può dichiarare 90% HTML o 97/98% visual parity senza evidenza.
+- Le story devono usare lo stack Tailwind + Alpine + Lit + DaisyUI + Flowbite +
+  Filament e dichiarare esplicitamente l'assenza di Bootstrap runtime.
+- Le story parallele non possono condividere lo stesso file CSS, JSON o widget:
+  quei file entrano nella coda seriale di integrazione.
+
+## Handoff
+
+Le story con AC, Testing e Owned Scope completi passano a `ready-for-dev`; il
+codice viene modificato solo dall'external dev tool. Il coordinatore integra i
+risultati, esegue il conflict check e aggiorna `bmad-output/sprint-status.yaml`.

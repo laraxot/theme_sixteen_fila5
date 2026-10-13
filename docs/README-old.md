@@ -37,7 +37,7 @@ discussions: []
 | 🔧 **Recent Fixes** | [LAYOUT_FIX_COMPLETE_BMAD.md](LAYOUT_FIX_COMPLETE_BMAD.md) | Layout fix summary |
 | ⚡ **Vite Fix** | [VITE_MANIFEST_FIX_COMPLETE.md](VITE_MANIFEST_FIX_COMPLETE.md) | Build manifest fix |
 | 🇮🇹 **Design Comuni** | [design-comuni/HTML_PARITY_VERIFICATION_REPORT.md](design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) | HTML parity verification |
-| 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
+| 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
 
 ---
 

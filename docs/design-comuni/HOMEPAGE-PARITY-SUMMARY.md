@@ -132,7 +132,7 @@ All new documents are linked bidirectionally:
 - [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](HOMEPAGE-HTML-STRUCTURE-COMPARISON.md)
 - [VISUAL-COMPARISON-REPORT.md](VISUAL-COMPARISON-REPORT.md)
 - [../ARCHITECTURAL_DECISIONS.md](../ARCHITECTURAL_DECISIONS.md)
-- [../../../docs/design-comuni/README.md](../../../docs/design-comuni/README.md)
+- [../../../docs/design-comuni/README.md](README.md)
 
 ---
 

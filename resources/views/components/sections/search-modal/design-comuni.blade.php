@@ -9,7 +9,7 @@
         }
     }
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $icon = static fn (string $name): string => asset('themes/Sixteen/design-comuni/assets').'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="modal fade search-modal" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">

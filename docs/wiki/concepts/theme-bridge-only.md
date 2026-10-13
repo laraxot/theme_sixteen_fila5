@@ -101,4 +101,4 @@ cd laravel && ./vendor/bin/phpstan analyse Modules --memory-limit=-1
 
 - [no-controllers-folio-volt-filament.md](./no-controllers-folio-volt-filament.md)
 - [ponytail-audit-over-engineering.md](../../ponytail-audit-over-engineering.md)
-- [ponytail-audit-remediation.md](../../../../../docs/project/ponytail-audit-remediation.md)
+- [ponytail-audit-remediation.md](../../../../../../docs/project/ponytail-audit-remediation.md)

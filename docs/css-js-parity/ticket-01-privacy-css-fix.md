@@ -196,6 +196,6 @@ laravel/Themes/Sixteen/storage/visual-parity/segnalazione-01-privacy/
 
 **Cross-References**:
 - [HTML Parity Report](../../../../bashscripts/html/output/report.md)
-- [Visual Parity Script](../scripts/visual-parity.mjs)
+- [Visual Parity Script](../../scripts/visual-parity.mjs)
 - [Design Comuni Reference](https://github.com/italia/design-comuni-pagine-statiche)
 - [Bootstrap Italia Colors](https://italia.github.io/design-comuni-pagine-statiche/)

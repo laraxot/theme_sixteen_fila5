@@ -5,8 +5,11 @@ const navPanelSelector = () => withDesignComuni('#nav4.navbar-collapsable, [data
 const navOverlaySelector = () => '.navbar-collapsable > .overlay, [data-sixteen-mobile-nav-overlay]';
 const navCloseSelector = () => '.navbar-collapsable .close-menu, [data-sixteen-mobile-nav-close]';
 
-/** Stesso ambito del CSS generato: dove c'e' il wrapper canonico delle pagine /tests. */
-export const isDesignComuniPage = () => document.querySelector('.page-content[data-slug*="tests."]') !== null;
+/**
+ * Dove valgono i comportamenti Design Comuni (menu `expanded`, modali con backdrop, tendine posizionate): pagine con il wrapper `data-dc` (CSS generato)
+ * oppure con l'header Design Comuni (`layouts/app` sulle pagine reali: il menu mobile deve funzionare anche li', DCP-121).
+ */
+export const isDesignComuniPage = () => document.querySelector('.page-content[data-dc], header.it-header-wrapper') !== null;
 
 function getTargetPanel(toggle) {
     const selector = toggle.getAttribute('data-bs-target')
@@ -23,7 +26,9 @@ function getRelatedOverlays(panel) {
 }
 
 function updateBodyLock() {
-    document.body.classList.toggle('nav-open', document.querySelector(`${navPanelSelector()}.is-open`) !== null);
+    // `.is-open` va su OGNI selettore della lista: prima si accodava solo all'ultimo e `#nav4.navbar-collapsable` (sempre presente) teneva `nav-open` sul body anche a menu chiuso
+    const openPanels = navPanelSelector().split(',').map((part) => `${part.trim()}.is-open`).join(', ');
+    document.body.classList.toggle('nav-open', document.querySelector(openPanels) !== null);
 }
 
 function setPanelOpen(panel, open, focusFirstLink = false) {

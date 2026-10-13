@@ -16,7 +16,7 @@ discussions: []
 
 ## Master Documentation
 
-**See [Project MCP Servers](../../../docs/MCP_SERVERS.md)** for complete server list, configuration, and usage examples.
+**See [Project MCP Servers](../../../../docs/MCP_SERVERS.md)** for complete server list, configuration, and usage examples.
 
 This document provides Sixteen theme-specific MCP usage guidelines only.
 
@@ -113,7 +113,7 @@ This document provides Sixteen theme-specific MCP usage guidelines only.
 
 ## Cross-References
 
-- **Master MCP Docs**: [Project MCP Servers](../../../docs/MCP_SERVERS.md)
+- **Master MCP Docs**: [Project MCP Servers](../../../../docs/MCP_SERVERS.md)
 - **Xot Module MCP**: [Xot MCP Guide](../../Modules/Xot/docs/MCP_SERVERS.md)
 - **Theme Documentation**: [Sixteen Theme Index](README.md)
 - **Vite Configuration**: [Theme Vite Config](../vite.config.js)

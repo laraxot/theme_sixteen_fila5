@@ -83,21 +83,24 @@ return [
     ],
 
     'filters' => [
-        'legend' => ['label' => 'Filtra per categoria'],
+        'legend' => ['label' => 'categoria'],
     ],
     'filter' => [
         'button' => ['label' => 'Filtra'],
-        'remove' => ['label' => 'Rimuovi filtri'],
+        'remove' => ['label' => 'Rimuovi tutti i filtri'],
     ],
     'results' => [
         'count' => ['text' => ':count Risultati'],
         'empty' => 'Nessuna segnalazione corrisponde ai filtri selezionati.',
     ],
     'card' => [
-        'type' => ['label' => 'Categoria'],
-        'expand' => ['button' => ['label' => 'Mostra dettagli']],
-        'address' => ['label' => 'Luogo'],
-        'detail' => ['label' => 'Descrizione'],
+        'type' => ['label' => 'Tipologia di segnalazione'],
+        'expand' => ['button' => ['label' => 'Mostra tutto']],
+        'address' => ['label' => 'Indirizzo'],
+        'detail' => ['label' => 'Dettaglio'],
+        'images' => ['label' => 'Immagini'],
+        'no_images' => ['label' => 'Nessuna immagine al momento'],
+        'edit' => ['label' => 'Modifica'],
     ],
     'map' => [
         'image' => ['alt' => 'Mappa delle segnalazioni pubbliche'],

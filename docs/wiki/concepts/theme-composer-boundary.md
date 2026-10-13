@@ -11,7 +11,7 @@ updated: 2026-06-30
 related:
   - ../../../../Modules/Xot/docs/wiki/concepts/composer-root-skeleton-modular.md
   - ../../../../Modules/Xot/docs/wiki/concepts/theme-psr4-autoload-without-merge.md
-  - ../../../TwentyOne/docs/wiki/concepts/theme-composer-boundary.md
+  - ../../../../TwentyOne/docs/wiki/concepts/theme-composer-boundary.md
 ---
 
 # Theme Composer Boundary

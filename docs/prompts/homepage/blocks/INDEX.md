@@ -225,8 +225,8 @@ discussions: []
 
 - [Design Comuni Blocks Analysis](../../design-comuni/design-comuni-block-analysis.md)
 - [HTML Comparison Tools](../../../../../../bashscripts/docs/html-comparison/README.md)
-- [Page Routing Architecture](../../architecture/PAGE_ROUTING_ARCHITECTURE.md)
-- [Component System](../../components/)
+- [Page Routing Architecture](../../../architecture/PAGE_ROUTING_ARCHITECTURE.md)
+- [Component System](../../../components)
 
 ## 📝 Note
 

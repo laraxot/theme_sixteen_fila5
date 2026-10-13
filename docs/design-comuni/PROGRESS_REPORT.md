@@ -108,7 +108,7 @@ Queste pagine hanno struttura significativamente diversa.
 - **Batch Pages Analysis**: [`BATCH_PAGES_ANALYSIS.md`](./BATCH_PAGES_ANALYSIS.md)
 - **Batch Progress Report**: [`BATCH_PROGRESS_REPORT.md`](./BATCH_PROGRESS_REPORT.md)
 - **Fail Pages Analysis**: [`FAIL_PAGES_ANALYSIS.md`](./FAIL_PAGES_ANALYSIS.md)
-- **Master Index**: [`docs/design-comuni/MASTER_INDEX.md`](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [`docs/design-comuni/MASTER_INDEX.md`](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

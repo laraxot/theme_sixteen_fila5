@@ -28,7 +28,7 @@
             <p class="mb-0 text-slate-600">{{ $intro }}</p>
         </div>
 
-        <div class="fc-how-grid" role="list" aria-label="{{ $steps_label }}">
+        <ol class="fc-how-grid" aria-label="{{ $steps_label }}">
             @foreach ($steps as $index => $step)
                 @php
                     $number = $step['number'] ?? ($loop->iteration);
@@ -36,12 +36,10 @@
                     $body   = (string) __($step['body'] ?? '');
                     $icon   = $step['icon'] ?? null;
                 @endphp
-                <article
+                <li
                     class="fc-how-card"
                     data-reveal="fade-up"
                     data-delay="{{ $index * 100 }}"
-                    role="listitem"
-                    tabindex="0"
                 >
                     <span
                         class="{{ $step_numbers['class'] }}"
@@ -57,8 +55,8 @@
 
                     <h3 class="mb-2 text-lg font-semibold">{{ $title }}</h3>
                     <p class="mb-0 text-slate-600">{{ $body }}</p>
-                </article>
+                </li>
             @endforeach
-        </div>
+        </ol>
     </div>
 </section>

@@ -262,7 +262,7 @@ Per creare una pagina con slug:
 
 ### Internal Documents
 
-- → [Theme Detection System](../../../docs/project/THEME_DETECTION_SYSTEM.md) - Theme detection
+- → [Theme Detection System](../../../../docs/project/THEME_DETECTION_SYSTEM.md) - Theme detection
 - → [Page Component Architecture](../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) - Page component
 - → [JSON Content Guide](../../../Modules/Cms/docs/JSON_CONTENT_GUIDE.md) - JSON structure
 - → [Master Index](../../../docs/project/MODULE_DOCS_INDEX.md) - Central navigation

@@ -11,9 +11,9 @@ discussions: []
 
 # Validazione MCP — pagine FO Sixteen
 
-**Boundary:** il tema Sixteen **non** implementa motori MAUVE/PSI/GSC; espone le URL FO che entrano nel gate agente ([mcp-validation-quality-gate.md](../../../../../docs/wiki/mcp-validation-quality-gate.md)).
+**Boundary:** il tema Sixteen **non** implementa motori MAUVE/PSI/GSC; espone le URL FO che entrano nel gate agente ([mcp-validation-quality-gate.md](../../../../../../docs/wiki/mcp-validation-quality-gate.md)).
 
-**Story:** [STORY-137](../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md)
+**Story:** [STORY-137](../../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md)
 
 ---
 
@@ -53,4 +53,4 @@ Parametro base: `FIXCITY_BASE_URL` (default dev `http://127.0.0.1:8000`). Per MA
 
 - [ui-ai-tooling-on-demand.md](./ui-ai-tooling-on-demand.md)
 - [visual-parity-verification-rule.md](./visual-parity-verification-rule.md)
-- Hub progetto: [mcp-validation-quality-gate.md](../../../../../docs/wiki/mcp-validation-quality-gate.md)
+- Hub progetto: [mcp-validation-quality-gate.md](../../../../../../docs/wiki/mcp-validation-quality-gate.md)

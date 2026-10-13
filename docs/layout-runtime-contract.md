@@ -88,4 +88,4 @@ Per mantenere una sola fonte di verita, quel file deve fare da bridge verso `res
 
 - [README.md](./README.md)
 - [design-comuni-page-census.md](./design-comuni-page-census.md)
-- [../../Modules/Cms/docs/layout-runtime-contract.md](../../Modules/Cms/docs/layout-runtime-contract.md)
+- [../../Modules/Cms/docs/layout-runtime-contract.md](../../../Modules/Cms/docs/layout-runtime-contract.md)

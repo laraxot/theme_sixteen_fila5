@@ -34,7 +34,9 @@
                 @foreach($utilityLinks as $link)
                     <a href="{{ $link['url'] }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $link['label'] }}</a>
                 @endforeach
-                <a href="{{ $account['url'] }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-primary hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $account['label'] }}</a>
+                <a href="{{ auth()->check() ? url('/area-personale') : route('login') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium {{ auth()->check() ? 'text-green-700 bg-green-50' : 'text-primary' }} hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50" aria-label="{{ auth()->check() ? 'Area personale - accesso servizio' : 'Accedi all\'area personale - autenticazione richiesta' }}">
+                    {{ auth()->check() ? ($account['label_authenticated'] ?? 'Area personale') : $account['label'] }}
+                </a>
             </div>
         </div>
         <!-- Primary navigation -->

@@ -1,10 +1,10 @@
 {{--
-    Pulsanti del passo. `nav`: aria_label, back, save {long, short} (assente = nessun Salva), next {label, icon (sprite o vuoto), class, modal},
+    Pulsanti del passo. `nav`: aria_label, back, save {long, short} (assente = nessun Salva), next {label, icon (sprite o vuoto), class, modal, submit (true = `type="submit"` con `data-bs-validate="validate"` al posto dell'apertura di una finestra)},
     saved_message (avviso nascosto di salvataggio).
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="cmp-nav-steps">
@@ -18,7 +18,11 @@
             <button type="button" class="btn btn-outline-primary bg-white btn-sm steppers-btn-save d-block d-lg-none saveBtn center">
                 <span class="text-button-sm t-primary">{{ $d('nav.save.short') }}</span></button>
         @endif
-        <button type="button" class="{{ trim('btn btn-primary btn-sm steppers-btn-confirm '.$d('nav.next.class')) }}" data-bs-toggle="modal" data-bs-target="{{ $d('nav.next.modal', '#') }}">
+        @if ($d('nav.next.submit', false))
+            <button type="submit" class="{{ trim('btn btn-primary btn-sm steppers-btn-confirm '.$d('nav.next.class')) }}" data-bs-validate="validate">
+        @else
+            <button type="button" class="{{ trim('btn btn-primary btn-sm steppers-btn-confirm '.$d('nav.next.class')) }}" data-bs-toggle="modal" data-bs-target="{{ $d('nav.next.modal', '#') }}">
+        @endif
             <span class="text-button-sm">{{ $d('nav.next.label') }}</span>
             @if (filled($d('nav.next.icon')))<svg class="icon icon-white icon-sm" aria-hidden="true"><use href="{{ $icon($d('nav.next.icon')) }}"></use></svg>@endif</button>
     </nav>
