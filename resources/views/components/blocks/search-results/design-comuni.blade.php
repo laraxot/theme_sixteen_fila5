@@ -11,9 +11,8 @@
     $results = $d('results.items', []);
 @endphp
 
-<div class="dc-page">
 <h1 class="visually-hidden" id="search-container">{{ $d('title') }}</h1>
-<div class="container">
+<div class="container" id="main-container">
     <div class="mb-md-5">
         <div class="cmp-breadcrumbs" role="navigation">
             <nav class="breadcrumb-container" aria-label="breadcrumb"><ol class="breadcrumb p-0" data-element="breadcrumb">
@@ -32,7 +31,7 @@
                 <div class="input-group-text"><svg class="icon icon-md"><use href="{{ $icon('it-search') }}"></use></svg></div>
             </div>
             <label for="input-group-1" class="active">{{ $d('search.label') }}</label>
-            <input type="search" class="form-control" id="input-group-1" name="input-group-1" placeholder="{{ $d('search.placeholder') }}" value="{{ $d('search.query') }}" data-focus-mouse="false">
+            <input type="search" class="form-control" id="input-group-1" name="input-group-1" placeholder="{{ $d('search.placeholder') }}"@if (filled($d('search.query'))) value="{{ $d('search.query') }}"@endif data-focus-mouse="false">
         </div>
         <button type="button" data-bs-toggle="modal" data-bs-target="#" class="btn btn-primary"><span class="">{{ $d('search.button') }}</span></button>
     </div>
@@ -101,4 +100,30 @@
 </div>
 @include('pub_theme::components.blocks.partials.dc-rating', ['data' => $data])
 @include('pub_theme::components.blocks.partials.dc-contacts', ['data' => $data])
-</div>
+@if (filled($d('report_modal')))
+    <div class="it-example-modal">
+        <div class="modal fade" tabindex="-1" role="dialog" id="{{ $d('report_modal.id') }}" aria-labelledby="modal2Title">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title title-small-semi-bold" id="modal2Title">{{ $d('report_modal.title') }}</h2>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ $d('report_modal.close_label') }}"><svg class="icon"><use href="{{ $icon('it-close') }}"></use></svg></button>
+                    </div>
+                    <div class="modal-body text-black">
+                        @foreach ($d('report_modal.fields', []) as $field)
+                            <div class="border-bottom border-light">
+                                <h3 class="title-xsmall border-light pt-2">{{ $field['label'] ?? '' }}</h3>
+                                <p class="subtitle-small pb-2">{{ $field['value'] ?? '' }}</p>
+                            </div>
+                        @endforeach
+                        <h3 class="title-xsmall border-light pt-2">{{ $d('report_modal.images_label') }}</h3>
+                        <img src="{{ $assets }}/images/{{ $d('report_modal.image.file') }}" class="w-100 mb-2" alt="{{ $d('report_modal.image.alt') }}">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary w-100 btn-sm" type="button" data-bs-dismiss="modal" aria-label="{{ $d('report_modal.close_label') }}">{{ $d('report_modal.close') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
