@@ -13,7 +13,7 @@
 
 <div class="dc-page">
 <h1 class="visually-hidden" id="search-container">{{ $d('title') }}</h1>
-<div class="container" id="main-container">
+<div class="container">
     <div class="mb-md-5">
         <div class="cmp-breadcrumbs" role="navigation">
             <nav class="breadcrumb-container" aria-label="breadcrumb"><ol class="breadcrumb p-0" data-element="breadcrumb">
