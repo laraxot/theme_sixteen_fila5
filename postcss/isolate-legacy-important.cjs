@@ -1,10 +1,11 @@
 /**
  * Isola le pagine Design Comuni (scope `.dc-page`) dalle regole legacy con `!important`.
  *
- * Il CSS globale del tema accumula regole `!important` scritte per pagine precedenti (reset dei bordi su
- * div/span/p, colori forzati, `.btn`, `.card`...): vincono su qualunque stile del componente. Qui, in build,
- * ogni regola con almeno una dichiarazione `!important` che NON appartiene allo scope viene limitata agli
- * elementi fuori da `.dc-page`. `:where()` ha specificita' zero: per le altre pagine nulla cambia.
+ * Il CSS globale del tema accumula regole scritte per pagine precedenti (reset dei bordi su div/span/p, colori
+ * forzati, `.btn`, `.card`, `label`...), molte con `!important` o con specificita' alta: vincono su qualunque stile
+ * del componente. Qui, in build, ogni regola che NON appartiene allo scope viene limitata agli elementi fuori da
+ * `.dc-page`. `:where()` ha specificita' zero: per le altre pagine nulla cambia. Restano fuori solo le regole che
+ * non possono colpire un discendente (`html`, `:root`, `body` soli) e i keyframes.
  * Vedi docs/bmad/stories/2026-10-13-dcp-03-legacy-parity-css-cascade-debt.story.md.
  */
 const SCOPE = '.dc-page';
@@ -19,11 +20,8 @@ module.exports = () => ({
             if (rule.parent?.type === 'atrule' && /keyframes$/i.test(rule.parent.name)) return;
             if (rule.selector.includes(SCOPE)) return;
 
-            let hasImportant = false;
-            rule.walkDecls((decl) => {
-                if (decl.important) hasImportant = true;
-            });
-            if (!hasImportant) return;
+            // regole che colpiscono solo la radice non possono toccare un discendente di .dc-page
+            if (rule.selectors.every((selector) => /^(?:html|body|:root)(?:\s*,)?$/.test(selector.trim()))) return;
 
             rule.selectors = rule.selectors.map((selector) => {
                 const trailing = selector.match(TRAILING_PSEUDO);
