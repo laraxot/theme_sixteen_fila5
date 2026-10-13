@@ -1,0 +1,92 @@
+{
+  "h": 2167,
+  "h1": "Accedi",
+  "breadcrumb": "Home/ Accedi",
+  "h2": [
+    "SPID",
+    "CIE",
+    "Altre utenze",
+    "Contatta il comune",
+    "Cerca",
+    "Nome del Comune"
+  ],
+  "h3": [],
+  "forms": [
+    {
+      "action": null,
+      "inputs": [
+        {
+          "type": "search",
+          "name": "autocomplete-two",
+          "id": "autocomplete-two",
+          "label": "Cerca nel sito",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "buttons": [
+    "Lingua attiva: ITA",
+    "Accedi all'area personale",
+    "Nascondi la navigazione",
+    "Entra con SPID",
+    "Entra con CIE",
+    "Accedi con ID azienda",
+    "Accedi come dipendente",
+    "Cerca"
+  ],
+  "images": [
+    "../assets/images/spid.svg",
+    "../assets/images/cie.svg",
+    "../assets/images/logo-eu-inverted.svg"
+  ],
+  "links": [
+    "Nome della Regione",
+    "ITA selezionata",
+    "ENG",
+    "Accedi all'area personale",
+    "Il mio Comune Un comune da vivere",
+    "Twitter",
+    "Facebook",
+    "YouTube",
+    "Telegram",
+    "Whatsapp",
+    "RSS",
+    "Nome del Comune",
+    "Amministrazione",
+    "Novità",
+    "Servizi",
+    "Vivere il Comune",
+    "Iscrizioni",
+    "Estate in città",
+    "Polizia locale",
+    "Tutti gli argomenti",
+    "Twitter",
+    "Facebook",
+    "YouTube",
+    "Telegram",
+    "Whatsapp",
+    "RSS",
+    "Home",
+    "Come attivare SPID Come attivare SPID",
+    "Come richiedere CIE Come richiedere CIE",
+    "Leggi le domande frequenti",
+    "Richiedi assistenza",
+    "Chiama il numero verde 05 0505",
+    "Prenota appuntamento",
+    "Rilascio Carta Identità Elettronica (CIE)",
+    "Cambio di residenza",
+    "Tributi online",
+    "Prenotazione appuntamenti",
+    "Rilascio tessera elettorale",
+    "Voucher connettività",
+    "Nome del Comune"
+  ],
+  "paragraphs": [
+    "Per accedere al sito e ai suoi servizi, utilizza una delle seguenti modalità.",
+    "Accedi con SPID, il sistema Pubblico di Identità Digitale.",
+    "Accedi con la tua Carta d’Identità Elettronica.",
+    "In alternativa puoi utilizzare le seguenti modalità.",
+    "Comune di Nome Comune Via Roma 123 - 00100 Comune Codice fiscale / P. IVA: 00123456789 Ufficio Relazioni con il Pubblico Numero verde: 800 016 123 SMS e WhatsApp: +39 320 1234567 Posta Elettronica Certificata Centralino unico: 012 3456"
+  ]
+}

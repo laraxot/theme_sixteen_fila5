@@ -1,0 +1,19 @@
+{
+  "sections": [
+    {
+      "h2": null,
+      "cls": "it-hero-wrapper bg-white align-items-start",
+      "cards": []
+    },
+    {
+      "h2": null,
+      "cls": "hero-img mb-20 mb-lg-50",
+      "cards": []
+    },
+    {
+      "h2": null,
+      "cls": "it-hero-wrapper it-hero-small-size cmp-hero-img-small",
+      "cards": []
+    }
+  ]
+}

@@ -20,10 +20,13 @@ misurato il 2026-10-13 era 26,9%. Senza un gate eseguibile ogni sessione ha dich
 ## Gia' fatto (nel repo)
 - `bashscripts/tools/visual/compare-body-html.mjs` (confronto token del body, script esclusi; ora decodifica le entita').
 - `bashscripts/tools/visual/compare-screenshots.mjs` (pixel, stesso browser; `--stub-images`, `--selector`, `--click`, `--threshold`).
-- `bashscripts/tools/visual/extract-used-css.mjs` e `explain-style.mjs` (vedi DCP-03).
+- `bashscripts/tools/visual/extract-used-css.mjs` (piu' pagine, `--within`, `--scope`), `explain-style.mjs` (`--state hover`), `compare-computed.mjs` (stili calcolati a confronto, `--hover`), `find-important-overrides.mjs` (regole esterne con `!important` in uno scope).
 - `laravel/Themes/Sixteen/scripts/homepage-parity-defects.sh`: 14 difetti + comportamenti, parity per elemento.
 
-## Da fare
+## Fatto (2026-10-13 sera)
+`bashscripts/tools/visual/parity-gate.sh <rif> <loc> [--stub-images re] [--widths ..] [--fail-if-contains testo]`: HTML rigoroso + URL normalizzati + pixel a 5 larghezze con le altezze accanto, exit 1 sotto 90 (HTML rigoroso) o 97 (pixel). `compare-body-html.mjs` stampa ora entrambe le misure.
+
+## Da fare (storico)
 1. Wrapper `bashscripts/tools/visual/parity-gate.sh <ref-url> <local-url>`: esegue HTML + visual a 375/768/1440, stampa tabella PASS/FAIL, salva JSON in `bmad-output/parity/<slug>/`, exit 1 sotto soglia.
 2. Sweep di regressione: elenco di pagine "sentinella" (indice, argomenti, `/it`) con baseline salvata e confronto prima/dopo.
 3. Regola nel template di story: "fatto" richiede l'output del gate incollato nella story.

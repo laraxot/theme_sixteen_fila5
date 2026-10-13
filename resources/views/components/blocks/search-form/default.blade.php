@@ -1,0 +1,13 @@
+@props(['data' => []])
+
+<section class="dc-search-block" aria-labelledby="dc-search-title">
+    <h2 id="dc-search-title">{{ $data['label'] ?? 'Cerca nel sito' }}</h2>
+    <form action="#" method="get" class="dc-search-block__form">
+        <label class="sr-only" for="dc-page-search">{{ $data['placeholder'] ?? 'Cerca nel sito' }}</label>
+        <div class="dc-search-block__input-wrap">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+            <input id="dc-page-search" type="search" name="q" placeholder="{{ $data['placeholder'] ?? 'Cerca nel sito' }}">
+        </div>
+        <button type="submit">{{ $data['button_label'] ?? 'Cerca' }}</button>
+    </form>
+</section>

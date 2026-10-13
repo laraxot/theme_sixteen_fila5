@@ -7,19 +7,19 @@
 <div class="bg-primary">
     <div class="container">
         <div class="row d-flex justify-content-center bg-primary">
-            <div class="col-12 col-lg-6">
-                <div class="cmp-rating pt-lg-80 pb-lg-80" id="rating" x-data="dcRating">
+            <div class="col-12 col-lg-6{{ filled($d('feedback.col_class')) ? ' '.$d('feedback.col_class') : '' }}">
+                <div class="cmp-rating pt-lg-80 pb-lg-80" id="rating">
                     <div class="card shadow card-wrapper" data-element="feedback">
                         <div class="cmp-rating__card-first">
                             <div class="card-header border-0"><h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $d('feedback.title') }}</h2></div>
                             <div class="card-body">
                                 <fieldset class="rating">
                                     <legend class="visually-hidden">{{ $d('feedback.legend') }}</legend>
-                                    @foreach ([5, 4, 3, 2, 1] as $star)
+                                    @foreach ([5 => 'first-star', 4 => 'second-star', 3 => 'third-star', 2 => 'fourth-star', 1 => 'fifth-star'] as $star => $labelId)
                                         <input type="radio" id="star{{ $star }}a" name="ratingA" value="{{ $star }}">
                                         <label class="full rating-star active" for="star{{ $star }}a" data-element="feedback-rate-{{ $star }}">
-                                            <svg class="icon icon-sm" role="img" aria-labelledby="star-label-{{ $star }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
-                                            <span class="visually-hidden" id="star-label-{{ $star }}">{{ sprintf($d('feedback.star_label'), $star) }}</span>
+                                            <svg class="icon icon-sm" role="img" aria-labelledby="{{ $labelId }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+                                            <span class="visually-hidden" id="{{ $labelId }}">{{ sprintf($d('feedback.star_label'), $star) }}</span>
                                         </label>
                                     @endforeach
                                 </fieldset>

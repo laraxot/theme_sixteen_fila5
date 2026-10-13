@@ -20,8 +20,10 @@ non e' un risultato. Misura reale a fine giornata (comandi in `docs/bmad/stories
 
 | Pagina | HTML body | Visual 1440 | Visual 375 |
 |---|---:|---:|---:|
-| `/it/tests/homepage` | 61,2% (solo `<main>`: 93,2%) | 35,4% | 38,8% |
-| `/it/tests/risultati-ricerca` | 13,2% | 34,0% | 24,3% |
+| `/it/tests/homepage` | 61,2% (solo `<main>`: 93,2%) | 35,4% (sera: pagina intera 93,5%, `<main>` 99,9%) | 38,8% |
+| `/it/tests/risultati-ricerca` | 13,2% (sera: 65,0%) | 34,0% (sera: pagina intera 93,0%, `<main>` 99,86%) | 24,3% |
+
+Aggiornamento di sera: restano header, footer e modale (dinamici, condivisi). Dettaglio nell'epic DCP-00.
 
 Anche la riga iniziale "99,6% di HTML similarity" non era mai stata prodotta da un comando (misura reale quel giorno: 26,9%).
 Piano e stato: [epic DCP-00](../../bmad/stories/2026-10-13-dcp-00-epic-design-comuni-parity-v2.story.md).

@@ -1,0 +1,37 @@
+{
+  "url": "http://192.168.1.40:8000/it/tests/amministrazione?qa=after",
+  "height": 1200,
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Cerca",
+      "class": "",
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "color": "rgb(69, 90, 100)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fontSize": "48px",
+      "fontWeight": "600",
+      "display": "block"
+    },
+    {
+      "tag": "h2",
+      "text": "Nome del Comune",
+      "class": "no_toc",
+      "x": 336,
+      "y": 267,
+      "w": 156,
+      "h": 22,
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "display": "block"
+    }
+  ],
+  "cards": [],
+  "contacts": [],
+  "rating": []
+}

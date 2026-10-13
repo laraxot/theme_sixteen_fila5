@@ -1,0 +1,44 @@
+---
+frontmatter: true
+title: DOC Folders Index (BMAD + Second Brain)
+type: bmad-index
+---
+# DOC Folders Index
+
+> 🧠 **From Second Brain (KNOWLEDGE.md)** — R001: folder naming must include slug + descrizione; R003: no Bootstrap nella documentazione; R004: focus-visible + accessibility nei componenti.
+
+## Theme (Sixteen) — docs/bmad/
+- `stories/` — 121 .story.md (homepage-visual-parity-97, risultati-ricerca, eventi, evento-dettaglio, accesso-servizio, segnalazione-01-privacy, segnalazione-dettaglio, segnalazioni-elenco)
+- `architecture/` — homepage-visual-parity-arch.md + index
+- `brainstorm/` — 2026-10-13-accesso-servizio.md, 2026-10-13-eventi.md, 2026-10-13-documenti-dati.md
+- `decisions/` — decision-accessibility-improvements.md, decision-header-footer-consolidation.md, decision-header-footer-fixes.md, 2026-10-13-parity-root-cause-and-guardrails.md
+- `evidence/` — reference PNG + JSON screenshots (risultati-ricerca, amministrazione, accesso-servizio a 1440/768)
+- `prompts/` — homepage/index.md, search-results/index.md
+- `README.md` + `55-md-conventions-enhanced.md`
+
+## Theme — docs/second-brain/
+- `KNOWLEDGE.md` — R001-R003 regole, token `bg-primary-600`, focus-visible, NO Bootstrap
+- `header-footer-rationale.md` — consolidamento header/footer JSON-driven
+
+## Theme — docs/ (root)
+- `chat/chat/INDEX.md` — log conversazioni
+- `bmad/` — as above
+- `bmad/story/homepage-visual-parity-97.story.md` — principale (97% target, 14 difformità, 90% HTML verified)
+- `visual-parity/scripts/` — script verifica
+
+## Module (example) — Modules/*/docs/
+- Ogni modulo ha `docs/` con `stories/`, `investigation/`, `decision-log.md` (per BMAD compliance della documentazione)
+- `Modules/Quaeris/docs/` — pulse-dashboard-custom-cards story (esempio esistente)
+- `Modules/Cms/docs/` — page management docs
+- `Modules/User/docs/` — auth/user docs
+- Tutti i moduli seguenti con `docs/`: Activity, AI, Blog, Cms, Comment, Fixcity, Gdpr, Geo, Job, Lang, Media, Mobile, Notify, Rating, Seo, Tenant, UI, User, Xot
+
+## Status File (repo root)
+- `/STATUS_RISULTATI_RICERCA.md` — stato risultati ricerca (200 OK, 152522B, 645 risultati)
+
+## Index / Search
+- `qmd` indexing per ricerche rapide su `docs/`
+- `docs/chat/` per nuove conversazioni (senza date nei nomi file, regola `agent-chat-directory.md`)
+
+## Stack confirmation
+TailwindCSS + Alpine.js + Lit + DaisyUI + Flowbite (NO Bootstrap Italia). Token `bg-primary-600` / `bg-primary-500` per primario; `focus:ring-primary-500` per accessibilità.
