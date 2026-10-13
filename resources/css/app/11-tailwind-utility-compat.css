@@ -48,7 +48,7 @@
 
 /* Buttons - Design Comuni primary button = #0066CC (header override in 03/08/13) */
 .btn { @apply inline-flex items-center justify-center gap-2 rounded transition-colors; }
-.btn-primary { @apply bg-[#0066CC] text-white px-4 py-2 hover:bg-[#004A99]; }
+.btn-primary { @apply bg-[#007A52] text-white px-4 py-2 hover:bg-[#006945]; }
 .btn-secondary { @apply bg-[#6C7688] text-white px-4 py-2 hover:bg-[#5A6270]; }
 .btn-outline-secondary { @apply border-2 border-[#6C7688] text-[#6C7688] px-4 py-2 rounded hover:bg-[#6C7688] hover:text-white; }
 .btn-lg { @apply px-6 py-3 text-lg; }

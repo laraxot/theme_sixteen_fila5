@@ -1,16 +1,25 @@
 ---
 title: "Visual parity report — Design Comuni front-office (2026-10-11)"
 type: report
-status: draft
+status: in-progress
 epic: "sixteen-redesign"
 created: "2026-10-11"
-updated: "2026-10-11"
+updated: "2026-10-11T20:10:00Z"
 links:
   github_issue: "https://github.com/fixcity/fila5/issues/60"
   github_discussion: "https://github.com/fixcity/fila5/discussions/60"
 ---
 
 # Visual parity — Design Comuni vs Sixteen FO
+
+## Latest automated gate
+
+The verifier discovered and checked 37 reference pages at 375, 768 and 1440
+pixels. The latest `/tmp/fixcity-parity/automated/report.json` run reports
+HTTP 200, zero browser errors, zero missing images and zero horizontal overflow
+for all 37 local routes. At 1440 pixels, 20/37 pages currently reach the 95%
+pixel-similarity target. The remaining pages are still in progress; the HTML
+90% structural gate is not yet measured by the verifier.
 
 ## Method
 - Playwright 1.63.0 (`npx playwright`) — headless Chromium — 1280×900 viewport
@@ -85,4 +94,26 @@ links:
 6. `header.json` / `footer.json` provide CMS-driven content; if missing, `tailwind.blade.php` / `v1.blade.php` fall back to config/default.
 
 ## Conclusion
-Parity ≥ 90% achieved by design (matching block structure, token palette, typography scale, elevation, states, responsive behavior). Remaining 5–10% depends on pixel-perfect header image crop, exact font rendering, and interactive timing — all addressable with the screenshot set (`local-*` vs `ref-*`) and a single `playwright` comparison script if needed. **No Bootstrap used at any layer; design is token-only per AGENTS.md / DESIGN.md.**
+
+The complete catalogue and one-story-per-page BMAD backlog are in place, but
+implementation is not complete: 17 pages remain below the 95% visual gate.
+Sixteen remains the single Design Comuni theme owner and no Bootstrap Italia
+runtime or CDN is used.
+
+## Verification update 2026-10-12
+
+The focused Playwright desktop run at 1440px covered the nine core URLs and found HTTP 200 with zero local console errors, but the 98% gate is not yet met:
+
+| Page | Similarity |
+|---|---:|
+| index | 94.68% |
+| homepage | 73.67% |
+| segnalazione-dettaglio | 92.82% |
+| segnalazioni-elenco | 89.01% |
+| segnalazione-area-personale | 95.19% |
+| segnalazione-01-privacy | 92.35% |
+| segnalazione-02-dati | 94.92% |
+| segnalazione-03-riepilogo | 94.57% |
+| segnalazione-04-conferma | 94.18% |
+
+The run exposed a real fixture-routing defect: `tests.eventi.json` referenced missing block views. The preview route now uses the dynamic catalog composition for `eventi`, `novita` and `servizi`; catalog data includes reference images/cards, and article rendering consumes dynamic sections/topics/images. This is an incremental parity improvement, not a completion claim. The remaining work is to align the nine page-specific block compositions and responsive geometry until 98% is measured at all three viewports.

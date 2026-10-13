@@ -87,3 +87,96 @@ presentazione del tema; mantiene SSR, accessibilità e riuso su `app`, `test` e
 `guest` senza duplicare Design Comuni.
 **Stato**: ✅ Implementato e verificato con view cache, test di localizzazione e
 Playwright su 375/768/1440.
+
+## D12: `tests/{slug}` è una route CMS dinamica, non una collezione di Blade
+specifiche
+
+**Contesto**: `/it/tests/homepage` era stato interpretato come motivo per
+creare `resources/views/pages/tests/homepage.blade.php`. Questo rompe la
+responsabilità del CMS e duplica il renderer per ogni pagina Design Comuni.
+
+**Decisione**: `pages/tests/index.blade.php` gestisce esclusivamente il
+catalogo `/it/tests`; `pages/tests/[slug].blade.php` gestisce ogni dettaglio,
+compreso `homepage`, costruendo lo slug `tests.<slug>`. Il contenuto viene da
+`config/local/fixcity/database/content/pages/tests.<slug>.json`; i componenti
+riutilizzabili vivono in `resources/views/components/blocks/`.
+
+**Layout**: il catalogo usa esplicitamente `<x-layouts.test>`; il dettaglio
+dinamico usa `<x-layouts.app>`. Il campo JSON `layout` resta disponibile per i
+wrapper CMS generici allow-listati, non per generare nuove view Folio.
+
+**Rationale**: una route, un contratto CMS, nessuna duplicazione e possibilità
+di aggiungere pagine modificando JSON e blocchi universali.
+
+**Stato**: ✅ Confermato; `homepage.blade.php` non esiste.
+
+## D13: nessun sotto-router semantico `tests/segnalazioni`
+
+**Contesto**: creare `pages/tests/segnalazioni/[slug].blade.php` introduce un
+secondo albero Folio per una famiglia di pagine, duplicando middleware, Volt,
+layout e risoluzione CMS.
+
+**Decisione**: tutti gli URL `/it/tests/{slug}`, inclusi
+`/it/tests/segnalazioni-elenco`, `/it/tests/segnalazione-dettaglio` e gli step
+del flusso, usano esclusivamente `pages/tests/[slug].blade.php`. Il valore
+`slug` è il segmento completo dopo `tests/` e diventa `tests.<slug>`; i dati e
+l'ordine dei blocchi arrivano dal JSON tenant corrispondente.
+
+**Rationale**: Folio definisce il routing tecnico, mentre `tests.<slug>` è il
+contratto editoriale CMS. Un sotto-percorso Blade chiamato `segnalazioni`
+confonderebbe dominio e routing e renderebbe impossibile aggiungere pagine
+senza creare nuove view.
+
+**Stato**: ✅ Corretto; rimossi `tests/homepage.blade.php` e
+`tests/segnalazioni/[slug].blade.php`.
+
+## D14: il route dinamico non contiene fallback di catalogo
+
+**Contesto**: il mount di `tests/[slug].blade.php` leggeva
+`tests.catalog.json` e selezionava view speciali quando mancava una pagina CMS.
+Questo introduceva una seconda sorgente editoriale e rendeva il risultato
+dipendente dallo slug.
+
+**Decisione**: il mount costruisce esclusivamente `tests.<slug>` e passa i dati
+di contesto a `<x-page>`. La pagina viene risolta dal JSON
+`database/content/pages/tests.<slug>.json`; blocchi e varianti sono scelti dal
+contratto CMS, non da `if` nel route file.
+
+**Rationale**: il route è infrastruttura Folio, mentre catalogo e contenuto
+sono responsabilità del CMS. Un fallback nasconde i JSON mancanti e rende
+impossibile verificare la parità pagina per pagina.
+
+**Stato**: ✅ Implementato; rimosse importazioni `File`/`Page`,
+`catalogFallback` e gli include catalogo.
+
+## D15: lo slug vuoto ricade su `tests.index`
+
+**Contesto**: il fallback `$pageSlug = 'tests'` non corrisponde allo slug CMS
+della pagina indice, che è `tests.index`. Questo può produrre una pagina senza
+blocchi se il componente viene montato senza parametro.
+
+**Decisione**: `tests/[slug].blade.php` usa
+`$slug ? 'tests.'.$slug : 'tests.index'`. Lo slug valorizzato resta invariato;
+lo slug vuoto identifica sempre il documento indice CMS.
+
+**Rationale**: il valore Folio della route e lo slug editoriale JSON devono
+essere identici. `tests.index` è il contratto canonico del catalogo.
+
+**Stato**: ✅ Implementato e verificato con lint e smoke HTTP.
+
+## D16: risultati-ricerca richiede una sequenza BMAD dedicata
+
+**Contesto**: il primo block `search-results` produceva solo due card e una
+sezione minimale, mentre la reference contiene filtri, dieci risultati,
+caricamento ulteriore, rating e contatti. La misurazione reale era 12.87% body
+HTML e 24.02% visuale a 1440px.
+
+**Decisione**: il lavoro è stato suddiviso nelle storie `DC-027.1`–`DC-027.5`:
+evidence/contratto, JSON, markup e stile, interazioni WCAG, verifica finale.
+Nessuna pagina Folio specifica viene creata.
+
+**Rationale**: il fallimento derivava da un contratto dati incompleto e da una
+verifica prematura, non da un semplice difetto CSS. Le soglie devono essere
+misurate a 375, 768 e 1440px con body comparator e screenshot.
+
+**Stato**: ✅ Pianificato; implementazione rinviata alla sessione successiva.

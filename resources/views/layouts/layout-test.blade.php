@@ -39,7 +39,7 @@
         <!-- Brand name -->
         <span class="text-4xl font-bold text-white md:text-5xl">Nome del Comune</span>
         <!-- Tagline -->
-        <span class="text-sm text-gray-300 md:text-sm md:ml-4">Un comune da vivere</span>
+        <span class="text-sm text-white md:text-sm md:ml-4">Un comune da vivere</span>
       </div>
     </div>
 
