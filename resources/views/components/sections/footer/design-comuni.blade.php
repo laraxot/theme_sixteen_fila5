@@ -12,9 +12,21 @@
         }
     }
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $lines = static fn (string $text): string => implode('<br>', array_map('e', preg_split('/\R/', $text)));
+    // I link interni del JSON sono scritti come percorsi assoluti senza lingua (`/tickets/create`): senza prefisso rispondono 404 anche quando
+    // la pagina esiste. Si prefissa la lingua corrente solo ai percorsi assoluti che non hanno gia' un prefisso di lingua; il resto non cambia.
+    $locales = array_keys((array) config('laravellocalization.supportedLocales', []));
+    $href = static function (mixed $url) use ($locales): string {
+        $url = (string) $url;
+        if ($url === '' || $url[0] !== '/' || str_starts_with($url, '//')) {
+            return $url === '' ? '#' : $url;
+        }
+        $first = explode('/', ltrim($url, '/'), 2)[0];
+
+        return in_array($first, $locales, true) ? $url : url('/'.app()->getLocale().$url);
+    };
     $services = $d('groups.services.links', []);
     $half = (int) ceil(count($services) / 2);
 @endphp
@@ -23,9 +35,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 footer-items-wrapper logo-wrapper">
-                    <img class="ue-logo" src="{{ asset($d('eu_logo.src')) }}" alt="{{ $d('eu_logo.alt') }}">
+                    <img class="ue-logo" src="{{ \Themes\Sixteen\Support\DesignComuniAssets::url($d('eu_logo.src')) }}" alt="{{ $d('eu_logo.alt') }}">
                     <div class="it-brand-wrapper">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ url(app()->getLocale()) }}">
                             <svg class="icon" aria-hidden="true"><use xlink:href="{{ $icon('it-pa') }}"></use></svg>
                             <div class="it-brand-text"><h2 class="no_toc">{{ $d('brand.name') }}</h2></div>
                         </a>
@@ -37,7 +49,7 @@
                     <h4 class="footer-heading-title">{{ $d('groups.administration.title') }}</h4>
                     <ul class="footer-list">
                         @foreach ($d('groups.administration.links', []) as $link)
-                            <li><a href="{{ $link['url'] ?? '#' }}">{{ $link['label'] ?? '' }}</a></li>
+                            <li><a href="{{ $href($link['url'] ?? '#') }}">{{ $link['label'] ?? '' }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -48,7 +60,7 @@
                             <div class="col-md-6">
                                 <ul class="footer-list">
                                     @foreach ($column as $link)
-                                        <li><a href="{{ $link['url'] ?? '#' }}">{{ $link['label'] ?? '' }}</a></li>
+                                        <li><a href="{{ $href($link['url'] ?? '#') }}">{{ $link['label'] ?? '' }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -60,7 +72,7 @@
                         <h4 class="footer-heading-title">{{ $d("groups.$group.title") }}</h4>
                         <ul class="footer-list">
                             @foreach ($d("groups.$group.links", []) as $link)
-                                <li><a href="{{ $link['url'] ?? '#' }}">{{ $link['label'] ?? '' }}</a></li>
+                                <li><a href="{{ $href($link['url'] ?? '#') }}">{{ $link['label'] ?? '' }}</a></li>
                             @endforeach
                         </ul>
                     @endforeach
@@ -77,7 +89,7 @@
                             <div class="col-md-4">
                                 <ul class="footer-list">
                                     @foreach ($column as $link)
-                                        <li><a href="{{ $link['url'] ?? '#' }}"@if (filled($link['data_element'] ?? null)) data-element="{{ $link['data_element'] }}"@endif>{{ $link['label'] ?? '' }}</a></li>
+                                        <li><a href="{{ $href($link['url'] ?? '#') }}"@if (filled($link['data_element'] ?? null)) data-element="{{ $link['data_element'] }}"@endif>{{ $link['label'] ?? '' }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -88,7 +100,7 @@
                     <h4 class="footer-heading-title">{{ $d('social_title') }}</h4>
                     <ul class="list-inline text-start social">
                         @foreach ($d('social', []) as $social)
-                            <li class="list-inline-item"><a class="p-1 text-white" href="{{ $social['url'] ?? '#' }}" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon'] ?? 'it-rss') }}"></use></svg><span class="visually-hidden">{{ $social['label'] ?? '' }}</span></a></li>
+                            <li class="list-inline-item"><a class="p-1 text-white" href="{{ $href($social['url'] ?? '#') }}" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon'] ?? 'it-rss') }}"></use></svg><span class="visually-hidden">{{ $social['label'] ?? '' }}</span></a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -97,7 +109,7 @@
                 <div class="col-12 footer-items-wrapper">
                     <div class="footer-bottom">
                         @foreach ($d('footer_bottom_links', []) as $link)
-                            <a href="{{ $link['url'] ?? '#' }}">{{ $link['label'] ?? '' }}</a>
+                            <a href="{{ $href($link['url'] ?? '#') }}">{{ $link['label'] ?? '' }}</a>
                         @endforeach
                     </div>
                 </div>

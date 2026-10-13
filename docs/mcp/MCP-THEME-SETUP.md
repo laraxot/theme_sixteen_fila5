@@ -146,7 +146,7 @@ font-family: "Titillium Web";
 ## Related Docs
 
 - **Module MCP Index**: [MCP-SERVERS-INDEX.md](../../../Modules/Xot/docs/mcp/MCP-SERVERS-INDEX.md)
-- **Theme Index**: [00-index.md](../00-index.md)
+- **Theme Index**: [00-index.md](../00-INDEX.md)
 - **CSS Docs**: [CSS Directory](../css/)
 - **Screenshots**: [Segnalazione Pages](../screenshots/segnalazione-pages/)
 - **HTML Comparison**: [HTML Structure Comparison](../html-structure-comparison.md)

@@ -200,8 +200,8 @@ new class extends Component {
 
 ## Cross-References
 
-- → [Master Docs Index](../../../docs/MODULE_DOCS_INDEX.md)
-- → [HTML Structure Comparison](../../../docs/html-structure-comparison.md)
+- → [Master Docs Index](../../../../../docs/MODULE_DOCS_INDEX.md)
+- → [HTML Structure Comparison](../../../../../docs/html-structure-comparison.md)
 - → [Body Structure Comparison Index](../body-structure-comparison/INDEX.md)
 - → [Comparison Scripts](../../../../bashscripts/docs/html/README.md)
 

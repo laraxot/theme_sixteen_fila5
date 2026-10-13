@@ -47,7 +47,7 @@ discussions: []
 
 ## Anti-pattern rimosso (architettura)
 
-**Vietato** il blocco CSS con `body[data-page='auth-login']` + `#007A52 !important` su submit/focus — non è il modello [design-comuni-pagine-statiche](https://github.com/italia/design-comuni-pagine-statiche). Vedi ADR root [fo-pa-tokens-no-per-page-hex.md](../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md).
+**Vietato** il blocco CSS con `body[data-page='auth-login']` + `#007A52 !important` su submit/focus — non è il modello [design-comuni-pagine-statiche](https://github.com/italia/design-comuni-pagine-statiche). Vedi ADR root [fo-pa-tokens-no-per-page-hex.md](../../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md).
 
 ## Verifica
 

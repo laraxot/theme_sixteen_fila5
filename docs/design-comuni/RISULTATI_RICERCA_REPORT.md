@@ -143,7 +143,7 @@ Modal di ricerca più completa nel reference
 - **Analisi HTML**: [RISULTATI_RICERCA_ANALISI.md](./RISULTATI_RICERCA_ANALISI.md)
 - **Screenshot**: [screenshots/risultati-ricerca/](./screenshots/risultati-ricerca/)
 - **Script**: [bashscripts/design-comuni/capture-risultati-ricerca.js](../../../bashscripts/design-comuni/capture-risultati-ricerca.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

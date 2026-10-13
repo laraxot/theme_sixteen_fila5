@@ -1,4 +1,5 @@
-{{-- Scelta singola. `content`: name (gli id sono <name>-<n>), required (primo radio obbligatorio), options[]. L'ultima opzione non ha il filetto. --}}
+{{-- Scelta singola. `content`: name (gli id sono <name>-<n>), legend (testo nascosto: racchiude il gruppo in un fieldset), required (primo radio obbligatorio), options[]. L'ultima opzione non ha il filetto. --}}
+@if (filled($content['legend'] ?? null))<fieldset><legend class="visually-hidden">{{ $content['legend'] }}</legend>@endif
 <div class="cmp-card-radio">
     <div class="card card-teaser">
         <div class="card-body">
@@ -13,3 +14,4 @@
         </div>
     </div>
 </div>
+@if (filled($content['legend'] ?? null))</fieldset>@endif

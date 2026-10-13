@@ -15,4 +15,4 @@ created: 2026-05-29
 
 Implementazione in modulo **Fixcity** (Folio + Actions), non Controller.
 
-Vedi [folio-api-no-controllers.md](../../../Modules/Fixcity/docs/wiki/concepts/folio-api-no-controllers.md).
+Vedi [folio-api-no-controllers.md](../../../../Modules/Fixcity/docs/wiki/concepts/folio-api-no-controllers.md).

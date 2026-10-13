@@ -5,7 +5,7 @@
 
 {{-- HTML parity: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html — Bootstrap Italia native tabs --}}
 @if (!empty($tabs))
-<ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none"
+<ul class="mt-6 flex w-full border-b border-slate-300"
     id="tabDisservizio"
     role="tablist"
     data-section="{{ $sectionId }}">
@@ -16,15 +16,16 @@
             $controlId = 'disservizio'.($index + 1);
             $isFirst = $index === 0;
         @endphp
-        <li class="nav-item w-100" role="tab">
-            <a class="nav-link title-medium-semi-bold pt-0{{ $isFirst ? ' active' : '' }}"
-               href="#{{ $panelId }}"
-               data-bs-toggle="tab"
-               role="button"
-               aria-controls="{{ $controlId }}"
+        <li class="flex-1" role="presentation">
+            <button type="button" id="tab-{{ $tabId }}" class="min-h-12 w-full border-b-4 px-4 py-3 text-center font-semibold{{ $isFirst ? ' border-sky-800 text-sky-900' : ' border-transparent text-slate-700 hover:border-slate-400' }}"
+               data-tab-id="{{ $tabId }}"
+               x-on:click="activeTab = '{{ $tabId }}'"
+               x-bind:class="activeTab === '{{ $tabId }}' ? 'border-sky-800 text-sky-900' : 'border-transparent text-slate-700 hover:border-slate-400'"
+               role="tab"
+               aria-controls="{{ $panelId }}"
                aria-selected="{{ $isFirst ? 'true' : 'false' }}">
                 {{ $tab['label'] ?? '' }}
-            </a>
+            </button>
         </li>
     @endforeach
 </ul>

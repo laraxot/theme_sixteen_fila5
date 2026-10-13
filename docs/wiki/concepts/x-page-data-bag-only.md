@@ -36,7 +36,7 @@ Tutte le pagine Folio Sixteen usano **solo**:
 ## collegamenti
 
 - ADR progetto: [cms-x-page-opaque-data-bag.md](../../../../../../docs/wiki/decisions/cms-x-page-opaque-data-bag.md)
-- [page-context-data-bag.md](../../../../Modules/Cms/docs/components/page-context-data-bag.md)
-- [x-page-data-bag-only.md](../../../../Modules/Cms/docs/wiki/concepts/x-page-data-bag-only.md)
+- [page-context-data-bag.md](../../../../../Modules/Cms/docs/components/page-context-data-bag.md)
+- [x-page-data-bag-only.md](../../../../../Modules/Cms/docs/wiki/concepts/x-page-data-bag-only.md)
 - [folio-page-pattern.md](../../folio-page-pattern.md)
 - [page-component-conflict.md](../../page-component-conflict.md)

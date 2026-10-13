@@ -113,6 +113,18 @@
     color: #007a52 !important;
 }
 
+/* The SVG is inline inside a flex row; keep the readout icon independent from
+   global SVG rules that can otherwise stretch it to the map height. */
+.cmp-wizard-widget .wizard-dc-form-shell .geo-coordinate-readout__icon,
+.it-form-wizard .geo-coordinate-readout__icon {
+    display: inline-block !important;
+    flex: 0 0 1rem !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    max-width: 1rem !important;
+    max-height: 1rem !important;
+}
+
 .cmp-wizard-widget .wizard-dc-form-shell .geo-coordinate-readout strong {
     color: #17324d !important;
     font-weight: 600 !important;

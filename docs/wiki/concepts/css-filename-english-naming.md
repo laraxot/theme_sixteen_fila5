@@ -10,7 +10,7 @@ updated: 2026-06-04
 tags: [sixteen, css, naming, i18n]
 related:
   - ../../architecture/css-filename-english-naming.md
-  - ../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md
+  - ../../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md
   - ../rules/no-italian-component-names.md
 ---
 
@@ -41,4 +41,4 @@ bash bashscripts/ai/check-italian-names-in-code.sh
 ## Collegamenti
 
 - [Architettura](../../architecture/css-filename-english-naming.md)
-- [ADR root](../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md)
+- [ADR root](../../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md)

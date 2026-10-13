@@ -1560,7 +1560,7 @@ Ogni agent deve:
 ### Documenti Correlati:
 - [Homepage Screenshot Analysis](./homepage-screenshot-analysis.md) - Analisi screenshot comparativi
 - [Homepage Fix Prompt](./homepage.txt) - Prompt completo per fix
-- [Replikate Guide](../replikate.txt) - Guida replication Design Comuni
+- [Replikate Guide](../../replikate.txt) - Guida replication Design Comuni
 
 ---
 
@@ -1569,14 +1569,14 @@ Ogni agent deve:
 ### File di Analisi
 - [Homepage Screenshot Analysis](./homepage-screenshot-analysis.md) - Analisi screenshot comparativi
 - [Homepage Fix Prompt](./homepage.txt) - Prompt completo per fix
-- [Replikate Guide](../replikate.txt) - Guida replication Design Comuni
+- [Replikate Guide](../../replikate.txt) - Guida replication Design Comuni
 
 ### File Implementati
 - [Header Component](../../components/bootstrap-italia/header.blade.php)
 - [Governance Cards](../../components/blocks/governance/cards.blade.php)
 - [Topics Highlight](../../components/blocks/topics/highlight.blade.php)
 - [Rating Widget](../../components/blocks/feedback/rating.blade.php)
-- [Design Comuni CSS](../../resources/css/design-comuni.css)
+- [Design Comuni CSS](../../../../resources/css/design-comuni.css)
 
 ### Riferimenti Esterni
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html)
@@ -2472,7 +2472,7 @@ Ogni agent deve:
 ### Documenti Correlati:
 - [Homepage Screenshot Analysis](./homepage-screenshot-analysis.md) - Analisi screenshot comparativi
 - [Homepage Fix Prompt](./homepage.txt) - Prompt completo per fix
-- [Replikate Guide](../replikate.txt) - Guida replication Design Comuni
+- [Replikate Guide](../../replikate.txt) - Guida replication Design Comuni
 
 ---
 
@@ -2481,14 +2481,14 @@ Ogni agent deve:
 ### File di Analisi
 - [Homepage Screenshot Analysis](./homepage-screenshot-analysis.md) - Analisi screenshot comparativi
 - [Homepage Fix Prompt](./homepage.txt) - Prompt completo per fix
-- [Replikate Guide](../replikate.txt) - Guida replication Design Comuni
+- [Replikate Guide](../../replikate.txt) - Guida replication Design Comuni
 
 ### File Implementati
 - [Header Component](../../components/bootstrap-italia/header.blade.php)
 - [Governance Cards](../../components/blocks/governance/cards.blade.php)
 - [Topics Highlight](../../components/blocks/topics/highlight.blade.php)
 - [Rating Widget](../../components/blocks/feedback/rating.blade.php)
-- [Design Comuni CSS](../../resources/css/design-comuni.css)
+- [Design Comuni CSS](../../../../resources/css/design-comuni.css)
 
 ### Riferimenti Esterni
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html)

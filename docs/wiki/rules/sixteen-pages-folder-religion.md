@@ -13,7 +13,7 @@ related:
   - ../concepts/folio-volt-app-pages.md
   - folio-routing-architecture.md
   - container0-index-folio-pattern.md
-  - ../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
 ---
 
 # Sixteen `resources/views/pages/` — religione cartelle

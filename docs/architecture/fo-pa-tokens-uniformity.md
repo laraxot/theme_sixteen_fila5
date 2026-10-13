@@ -67,7 +67,7 @@ Componenti: <x-filament::button color="primary"> | .fo-filament-form-shell
 
 ## Collegamenti
 
-- ADR root: [fo-pa-tokens-no-per-page-hex.md](../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md)
+- ADR root: [fo-pa-tokens-no-per-page-hex.md](../../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md)
 - [filament-pa-design-colors.md](../../../Modules/Xot/docs/wiki/concepts/filament-pa-design-colors.md)
 - [auth-login-ux-design-wcag.md](../wiki/design/auth-login-ux-design-wcag.md)
 - [civic-design-tokens.css](../../resources/css/components/civic-design-tokens.css)

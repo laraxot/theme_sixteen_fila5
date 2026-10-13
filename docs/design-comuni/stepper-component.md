@@ -136,4 +136,4 @@ All stepper text uses the `fixcity::segnalazione.steps.*` namespace:
 - → [Body Plain Rule](./body-plain-rule.md) — HTML parity policy
 - → [00-INDEX](./00-INDEX.md) — Main documentation index
 - → [segnalazione-02-dati Blade](../../resources/views/components/blocks/tests/segnalazione-02-dati.blade.php)
-- → [Translation Files](../../../Modules/Fixcity/lang/it/segnalazione.php)
+- → [Translation Files](../../../../Modules/Fixcity/lang/it/segnalazione.php)

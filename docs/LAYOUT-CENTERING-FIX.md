@@ -113,7 +113,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[← LAYOUT-ISSUES-ANALYSIS](./LAYOUT-ISSUES-ANALYSIS.md)** - Initial layout problem analysis
 - **[→ FINAL-VISUAL-PARITY-REPORT](./FINAL-VISUAL-PARITY-REPORT.md)** - Comprehensive validation report
 

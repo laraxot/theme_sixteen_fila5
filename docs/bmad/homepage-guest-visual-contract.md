@@ -13,7 +13,7 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/573"
 related:
   - ./public-ticket-listing-visual-contract.md
-  - ../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md
+  - ../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md
   - ../wiki/concepts/homepage-guest-visual-fix.md
   - ../wiki/concepts/bootstrap-italia-tailwind-philosophy.md
 ---
@@ -22,7 +22,7 @@ related:
 
 Sixteen possiede chrome, CSS e composizione della home Folio
 (`resources/views/pages/index.blade.php`). Fixcity possiede i dati pubblici della
-mappa. Questo contratto traduce lo [stato atteso Fixcity](../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md)
+mappa. Questo contratto traduce lo [stato atteso Fixcity](../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md)
 in regole di implementazione tema.
 
 ## Composizione obbligatoria

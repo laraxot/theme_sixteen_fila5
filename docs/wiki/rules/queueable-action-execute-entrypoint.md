@@ -10,7 +10,7 @@ created: 2026-07-12
 updated: 2026-07-12
 tags: [sixteen, actions, queueable-action, execute]
 related:
-  - ../../../../../docs/wiki/rules/queueable-action-execute-entrypoint.md
+  - ../../../../../../docs/wiki/rules/queueable-action-execute-entrypoint.md
 ---
 
 # QueueableAction execute entrypoint

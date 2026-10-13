@@ -58,9 +58,9 @@ Residuo principale:
 ## Verifica corrente 2026-04-03
 
 Analisi automatica aggiornata:
-- [STRUCTURE-DIFF.md](../../pages/domande-frequenti/STRUCTURE-DIFF.md)
-- [domande-frequenti-structure-comparison.json](../../analysis/domande-frequenti-structure-comparison.json)
-- [domande-frequenti-element-trees.txt](../../analysis/domande-frequenti-element-trees.txt)
+- [STRUCTURE-DIFF.md](../pages/domande-frequenti/STRUCTURE-DIFF.md)
+- [domande-frequenti-structure-comparison.json](../analysis/domande-frequenti-structure-comparison.json)
+- [domande-frequenti-element-trees.txt](../analysis/domande-frequenti-element-trees.txt)
 
 Esito corrente:
 - parity strutturale misurata sul confronto automatico: `57%`

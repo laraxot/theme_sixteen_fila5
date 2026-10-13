@@ -3,7 +3,7 @@
     Comportamento: dcCarousel (classe `carousel-4-card`: opzioni da aggiungere in resources/js/theme/design-comuni-home.js).
 --}}
 @php
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="it-carousel-wrapper carousel-4-card splide cmp-carousel" data-bs-carousel-splide>

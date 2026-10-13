@@ -176,7 +176,7 @@ x-data="{
 - **Tabs Analysis**: [SEGNALAZIONI_ELENCO_TABS_ANALYSIS.md](./SEGNALAZIONI_ELENCO_TABS_ANALYSIS.md)
 - **Layout Fix**: [SEGNALAZIONI_ELENCO_LAYOUT_FIX.md](./SEGNALAZIONI_ELENCO_LAYOUT_FIX.md)
 - **Rating Fix**: [SEGNALAZIONI_ELENCO_RATING_FIX.md](./SEGNALAZIONI_ELENCO_RATING_FIX.md)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

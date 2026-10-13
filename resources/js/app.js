@@ -186,11 +186,18 @@ function closeDropdownMenu(menu) {
  */
 const DROPDOWN_OFFSET_Y = 2; // scarto misurato nel riferimento tra il bordo del pulsante e il `translate` del menu
 
+const DROPDOWN_VIEWPORT_MARGIN = 8; // spazio minimo tra il menu e il bordo del viewport
+
 function placeDropdownMenu(menu, toggle) {
     const anchor = toggle.getBoundingClientRect();
     const parent = (menu.offsetParent || toggle.parentElement).getBoundingClientRect();
     menu.setAttribute('data-popper-placement', 'bottom-start');
-    menu.setAttribute('style', `position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(${Math.round(anchor.left - parent.left)}px, ${Math.round(anchor.bottom - parent.top) + DROPDOWN_OFFSET_Y}px);`);
+    // La larghezza si misura dopo `position: absolute` (prima il menu e' un blocco a tutta larghezza).
+    menu.setAttribute('style', 'position: absolute; inset: 0px auto auto 0px; margin: 0px;');
+    // A 375 e 768 px il menu partiva dal pulsante e usciva a destra dal viewport, tagliato (DCP-55): lo si ferma al bordo.
+    const maxLeft = document.documentElement.clientWidth - menu.offsetWidth - DROPDOWN_VIEWPORT_MARGIN;
+    const left = Math.max(DROPDOWN_VIEWPORT_MARGIN, Math.min(anchor.left, maxLeft));
+    menu.setAttribute('style', `position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(${Math.round(left - parent.left)}px, ${Math.round(anchor.bottom - parent.top) + DROPDOWN_OFFSET_Y}px);`);
     toggle.classList.add('show');
 }
 
@@ -381,6 +388,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (modal.classList.contains('show')) {
                 closeModal(modal);
             } else {
+                // Bootstrap: aprire una modale da un'altra chiude la prima (es. "Salva" -> conferma nel flusso multa); solo pagine /tests
+                if (isDesignComuniPage()) {
+                    document.querySelectorAll('.modal.show').forEach(function(opened) { closeModal(opened); });
+                }
                 openModal(modal);
             }
         });

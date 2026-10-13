@@ -1,6 +1,6 @@
 {{--
     Conferma (sito/segnalazione-04-conferma): titolo con icona di successo, righe di testo con parti in linea
-    (JSON: heading.lines[class, parts[text | strong | link{label,url} | br]]), pulsante ricevuta, rimando all'area riservata e servizi correlati.
+    (JSON: heading.lines[class, parts[text | strong | link{label,url} | br]]), pulsante ricevuta (opzionale; con `heading.button.url` e' un collegamento), rimando all'area riservata (opzionale) e servizi correlati.
 --}}
 <div class="container" id="main-container">
     <div class="row justify-content-center">
@@ -23,14 +23,19 @@
                         @endforeach
                     </p>
                 @endforeach
-                <button type="button" class="btn btn-outline-primary bg-white fw-bold">
-                    <span class="rounded-icon"><svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon($d('heading.button.icon', 'it-download')) }}"></use></svg></span>
-                    <span class="">{{ $d('heading.button.label') }}</span></button>
+                @if (filled($d('heading.button.label')))
+                    {{-- `heading.button.url`: nelle pagine reali la ricevuta e' un collegamento (stesse classi); senza url resta il pulsante del riferimento --}}
+                    <{!! filled($d('heading.button.url')) ? 'a href="'.e($d('heading.button.url')).'"' : 'button type="button"' !!} class="btn btn-outline-primary bg-white fw-bold">
+                        <span class="rounded-icon"><svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon($d('heading.button.icon', 'it-download')) }}"></use></svg></span>
+                        <span class="">{{ $d('heading.button.label') }}</span></{!! filled($d('heading.button.url')) ? 'a' : 'button' !!}>
+                @endif
             </div>
-            <p class="mt-3">
-                <a href="{{ $d('heading.followup.url', '#') }}" class="t-primary text-paragraph">{{ $d('heading.followup.label') }}</a>
-                <span class="text-paragraph"> {{ $d('heading.followup.text') }}</span>
-            </p>
+            @if (filled($d('heading.followup.label')))
+                <p class="mt-3">
+                    <a href="{{ $d('heading.followup.url', '#') }}" class="t-primary text-paragraph">{{ $d('heading.followup.label') }}</a>
+                    <span class="text-paragraph"> {{ $d('heading.followup.text') }}</span>
+                </p>
+            @endif
         </div>
     </div>
     <hr class="d-none d-lg-block mt-40 mb-0">

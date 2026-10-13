@@ -137,7 +137,7 @@ Based on the comparison:
 
 **Related Docs**:
 - [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)
 
 ## Aggiornamento header mobile overlay (story 7-10, 2026-04-20)

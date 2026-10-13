@@ -39,7 +39,7 @@ Ogni pagina Design Comuni viene replicata utilizzando:
 
 **Documentazione:**
 - [Homepage Page](./homepage.md)
-- [Screenshot](../screenshots/homepage/)
+- [Screenshot](../../screenshots/homepage)
 
 ---
 
@@ -67,7 +67,7 @@ discussions: []
 
 **Documentazione:**
 - [Argomenti Page](./argomenti.md)
-- [Screenshot](../screenshots/argomenti/)
+- [Screenshot](../../screenshots/argomenti)
 
 ---
 

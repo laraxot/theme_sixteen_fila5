@@ -64,7 +64,7 @@ The reference is a long textual sitemap with grouped lists and anchors. The loca
 
 ## Changes Applied
 
-First CSS-only pass on `lista-risorse` in [../resources/css/app.css](../resources/css/app.css):
+First CSS-only pass on `lista-risorse` in [../resources/css/app.css](../../resources/css/app.css):
 
 - stronger heading hierarchy and summary styling
 - grey background and spacing alignment for featured and search-result sections

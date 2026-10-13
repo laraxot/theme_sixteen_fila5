@@ -11,7 +11,7 @@ issues:
 related:
   - fo-folio-named-routes-header.md
   - fo-folio-routing-zen.md
-  - ../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
 ---
 
 # Area personale — rotte FO
@@ -24,7 +24,7 @@ related:
 |-----------|-----------|
 | Dropdown header + `route()` | [fo-folio-named-routes-header.md](fo-folio-named-routes-header.md) |
 | File = rotta, no web.php | [fo-folio-routing-zen.md](fo-folio-routing-zen.md) |
-| Mount + modello mentale | [folio-filesystem-routing-no-web-php.md](../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md) |
+| Mount + modello mentale | [folio-filesystem-routing-no-web-php.md](../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md) |
 | Cache stale | [route-not-found-view-cache.md](../troubleshooting/route-not-found-view-cache.md) |
 
 ## Cosa NON fare (imparato)

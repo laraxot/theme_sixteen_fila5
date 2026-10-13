@@ -739,7 +739,7 @@ Per ogni blocco universale:
 
 ### Indici
 
-- [Main Index](../00-index.md)
+- [Main Index](../00-INDEX.md)
 - [Design Comuni Index](./00-index.md)
 - [Pages Index](./pages/00-index.md)
 - [Blocks Index](./blocks/00-index.md)

@@ -121,9 +121,9 @@ Pattern: `<namespace>::<context>.<collection>.<key>.<type>`
 
 ## Cross-References
 
-- → [HTML Structure Comparison](../../../docs/html-structure-comparison.md)
+- → [HTML Structure Comparison](../../../../../docs/html-structure-comparison.md)
 - → [Design Comuni Index](./00-index.md)
-- → [Master Docs Index](../../../docs/MODULE_DOCS_INDEX.md)
+- → [Master Docs Index](../../../../../docs/MODULE_DOCS_INDEX.md)
 
 ---
 

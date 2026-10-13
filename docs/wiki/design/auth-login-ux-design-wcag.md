@@ -133,6 +133,6 @@ Comando: `pa11y http://127.0.0.1:8000/it/auth/login --standard WCAG2AA --reporte
 ## Collegamenti
 
 - [auth-login-ux-fixes.md](../concepts/auth-login-ux-fixes.md)
-- [mcp-validation-quality-gate.md](../../../../../docs/wiki/mcp-validation-quality-gate.md)
-- [STORY-137](../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md)
-- [ux-design-fixcity.md](../../../../../docs/ux-design-fixcity.md)
+- [mcp-validation-quality-gate.md](../../../../../../docs/wiki/mcp-validation-quality-gate.md)
+- [STORY-137](../../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md)
+- [ux-design-fixcity.md](../../../../../../docs/ux-design-fixcity.md)

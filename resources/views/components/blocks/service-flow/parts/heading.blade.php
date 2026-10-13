@@ -1,11 +1,12 @@
 {{--
-    Titolo di pagina. `heading`: title, title_element (data-element), icon {name, class} (titolo con icona), subtitles[] {text, class, link {label, url, class}},
+    Titolo di pagina. `heading`: title, title_class (classi dell'h1 senza icona, default `title-xxxlarge`), title_element (data-element), icon {name, class} (titolo con icona),
+    subtitles[] {text | segments[] (vedi parts/multa-inline), class, span {text, class} (testo in coda), link {label, url, class, class_first (true = attributo class prima di href)}},
     chips[] {label, element}, buttons[] {label, class, icon}, actions[] (menu a tendina: id, aria_label, icon, label, items[] {label, icon, url}), class.
     Con `actions` il titolo si divide in due colonne (contenuto + azioni), come la scheda servizio.
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $heading = $d('heading', []);
     $actions = $heading['actions'] ?? [];
@@ -18,7 +19,7 @@
             <h1 class="title-xxxlarge">{{ $heading['title'] ?? '' }}</h1>
         </div>
     @else
-        <h1 class="title-xxxlarge"@if (filled($heading['title_element'] ?? null)) data-element="{{ $heading['title_element'] }}"@endif>{{ $heading['title'] ?? '' }}</h1>
+        <h1 class="{{ $heading['title_class'] ?? 'title-xxxlarge' }}"@if (filled($heading['title_element'] ?? null)) data-element="{{ $heading['title_element'] }}"@endif>{{ $heading['title'] ?? '' }}</h1>
     @endif
     @if (filled($heading['chips'] ?? null))
         <ul class="d-flex flex-wrap gap-1 my-3">
@@ -28,7 +29,7 @@
         </ul>
     @endif
     @foreach ($heading['subtitles'] ?? [] as $subtitle)
-        <p class="{{ $subtitle['class'] ?? 'subtitle-small' }}">@include('pub_theme::components.blocks.service-flow.parts.rich', ['text' => $subtitle['text'] ?? ''])@if (filled($subtitle['link'] ?? null)) <a href="{{ $subtitle['link']['url'] ?? '' }}" class="{{ $subtitle['link']['class'] ?? 'title-small-semi-bold t-primary' }}">{{ $subtitle['link']['label'] ?? '' }}</a>@endif</p>
+        <p class="{{ $subtitle['class'] ?? 'subtitle-small' }}">@include('pub_theme::components.blocks.service-flow.parts.multa-inline', ['value' => $subtitle['segments'] ?? ($subtitle['text'] ?? '')])@if (filled($subtitle['span'] ?? null)) <span class="{{ $subtitle['span']['class'] ?? '' }}">{{ $subtitle['span']['text'] ?? '' }}</span>@endif @if (filled($subtitle['link'] ?? null)) @if ($subtitle['link']['class_first'] ?? false)<a class="{{ $subtitle['link']['class'] ?? 'title-small-semi-bold t-primary' }}" href="{{ $subtitle['link']['url'] ?? '' }}">{{ $subtitle['link']['label'] ?? '' }}</a>@else<a href="{{ $subtitle['link']['url'] ?? '' }}" class="{{ $subtitle['link']['class'] ?? 'title-small-semi-bold t-primary' }}">{{ $subtitle['link']['label'] ?? '' }}</a>@endif @endif</p>
     @endforeach
     @foreach ($heading['buttons'] ?? [] as $button)
         <button type="button" class="{{ $button['class'] ?? 'btn btn-primary fw-bold' }}">

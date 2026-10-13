@@ -391,8 +391,8 @@ module.exports = {
 
 - [← Theme Sixteen README](../README.md)
 - [← Components Guide](./components.md)
-- [← Project Roadmap](../../../docs/project-analysis-and-roadmap.md)
-- [← Root Documentation](../../../docs/index.md)
+- [← Project Roadmap](../../../../docs/project-analysis-and-roadmap.md)
+- [← Root Documentation](../../../../docs/index.md)
 
 ---
 

@@ -44,10 +44,10 @@ FOUC: con CSS Vite ritardato 2.5s hero resta verde. CTA secondaria misurata
 
 ## collegamenti
 
-- [atteso Fixcity](../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md)
-- [confronto](../../../../Modules/Fixcity/docs/bmad/homepage-guest-visual-comparison.md)
-- [piano](../../../../Modules/Fixcity/docs/bmad/homepage-guest-visual-correction-plan.md)
+- [atteso Fixcity](../../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md)
+- [confronto](../../../../../Modules/Fixcity/docs/bmad/homepage-guest-visual-comparison.md)
+- [piano](../../../../../Modules/Fixcity/docs/bmad/homepage-guest-visual-correction-plan.md)
 - [contratto Sixteen](../../bmad/homepage-guest-visual-contract.md)
-- [STORY-513](../../../../Modules/Fixcity/docs/bmad/stories/STORY-513-public-guest-visual-demo.md)
+- [STORY-513](../../../../../Modules/Fixcity/docs/bmad/stories/STORY-513-public-guest-visual-demo.md)
 - [bootstrap-italia-tailwind-philosophy](./bootstrap-italia-tailwind-philosophy.md)
 - [visual-parity-verification-rule](./visual-parity-verification-rule.md)

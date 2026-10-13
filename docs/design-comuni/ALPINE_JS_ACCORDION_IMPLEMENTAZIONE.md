@@ -236,7 +236,7 @@ if (activeIndex === current) activeIndex = null  // Chiude
 - [Implementazione FAQ](./DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md)
 - [Analisi Visiva](./DOMANDE_FREQUENTI_ANALISI_VISIVA.md)
 - [Report Finale](./DOMANDE_FREQUENTI_REPORT_FINALE.md)
-- [Master Index](../../../docs/design-comuni/MASTER_INDEX.md)
+- [Master Index](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

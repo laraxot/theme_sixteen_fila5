@@ -116,7 +116,7 @@ discussions: []
 - [screenshots/00-index.md](screenshots/00-index.md) - Indice screenshot
 
 ### Modulo Cms
-- [design-comuni-homepage.md](../../../Modules/Cms/docs/design-comuni-homepage.md) - Homepage parity
+- [design-comuni-homepage.md](../../../../Modules/Cms/docs/design-comuni-homepage.md) - Homepage parity
 
 ### Globale
 - [../../../docs/design-comuni/html-match.md](../../../docs/design-comuni/html-match.md) - Regola globale

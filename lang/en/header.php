@@ -22,6 +22,7 @@ return [
     ],
 
     'user' => [
+        'personal_area' => 'Personal area',
         'welcome' => [
             'label' => 'Hello, :name',
             'placeholder' => '',
@@ -35,6 +36,11 @@ return [
             ],
         ],
         'dropdown' => [
+            // DCP-106: voci che portano a pagine reali dell'area personale (area-personale/{pratiche,seguite,notifiche,impostazioni})
+            'my_reports' => ['label' => 'My reports'],
+            'followed_reports' => ['label' => 'Reports I follow'],
+            'notification_center' => ['label' => 'Notifications'],
+            'settings_privacy' => ['label' => 'Settings and privacy'],
             'my_services' => [
                 'label' => 'My services',
                 'placeholder' => '',

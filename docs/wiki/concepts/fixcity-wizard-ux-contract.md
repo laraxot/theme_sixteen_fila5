@@ -13,7 +13,7 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions"
 related:
   - ./frontend-stack-canonical.md
-  - ../../../../Modules/Fixcity/docs/wiki/overviews/fixcity-module.md
+  - ../../../../../Modules/Fixcity/docs/wiki/overviews/fixcity-module.md
 ---
 
 # Contratto UI/UX del wizard FixCity

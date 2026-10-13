@@ -96,7 +96,7 @@ discussions: []
 - `components/blocks/contacts/faq.blade.php` - Renders contacts ✅
 
 ## Cross-references
-- [Theme Index](../00-index.md) - Main documentation index
+- [Theme Index](../00-INDEX.md) - Main documentation index
 - [Argomenti/Argomento Comparison](./ARGOMENTI-ARGOMENTO-COMPARISON.md) - Related pages
 - [Risultati Ricerca Comparison](./RISULTATI-RICERCA-HTML-COMPARISON.md) - Related page
 - [JSON Content](../../../../config/local/fixcity/database/content/pages/tests.ticket-list.json)

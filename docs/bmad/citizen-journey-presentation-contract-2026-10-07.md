@@ -12,7 +12,7 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/573"
 related:
   - ./homepage-taste-contract-2026-10-07.md
-  - ../../../Modules/Fixcity/docs/bmad/citizen-journey-audit-2026-10-07.md
+  - ../../../../Modules/Fixcity/docs/bmad/citizen-journey-audit-2026-10-07.md
 ---
 
 # Contratto di presentazione dei flussi

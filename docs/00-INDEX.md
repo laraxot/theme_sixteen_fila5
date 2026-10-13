@@ -15,8 +15,20 @@ controller o rotte; le pagine sono Folio + Blade/Volt e le Actions appartengono
 al modulo owner.
 
 Questo file è l'indice operativo unico. `INDEX.md`,
-`DOCUMENTATION_INDEX.md` e `MASTER_DOCUMENTATION.md` sono indici storici:
-non usarli per decidere una nuova struttura.
+`DOCUMENTATION_INDEX.md`, `00-index.md` e `MASTER_DOCUMENTATION.md` sono indici
+storici (suffisso `.old` dal 2026-10-13): non usarli per decidere una nuova
+struttura.
+
+## Riorganizzazione docs 2026-10-13
+
+- `build/` — tutti i 14 documenti Vite/build, con `build/INDEX.md` come ordine
+  di lettura canonico (erano sparse alla root come `vite-*.md`/`VITE_*.md`);
+- `visual-parity/` — struttura consolidata: `reports/`, `screenshots/pages/`
+  (evidenza per pagina), `screenshots/legacy-2026-04/` (evidenza storica),
+  `scripts/` (bug del path annidato `scripts/docs/visual-parity/scripts/`
+  eliminato);
+- `visual-parity-screenshots/` accorpato in `visual-parity/screenshots/pages/`;
+- `visual-comparison/` resta evidence storica cross-referenziata.
 
 ## Percorsi di lettura
 
@@ -33,7 +45,7 @@ non usarli per decidere una nuova struttura.
 11. [design-system](design-system/README.md) — token e componenti del tema;
 12. [pages](pages/) — contratti delle pagine e parity;
 13. [stories](stories/) — storie BMAD e acceptance criteria;
-14. [visual-parity](visual-parity/) — verifiche, screenshot e report;
+14. [visual-parity](visual-parity/) — verifiche, screenshot per pagina e report;
 15. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
 
 ## SSoT per area
@@ -44,7 +56,7 @@ non usarli per decidere una nuova struttura.
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
 | Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
-| Build asset | `vite-theme-integration.md` | log di singole sessioni |
+| Build asset | `build/INDEX.md` | log di singole sessioni |
 | FixCity journeys | `Modules/Fixcity/docs/actor-flows.md` | duplicati nel tema |
 
 ## Regola di consolidamento
@@ -74,4 +86,23 @@ chiude il gate.
 - [Perche' la parity non e' stata completata e guardrail](bmad/decisions/2026-10-13-parity-root-cause-and-guardrails.md)
 - [Dossier dei 14 difetti della homepage](bmad/homepage-visual-parity-defects/DEFECTS-D01-D14.md)
 - [Coordinamento tra agenti](prompts/homepage/00-COORDINATION.md)
+- [Zen del wizard segnalazione (logica/perche'/filosofia/religione/politica)](bmad/decisions/2026-10-13-segnalazione-flow-parity-zen.md)
+- [DCP-32 wizard step 1 privacy](bmad/stories/2026-10-13-dcp-32-wizard-step1-privacy.story.md) · [DCP-33 step 2 dati + mappa](bmad/stories/2026-10-13-dcp-33-wizard-step2-dati.story.md) · [DCP-34 step 3 riepilogo + mappa](bmad/stories/2026-10-13-dcp-34-wizard-step3-riepilogo.story.md) · [DCP-35 conferma](bmad/stories/2026-10-13-dcp-35-conferma-parity.story.md)
 - Strumenti: `bashscripts/docs/visual-comparison/INDEX.md`
+
+## Wizard /it/tickets/create: DCP-35 (Fixcity) e D15
+- [DCP-35 (modulo Fixcity): passi 1 e 2 del wizard e coordinamento tra agenti](../../../Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md): attenzione, la numerazione DCP-32..35 esiste anche nelle story del tema (voci sopra), con significato diverso (qui DCP-35 = conferma)
+- [D15: il Volt della pagina generica ha una radice propria](decision-log/D15-volt-fragment-explicit-root.md): causa di `MethodNotFoundException` su «Avanti»; esiste un secondo D15, [conferma post-save](decision-log/D15-conferma-post-save.md)
+
+## Story tickets/create lato tema (2026-10-13)
+- [DCP-40 radice del Volt nella pagina generica](bmad/stories/2026-10-13-dcp-40-volt-radice-widget-livewire.story.md)
+- [DCP-50 guardia di compilazione dei template Blade](bmad/stories/2026-10-13-dcp-50-guardia-compilazione-template-blade.story.md)
+- [D15 radice del Volt (decisione)](decision-log/D15-volt-fragment-explicit-root.md)
+
+## Multilingua it, en, de, es (DCP-120)
+- [i18n/INDEX.md](i18n/INDEX.md): comportamento multilingua (lingua, fallback, selettore, link, formati) e glossario di traduzione
+- [DCP-120 copertura de/es](bmad/stories/2026-10-13-dcp-120-multilingua-comportamenti-e-copertura.story.md) · [DCP-123 lingua dichiarata e link localizzati](bmad/stories/2026-10-13-dcp-123-lingua-dichiarata-e-link-localizzati.story.md)
+- [Multilingua e dispositivi: comportamenti osservati](wiki/concepts/multilingua-e-dispositivi-comportamenti.md): misure su lingua, selettore, wizard, formati, menu e bersagli tattili a 375, 768, 1024, 1440 (studio in [DCP-55](bmad/stories/2026-10-13-dcp-55-multilingua-e-dispositivi.story.md))
+
+## Area personale (DCP-106, DCP-110)
+- [DCP-110 area personale: Le mie segnalazioni e Segnalazioni che seguo](bmad/stories/2026-10-13-dcp-110-area-personale-pratiche-e-seguite.story.md)

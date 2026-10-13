@@ -540,12 +540,12 @@ Per ogni pagina:
 - [Pages Docs](../design-comuni/pages/)
 
 ### Script & Automazione
-- [Bashscripts Design Comuni](../../../bashscripts/design-comuni/)
-- [Bashscripts Docs](../../../bashscripts/docs/design-comuni/)
+- [Bashscripts Design Comuni](../../../../../bashscripts/design-comuni)
+- [Bashscripts Docs](../../../../../bashscripts/docs/design-comuni)
 
 ### Moduli Correlati
-- [Cms Module](../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md)
-- [UI Module](../../../Modules/UI/docs/00-index.md)
+- [Cms Module](../../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md)
+- [UI Module](../../../../Modules/UI/docs/00-INDEX.md)
 
 ### Esterni
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/)

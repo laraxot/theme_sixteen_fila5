@@ -44,7 +44,7 @@ Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
-| 🇬🇧 Business card | [docs/readme-en.md](./docs/readme-en.md) |
+| 🇬🇧 Business card | [docs/readme-en.md](./readme-en.md) |
 | 📚 Wiki tecnica | [./wiki/](./wiki/) |
 
 ---

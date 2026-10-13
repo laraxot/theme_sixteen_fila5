@@ -19,7 +19,7 @@ discussions: []
 PubThemeWizard.php (PHP) = LOGICA + VESTITO DEFAULT
     ↓ (line 18: protected string $view = 'pub_theme::components.wizard';)
     ↓
-ticket-create-wizard.blade.php (NON USATO — fallback only)
+create-ticket-wizard.blade.php (shell del widget: USATO, risolto da GetViewByClassAction in `pub_theme::filament.widgets.create-ticket-wizard`; correzione verificata 2026-10-13)
     ↓
 pub_theme::components.wizard (VESTITO ATTUALE — nostro Design Comuni)
     ↓

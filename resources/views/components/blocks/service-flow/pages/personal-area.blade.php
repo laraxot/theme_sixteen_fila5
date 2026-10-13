@@ -6,7 +6,7 @@
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
     $parts = 'pub_theme::components.blocks.service-flow.parts';
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="container" id="main-container">
