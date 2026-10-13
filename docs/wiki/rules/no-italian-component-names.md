@@ -13,9 +13,9 @@ discussions:
   - https://github.com/laraxot/base_fixcity_fila5/discussions/265
 related:
   - ../../../../../docs/wiki/bmad/architecture-r12-english-only-view-paths.md
-  - ../../../../../docs/wiki/memories/english-only-file-naming.md
+  - ../../../../../../docs/wiki/memories/english-only-file-naming.md
   - ../concepts/ticket-list-map-integration.md
-  - ../../../../../docs/wiki/rules/no-italian-folder-names-in-code.md
+  - ../../../../../../docs/wiki/rules/no-italian-folder-names-in-code.md
   - ../../../../../Modules/Geo/docs/wiki/rules/js-file-english-naming-rule.md
   - ../../../../../.cursor/rules/english-only-naming.mdc
 ---
@@ -99,7 +99,7 @@ find . -type d -name "segnalazi*" -o -name "pratic*" -o -name "servizi*" | grep 
 `__()` accetta **solo** chiavi i18n inglesi (`namespace::path.to.key`), mai copy UI italiana come chiave.
 Il valore tradotto vive in `lang/{locale}/`, non nel template.
 
-Canon esteso: [no-italian-in-html-attributes.md](../../../../../docs/wiki/rules/no-italian-in-html-attributes.md) · [no-italian-in-methods-and-blades.md](../../../../../docs/wiki/agents/rules/no-italian-in-methods-and-blades.md)
+Canon esteso: [no-italian-in-html-attributes.md](../../../../../../docs/wiki/rules/no-italian-in-html-attributes.md) · [no-italian-in-methods-and-blades.md](../../../../../docs/wiki/agents/rules/no-italian-in-methods-and-blades.md)
 
 ## Stato rename (2026-06-10)
 

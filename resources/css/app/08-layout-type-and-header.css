@@ -509,7 +509,7 @@ html body {
 }
 
 .it-header-slim-wrapper .btn-icon.btn-full,
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: flex-start !important;

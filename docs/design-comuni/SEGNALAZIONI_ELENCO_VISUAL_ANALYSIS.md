@@ -212,7 +212,7 @@ discussions: []
 
 - **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
 - **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---

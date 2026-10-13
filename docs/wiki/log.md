@@ -51,7 +51,7 @@ discussions: []
 
 - Tabella `name()` ↔ `@volt()` in `folio-page-pattern.md` (`container0.index` / `container0.view` / `container1.index`)
 - `folio-route-params-mount.md` + `volt-usage-rule.md` allineati
-- Cms: [folio-page-shell-pattern](../../../Modules/Cms/docs/wiki/concepts/folio-page-shell-pattern.md)
+- Cms: [folio-page-shell-pattern](../../../../Modules/Cms/docs/wiki/concepts/folio-page-shell-pattern.md)
 
 ## [2026-06-05] docs | @volt obbligatorio su Folio+Component — canon allineato
 
@@ -123,9 +123,9 @@ discussions: []
 
 ## [2026-06-03] docs | map-lit marker + popup — ricostruzione e confini tema
 
-- **SSoT modulo:** [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — dimensioni pin, DOM, popup BEM, checklist build
+- **SSoT modulo:** [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — dimensioni pin, DOM, popup BEM, checklist build
 - **Tema:** [geo-map-marker-civic-pin-theme-boundary.md](concepts/geo-map-marker-civic-pin-theme-boundary.md), [geo-map-popup-leaflet-boundary.md](concepts/geo-map-popup-leaflet-boundary.md)
-- **Runbook popup vuoto:** [map-popup-header-whitespace-fix.md](../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md) — `<div class="popup__header">` vs `header { min-height: 222px }`
+- **Runbook popup vuoto:** [map-popup-header-whitespace-fix.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md) — `<div class="popup__header">` vs `header { min-height: 222px }`
 - **Codice:** `marker-config.js` (`__shell`/`__inner`/`__point`), `popup-ticket.js` (STORY-132), `07-map-clusters-and-leaflet.css`
 
 ## [2026-06-01] rule | Frontend stack canonico + naming blocchi CMS
@@ -164,16 +164,16 @@ discussions: []
 
 ## [2026-05-15] concept | Tailwind `@apply` come alias preferito
 
-- Documentato in [bootstrap-italia-tailwind-philosophy](concepts/bootstrap-italia-tailwind-philosophy.md), [design-comuni-class-mapping](entities/design-comuni-class-mapping.md); modulo Cms [daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); Fixcity `wizard-architecture-filament-theme-boundary`.
+- Documentato in [bootstrap-italia-tailwind-philosophy](concepts/bootstrap-italia-tailwind-philosophy.md), [design-comuni-class-mapping](entities/design-comuni-class-mapping.md); modulo Cms [daisyui-pro-contro-metriche](../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); Fixcity `wizard-architecture-filament-theme-boundary`.
 
 ## [2026-05-15] reference | DaisyUI pro/contro/percentuali (Cms + Sixteen)
 
-- SSoT: [Modules/Cms/docs/daisyui-pro-contro-metriche](../../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); sintesi tema [concepts/daisyui-pro-contro-metriche](concepts/daisyui-pro-contro-metriche.md); indici Cms/UI e [daisyui-componenti](../../../../../Modules/Cms/docs/daisyui-componenti.md) aggiornati.
+- SSoT: [Modules/Cms/docs/daisyui-pro-contro-metriche](../../../../Modules/Cms/docs/daisyui-pro-contro-metriche.md); sintesi tema [concepts/daisyui-pro-contro-metriche](concepts/daisyui-pro-contro-metriche.md); indici Cms/UI e [daisyui-componenti](../../../../Modules/Cms/docs/daisyui-componenti.md) aggiornati.
 
 ## [2026-05-15] wiki | DaisyUI nel stack documentato (tema + moduli)
 
 - Tema: [entities/design-comuni-class-mapping.md](entities/design-comuni-class-mapping.md) (sezione DaisyUI), [concepts/design-comuni-site-wide-component-css-rule.md](concepts/design-comuni-site-wide-component-css-rule.md), [wiki index](index.md).
-- Moduli: Fixcity (`fixcity-module`, `wizard-architecture-filament-theme-boundary`), Geo [wiki index](../../../../Modules/Geo/docs/wiki/index.md), Cms `daisyui-componenti.md` + `index`, UI `mcp-ui-ux.md`; root rule [011-blocks-view-convention.md](../../../../docs/wiki/rules/011-blocks-view-convention.md).
+- Moduli: Fixcity (`fixcity-module`, `wizard-architecture-filament-theme-boundary`), Geo [wiki index](../../../../Modules/Geo/docs/wiki/index.md), Cms `daisyui-componenti.md` + `index`, UI `mcp-ui-ux.md`; root rule [011-blocks-view-convention.md](../../../../../docs/wiki/rules/011-blocks-view-convention.md).
 
 ## [2026-05-15] entity | design-comuni-class-mapping — albero upstream `src/stylesheets`
 
@@ -181,7 +181,7 @@ discussions: []
 
 ## [2026-05-15] Import Geo mappa via `@modules`
 
-- **2026-05-28:** rimosso fork vietato `geo-map-lit-local.js`; mappa elenco solo via `import map-lit.js` in `app.js` — regola [no-theme-map-lit-fork](../../../../docs/wiki/rules/no-theme-map-lit-fork.md).
+- **2026-05-28:** rimosso fork vietato `geo-map-lit-local.js`; mappa elenco solo via `import map-lit.js` in `app.js` — regola [no-theme-map-lit-fork](../../../../../docs/wiki/rules/no-theme-map-lit-fork.md).
 - Boundary aggiornato: [concepts/theme-geo-js-boundary.md](concepts/theme-geo-js-boundary.md).
 
 ## [2026-05-15] Geo map styles mirror
@@ -849,7 +849,7 @@ discussions: []
   - creata story dedicata per estrarre blocchi riusabili dal section header mantenendo `v1.blade.php` come owner
   - candidati espliciti: language switcher, user dropdown, guest CTA e blocchi presentazionali affini
   - regola DRY + KISS aggiornata da story 8-37: eventuali estrazioni locali all'header solo sotto `resources/views/components/sections/header/partials/`, mai come nuovo header parallelo
-  - wiki root: [sixteen-header-composition-rule](../../../../docs/wiki/concepts/sixteen-header-composition-rule.md); aggiornati README tema, AGENTS, MEMORY, `.cursor/rules/sixteen-header-v1-ssot.mdc`
+  - wiki root: [sixteen-header-composition-rule](../../../../../docs/wiki/concepts/sixteen-header-composition-rule.md); aggiornati README tema, AGENTS, MEMORY, `.cursor/rules/sixteen-header-v1-ssot.mdc`
 
 ## [2026-04-20] implement | header slim segnalazione-crea fixato nel section owner reale
 
@@ -1233,5 +1233,31 @@ discussions: []
 ## 2026-06-10 — docs Folio consolidate
 
 - `personal-area-routes.md` allineato al canon (deprecato nomi IT)
-- `fo-folio-named-routes-header.md` sezione Imparato
+- `fo-folio-named-routes.md` sezione Imparato
 - INDEX Folio FO sezione unificata
+
+## 2026-10-13 — docs organization + wizard segnalazione parity
+
+- **Riorganizzazione docs** (governance: no-rm, .old suffix, DRY):
+  `build/` per i 14 doc Vite (con `build/INDEX.md`); `visual-parity/`
+  consolidato (`reports/`, `screenshots/pages/` evidenza per pagina,
+  `screenshots/legacy-2026-04/`); bug path annidato
+  `visual-parity/scripts/docs/visual-parity/scripts/` eliminato;
+  indici root duplicati (`INDEX.md`, `DOCUMENTATION_INDEX.md`,
+  `00-index.md`) ritirati con `.old`; `00-INDEX.md` e
+  `visual-parity/INDEX.md` aggiornati.
+- **Nuova regola** `wiki/rules/cms-content-slug-matches-folio-page-name.md`:
+  il JSON di contenuto si chiama come lo slug interrogato (= nome pagina
+  Folio). Correzione: `/it/tickets/create` usa `tickets.create.json`
+  (famiglia app), NON `tests.tickets-create.json` (famiglia anteprima
+  parity `tests.<slug>.json`). Registrata anche nel second brain.
+- **Wizard segnalazione** (BMAD + second brain): decisione zen
+  `bmad/decisions/2026-10-13-segnalazione-flow-parity-zen.md`
+  (perché Filament: no-controllers; la parity la fa il tema; la mappa
+  localizza il danno); storie DCP-32/33/34/35; heading wizard corretto
+  in `create-ticket-wizard.blade.php` (era Tailwind `text-4xl
+  font-bold text-slate-900`, ora `title-xxxlarge`/`subtitle-small`);
+  `callSchemaComponentMethod` verificato presente su `XotBaseSchemaWidget`
+  (via `InteractsWithSchemas`): errore Livewire non riproducibile.
+- **Swarm**: 3 subagenti in parallelo su DCP-33 (dati+mappa), DCP-34
+  (riepilogo infolist→cmp-info-summary), DCP-35 (conferma).

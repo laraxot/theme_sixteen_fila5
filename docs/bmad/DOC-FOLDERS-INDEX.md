@@ -40,5 +40,16 @@ type: bmad-index
 - `qmd` indexing per ricerche rapide su `docs/`
 - `docs/chat/` per nuove conversazioni (senza date nei nomi file, regola `agent-chat-directory.md`)
 
+## Filament Wizard — /it/tickets/create (NEW)
+- Story: `docs/bmad/stories/fil-tickets-create-filament-wizard-parity.story.md`
+- WHY: design-comuni `segnalazione-01-privacy.html` = multi-step form → Filament wizard = step navigation (97% parity)
+- Component: Filament wizard (native), NO custom form HTML
+- JSON: `tickets.create.json` (config/local/fixcity; verifica con `bashscripts/tools/cms/page-json-for-url.sh`)
+- Module docs: update per module owning tickets
+- Second brain rule: wizard = Filament component (not custom HTML)
+
 ## Stack confirmation
 TailwindCSS + Alpine.js + Lit + DaisyUI + Flowbite (NO Bootstrap Italia). Token `bg-primary-600` / `bg-primary-500` per primario; `focus:ring-primary-500` per accessibilità.
+
+## Filament Wizard Rule (new, from tickets/create request)
+When visual parity requires multi-step form (design-comuni segnalazione/privay/accesso), USE Filament `Wizard` component, NOT custom Blade form. Matches design-comuni pattern exactly.

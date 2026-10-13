@@ -170,7 +170,7 @@ Differenze minori nel footer
 
 - **Screenshot**: [screenshots/argomenti/](./screenshots/argomenti/)
 - **Script**: [bashscripts/design-comuni/capture-argomenti.js](../../../bashscripts/design-comuni/capture-argomenti.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

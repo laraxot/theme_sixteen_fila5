@@ -426,8 +426,8 @@ $configPath = base_path('config/local/fixcity/database/content/pages/'.$slug.'.j
 - [Layout Architecture](./layout-architecture.md)
 - [Blocks Implementation](../BLOCKS_IMPLEMENTATION.md)
 - [ThemeServiceProvider](../../app/Providers/ThemeServiceProvider.php)
-- [Page Component PHP](../../../Modules/Cms/app/View/Components/Page.php)
-- [Page Component Blade CMS](../../../Modules/Cms/resources/views/components/page.blade.php)
+- [Page Component PHP](../../../../Modules/Cms/app/View/Components/Page.php)
+- [Page Component Blade CMS](../../../../Modules/Cms/resources/views/components/page.blade.php)
 - [Page Component Blade Theme](../../resources/views/components/page.blade.php)
 
 ---

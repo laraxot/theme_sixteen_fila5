@@ -22,7 +22,7 @@ Metodo gia' provato su homepage, risultati-ricerca, appuntamento-02-data-orario,
 - Mai: file Folio o layout per singola pagina, `class="dc-page"`/wrapper inventati, `<style>` o CSS a mano, `!important`, `x-data` nel markup, testo cablato nelle viste,
   `<script>` del riferimento, `app.js`/CSS/JS condivisi modificati.
 - Il markup del blocco **segue quello del riferimento** (stesse classi, stessi tag): i suoi stili vengono estratti dal CSS originale (`extract-used-css.mjs`) e isolati dal CSS legacy da un
-  plugin PostCSS. Lo scope e' `body:has(.page-content[data-slug*="tests."])`. Per questo la parity visiva arriva da sola se il markup e' fedele.
+  plugin PostCSS. Lo scope e' `body:has(.page-content[data-dc])`. Per questo la parity visiva arriva da sola se il markup e' fedele.
 
 ## Passi
 1. **Baseline**: `bashscripts/tools/visual/parity-gate.sh <ref-url> http://192.168.1.40:8000/it/tests/<slug> --stub-images 'picsum\.photos|via\.placeholder\.com' --fail-if-contains '|---LINE:'`.

@@ -13,7 +13,7 @@ discussions: []
 
 **Status**: CSS/JS COMPLETATO  
 **Data**: 2026-04-02 13:15  
-**Riferimenti**: [← Piano CSS/JS](../design-comuni-html-match-css-js-plan.md) | [← Index](../00-index.md)
+**Riferimenti**: [← Piano CSS/JS](../design-comuni-html-match-css-js-plan.md) | [← Index](../00-INDEX.md)
 
 ---
 

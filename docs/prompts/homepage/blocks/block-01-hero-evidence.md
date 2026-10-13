@@ -153,8 +153,8 @@ discussions: []
 - ← [Indice Blocchi](./00-index.md)
 - ← [INDEX.md](./INDEX.md)
 - → [04-hero-section.md](./04-hero-section.md) — dettaglio struttura Bootstrap Italia
-- → [Blade Component](../../../../../laravel/Themes/Sixteen/resources/views/components/blocks/hero/homepage.blade.php)
-- → [JSON](../../../../../laravel/config/local/fixcity/database/content/pages/tests.homepage.json)
+- → [Blade Component](../../../../resources/views/components/blocks/hero/homepage.blade.php)
+- → [JSON](../../../../../../config/local/fixcity/database/content/pages/tests.homepage.json)
 
 ---
 

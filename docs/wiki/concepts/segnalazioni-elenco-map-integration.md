@@ -70,7 +70,7 @@ Properties minime per marker/popup:
 ## UX attesa (2026-06)
 
 - Cluster farmshops-style; `removeOutsideVisibleBounds: false`
-- Marker: `__inner` stato + `__glyph-pad` bianco + `__point` (triangolo CSS); vedi [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
+- Marker: `__inner` stato + `__glyph-pad` bianco + `__point` (triangolo CSS); vedi [geo-map-lit-reconstruction-guide.md](../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
 - Popup **block `popup`**: apertura immediata, dettaglio lazy `/api/ticket-details/{id}`
 - Popup **senza** vuoto header (vedi runbook sotto)
 - Hover cluster/marker: ombra only, no transform
@@ -88,7 +88,7 @@ Doc build: [map-lit-vite-build-troubleshooting.md](./map-lit-vite-build-troubles
 
 ## Documentazione ricostruzione
 
-- [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
+- [geo-map-lit-reconstruction-guide.md](../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
 - [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents-2026-06.md)
 
 ## Riferimenti codice

@@ -11,8 +11,8 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/363"
 related:
   - ../../folio-page-pattern.md
-  - ../../../../Modules/Cms/docs/wiki/concepts/cms-page-middleware-json-ssot.md
-  - ../../../../Modules/Cms/docs/wiki/concepts/folio-volt-static-mount-contract.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/cms-page-middleware-json-ssot.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/folio-volt-static-mount-contract.md
   - fo-folio-routing-zen.md
 ---
 
@@ -66,7 +66,7 @@ Nel JSON CMS il campo `middleware` contiene middleware singoli risolvibili dal k
 
 **Fallback in `mount()`:** se il record CMS non è ancora in Sushi/JSON runtime, `PageSlugMiddleware` non applica `auth` — le pagine app possono reindirizzare a login in `mount()` prima di query DB (es. `pratiche`).
 
-Canon: [cms-page-middleware-json-ssot.md](../../../../Modules/Cms/docs/wiki/concepts/cms-page-middleware-json-ssot.md).
+Canon: [cms-page-middleware-json-ssot.md](../../../../../Modules/Cms/docs/wiki/concepts/cms-page-middleware-json-ssot.md).
 
 ## Due famiglie di pagine Sixteen
 

@@ -12,7 +12,7 @@
 ])
 
 <section class="fc-home-hero" aria-labelledby="fc-home-hero-heading">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="fc-home-hero__inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="fc-home-hero__copy">
             <p class="fc-eyebrow">{{ $eyebrow }}</p>
             <h1 id="fc-home-hero-heading">{{ $heading }}</h1>

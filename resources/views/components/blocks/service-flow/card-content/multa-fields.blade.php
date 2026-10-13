@@ -4,7 +4,7 @@
     radios {wrapper_class, name, required, options[] {label (\n = a capo), body_class, label_class}} (id = <name>-<n>),
     input {wrapper_class (contenitore esterno, opzionale), group_class, label, label_class, type, class, id, name, required, value},
     date {wrapper_class, group_class, label, label_class, class, id, name, required} (campo data nativo),
-    summary {group} (parts/multa-info-summary), box {class, fields[]} (contenitore con altri campi).
+    summary {group} (parts/info-summary), box {class, fields[]} (contenitore con altri campi).
     Il testo va nel JSON; qui solo il markup. La validazione (#justValidateMulta) e' del comportamento condiviso.
 --}}
 @foreach ($content['fields'] ?? [] as $field)
@@ -49,7 +49,7 @@
             </div>
             @break
         @case('summary')
-            @include('pub_theme::components.blocks.service-flow.parts.multa-info-summary', ['group' => $field['group'] ?? []])
+            @include('pub_theme::components.blocks.service-flow.parts.info-summary', ['group' => $field['group'] ?? []])
             @break
         @case('box')
             <div class="{{ $field['class'] ?? '' }}">

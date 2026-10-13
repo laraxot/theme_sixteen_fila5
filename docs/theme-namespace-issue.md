@@ -166,7 +166,7 @@ View [pub_theme::layouts.auth-agid] not found
 
 ## Collegamenti
 
-- [XotBaseThemeServiceProvider](../../../laravel/Modules/Xot/app/Providers/XotBaseThemeServiceProvider.php)
+- [XotBaseThemeServiceProvider](../../../Modules/Xot/app/Providers/XotBaseThemeServiceProvider.php)
 - [Documentazione Tema One](../../../laravel/Themes/One/app/Providers/ThemeServiceProvider.php)
 - [Configurazione Temi](../../../laravel/config/xot.php)
 

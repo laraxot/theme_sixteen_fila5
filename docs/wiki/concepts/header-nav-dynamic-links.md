@@ -10,7 +10,7 @@ created: 2026-05-04
 updated: 2026-05-04
 tags: [header, navigation, dynamic-links, design-comuni, six-teen-theme]
 related:
-  - ../../Modules/Cms/docs/wiki/concepts/header-nav-block-architecture.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/header-nav-block-architecture.md
   - header-ssot.md
   - header-design-comuni-parity-mapping.md
 ---

@@ -86,7 +86,7 @@ cd laravel/Themes/Sixteen && npm run build
 | Anchor sbagliato | `iconAnchor: [20, 44]` |
 | Glifo gigante | Tema non forza 28px su marker singolo |
 
-SSoT: [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) § marker.
+SSoT: [geo-map-lit-reconstruction-guide.md](../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) § marker.
 
 ---
 
@@ -94,4 +94,4 @@ SSoT: [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/co
 
 - [geo-map-popup-leaflet-boundary.md](./geo-map-popup-leaflet-boundary.md)
 - [marker-cluster-hover-stability.md](./marker-cluster-hover-stability.md)
-- [geo-map-marker-status-background.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-marker-status-background.md)
+- [geo-map-marker-status-background.md](../../../../../Modules/Geo/docs/wiki/concepts/geo-map-marker-status-background.md)

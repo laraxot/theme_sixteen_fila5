@@ -4,7 +4,7 @@
  */
 
 /* STORY-147: slim logged toggle — verde comune su fascia dark (parity logged-original-closed) */
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full {
   display: inline-flex !important;
   align-items: center !important;
   height: 3rem !important;
@@ -21,24 +21,24 @@
   }
 }
 
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full:hover,
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full:focus-visible {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full:hover,
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full:focus-visible {
   background: #00684a !important;
   color: #fff !important;
 }
 
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full .rounded-icon {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full .rounded-icon {
   background: #fff !important;
 }
 
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full .rounded-icon img {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full .rounded-icon img {
   width: 20px !important;
   height: 20px !important;
   object-fit: cover !important;
 }
 
 /* Iniziale verde su cerchio bianco (parity logged-original); vince su ticket-parity span{color:#fff} */
-.it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full .rounded-icon .user-initial-fallback {
+.it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full .rounded-icon .user-initial-fallback {
   color: #00402b !important;
   font-size: 0.75rem !important;
   line-height: 1 !important;
@@ -137,13 +137,13 @@
 /* STORY-147 UX: mobile slim logged — solo avatar (vince su ticket-parity span inline-block) */
 @media (max-width: 991.98px) {
   .it-header-slim-wrapper .it-user-wrapper .d-none.d-lg-block,
-  .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full > span.d-none.d-lg-block,
-  .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full > svg.d-none.d-lg-block,
-  .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full > span:not(.rounded-icon) {
+  .it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full > span.d-none.d-lg-block,
+  .it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full > svg.d-none.d-lg-block,
+  .it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full > span:not(.rounded-icon) {
     display: none !important;
   }
 
-  .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full {
+  .it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full {
     width: 48px !important;
     min-width: 48px !important;
     max-width: 48px !important;
@@ -153,7 +153,7 @@
     gap: 0 !important;
   }
 
-  .it-header-slim-wrapper .it-user-wrapper > a.btn.btn-primary.btn-icon.btn-full .rounded-icon {
+  .it-header-slim-wrapper .it-user-wrapper > :is(a, button).btn.btn-primary.btn-icon.btn-full .rounded-icon {
     width: 24px !important;
     height: 24px !important;
     min-width: 24px !important;

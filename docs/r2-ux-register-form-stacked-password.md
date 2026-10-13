@@ -12,7 +12,7 @@ discussions:
 related:
   - ../../Xot/docs/xotbase-schemawidget-pattern.md
   - ../../User/docs/r1-form-fields-self-validate.md
-  - ../../../docs/chat/register-flow-religions-r1-r6.md
+  - ../../../../docs/chat/register-flow-religions-r1-r6.md
   - login-refactoring-plan.md
   - ARCHITECTURE-QUEUEABLE-ACTION.md
   - ../../../docs/wiki/memories/form-fields-self-validate-religion.md

@@ -120,5 +120,5 @@ Based on the comparison:
 
 **Related Docs**:
 - [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

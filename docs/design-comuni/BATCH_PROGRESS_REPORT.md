@@ -94,7 +94,7 @@ discussions: []
 - **Report Completo**: [BATCH_PAGES_ANALYSIS.md](./BATCH_PAGES_ANALYSIS.md)
 - **Screenshot**: [screenshots/batch-analysis/](./screenshots/batch-analysis/)
 - **Script**: [bashscripts/design-comuni/analyze-all-pages-batch.js](../../../bashscripts/design-comuni/analyze-all-pages-batch.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---

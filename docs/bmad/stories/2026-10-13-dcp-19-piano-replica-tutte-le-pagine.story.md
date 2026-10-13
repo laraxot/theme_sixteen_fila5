@@ -3,7 +3,7 @@ id: dcp-19
 title: "DCP-19: piano per replicare tutte le pagine del riferimento (76 pagine, ondate parallele)"
 type: story
 epic: dc-parity-v2
-status: in-progress
+status: in-review
 priority: P0
 owner: theme:Sixteen
 created: 2026-10-13
@@ -43,3 +43,7 @@ Ordine casuale: novita-assistenza, srv-pagamento, srv-vantaggi, liste-servizi, s
 
 ## Criteri di accettazione
 Per ogni pagina: gate superato o differenza spiegata (valori di URL), story con l'output del gate, pagina registrata nei manifest; nessuna regressione sulle pagine gia' fatte; `/it` e `/it/tickets` invariati.
+
+## Stato a fine giornata (2026-10-13, misurato)
+Tutte le pagine del riferimento hanno una pagina di prova guidata da JSON, con pixel >= 99,5% a 5 larghezze e altezze uguali: sito/ 35, servizi/ 44 (famiglie DCP-20..30 + catalogo `servizi/index.html` in [DCP-31](2026-10-13-dcp-31-servizi-index-catalogo-flussi.story.md)) + catalogo `index.html`. Le 2 pagine che il catalogo elenca ma il riferimento non pubblica (`graduatoria-pagamento`, `pagamenti-multa-pagamento`) non hanno parity da dichiarare. HTML rigoroso >= 90 solo su una parte: decisione in [DCP-94](2026-10-13-dcp-94-decisione-metrica-html-rigorosa.story.md). Le pagine reali (non di prova) del flusso segnalazione sono nel registro [DCP-97](2026-10-13-dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md).
+

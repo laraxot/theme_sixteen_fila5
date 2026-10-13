@@ -59,7 +59,7 @@
                         </ul>
                     </div>
                 </div>
-                <a href="{{ $account['url'] ?: '#' }}" class="inline-flex min-h-12 items-center gap-2 rounded bg-[#006b4f] px-4 font-semibold !text-white no-underline transition-colors hover:bg-[#00805b] focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+                <a href="{{ $account['url'] ?: '#' }}" aria-label="{{ $account['label'] ?: 'Accedi' }}" class="inline-flex min-h-12 items-center gap-2 rounded bg-[#006b4f] px-4 font-semibold !text-white no-underline transition-colors hover:bg-[#00805b] focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
                     <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7v1a4 4 0 01-4 4H9a4 4 0 01-4-4V7m8 0V5a4 4 0 10-8 0v2m8 0h2a2 2 0 012 2v5m-2 5H9a2 2 0 01-2-2V9m0 0h10"></path></svg>
                     <span class="hidden sm:inline">{{ $account['label'] ?: 'Accedi' }}</span>
                 </a>

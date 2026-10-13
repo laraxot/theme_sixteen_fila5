@@ -22,96 +22,58 @@
 @endphp
 
 <div
-    class="cmp-card mb-4 mb-lg-30"
+    class="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
     data-public-ticket-card
     data-filter-type="{{ $ticketTypeValue }}"
     data-filter-status="{{ $ticketStatusValue }}"
->
-    <div class="card has-bkg-grey shadow-sm">
-        <div class="card-body p-0">
-            <div class="cmp-info-button-card">
-                <div class="card p-3 p-lg-4">
-                    <div class="card-body p-0">
-                        <h3 class="medium-title mb-0">{{ $item->name ?? '' }}</h3>
+    x-data="{ open: false }">
+        <h3 class="text-xl font-bold text-slate-950">{{ $item->name ?? '' }}</h3>
                         @if($itemTypeLabel)
-                            <p class="card-info">
-                                {{ __($ns . '.card.type.label') }}<br><span>{{ $itemTypeLabel }}</span>
+                            <p class="mt-2 text-sm text-slate-700">
+                                {{ __($ns . '.card.type.label') }}: <span>{{ $itemTypeLabel }}</span>
                             </p>
                         @endif
 
-                        <div class="accordion-item">
-                            <div class="accordion-header">
+                        <div class="mt-4">
                                 <button
-                                    class="collapsed accordion-button"
+                                    class="min-h-11 rounded-lg border-2 border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-800/20"
                                     type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#{{ $collapseId }}"
-                                    aria-expanded="false"
+                                    x-on:click="open = !open"
+                                    x-bind:aria-expanded="open.toString()"
                                     aria-controls="{{ $collapseId }}"
                                 >
-                                    <span class="d-flex align-items-center">
-                                        {{ __($ns . '.card.expand.button.label') }}
-                                        <svg class="icon icon-primary icon-sm">
-                                            <use href="{{ $sprite }}#it-expand"></use>
-                                        </svg>
-                                    </span>
+                                    {{ __($ns . '.card.expand.button.label') }}
                                 </button>
-                            </div>
-                            <div id="{{ $collapseId }}" class="accordion-collapse collapse @if ($loop->first ?? false) pb-0 @endif" role="region">
-                                <div class="accordion-body p-0">
-                                    <div class="cmp-info-summary bg-white border-0">
-                                        <div class="card">
-                                            <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-end">
-                                                <a href="#" class="d-none text-decoration-none" data-element="ticket-edit">
-                                                    <span class="text-button-sm-semi t-primary">{{ __($ns . '.card.edit.link.label') }}</span>
-                                                </a>
-                                            </div>
-                                            <div class="card-body p-0">
+                            <div id="{{ $collapseId }}" x-cloak x-show="open" class="mt-4 space-y-3 border-t border-slate-200 pt-4" role="region">
                                                 @if ($itemAddress)
-                                                    <div class="single-line-info border-light">
-                                                        <div class="text-paragraph-small">{{ __($ns . '.card.address.label') }}</div>
-                                                        <div class="border-light">
-                                                            <p class="data-text">{{ $itemAddress }}</p>
-                                                        </div>
+                                                    <div>
+                                                        <div class="text-sm font-semibold text-slate-600">{{ __($ns . '.card.address.label') }}</div>
+                                                        <p class="mt-1 text-slate-800">{{ $itemAddress }}</p>
                                                     </div>
                                                 @endif
                                                 @if (! empty($item->content ?? null))
-                                                    <div class="single-line-info border-light">
-                                                        <div class="text-paragraph-small">{{ __($ns . '.card.detail.label') }}</div>
-                                                        <div class="border-light">
-                                                            <p class="data-text">{{ $item->content }}</p>
-                                                        </div>
+                                                    <div>
+                                                        <div class="text-sm font-semibold text-slate-600">{{ __($ns . '.card.detail.label') }}</div>
+                                                        <p class="mt-1 text-slate-800">{{ $item->content }}</p>
                                                     </div>
                                                 @endif
                                                 @if ($demoImages > 0)
-                                                    <div class="single-line-info border-light">
-                                                        <div class="text-paragraph-small">{{ __($ns . '.card.photos.label') }}</div>
-                                                        <div class="border-light border-0">
-                                                            <div class="d-lg-flex gap-2 mt-3">
+                                                    <div>
+                                                        <div class="text-sm font-semibold text-slate-600">{{ __($ns . '.card.photos.label') }}</div>
+                                                        <div class="mt-3 grid gap-3 sm:grid-cols-2">
                                                                 @for ($i = 0; $i < $demoImages; $i++)
                                                                     <div>
                                                                         <img
                                                                             src="{{ $imageSrc }}"
                                                                             alt="{{ __($ns . '.modal.detail.image.alt.label') }}"
-                                                                            class="img-fluid w-100{{ $i < $demoImages - 1 ? ' mb-3 mb-lg-0' : '' }}"
+                                                                            class="w-full rounded-lg"
                                                                             loading="lazy"
                                                                         >
                                                                     </div>
                                                                 @endfor
                                                             </div>
                                                         </div>
-                                                    </div>
                                                 @endif
-                                            </div>
-                                            <div class="card-footer p-0 d-none"></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</div>

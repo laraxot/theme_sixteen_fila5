@@ -12,7 +12,7 @@ related:
   - header-logged-in-parity-delta.md
   - ../../../../../../docs/stories/STORY-147-ux-design-header-logged-in.md
   - ../../visual-comparison/header/logged-dropdown.png
-  - ../design-comuni/raw/cmp-header.hbs
+  - ../../design-comuni/raw/cmp-header.hbs
 qmd: "header logged dropdown mobile avatar only design comuni slim ux segnalazione area personale"
 ---
 

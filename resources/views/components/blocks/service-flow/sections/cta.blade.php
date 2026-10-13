@@ -3,7 +3,7 @@
     Le immagini sono in public/design-comuni/assets/images.
 --}}
 @php
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
 @endphp
 <div class="{{ trim('cmp-text-button '.($section['class'] ?? '')) }}">
     <div class="button-wrapper">

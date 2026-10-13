@@ -16,7 +16,7 @@ Il testing visivo per il tema Sixteen assicura la parità con il design "Comuni"
 
 ## 1. Tooling & Workflow
 
-Seguire gli standard in [Visual Control Mastery](../../../../docs/wiki/concepts/visual-control-mastery.md).
+Seguire gli standard in [Visual Control Mastery](../../../../../docs/wiki/concepts/visual-control-mastery.md).
 
 ### Laravel Headless Browser Tester
 Comando rapido per screenshot veloci del tema:
@@ -70,5 +70,5 @@ Conservare gli screenshot di riferimento in:
 
 ---
 *Vedi anche:*
-- [Visual Control Mastery](../../../../docs/wiki/concepts/visual-control-mastery.md)
+- [Visual Control Mastery](../../../../../docs/wiki/concepts/visual-control-mastery.md)
 - [Header Authenticated State](./concepts/header-authenticated-state.md)

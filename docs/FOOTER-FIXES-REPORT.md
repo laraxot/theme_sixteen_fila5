@@ -133,7 +133,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[→ LAYOUT-ISSUES-ANALYSIS](./LAYOUT-ISSUES-ANALYSIS.md)** - Next: Layout alignment issues
 
 **Phase 3 Complete**: Footer optimization finished

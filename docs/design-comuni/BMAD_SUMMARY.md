@@ -497,7 +497,7 @@ config/local/fixcity/database/content/pages/
 
 ### Documentazione Interna
 
-- [Main Index](../00-index.md)
+- [Main Index](../00-INDEX.md)
 - [Design Comuni Index](./00-index.md)
 - [Product Brief](./product-brief.md)
 - [Pages Census](./pages-census.md)

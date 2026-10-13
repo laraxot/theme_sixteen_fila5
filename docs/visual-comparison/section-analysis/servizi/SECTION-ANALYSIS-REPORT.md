@@ -51,6 +51,6 @@ No major height differences found.
 ---
 
 **Related Docs**:
-- [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [HTML Comparison](../structure-analysis/servizi-html-comparison.md)
+- [Visual Parity Report](../../screenshots/VISUAL-PARITY-REPORT.md)
+- [HTML Comparison](../../structure-analysis/servizi-html-comparison.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

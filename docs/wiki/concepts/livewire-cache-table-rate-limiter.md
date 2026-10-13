@@ -35,4 +35,4 @@ senza queste tabelle, le interazioni Livewire possono fallire.
 ## Allineamento con modulo Fixcity
 
 Vedi regola modulo:
-- [livewire-cache-table-rate-limiter](../../../../Modules/Fixcity/docs/wiki/concepts/livewire-cache-table-rate-limiter.md)
+- [livewire-cache-table-rate-limiter](../../../../../Modules/Fixcity/docs/wiki/concepts/livewire-cache-table-rate-limiter.md)

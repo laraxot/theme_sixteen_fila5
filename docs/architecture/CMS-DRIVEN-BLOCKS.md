@@ -87,14 +87,14 @@ segnalazione-01-privacy.blade.php
 segnalazione-02-dati.blade.php
 segnalazione-03-riepilogo.blade.php
 segnalazione-04-conferma.blade.php
-segnalazione-crea (ticket-create-wizard.blade.php)
+segnalazione-crea (create-ticket-wizard.blade.php)
 homepage.blade.php
 elenco.blade.php
 rating/default.blade.php
 ...
 ```
 
-**Soluzione**: Ogni pagina CMS carica i suoi blocchi dal JSON. La blade del wizard (`ticket-create-wizard.blade.php`) NON deve avere contatti hardcoded — il contacts card viene dal blocco CMS.
+**Soluzione**: Ogni pagina CMS carica i suoi blocchi dal JSON. La blade del wizard (`create-ticket-wizard.blade.php`) NON deve avere contatti hardcoded — il contacts card viene dal blocco CMS.
 
 ## Come Funziona
 

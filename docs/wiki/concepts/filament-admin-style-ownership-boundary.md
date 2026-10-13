@@ -28,5 +28,5 @@ Il panel admin Filament ha un contesto UI separato: fix CSS del tema non garanti
 
 ## Riferimenti
 
-- [fixcity admin ticket create map visual contract](../../../Modules/Fixcity/docs/wiki/concepts/admin-ticket-create-map-visual-contract.md)
-- [geo admin panel map visibility contract](../../../Modules/Geo/docs/wiki/concepts/filament-admin-panel-map-visibility-contract.md)
+- [fixcity admin ticket create map visual contract](../../../../../Modules/Fixcity/docs/wiki/concepts/admin-ticket-create-map-visual-contract.md)
+- [geo admin panel map visibility contract](../../../../../Modules/Geo/docs/wiki/concepts/filament-admin-panel-map-visibility-contract.md)

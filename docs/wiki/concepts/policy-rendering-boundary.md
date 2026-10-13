@@ -41,4 +41,4 @@ Il tema consuma solo capability gia' risolte dal backend (gate/policy) e renderi
 
 - [xot policy base strategy](../../../Modules/Xot/docs/wiki/concepts/policy-base-strategy.md)
 - [xot policy module matrix](../../../Modules/Xot/docs/wiki/concepts/policy-module-matrix.md)
-- [user policy inheritance boundary](../../../Modules/User/docs/wiki/concepts/policy-inheritance-boundary.md)
+- [user policy inheritance boundary](../../../../../Modules/User/docs/wiki/concepts/policy-inheritance-boundary.md)
