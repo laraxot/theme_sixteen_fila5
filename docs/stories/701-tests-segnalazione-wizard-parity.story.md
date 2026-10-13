@@ -2,7 +2,7 @@
 id: "sixteen-fo-tests-segnalazione-wizard"
 type: "story"
 title: "Tests DesignComuni: complete segnalazione wizard parity (4 steps + elenco + area personale)"
-status: completed
+status: in-progress
 parent: STORY-701
 tags: [design-comuni, segnalazione, wizard, tailwind, alpine, parity, tests-pages]
 github_issue: "https://github.com/italia/design-comuni-pagine-statiche/issues"

@@ -53,6 +53,10 @@
    IMPORT STYLE-APPLY (Bootstrap Italia converted to Tailwind)
 ======================================== */
 @import './style-apply.css';
+/* Design Comuni primitives, rewritten locally with Tailwind @apply.
+   This is not the Bootstrap Italia package/runtime: it supplies the semantic
+   civic shell classes used by the reference-compatible Blade markup. */
+/* @import './bootstrap-italia.css'; -- RIMOSSO: stack Tailwind+DaisyUI+Flowbite+Alpine+Lit, NO Bootstrap Italia CDN o runtime (m00621-m00642) */
 
 /* ========================================
    FILAMENT WIZARD → BOOTSTRAP ITALIA PARITY
@@ -69,7 +73,7 @@
    Bootstrap Italia classes → Tailwind CSS
 ======================================== */
 @import './components/header-footer-colors.css';
-@import './components/bootstrap-italia-classes.css';
+/* @import './components/bootstrap-italia-classes.css'; -- RIMOSSO: convertito in Tailwind puro, classi semantiche mantenute in design-system/tokens.md */
 
 /* ========================================
    WIZARD FORM — componente globale (no per-pagina)
@@ -133,12 +137,75 @@
 @import './components/motion-reveal.css';
 @import './tests-index-parity.css';
 @import './tests-design-comuni-parity.css';
+@import './search-results-parity.css';
 
 /* Flowbite for dropdown menus, modals, tooltips */
 @import 'flowbite/dist/flowbite.css';
+@import './components/design-comuni-shell-a11y.css';
+
+@import './homepage-tailwind-parity.css';
+
+/* Homepage-only Tailwind parity overrides must remain last: generic civic rules
+   intentionally keep legacy front-office carousels horizontal elsewhere. */
+@media (min-width: 993px) {
+  body.dc-homepage-parity .card-teaser-block-3 { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 16px !important; overflow: visible !important; }
+  body.dc-homepage-parity .card-teaser-block-3 > * { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__list { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0 !important; overflow: hidden !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide:nth-child(n+5) { display: none !important; }
+}
+@media (min-width: 577px) and (max-width: 992px) {
+  body.dc-homepage-parity .card-teaser-block-3 { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; overflow: visible !important; }
+  body.dc-homepage-parity .card-teaser-block-3 > * { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__list { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0 !important; overflow: hidden !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide:nth-child(n+3) { display: none !important; }
+}
+@media (max-width: 576px) {
+  body.dc-homepage-parity .card-teaser-block-3 { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; overflow: visible !important; }
+  body.dc-homepage-parity .card-teaser-block-3 > * { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__list { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; overflow: hidden !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide { width: auto !important; min-width: 0 !important; max-width: none !important; flex: initial !important; }
+  body.dc-homepage-parity .it-calendar-wrapper .splide__slide:nth-child(n+2) { display: none !important; }
+}
 
 /* Design Comuni shell geometry: the reference desktop header is 222px high. */
 @media (min-width: 1024px) {
     #site-header #sixteen-primary-nav { min-height: 53px; }
     #site-header #sixteen-primary-nav > div > ul { padding-top: 0; padding-bottom: 0; }
+}
+
+/* Design Comuni: blocco homepage (stili generati, scope .dc-home) */
+@import './design-comuni/fonts.css';
+@import './design-comuni/isolation.css';
+
+@import './design-comuni/components.css';
+@import './design-comuni/overrides.css';
+
+/* Search results CTA: final cascade layer, matching Design Comuni at rest. */
+.dc-page .cmp-input-search-button > button.btn.btn-primary {
+  --bs-btn-border-width: 0px !important;
+  --bs-btn-border-color: #007a52 !important;
+  background-color: #007a52 !important;
+  border: 0 solid #007a52 !important;
+  color: #ffffff !important;
+  box-sizing: border-box;
+  height: 48px !important;
+  min-height: 48px !important;
+  line-height: 24px !important;
+}
+
+.dc-page .cmp-input-search-button > button.btn.btn-primary:hover,
+.dc-page .cmp-input-search-button > button.btn.btn-primary:focus-visible {
+  background-color: #007a52 !important;
+  border-color: #007a52 !important;
+  color: #ffffff !important;
+}
+
+/* Search page uses the full reference column for feedback and contacts. */
+.dc-page #rating .card,
+.dc-page .cmp-contacts .card {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }

@@ -30,17 +30,17 @@
                 </a>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="{{ $region['url'] }}" class="text-sm text-gray-700 hover:underline">{{ $region['name'] }}</a>
+                <a href="{{ $region['url'] }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $region['name'] }}</a>
                 @foreach($utilityLinks as $link)
-                    <a href="{{ $link['url'] }}" class="text-sm text-gray-700 hover:underline">{{ $link['label'] }}</a>
+                    <a href="{{ $link['url'] }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $link['label'] }}</a>
                 @endforeach
-                <a href="{{ $account['url'] }}" class="text-sm font-medium text-blue-600 hover:underline">{{ $account['label'] }}</a>
+                <a href="{{ $account['url'] }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-primary hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $account['label'] }}</a>
             </div>
         </div>
         <!-- Primary navigation -->
         <nav class="flex items-center space-x-6 py-3 border-t border-gray-200">
             @foreach($navigation as $item)
-                <a href="{{ $item['url'] }}" class="text-base font-medium text-gray-800 hover:text-blue-600">{{ $item['label'] }}</a>
+                <a href="{{ $item['url'] }}" class="inline-flex items-center px-3 py-2 text-base font-medium text-gray-800 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">{{ $item['label'] }}</a>
             @endforeach
         </nav>
     </div>

@@ -52,7 +52,7 @@ new class extends Component {
     public function mount(string $slug = ''): void
     {
         $this->slug = $slug;
-        $this->pageSlug = $slug ? 'tests.'.$slug : 'tests';
+        $this->pageSlug = $slug ? 'tests.'.$slug : 'tests.index';
 
         $this->data = [
             'slug' => $slug,

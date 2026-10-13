@@ -1,38 +1,88 @@
----
-title: "Layout test (layout-test.blade.php) per pagine /tests — Design Comuni con Tailwind + Alpine + Lit + DaisyUI"
-type: decision
-status: active
-links:
-  github_issue: "#62"
-  discussion: "https://github.com/fixcity/fila5/discussions/62"
-tags: [layout, design-comuni, tailwind, alpine, lit, daisyui]
-related:
-  - "laravel/Themes/Sixteen/docs/bmad/decision-log.md"
-  - "laravel/Themes/Sixteen/docs/bmad/investigation-tests-404-fix.md"
-created: 2026-10-11
-updated: 2026-10-11
----
+# Decision: Layout "test" via JSON `layout` field (D12)
 
-# Decisione: layout-test.blade.php per pagine /tests
+## Context
 
-## Contesto
-Le pagine sotto `/it/tests/*` (homepage, segnalazione-dettaglio, argomenti, ecc.) devono mostrare Design Comuni. L'attuale layout `app.blade.php` è generico; creare `layout-test.blade.php` dedicato permette di:
-- Specificare meta/title Design Comuni
-- Caricare CSS Tailwind + DaisyUI (no Bootstrap CDN)
-- Aggiungere skip-links e tab navigation Design Comuni
-- Definire un campo JSON `layout` in `tests.index.json` per scegliere il layout
+The route file `pages/tests/[slug].blade.php` previously contained a `mount()`
+that read `tests.catalog.json`, set `catalogFallback`, and included slug‑specific
+blocks (`eventi`, `novita`, `servizi`, `assistenza‑02‑conferma`, …). This
+violated the architecture: every page must be defined by its own
+`tests.<slug>.json`, and new markup must live in a reusable theme block.
 
-## Scelta
-- **Layout file**: `laravel/Themes/Sixteen/resources/views/layouts/layout-test.blade.php`
-- **JSON campo**: `"layout": "test"` in `tests.index.json`; se assente, default `app`
-- **Blade**: `tests/[slug].blade.php` legge `$layout = $data['layout'] ?? 'test';` e usa `<x-layouts.layout-test>` se popolato
-- **Stack**: TailwindCSS @apply + Alpine.js (x-data per tab) + Lit (web components per card) + DaisyUI (button/card/button-group)
-- **NO Bootstrap Italia CDN** — solo token design da `civic-design-theme.css`
+## Decision
 
-## Regola (Second Brain)
-- Non duplicare `pub_theme::components.blocks.tabs.design-comuni` (già deciso D11)
-- I tab vengono renderizzati dal componente esistente `components/ui/tab.blade.php` o `components/blocks/template-index.blade.php`
-- La pagina `/tests/homepage` usa il layout test se il JSON indica `layout: test`
+`mount()` builds only `tests.<slug>` and passes the context to `<x‑page>`.
+No `catalogFallback`, no `tests.catalog.json` read, no `in_array` slug checks.
+The Blade is:
 
-## Verifica
-- Per controllare che `/it/tests/homepage` sia uguale a `https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html`: fare `curl` + `grep` per elementi Design Comuni (tab, hero, link `route('tests.view', ...)`) e confrontare con `docs/html-parity-reports/`
+```php
+<?php
+
+declare(strict_types=1);
+
+use Livewire\Volt\Component;
+use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+
+name('tests.view');
+middleware(PageSlugMiddleware::class);
+
+new class extends Component
+{
+    public string $slug = '';
+    public string $pageSlug = '';
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+
+    public function mount(string $slug = ''): void
+    {
+        $this->slug = $slug;
+        $this->pageSlug = $slug ? 'tests.'.$slug : 'tests.index';
+        $this->data = ['slug' => $slug];
+    }
+};
+?>
+
+<x-layouts.app>
+    @volt('tests.view')
+    <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
+        <x-page side="content" :slug="$pageSlug" :data="$data" />
+    </div>
+    @endvolt
+</x-layouts.app>
+```
+
+## Why this is correct
+
+1. **Single source of truth** — every page is `tests.<slug>.json` in
+   `database/content/pages/`. The route file does not duplicate content.
+2. **No fallback branching** — `catalogFallback` and `in_array` checks are
+   removed. If a page JSON is missing, the CMS renders its default fallback;
+   that is the CMS's job, not the route file's.
+3. **Reusable blocks** — new markup goes in a theme block
+   (`pub_theme::components.blocks.*`), not in a slug‑specific `@include`.
+4. **Layout choice** — the `layout` field in the page JSON (`"test"` or absent)
+   is resolved by the layout component, not by the route file.
+
+## Files changed
+
+- `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
+  — removed `catalogFallback`, `tests.catalog.json` read, slug‑specific
+  `@include` branches; now delegates entirely to `<x‑page>`.
+
+## Verification
+
+```bash
+curl -sS http://192.168.1.40:8000/it/tests/homepage | rg -i
+"catalogFallback|tests.catalog"  # must return 0
+curl -sS http://192.168.1.40:8000/it/tests/assistenza-02-conferma | rg -i
+"catalogFallback|tests.catalog"  # must return 0
+```
+
+## Second brain
+
+- Decision D12 recorded in `MEMORY.md`.
+- Related: D10 (`pub_theme` IS Sixteen IS Design Comuni — no duplicate
+  `design‑comuni` namespace), D11 (layout `test` via JSON field).

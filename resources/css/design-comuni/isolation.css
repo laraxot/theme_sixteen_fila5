@@ -1,0 +1,13 @@
+/*
+ * Isolamento del blocco homepage Design Comuni.
+ * Il CSS globale del tema ridefinisce classi omonime (card, row, container, btn, chip, modal...) e
+ * "sporca" proprieta' che il riferimento non imposta. Dentro .dc-page si riparte dallo stile UA del
+ * browser: poi valgono solo le regole di homepage.css (stessa condizione in cui il riferimento e' misurato).
+ * Deve restare PRIMA di homepage.css: stessa specificita' (0,1,0) di `.dc-page *` nel reboot.
+ */
+.dc-page,
+.dc-page *,
+.dc-page *::before,
+.dc-page *::after {
+    all: revert;
+}
