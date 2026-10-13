@@ -1,1 +1,10 @@
 /* Ritocchi manuali sopra homepage.css (scope .dc-page). Ogni regola deve spiegare perche esiste. */
+
+/*
+ * Il layout condiviso mette padding a <main> (legacy `#main-container { padding-block }` e variante mobile di 18px);
+ * il riferimento no, e con il padding il margine del breadcrumb non collassa piu'. Vale solo per i main che
+ * contengono una pagina Design Comuni. !important: batte la regola con id del layout (stessa importanza, specificita' maggiore).
+ */
+#main-container:has(.dc-page) {
+    padding: 0 !important;
+}

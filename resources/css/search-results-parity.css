@@ -1,3 +1,4 @@
+/* Le regole su .dc-page sono state rimosse (2026-10-13): lo stile di .dc-page e' generato in design-comuni/components.css; le toppe a mano raddoppiavano margini e padding. Vedi docs/prompts/homepage/00-COORDINATION.md */
 /* Search results: CSS parity layer for Design Comuni, implemented without Bootstrap runtime. */
 .search-results-page { font-family: "Titillium Web", sans-serif; color: #17324d; }
 /* Form spacing */
@@ -48,87 +49,15 @@
 }
 /* Canonical Design Comuni block is intentionally data-driven but keeps the
    reference geometry: 1320px container, 330px filters, 880px results. */
-.dc-page > .container { max-width: 1320px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
-.dc-page > .container:nth-of-type(2) { padding-left: 12px !important; padding-right: 12px !important; }
+
+/* Match Design Comuni's responsive container widths before the result grid. */
 .search-results-page .dc-search-filters { position: sticky; top: 2rem; height: fit-content; }
 
 /* Shared homepage parity rules cap these cards at 520/640px. The reference
    search page uses the complete responsive column instead. */
-.dc-page #rating .card,
-.dc-page .cmp-contacts .card {
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
 
 /* Desktop reference geometry: filter and results are siblings in one row.
    Reset the legacy flex offset instead of letting `.offset-lg-1` widen the
    results column and push its cards out of parity. */
-@media (min-width: 992px) {
-  .dc-page > .container:nth-of-type(3) > .row {
-    display: grid !important;
-    grid-template-columns: 330px minmax(0, 880px) !important;
-    column-gap: 110px !important;
-    align-items: start !important;
-  }
-
-  .dc-page > .container:nth-of-type(3) > .row > .scroll-filter-wrapper {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    width: auto !important;
-    margin-left: 0 !important;
-  }
-
-  .dc-page > .container:nth-of-type(3) > .row > .col-lg-8.offset-lg-1 {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    width: auto !important;
-    margin-left: 0 !important;
-    box-sizing: border-box !important;
-  }
-}
-
-@media (max-width: 991px) {
-  .dc-page > .container:nth-of-type(3) > .row {
-    display: block !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-}
 
 /* Search CTA parity: filled green in the resting state, as in the reference. */
-.dc-page .cmp-input-search-button > button.btn.btn-primary {
-  appearance: none !important;
-  --bs-btn-border-width: 1px !important;
-  --bs-btn-border-color: #007a52 !important;
-  background-color: #007a52 !important;
-  border: 1px solid #007a52 !important;
-  border-style: solid !important;
-  border-width: 1px !important;
-  color: #ffffff !important;
-  min-height: 48px;
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
-}
-
-.dc-page .cmp-input-search-button > button.btn.btn-primary:hover,
-.dc-page .cmp-input-search-button > button.btn.btn-primary:focus-visible {
-  background-color: #006242 !important;
-  border-color: #006242 !important;
-  color: #ffffff !important;
-}
-
-.dc-page .cmp-input-search-button > button.btn.btn-primary:active {
-  background-color: #004d33 !important;
-  border-color: #004d33 !important;
-  color: #ffffff !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dc-page .cmp-input-search-button > button.btn.btn-primary {
-    transition: none;
-  }
-}
