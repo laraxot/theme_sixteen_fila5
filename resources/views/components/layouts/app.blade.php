@@ -11,7 +11,7 @@
     <x-breadcrumbs />
     --}}
 
-    <main id="main-container" tabindex="-1">
+    <main id="main-container" tabindex="-1" class="!p-0">
         {{ $slot }}
     </main>
 

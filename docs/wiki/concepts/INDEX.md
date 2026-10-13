@@ -43,3 +43,4 @@ Concetti specifici del tema Sixteen. Carica on-demand via `qmd search` o consult
 - Cms mount: [folio-filesystem-routing-no-web-php](../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md)
 - Cms audit: [folio-list-vs-route-list](../../Modules/Cms/docs/wiki/concepts/folio-list-vs-route-list.md)
 
+- [Metodo di parity Design Comuni](design-comuni-parity-method.md): gate, JSON, blocchi, CSS estratto, cascata (2026-10-13)

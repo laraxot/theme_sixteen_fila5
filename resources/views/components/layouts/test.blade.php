@@ -7,7 +7,7 @@
     </div>
 
     <x-section slug="header" />
-    <main id="main-container" tabindex="-1">{{ $slot }}</main>
+    <main id="main-container" tabindex="-1" class="!p-0">{{ $slot }}</main>
     @include('pub_theme::components.sections.search-modal', ['links' => $searchLinks])
     <x-section slug="footer" tpl="full" />
 </x-layouts.main>

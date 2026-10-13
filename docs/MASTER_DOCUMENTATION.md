@@ -58,6 +58,12 @@ pages/tests/amministrazione.blade.php ← DON'T
 pages/tests/[slug].blade.php       ← DO THIS (ONE file for ALL pages)
 ```
 
+La regola vale per ogni URL `/it/tests/{slug}`. `homepage` e
+`segnalazione-dettaglio` sono slug CMS, non eccezioni Folio: il route file
+costruisce `tests.<slug>` e delega tutto a `<x-page>`. Non creare
+`pages/tests/segnalazioni/[slug].blade.php` né fallback basati su
+`tests.catalog.json`.
+
 ### 2. Component Naming
 **❌ WRONG**: Page-specific blocks
 ```
@@ -79,6 +85,12 @@ pub_theme::components.blocks.events.calendar   ← CORRECT (type.variant)
     <main>{{ $slot }}</main>
     <x-section slug="footer" tpl="full" />
 </x-layouts.app>
+
+The catalogue route `pages/tests/index.blade.php` is the intentional exception
+and uses `<x-layouts.test>` for the Design Comuni preview shell. The detail
+route remains `pages/tests/[slug].blade.php` and uses `<x-layouts.app>`; its
+JSON blocks provide the page content. This is not a reason to create a
+`homepage.blade.php` file.
 ```
 
 **NOT**:
