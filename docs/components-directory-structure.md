@@ -99,7 +99,7 @@ laravel/Themes/Sixteen/resources/views/components/
 
 ### Documentation
 - **[Layout Hierarchy](./layout-hierarchy.md)** - Complete architecture guide
-- **[00-index](./00-index.md)** - Main documentation index
+- **[00-index](./00-INDEX.md)** - Main documentation index
 
 ---
 

@@ -10,8 +10,8 @@ issues:
 discussions:
   - "https://github.com/laraxot/theme_sixteen_fila5/discussions/55"
 related:
-  - ../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md
-  - ../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
+  - ../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md
+  - ../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
   - ./concepts/ai-harness-theme-sixteen.md
   - ../../docs/wiki/concepts/ai-harness-theme-discipline.md
 ---
@@ -23,17 +23,17 @@ Indice operativo minimo del wiki tema `Sixteen`.
 ## Scopo
 
 Il tema accumula solo conoscenza locale di presentazione, parity visuale, asset pipeline e boundary tema/modulo.
-Le regole generiche di context compression restano nel wiki root e nel modulo AI; qui si documenta solo l'impatto sul corpus del tema. **DB/modelli**: parità migrate/factory/seeder nei moduli — [architecture-module-model-artifact-parity.md](../../../../docs/wiki/bmad/architecture-module-model-artifact-parity.md). **Ogni `.md` nuovo**: [frontmatter + GitHub](../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md).
+Le regole generiche di context compression restano nel wiki root e nel modulo AI; qui si documenta solo l'impatto sul corpus del tema. **DB/modelli**: parità migrate/factory/seeder nei moduli — [architecture-module-model-artifact-parity.md](../../../../../docs/wiki/bmad/architecture-module-model-artifact-parity.md). **Ogni `.md` nuovo**: [frontmatter + GitHub](../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md).
 
 **Stack frontoffice (pub)**: Tailwind + [DaisyUI docs](https://daisyui.com/docs/) + Alpine + Lit (Geo) + Filament v5 dove applicabile; **alias stile preferiti con `@apply`** nel CSS tema: [bootstrap-italia-tailwind-philosophy](./concepts/bootstrap-italia-tailwind-philosophy.md); nomi classe Design Comuni / HTML semantico: [design-comuni-class-mapping](./entities/design-comuni-class-mapping.md).
 
 ## AI / second brain (root)
 
-- [hackernoon-ai-coding-tips-fixcity-map](../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md)
+- [hackernoon-ai-coding-tips-fixcity-map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md)
 - [ai-harness-theme-sixteen](./concepts/ai-harness-theme-sixteen.md) — harness locale tema
 - [second-brain-theme-boundary](./concepts/second-brain-theme-boundary.md) — confine memoria tema
 - [llm-wiki prompt](../../../../bashscripts/tools/prompts/llm-wiki.txt) — router agente
-- [bmad/architecture](../../../../docs/wiki/bmad/architecture.md)
+- [bmad/architecture](../../../../../docs/wiki/bmad/architecture.md)
 
 ## Gestionale / moduli (2026-07-27)
 
@@ -44,34 +44,34 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 - [module-dashboard-page-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-dashboard-page-mandatory.md) — landing `{modulo}/admin`
 - [module-admin-panel-provider-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-admin-panel-provider-mandatory.md) — panel `{modulo}/admin`
 - [module-providers-dual-registration-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-providers-dual-registration-mandatory.md) — 2 provider in module.json + composer.json
-- [tenant-module-status-registry](../../../Modules/Tenant/docs/tenant-module-status-registry.md) — canon Tenant
+- [tenant-module-status-registry](../../../../Modules/Tenant/docs/tenant-module-status-registry.md) — canon Tenant
 
 ## Testing / PHPStan (2026-06-13)
 
 - [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
 - [theme-tests-data-sacred](./concepts/theme-tests-data-sacred.md) — policy dati sacri + skip onesti
 - [perfection-checklist](./overviews/perfection-checklist.md) — checklist verso tema perfetto
-- [page-directory-structure](../../page-directory-structure.md) — regola Folio canonica (root docs)
+- [page-directory-structure](../page-directory-structure.md) — regola Folio canonica (root docs)
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
 - [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) — hub temi
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
-- [design-comuni-header-parity](../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
-- [header-html-visual-parity-rule](../../../../docs/wiki/memories/header-html-visual-parity-rule.md) — memoria
-- [header-design-comuni-parity-skill](../../../../docs/wiki/skills/header-design-comuni-parity.md) — workflow agente
+- [design-comuni-header-parity](../../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
+- [header-html-visual-parity-rule](../../../../../docs/wiki/memories/header-html-visual-parity-rule.md) — memoria
+- [header-design-comuni-parity-skill](../../../../../docs/wiki/skills/header-design-comuni-parity.md) — workflow agente
 - [header-logged-in-parity-delta](./concepts/header-logged-in-parity-delta.md) — delta screenshot STORY-147
 - [header-authenticated-state](./concepts/header-authenticated-state.md) — regola guest/auth
 - [header-html-parity](../design-comuni/analysis/header-html-parity.md) — cmp-header.hbs vs v1
-- UX: [STORY-147-ux-design](../../../../docs/stories/STORY-147-ux-design-header-logged-in.md) §11–13
+- UX: [STORY-147-ux-design](../../../../../docs/stories/STORY-147-ux-design-header-logged-in.md) §11–13
 
 ## Folio / Volt / CMS
 
 - [folio-page-pattern.md](../folio-page-pattern.md) — mount + x-page; lista = `container0.index` (Filament way)
-- Root: [folio-container0-index-filament-way.md](../../../../docs/wiki/memories/folio-container0-index-filament-way.md)
+- Root: [folio-container0-index-filament-way.md](../../../../../docs/wiki/memories/folio-container0-index-filament-way.md)
 - [folio-route-params-mount.md](./concepts/folio-route-params-mount.md) — no request()->route()
 - [volt-usage-rule.md](./rules/volt-usage-rule.md) — @volt statico = name()
-- Cms: [folio-volt-static-mount-contract](../../../Modules/Cms/docs/wiki/concepts/folio-volt-static-mount-contract.md)
+- Cms: [folio-volt-static-mount-contract](../../../../Modules/Cms/docs/wiki/concepts/folio-volt-static-mount-contract.md)
 
 ## Folio / Volt (container0 → container1)
 - [folio-page-pattern](../folio-page-pattern.md) — `mount()` + `<x-page>` + tabella `@volt` statico
@@ -79,19 +79,19 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 - [volt-usage-rule](./rules/volt-usage-rule.md)
 
 ## Pagine
-- [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruire mappa `/it` da documentazione
+- [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruire mappa `/it` da documentazione
 - [ticket-list-map-integration.md](./concepts/ticket-list-map-integration.md) — blade, filtri, contratto JSON
 - [geo-map-marker-civic-pin-theme-boundary.md](./concepts/geo-map-marker-civic-pin-theme-boundary.md) — override CSS marker
 - [geo-map-popup-leaflet-boundary.md](./concepts/geo-map-popup-leaflet-boundary.md) — popup + conflitti CSS tema
-- [geo-map-lit-reconstruction-guide.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruzione marker + popup (SSoT modulo Geo)
-- [geo-map-fixes-registry.md](../../../Modules/Geo/docs/wiki/concepts/geo-map-fixes-registry.md) — tabella correzioni INC-1…8
+- [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruzione marker + popup (SSoT modulo Geo)
+- [geo-map-fixes-registry.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-fixes-registry.md) — tabella correzioni INC-1…8
 - [global-header-css-leak-leaflet-popup.md](./troubleshooting/global-header-css-leak-leaflet-popup.md) — leak CSS header su popup mappa
 - [geo-map-marker-civic-pin-theme-boundary.md](./concepts/geo-map-marker-civic-pin-theme-boundary.md) — confine CSS marker FO
 - [geo-map-popup-leaflet-boundary.md](./concepts/geo-map-popup-leaflet-boundary.md) — confine popup + fix header parity
 - [marker-cluster-hover-stability.md](./concepts/marker-cluster-hover-stability.md) — STORY-123 cluster hover
 - [map-lit-vite-build-troubleshooting.md](./concepts/map-lit-vite-build-troubleshooting.md) — STORY-121 bundle 404
 - [map-lit-legend-theme-boundary.md](./concepts/map-lit-legend-theme-boundary.md) — STORY-094 confine tema/Geo
-- [map-lit-cluster-type-icons](../../../../../Modules/Geo/docs/wiki/concepts/map-lit-cluster-type-icons.md) — sizing pallini cluster
+- [map-lit-cluster-type-icons](../../../../Modules/Geo/docs/wiki/concepts/map-lit-cluster-type-icons.md) — sizing pallini cluster
 - [ui-ai-tooling-on-demand.md](./concepts/ui-ai-tooling-on-demand.md) — STORY-126 strumenti UI/AI e MCP
 - [freellmapi-boundary.md](./concepts/freellmapi-boundary.md) — tooling AI locale fuori dal runtime visuale
 - [design-comuni-ods-presentation.md](./concepts/design-comuni-ods-presentation.md) — resa visuale dell’IA comunale

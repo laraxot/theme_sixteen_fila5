@@ -418,7 +418,7 @@ Senza questi comandi, le modifiche NON saranno visibili!
 
 ### Documentazione Correlata
 - [Roadmap Progetto](../../../laravel/docs/roadmap_project.md)
-- [Modulo Fixcity](../../../laravel/Modules/Fixcity/docs/ROADMAP.md)
+- [Modulo Fixcity](../../../Modules/Fixcity/docs/roadmap.md)
 - [Modulo CMS](../../../laravel/Modules/Cms/docs/roadmap_complete.md)
 
 ### Design Resources

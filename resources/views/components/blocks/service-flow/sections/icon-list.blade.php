@@ -1,6 +1,6 @@
 {{-- Elenco di link con icona (servizi correlati). `section`: id, title, title_class, items[] {label, icon, url, class}. --}}
 @php
-    $assets = asset('themes/Sixteen/design-comuni/assets');
+    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <section class="it-page-section" id="{{ $section['id'] ?? '' }}">

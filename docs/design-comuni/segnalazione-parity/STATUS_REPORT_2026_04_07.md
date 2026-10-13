@@ -107,8 +107,8 @@ discussions: []
 - → [HTML_STRUCTURE_ANALYSIS.md](./HTML_STRUCTURE_ANALYSIS.md) - Structure comparison
 - → [CSS_JS_PARITY_COMPLETE.md](./CSS_JS_PARITY_COMPLETE.md) - CSS/JS completion report
 - → [screenshots/](./screenshots/) - Screenshot directory
-- → [../../00-index.md](../../00-index.md) - Theme docs index
-- → [../../../../../docs/MODULE_DOCS_INDEX.md](../../../../../docs/MODULE_DOCS_INDEX.md) - Master project index
+- → [../../00-index.md](../../00-INDEX.md) - Theme docs index
+- → [../../../../../docs/MODULE_DOCS_INDEX.md](../../../../../../docs/MODULE_DOCS_INDEX.md) - Master project index
 - → [../../../../../bashscripts/docs/README.md](../../../../../bashscripts/docs/README.md) - Scripts index
 
 ---

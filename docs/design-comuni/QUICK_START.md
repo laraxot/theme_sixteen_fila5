@@ -323,7 +323,7 @@ pub_theme::components.blocks.hero.newscard
 ## 🎓 Supporto
 
 ### Documentazione Interna
-- [Main Index](../00-index.md)
+- [Main Index](../00-INDEX.md)
 - [Design Comuni Index](./00-index.md)
 - [Replikate.txt](./prompts/replikate.txt)
 

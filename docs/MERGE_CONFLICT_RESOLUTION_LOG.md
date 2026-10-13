@@ -156,7 +156,7 @@ grep -rl "<<<<<< HEAD\|<<<<<<< HEAD" . --include="*.md" | grep -v "node_modules\
 
 ## Link Bidirezionali
 
-- ← [Master Index Tema](./00-index.md)
+- ← [Master Index Tema](./00-INDEX.md)
 - ← [Design Comuni Index](./design-comuni/00-index.md)
 - → [Sessione 90% Similarity](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)
 

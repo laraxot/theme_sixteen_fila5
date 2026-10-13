@@ -10,7 +10,7 @@ module: Sixteen
 updated: 2026-06-03
 related:
   - ../concepts/frontend-design-civic-anthropic-adaptation.md
-  - ../../../../docs/wiki/skills/frontend-design-civic-pa.md
+  - ../../../../../../docs/wiki/skills/frontend-design-civic-pa.md
 ---
 
 # Memoria — Anthropic frontend-design su Fixcity

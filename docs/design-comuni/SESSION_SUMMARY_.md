@@ -338,9 +338,9 @@ npm run copy
 ## 📞 References
 
 ### Documentation
-- [MASTER_IMPLEMENTATION_PLAN.md](../../laravel/Themes/Sixteen/docs/design-comuni/MASTER_IMPLEMENTATION_PLAN.md)
-- [ARCHITECTURAL_DECISIONS.md](../../laravel/Themes/Sixteen/docs/design-comuni/ARCHITECTURAL_DECISIONS.md)
-- [QWEN.md](../../QWEN.md)
+- [MASTER_IMPLEMENTATION_PLAN.md](MASTER_IMPLEMENTATION_PLAN.md)
+- [ARCHITECTURAL_DECISIONS.md](ARCHITECTURAL_DECISIONS.md)
+- [QWEN.md](../../../../../QWEN.md)
 
 ### External
 - **Design Comuni**: https://github.com/italia/design-comuni-pagine-statiche

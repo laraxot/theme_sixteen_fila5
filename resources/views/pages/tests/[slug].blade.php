@@ -29,10 +29,17 @@ new class extends Component
 };
 ?>
 
-{{-- Layout dal JSON (`layout`): `design-comuni-bare` per i cataloghi senza header/footer (servizi/index.html), altrimenti il chrome completo. --}}
-<x-dynamic-component :component="\Modules\Cms\Models\Page::findUniqueBySlug('tests.'.$slug)?->layout === 'design-comuni-bare' ? 'layouts.design-comuni-bare' : 'layouts.design-comuni'">
+{{-- Layout dal JSON (`layout`): `design-comuni-bare` (cataloghi senza header/footer: servizi/index.html), `design-comuni-authenticated` (header con utente), altrimenti il chrome completo. --}}
+@php
+    $jsonPage = \Modules\Cms\Models\Page::findUniqueBySlug('tests.'.$slug);
+    $jsonLayout = $jsonPage?->layout;
+    $headerActive = (string) data_get($jsonPage?->content_blocks, '0.data.header_active', '');
+    view()->share('dcRelativeAssets', true);
+    $chrome = in_array($jsonLayout, ['design-comuni-bare', 'design-comuni-authenticated'], true) ? $jsonLayout : 'design-comuni';
+@endphp
+<x-dynamic-component :component="'layouts.'.$chrome" :header-active="$headerActive">
     @volt('tests.view')
-    <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
+    <div class="page-content content" data-dc data-slug="{{ $pageSlug }}" data-side="content">
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>
     @endvolt

@@ -42,6 +42,7 @@ Le Rules progettuali vivono qui, nel wiki del Theme **Sixteen**, e vengono caric
 ## Regole Sixteen ricorrenti
 
 - [No parallel DesignComuni layout](no-parallel-design-comuni-layout.md) — Sixteen è già il tema DesignComuni; usare la shell pubblica canonica `x-layouts.app`, non creare `x-layouts.design-comuni`.
+- [CMS content slug = Folio page name](cms-content-slug-matches-folio-page-name.md) — il JSON di contenuto si chiama come lo slug interrogato (= nome pagina Folio). Famiglie diverse: pagine app (`tickets.create.json`) vs anteprima parity (`tests.<slug>.json`).
 
 ## Aggiungere una Nuova RULES
 

@@ -484,8 +484,8 @@ theme: {
 
 ## Related Documentation
 
-- [THEMES_DOCUMENTATION_INDEX.md](../../docs/THEMES_DOCUMENTATION_INDEX.md)
-- [ARCHITECTURE-DIAGRAMS.md](../../docs/ARCHITECTURE-DIAGRAMS.md)
+- [THEMES_DOCUMENTATION_INDEX.md](../../../../docs/THEMES_DOCUMENTATION_INDEX.md)
+- [ARCHITECTURE-DIAGRAMS.md](../../../../docs/ARCHITECTURE-DIAGRAMS.md)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Alpine.js Docs](https://alpinejs.dev)
 - [Bootstrap Italia Design System](https://italia.github.io/design-comuni/)

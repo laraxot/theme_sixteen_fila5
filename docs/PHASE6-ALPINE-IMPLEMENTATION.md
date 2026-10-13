@@ -145,7 +145,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[← FINAL-VISUAL-PARITY-REPORT](./FINAL-VISUAL-PARITY-REPORT.md)** - Visual parity verification
 - **[→ PHASE3-ALPINE-PLAN](./PHASE3-ALPINE-PLAN.md)** - Previous Alpine planning
 

@@ -9,7 +9,7 @@ created: 2026-05-26
 updated: 2026-05-26
 tags: [sixteen, vite, tailwind, alpine, lit, bootstrap, runtime]
 related:
-  - ../../../../../docs/wiki/memories/sixteen-tailwind-vite-runtime-boundary.md
+  - ../../../../../../docs/wiki/memories/sixteen-tailwind-vite-runtime-boundary.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/frontoffice-wizard-theme-runtime-boundary.md
 ---
 

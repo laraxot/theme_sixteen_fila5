@@ -10,7 +10,7 @@ issues:
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/287"
 related:
-  - ../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
+  - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
   - ../../../docs/wiki/concepts/fo-folio-links-multilingua.md
 ---
 
@@ -93,4 +93,4 @@ new class extends Component {
 - [ ] `@volt('container0.index')` coerente con il nome
 
 ## Backlink
-- [TRIGGER_MAP](../../../docs/wiki/rules/00-TRIGGER_MAP.md)
+- [TRIGGER_MAP](../../../../../../docs/wiki/rules/00-TRIGGER_MAP.md)

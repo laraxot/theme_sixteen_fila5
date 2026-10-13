@@ -7,7 +7,7 @@ status: in-progress
 source_of_truth: true
 scope: [laravel/Themes/Sixteen/docs/prompts/02.md, homepage blade, header/footer JSON]
 related:
-  - ../visual-parity-improvement-plan.md
+  - ../../visual-parity-improvement-plan.md
   - ../../visual-parity-verified.md
 ---
 

@@ -65,7 +65,7 @@ bash bashscripts/ai/check-italian-names-in-code.sh
 
 ## Collegamenti
 
-- [ADR css-filenames](../../../../docs/wiki/decisions/css-filenames-english-no-italian.md)
+- [ADR css-filenames](../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md)
 - [Wiki concept](../wiki/concepts/css-filename-english-naming.md)
 - [no-italian-component-names](../wiki/rules/no-italian-component-names.md)
 - [design-comuni-site-wide-component-css-rule](../wiki/concepts/design-comuni-site-wide-component-css-rule.md)

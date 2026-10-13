@@ -285,7 +285,7 @@ Assicurare che il button togglerdei della navbar abbia la struttura esatta della
 
 ## 🔗 Riferimenti
 
-- [REPLIKATE Protocol](../prompts/replikate.txt)
+- [REPLIKATE Protocol](../../prompts/replikate.txt)
 - [Reference Homepage](https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html)
 - [Local Homepage](http://127.0.0.1:8000/it/tests/homepage)
 - [Component Catalog](../COMPONENT_CATALOG.md)

@@ -358,7 +358,7 @@ issues: []
 discussions: []
 **Data**: 2026-04-03
 **File correlati**: 
-- [JSON Content](../../../config/local/fixcity/database/content/pages/tests.domande-frequenti.json)
-- [Blade Template](../../../Themes/Sixteen/resources/views/pages/tests/[slug].blade.php)
-- [Accordion Component](../../../Themes/Sixteen/resources/views/components/blocks/accordion/)
-- [Hero Component](../../../Themes/Sixteen/resources/views/components/blocks/hero/)
+- [JSON Content](../../../../config/local/fixcity/database/content/pages/tests.domande-frequenti.json)
+- [Blade Template](../../resources/views/pages/tests/[slug].blade.php)
+- [Accordion Component](../../resources/views/components/blocks/accordion)
+- [Hero Component](../../resources/views/components/blocks/hero)

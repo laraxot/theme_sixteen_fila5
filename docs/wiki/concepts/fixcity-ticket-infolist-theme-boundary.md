@@ -27,6 +27,6 @@ Documentare il boundary tra modulo `Fixcity` e tema `Sixteen` per la nuova class
 
 ## Riferimenti
 
-- [ticketinfolist pattern reference](../../../../Modules/Fixcity/docs/wiki/concepts/ticketinfolist-pattern-reference.md)
+- [ticketinfolist pattern reference](../../../../../Modules/Fixcity/docs/wiki/concepts/ticketinfolist-pattern-reference.md)
 - [theme css only parity rule](./theme-css-only-parity-rule.md)
 - [sixteen best practices](./sixteen-best-practices.md)

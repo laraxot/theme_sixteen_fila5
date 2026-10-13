@@ -63,7 +63,7 @@ grep -c "Quanto sono chiare" local-structure.html
 
 - **Layout Fix**: [SEGNALAZIONI_ELENCO_LAYOUT_FIX.md](./SEGNALAZIONI_ELENCO_LAYOUT_FIX.md)
 - **CSS Report**: [SEGNALAZIONI_ELENCO_CSS_REPORT.md](./SEGNALAZIONI_ELENCO_CSS_REPORT.md)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

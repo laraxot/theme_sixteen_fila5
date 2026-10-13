@@ -31,4 +31,4 @@ Allineare l'uso del vault Obsidian con la governance docs del tema Sixteen.
 ## Riferimenti
 
 - [filament admin style ownership boundary](./filament-admin-style-ownership-boundary.md)
-- [obsidian skills and ingest checklist](../../../Modules/Fixcity/docs/wiki/concepts/obsidian-skills-and-ingest-checklist.md)
+- [obsidian skills and ingest checklist](../../../../../Modules/Fixcity/docs/wiki/concepts/obsidian-skills-and-ingest-checklist.md)

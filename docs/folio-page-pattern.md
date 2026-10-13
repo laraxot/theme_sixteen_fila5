@@ -127,6 +127,6 @@ new class extends Component {
 
 ## Collegamenti
 
-- [folio-route-params-mount.md](docs/wiki/concepts/folio-route-params-mount.md)
-- [cms-x-page-data-bag-only.md](../../../docs/wiki/rules/cms-x-page-data-bag-only.md)
+- [folio-route-params-mount.md](wiki/concepts/folio-route-params-mount.md)
+- [cms-x-page-data-bag-only.md](../../../../docs/wiki/rules/cms-x-page-data-bag-only.md)
 - STORY-141 (solo anti-pattern `@volt` dinamico)

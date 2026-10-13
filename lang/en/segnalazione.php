@@ -83,21 +83,24 @@ return [
     ],
 
     'filters' => [
-        'legend' => ['label' => 'Filter by category'],
+        'legend' => ['label' => 'Category'],
     ],
     'filter' => [
         'button' => ['label' => 'Filter'],
-        'remove' => ['label' => 'Clear filters'],
+        'remove' => ['label' => 'Remove all filters'],
     ],
     'results' => [
         'count' => ['text' => ':count Results'],
         'empty' => 'No reports match the selected filters.',
     ],
     'card' => [
-        'type' => ['label' => 'Category'],
-        'expand' => ['button' => ['label' => 'Show details']],
-        'address' => ['label' => 'Location'],
-        'detail' => ['label' => 'Description'],
+        'type' => ['label' => 'Report type'],
+        'expand' => ['button' => ['label' => 'Show all']],
+        'address' => ['label' => 'Address'],
+        'detail' => ['label' => 'Details'],
+        'images' => ['label' => 'Images'],
+        'no_images' => ['label' => 'No images available'],
+        'edit' => ['label' => 'Edit'],
     ],
     'map' => [
         'image' => ['alt' => 'Map of public reports'],

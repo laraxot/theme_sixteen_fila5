@@ -25,7 +25,7 @@ Dopo edit Blade che toccano Filament:
 cd laravel && php artisan view:cache
 ```
 
-Canon root: [filament-v5-form-in-blade.md](../../../../../docs/wiki/concepts/filament-v5-form-in-blade.md) · [view-cache-filament-v5-prerequisites.md](../../../../../docs/wiki/concepts/view-cache-filament-v5-prerequisites.md)
+Canon root: [filament-v5-form-in-blade.md](../../../../../../docs/wiki/concepts/filament-v5-form-in-blade.md) · [view-cache-filament-v5-prerequisites.md](../../../../../../docs/wiki/concepts/view-cache-filament-v5-prerequisites.md)
 
 ## Overview
 

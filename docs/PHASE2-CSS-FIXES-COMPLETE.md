@@ -27,7 +27,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[→ FOOTER-FIXES-REPORT](./FOOTER-FIXES-REPORT.md)** - Next: Footer optimization
 
 **Phase 2 Complete**: Container sizing finalized

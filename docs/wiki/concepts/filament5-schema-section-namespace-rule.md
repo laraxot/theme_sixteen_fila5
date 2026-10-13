@@ -8,7 +8,7 @@ tags: [sixteen, filament, schemas, blade, wizard]
 created: 2026-04-22
 updated: 2026-04-22
 sources:
-  - ../../../../../docs/wiki/concepts/filament5-schema-section-namespace-rule.md
+  - ../../../../../../docs/wiki/concepts/filament5-schema-section-namespace-rule.md
   - https://filamentphp.com/docs/5.x/components/form#using-multiple-forms
 ---
 

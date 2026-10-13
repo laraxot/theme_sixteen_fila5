@@ -126,7 +126,7 @@ issues: []
 discussions: []
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[← FINAL-VISUAL-PARITY-REPORT](./FINAL-VISUAL-PARITY-REPORT.md)** - Visual parity verification
 - **[← PHASE6-ALPINE-IMPLEMENTATION](./PHASE6-ALPINE-IMPLEMENTATION.md)** - Implementation plan
 

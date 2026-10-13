@@ -10,9 +10,9 @@ updated: 2026-06-03
 tags: [css, leaflet, popup, header, design-comuni, parity]
 related:
   - ../concepts/geo-map-popup-leaflet-boundary.md
-  - ../../../../Modules/Geo/docs/wiki/concepts/geo-map-popup-bem.md
-  - ../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md
-  - ../../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md
+  - ../../../../../Modules/Geo/docs/wiki/concepts/geo-map-popup-bem.md
+  - ../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md
+  - ../../../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md
   - ../concepts/map-lit-vite-build-troubleshooting.md
 ---
 

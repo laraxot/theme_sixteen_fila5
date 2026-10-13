@@ -11,9 +11,9 @@ tags: [header, design-comuni, bootstrap-italia, css, parity, blade]
 sources:
   - https://github.com/italia/design-comuni-pagine-statiche
   - https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/
-  - ../../../../Main_files/five/segnalazione-02-dati.html
-  - ../../../../Main_files/five/src/style.css
-  - ../../../../resources/views/components/sections/header/v1.blade.php
+  - ../../Main_files/five/segnalazione-02-dati.html
+  - ../../Main_files/five/src/style.css
+  - ../../../resources/views/components/sections/header/v1.blade.php
 ---
 
 # Header style layer rule

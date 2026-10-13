@@ -1,6 +1,6 @@
 @props(['data' => []])
 
-<section class="mx-auto w-full max-w-5xl px-5 py-10" aria-labelledby="form-wizard-title" x-data="{ active: 0 }">
+<section class="mx-auto w-full max-w-5xl px-5 py-10" aria-labelledby="form-wizard-title" x-data="{ active: (() => { try { return parseInt(new URLSearchParams(window.location.search).get('step')?.split('.').pop()) || 0 } catch { return 0 } })() }">
     <h2 id="form-wizard-title" class="text-3xl font-bold text-[#191919]">{{ $data['heading'] ?? 'Invio segnalazione' }}</h2>
     <p class="mt-2 text-slate-700">{{ $data['steps_label'] ?? 'Passaggi del servizio' }}</p>
     <ol class="mt-8 grid gap-3 md:grid-cols-4" aria-label="{{ $data['steps_label'] ?? 'Passaggi del servizio' }}">

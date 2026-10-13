@@ -12,7 +12,7 @@ discussions:
 related:
   - ../concepts/theme-component-test-contract.md
   - ../concepts/phpstan-compliance.md
-  - ../../../Modules/Fixcity/docs/wiki/overviews/completion-roadmap.md
+  - ../../../../../Modules/Fixcity/docs/wiki/overviews/completion-roadmap.md
 ---
 
 # Sixteen — roadmap completamento tema FO
@@ -60,6 +60,6 @@ Sixteen è il tema **owner** del front office Fixcity: Folio, Design Comuni, wiz
 
 ## Collegamenti modulo Fixcity
 
-Roadmap dominio: [Fixcity completion-roadmap](../../../Modules/Fixcity/docs/wiki/overviews/completion-roadmap.md)
+Roadmap dominio: [Fixcity completion-roadmap](../../../../../Modules/Fixcity/docs/wiki/overviews/completion-roadmap.md)
 
 Hub piattaforma: [platform-completion-roadmap](../../../Modules/Xot/docs/wiki/overviews/platform-completion-roadmap.md)

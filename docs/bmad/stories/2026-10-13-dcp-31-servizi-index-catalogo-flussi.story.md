@@ -3,7 +3,7 @@ id: dcp-31
 title: "DCP-31: catalogo dei flussi di servizio (servizi/index.html)"
 type: story
 epic: dc-parity-v2
-status: in-review
+status: done
 priority: P2
 owner: theme:Sixteen
 created: 2026-10-13
@@ -38,3 +38,7 @@ Sentinelle: homepage 91,16 / 98,57 e servizi 90,81 / 98,24 invariate; `/it`, `/i
 ## Aperto
 - HTML rigoroso 89,54 < 90 solo per il valore degli URL (nel riferimento `href="accesso-servizio.html"`, qui `/it/tests/accesso-servizio`): stessa decisione aperta dell'epic (alias di rotta vs gate normalizzato).
 - Backup della fixture precedente fuori dal repo (scratchpad `dcp0-backup/`).
+
+## Verifica dell'orchestratore (parity-sweep.sh, 2026-10-13, dopo rigenerazione CSS a 81 pagine)
+Rimisurato io, non dall'agente. HTML rigorosa / normalizzata (pixel minimo, altezze): servizi-index 89.54 / 98.69 (pixel min 99.75, altezze uguali).
+Stato: done con riserva: pixel >= 99,6% con altezze uguali su tutte le pagine; HTML rigoroso >= 90 su 0 di 1 (il resto per valori di `href`/`src`; le `*-area-personale` ora con header autenticato, `layouts/design-comuni-authenticated`).

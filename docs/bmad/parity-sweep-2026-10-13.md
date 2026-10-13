@@ -38,3 +38,50 @@ Dopo `regenerate-design-comuni-css.sh` (38 pagine) e `npm run build`. Pagine con
 ## Incidenti dello sweep (da non ripetere)
 - Misura durante una `npm run build`: gli asset cambiano a meta' del gate. Una sola build alla volta e nessun gate in quel momento (lock `/tmp/design-comuni-build.lock` solo per lo script di rigenerazione).
 - Il primo sweep ha dato **88-89% con altezze diverse** su servizi, servizi-categoria e servizio-dettaglio e il marcatore `|---LINE:`: un 500 di un altro agente aveva inquinato la cache delle viste. Dopo `php artisan view:clear` le stesse pagine fanno 99,66-99,94%. Il gate segnala `[MARCATORI]` e la riga delle altezze `DIVERSE`: leggerle sempre.
+
+## Ondata 2 (2026-10-13 pomeriggio): famiglie servizi/ e catalogo dei flussi
+Sweep `parity-sweep.sh` (2 job) sulle 37 pagine, CSS rigenerata con 81 pagine, header autenticato attivo sulle `*-area-personale`. Misura dell'orchestratore (non degli agenti). HTML rigorosa / URL normalizzati, pixel minimo tra i 5 viewport, altezze: tutte uguali.
+
+| Pagina | HTML rig. / norm. | Pixel min | Altezze |
+|---|---|---|---|
+| `/it/tests/consenso-privacy` | 85.73 / 97.49 | 99.61 | uguali |
+| `/it/tests/graduatoria-area-personale` | 89.45 / 99.02 | 99.65 | uguali |
+| `/it/tests/graduatoria-conferma` | 88.52 / 98 | 99.66 | uguali |
+| `/it/tests/graduatoria-dati-personali` | 92.43 / 98.99 | 99.83 | uguali |
+| `/it/tests/graduatoria-dati-specifici` | 87.92 / 98.02 | 99.73 | uguali |
+| `/it/tests/graduatoria-messaggio` | 87.41 / 98.03 | 99.74 | uguali |
+| `/it/tests/graduatoria-perfezionamento` | 86.91 / 97.79 | 99.69 | uguali |
+| `/it/tests/graduatoria-riepilogo` | 91.55 / 98.64 | 99.85 | uguali |
+| `/it/tests/graduatoria-scheda-servizio` | 90.37 / 98.2 | 99.69 | uguali |
+| `/it/tests/pagamenti-imu-anteprima-F24` | 89.57 / 98.31 | 99.79 | uguali |
+| `/it/tests/pagamenti-imu-area-personale` | 89.89 / 98.9 | 99.69 | uguali |
+| `/it/tests/pagamenti-imu-conferma` | 87.7 / 97.77 | 99.61 | uguali |
+| `/it/tests/pagamenti-imu-dati-personali` | 92.71 / 98.99 | 99.74 | uguali |
+| `/it/tests/pagamenti-imu-preferenze` | 89.43 / 98.28 | 99.69 | uguali |
+| `/it/tests/pagamenti-imu-riepilogo` | 90.31 / 98.43 | 99.81 | uguali |
+| `/it/tests/pagamenti-imu-scheda-servizio` | 90.16 / 98.33 | 99.77 | uguali |
+| `/it/tests/pagamenti-multa-area-personale` | 90.2 / 98.93 | 99.69 | uguali |
+| `/it/tests/pagamenti-multa-conferma` | 87.84 / 97.8 | 99.63 | uguali |
+| `/it/tests/pagamenti-multa-dati-personali` | 87.47 / 97.95 | 99.65 | uguali |
+| `/it/tests/pagamenti-multa-dati-specifici-fase1` | 86.86 / 97.84 | 99.68 | uguali |
+| `/it/tests/pagamenti-multa-dati-specifici-fase2` | 88.03 / 98.04 | 99.65 | uguali |
+| `/it/tests/pagamenti-multa-dati-specifici-fase3` | 88.11 / 98.06 | 99.66 | uguali |
+| `/it/tests/pagamenti-multa-riepilogo` | 87.89 / 98.02 | 99.73 | uguali |
+| `/it/tests/pagamenti-multa-scheda-servizio` | 89.67 / 98.27 | 99.72 | uguali |
+| `/it/tests/permessi-area-personale` | 90.37 / 98.96 | 99.64 | uguali |
+| `/it/tests/permessi-conferma` | 88.7 / 97.89 | 99.67 | uguali |
+| `/it/tests/permessi-dati-personali` | 90.39 / 98.54 | 99.81 | uguali |
+| `/it/tests/permessi-dati-specifici` | 86.88 / 97.84 | 99.66 | uguali |
+| `/it/tests/permessi-pagamento` | 86.04 / 97.77 | 99.63 | uguali |
+| `/it/tests/permessi-riepilogo` | 89.17 / 98.24 | 99.77 | uguali |
+| `/it/tests/permessi-scheda-servizio` | 90.08 / 98.06 | 99.69 | uguali |
+| `/it/tests/servizi-index` | 89.54 / 98.69 | 99.75 | uguali |
+| `/it/tests/vantaggi-area-personale` | 89.89 / 98.9 | 99.66 | uguali |
+| `/it/tests/vantaggi-conferma` | 88.29 / 97.96 | 99.65 | uguali |
+| `/it/tests/vantaggi-dati-personali` | 91.57 / 98.85 | 99.83 | uguali |
+| `/it/tests/vantaggi-riepilogo` | 90.29 / 98.41 | 99.81 | uguali |
+| `/it/tests/vantaggi-scheda-servizio` | 90.26 / 98.25 | 99.71 | uguali |
+
+Riepilogo: 37/37 con pixel minimo >= 99,61% e altezze uguali; HTML rigoroso >= 90 su 13/37 (82,6-93%); URL normalizzati >= 97,49% (`consenso-privacy`, la piu' bassa); decisione sulla metrica: [DCP-94](stories/2026-10-13-dcp-94-decisione-metrica-html-rigorosa.story.md). Non nel riferimento (404): `graduatoria-pagamento`, `pagamenti-multa-pagamento`; `pagamenti-multa-dati-specifici-fase1/2/3` (i file con il refuso `specifci` rispondono 404).
+Sentinelle durante la giornata: `/it` 5 pixel su 4.982.400 dopo il primo build dello scope `data-dc` (stato di allora); `/it/tickets` 200; 4 pagine di prova a campione invariate (eventi 99,68, homepage 99,83, permessi-area-personale 99,64, risultati-ricerca 99,76).
+

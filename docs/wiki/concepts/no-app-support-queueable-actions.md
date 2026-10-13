@@ -10,9 +10,9 @@ issues:
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/273"
 related:
-  - ../../../../docs/wiki/rules/queueable-action-trait-mandatory.md
+  - ../../../../../../docs/wiki/rules/queueable-action-trait-mandatory.md
   - fo-folio-links-multilingua.md
-  - ../../../Modules/User/docs/wiki/concepts/no-app-support-queueable-actions.md
+  - ../../../../../Modules/User/docs/wiki/concepts/no-app-support-queueable-actions.md
 ---
 
 # no `app/Support/` — theme Actions

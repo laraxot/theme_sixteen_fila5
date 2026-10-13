@@ -28,7 +28,7 @@
 
         <div class="fc-map-shell">
             <map-lit
-                class="block w-full"
+                class="d-block w-100"
                 data-url="{{ $dataUrl }}"
                 height="{{ $height }}"
             ></map-lit>

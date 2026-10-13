@@ -36,9 +36,9 @@ According to Filament best practices and vendor documentation (`laravel/vendor/f
 4. Keep modal actions at the bottom: `<x-filament-actions::modals />`
 
 **Reference Documentation**:
-- [ticket-wizard-filament-refactor.md](../docs/ticket-wizard-filament-refactor.md) - Form wrapping requirements
-- [wizard.txt](../docs/prompts/wizard.txt) - "La view widget del modulo deve essere wrapper/layout: titolo, container, `<form wire:submit="submit">`, `{{ $this->form }}`, modals."
-- [LivewireFormView.stub](../../../vendor/filament/forms/stubs/LivewireFormView.stub) - Vendor template
+- [ticket-wizard-filament-refactor.md](../ticket-wizard-filament-refactor.md) - Form wrapping requirements
+- [wizard.txt](../prompts/wizard.txt) - "La view widget del modulo deve essere wrapper/layout: titolo, container, `<form wire:submit="submit">`, `{{ $this->form }}`, modals."
+- [LivewireFormView.stub](../../../../vendor/filament/forms/stubs/LivewireFormView.stub) - Vendor template
 
 **Verification**:
 After the fix, the wizard form should:

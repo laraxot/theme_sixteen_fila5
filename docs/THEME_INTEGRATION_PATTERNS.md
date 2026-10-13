@@ -133,5 +133,5 @@ cat public_html/themes/Sixteen/manifest.json | grep map-lit
 
 ## Collegamenti
 
-- [Geo Module: map-lit-lessons-learned](../../Modules/Geo/docs/map-lit-lessons-learned.md)
-- [Root: STORY-121](../../../docs/stories/STORY-121-map-lit-non-visibile-verifica-fix.md)
+- [Geo Module: map-lit-lessons-learned](../../../Modules/Geo/docs/map-lit-lessons-learned.md)
+- [Root: STORY-121](../../../../docs/stories/STORY-121-map-lit-non-visibile-verifica-fix.md)
