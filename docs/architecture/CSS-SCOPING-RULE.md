@@ -79,3 +79,9 @@ See also:
 - [HTML parity body policy](../html-parity-body-policy.md)
 - [Page routing architecture](./PAGE_ROUTING_ARCHITECTURE.md)
 - [Theme docs index](../00-INDEX.md)
+
+
+## Nota Design Comuni /tests (2026-10-13)
+Per le pagine `pages/tests/*` lo scope degli stili generati e' `body:has(.page-content[data-slug*="tests."])`: il `<body>` resta plain e lo scope dipende dal wrapper
+canonico `page-content[data-slug]`. Header, footer, modale di ricerca e skiplink stanno fuori da `page-content` ma dentro lo stesso body, quindi sono coperti dallo stesso scope
+(provato con scope solo su `<main>`: footer 76,6% contro 100%). Layout: `components/layouts/design-comuni.blade.php`. Dettagli: `docs/bmad/decisions/2026-10-13-parity-root-cause-and-guardrails.md`.

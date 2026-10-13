@@ -31,6 +31,12 @@ un gate che misurasse. "Verificato" = riscontrato nel codice precedente (git HEA
 | D13 | Rating: comportamento sbagliato | verificato: Alpine con stelle gialle al passaggio; il riferimento e' a passi con radio e step | `dcRating` riproduce i passi (voto > 3 positivo) | fatto; verificare con `--click` | `--click 'label[for=star4a]' --selector '#rating'` |
 | D14 | "Contatta il comune": spaziature | da verificare (struttura `cmp-contacts` e `contact-list` non ancora allineata al CSS) | stesso metodo: markup + CSS generato | DCP-04 | `--selector .bg-grey-card` |
 
+## Stato a fine giornata 2026-10-13
+D05-D14 (tutto il `<main>`): verificati con i pixel, sezione per sezione, a 1440/768/375 px: 99,2% - 100%, altezze identiche. D01-D04 (header) e il footer
+restano da fare (DCP-05/06): header 92% a 1440, 72% a 992, 65% a 375.
+Il difetto "pulsante Cerca bianco con testo bianco, verde solo in hover" della pagina risultati-ricerca aveva due cause: la regola legacy
+`p, span, body { color: #1a1a1a !important }` e toppe `!important` a mano; ora lo stile e' quello del riferimento (`#007a52`, hover `#006342`).
+
 ## Controllo d'insieme
 ```bash
 bash laravel/Themes/Sixteen/scripts/homepage-parity-defects.sh

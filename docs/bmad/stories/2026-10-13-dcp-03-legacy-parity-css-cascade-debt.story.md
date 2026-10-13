@@ -3,7 +3,7 @@ id: dcp-03
 title: "DCP-03: debito di cascata CSS legacy"
 type: story
 epic: dc-parity-v2
-status: todo
+status: in-progress
 priority: P0
 owner: theme:Sixteen
 created: 2026-10-13
@@ -24,7 +24,12 @@ File coinvolti (import in `app.css`): `homepage-visual-fix`, `homepage-parity-v2
 Disattivando i 7 import specifici della homepage: homepage di test 35,4% -> 52,4%; indice e argomenti invariati (88,1% / 51,1%);
 **la home reale `/it` cambia** (altezza 3460 -> 3239 px). Quindi quei file servono anche al sito vero.
 
-## Da fare
+## Risolto in giornata (per le pagine `.dc-page`)
+- `laravel/Themes/Sixteen/postcss/isolate-legacy-important.cjs` (registrato in `postcss.config.js`, che e' il file letto: `postcss.config.cjs` e' ignorato): in build, ogni regola fuori da `.dc-page` riceve `:not(:where(.dc-page, .dc-page *))`. Nessun cambio di specificita' altrove. Peso: app.css 2,17 MB raw, 228 KB gzip.
+- Verifica: `find-important-overrides.mjs <url> .dc-page` da 143 regole esterne a 0; home reale `/it` identica (0,000% pixel diversi), indice 88,1% e argomenti invariati.
+- Trappola scoperta: regole a mano con `.dc-page` nel selettore (aggiunte da altri agenti) non vengono isolate e rompono lo stile generato: vietate (DCP-12).
+
+## Resta da fare
 1. Inventario: per ogni file legacy, quali pagine/classi lo usano (grep sui blade + screenshot prima/dopo).
 2. Isolare i file che servono a `/it` sotto un selettore del suo blocco (`.design-comuni-homepage` o attributo su body), poi scollegarli per le pagine `/tests`.
 3. Regola nuova: niente nuovi `*-parity.css`, niente `!important` nuovo; per capire una cascata si usa `explain-style.mjs`, si corregge cancellando la regola sbagliata.

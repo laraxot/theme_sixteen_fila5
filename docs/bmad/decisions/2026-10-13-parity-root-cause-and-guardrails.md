@@ -54,3 +54,23 @@ Nota onesta, scritta dopo che l'utente ha corretto la stessa famiglia di errori 
 ## Cosa e' rimasto di buono
 Strumenti agnostici in `bashscripts/tools/visual/` (confronto HTML, confronto pixel con selettore e clic, estrazione CSS usata, spiegazione
 della cascata), blocco homepage guidato da JSON, JSON canonico senza duplicati, asset ripristinati alla fonte, font self-hosted, `.mcp.json` riparato.
+
+## Aggiornamento di sera: cause nuove, trovate con gli strumenti
+11. **ID duplicato copiato dal riferimento.** Il markup del riferimento ha `id="main-container"` su un `div`; il layout del tema lo ha su `<main>`. Il duplicato attivava
+    `#main-container { padding-block: 2rem }`: tutta la pagina spostata di 32px. Si trova con `explain-style.mjs` (proprieta' `padding-block`, non `padding-top`).
+12. **Toppe a mano di altri agenti sullo stesso scope.** `!important` forzato anche in hover (il pulsante "Cerca" non scuriva), `padding-top` doppio sul contenitore,
+    `max-width:none`. Il plugin di isolamento le salta perche' contengono `.dc-page`: regola nuova in DCP-12.
+13. **Specificita' del reset.** `all: revert` a specificita' (0,1,0) non basta contro regole legacy piu' specifiche (`.form-check .checkbox-body label`, `main { padding }`);
+    l'isolamento sicuro e' escludere le regole legacy per costruzione (plugin PostCSS con `:where()`), non combatterle.
+14. **Il file PostCSS letto era `postcss.config.js`, non `.cjs`.** Il primo tentativo di registrare il plugin non ha avuto effetto (0 occorrenze nel CSS compilato): si verifica sempre l'output, non la configurazione.
+15. **`pkill -f` uccide la shell** che lo lancia (gia' in `shell-and-tool-gotchas`): costato un giro.
+
+Guardrail aggiunti: `find-important-overrides.mjs` a 0 e nessun `id` duplicato nei criteri di "fatto" (definition-of-done); le misure per elemento (`compare-computed.mjs`) prima di scrivere CSS.
+
+## Aggiornamento tardo: errori della fase header/footer, trovati e corretti con i numeri
+16. **Body con classe: violavo una policy permanente che non avevo letto.** `docs/html-parity-body-policy.md` e `docs/architecture/CSS-SCOPING-RULE.md` (2026-09-26) dicono: `<body>` plain, scope da `div.page-content[data-slug]`, niente wrapper/classi inventati. Avevo messo `class="dc-page"` sul body e wrapper nei blocchi. Stessa causa di fondo del mattino: costruire prima di leggere i contratti. Correzione: scope `body:has(.page-content[data-slug*="tests."])` (il body resta plain, lo scope dipende dal wrapper canonico).
+17. **Layout condiviso modificato senza cercare chi lo usa.** `layouts/test` serve anche `/it/tickets` (JSON `tickets.index.json` con `layout: "test"`): cambiandolo avevo cambiato una pagina reale. Trovato da un controllo di sentinella (`it-header-wrapper` presente su `/it/tickets`). Correzione: nuovo `layouts/design-comuni` solo per `pages/tests/*`, `layouts/test` ripristinato. Regola: prima di cambiare un layout, `grep` di chi lo usa e una sentinella per ciascun utente.
+18. **Scope con 5 hook: CSS 6,6 MB e parity crollata a 12%.** Il guard del plugin si ripete migliaia di volte; piu' hook = piu' byte. Poi un secondo bug: il plugin non riconosceva le proprie regole perche' Tailwind riscrive le virgolette degli attributi (la parity e' crollata per questo). Un solo hook e confronto normalizzato: CSS 3,3 MB raw / 253 KB gzip.
+19. **zsh non divide le variabili** (`set -- $pair` ha dato slug vuoti): una misura senza senso (`heights=900/1971`) per poco non finiva in un report. Era gia' in memoria; ora il gate e' uno script (`gate.sh`) con argomenti espliciti e una riga per metrica.
+20. **Altri agenti hanno riscritto due volte `layouts/design-comuni.blade.php`** (`<main class="dc-page">`) e riaggiunto wrapper nei blocchi: il commento nel file ora cita le misure (con scope solo su `<main>`: header 95,5%, footer 76,6% contro 100% e 100%).
+Guardrail: sentinelle per ogni utente di un layout condiviso; il gate stampa `heights=ref/local` e un valore con altezze diverse e' sospetto; il file di coordinamento elenca i layout contesi.

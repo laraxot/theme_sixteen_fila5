@@ -20,6 +20,31 @@ ps -eo pid,etimes,args | grep -E "claude|codex|opencode|qwen|omp" | grep -v grep
 Modifiche ancorate e idempotenti (aggiungere se manca, mai riscrivere un file intero), backup nello scratchpad, rilettura dopo.
 Una sola build alla volta: `npm run build` nel tema (circa 11 secondi); il manifest si rilegge dopo, non si assume.
 
+## Stato dei file contesi (2026-10-13 sera)
+- `components/blocks/homepage.blade.php`, `blocks/search-results/design-comuni.blade.php`, partial `blocks/partials/dc-*`, `tests.homepage.json`, `tests.risultati-ricerca.json`,
+  `resources/css/design-comuni/*`, `resources/js/theme/design-comuni-home.js`, `postcss/isolate-legacy-important.cjs`: sessione Claude, rilasciati.
+- Il vecchio `blocks/search-results/default.blade.php` non e' piu' usato (la selezione e' la chiave `view` del JSON); non cancellato.
+- **Vietato**: regole a mano con `.dc-page` nel selettore (fuori da `design-comuni/overrides.css`), nuovi `*-parity.css`, `!important` nuovi, `id` copiati dal riferimento che il layout ha gia'.
+  Le toppe di questo tipo trovate in `search-results-parity.css` e in fondo ad `app.css` sono state rimosse (backup nello scratchpad della sessione).
+
+## ATTENZIONE: conflitto su risultati-ricerca (2026-10-13, 08:30)
+Un altro agente ha riportato nel JSON del tenant `tests.risultati-ricerca.json` la chiave `view` su `search-results.default` e sta modificando
+`blocks/search-results/default.blade.php` e `blocks/listing/search-results.blade.php` (percorso Tailwind a mano). Misura di confronto (stesso comando, `<main>` a 1440 px):
+- `design-comuni.blade.php` (da JSON, CSS generato, `postcss/isolate-legacy-important.cjs`): **99,86%**, altezze identiche, 99,6% a 375 px.
+- `default.blade.php`: al momento 500 (`Undefined variable $contactLinks`); prima delle modifiche era 83-93% sulla pagina intera.
+La chiave `view` e' una sola per pagina: **non cambiarla senza rimisurare con `bashscripts/tools/visual/compare-screenshots.mjs --selector main`** e scrivere qui i numeri.
+Il layout `layouts/test.blade.php` ora usa header/footer/modale Design Comuni (sezioni con `tpl="design-comuni"`); `layouts/app.blade.php` (sito reale) e' invariato.
+
+## Layout e scope (2026-10-13 sera) — non cambiare senza rimisurare
+- `layouts/design-comuni.blade.php`: usato SOLO da `pages/tests/[slug]` e `pages/tests/index`. Header/footer/modale/skiplink Design Comuni, `<main>` bare, `<body>` plain.
+- `layouts/test.blade.php`: usato anche da pagine del front office reale (`/it/tickets` ecc.): NON modificarlo per le pagine di prova.
+- Scope CSS: `body:has(.page-content[data-slug*="tests."])` (stesso valore in `postcss/isolate-legacy-important.cjs` e in `extract-used-css.mjs --scope`). Niente `class="dc-page"`, niente wrapper: non servono a nessuno stile.
+- Misure: con scope solo su `<main>` header 95,5% e footer 76,6%; con scope sul body header 100% e footer 100%.
+
+## ATTENZIONE: eventi in parallelo (2026-10-13 11:45)
+Un altro agente lavora su `sito/eventi.html` (story `bmad/stories/eventi-visual-parity-97.story.md`, evidenze in `bmad/evidence/eventi-*`, `blocks/events-calendar/default.blade.php`) e ha creato `config/local/fixcity/database/content/pages/eventi.json` con lo **stesso slug** `tests.eventi` di `tests.eventi.json`: due record con lo stesso slug = `CMS content collision` (HTTP 500) per tutti. Il file non canonico e' stato spostato (backup nello scratchpad della sessione Claude); il nome canonico e' `tests.eventi.json` (regola in `Modules/Cms/docs/json-content-slug-uniqueness.md`).
+Metodo usato qui: un solo blocco `blocks/events-page/design-comuni.blade.php` guidato da JSON + CSS generato (non `events-calendar/default`, non Tailwind a mano). Confrontare con i numeri di `bashscripts/tools/visual/parity-gate.sh` prima di cambiare approccio.
+
 ## Contratto non negoziabile
 Le pagine `/it/tests/*` sono **dato**: Folio generico `[slug]` + `<x-page>` + blocchi/sezioni Blade + JSON `tests.<slug>.json`.
 Vietato: file Folio o layout per singola pagina, testo nelle viste, Bootstrap Italia a runtime, nuovi `*-parity.css` con `!important`.

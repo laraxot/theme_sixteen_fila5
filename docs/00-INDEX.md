@@ -3,7 +3,7 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-updated: 2026-09-27
+updated: 2026-10-13
 qmd: "sixteen theme design comuni folio volt accessibility documentation index"
 ---
 
@@ -22,18 +22,19 @@ non usarli per decidere una nuova struttura.
 
 1. [README](README.md) — identità, ownership e stack;
 2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
-3. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
-4. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
-5. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
-6. [header/footer data model](bmad/header-footer-data-model.md) — elementi, forma JSON e AC;
-7. [header/footer rationale](second-brain/header-footer-rationale.md) — decisione e perché;
-8. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
-9. [design-comuni](design-comuni/DESIGN-COMUNI-CANONICAL.md) — vincoli visuali;
-10. [design-system](design-system/README.md) — token e componenti del tema;
-11. [pages](pages/) — contratti delle pagine e parity;
-12. [stories](stories/) — storie BMAD e acceptance criteria;
-13. [visual-parity](visual-parity/) — verifiche, screenshot e report;
-14. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
+3. [docs architecture](../../../../bmad-output/docs-architecture/README.md) — regole cross-project;
+4. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
+5. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
+6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
+7. [header/footer data model](bmad/header-footer-data-model.md) — elementi, forma JSON e AC;
+8. [header/footer rationale](second-brain/header-footer-rationale.md) — decisione e perché;
+9. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
+10. [design-comuni](design-comuni/DESIGN-COMUNI-CANONICAL.md) — vincoli visuali;
+11. [design-system](design-system/README.md) — token e componenti del tema;
+12. [pages](pages/) — contratti delle pagine e parity;
+13. [stories](stories/) — storie BMAD e acceptance criteria;
+14. [visual-parity](visual-parity/) — verifiche, screenshot e report;
+15. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
 
 ## SSoT per area
 

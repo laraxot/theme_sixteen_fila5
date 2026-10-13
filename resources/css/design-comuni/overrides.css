@@ -1,10 +1,144 @@
-/* Ritocchi manuali sopra homepage.css (scope .dc-page). Ogni regola deve spiegare perche esiste. */
+/* Ritocchi manuali sopra components.css (scope .dc-page, che e la classe del body nelle pagine /tests). Ogni regola deve spiegare perche esiste. */
 
-/*
- * Il layout condiviso mette padding a <main> (legacy `#main-container { padding-block }` e variante mobile di 18px);
- * il riferimento no, e con il padding il margine del breadcrumb non collassa piu'. Vale solo per i main che
- * contengono una pagina Design Comuni. !important: batte la regola con id del layout (stessa importanza, specificita' maggiore).
- */
-#main-container:has(.dc-page) {
-    padding: 0 !important;
+/* Accesso servizio: la reference usa una colonna editoriale stretta, bottoni
+   verdi pieni e link di servizio separati. Il blocco resta JSON-driven e la
+   regola è isolata per non alterare le altre pagine CMS. */
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-page { color:#17324d; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .page-content { max-width:100%; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .page-content > .container { max-width:1176px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-methods { max-width:784px; margin:0 auto; padding:8px 0 56px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method { margin:0 0 36px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method h2 { margin:0 0 8px; color:#17324d; font-size:2rem; font-weight:600; line-height:1.2; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method p { margin:0 0 16px; color:#17324d; font-size:1.125rem; line-height:1.5; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__primary,
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__outline { display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:10px; border-radius:4px; padding:11px 20px; font-size:1rem; font-weight:600; line-height:1.2; text-decoration:none; transition:background-color .15s ease, color .15s ease, box-shadow .15s ease; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__primary { background:#007a52; color:#fff; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__primary:hover { background:#005c3e; color:#fff; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__primary img { flex:0 0 auto; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__outline { border:2px solid #007a52; margin:0 12px 0 0; background:#fff; color:#007a52; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__outline:hover { background:#e8f5ef; color:#005c3e; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__link { display:block; width:max-content; margin-top:10px; color:#007a52; font-size:1rem; text-decoration:underline; text-underline-offset:3px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__link:hover { color:#005c3e; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__alternatives { display:flex; flex-wrap:wrap; gap:8px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts { background:#f2f7f5; padding:48px 16px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts__card { max-width:784px; margin:0 auto; padding:32px; background:#fff; box-shadow:0 2px 12px rgb(23 50 77 / 12%); }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts h2 { margin:0 0 20px; color:#17324d; font-size:1.5rem; font-weight:600; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts ul { margin:0; padding:0; list-style:none; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts li + li { margin-top:14px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts a { display:flex; align-items:center; gap:12px; color:#007a52; font-size:1rem; text-decoration:none; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts a:hover { text-decoration:underline; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts svg { width:22px; height:22px; flex:none; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block,
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions { max-width:784px; margin:0 auto; padding:48px 16px 0; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block h2,
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions h2 { margin:0 0 20px; color:#17324d; font-size:1.5rem; font-weight:600; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block__form { display:flex; align-items:stretch; gap:0; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block__input-wrap { position:relative; flex:1 1 auto; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block__input-wrap svg { position:absolute; top:50%; left:14px; width:22px; height:22px; transform:translateY(-50%); color:#17324d; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block input { width:100%; min-height:48px; border:1px solid #5c6f82; border-right:0; border-radius:4px 0 0 4px; padding:10px 14px 10px 46px; color:#17324d; font-size:1rem; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block input:focus { outline:3px solid #ffbf47; outline-offset:0; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block button { min-width:112px; border:1px solid #007a52; border-radius:0 4px 4px 0; background:#007a52; color:#fff; font-weight:600; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block button:hover { background:#005c3e; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions { padding-top:32px; padding-bottom:64px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions ul { margin:0; padding:0; list-style:none; columns:2; column-gap:48px; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions li { break-inside:avoid; border-bottom:1px solid #d9e2e8; padding:10px 0; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions a { color:#007a52; text-decoration:none; }
+body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions a:hover { text-decoration:underline; }
+@media (max-width:767px) {
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-methods { padding-inline:16px; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method h2 { font-size:1.75rem; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__outline { width:100%; margin:0; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-access-method__alternatives { display:grid; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts__card { padding:24px; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block__form { display:block; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block input { border-right:1px solid #5c6f82; border-radius:4px; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-search-block button { width:100%; margin-top:12px; min-height:48px; border-radius:4px; }
+    body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-suggestions ul { columns:1; }
+}
+
+/* La pagina eventi usa la griglia Design Comuni `col-xl-4`: il CSS estratto
+   per le altre pagine non la contiene, quindi senza questa regola il desktop
+   degrada a due colonne e raddoppia l'altezza della pagina. */
+@media (min-width: 1200px) {
+    body:has(.page-content[data-slug^="tests."]) .page-content[data-slug="tests.eventi"] .col-xl-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+}
+
+/* Mantiene il rapporto panoramico della reference anche quando il contenuto
+   arriva da immagini JSON con proporzioni diverse. */
+body:has(.page-content[data-slug^="tests."]) .page-content[data-slug="tests.eventi"] .img-responsive-panoramic {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+body:has(.page-content[data-slug^="tests."]) .page-content[data-slug="tests.eventi"] .img-responsive-panoramic .img-wrapper,
+body:has(.page-content[data-slug^="tests."]) .page-content[data-slug="tests.eventi"] .img-responsive-panoramic img {
+    width: 100%;
+    height: 100%;
+}
+
+body:has(.page-content[data-slug^="tests."]) .page-content[data-slug="tests.eventi"] .img-responsive-panoramic img {
+    object-fit: cover;
+}
+
+/* Evento dettaglio: layout dei contenuti editoriali non coperto dal CSS
+   estratto della pagina elenco eventi. */
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail { color:#17324d; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__container { max-width:1176px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail .cmp-breadcrumbs { padding:24px 0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__intro { padding:16px 0 40px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail h1 { color:#191919; font-size:clamp(2rem,4vw,2.75rem); font-weight:600; line-height:1.15; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__intro h2 { color:#455a64; font-size:1.25rem; font-weight:400; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__intro p { max-width:54rem; font-size:1.125rem; line-height:1.65; }
+@media (min-width: 992px) {
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail .col-lg-4 { flex:0 0 auto; width:33.33333333%; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail .col-lg-8 { flex:0 0 auto; width:66.66666667%; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail .col-lg-3 { flex:0 0 auto; width:25%; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail .offset-lg-1 { margin-left:8.33333333%; }
+}
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__actions { position:relative; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__action-group { position:relative; display:inline-block; margin:0 16px 12px 0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__action { display:inline-flex; align-items:center; gap:8px; border:0; background:transparent; padding:8px 0; color:#007a52; text-decoration:underline; cursor:pointer; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__action:focus-visible { outline:3px solid #ffbf47; outline-offset:3px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__menu { position:absolute; z-index:10; top:100%; left:0; min-width:170px; padding:8px 0; border:1px solid #d9e2e8; background:#fff; box-shadow:0 8px 24px rgb(0 0 0 / 15%); }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__menu a { display:block; padding:10px 16px; color:#007a52; text-decoration:none; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__menu a:hover { background:#f2f4f6; text-decoration:underline; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__topics { margin-top:20px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__topics h3 { margin:0 0 12px; color:#455a64; font-size:1rem; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__topics ul { display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__topics a { display:inline-block; border:1px solid #007a52; border-radius:20px; padding:5px 12px; color:#007a52; text-decoration:none; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__hero-image { margin:0 0 48px; text-align:center; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__hero-image img { display:block; width:100%; max-height:520px; object-fit:cover; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__hero-image figcaption { padding-top:12px; color:#5c6f82; font-size:.875rem; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__body { max-width:1176px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index { padding:32px 24px 32px 0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index h2 { font-size:1rem; font-weight:600; text-transform:uppercase; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index ul { margin:16px 0; padding:0; list-style:none; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index li { border-bottom:1px solid #e5e5e5; padding:9px 0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index a,
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__links a { color:#007a52; text-decoration:none; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index a:hover,
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__links a:hover { text-decoration:underline; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__content { padding:32px 0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section { scroll-margin-top:24px; margin-bottom:48px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section h2 { margin:0 0 16px; color:#17324d; font-size:1.75rem; font-weight:600; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section p,
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section li { max-width:52rem; font-size:1.0625rem; line-height:1.7; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section ul { padding-left:20px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__section img { max-width:100%; height:auto; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery figure { margin:0; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery img { aspect-ratio:1; width:100%; object-fit:cover; }
+body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery figcaption { padding-top:6px; color:#5c6f82; font-size:.875rem; }
+@media (max-width:991px) {
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__index { padding-right:0; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__actions { padding-top:16px; }
+}
+@media (max-width:575px) {
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__container,
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__body { padding-inline:16px; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__hero-image { margin-bottom:24px; }
+    body:has(.page-content[data-slug="tests.evento-dettaglio"]) .dc-event-detail__gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
