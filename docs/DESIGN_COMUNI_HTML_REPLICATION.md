@@ -383,7 +383,7 @@ Replicare l'HTML esatto di Design Comuni all'interno del tag `<body>` (esclusi g
 
 ### Internal Documents
 
-- → [Layout Architecture](Themes/Sixteen/docs/LAYOUT_ARCHITECTURE_AND_NAMESPACE.md) - Layout hierarchy
+- → [Layout Architecture](LAYOUT_ARCHITECTURE_AND_NAMESPACE.md) - Layout hierarchy
 - → [Page Component Architecture](Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) - Page component
 - → [Block Analysis](_bmad-output/design-comuni-block-analysis.md) - 47 componenti
 - → [BMad UI Spec](_bmad-output/design-comuni-ui-spec.md) - Component specs

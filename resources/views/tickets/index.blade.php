@@ -218,7 +218,7 @@
             // Custom high-contrast DivIcon (no CDN CSS) — visible at all zoom levels, WCAG compliant
             const markerIcon = L.divIcon({
                 className: 'ticket-marker-visible',
-                html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#007a52" stroke="#ffffff" stroke-width="2" aria-label="Segnalazione" role="img"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="#ffffff"/></svg>`,
+                html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="48" aria-label="Segnalazione sul territorio" role="img" aria-hidden="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#007a52" stroke="#007a52" stroke-width="2"/><circle cx="12" cy="9" r="3" fill="#ffffff" stroke="#007a52" stroke-width="1.5"/></svg>`,
                 iconSize: [36, 48],
                 iconAnchor: [18, 48],
                 popupAnchor: [0, -48]

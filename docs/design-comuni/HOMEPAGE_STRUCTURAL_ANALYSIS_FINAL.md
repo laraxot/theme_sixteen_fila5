@@ -165,7 +165,7 @@ ALL text strings in JSON:
 - ← [HTML Analysis](./HOMEPAGE_HTML_ANALYSIS.md)
 - ← [Visual Parity Session](./HOMEPAGE_VISUAL_PARITY_SESSION.md)
 - ← [90% Plan](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md)
-- ← [Merge Conflict Log](./MERGE_CONFLICT_RESOLUTION_LOG.md)
+- ← [Merge Conflict Log](../MERGE_CONFLICT_RESOLUTION_LOG.md)
 - → [Master Index](./00-index.md)
 
 ---

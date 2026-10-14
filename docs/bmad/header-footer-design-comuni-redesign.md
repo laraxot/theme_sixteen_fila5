@@ -16,7 +16,7 @@ links:
   reference_footer: "https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html#footer"
 related:
   - ./architecture.md
-  - ./design-system/tokens.md
+  - ../design-system/tokens.md
   - ./design-system/components.md
   - ./design-comuni-navigation-comparison.md
   - ./decision-layout-test.md

@@ -9,7 +9,7 @@ updated: 2026-10-13
 tags: [sixteen, design-comuni, wizard, filament, parity, zen, bmad]
 related:
   - ../../../../../Modules/Fixcity/docs/tests-pages-content-files.md
-  - ../rules/cms-content-slug-matches-folio-page-name.md
+  - ../../wiki/rules/cms-content-slug-matches-folio-page-name.md
   - ../../wiki/rules/no-controllers-rule.md
   - ../../wiki/rules/design-comuni-theme-css-only-rule.md
 ---

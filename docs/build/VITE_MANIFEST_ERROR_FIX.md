@@ -227,7 +227,7 @@ ls public_html/themes/Sixteen/manifest.json
 - [Vite Second Parameter Guide](VITE_SECOND_PARAMETER_GUIDE.md)
 - [Vite Manifest Fix Complete](VITE_MANIFEST_FIX_COMPLETE.md)
 - [Layout Architecture](layout-architecture.md)
-- [Build Commands Guide](build-commands-guide.md)
+- [Build Commands Guide](../build-commands-guide.md)
 
 ---
 

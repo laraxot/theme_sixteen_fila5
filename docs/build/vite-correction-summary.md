@@ -186,8 +186,8 @@ ls -la resources/dist/assets/
 ## Collegamenti
 
 - [Vite Theme Integration](vite-theme-integration.md)
-- [AGID Login Implementation](agid-login-implementation.md)
-- [Layout Usage Patterns](layout-usage-patterns.md)
+- [AGID Login Implementation](../agid-login-implementation.md)
+- [Layout Usage Patterns](../layout-usage-patterns.md)
 - [Layout Guest](resources/views/layouts/guest.blade.php)
 - [Vite Config](vite.config.js)
 - [Package.json](package.json)

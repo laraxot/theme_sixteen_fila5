@@ -265,9 +265,9 @@ Keep Bootstrap Italia class names in HTML for compatibility:
 ### Architecture Documentation
 1. **[layout-hierarchy.md](./layout-hierarchy.md)** - `x-layouts.app` extends `x-layouts.main`
 2. **[components-directory-structure.md](./components-directory-structure.md)** - Complete component organization
-3. **[vite-configuration-guide.md](./vite-configuration-guide.md)** - Build configuration (`outDir: './public'`)
+3. **[vite-configuration-guide.md](./build/vite-configuration-guide.md)** - Build configuration (`outDir: './public'`)
 4. **[build-commands-guide.md](./build-commands-guide.md)** - Complete build process
-5. **[vite-config-fix-summary.md](./vite-config-fix-summary.md)** - Why `outDir: './public'`
+5. **[vite-config-fix-summary.md](./build/vite-config-fix-summary.md)** - Why `outDir: './public'`
 6. **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** - Master documentation index
 
 ### Design Comuni Documentation
