@@ -23,6 +23,7 @@
                 'footer_hidden' => false,
                 'rows' => $report['rows'] ?? [],
             ]])
+            @include($wizard.'.report-partials.images-preview')
             @if (filled($report['location'] ?? null))
                 <div data-dc-map>
                     <div class="mt-3">
