@@ -113,3 +113,13 @@ node dcp112-probe.mjs '[{"path":"/it","width":1440,"axe":true}]' out.json
 ```
 
 La sonda e' descritta in `Modules/Fixcity/docs/compliance/01-matrice-conformita-normativa.md` (appendice A) e nella story DCP-112. I file di lavoro stanno nello scratchpad di sessione (non nel repository).
+
+## Aggiornamento 2026-10-13 (sera): DCP-131 e DCP-132
+
+| Riga | Prima | Ora |
+|---|---|---|
+| I-01 | assente | `/{it,en,de,es}/accessibilita` risponde 200 (blocco `accessibility-statement`, dati dell'ente nel JSON); modulo di feedback che invia email alla casella dichiarata; link alla procedura dell'art. 3-quinquies; link dal footer e dalle pagine di login e registrazione. Stato di conformita', date e casella restano da fornire (guardia `AccessibilityDeclarationPublicationGateTest`, rossa per costruzione) |
+| I-16 | assente | footer: tutti i link interni rispondono 200 (o 302 al login per `/tickets/create`) in 4 lingue e nessun `href="#"` sul sito reale (test `FooterLinksResolveTest`); le voci senza pagina sono testo non attivo. Header: NON risolto (9 link 404 per lingua, 12 `href="#"`), fuori perimetro di DCP-131 |
+
+Story: `../bmad/stories/2026-10-13-dcp-131-footer-legale-pagine-mancanti-e-link-404.story.md` e `...dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md`.
+

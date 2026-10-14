@@ -17,7 +17,7 @@
                                     <svg class="icon icon-xs right" aria-hidden="true"><use href="{{ $icon('it-expand') }}"></use></svg></button>
                             </span>
                             <div class="progress" aria-hidden="true">
-                                <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-label="{{ __('pub_theme::a11y.reading_progress') }}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div id="collapse-{{ $suffix }}" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-{{ $suffix }}">
                                 <div class="accordion-body">

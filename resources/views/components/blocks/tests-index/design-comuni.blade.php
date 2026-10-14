@@ -20,7 +20,8 @@
             </span>
         </div>
         <div class="col-12">
-            <ul id="myTab" class="nav nav-tabs auto mt-3" role="tablist">
+            {{-- Collegamenti tra pagine, non schede con pannelli: role=tablist senza role=tab farebbe fallire axe (aria-required-children, listitem) --}}
+            <ul id="myTab" class="nav nav-tabs auto mt-3">
                 @foreach ($d('tabs', []) as $tab)
                     <li class="nav-item"><a @class(['nav-link', 'active' => $tab['active'] ?? false]) href="{{ $tab['url'] ?? '#' }}">{{ $tab['label'] ?? '' }}</a></li>
                 @endforeach

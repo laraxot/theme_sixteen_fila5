@@ -261,4 +261,4 @@ The framework supports:
 - **Second brain tracking** (`hindsight` initiative `kp-174d...` + memory `MEMORY.md`)
 - **BMAD verification** (`docs/bmad/*.md` stories + `docs/visual-parity/*.md` evidence + `docs/investigation/*.md` for root cause)
 
-All work is performed with the BMAD discipline (Bold, Minimal, Actionable, Durable) and follows the `AGENTS.md` rules (no controllers, no services layer, module contracts naming, composer root minimal, etc.). No `pub_theme::components.blocks.*.design-comuni` duplication remains (corrected globally in JSON files).
+All work is performed with the BMAD discipline (Bold, Minimal, Actionable, Durable) and follows the `AGENTS.md` rules (no controllers, no services layer, module contracts naming, composer root minimal, etc.). No `pub_theme::components.blocks.*.design-comuni` duplication remains (corrected globally in JSON files).D19: coordinate dinamiche — luogo reale dell'utente; NO coordinate fisse; NO HTTPS msg; silent fallback

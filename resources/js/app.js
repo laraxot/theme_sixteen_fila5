@@ -167,6 +167,9 @@ initHeaderMobileNav();
 // Scope modulo — disponibili a initHeaderDropdowns e ai listener globali (ESC, click esterno)
 function closeDropdownMenu(menu) {
     if (!menu) { return; }
+    // WCAG 2.4.3: se il focus sta dentro il menu che si chiude (Esc), riportarlo al pulsante; nascondere la voce col focus lo manderebbe sul body
+    const opener = menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
+    if (opener && menu.contains(document.activeElement)) { opener.focus(); }
     menu.classList.remove('show');
     if (isDesignComuniPage()) {
         menu.removeAttribute('data-popper-placement');

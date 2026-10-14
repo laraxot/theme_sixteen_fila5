@@ -28,7 +28,16 @@ const GUARD = `:not(:where(${SCOPE}, ${SCOPE} *))`;
 const FC_GUARD = ':not(:where(.fc-home *, body.nav-open .it-header-wrapper .navbar-collapsable, body.nav-open .it-header-wrapper .navbar-collapsable *))';
 const hasImportant = (rule) => rule.some((node) => node.type === 'decl' && node.important);
 // Regole dei plugin della mappa (leaflet.css: `.leaflet-container .leaflet-tile{max-width:none!important}`): sono vendor, non legacy, e senza di esse le tile hanno larghezza 0.
-const isOwnFcRule = (rule) => rule.selector.includes('.fc-') || /\.(?:leaflet|marker-cluster)[-\w]*/.test(rule.selector);
+const isOwnFcRule = (rule) => rule.selector.includes('.fc-')
+    || rule.selector.includes('.cmp-wizard-widget')
+    || rule.selector.includes('.wizard-dc-form-shell')
+    || /\.(?:leaflet|marker-cluster)[-\w]*/.test(rule.selector);
+const isWizardContractRule = (rule) => rule.selector.includes('.cmp-wizard-widget')
+    || rule.selector.includes('.wizard-dc-form-shell');
+// Plugin della mappa (leaflet.css, MarkerCluster): CSS vendor che non puo' essere "legacy". Il guard lo spegneva dentro l'ambito Design Comuni, anche senza
+// `!important`: `.leaflet-pane` e i tile restavano `position: static`, i tile si impilavano in colonna fuori dal riquadro e la mappa del wizard sembrava rotta
+// (DCP-146). Le sue regole valgono quindi anche dentro l'ambito; i nomi non coincidono con quelli del legacy (`.leaflet-*`, `.marker-cluster*`).
+const isMapVendorSelector = (selector) => /\.(?:leaflet|marker-cluster)[-\w]*/.test(selector);
 // il guard va prima di un eventuale pseudo-elemento finale (`a::before` -> `a:not(...)::before`)
 const TRAILING_PSEUDO = /((?:::[\w-]+(?:\([^)]*\))?|:(?:before|after|first-line|first-letter))+)$/;
 
@@ -42,8 +51,13 @@ module.exports = () => ({
             // regole che colpiscono solo la radice non possono toccare un discendente dell'ambito
             if (rule.selectors.every((selector) => /^(?:html|body|:root)(?:\s*,)?$/.test(selector.trim()))) return;
 
-            const guard = hasImportant(rule) && !isOwnFcRule(rule) ? `${GUARD}${FC_GUARD}` : GUARD;
+            // The wizard is a Design Comuni contract rendered inside the
+            // data-dc scope; guarding it would disable its own layout rules.
+            const guard = isWizardContractRule(rule)
+                ? ''
+                : hasImportant(rule) && !isOwnFcRule(rule) ? `${GUARD}${FC_GUARD}` : GUARD;
             rule.selectors = rule.selectors.map((selector) => {
+                if (isMapVendorSelector(selector)) return selector;
                 const trailing = selector.match(TRAILING_PSEUDO);
                 return trailing ? `${selector.slice(0, trailing.index)}${guard}${trailing[1]}` : `${selector}${guard}`;
             });
