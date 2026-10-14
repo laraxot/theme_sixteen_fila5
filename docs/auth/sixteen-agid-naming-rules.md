@@ -222,10 +222,10 @@ Tutti i blocchi nella stessa categoria condividono **identici props**:
 
 ## 🔗 **COLLEGAMENTI**
 
-- [Sistema Blocchi](./blocks-system.md)
+- [Sistema Blocchi](../blocks-system.md)
 - [Componenti Tema](./components.md)
-- [Regole Layout](./layout-usage-correction.md)
-- [Regole Critiche](./critical-rules.md)
+- [Regole Layout](../layout-usage-correction.md)
+- [Regole Critiche](../critical-rules.md)
 - [Documentazione Root AGID](../../../docs/agid-compliance.md)
 
 ---

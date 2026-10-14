@@ -171,7 +171,7 @@ Before any CSS work, fix the root cause of pages rendering 8500+ tags:
 
 - [Comparison Tools](DESIGN-COMUNI-COMPARISON-TOOLS.md) — Tool documentation
 - [HTML Comparisons](html-comparisons/HTML-STRUCTURE-COMPARISON.md) — Raw comparison data
-- [Block Census](design-comuni-census-blocks.md) — Content block analysis
+- [Block Census](../design-comuni-census-blocks.md) — Content block analysis
 - [Master Index](00-index.md) — Design Comuni documentation index
 
 ---

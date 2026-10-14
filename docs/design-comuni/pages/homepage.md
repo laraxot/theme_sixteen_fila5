@@ -293,7 +293,7 @@ discussions: []
 <x-section slug="footer" />
 ```
 
-**Documentazione:** [Footer Component](../../components/footer.md)
+**Documentazione:** [Footer Component](../../components/ui/marketing/footer.md)
 
 ---
 
@@ -537,7 +537,7 @@ npx playwright test Modules/Geo/tests/Playwright/homepage-it-mobile-qa.spec.js
 - [Replication Guide](../replication-guide.md)
 - [Screenshot Analysis](../screenshots/homepage/homepage.md)
 - [Header Component](../../components/header.md)
-- [Footer Component](../../components/footer.md)
+- [Footer Component](../../components/ui/marketing/footer.md)
 
 ---
 

@@ -9,7 +9,7 @@ created: 2026-06-10
 updated: 2026-06-10
 related:
   - ./bootstrap-italia-tailwind-philosophy.md
-  - ./design-comuni-class-mapping.md
+  - ../entities/design-comuni-class-mapping.md
   - ../entities/design-comuni-class-mapping.md
   - ../../../../docs/wiki/concepts/design-system-tailwind-parity.md
 ---

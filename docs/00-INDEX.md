@@ -106,3 +106,8 @@ chiude il gate.
 
 ## Area personale (DCP-106, DCP-110)
 - [DCP-110 area personale: Le mie segnalazioni e Segnalazioni che seguo](bmad/stories/2026-10-13-dcp-110-area-personale-pratiche-e-seguite.story.md)
+
+## Registro story e dettaglio ticket (2026-10-14)
+- [Registro completo delle story](bmad/stories/00-REGISTRO-COMPLETO.md): le story di `stories/` e `bmad/stories/` che prima non avevano un indice (stato e titolo dichiarati nei file)
+- [DCP-148 dettaglio pubblico e Segui](bmad/stories/2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md): blocco `components/blocks/ticket-detail/design-comuni.blade.php`
+- [DCP-152 (modulo Geo): marker del dettaglio e pulsanti della mappa](../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md): il blocco passa `marker-icon-url`, `marker-color`, `marker-label` al `coordinate-picker-lit` (vedi [coordinate-picker](wiki/coordinate-picker.md))

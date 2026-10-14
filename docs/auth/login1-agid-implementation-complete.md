@@ -234,10 +234,10 @@ route('pages.view', ['slug' => 'legal-notes'])
 
 ## 📚 Riferimenti e Documentazione
 
-- [AGID Login Refactoring Plan](./agid-login-refactoring-plan.md)
-- [Critical Rules](./critical-rules.md)
-- [Sixteen Theme Naming Conventions](./sixteen-theme-naming-conventions.md)
-- [Vite Configuration Rules](./vite-configuration-rules.md)
+- [AGID Login Refactoring Plan](../agid-login-refactoring-plan.md)
+- [Critical Rules](../critical-rules.md)
+- [Sixteen Theme Naming Conventions](../sixteen-theme-naming-conventions.md)
+- [Vite Configuration Rules](../build/vite-configuration-rules.md)
 - [Bootstrap Italia Guidelines](https://italia.github.io/bootstrap-italia/)
 - [WCAG 2.1 AA Standards](https://www.w3.org/WAI/WCAG21/quickref/)
 

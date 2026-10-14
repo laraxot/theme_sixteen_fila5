@@ -124,5 +124,5 @@ Before committing any layout changes:
 ## 🔗 Cross-References
 
 - → [Stepper Component](./stepper-component.md) — Uses body plain rule
-- → [segnalazione-02-dati](./segnalazione-02-dati.md) — Page implementation example
+- → [segnalazione-02-dati](../bmad/segnalazione-02-dati.md) — Page implementation example
 - → [main.blade.php](../../resources/views/components/layouts/main.blade.php) — Layout file

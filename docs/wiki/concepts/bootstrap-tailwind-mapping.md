@@ -11,7 +11,7 @@ updated: 2026-05-04
 tags: [bootstrap, tailwind, mapping, design-comuni, parity, css, alpine, lit]
 related:
   - ../../laravel/Modules/Fixcity/docs/wiki/concepts/segnalazione-design-comuni-comparison.md
-  - ../../laravel/Themes/Sixteen/docs/wiki/concepts/segnalazione-visual-parity-correction-plan.md
+  - segnalazione-visual-parity-correction-plan.md
   - concepts/theme-owned-css-parity-rule.md
   - concepts/segnalazione-visual-parity-mastery.md
 ---

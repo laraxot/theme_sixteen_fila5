@@ -36,9 +36,9 @@ discussions: []
 ### 🏗️ Architecture (NEW)
 1. **[Layout Hierarchy](./layout-hierarchy.md)** ✅ - `x-layouts.app` extends `x-layouts.main`
 2. **[Components Directory](./components-directory-structure.md)** ✅ - Complete component organization
-3. **[Vite Configuration](./vite-configuration-guide.md)** ✅ - Build configuration (`outDir: './public'`)
+3. **[Vite Configuration](./build/vite-configuration-guide.md)** ✅ - Build configuration (`outDir: './public'`)
 4. **[Build Commands](./build-commands-guide.md)** ✅ - Complete build process
-5. **[Vite Config Fix](./vite-config-fix-summary.md)** ✅ - Why `outDir: './public'`
+5. **[Vite Config Fix](./build/vite-config-fix-summary.md)** ✅ - Why `outDir: './public'`
 
 ---
 
@@ -50,9 +50,9 @@ discussions: []
 |----------|--------|-------------|
 | [Layout Hierarchy](./layout-hierarchy.md) | ✅ NEW | Base structure → Public frontend → Specialized layouts |
 | [Components Directory](./components-directory-structure.md) | ✅ NEW | Layouts, Sections, Blocks, AGID components |
-| [Vite Configuration](./vite-configuration-guide.md) | ✅ NEW | Build configuration with `outDir: './public'` |
+| [Vite Configuration](./build/vite-configuration-guide.md) | ✅ NEW | Build configuration with `outDir: './public'` |
 | [Build Commands](./build-commands-guide.md) | ✅ NEW | `composer update -W` → `npm run build` → `npm run copy` |
-| [Vite Config Fix](./vite-config-fix-summary.md) | ✅ NEW | Why `outDir: './public'` explained |
+| [Vite Config Fix](./build/vite-config-fix-summary.md) | ✅ NEW | Why `outDir: './public'` explained |
 | [Block System](./blocks-system.md) | ✅ | Content blocks architecture |
 | [File Naming Rules](./file-naming-rules.md) | ✅ | Naming conventions |
 | [Critical Rules](./critical-rules.md) | ✅ | Must-follow rules |
@@ -98,7 +98,7 @@ discussions: []
 | Document | Status | Description |
 |----------|--------|-------------|
 | [Build Commands Guide](./build-commands-guide.md) | ✅ NEW | Complete build process |
-| [Vite Configuration](./vite-configuration-guide.md) | ✅ NEW | Vite setup and usage |
+| [Vite Configuration](./build/vite-configuration-guide.md) | ✅ NEW | Vite setup and usage |
 | [Build System Best Practices](./build-system-best-practices.md) | ✅ | Build optimization |
 | [Build Issues Resolution](./build-issues-resolution.md) | ✅ | Troubleshooting builds |
 

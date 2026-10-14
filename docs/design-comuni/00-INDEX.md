@@ -18,7 +18,7 @@ discussions: []
 - **[Wizard Governance Bridge](./wizard-governance-bridge.md)** - Confini tema/modulo/base e anti-duplicazione
 - **[CSS/JS Phase Status](./CSS-JS-PHASE-STATUS.md)** - Stato fase CSS/JS per tutte le pagine
 - **[CSS/JS Phase Blocker](./CSS-JS-PHASE-BLOCKER.md)** - Blocker database mancante
-- **[MCP Servers](./MCP_SERVERS.md)** - Server MCP configurati
+- **[MCP Servers](../MCP_SERVERS.md)** - Server MCP configurati
 - **[Stepper Component](./stepper-component.md)** - Componente stepper responsive mobile-first
 - **[Body Plain Rule](./body-plain-rule.md)** - Regola: body tag senza classi/attributi
 

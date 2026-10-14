@@ -334,7 +334,7 @@ Prima di pubblicare una pagina con layout AGID, verificare:
 ## 📚 Documentazione Correlata
 
 - [agid-login-refactoring-plan.md](agid-login-refactoring-plan.md) - Piano completo refactoring AGID
-- [vite-configuration-rules.md](vite-configuration-rules.md) - Regole configurazione Vite
+- [vite-configuration-rules.md](build/vite-configuration-rules.md) - Regole configurazione Vite
 - [route-structure-rules.md](route-structure-rules.md) - Regole per le route CMS
 - [layout-usage-rules.md](layout-usage-rules.md) - Regole generali layout tema
 

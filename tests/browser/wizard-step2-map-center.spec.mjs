@@ -109,6 +109,21 @@ test.describe('DCP-146 centro iniziale della mappa del passo 2', () => {
     await browser.close();
   });
 
+  test('i pulsanti dei controlli hanno sfondo opaco, bordo e angoli arrotondati (il reset dei button delle pagine DC non li azzera)', async () => {
+    const { browser, page } = await openStep2({ base: BASE, timezoneId: 'Europe/Rome' });
+    const buttons = await page.evaluate(() => [...document.querySelectorAll('coordinate-picker-lit .ctrl-btn')].map((b) => {
+      const c = getComputedStyle(b);
+      return { label: b.getAttribute('aria-label'), bg: c.backgroundColor, border: c.borderTopWidth, radius: c.borderTopLeftRadius };
+    }));
+    expect(buttons.length).toBeGreaterThanOrEqual(5);
+    for (const b of buttons) {
+      expect(b.bg, `${b.label}: sfondo`).toBe('rgb(255, 255, 255)');
+      expect(b.border, `${b.label}: bordo`).toBe('1px');
+      expect(b.radius, `${b.label}: raggio`).toBe('8px');
+    }
+    await browser.close();
+  });
+
   test('posizione del browser concessa: centra li e mette il punto', async () => {
     const { browser, read } = await openStep2({ base: BASE, timezoneId: 'Europe/Rome', permissions: ['geolocation'], geolocation: { latitude: 45.4642, longitude: 9.19 } });
     const s = await read();
