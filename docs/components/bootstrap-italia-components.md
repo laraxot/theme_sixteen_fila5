@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bootstrap italia components"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Bootstrap Italia Components Implementation Status
@@ -178,13 +179,4 @@ All components have been tested for:
 The Sixteen theme has successfully implemented all 54 Bootstrap Italia components required for AGID compliance. The implementation follows best practices for accessibility, performance, and responsive design.
 
 ---
-
-title: "bootstrap italia components"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "bootstrap italia components"
-issues: []
-discussions: []
 *Last updated: 2025-09-08*

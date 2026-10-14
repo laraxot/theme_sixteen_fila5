@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BLOCKS IMPLEMENTATION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Blocks Implementation - Complete
@@ -20,15 +21,6 @@ discussions: []
 **Totale Blocchi:** 7 blocchi creati
 
 ---
-
-title: "BLOCKS IMPLEMENTATION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BLOCKS IMPLEMENTATION"
-issues: []
-discussions: []
 ## 🧩 Blocchi Implementati
 
 ### 1. Navigation Main

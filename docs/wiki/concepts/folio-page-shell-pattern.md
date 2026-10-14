@@ -12,6 +12,7 @@ discussions:
 related:
   - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
   - ../../../docs/wiki/concepts/fo-folio-links-multilingua.md
+status: draft
 ---
 
 # Folio Page Shell Pattern - Volt Component

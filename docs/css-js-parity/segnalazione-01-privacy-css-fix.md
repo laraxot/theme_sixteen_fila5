@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione 01 privacy css fix"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS/JS Parity Fix - Segnalazione 01 Privacy
@@ -19,15 +20,6 @@ discussions: []
 **Visual Parity Target**: 90%+
 
 ---
-
-title: "segnalazione 01 privacy css fix"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "segnalazione 01 privacy css fix"
-issues: []
-discussions: []
 ## 📊 Baseline Analysis (2026-04-09 10:11)
 
 ### Visual Parity Issues Found

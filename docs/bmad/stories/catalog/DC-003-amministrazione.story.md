@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/amministrazione.html
 local: http://192.168.1.40:8000/it/tests/amministrazione
+title: "DC-003 — amministrazione"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-003   amministrazione sixteen"
 ---
 
 # DC-003 — amministrazione

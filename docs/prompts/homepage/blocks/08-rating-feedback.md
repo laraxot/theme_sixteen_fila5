@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "08 rating feedback"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 08: Rating Feedback
@@ -14,15 +15,6 @@ discussions: []
 > Valutazione stelle + feedback multi-step
 
 ---
-
-title: "08 rating feedback"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "08 rating feedback"
-issues: []
-discussions: []
 ## Reference
 **URL**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
 **Selettore**: `.cmp-rating#rating`  

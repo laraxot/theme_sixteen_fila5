@@ -12,6 +12,7 @@ related:
   - ../../wiki/rules/cms-content-slug-matches-folio-page-name.md
   - ../../wiki/rules/no-controllers-rule.md
   - ../../wiki/rules/design-comuni-theme-css-only-rule.md
+status: draft
 ---
 
 # Segnalazione wizard parity — il perche' (zen)

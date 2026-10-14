@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/documenti-dati.html
 local: http://192.168.1.40:8000/it/tests/documenti-dati
+title: "DC-016 — documenti-dati"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-016   documenti-dati sixteen"
 ---
 
 # DC-016 — documenti-dati

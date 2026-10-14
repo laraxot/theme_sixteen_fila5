@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione 04 conferma diff"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione 04 conferma diff

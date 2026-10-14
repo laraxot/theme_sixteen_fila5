@@ -8,6 +8,8 @@ updated: "2026-10-11T20:10:00Z"
 links:
   github_issue: "https://github.com/fixcity/fila5/issues/60"
   github_discussion: "https://github.com/fixcity/fila5/discussions/60"
+tags: [docs, sixteen, bmad]
+qmd: "visual parity   design comuni vs sixteen fo sixteen"
 ---
 
 # Visual parity — Design Comuni vs Sixteen FO

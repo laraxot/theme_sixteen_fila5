@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "svg icon convention"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 SVG Icon Convention - Automatic Registration
@@ -17,15 +18,6 @@ discussions: []
 **Owner**: Multi-Agent Team
 
 ---
-
-title: "svg icon convention"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "svg icon convention"
-issues: []
-discussions: []
 ## 🚨 Golden Rule
 
 > **GLI SVG SONO REGISTRATI AUTOMATICAMENTE - NON CREARE FILE MANUALMENTE**

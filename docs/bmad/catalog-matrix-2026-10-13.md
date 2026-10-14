@@ -1,3 +1,11 @@
+---
+title: "Matrice pagine Design Comuni — stato locale"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "matrice pagine design comuni   stato locale sixteen"
+---
 # Matrice pagine Design Comuni — stato locale
 
 Generato il 2026-10-13 da `laravel/config/local/fixcity/database/content/pages` e dall'indice ufficiale (83 HTML). Fonte: https://italia.github.io/design-comuni-pagine-statiche/

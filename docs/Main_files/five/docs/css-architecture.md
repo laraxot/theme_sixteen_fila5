@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: css-architecture
 canonical: ../../../../../docs/shared-components/css-architecture.md
+status: stub
 ---
 
 See canonical documentation: ../../../../../docs/shared-components/css-architecture.md

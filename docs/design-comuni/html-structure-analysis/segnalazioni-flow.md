@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni flow"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione Flow Structural Parity – 2026-04-06

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design comuni header source analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Header Source Analysis

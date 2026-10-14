@@ -10,6 +10,7 @@ tags: [design-comuni, sixteen, brainstorming, variants, homepage, segnalazione]
 links:
   github_issue: "#150"
   architecture: "arc-sixteen-design-comuni-redesign"
+qmd: "brainstorming redesign design comuni   tema sixteen sixteen"
 ---
 
 # Brainstorming Redesign Design Comuni — Tema Sixteen

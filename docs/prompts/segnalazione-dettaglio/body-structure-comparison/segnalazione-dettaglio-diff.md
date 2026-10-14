@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione dettaglio diff"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione dettaglio diff

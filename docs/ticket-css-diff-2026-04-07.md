@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket css diff 2026 04 07"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Differenze CSS/JS - Pagine Segnalazione

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "service provider enhancement implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Service Provider Enhancement - Implementation Documentation

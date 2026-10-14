@@ -12,6 +12,7 @@ qmd: "dcp-33 tickets create wizard step dati CoordinatePicker Geo segnalazione-0
 related:
   - 2026-10-13-dcp-00-epic-design-comuni-parity-v2.story.md
   - ../decisions/2026-10-13-segnalazione-flow-parity-zen.md
+tags: [docs, sixteen, bmad]
 ---
 > Numerazione: esiste un'altra DCP-33 ([riepilogo + mappa, modulo Fixcity](../../../../../Modules/Fixcity/docs/stories/2026-10-13-dcp-33-tickets-create-riepilogo-design-comuni-mappa.story.md)); argomento diverso (passo 3). Registro: [DCP-97](2026-10-13-dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md).
 

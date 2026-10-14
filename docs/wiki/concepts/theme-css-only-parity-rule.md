@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme css only parity rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Theme CSS Only Parity Rule

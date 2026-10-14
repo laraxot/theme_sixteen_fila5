@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FIX ACTION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # VISUAL PARITY - Fix Action Plan

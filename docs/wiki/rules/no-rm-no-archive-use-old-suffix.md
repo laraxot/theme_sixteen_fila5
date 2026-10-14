@@ -11,6 +11,7 @@ updated: 2026-07-12
 tags: [sixteen, governance, files, docs, old-suffix]
 related:
   - ../../../../../../docs/wiki/rules/no-rm-no-archive-use-old-suffix.md
+status: draft
 ---
 
 # No rm, no archive folders, use .old suffix

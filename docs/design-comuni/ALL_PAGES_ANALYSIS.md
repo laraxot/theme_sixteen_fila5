@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ALL PAGES ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Completa Tutte le Pagine Design Comuni

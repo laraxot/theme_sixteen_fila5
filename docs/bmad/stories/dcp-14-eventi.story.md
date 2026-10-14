@@ -16,6 +16,9 @@ no_bootstrap: true
 refs:
   url: https://italia.github.io/design-comuni-pagine-statiche/sito/eventi.html
   sections: 24
+type: story
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-14 — Eventi Design Comuni (parità visiva)

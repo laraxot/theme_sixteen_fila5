@@ -13,6 +13,7 @@ related:
   - ../overviews/completion-roadmap.md
   - ../../../Modules/UI/docs/wiki/concepts/testing.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/phpstan-pest-testcase-helpers.md
+status: draft
 ---
 
 # Sixteen — contratto test componenti da modulo UI

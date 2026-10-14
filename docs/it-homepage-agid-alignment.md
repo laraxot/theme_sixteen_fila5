@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "it homepage agid alignment"
 issues: []
 discussions: []
+status: draft
 ---
 
 ## obiettivo

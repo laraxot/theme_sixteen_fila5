@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML BODY IDENTITY FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Body Identity - Correzioni Applicate
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Allineamento strutturale HTML
 
 ---
-
-title: "HTML BODY IDENTITY FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML BODY IDENTITY FIX"
-issues: []
-discussions: []
 ## ✅ Correzioni Applicate
 
 ### 1. Header Wrapper

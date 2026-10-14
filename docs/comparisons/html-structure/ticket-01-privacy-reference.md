@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket 01 privacy reference"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket 01 privacy reference

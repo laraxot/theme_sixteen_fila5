@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bootstrap italia tailwind apply"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 Bootstrap Italia Classes + Tailwind @apply
@@ -17,15 +18,6 @@ discussions: []
 **Owner**: Multi-Agent Team
 
 ---
-
-title: "bootstrap italia tailwind apply"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "bootstrap italia tailwind apply"
-issues: []
-discussions: []
 ## 🚨 Golden Rule
 
 > **HTML: Bootstrap Italia class names**  

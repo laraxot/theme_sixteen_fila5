@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione area personale diff"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione area personale diff

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "advanced email templates"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Christmas Email Templates (Advanced)

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HOMEPAGE 404 FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 404 Error Fix - Homepage Not Found
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Errore routing + JSON mancante
 
 ---
-
-title: "HOMEPAGE 404 FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HOMEPAGE 404 FIX"
-issues: []
-discussions: []
 ## 🐛 Problema
 
 ```

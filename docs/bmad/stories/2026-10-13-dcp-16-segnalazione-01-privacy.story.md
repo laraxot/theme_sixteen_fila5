@@ -10,6 +10,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity segnalazione 01 privacy wizard flusso bmad story baseline"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-16: segnalazione-01-privacy

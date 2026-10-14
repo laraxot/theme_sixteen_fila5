@@ -14,6 +14,7 @@ related:
   - ../overviews/perfection-checklist.md
   - ../../page-directory-structure.md
   - ../../../../Themes/docs/progetto-perfezione-roadmap.md
+status: draft
 ---
 
 # Test Theme Sixteen — policy

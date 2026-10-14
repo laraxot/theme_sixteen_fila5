@@ -1,6 +1,10 @@
 ---
 title: "Sixteen DesignComuni route catalog"
 type: theme-bmad-reference
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "route catalog sixteen"
 ---
 
 Sixteen is already the DesignComuni theme. This document records the theme-side

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEGNALAZIONI ELENCO LAYOUT FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni Elenco - Fix Layout Mappa/Filtri
@@ -99,15 +100,6 @@ discussions: []
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---
-
-title: "SEGNALAZIONI ELENCO LAYOUT FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEGNALAZIONI ELENCO LAYOUT FIX"
-issues: []
-discussions: []
 **Stato**: ✅ 101.1% - Layout corretto  
 **Problema Risolto**: Mappa ora a fianco dei filtri  
 **Data**: 2026-04-03

@@ -12,6 +12,7 @@ related:
   - ../entities/design-comuni-class-mapping.md
   - ../entities/design-comuni-class-mapping.md
   - ../../../../docs/wiki/concepts/design-system-tailwind-parity.md
+status: draft
 ---
 
 # Sixteen Theme — Tailwind CSS Patterns

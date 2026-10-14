@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "02 header center"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 02: Header Center

@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-02-data-orario.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-02-data-orario
+title: "DC-006 — appuntamento-02-data-orario"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-006   appuntamento-02-data-orario sixteen"
 ---
 
 # DC-006 — appuntamento-02-data-orario

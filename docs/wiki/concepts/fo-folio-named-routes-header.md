@@ -14,6 +14,7 @@ related:
   - ../troubleshooting/route-not-found-view-cache.md
   - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
   - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
+status: draft
 ---
 
 # Header FO — named route Folio verificate

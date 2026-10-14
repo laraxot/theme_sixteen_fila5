@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ANALISI STRUTTURA HTML FAQ"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Differenze Strutturali HTML - Domande Frequenti
@@ -21,15 +22,6 @@ Analisi dettagliata della struttura HTML dei componenti FAQ specifici, confronta
 - **Match**: 63.7% (differenza principale: header globale)
 
 ---
-
-title: "ANALISI STRUTTURA HTML FAQ"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ANALISI STRUTTURA HTML FAQ"
-issues: []
-discussions: []
 ## 📊 Struttura HTML per Componenti FAQ
 
 ### Posizione Componenti

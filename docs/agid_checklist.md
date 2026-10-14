@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: agid_checklist
 canonical: ../../docs/shared-components/agid-checklist.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/agid-checklist.md

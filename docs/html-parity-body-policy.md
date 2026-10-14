@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "html parity body policy"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Parity Body Policy

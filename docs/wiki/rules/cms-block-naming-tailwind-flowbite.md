@@ -13,6 +13,7 @@ related:
   - frontend-stack-canonical.md
   - no-italian-component-names.md
   - ../../../../../../docs/wiki/rules/011-blocks-view-convention.md
+status: draft
 ---
 
 # CMS Block naming — Tailwind UI / Flowbite

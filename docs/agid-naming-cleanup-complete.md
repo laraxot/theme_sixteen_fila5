@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid naming cleanup complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pulizia Completa Naming AGID - Tema Sixteen
@@ -170,15 +171,6 @@ name('login');
 - [Documentazione Root](../../../docs/agid-compliance.md)
 
 ---
-
-title: "agid naming cleanup complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid naming cleanup complete"
-issues: []
-discussions: []
 **Creato**: 2025-08-01  
 **Autore**: Sistema Pulizia AGID  
 **Versione**: 1.0  

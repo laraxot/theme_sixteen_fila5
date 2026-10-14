@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "verify stepper"
 issues: []
 discussions: []
+status: draft
 ---
 
 # verify-stepper.cjs

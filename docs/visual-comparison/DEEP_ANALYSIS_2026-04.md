@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DEEP ANALYSIS 2026 04 02"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Visual Comparison - Deep Analysis 2026-04-02
@@ -15,15 +16,6 @@ discussions: []
 **Local**: http://127.0.0.1:8000/it/tests/homepage
 
 ---
-
-title: "DEEP ANALYSIS 2026 04 02"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DEEP ANALYSIS 2026 04 02"
-issues: []
-discussions: []
 ## SEZIONE 1: HEADER
 
 ### Reference (Bootstrap Italia Standard)

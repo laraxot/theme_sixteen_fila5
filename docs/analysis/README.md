@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "README"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 📊 Analysis Folder
@@ -41,13 +42,4 @@ Structural and technical analysis of HTML, CSS, and component differences betwee
 | 📚 Wiki tecnica | [./docs/wiki/](..) |
 
 ---
-
-title: "README"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "README"
-issues: []
-discussions: []
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5

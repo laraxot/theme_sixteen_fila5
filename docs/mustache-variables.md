@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "mustache variables"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Mustache Variables for Sixteen Theme Mail Layouts

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "GROUP C screenshots report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Group C - Screenshot Capture Report

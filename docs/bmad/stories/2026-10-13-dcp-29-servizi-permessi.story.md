@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity servizi permessi ztl service-flow json estrattore wizard stepper veicolo checkbox date riepilogo pagamento conferma area personale"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-29: servizi/permessi-*

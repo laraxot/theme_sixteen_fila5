@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "UI COMPONENTS REORGANIZATION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 UI Components Reorganization Plan
@@ -353,15 +354,6 @@ Artisan::command('theme:ui-components:reorganize', function () {
 ```
 
 ---
-
-title: "UI COMPONENTS REORGANIZATION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "UI COMPONENTS REORGANIZATION"
-issues: []
-discussions: []
 **🎯 Obiettivo**: Struttura UI components organizzata per funzione specifica  
 **📅 Durata**: 3 giorni (migrazione controllata)  
 **👥 Team**: 2 sviluppatori (1 migrazione, 1 testing)  

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header component extraction"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header Component Extraction Pattern

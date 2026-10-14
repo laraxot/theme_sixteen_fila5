@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: elenco-segnalazioni
 canonical: ../../../../../docs/shared-components/elenco-segnalazioni.md
+status: stub
 ---
 
 See canonical documentation: ../../../../../docs/shared-components/elenco-segnalazioni.md

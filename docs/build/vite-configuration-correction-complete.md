@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "vite configuration correction complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Correzione Completa: Configurazione Vite nel Tema Sixteen
@@ -160,13 +161,4 @@ grep -r "'themes/Sixteen'" Themes/Sixteen/resources/views/
 - [layout-usage-rules.md](../layout-usage-rules.md) - Regole layout
 
 ---
-
-title: "vite configuration correction complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "vite configuration correction complete"
-issues: []
-discussions: []
 *Questa correzione garantisce la coerenza e il corretto funzionamento degli asset in tutto il tema Sixteen.*

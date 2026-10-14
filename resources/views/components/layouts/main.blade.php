@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ $title ?: $layoutAppName }}</title>
         <meta name="description" content="{{ $description ?: $layoutAppName }}">
+        <x-layouts.seo-links />
 
         {{-- PHILOSOPHY: TailwindCSS + Alpine.js ONLY. NO Bootstrap Italia JS/CSS. --}}
         {{-- See: docs/architecture/tailwind-alpine-philosophy.md --}}
@@ -62,7 +63,6 @@
         @livewireStyles
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
-        <link rel="stylesheet" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
         {{-- Critical FOUC guard: Vite CSS ~1.4MB; senza questo #head-section resta trasparente 300–600ms --}}
         <style id="sixteen-critical-fouc">
             #head-section.bg-primary { background-color: #007a52 !important; }

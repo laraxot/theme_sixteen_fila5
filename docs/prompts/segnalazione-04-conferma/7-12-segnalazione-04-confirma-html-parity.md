@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "7 12 segnalazione 04 confirma html parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Story 7.12: HTML Parity — segnalazione-04-conferma

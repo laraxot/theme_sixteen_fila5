@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: agid_components_reorganization
 canonical: ../../docs/shared-components/agid-components-reorganization.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/agid-components-reorganization.md

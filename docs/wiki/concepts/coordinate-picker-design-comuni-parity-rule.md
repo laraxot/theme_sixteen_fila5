@@ -10,6 +10,7 @@ updated: 2026-10-14
 sources:
   - ../../../../../Modules/Geo/docs/wiki/concepts/coordinate-picker-design-comuni-runtime-rule.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/segnalazione-data-step-spacing-rule.md
+status: draft
 ---
 
 # CoordinatePicker Design Comuni Parity Rule

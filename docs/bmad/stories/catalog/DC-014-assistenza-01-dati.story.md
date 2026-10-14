@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/assistenza-01-dati.html
 local: http://192.168.1.40:8000/it/tests/assistenza-01-dati
+title: "DC-014 — assistenza-01-dati"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-014   assistenza-01-dati sixteen"
 ---
 
 # DC-014 — assistenza-01-dati

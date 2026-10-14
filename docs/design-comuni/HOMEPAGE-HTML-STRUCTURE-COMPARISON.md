@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HOMEPAGE HTML STRUCTURE COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage HTML Structure Comparison
@@ -18,15 +19,6 @@ discussions: []
 **Date:** 2026-04-07
 
 ---
-
-title: "HOMEPAGE HTML STRUCTURE COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HOMEPAGE HTML STRUCTURE COMPARISON"
-issues: []
-discussions: []
 ## 1. Overall Architecture
 
 ### Remote (Static HTML)

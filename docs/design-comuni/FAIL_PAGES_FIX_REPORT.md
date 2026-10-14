@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FAIL PAGES FIX REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Fix Pagine FAIL - Report Aggiornato
@@ -63,15 +64,6 @@ discussions: []
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
-title: "FAIL PAGES FIX REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FAIL PAGES FIX REPORT"
-issues: []
-discussions: []
 **Data**: 2026-04-03  
 **Stato**: Fix in corso  
 **Prossimo**: Verificare match % dopo fix, creare componenti rimanenti

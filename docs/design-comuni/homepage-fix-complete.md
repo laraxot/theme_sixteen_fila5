@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage fix complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🏠 Homepage Fix - Bootstrap Italia Identical
@@ -181,15 +182,6 @@ http://fixcity.local/it/tests/homepage
 - [SVG_ICONS_AUTOMATIC_REGISTRATION.md](SVG_ICONS_AUTOMATIC_REGISTRATION.md)
 
 ---
-
-title: "homepage fix complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "homepage fix complete"
-issues: []
-discussions: []
 **Stato**: ✅ **HOMEPAGE IMPLEMENTATA**  
 **Block Views**: **123 totali**  
 **JSON Structure**: **5 content_blocks**  

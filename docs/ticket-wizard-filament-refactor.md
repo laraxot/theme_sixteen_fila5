@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket wizard filament refactor"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket Wizard Filament Refactor

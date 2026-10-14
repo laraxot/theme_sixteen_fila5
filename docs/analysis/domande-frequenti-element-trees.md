@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "domande frequenti element trees"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Domande frequenti element trees

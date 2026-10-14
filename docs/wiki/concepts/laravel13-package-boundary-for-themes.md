@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "laravel13 package boundary for themes"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Laravel 13 Package Boundary For Themes

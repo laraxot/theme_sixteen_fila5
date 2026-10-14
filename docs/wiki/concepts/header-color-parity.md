@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header color parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header color parity — Design Comuni (kit statico)

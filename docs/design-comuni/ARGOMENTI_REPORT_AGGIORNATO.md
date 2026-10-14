@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ARGOMENTI REPORT AGGIORNATO"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Argomenti - Report Finale Aggiornato
@@ -155,15 +156,6 @@ La differenza di 211 righe è principalmente dovuta a:
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
-title: "ARGOMENTI REPORT AGGIORNATO"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ARGOMENTI REPORT AGGIORNATO"
-issues: []
-discussions: []
 **Stato**: ✅ 81.9% - Tutti i componenti corretti  
 **Prossimo**: CSS refinements se necessari, test visivo  
 **Data**: 2026-04-03

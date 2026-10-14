@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL COMPARISON DETAILED"
 issues: []
 discussions: []
+status: draft
 ---
 
 # ticket-list - Detailed Visual Comparison

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "vite config fix summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite Configuration Fix - outDir: './public'
@@ -17,15 +18,6 @@ discussions: []
 **Related**: [[vite-configuration-guide]], [[build-commands-guide]], [[00-index]]
 
 ---
-
-title: "vite config fix summary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "vite config fix summary"
-issues: []
-discussions: []
 ## 🎯 Problem Statement
 
 **Configuration**: `laravel/Themes/Sixteen/vite.config.js`

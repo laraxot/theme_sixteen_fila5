@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "css wizard notes"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS Wizard and Header Best Practices

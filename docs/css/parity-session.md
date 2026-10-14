@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "parity session"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS/JS Parity Session - segnalazione-01-privacy

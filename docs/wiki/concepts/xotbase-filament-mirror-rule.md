@@ -8,6 +8,7 @@ qmd: "xotbase filament mirror inheritance"
 issues: ["https://github.com/laraxot/base_techplanner_fila5/issues/45"]
 discussions: ["https://github.com/laraxot/base_techplanner_fila5/discussions/12"]
 tags: [themes, sixteen, filament, xotbase]
+status: stub
 ---
 
 # Themes consume Filament through the Xot mirror

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "faq comparison 2026 04 03"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Confronto FAQ: Riferimento vs Locale

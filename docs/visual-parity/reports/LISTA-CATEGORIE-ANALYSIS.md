@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "LISTA CATEGORIE ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Parity Analysis - lista-categorie

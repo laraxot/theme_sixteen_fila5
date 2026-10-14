@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity appuntamento ufficio luogo dettagli richiedente autenticato riepilogo conferma stepper modale bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-24: appuntamento (passi 1, 3, 4, 5, 6)

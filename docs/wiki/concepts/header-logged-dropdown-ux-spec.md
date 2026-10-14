@@ -14,6 +14,7 @@ related:
   - ../../visual-comparison/header/logged-dropdown.png
   - ../../design-comuni/raw/cmp-header.hbs
 qmd: "header logged dropdown mobile avatar only design comuni slim ux segnalazione area personale"
+status: draft
 ---
 
 # Header logged — dropdown UX

@@ -19,6 +19,7 @@ sources:
   - ../../../lang/it/ui.php
   - ../../Main_files/five/segnalazione-area-personale.html
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
+status: draft
 ---
 
 # Header slim — stato autenticazione (Design Comuni)

@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: login_correction_implementation
 canonical: ../../docs/shared-components/login-correction-implementation.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/login-correction-implementation.md

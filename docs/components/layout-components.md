@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "layout components"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Layout Components - Bootstrap Italia to Tailwind

@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/evento-dettaglio.html
 local: http://192.168.1.40:8000/it/tests/evento-dettaglio
+title: "DC-019 — evento-dettaglio"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-019   evento-dettaglio sixteen"
 ---
 
 # DC-019 — evento-dettaglio

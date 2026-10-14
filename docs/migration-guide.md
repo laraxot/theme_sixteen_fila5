@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "migration guide"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Migration Guide - Sixteen Theme Component Structure
@@ -262,15 +263,6 @@ If you encounter issues during migration:
 3. Verify component usage in the [Implemented Components Update](implemented-components-update.md)
 
 ---
-
-title: "migration guide"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "migration guide"
-issues: []
-discussions: []
 *Last updated: December 2024*
 *Theme: Sixteen v2.2.0*
 *Status: Production Ready*

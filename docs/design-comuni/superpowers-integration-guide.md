@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "superpowers integration guide"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🦸 Superpowers Integration Guide
@@ -16,15 +17,6 @@ discussions: []
 **Reference**: https://github.com/obra/superpowers
 
 ---
-
-title: "superpowers integration guide"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "superpowers integration guide"
-issues: []
-discussions: []
 ## 🎯 What are Superpowers?
 
 Superpowers is a Laravel package that provides **dynamic rendering capabilities** for CMS-driven content. It enables:

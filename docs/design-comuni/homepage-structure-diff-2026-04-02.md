@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage structure diff 2026 04 02"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Structure Diff 2026-04-02

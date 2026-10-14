@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "parity gate hide exclude prepare hide-ref exclude-local screenshot html filtri misura non standard sweep index"
 related: [dcp-33]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-95: misurare il wizard senza barare in silenzio

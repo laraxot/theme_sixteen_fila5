@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "dichiarazione accessibilita legge 4 2004 art 3-quater feedback difensore civico digitale agid form wcag footer"
 related: [dcp-112, dcp-131, dcp-143]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-132: dichiarazione di accessibilita' pubblicata, con feedback

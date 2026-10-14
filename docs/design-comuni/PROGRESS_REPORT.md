@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PROGRESS REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Report Progresso Design Comuni - Aggiornamento Finale
@@ -111,15 +112,6 @@ Queste pagine hanno struttura significativamente diversa.
 - **Master Index**: [`docs/design-comuni/MASTER_INDEX.md`](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
-title: "PROGRESS REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "PROGRESS REPORT"
-issues: []
-discussions: []
 **Stato**: ✅ 61.2% OK (30/49), ⚠️ 32.7% Warning (16/49), ❌ 6.1% Fail (3/49)  
 **Target**: 90%+ OK (44/49)  
 **Data**: 2026-04-03

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "reference structure"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Reference structure

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CSS SCOPING RULE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS Scoping Rule

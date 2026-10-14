@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SECTION ANALYSIS REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Section Analysis: servizi
@@ -14,15 +15,6 @@ discussions: []
 **Generated**: 2026-04-05T07:27:08.574Z
 
 ---
-
-title: "SECTION ANALYSIS REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SECTION ANALYSIS REPORT"
-issues: []
-discussions: []
 ## Section Comparison Summary
 
 | Metric | Value |

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione comparison analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Comparativa Pagine Segnalazione - Task Attivo

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bmad method"
 issues: []
 discussions: []
+status: draft
 ---
 
 # bmad method nel tema sixteen

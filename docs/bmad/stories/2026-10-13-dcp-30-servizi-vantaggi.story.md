@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity servizi vantaggi assegno maternita scheda servizio area personale dati personali riepilogo conferma service-flow json bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-30: servizi/vantaggi

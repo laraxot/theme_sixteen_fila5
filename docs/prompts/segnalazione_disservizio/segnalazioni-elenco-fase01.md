@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni elenco fase01"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni elenco fase01

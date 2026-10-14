@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "layout variants cleanup complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pulizia Completa Varianti Layout - Tema Sixteen
@@ -196,15 +197,6 @@ name('login');
 - [Documentazione Root](../../../../../docs/project/agid-compliance.md)
 
 ---
-
-title: "layout variants cleanup complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "layout variants cleanup complete"
-issues: []
-discussions: []
 **Creato**: 2025-08-01  
 **Autore**: Sistema Pulizia Layout  
 **Versione**: 1.0  

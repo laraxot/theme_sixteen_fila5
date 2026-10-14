@@ -3,6 +3,9 @@ title: "Investigation — risultati ricerca parity gap 2026-10-13"
 type: bmad-investigation
 status: ready-for-dev
 severity: high
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "investigation: risultati-ricerca sixteen"
 ---
 
 # Investigation: risultati-ricerca

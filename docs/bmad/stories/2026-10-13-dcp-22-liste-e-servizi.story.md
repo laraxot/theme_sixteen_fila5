@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity lista-categorie lista-risorse lista-risorse-categorie servizi servizi-categoria servizio-dettaglio list-page service-page-list service-page-detail bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-22: liste e servizi

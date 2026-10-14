@@ -9,6 +9,8 @@ owner: "@team-fixcity"
 links:
   github_issue: "#150"
   architecture: "arc-sixteen-design-comuni-redesign"
+tags: [docs, sixteen, bmad]
+qmd: "decision log   redesign design comuni sixteen"
 ---
 
 # Decision Log — Redesign Design Comuni

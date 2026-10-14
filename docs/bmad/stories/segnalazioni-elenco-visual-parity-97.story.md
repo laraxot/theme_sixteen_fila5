@@ -6,6 +6,9 @@ status: done
 links:
   github_issue: #54
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazioni elenco visual parity 97% target sixteen"
 ---
 # Segnalazioni Elenco Visual Parity 97% Target
 

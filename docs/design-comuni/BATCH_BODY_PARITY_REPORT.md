@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BATCH BODY PARITY REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Batch Body Parity Report

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PAGES INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pages Index - 49 Pagine Task

@@ -5,6 +5,8 @@ status: active
 theme: Sixteen
 date: 2026-10-11
 tags: [bmad, design-comuni, tailwind, alpine, lit, accessibility]
+updated: 2026-10-11
+qmd: "segnalazioni   runtime evidence sixteen"
 ---
 
 # Segnalazioni — runtime evidence

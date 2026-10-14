@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bmad context compression"
 issues: []
 discussions: []
+status: draft
 ---
 
 # BMAD Method and Context Compression

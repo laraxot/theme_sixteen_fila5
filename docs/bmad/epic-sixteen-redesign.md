@@ -4,6 +4,10 @@ title: Sixteen Redesign — Design Comuni Visual Parity
 links:
   github_issue: "#54"
   discussion: "https://github.com/italia/design-comuni-pagine-statiche/discussions"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "sixteen redesign   design comuni visual parity sixteen"
 ---
 
 # Sixteen Redesign — Design Comuni Visual Parity

@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
 local: http://192.168.1.40:8000/it/tests/segnalazioni-elenco
+title: "DC-034 — segnalazioni-elenco"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-034   segnalazioni-elenco sixteen"
 ---
 
 # DC-034 — segnalazioni-elenco

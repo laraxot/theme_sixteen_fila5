@@ -14,6 +14,7 @@ related:
   - ../wiki/rules/cms-block-naming-tailwind-flowbite.md
   - ../wiki/rules/no-italian-component-names.md
   - ../../../../../docs/wiki/rules/cms-block-naming-tailwind-flowbite.md
+status: draft
 ---
 
 # Vocabolario cartelle `components/blocks/`

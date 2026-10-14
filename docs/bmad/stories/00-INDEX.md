@@ -3,6 +3,8 @@ title: "BMAD story index — Design Comuni and ticket flow"
 type: index
 status: active
 updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story index sixteen"
 ---
 
 # Story index
@@ -36,6 +38,18 @@ screenshot 375/768/1440, DOM evidence e WCAG evidence.
 | [DCP-106](2026-10-13-dcp-106-header-area-personale-reale-e-pagine-collegate.story.md) | specifica, coordinamento e causa radice delle pagine vuote | in-progress | tema |
 | [DCP-110](2026-10-13-dcp-110-area-personale-pratiche-e-seguite.story.md) | "Le mie segnalazioni" e "Segnalazioni che seguo" | done | modulo Fixcity |
 | [DCP-111](2026-10-13-dcp-111-area-personale-notifiche-e-impostazioni.story.md) | "Notifiche" (tabella `notifications`, segna come letta) e "Impostazioni e privacy" (preferenza email, dati dell'account, diritti GDPR) | done | modulo Fixcity |
+
+## Wave D — compliance Design Italia, cookiebar e disclaimer
+
+Le story figlie collegano l'implementazione del tema alle stories radice BMAD,
+senza duplicare il runtime Gdpr o trasformare un audit visuale in approvazione legale.
+
+| Story | Scope | Stato | Owner |
+|---|---|---|---|
+| [DCP-170](2026-10-14-dcp-170-cookiebar-visual-semantic-audit.story.md) | audit visuale/semantico Cookiebar | ready-for-dev | Sixteen |
+| [DCP-171](2026-10-14-dcp-171-disclaimer-content-and-route-verification.story.md) | verifica disclaimer, dati e route | ready-for-dev | Sixteen + legal owner |
+| [DCP-172](2026-10-14-dcp-172-legal-surface-localization-regression.story.md) | regressione link legali it/en/de/es | ready-for-dev | Sixteen |
+| [DCP-173](2026-10-14-dcp-173-design-guideline-evidence-retest.story.md) | retest matrice requisiti/evidenze | ready-for-dev | Sixteen + release owner |
 
 ## Story hygiene
 

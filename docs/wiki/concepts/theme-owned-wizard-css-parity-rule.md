@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme owned wizard css parity rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Theme-Owned Wizard CSS Parity Rule

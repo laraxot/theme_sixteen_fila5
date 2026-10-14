@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: maintenance-guide
 canonical: ../../../../../docs/shared-components/maintenance-guide.md
+status: stub
 ---
 
 See canonical documentation: ../../../../../docs/shared-components/maintenance-guide.md

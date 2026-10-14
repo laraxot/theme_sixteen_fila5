@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "pagine reali tickets elenco dettaglio segnalazioni-elenco segnalazione-dettaglio parity layout test chrome design comuni data-dc"
 related: [dcp-32, dcp-23, dcp-00]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-104: le altre due pagine reali del flusso segnalazioni

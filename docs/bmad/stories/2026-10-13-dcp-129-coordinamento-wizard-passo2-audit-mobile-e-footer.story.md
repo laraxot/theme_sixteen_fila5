@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "coordinamento wizard passo 2 dati-di-segnalazione mappa centratura audit mobile tablet footer marchio 375 DCP-127 DCP-128"
 related: [dcp-35, dcp-43, dcp-121, dcp-125, dcp-127, dcp-128]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-129: coordinamento e audit

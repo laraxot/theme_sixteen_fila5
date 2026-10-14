@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PAGE ROUTING ARCHITECTURE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Page Routing Architecture - Folio + Volt
@@ -16,15 +17,6 @@ discussions: []
 **Methodology**: DRY + KISS + Forward-Only
 
 ---
-
-title: "PAGE ROUTING ARCHITECTURE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "PAGE ROUTING ARCHITECTURE"
-issues: []
-discussions: []
 ## 🎯 Architectural Principle
 
 ### ONE `[slug].blade.php` for ALL Pages

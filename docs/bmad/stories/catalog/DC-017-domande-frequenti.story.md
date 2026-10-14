@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/domande-frequenti.html
 local: http://192.168.1.40:8000/it/tests/domande-frequenti
+title: "DC-017 — domande-frequenti"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-017   domande-frequenti sixteen"
 ---
 
 # DC-017 — domande-frequenti

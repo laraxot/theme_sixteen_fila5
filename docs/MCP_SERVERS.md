@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "MCP SERVERS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # MCP Servers - Theme Context
@@ -120,13 +121,4 @@ This document provides Sixteen theme-specific MCP usage guidelines only.
 - **Tailwind Configuration**: [Theme Tailwind Config](../tailwind.config.js)
 
 ---
-
-title: "MCP SERVERS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "MCP SERVERS"
-issues: []
-discussions: []
 *This document follows DRY+KISS principles. Server list and configuration are in the master doc.*

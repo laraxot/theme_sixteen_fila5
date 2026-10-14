@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login analysis summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Riepilogo Analisi Pagina Login - Problemi e Soluzioni

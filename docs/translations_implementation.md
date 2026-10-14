@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "translations implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Traduzioni - Tema Sixteen
@@ -327,15 +328,6 @@ Il sistema di traduzioni del tema Sixteen è completo e copre tutti gli aspetti 
 - ✅ **Namespace corretto**: `pub_theme::` invece di `pub_theme::`
 
 ---
-
-title: "translations implementation"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "translations implementation"
-issues: []
-discussions: []
 *Documentazione aggiornata il: $(date)*
 *Tema: Sixteen*
 *Stato: Traduzioni complete implementate + Namespace corretto*

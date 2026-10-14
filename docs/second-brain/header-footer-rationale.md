@@ -3,6 +3,8 @@ title: "Header/footer rationale"
 type: decision
 tags: [second-brain, header, footer, sections, json, sixteen]
 qmd: "why header footer sections JSON Sixteen theme ownership"
+status: draft
+updated: 2026-10-11
 ---
 
 # Perché header e footer sono sections JSON

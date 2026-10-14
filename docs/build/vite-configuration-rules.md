@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "vite configuration rules"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Regole per la Configurazione Vite - Tema Sixteen
@@ -302,15 +303,6 @@ Prima di utilizzare Vite in un layout del tema Sixteen:
 - [README.md](README.md) - Documentazione generale del tema
 
 ---
-
-title: "vite configuration rules"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "vite configuration rules"
-issues: []
-discussions: []
 **Regola stabilita**: 31 Luglio 2025  
 **Autorità**: Analisi dei layout esistenti del tema Sixteen  
 **Stato**: REGOLA FONDAMENTALE  

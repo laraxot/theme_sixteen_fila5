@@ -335,7 +335,7 @@ ls -lah laravel/Themes/Sixteen/docs/
 - 🎨 [Component Catalog](./COMPONENT_CATALOG.md)
 - ⚙️ [Configuration Guide](./CONFIGURATION.md)
 - 🔧 [Development Guide](./DEVELOPMENT.md)
-- 🧪 [Testing Guide](./TESTING.md)
+- 🧪 [Testing Guide](./wiki/concepts/testing.md)
 
 ---
 

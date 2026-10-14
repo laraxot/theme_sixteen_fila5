@@ -1,3 +1,11 @@
+---
+title: "Visual Parity Verification - Sixteen Redesign"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen]
+qmd: "visual parity verification - sixteen redesign sixteen"
+---
 # Visual Parity Verification - Sixteen Redesign
 
 Status: 90% HTML / 95% visual parity verified via screenshot comparison.

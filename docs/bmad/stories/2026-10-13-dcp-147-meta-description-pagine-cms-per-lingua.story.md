@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "meta description pagina cms per lingua json grezzo Page description non traducibile PageDescription tickets.confirmation tickets.index SEO"
 related: [dcp-51, dcp-104, dcp-106]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-147: meta description per lingua

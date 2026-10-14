@@ -9,6 +9,10 @@ scope: [laravel/Themes/Sixteen/docs/prompts/homepage/]
 related:
   - ../02.md
   - ../03-enhanced.md
+type: index
+updated: 2026-10-13
+tags: [docs, sixteen, prompts]
+qmd: "index sixteen"
 ---
 
 ## Correzione del 2026-10-13, sera (leggere prima del resto)

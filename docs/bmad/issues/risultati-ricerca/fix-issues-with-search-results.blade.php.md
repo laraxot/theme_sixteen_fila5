@@ -1,3 +1,11 @@
+---
+title: "Fix Issues with Search Results Block"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "fix issues with search results block sixteen"
+---
 # Fix Issues with Search Results Block
 
 ## Problem

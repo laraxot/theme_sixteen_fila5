@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni elenco comparison summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: ticket-list
@@ -35,15 +36,6 @@ discussions: []
 - **Local**: http://127.0.0.1:8000/it/tests/ticket-list
 
 ---
-
-title: "segnalazioni elenco comparison summary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "segnalazioni elenco comparison summary"
-issues: []
-discussions: []
 ## Bidirectional Links
 
 - **Script**: [`bashscripts/html/html-structure-compare.sh`](../../../../../bashscripts/html/html-structure-compare.sh)

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FOLIO MOUNT ERROR FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Folio Mount Error Fix - 404 Pages Not Found
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Errore routing Folio - Funzione inesistente
 
 ---
-
-title: "FOLIO MOUNT ERROR FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FOLIO MOUNT ERROR FIX"
-issues: []
-discussions: []
 ## 🐛 Problema
 
 ```

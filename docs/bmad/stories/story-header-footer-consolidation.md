@@ -4,6 +4,10 @@ title: Consolidate Header and Footer into Single Source of Truth
 links:
   github_issue: "#55"
   discussion: "https://github.com/.../discussions"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "story: header & footer consolidation sixteen"
 ---
 
 # Story: Header & Footer Consolidation

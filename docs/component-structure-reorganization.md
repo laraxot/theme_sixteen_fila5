@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "component structure reorganization"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Component Structure Reorganization - Sixteen Theme
@@ -182,15 +183,6 @@ This reorganization maintains full compliance with:
 - Theme architecture principles
 
 ---
-
-title: "component structure reorganization"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "component structure reorganization"
-issues: []
-discussions: []
 *Last updated: December 2024*
 *Theme: Sixteen v2.2.0*
 *Status: Production Ready*

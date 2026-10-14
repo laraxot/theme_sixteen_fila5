@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual compare 02 dati"
 issues: []
 discussions: []
+status: draft
 ---
 
 # visual-compare-02-dati.cjs

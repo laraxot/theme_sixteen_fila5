@@ -3,6 +3,8 @@ title: "Header and footer sections contract"
 type: architecture
 tags: [bmad, sections, header, footer, json, design-comuni, accessibility]
 qmd: "Sixteen x-section header footer JSON contract Design Comuni"
+status: draft
+updated: 2026-10-11
 ---
 
 # Contratto delle sections header e footer

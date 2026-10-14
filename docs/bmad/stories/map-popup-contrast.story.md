@@ -8,6 +8,10 @@ issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues/514"
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/573"
+type: story
+updated: 2026-10-08
+tags: [docs, sixteen, bmad]
+qmd: "popup marker mappa leggibile e accessibile sixteen"
 ---
 
 # Popup marker mappa leggibile e accessibile

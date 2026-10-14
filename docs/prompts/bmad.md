@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bmad"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Bmad

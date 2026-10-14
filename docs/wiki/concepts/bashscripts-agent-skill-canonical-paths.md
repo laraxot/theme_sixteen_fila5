@@ -8,6 +8,7 @@ title: "Percorsi canonici skill agenti (bashscripts) e tema Sixteen"
 module: "theme-sixteen"
 type: "concept"
 updated: "2026-05-04"
+status: draft
 ---
 
 # Tema Sixteen e albero skill agenti

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione crea header stepper responsive"
 issues: []
 discussions: []
+status: draft
 ---
 
 # segnalazione-crea Header/Stepper Responsive - Fix Plan

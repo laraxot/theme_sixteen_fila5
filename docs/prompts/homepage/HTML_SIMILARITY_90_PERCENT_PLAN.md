@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML SIMILARITY 90 PERCENT PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage HTML Similarity: 81% → 90% Action Plan
@@ -18,15 +19,6 @@ discussions: []
 > **Gap to Close**: 153 reference-only elements
 
 ---
-
-title: "HTML SIMILARITY 90 PERCENT PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML SIMILARITY 90 PERCENT PLAN"
-issues: []
-discussions: []
 ## Executive Summary
 
 ### Element Breakdown by Category

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "COMPREHENSIVE PARITY REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Comprehensive Parity Analysis Report

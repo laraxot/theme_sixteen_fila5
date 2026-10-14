@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "christmas email template implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Christmas Email Template Implementation
@@ -148,14 +149,5 @@ Modificare le date di chiusura nel box "Chiusura Festività" in `christmas.html`
 - ♿ Accessibilità WCAG 2.1
 
 ---
-
-title: "christmas email template implementation"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "christmas email template implementation"
-issues: []
-discussions: []
 **Implementato con DRY + KISS + Clean Code**  
 **Creato per le festività 2025-2026** 🎄

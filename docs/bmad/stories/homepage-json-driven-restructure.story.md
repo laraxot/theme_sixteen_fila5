@@ -10,6 +10,7 @@ issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions"
+qmd: "story-sixteen-homepage-json-driven   ristrutturare homepage sixteen da json sixteen"
 ---
 
 # STORY-SIXTEEN-HOMEPAGE-JSON-DRIVEN — Ristrutturare homepage Sixteen da JSON

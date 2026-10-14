@@ -7,6 +7,7 @@ title: "area-personale/pratiche — perché è un placeholder"
 type: incident
 tags: [folio, homepage, routing, incident]
 created: 2026-07-16
+status: draft
 ---
 
 # area-personale/pratiche resta un placeholder (2026-07-16)

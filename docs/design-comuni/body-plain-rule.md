@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "body plain rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Body Plain Rule - HTML Parity Policy
@@ -16,15 +17,6 @@ discussions: []
 **Scope**: All theme layouts (Sixteen, etc.)
 
 ---
-
-title: "body plain rule"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "body plain rule"
-issues: []
-discussions: []
 ## Rule Statement
 
 The `<body>` tag MUST remain plain without any classes or attributes:

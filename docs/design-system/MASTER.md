@@ -1,3 +1,11 @@
+---
+title: "Design System Master File"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, design-system]
+qmd: "design system master file sixteen"
+---
 # Design System Master File
 
 > **LOGIC:** This is the Sixteen theme's visual source of truth. When building a

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket dettaglio local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket dettaglio local

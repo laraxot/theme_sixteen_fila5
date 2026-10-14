@@ -10,6 +10,7 @@ updated: 2026-08-31
 related:
   - ../../../Modules/Xot/docs/ai-handoff.md
   - ../../../../docs/wiki/rules/data-sacred-no-destructive-db.md
+status: draft
 ---
 
 # ai handoff

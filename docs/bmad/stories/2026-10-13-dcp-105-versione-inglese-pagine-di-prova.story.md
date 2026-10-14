@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "versione inglese en pagine di prova tests json content_blocks traduzione locale fallback lingua"
 related: [dcp-00, dcp-19]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-105: le pagine di prova non hanno l'inglese

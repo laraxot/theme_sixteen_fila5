@@ -104,7 +104,7 @@ discussions: []
 - `topics-grid.featured` - Argomenti in evidenza (Cultura, Sport, Famiglia)
 - `form.feedback` - Feedback pagina
 
-**Documentazione:** [Argomenti](./pages/argomenti.md) (Da creare)  
+**Documentazione:** [Argomenti](../design-system/argomenti.md) (Da creare)  
 **Screenshot:** [screenshots/argomenti/](./screenshots/argomenti/) (Da creare)
 
 ---

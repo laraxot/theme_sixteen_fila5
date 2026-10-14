@@ -11,6 +11,7 @@ discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/392"
 related:
   - ../../../../Modules/Fixcity/docs/bmad/stories/STORY-FIXCITY-PRIVACY-PUBLICATION-GATE.md
+qmd: "route and ownership sixteen"
 ---
 
 # Route and ownership

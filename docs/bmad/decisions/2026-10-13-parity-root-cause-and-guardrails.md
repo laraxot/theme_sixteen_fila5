@@ -6,6 +6,8 @@ status: accepted
 epic: dc-parity-v2
 created: 2026-10-13
 qmd: "parity design comuni cause radice errori guardrail definizione di fatto bmad lezioni"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Perche' la parity non e' stata completata

@@ -13,6 +13,7 @@ related:
   - ../../../../../Modules/Cms/docs/wiki/concepts/header-nav-block-architecture.md
   - header-ssot.md
   - header-design-comuni-parity-mapping.md
+status: draft
 ---
 
 # Header Nav Dynamic Links — Sixteen Theme

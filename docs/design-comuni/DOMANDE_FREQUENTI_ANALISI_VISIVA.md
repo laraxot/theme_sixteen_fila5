@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DOMANDE FREQUENTI ANALISI VISIVA"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Visiva Domande Frequenti - Screenshot Comparativi
@@ -58,15 +59,6 @@ Analisi dettagliata delle differenze visive tra pagina di riferimento e implemen
 **Soluzione**: Implementare header completo nel layout o nei content blocks
 
 ---
-
-title: "DOMANDE FREQUENTI ANALISI VISIVA"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DOMANDE FREQUENTI ANALISI VISIVA"
-issues: []
-discussions: []
 ### 2. HERO SECTION - Differenza ALTA ⚠️
 
 **Stato**: ⚠️ PARZIALMENTE ALLINEATO

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login refactoring implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Rifattorizzazione Pagina Login - AGID Compliance

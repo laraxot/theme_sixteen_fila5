@@ -13,6 +13,8 @@ links:
   reference_homepage: "https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html"
   architecture: "arc-sixteen-design-comuni-redesign"
   decision_log: "dl-sixteen-design-comuni-redesign"
+tags: [docs, sixteen, bmad]
+qmd: "story: homepage   redesign design comuni sixteen"
 ---
 
 # Story: Homepage — Redesign Design Comuni

@@ -13,6 +13,7 @@ related:
   - ../entities/design-comuni-class-mapping.md
   - ./ui-ai-tooling-on-demand.md
   - ./bootstrap-italia-tailwind-philosophy.md
+status: draft
 ---
 
 # Frontend design — overlay Fixcity (da Anthropic plugin)

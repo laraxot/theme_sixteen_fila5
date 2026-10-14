@@ -14,6 +14,7 @@ related:
   - ../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md
   - ../../../../../Modules/Geo/docs/wiki/troubleshooting/map-popup-header-whitespace-fix.md
   - ../concepts/map-lit-vite-build-troubleshooting.md
+status: draft
 ---
 
 # Leak CSS `header` sito → popup mappa

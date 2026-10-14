@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage parity 2026 04 02"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Parity 2026-04-02

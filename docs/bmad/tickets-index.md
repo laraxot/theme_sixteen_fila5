@@ -9,6 +9,10 @@ norme-legislative: trasparenza amm. (D.Lgs. 33/2013 — dati aperti); accessibil
 zen: il cittadino non è un numero — ogni segnalazione è un atto nominativo; l'elenco riflette la responsabilità
 second-brain: kp-174d15a58ff94901b2b0df0d86b8907a (aperto, auth-state, mappa geo persistente, multilingua, mobile, accessibilità, anticorpo)
 antierrore: ls prima di slug; tickets.index.json (produzione) NON tests.index; design-system/ NON creato; docs in Sixteen/docs/
+title: "/it/tickets — Segnalazioni Elenco (Produzione)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "/it/tickets   segnalazioni elenco (produzione) sixteen"
 ---
 # /it/tickets — Segnalazioni Elenco (Produzione)
 

@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/eventi.html
 local: http://192.168.1.40:8000/it/tests/eventi
+title: "DC-018 — eventi"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-018   eventi sixteen"
 ---
 
 # DC-018 — eventi

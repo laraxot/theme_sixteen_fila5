@@ -3,6 +3,8 @@ title: "Header and footer visual parity report"
 type: parity
 tags: [design-comuni, header, footer, playwright, parity, wcag]
 qmd: "Sixteen header footer visual parity 90 HTML 95 visual"
+status: draft
+updated: 2026-10-11
 ---
 
 # Header/footer — parity verificata

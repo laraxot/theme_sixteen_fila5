@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ARCHITECTURE QUEUEABLE ACTION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Architecture: QueueableAction Pattern (Theme Sixteen)
@@ -136,13 +137,4 @@ class TicketPageViewModel {
 4. **Theme Sixteen** handles presentation only
 
 ---
-
-title: "ARCHITECTURE QUEUEABLE ACTION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ARCHITECTURE QUEUEABLE ACTION"
-issues: []
-discussions: []
 **DRY Principle**: This file references the full documentation in Modules/docs/ to avoid duplication.

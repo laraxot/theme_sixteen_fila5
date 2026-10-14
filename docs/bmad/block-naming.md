@@ -1,6 +1,10 @@
 ---
 title: "Sixteen block naming contract"
 type: theme-bmad-decision
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "block naming sixteen"
 ---
 
 Sixteen is the DesignComuni theme owner. `pub_theme` therefore already identifies

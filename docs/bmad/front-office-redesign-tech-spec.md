@@ -8,6 +8,9 @@ links:
   prd: "docs/bmad/front-office-redesign-prd.md"
   decision_log: "docs/decision-log.md"
   design_ref: "https://italia.github.io/design-comuni-pagine-statiche/index.html"
+status: draft
+updated: 2026-10-11
+qmd: "tech spec   front office redesign designcomuni v2.4.0 sixteen"
 ---
 
 # Tech Spec — Front Office Redesign DesignComuni v2.4.0

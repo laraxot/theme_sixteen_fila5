@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "multilingua i18n de es it en fallback_locale lang html hreflang selettore lingua glossario ContentLocaleParityTest wcag 3.1.1 3.1.2 skip link localizeURL"
 related: [dcp-106, dcp-123, dcp-121]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-120: il sito dice la lingua che parla

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "risultati ricerca parity 2026 04 03"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Risultati Ricerca Parity Report

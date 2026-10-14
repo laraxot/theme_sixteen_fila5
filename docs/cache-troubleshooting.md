@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "cache troubleshooting"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Cache troubleshooting (theme notes)

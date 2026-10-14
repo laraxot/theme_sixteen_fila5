@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme bundle integration false friends"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Theme Bundle Integration False Friends

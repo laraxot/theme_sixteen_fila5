@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "layout usage patterns"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pattern di Utilizzo Layout - Tema Sixteen

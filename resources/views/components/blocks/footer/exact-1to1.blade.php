@@ -149,13 +149,16 @@
             <a href="/it/amministrazione-trasparente">Amministrazione trasparente</a>
           </li>
           <li class="list-inline-item">
-            <a href="/it/informativa-privacy">Informativa privacy</a>
+            <a href="/it/cookie-policy">{{ __('footer.cookie_policy') }}</a>
           </li>
           <li class="list-inline-item">
-            <a href="/it/note-legali">Note legali</a>
+            <a href="/it/informativa-privacy">{{ __('footer.privacy') }}</a>
           </li>
           <li class="list-inline-item">
-            <a href="/it/dichiarazione-accessibilita">Dichiarazione di accessibilità</a>
+            <a href="/it/note-legali">{{ __('footer.legal_notes') }}</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="/it/dichiarazione-accessibilita">{{ __('footer.accessibility') }}</a>
           </li>
         </ul>
       </div>

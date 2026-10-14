@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "vite audit report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Audit Report: Configurazione @vite nel Tema Sixteen
@@ -86,14 +87,5 @@ Verificare che tutti i layout e componenti del tema Sixteen utilizzino correttam
 - [Layout Usage Rules](../layout-usage-rules.md)
 
 ---
-
-title: "vite audit report"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "vite audit report"
-issues: []
-discussions: []
 **Audit completato con successo** ✅  
 **Prossimo audit raccomandato**: Ogni major release del tema

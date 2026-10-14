@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "GROUP D patterns"
 issues: []
 discussions: []
+status: draft
 ---
 
 # GROUP D - Pattern CSS Comuni (Appuntamenti e Segnalazioni)
@@ -16,15 +17,6 @@ discussions: []
 **Pagine analizzate**: 20 pagine (8 appuntamento + 5 segnalazione + 2 assistenza + 5 generali)
 
 ---
-
-title: "GROUP D patterns"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "GROUP D patterns"
-issues: []
-discussions: []
 ## PATTERN 1: Steppers Component (CRITICO - presente in 13/20 pagine)
 
 ### Struttura HTML di riferimento (Bootstrap Italia)

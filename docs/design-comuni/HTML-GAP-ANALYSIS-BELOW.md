@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML GAP ANALYSIS BELOW 80"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Gap Analysis — Pages Below 80% Parity
@@ -17,15 +18,6 @@ discussions: []
 **Pages analyzed**: 2 (segnalazione-04-conferma, homepage)
 
 ---
-
-title: "HTML GAP ANALYSIS BELOW 80"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML GAP ANALYSIS BELOW 80"
-issues: []
-discussions: []
 ## 1. segnalazione-04-conferma
 
 | Metric | Value |

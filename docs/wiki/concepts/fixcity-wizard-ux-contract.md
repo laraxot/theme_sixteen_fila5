@@ -14,6 +14,7 @@ discussions:
 related:
   - ../rules/frontend-stack-canonical.md
   - ../../../../../Modules/Fixcity/docs/wiki/overviews/fixcity-module.md
+status: draft
 ---
 
 # Contratto UI/UX del wizard FixCity

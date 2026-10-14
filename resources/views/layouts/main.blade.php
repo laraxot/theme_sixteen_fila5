@@ -15,8 +15,7 @@ use Laravel\Folio\{title, middleware, name};
 
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
-        <link rel="stylesheet" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
-        @stack('styles')
+                @stack('styles')
     </head>
     <body>
         {{ $slot ?? '' }}
@@ -28,5 +27,7 @@ use Laravel\Folio\{title, middleware, name};
         @filamentScripts
         @vite(['resources/js/app.js'], 'themes/Sixteen')
         @stack('scripts')
+
+        {{-- Banner cookie: lo inietta CookieConsentMiddleware (vista Modules/Gdpr/resources/views/cookie-consent, DCP-153); nessun include qui. --}}
     </body>
 </html>

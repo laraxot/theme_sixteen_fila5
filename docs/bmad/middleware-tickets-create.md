@@ -2,6 +2,10 @@
 type: decision
 slug: middleware-tickets-create
 status: applicato
+title: "Middleware /it/tickets/create (m00962)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "middleware /it/tickets/create (m00962) sixteen"
 ---
 # Middleware /it/tickets/create (m00962)
 

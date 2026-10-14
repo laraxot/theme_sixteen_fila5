@@ -14,6 +14,7 @@ links:
 decisions:
   - "D21: blocco listing/search-form riutilizzato da dcp-07"
   - "D23: bottone ricerca #007A52; stack Tailwind+Alpine+Lit+DaisyUI+Flowbite; NO Bootstrap Italia"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-13 — Documenti e dati

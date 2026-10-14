@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni scope data-dc pagine reali tickets create confirmation layout json isDesignComuniPage"
 blocks: [dcp-33, dcp-34]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-32S: lo scope CSS vale anche per le pagine reali

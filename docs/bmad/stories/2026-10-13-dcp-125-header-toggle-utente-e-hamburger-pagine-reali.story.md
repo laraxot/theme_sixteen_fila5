@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "header toggle utente button btn-full permessi-area-personale 768 hamburger it-header-navbar-wrapper transform margin-top derive-dc-chrome-css Nome della Regione"
 related: [dcp-32, dcp-98, dcp-106, dcp-121]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-125: due difetti di header trovati dalla sweep dopo DCP-121

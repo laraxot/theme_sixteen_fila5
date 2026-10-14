@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "domande frequenti analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analysis: Domande Frequenti (FAQ) - Structural Parity

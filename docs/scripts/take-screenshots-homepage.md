@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "take screenshots homepage"
 issues: []
 discussions: []
+status: draft
 ---
 
 # take-screenshots-homepage.cjs

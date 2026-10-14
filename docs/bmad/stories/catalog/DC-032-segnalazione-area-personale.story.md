@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-area-personale
+title: "DC-032 — segnalazione-area-personale"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-032   segnalazione-area-personale sixteen"
 ---
 
 # DC-032 — segnalazione-area-personale

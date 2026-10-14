@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "piano replica tutte le pagine design comuni ondate agenti paralleli famiglie ordine casuale bmad"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-19: piano di replica di tutte le pagine

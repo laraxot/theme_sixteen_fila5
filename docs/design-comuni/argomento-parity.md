@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "argomento parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Argomento Parity Report

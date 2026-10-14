@@ -53,6 +53,6 @@
     <div class="mt-3 text-xs text-emerald-700 flex gap-4">
         <span>Lat: <span x-text="latInit.toFixed(4)"></span></span>
         <span>Lng: <span x-text="lngInit.toFixed(4)"></span></span>
-        <span class="text-emerald-500" x-show="latInit === {{ (float)($recordLat ?? $lat ?? 41.89)) }}">↳ Posizione attuale o riferimento</span>
+        <span class="text-emerald-500" x-show="latInit === {{ (float)($recordLat ?? $lat ?? 41.89) }}">↳ Posizione attuale o riferimento</span>
     </div>
 </div>

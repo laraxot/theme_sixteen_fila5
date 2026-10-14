@@ -14,6 +14,7 @@ related:
   - ./completion-roadmap.md
   - ../../../../Themes/docs/progetto-perfezione-roadmap.md
   - ../../../../Modules/Xot/docs/wiki/concepts/progetto-perfezione-criteri.md
+status: draft
 ---
 
 # Perfection checklist — Sixteen

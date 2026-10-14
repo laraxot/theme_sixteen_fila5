@@ -11,6 +11,9 @@ scope:
   - laravel/Themes/Sixteen/resources/views/components/blocks/homepage.blade.php
   - laravel/Themes/Sixteen/resources/views/components/sections/header/tailwind.blade.php
   - laravel/config/local/fixcity/database/content/pages/homepage.json
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Story HP-001 — Homepage Design Comuni parity

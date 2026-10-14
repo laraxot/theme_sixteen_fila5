@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML BODY COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Body Comparison - Design Comuni vs FixCity
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Confronto strutturale HTML
 
 ---
-
-title: "HTML BODY COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML BODY COMPARISON"
-issues: []
-discussions: []
 ## 🎯 Pagina Analizzata: Homepage
 
 ### URL di Riferimento

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "auth login ux fixes"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Correzioni UX pagina login FO

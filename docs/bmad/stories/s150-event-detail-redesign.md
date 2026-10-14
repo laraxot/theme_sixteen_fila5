@@ -4,6 +4,10 @@ title: "Event Detail — Design Comuni v2.4.0"
 github_issue: #98
 github_discussion: #98
 decision_log: docs/decision-log.md
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story: event detail redesign sixteen"
 ---
 # Story: Event Detail Redesign
 

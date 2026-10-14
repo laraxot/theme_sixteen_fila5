@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "TAILWIND ALPINE RULES"
 issues: []
 discussions: []
+status: draft
 ---
 
 # TailwindCSS + Alpine.js Rules - Design Comuni Replication
@@ -16,15 +17,6 @@ discussions: []
 **Type:** Architectural Rule
 
 ---
-
-title: "TAILWIND ALPINE RULES"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "TAILWIND ALPINE RULES"
-issues: []
-discussions: []
 ## Core Principle
 
 This project replicates Design Comuni pages using **TailwindCSS + Alpine.js ONLY**.

@@ -7,6 +7,10 @@ frontmatter:
   github_issue: "#333"
 links:
   github_issue: "#333"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, investigation]
+qmd: "investigation sixteen json alignment sixteen"
 ---
 
 ## Contesto

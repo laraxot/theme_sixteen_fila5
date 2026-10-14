@@ -9,6 +9,10 @@ scope: [laravel/Themes/Sixteen/docs/prompts/02.md, homepage blade, header/footer
 related:
   - ../../visual-parity-improvement-plan.md
   - ../../visual-parity-verified.md
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "architecture sixteen"
 ---
 
 Reason for failure (per user audit): header icons (SVG missing, black not white), all links underlined, hero font/color wrong, badges missing, calendar wrong, featured topics missing geometric bg + padding, thematic sites missing bg + images, search missing icon/button, rating wrong, contact spacing wrong.

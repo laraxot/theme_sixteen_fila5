@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity accesso servizio spid cie access-page bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-18: accesso-servizio

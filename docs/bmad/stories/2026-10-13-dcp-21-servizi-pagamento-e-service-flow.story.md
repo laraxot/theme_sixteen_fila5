@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity servizi pagamento service-flow scheda servizio area personale wizard stepper riepilogo conferma blocco generico json bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-21: servizi-pagamento e scheletro `service-flow`

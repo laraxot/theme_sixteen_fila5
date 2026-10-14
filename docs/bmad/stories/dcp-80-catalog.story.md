@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-80 catalog 90% html 97% visual"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-80: catalog

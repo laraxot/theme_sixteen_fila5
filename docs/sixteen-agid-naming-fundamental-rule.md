@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: sixteen-agid-naming-fundamental-rule
 canonical: ../../docs/shared-components/sixteen-agid-naming-fundamental-rule.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/sixteen-agid-naming-fundamental-rule.md

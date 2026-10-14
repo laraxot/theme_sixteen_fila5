@@ -4,6 +4,9 @@ title: Coordinamento tra agenti sulle pagine /it/tests
 document_type: coordination
 status: active
 updated: 2026-10-13
+type: note
+tags: [docs, sixteen, prompts]
+qmd: "coordinamento tra agenti sixteen"
 ---
 
 # Coordinamento tra agenti

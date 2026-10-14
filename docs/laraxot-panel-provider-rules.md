@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "laraxot panel provider rules"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Regole Fondamentali per AdminPanelProvider - Laraxot
@@ -78,15 +79,6 @@ Prima di ogni commit, verificare che:
 - Mantenere la memory e le regole sempre aggiornate
 
 ---
-
-title: "laraxot panel provider rules"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "laraxot panel provider rules"
-issues: []
-discussions: []
 **Stabilito**: 31 Luglio 2025  
 **Autorità**: Utente del progetto  
 **Stato**: LEGGE INVIOLABILE  

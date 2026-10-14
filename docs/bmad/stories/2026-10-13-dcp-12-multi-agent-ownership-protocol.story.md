@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-12: protocollo di proprieta' dei file tra agenti bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-12: protocollo di proprieta' dei file tra agenti

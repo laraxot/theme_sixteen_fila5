@@ -3,6 +3,10 @@ type: investigation
 title: Header and Footer Element Inventory and Duplication Analysis
 links:
   github_issue: "#55"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, investigation]
+qmd: "investigation: header & footer   elements, duplication, data flow sixteen"
 ---
 
 # Investigation: Header & Footer — Elements, Duplication, Data Flow

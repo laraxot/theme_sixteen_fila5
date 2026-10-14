@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-01-privacy
+title: "DC-028 — segnalazione-01-privacy"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-028   segnalazione-01-privacy sixteen"
 ---
 
 # DC-028 — segnalazione-01-privacy

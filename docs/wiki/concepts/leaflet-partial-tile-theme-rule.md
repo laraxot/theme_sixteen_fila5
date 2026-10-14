@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "leaflet partial tile theme rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Leaflet Partial Tile Theme Rule

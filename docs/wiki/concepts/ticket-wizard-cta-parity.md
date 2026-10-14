@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket wizard cta parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # segnalazione wizard cta parity

@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "mobile tablet menu hamburger header design comuni pagine reali navbar-collapsable nav-open derive-dc-chrome-css isolate-legacy-important 375 768 touch 44px"
 related: [dcp-32, dcp-51, dcp-106, dcp-120]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-121: il menu principale funzionava solo sulle pagine di prova

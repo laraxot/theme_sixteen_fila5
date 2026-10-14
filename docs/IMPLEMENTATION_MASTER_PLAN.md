@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "IMPLEMENTATION MASTER PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Conversion - Master Implementation Plan
@@ -16,15 +17,6 @@ discussions: []
 **Approach**: BMAD + GSD | Parallel Agent Teams | Component-Driven Batch
 
 ---
-
-title: "IMPLEMENTATION MASTER PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "IMPLEMENTATION MASTER PLAN"
-issues: []
-discussions: []
 ## 🎯 Executive Summary
 
 **Mission**: Convert 40+ Design Comuni pages from Bootstrap Italia to Tailwind CSS + Alpine.js  

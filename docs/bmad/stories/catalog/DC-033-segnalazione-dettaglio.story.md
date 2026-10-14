@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-dettaglio.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-dettaglio
+title: "DC-033 — segnalazione-dettaglio"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-033   segnalazione-dettaglio sixteen"
 ---
 
 # DC-033 — segnalazione-dettaglio

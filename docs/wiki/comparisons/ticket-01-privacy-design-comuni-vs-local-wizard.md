@@ -16,6 +16,7 @@ related:
   - "../concepts/design-comuni-site-wide-component-css-rule.md"
   - "../../../../../Modules/Fixcity/docs/wiki/comparisons/segnalazione-01-privacy-design-comuni-vs-local-wizard.md"
   - "../../../../../_bmad-output/implementation-artifacts/7-103-segnalazione-01-privacy-tailwind-lit-html-audit-correction-plan.md"
+status: draft
 ---
 
 # Confronto: `segnalazione-01-privacy` (statico) vs `/it/tests/segnalazione-crea` (step 1)

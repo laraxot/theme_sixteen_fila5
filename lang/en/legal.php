@@ -12,6 +12,7 @@ return [
         'privacy' => ['title' => 'Privacy notice'],
         'legal_notes' => ['title' => 'Legal notes'],
         'media_policy' => ['title' => 'Media policy'],
+        'terms_disclaimer' => ['title' => 'Terms and disclaimer'],
     ],
     'incomplete' => [
         'title' => 'Text not complete yet',

@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "metrica html parity rigorosa normalizzata href src url alias route assets decisione 90 per cento"
 related: [dcp-00, dcp-19]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-94: il 90% di HTML parity, con quale metrica?
