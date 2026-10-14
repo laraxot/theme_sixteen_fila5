@@ -300,7 +300,7 @@ A riga 62 di `slim.blade.php`:
 ### Internal Documents
 
 - → [Layout Architecture](Themes/Sixteen/docs/layout-architecture.md) - Layout system overview
-- → [Component Namespace Guide](Themes/Sixteen/docs/component-namespace.md) - Namespace conventions
+- → [Component Namespace Guide](architecture/component-namespace.md) - Namespace conventions
 - → [Folio + Volt Guide](Themes/Sixteen/docs/folio-volt-guide.md) - Routing guide
 - → [BMad Architecture](_bmad-output/design-comuni-architecture.md) - System architecture
 

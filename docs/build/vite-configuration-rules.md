@@ -297,8 +297,8 @@ Prima di utilizzare Vite in un layout del tema Sixteen:
 
 ## 📖 Documentazione Correlata
 
-- [assets.md](assets.md) - Gestione degli asset Vite
-- [layout-usage-rules.md](layout-usage-rules.md) - Regole per l'uso dei layout
+- [assets.md](../assets.md) - Gestione degli asset Vite
+- [layout-usage-rules.md](../layout-usage-rules.md) - Regole per l'uso dei layout
 - [README.md](README.md) - Documentazione generale del tema
 
 ---

@@ -13,8 +13,8 @@ owner: Themes/Sixteen + Modules/Fixcity
 updated: 2026-10-13
 related:
   - ../public-ticket-listing-visual-contract.md
-  - ../../../../Modules/Fixcity/docs/bmad/public-ticket-listing-experience.md
-  - ../../../../Modules/Fixcity/docs/wiki/concepts/segnalazioni-elenco-blocks.md
+  - ../../../../../Modules/Fixcity/docs/bmad/public-ticket-listing-experience.md
+  - ../../../../../Modules/Fixcity/docs/wiki/concepts/segnalazioni-elenco-blocks.md
 ---
 
 ## Scopo e modello di accesso

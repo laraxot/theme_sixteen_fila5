@@ -113,9 +113,9 @@ All stepper text uses the `fixcity::segnalazione.steps.*` namespace:
 - **Story BMAD (allineamento modulo Fixcity: label step 1, CTA step 1 vs step 2+)** — [7-32](../../../../../_bmad-output/implementation-artifacts/7-32-segnalazione-crea-design-comuni-step1-cta-stepper-labels-header-parity.md)
 - **[Body Plain Rule](./body-plain-rule.md)** — Body tag must remain plain (no classes)
 - **[Design Comuni Replication Rules](../DESIGN_COMUNI_RULES.md)** — Body tag rules, translation format
-- **[segnalazione-02-dati Page](./segnalazione-02-dati.md)** — Full page documentation
+- **[segnalazione-02-dati Page](../bmad/segnalazione-02-dati.md)** — Full page documentation
 - **[segnalazione-parity.css](../../resources/css/segnalazione-parity.css)** — CSS file (lines 1025-1180)
-- **[Block Implementation Guide](./BLOCK_IMPLEMENTATION_GUIDE.md)** — Universal block patterns
+- **[Block Implementation Guide](../BLOCK_IMPLEMENTATION_GUIDE.md)** — Universal block patterns
 
 ---
 

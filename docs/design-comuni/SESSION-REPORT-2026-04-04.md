@@ -262,9 +262,9 @@ All artifacts stored in:
 | Document | Location |
 |----------|----------|
 | [Visual Parity Report](visual-comparison/screenshots/VISUAL-PARITY-REPORT.md) | Latest scores |
-| [Action Plan](design-comuni/VISUAL-PARITY-ACTION-PLAN.md) | Overall strategy |
-| [View Path Fix](design-comuni/VIEW-PATH-FIX-REPORT.md) | Fix details |
-| [CSS/JS Plan](design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
+| [Action Plan](VISUAL-PARITY-ACTION-PLAN.md) | Overall strategy |
+| [View Path Fix](VIEW-PATH-FIX-REPORT.md) | Fix details |
+| [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
 | [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md) | Tool docs |
 
 ---

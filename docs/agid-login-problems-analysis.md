@@ -348,6 +348,6 @@ discussions: []
 
 - [AGID Login Implementation](agid-login-implementation.md)
 - [Layout Usage Patterns](layout-usage-patterns.md)
-- [Vite Theme Integration](vite-theme-integration.md)
+- [Vite Theme Integration](build/vite-theme-integration.md)
 - [Route Patterns](route-patterns.md)
 

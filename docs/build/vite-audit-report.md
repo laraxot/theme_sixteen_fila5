@@ -82,8 +82,8 @@ Verificare che tutti i layout e componenti del tema Sixteen utilizzino correttam
 ## 📚 Riferimenti
 
 - [Vite Configuration Rules](./vite-configuration-rules.md)
-- [Theme Asset Management](./assets.md)
-- [Layout Usage Rules](./layout-usage-rules.md)
+- [Theme Asset Management](../assets.md)
+- [Layout Usage Rules](../layout-usage-rules.md)
 
 ---
 

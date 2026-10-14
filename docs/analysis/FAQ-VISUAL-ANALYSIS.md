@@ -232,7 +232,7 @@ Based on Tailwind + Alpine implementation:
 
 - **Parent**: [Theme Sixteen Documentation](../index.md)
 - **Previous**: [FAQ Structure Analysis](./FAQ-STRUCTURE-ANALYSIS.md)
-- **Related**: [Homepage Visual Comparison](./HOMEPAGE-VISUAL-ANALYSIS.md)
+- **Related**: [Homepage Visual Comparison](../HOMEPAGE-VISUAL-ANALYSIS.md)
 - **Related**: [CSS Implementation Guide](../CSS-GUIDE.md)
 - **Related**: [Alpine.js Components Documentation](../ALPINEJS-GUIDE.md)
 

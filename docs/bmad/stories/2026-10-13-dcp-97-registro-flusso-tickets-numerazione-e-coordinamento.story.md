@@ -54,3 +54,17 @@ Nota di metodo: `fil-tickets-guest-access-why` (serie `fil-*`, altro agente) con
 | [DCP-49](../../../../../Modules/Fixcity/docs/stories/2026-10-13-dcp-49-audit-sicurezza-viste-wizard.story.md) | audit di sicurezza e accessibilita': SEC-01 (status/priority dal client) e SEC-10 (`#[Locked]`) corretti con test; resto in backlog | in corso |
 | [DCP-50](2026-10-13-dcp-50-guardia-compilazione-template-blade.story.md) | guardia di compilazione dei template Blade + hardening `PageSlugMiddleware` (`web` ignorato, nome non risolvibile = errore chiaro) dopo gli incidenti 13:56 e 14:14 UTC | done |
 Numerazione: nuove story del lead oltre DCP-50 a partire da 51; D17 e' `tickets-create-richiede-auth`, D18 libero.
+
+## Aggiunte del lead 2026-10-14 (DCP-145..152, owner per cartella)
+Elenco completo e raggiungibile di tutte le story del tema: [00-REGISTRO-COMPLETO.md](00-REGISTRO-COMPLETO.md). Qui solo i numeri che mancavano a questo registro.
+| Story | Owner | Cosa |
+|---|---|---|
+| [DCP-145](2026-10-13-dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md) | Sixteen | licenze e attribuzioni (BSD-3, font, icone, licenza del codice) |
+| [DCP-146](../../../../../Modules/Fixcity/docs/stories/2026-10-13-dcp-146-wizard-passo-dati-mappa-sempre-funzionante.story.md) | Fixcity | passo dati del wizard: mappa sempre funzionante (anche su HTTP) |
+| [DCP-147](2026-10-13-dcp-147-meta-description-pagine-cms-per-lingua.story.md) | Sixteen | meta description delle pagine CMS per lingua |
+| [DCP-148](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md) | Sixteen | dettaglio pubblico `/{lang}/tickets/{id}` e Segui |
+| [DCP-149](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-149-ricerca-per-codice-senza-limite-di-tentativi.story.md) | Fixcity | ricerca per codice di tracciamento senza freno ai tentativi |
+| [DCP-150](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-150-ricerca-elenco-per-indirizzo-sensibile-alle-maiuscole.story.md) | Fixcity | ricerca nell'elenco per indirizzo sensibile alle maiuscole |
+| [DCP-151](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-151-pagina-404-del-front-office-con-il-layout-del-tema.story.md) | Fixcity | pagina 404 del front office con il layout del tema |
+| [DCP-152](../../../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md) | Geo | marker del dettaglio con tipo e stato, pulsanti della mappa opachi nelle pagine DC |
+Numerazione: prossimo numero libero DCP-153 (controllare `ls` delle tre cartelle prima di prenderlo). Non rinumerare nulla.

@@ -180,3 +180,34 @@ verifica prematura, non da un semplice difetto CSS. Le soglie devono essere
 misurate a 375, 768 e 1440px con body comparator e screenshot.
 
 **Stato**: ✅ Pianificato; implementazione rinviata alla sessione successiva.
+
+## D13: Mappa e wizard ticket — map marker visibility (STORY-054)
+- **Scelta**: Aggiornare il marker SVG in `tickets/index.blade.php` con Design Comuni green `#007A52`, dimensione `36×48`, `aria-label="Segnalazione sul territorio"`, `role="img"`, nessun overlay `?`.
+- **Motivazione**: Il marker attuale era scuro, piccolo e aveva un overlay di punto di domanda — non conforme a Design Comuni (green PA, visibilità WCAG, nessun icona decorativa).
+- **Risultato**: marker visibile, conforme, WCAG compliant, nessun fallback necessario.
+
+## D14: Pulsanti mappa non trasparenti (STORY-XXX)
+- **Scelta**: Applicare Design Comuni styling ai pulsanti `ctrl-btn` della mappa:
+  - Background: `#007a52`
+  - Hover/focus-visible: `#005c3d`
+  - Ombra leggera: `box-shadow: 0 2px 6px rgba(0,122,82,0.3)`
+  - Transizioni: `transition: background-color 150ms ease, box-shadow 150ms ease, transform 120ms ease`
+  - `rounded-lg`, `cursor:pointer`
+- **File**: `Modules/Geo/resources/js/components/map/controls/geolocation.js` (renderButton function)
+- **Rationale**: I pulsanti devono essere visibili e accessibili, non devono avere sfondo trasparente. Il design Comuni richiede colori di contrasto e stato chiaro/attivo ben definiti.
+
+## D15: Geolocalizzazione non funzionante (STORY-530)
+- **Scelta**: Documentare e rafforzare l'uso di HTTPS (`FORCE_HTTPS=true` in `.env.production.example`) e l'uso corretto di `fallBackToApproximate` per scenari non sicuri.
+- **Motivazione**: Il browser richiede `isSecureContext`, altrimenti la geolocalizzazione fallisce. Il codice esistente ha già un fallback, ma è stato documentato e verificato.
+- **Status**: ✅ Confirmed
+- **Impact**: Allows users to still report locations even when geolocation is unavailable (e.g., HTTP, permission denied), with neutral messaging and fallback to approximate location.
+
+## D16: Documentazione parallela — aggiornamento second-brain
+- **Fixcity**: `second-brain.md` §8 aggiornato con 3 storie parallele e riferimenti ai BMAD stories.
+- **Sixteen**: `second-brain/geo-map-tickets-2026-10-14.md` creato con dettagli tecnici e riferimenti.
+- **BMAD stories**: `STORY-054-ticket-marker-visibility.md`, `STORY-XXX-wizard-map-buttons.md`, `STORY-530-geolocation-not-working.md` create con frontmatter completo.
+
+## D17: Documentation standards — consistency across modules
+- All `docs/bmad/` stories must include: `github_issue`, `discussion`, `type`, `tags`, `qmd`, `links`, `status`, `module`.
+- All `docs/second-brain/` must reference specific stories via `links` and `tags`.
+- All `docs/bmad/` stories must follow the Design Comuni documentation standards (no Bootstrap, proper token usage, accessibility).

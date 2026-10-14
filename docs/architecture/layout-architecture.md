@@ -441,7 +441,7 @@ Ogni file fa UNA cosa sola, nel modo più semplice possibile.
 
 - [Replikate.txt](./prompts/replikate.txt) - Guida operativa
 - [Product Brief](./design-comuni/product-brief.md) - Panoramica progetto
-- [Pages Census](./design-comuni/pages-census.md) - Censimento 38 pagine
+- [Pages Census](../design-comuni/pages-census.md) - Censimento 38 pagine
 - [Blocks System](./design-comuni/blocks/00-index.md) - Blocchi universali
 
 ### Documenti Esterni

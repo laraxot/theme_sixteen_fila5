@@ -288,7 +288,7 @@ Now assets load correctly via Vite:
 ## Related Documentation
 
 - [Layout Architecture](layout-architecture.md) - Layout system documentation
-- [LAYOUT_ARCHITECTURE_MAP.md](LAYOUT_ARCHITECTURE_MAP.md) - Bidirectional links
+- [LAYOUT_ARCHITECTURE_MAP.md](../LAYOUT_ARCHITECTURE_MAP.md) - Bidirectional links
 - [Vite Configuration](../../../docs/vite-config.md) - Vite setup guide
 - [BMad Workflow](_bmad-output/BMAD-WORKFLOW-COMPLETE.md) - Complete BMad method
 

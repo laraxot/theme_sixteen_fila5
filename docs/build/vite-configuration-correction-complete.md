@@ -156,8 +156,8 @@ grep -r "'themes/Sixteen'" Themes/Sixteen/resources/views/
 ## Documentazione Correlata
 
 - [vite-configuration-rules.md](./vite-configuration-rules.md) - Regole fondamentali
-- [assets.md](./assets.md) - Gestione asset del tema
-- [layout-usage-rules.md](./layout-usage-rules.md) - Regole layout
+- [assets.md](../assets.md) - Gestione asset del tema
+- [layout-usage-rules.md](../layout-usage-rules.md) - Regole layout
 
 ---
 

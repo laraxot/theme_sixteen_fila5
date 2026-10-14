@@ -489,7 +489,7 @@ export default defineConfig({
 ### Key Documents
 
 - [Layout Architecture](Themes/Sixteen/docs/layout-architecture.md)
-- [Vite Manifest Fix](Themes/Sixteen/docs/VITE_MANIFEST_FIX_COMPLETE.md)
+- [Vite Manifest Fix](../build/VITE_MANIFEST_FIX_COMPLETE.md)
 - [Master Documentation Index](docs/MODULE_DOCS_INDEX.md)
 
 ### External Resources

@@ -456,7 +456,7 @@ public_html/themes/Sixteen/manifest.json
 
 - [Vite Manifest Fix Complete](VITE_MANIFEST_FIX_COMPLETE.md)
 - [Layout Architecture](layout-architecture.md)
-- [Build Commands Guide](build-commands-guide.md)
+- [Build Commands Guide](../build-commands-guide.md)
 - [Master Documentation Index](../../../../../docs/MODULE_DOCS_INDEX.md)
 
 ---

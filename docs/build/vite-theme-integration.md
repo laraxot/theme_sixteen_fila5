@@ -268,9 +268,9 @@ ls -la resources/dist/assets/
 
 ## Collegamenti
 
-- [Layout Usage Patterns](layout-usage-patterns.md)
-- [AGID Login Implementation](agid-login-implementation.md)
-- [Route Patterns](route-patterns.md)
+- [Layout Usage Patterns](../layout-usage-patterns.md)
+- [AGID Login Implementation](../agid-login-implementation.md)
+- [Route Patterns](../route-patterns.md)
 - [Layout Base](resources/views/layouts/base.blade.php)
 - [Vite Config](vite.config.js)
 - [Package.json](package.json)
