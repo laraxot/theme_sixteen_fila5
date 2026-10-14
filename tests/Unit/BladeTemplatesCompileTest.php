@@ -26,7 +26,8 @@ function sixteenTemplatesToCompile(): array
 
     $datasets = [];
     // Finder e non facciate: il dataset si calcola al caricamento del file, prima dell'avvio dell'app.
-    foreach ((new Finder())->files()->name('*.blade.php')->in([$root.'/pages', $root.'/components/layouts']) as $file) {
+    // `components/blocks` incluso (story 1.4): un `<x-...>` con alias non risolto fa fallire `view:cache` e la release.
+    foreach ((new Finder())->files()->name('*.blade.php')->in([$root.'/pages', $root.'/components/layouts', $root.'/components/blocks']) as $file) {
         $relative = substr($file->getPathname(), strlen($root) + 1);
         if (! in_array($relative, $knownBrokenUnused, true)) {
             $datasets[$relative] = [$file->getPathname()];
@@ -55,6 +56,15 @@ it('detects a directive placed inside a component tag (the 2026-10-13 outage)', 
     $broken = '<x-dynamic-component :component="$c" :title="$t"@if ($dc) :header-active="$h"@endif>x</x-dynamic-component>';
 
     expect(compiledPhpParseError($broken))->not->toBeNull();
+});
+
+it('fails to compile a block that uses a component alias which does not resolve (story 1.4)', function (): void {
+    expect(fn () => Blade::compileString('<x-blocks.geo.alias-che-non-esiste lat="1" lng="2" />'))
+        ->toThrow(InvalidArgumentException::class);
+});
+
+it('resolves the map block used by the report-creation test block (story 1.4)', function (): void {
+    expect(compiledPhpParseError('<x-blocks.geo.mappa-static :lat="41.89" :lng="12.49" label="x" />'))->toBeNull();
 });
 
 it('accepts the equivalent null attribute instead of a directive inside the tag', function (): void {

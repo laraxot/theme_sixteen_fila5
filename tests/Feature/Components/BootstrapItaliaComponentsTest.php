@@ -2,16 +2,9 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
+use PHPUnit\Framework\Assert;
 
 uses(TestCase::class);
-
-beforeEach(function (): void {
-    /** @var TestCase $this */
-    $this->markTestSkipped(
-        'View legacy pub_theme::bootstrap-italia.* assenti in base workorder — componenti attivi sotto sixteen::components/bootstrap-italia/.'
-    );
-});
 
 test('skiplinks component renders correctly', function (): void {
     /** @var TestCase $this */
@@ -30,19 +23,16 @@ test('skiplinks component renders correctly', function (): void {
 
 test('cookiebar component has gdpr features', function (): void {
     /** @var TestCase $this */
-    $view = $this->view('pub_theme::bootstrap-italia.cookiebar');
+    $html = view('cookie-consent::index')->render();
 
-    $view->assertSee('cookiebar');
-    $view->assertSee('role="region"');
-    $view->assertSee('aria-label');
-    $view->assertSee('x-cloak');
-    $view->assertSee('x-show="visible"');
-    $view->assertSee('Accetto');
-    $view->assertSee('Solo necessari');
-    $view->assertSee('Preferenze');
-    $view->assertSee('cookie-policy');
-    $view->assertSee('data-bs-accept', false);
-    $view->assertSee('role="alert"', false);
+    Assert::assertStringContainsString('class="gdpr-cookiebar"', $html);
+    Assert::assertStringContainsString('data-cookie-key="__cookie_consent"', $html);
+    Assert::assertStringContainsString('data-cookiebar="info"', $html, 'Con soli cookie tecnici il banner informa, non chiede consenso');
+    Assert::assertStringContainsString('Ho capita', $html);
+    Assert::assertStringContainsString('data-cookie-action="reject"', $html);
+    Assert::assertStringContainsString('data-cookie-preferences', $html, 'Link «Gestisci cookie» per riaprire le preferenze');
+    Assert::assertStringNotContainsString('lcc-modal', $html, 'La vista di statikbe non deve comparire: quella del modulo Gdpr la sostituisce');
+    Assert::assertStringNotContainsString('js-lcc-', $html);
 });
 
 test('hero component variants', function (): void {

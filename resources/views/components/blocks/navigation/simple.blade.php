@@ -19,7 +19,7 @@
                         <img src="{{ $data['logo'] }}" alt="{{ $data['brand'] ?? $data['title'] ?? 'Logo' }}" class="h-8 w-auto mr-3">
                     @endif
                     <h2 class="text-xl font-bold text-gray-800 dark:text-gray-200">
-                        {{ $data['brand'] ?? $data['title'] ?? @lang('pub_theme::navigation.site_title') }}
+                        {{ $data['brand'] ?? $data['title'] ?? __('pub_theme::navigation.site_title') }}
                     </h2>
                 </div>
             @endif

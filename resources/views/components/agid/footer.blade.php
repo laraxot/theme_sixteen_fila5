@@ -174,10 +174,10 @@
     </div>
 
     {{-- Back to top button --}}
-    <a href="#" 
-       aria-hidden="true" 
-       data-attribute="back-to-top" 
-       class="back-to-top shadow" 
+    <a href="#"
+       aria-hidden="true"
+       data-attribute="back-to-top"
+       class="back-to-top shadow"
        title="{{ __('Torna su') }}">
         <svg class="icon icon-light">
             <use href="#it-arrow-up"></use>
@@ -186,5 +186,4 @@
     </a>
 </footer>
 
-{{-- Cookie consent banner (GDPR compliance) — unico componente ufficiale, non duplicato inline --}}
-@include('sixteen::components.ui.cookiebar')
+{{-- Cookie consent banner (GDPR compliance): lo inietta InjectCookieBanner -> Modules/Gdpr/resources/views/cookie-consent (DCP-153). Nessun include qui. --}}
