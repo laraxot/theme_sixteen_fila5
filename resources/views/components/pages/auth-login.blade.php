@@ -9,6 +9,7 @@
             <div class="mt-8">
                 @livewire(\Modules\User\Filament\Widgets\Auth\LoginWidget::class)
             </div>
+            <p class="mt-3 text-sm text-slate-700"><a class="font-semibold text-sky-900 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ url('/'.app()->getLocale().'/accessibilita') }}">{{ __('pub_theme::accessibility.title') }}</a></p>
         </div>
     </div>
 </section>

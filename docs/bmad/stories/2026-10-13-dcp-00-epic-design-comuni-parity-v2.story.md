@@ -112,6 +112,11 @@ Aperti che richiedono una decisione o un'azione: [DCP-94](2026-10-13-dcp-94-deci
 - [DCP-120 multilinguismo: comportamenti e copertura (de/es)](2026-10-13-dcp-120-multilingua-comportamenti-e-copertura.story.md); [DCP-123 lingua dichiarata vs reale](2026-10-13-dcp-123-lingua-dichiarata-e-link-localizzati.story.md)
 - [DCP-121 mobile e tablet: menu dell'header sulle pagine reali](2026-10-13-dcp-121-mobile-e-tablet-menu-header-pagine-reali.story.md)
 - [DCP-125 header: toggle utente `<button>` (regressione a 768 px su permessi-area-personale) e hamburger che copriva il nome della Regione](2026-10-13-dcp-125-header-toggle-utente-e-hamburger-pagine-reali.story.md)
+- [DCP-126 percorsi a due segmenti senza pagina: 404 vero](2026-10-13-dcp-126-soft-404-percorsi-a-due-segmenti.story.md)
+- [DCP-129 coordinamento passo 2 del wizard, audit mobile/tablet delle pagine reali e footer mobile (con DCP-127 mappa e DCP-128 cablaggio, nei moduli Geo e Fixcity)](2026-10-13-dcp-129-coordinamento-wizard-passo2-audit-mobile-e-footer.story.md)
+- [DCP-147 meta description delle pagine CMS per lingua (JSON grezzo nella conferma, descrizioni mancanti)](2026-10-13-dcp-147-meta-description-pagine-cms-per-lingua.story.md)
+- [DCP-148 dettaglio pubblico di una segnalazione e pulsante Segui](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md)
+- DCP-149 ricerca per codice di tracciamento con limite di tentativi e DCP-150 ricerca dell'elenco per indirizzo senza distinzione di maiuscole: story nel modulo Fixcity (`laravel/Modules/Fixcity/docs/stories/2026-10-14-dcp-149-*.story.md`, `2026-10-14-dcp-150-*.story.md`); DCP-151 pagina 404 del front office con il layout del tema (`2026-10-14-dcp-151-*.story.md`)
 
 ## Analisi delle cause e guardrail
 [Decisione 2026-10-13: perche' non ho completato e cosa cambia](../decisions/2026-10-13-parity-root-cause-and-guardrails.md).

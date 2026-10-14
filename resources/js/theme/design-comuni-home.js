@@ -159,7 +159,8 @@ export const dcNavscroll = () => ({
         });
 
         const rect = container.getBoundingClientRect();
-        const progress = rect.top <= 0 ? Math.min(100, Math.max(0, (Math.abs(rect.top) / rect.height) * 100)) : 0;
+        // contenitore senza altezza (passo del wizard ancora nascosto all'avvio): 0/0 dava NaN in aria-valuenow (axe: aria-valid-attr-value, DCP-128)
+        const progress = rect.top <= 0 && rect.height > 0 ? Math.min(100, Math.max(0, (Math.abs(rect.top) / rect.height) * 100)) : 0;
         document.querySelectorAll('.it-navscroll-progressbar').forEach((bar) => {
             bar.style.width = `${progress}%`;
             bar.setAttribute('aria-valuenow', String(progress));

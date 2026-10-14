@@ -64,7 +64,7 @@ new class extends Component {
         ? __('fixcity::ticket.track.title')
         : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
         : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
-    $pageDescription = $cmsPage?->getAttribute('description') ?? '';
+    $pageDescription = \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale());
     // pagine con chrome Design Comuni: asset con percorso relativo come il riferimento (DesignComuniAssets) e voce di menu attiva dal JSON
     $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
     $isDesignComuni && view()->share('dcRelativeAssets', true);
@@ -74,10 +74,22 @@ new class extends Component {
     $layoutComponent = $jsonLayout === 'test'
         ? 'layouts.test'
         : (str_starts_with($jsonLayout, 'design-comuni') ? 'layouts.'.$jsonLayout : 'layouts.app');
+    // dettaglio pubblico di una segnalazione (DCP-148): dati dall'Action (404 se non esiste o non e' pubblica), chrome Design Comuni come /it/tickets
+    $ticketDetail = null;
+    if ($specialPage === 'ticket-detail') {
+        $ticketDetail = app(\Modules\Fixcity\Actions\BuildPublicTicketDetailAction::class)->execute((int) $slug0, auth()->user());
+        abort_if($ticketDetail === null, 404);
+        $pageTitle = $ticketDetail['title'];
+        $pageDescription = $ticketDetail['meta_description'];
+        $isDesignComuni = true;
+        view()->share('dcRelativeAssets', true);
+        $headerActive = 'all-services';
+        $layoutComponent = 'layouts.design-comuni';
+    }
 @endphp
 <x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription" :header-active="$headerActive">
     @if ($specialPage !== null)
-        <div class="page-content content" data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
+        <div class="page-content content"{!! $ticketDetail !== null ? ' data-dc' : '' !!} data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
             @if ($specialPage === 'auth-login')
                 @include('pub_theme::components.pages.auth-login')
             @elseif ($specialPage === 'auth-register')

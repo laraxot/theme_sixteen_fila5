@@ -55,7 +55,7 @@
             <article class="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8" aria-live="polite">
                 <h2 class="text-2xl font-bold text-slate-950">{{ $payload['title'] }}</h2>
                 <dl class="mt-6 grid gap-4 border-y border-slate-200 py-5 sm:grid-cols-[minmax(0,1fr)_2fr]">
-                    @if ($payload['code'] !== '')<dt class="font-semibold text-slate-700">{{ __('fixcity::ticket.fields.code.label') }}</dt><dd class="font-mono text-slate-950">{{ $payload['code'] }}</dd>@endif
+                    @if ($payload['code'] !== '')<dt class="font-semibold text-slate-700">{{ __('fixcity::ticket.fields.code.label') }}</dt><dd class="font-mono text-slate-950"><code>{{ $payload['code'] }}</code></dd>@endif
                     <dt class="font-semibold text-slate-700">{{ __('fixcity::ticket.fields.status.label') }}</dt><dd class="font-semibold text-slate-950">{{ TicketStatusEnum::tryFrom($payload['status'])?->getLabel() ?? $payload['status'] }}</dd>
                 </dl>
                 @if ($payload['description'] !== '')<p class="mt-5 leading-7 text-slate-800">{{ $payload['description'] }}</p>@endif
