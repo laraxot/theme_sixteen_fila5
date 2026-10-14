@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "TAILWIND MAPPING"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Bootstrap Italia → Tailwind CSS Mapping
@@ -16,15 +17,6 @@ discussions: []
 Complete mapping of Bootstrap Italia classes to Tailwind CSS equivalents for the FAQ page components. This document serves as the implementation reference.
 
 ---
-
-title: "TAILWIND MAPPING"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "TAILWIND MAPPING"
-issues: []
-discussions: []
 ## 1. LAYOUT & GRID SYSTEM
 
 ### Container & Grid

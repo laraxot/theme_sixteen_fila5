@@ -7,6 +7,7 @@ discussions: []
 title: map-lit — API ticket Folio
 type: concept
 created: 2026-05-29
+status: draft
 ---
 
 # map-lit — API ticket Folio

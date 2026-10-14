@@ -122,13 +122,16 @@
                                 <a href="/it/amministrazione-trasparente" class="footer-small-print-link">Amministrazione trasparente</a>
                             </li>
                             <li class="list-inline-item me-3">
-                                <a href="/it/informativa-privacy" class="footer-small-print-link">Informativa privacy</a>
+                                <a href="/it/cookie-policy" class="footer-small-print-link">{{ __('footer.cookie_policy') }}</a>
                             </li>
                             <li class="list-inline-item me-3">
-                                <a href="/it/note-legali" class="footer-small-print-link">Note legali</a>
+                                <a href="/it/informativa-privacy" class="footer-small-print-link">{{ __('footer.privacy') }}</a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a href="/it/note-legali" class="footer-small-print-link">{{ __('footer.legal_notes') }}</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="/it/dichiarazione-accessibilita" class="footer-small-print-link">Dichiarazione di accessibilità</a>
+                                <a href="/it/dichiarazione-accessibilita" class="footer-small-print-link">{{ __('footer.accessibility') }}</a>
                             </li>
                         </ul>
                     </div>

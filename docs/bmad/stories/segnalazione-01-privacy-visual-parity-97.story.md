@@ -6,6 +6,9 @@ status: draft
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazione 01   privacy sixteen"
 ---
 # Segnalazione 01 — Privacy
 ## Objective

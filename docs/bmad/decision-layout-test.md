@@ -1,3 +1,11 @@
+---
+title: "Decision: Layout 'test' via JSON `layout` field (D12)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "decision: layout 'test' via json `layout` field (d12) sixteen"
+---
 # Decision: Layout "test" via JSON `layout` field (D12)
 
 ## Context

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL PARITY BATCH REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Visual Parity - Batch Analysis Report
@@ -21,15 +22,6 @@ discussions: []
 - [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage detailed
 
 ---
-
-title: "VISUAL PARITY BATCH REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL PARITY BATCH REPORT"
-issues: []
-discussions: []
 ## Summary
 
 | Status | Count | Percentage |

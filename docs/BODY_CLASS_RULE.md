@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BODY CLASS RULE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Body Class Rule - HTML Parity Enforcement

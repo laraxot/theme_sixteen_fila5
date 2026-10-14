@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login4 improvements analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Miglioramenti Login4 - Tema Sixteen

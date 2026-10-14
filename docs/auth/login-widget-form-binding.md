@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login widget form binding"
 issues: []
 discussions: []
+status: draft
 ---
 
 # LoginWidget Form Data Binding - Fix e Pattern
@@ -105,12 +106,3 @@ class RegisterWidget extends XotBaseWidget
 - [Filament Form State Management](https://filamentphp.com/docs/5.x/forms/fields#state-management)
 
 ---
-
-title: "login widget form binding"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "login widget form binding"
-issues: []
-discussions: []

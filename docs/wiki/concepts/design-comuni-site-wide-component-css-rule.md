@@ -9,6 +9,7 @@ created: 2026-04-22
 updated: 2026-05-15
 sources:
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+status: draft
 ---
 
 # Design Comuni Site-Wide Component CSS Rule

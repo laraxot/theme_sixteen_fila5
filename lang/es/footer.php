@@ -2,4 +2,17 @@
 
 declare(strict_types=1);
 
-return ['home' => 'Ir a la página de FixCity', 'description' => 'Comunica incidencias y encuentra información sobre los servicios municipales.', 'services' => 'Incidencias', 'create_ticket' => 'Enviar una incidencia', 'track_ticket' => 'Seguir una incidencia', 'information' => 'Información', 'faq' => 'Preguntas frecuentes', 'sitemap' => 'Mapa del sitio', 'information_unavailable' => 'Los datos de contacto y la información legal del Ayuntamiento aún no están configurados.'];
+/*
+ * Footer small-print e link istituzionali (DCP-157). Spanish translation.
+ */
+return [
+    'amministrazione_trasparente' => 'Administración transparente',
+    'privacy' => 'Aviso de privacidad',
+    'cookie_policy' => 'Política de cookies',
+    'legal_notes' => 'Avisos legales',
+    'accessibility' => 'Declaración de accesibilidad',
+    'go_to_legal_notes' => 'Ir a Avisos legales',
+    'go_to_cookie_policy' => 'Ir a Política de cookies',
+    'go_to_privacy' => 'Ir a Aviso de privacidad',
+    'go_to_accessibility' => 'Ir a Declaración de accesibilidad',
+];

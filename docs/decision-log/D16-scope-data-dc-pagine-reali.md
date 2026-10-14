@@ -2,6 +2,11 @@
 type: philosophy-decision
 decision: D16
 story: ../bmad/stories/2026-10-13-dcp-32-scope-data-dc-pagine-reali.story.md
+title: "D16: il look Design Comuni si accende con un attributo, deciso dal JSON della pagina"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d16: il look design comuni si accende con un attributo, deciso dal json della pagina sixteen"
 ---
 # D16: il look Design Comuni si accende con un attributo, deciso dal JSON della pagina
 

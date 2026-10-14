@@ -3,6 +3,8 @@ title: "Sixteen documentation knowledge map"
 type: index
 tags: [sixteen, design-comuni, qmd, graphify, second-brain, bmad]
 qmd: "sixteen theme documentation knowledge map"
+status: draft
+updated: 2026-10-11
 ---
 
 # Mappa della conoscenza di Sixteen

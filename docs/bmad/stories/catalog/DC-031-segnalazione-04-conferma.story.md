@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-04-conferma.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-04-conferma
+title: "DC-031 — segnalazione-04-conferma"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-031   segnalazione-04-conferma sixteen"
 ---
 
 # DC-031 — segnalazione-04-conferma

@@ -5,6 +5,10 @@ status: open
 links:
   github_issue: #999
   discussion: #design-comuni
+title: "/it/tickets/create — Conferma dopo salvataggio (post-save confirmation) — Visual Parity con segnalazione-04-conferma.html"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "/it/tickets/create   conferma dopo salvataggio (post-save confirmation)   visual parity con segnalazione-04-conferma.html sixteen"
 ---
 > Stato 2026-10-13: story NON autorevole (indica `/it/tickets/create/confirmation` e un blocco `tests/ticket-confirm/default` che non esistono). Fonte attuale: DCP-34 (`Modules/Fixcity/docs/stories/2026-10-13-dcp-34-tickets-confirmation-design-comuni.story.md`): rotta reale `/it/tickets/confirmation`, JSON `tickets.confirmation.json`, blocco `blocks/ticket-confirmation/design-comuni`.
 

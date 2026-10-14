@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage html comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage HTML Structure Comparison Analysis

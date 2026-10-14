@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket 02 dati reference"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket 02 dati reference

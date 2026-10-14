@@ -13,6 +13,7 @@ related:
   - 2026-10-13-dcp-32-wizard-step1-privacy.story.md
   - 2026-10-13-dcp-33-wizard-step2-dati.story.md
   - 2026-10-13-dcp-35-conferma-parity.story.md
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-34 — Riepilogo readonly con mappa

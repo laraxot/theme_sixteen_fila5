@@ -4,6 +4,8 @@ type: concept
 status: active
 created: 2026-10-13
 qmd: "design comuni parity metodo json blocchi tailwind alpine gate html visual extract css explain style"
+updated: 2026-10-13
+tags: [docs, sixteen, wiki]
 ---
 
 # Metodo di parity Design Comuni

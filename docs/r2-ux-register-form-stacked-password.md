@@ -16,6 +16,7 @@ related:
   - login-refactoring-plan.md
   - ARCHITECTURE-QUEUEABLE-ACTION.md
   - ../../../docs/wiki/memories/form-fields-self-validate-religion.md
+status: draft
 ---
 
 # R2 UX religion — register form password stacked + WCAG 2.1 AA (Sixteen theme)

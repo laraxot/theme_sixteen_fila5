@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: login-agid-problems-analysis
 canonical: ../../docs/shared-components/login-agid-problems-analysis.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/login-agid-problems-analysis.md

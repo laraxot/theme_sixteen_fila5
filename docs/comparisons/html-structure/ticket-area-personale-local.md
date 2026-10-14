@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket area personale local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket area personale local

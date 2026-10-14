@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "check all pages"
 issues: []
 discussions: []
+status: draft
 ---
 
 # check-all-pages.cjs

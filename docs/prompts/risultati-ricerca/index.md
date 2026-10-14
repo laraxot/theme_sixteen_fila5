@@ -9,6 +9,10 @@ related:
   - ../homepage/index.md
   - ../03-enhanced.md
 scope: [laravel/Themes/Sixteen/resources/views/components/blocks/search-results/]
+type: index
+updated: 2026-10-13
+tags: [docs, sixteen, prompts]
+qmd: "index sixteen"
 ---
 
 ## Purpose / Scope

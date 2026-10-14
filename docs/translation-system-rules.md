@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "translation system rules"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Translation System Rules - CRITICAL RULES

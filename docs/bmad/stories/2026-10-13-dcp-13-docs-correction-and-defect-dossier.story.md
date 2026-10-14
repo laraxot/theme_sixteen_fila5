@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-13: correzione dei documenti e dossier dei 14 difetti bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-13: correzione dei documenti e dossier dei 14 difetti

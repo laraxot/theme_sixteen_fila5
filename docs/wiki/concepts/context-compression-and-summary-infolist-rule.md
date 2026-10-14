@@ -10,6 +10,7 @@ tags: [sixteen, design-comuni, wizard, infolist, context-compression]
 sources:
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/context-compression-and-summary-infolist-rule.md
   - ../../../../../../docs/wiki/concepts/openrouter-context-compression-plugin.md
+status: draft
 ---
 
 # Context compression and summary Infolist rule

@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "header design comuni voce servizi attiva active nav-link data-element all-services pagine servizi segnalazione"
 related: [dcp-14, dcp-21, dcp-34]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-92: la voce "Servizi" attiva nell'header

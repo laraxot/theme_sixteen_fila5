@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual comparison analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison Analysis - Homepage
@@ -17,15 +18,6 @@ discussions: []
 **Strumento**: Playwright (headless Chromium) + Analisi programmatica
 
 ---
-
-title: "visual comparison analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "visual comparison analysis"
-issues: []
-discussions: []
 ## 📊 Risultato Comparazione per Sezione
 
 | Sezione | REF Size | FIX Size | Ratio | Stato | Note |

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "code quality tools"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🔍 Code Quality Tools - Tema Sixteen
@@ -17,15 +18,6 @@ discussions: []
 **Priority**: HIGH  
 
 ---
-
-title: "code quality tools"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "code quality tools"
-issues: []
-discussions: []
 ## 🎯 OVERVIEW
 
 Il tema Sixteen utilizza una suite completa di strumenti di analisi del codice per garantire la massima qualità, sicurezza e manutenibilità delle funzionalità frontend.

@@ -14,6 +14,7 @@ related:
   - concepts/ticket-list-filament-tabs.md
   - concepts/filament-v5-hybrid-pattern-reference.md
   - ../../docs/wiki/rules/filament-first-rule.md
+status: draft
 ---
 
 # Filament 5.x Blade Components — Reference e Regola Filament-First

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "navigation components"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Navigation Components - Bootstrap Italia to Tailwind

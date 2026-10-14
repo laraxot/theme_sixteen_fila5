@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "session report 2026 04 09"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Sessione CSS/JS Segnalazione - Report Completo

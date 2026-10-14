@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "zen pubthemewizard philosophy"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filosofia Zen: PubThemeWizard Architecture
@@ -51,15 +52,6 @@ PubThemeWizard::make(static::getSteps())  // ← USA QUESTO!
 **Perché?** `PubThemeWizard` setta già il view giusto (`pub_theme::components.wizard`).
 
 ---
-
-title: "zen pubthemewizard philosophy"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "zen pubthemewizard philosophy"
-issues: []
-discussions: []
 ## 🏛️ Zen dell'Header Dynamic
 
 ### Architecture Chain (Recap)

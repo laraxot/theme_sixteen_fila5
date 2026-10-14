@@ -6,6 +6,9 @@ date: 2026-10-13
 owner: module:Fixcity
 related: [STORY-357, dcp-42, D15-volt-fragment-explicit-root]
 qmd: "tickets create auth middleware json cms guest ospite owner_id PageSlugMiddleware web guest login intended"
+title: "D17: /it/tickets/create richiede l'autenticazione"
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
 ---
 # D17: /it/tickets/create richiede l'autenticazione
 

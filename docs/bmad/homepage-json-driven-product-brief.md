@@ -10,6 +10,7 @@ issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions"
+qmd: "sixteen homepage json-driven   product brief sixteen"
 ---
 
 # Sixteen homepage JSON-driven — product brief

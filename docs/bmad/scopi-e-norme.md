@@ -9,6 +9,10 @@ multilingua: "it/en (JSON language)"
 mobile: "Tailwind responsive (sm/md/lg/xl) + Alpine.js + Lazy loading"
 dati_login: "credenziali di test fornite fuori repo (variabili DC_EMAIL e DC_PASS)"
 regola_header: "anonimo -> route(\047login\047); loggato -> dati reali (nome, email, area personale) non generici"
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "scopi e norme sixteen"
 ---
 DesignComuni redesign: professionale, accademico, miglior programmatore al mondo.
 Stack: TailwindCSS + Alpine.js + Lit + DaisyUI + Flowbite (NO Bootstrap Italia).

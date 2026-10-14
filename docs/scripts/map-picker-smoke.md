@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "map picker smoke"
 issues: []
 discussions: []
+status: draft
 ---
 
 # map-picker-smoke.cjs

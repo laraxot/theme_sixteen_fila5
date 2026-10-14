@@ -7,6 +7,9 @@ status: complete
 links:
   github_issue: "#999"
   discussion: "#design-comuni"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "header auth-state study   function + legal + multilang + mobile sixteen"
 ---
 # Header Auth-State Study — Function + Legal + Multilang + Mobile
 

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HOMEPAGE HTML ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage HTML Structure Analysis — Reference vs Local
@@ -17,15 +18,6 @@ discussions: []
 > **Comparison Tool**: DOM element diff (structural, not visual)
 
 ---
-
-title: "HOMEPAGE HTML ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HOMEPAGE HTML ANALYSIS"
-issues: []
-discussions: []
 ## Executive Summary
 
 | Metric | Value |

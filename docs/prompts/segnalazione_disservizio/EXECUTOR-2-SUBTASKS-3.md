@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "EXECUTOR 2 SUBTASKS 3 4"
 issues: []
 discussions: []
+status: draft
 ---
 
 # EXECUTOR #2 - SUBTASK 3 & 4 COORDINATION
@@ -19,15 +20,6 @@ discussions: []
 **Timeline**: ~40-60 minutes total (can run in parallel)
 
 ---
-
-title: "EXECUTOR 2 SUBTASKS 3 4"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "EXECUTOR 2 SUBTASKS 3 4"
-issues: []
-discussions: []
 ## 📋 PREPARATION CHECKLIST
 
 Before you start, ensure:

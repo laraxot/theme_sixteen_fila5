@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PARITY ASSESSMENT FINDINGS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Parity Assessment Findings

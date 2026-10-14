@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BODY NO CLASSES"
 issues: []
 discussions: []
+status: draft
 ---
 
 # <body> NO CLASSES — Design Comuni Fidelity Rule
@@ -16,15 +17,6 @@ discussions: []
 **Reference**: https://italia.github.io/design-comuni-pagine-statiche/
 
 ---
-
-title: "BODY NO CLASSES"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BODY NO CLASSES"
-issues: []
-discussions: []
 ## ❌ FORBIDDEN
 
 ```blade

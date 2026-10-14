@@ -13,6 +13,7 @@ related:
   - "./README.md"
   - "../../docs/composer-modules-not-themes.md"
   - "../../../../docs/gestionale-commesse-comparison/composer-json-import.md"
+status: draft
 ---
 
 # Composer — moduli sì, temi no (Sixteen)

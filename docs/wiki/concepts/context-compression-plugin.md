@@ -10,6 +10,7 @@ tags: [theme, sixteen, context-compression, qmd, openrouter]
 related:
   - ../../../../../../docs/wiki/concepts/context-mode-integration.md
   - ../../../../../../docs/wiki/concepts/context-compression-plugin-openrouter.md
+status: draft
 ---
 
 # Sixteen Theme Context Compression Boundary

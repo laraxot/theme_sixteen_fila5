@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "layout fix summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Layout Fix Summary - x-layouts.app extends x-layouts.main
@@ -17,15 +18,6 @@ discussions: []
 **Related**: [[layout-hierarchy]], [[components-directory-structure]], [[00-index]]
 
 ---
-
-title: "layout fix summary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "layout fix summary"
-issues: []
-discussions: []
 ## 🎯 Problem Identified
 
 ### Before (❌ WRONG)

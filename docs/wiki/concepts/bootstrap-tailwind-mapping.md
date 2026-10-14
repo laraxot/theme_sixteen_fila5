@@ -14,6 +14,7 @@ related:
   - segnalazione-visual-parity-correction-plan.md
   - concepts/theme-owned-css-parity-rule.md
   - concepts/segnalazione-visual-parity-mastery.md
+status: draft
 ---
 
 # Bootstrap → Tailwind Mapping for Design Comuni Parity

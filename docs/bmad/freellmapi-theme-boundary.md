@@ -5,6 +5,7 @@ status: active
 created: 2026-10-11
 updated: 2026-10-11
 tags: [bmad, sixteen, freellmapi, design-comuni, second-brain]
+qmd: "boundary del tema sixteen"
 ---
 
 # Boundary del tema

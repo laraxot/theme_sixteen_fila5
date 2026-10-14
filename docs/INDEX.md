@@ -6,6 +6,8 @@ story: dcp-112
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "sixteen docs indice sottocartelle scopo compliance bmad design-comuni visual-parity wiki i18n"
+status: draft
+tags: [docs, sixteen]
 ---
 
 # Sixteen: sottocartelle di `docs/` e loro scopo

@@ -2,6 +2,11 @@
 type: decision-log
 github_issue: #101
 decision: D11
+title: "D11 — Filament Wizard per tickets/create (parità con segnalazione-01-privacy)"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d11   filament wizard per tickets/create (parità con segnalazione-01-privacy) sixteen"
 ---
 # D11 — Filament Wizard per tickets/create (parità con segnalazione-01-privacy)
 

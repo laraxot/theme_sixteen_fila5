@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid compliance summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🏛️ AGID Design System - Compliance Summary
@@ -18,15 +19,6 @@ discussions: []
 **Overall Compliance**: **75%** 🟡
 
 ---
-
-title: "agid compliance summary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid compliance summary"
-issues: []
-discussions: []
 ## 📊 Quick Status Overview
 
 | Category | Status | Score | Priority |

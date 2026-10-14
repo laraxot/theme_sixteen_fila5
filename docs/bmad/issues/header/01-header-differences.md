@@ -1,3 +1,11 @@
+---
+title: "Header Issues (m00434)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "header issues (m00434) sixteen"
+---
 # Header Issues (m00434)
 
 ## Visual Parity Issues (40% → 97%)

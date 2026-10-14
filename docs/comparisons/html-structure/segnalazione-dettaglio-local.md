@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione dettaglio local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione dettaglio local

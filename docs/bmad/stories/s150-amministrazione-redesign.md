@@ -4,6 +4,10 @@ title: "Amministrazione — Design Comuni v2.4.0 (Batch Parallel)"
 github_issue: #102
 github_discussion: #102
 decision_log: docs/decision-log.md
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story: amministrazione redesign sixteen"
 ---
 # Story: Amministrazione Redesign
 

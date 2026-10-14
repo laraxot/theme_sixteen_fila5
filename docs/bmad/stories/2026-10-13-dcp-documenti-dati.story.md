@@ -1,3 +1,11 @@
+---
+title: "Story DCP — pagina Documenti e Dati JSON-driven"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story dcp   pagina documenti e dati json-driven sixteen"
+---
 # Story DCP — pagina Documenti e Dati JSON-driven
 
 **Status:** in-review (implementazione locale eseguita; parity visuale ancora da certificare)

@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni servizi index catalogo flussi di servizio tests-index design-comuni-bare layout json page"
 supersedes: catalog/DC-002-servizi-index.story.md
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-31: catalogo dei flussi di servizio

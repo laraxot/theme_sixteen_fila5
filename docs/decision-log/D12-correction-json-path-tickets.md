@@ -2,6 +2,11 @@
 type: correction
 github_issue: #101
 decision: D12
+title: "D12 — Correzione percorso JSON tickets/create (errore agente)"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d12   correzione percorso json tickets/create (errore agente) sixteen"
 ---
 # D12 — Correzione percorso JSON tickets/create (errore agente)
 

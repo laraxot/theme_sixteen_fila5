@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "obsidian vault alignment"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Obsidian vault alignment

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "filament 4 login widget implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Login Widget Filament 4 - Tema Sixteen

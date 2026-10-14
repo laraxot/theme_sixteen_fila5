@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-01-ufficio-luogo.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-01-ufficio-luogo
+title: "DC-004 — appuntamento-01-ufficio-luogo"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-004   appuntamento-01-ufficio-luogo sixteen"
 ---
 
 # DC-004 — appuntamento-01-ufficio-luogo

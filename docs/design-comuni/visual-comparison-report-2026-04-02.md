@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual comparison report 2026 04 02"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison Report - Homepage
@@ -17,15 +18,6 @@ discussions: []
 **Strumento**: Playwright (headless Chromium) + Analisi programmatica
 
 ---
-
-title: "visual comparison report 2026 04 02"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "visual comparison report 2026 04 02"
-issues: []
-discussions: []
 ## 📊 Risultato Comparazione
 
 ### Classi CSS

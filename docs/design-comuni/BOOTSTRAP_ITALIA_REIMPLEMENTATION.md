@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BOOTSTRAP ITALIA REIMPLEMENTATION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎯 Bootstrap Italia Reimplementation - Tailwind + Alpine
@@ -173,15 +174,6 @@ resources/js/
 - [Tailwind + Alpine](https://tailwindcss.com/docs/using-with-preprocessors#alpine-js)
 
 ---
-
-title: "BOOTSTRAP ITALIA REIMPLEMENTATION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BOOTSTRAP ITALIA REIMPLEMENTATION"
-issues: []
-discussions: []
 **Stato**: ✅ **BOOTSTRAP ITALIA REIMPLEMENTATION**  
 **Stack**: **Tailwind CSS + Alpine.js**  
 **Bootstrap Italia JS**: **NOT USED**  

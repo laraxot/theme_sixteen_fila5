@@ -3,6 +3,10 @@ id: tests-argomenti-redesign
 status: active
 created: 2026-10-11
 updated: 2026-10-11
+title: "tests.argomenti.json — Struttura dinamica per pagina Argomenti (Design Comuni v2.4.0)"
+type: note
+tags: [docs, sixteen, design-system]
+qmd: "tests.argomenti.json   struttura dinamica per pagina argomenti (design comuni v2.4.0) sixteen"
 ---
 
 # tests.argomenti.json — Struttura dinamica per pagina Argomenti (Design Comuni v2.4.0)

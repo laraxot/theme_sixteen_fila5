@@ -1,3 +1,11 @@
+---
+title: "homepage audit taste skill bmad"
+type: note
+status: draft
+updated: 2026-10-07
+tags: [docs, sixteen, decision-log]
+qmd: "homepage audit taste skill bmad sixteen"
+---
 ## Homepage Audit — Decision Log (Taste-Skill + BMAD)
 
 ### 1. System SSoT (Design System Anchor)

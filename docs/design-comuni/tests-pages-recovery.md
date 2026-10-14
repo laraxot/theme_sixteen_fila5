@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "tests pages recovery"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Recovery pagine `tests.*` design-comuni

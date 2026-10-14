@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "GROUP A index"
 issues: []
 discussions: []
+status: draft
 ---
 
 # GROUP A - Analisi Parità Visiva
@@ -16,15 +17,6 @@ discussions: []
 **Metodologia**: Fetch HTML da reference GitHub + local Laravel, confronto struttura DOM
 
 ---
-
-title: "GROUP A index"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "GROUP A index"
-issues: []
-discussions: []
 ## Indice Pagine Analizzate
 
 | Pagina | Reference Disponibile | Status | Priorità Intervento | DIFF Analysis |

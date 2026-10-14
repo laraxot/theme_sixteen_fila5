@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "parity score"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Parity Score — ticket-list

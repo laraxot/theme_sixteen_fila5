@@ -5,6 +5,7 @@ status: accepted
 created: 2026-10-11
 updated: 2026-10-11
 tags: [bmad, second-brain, sixteen, design-comuni, architecture]
+qmd: "decisione sixteen"
 ---
 
 # Decisione

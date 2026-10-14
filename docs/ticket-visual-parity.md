@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket visual parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual parity check — Segnalazione (create)

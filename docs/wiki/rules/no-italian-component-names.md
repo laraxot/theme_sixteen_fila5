@@ -18,6 +18,7 @@ related:
   - ../../../../../../docs/wiki/rules/no-italian-folder-names-in-code.md
   - ../../../../../Modules/Geo/docs/wiki/rules/js-file-english-naming-rule.md
   - ../../../../../.cursor/rules/english-only-naming.mdc
+status: draft
 ---
 
 # Regola: Solo Inglese nei Nomi File

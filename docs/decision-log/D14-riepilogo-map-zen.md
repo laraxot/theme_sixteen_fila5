@@ -2,6 +2,11 @@
 type: philosophy-decision
 github_issue: #101
 decision: D14
+title: "D14 — Riepilogo wizard (step 3/3) con mappa — logica/zen/politica"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d14   riepilogo wizard (step 3/3) con mappa   logica/zen/politica sixteen"
 ---
 # D14 — Riepilogo wizard (step 3/3) con mappa — logica/zen/politica
 

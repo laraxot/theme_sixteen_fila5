@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "GSD IMPLEMENTATION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # GSD Implementation Plan: CSS/JS Visual Alignment Phase
@@ -17,15 +18,6 @@ discussions: []
 **Date**: 2026-04-02  
 
 ---
-
-title: "GSD IMPLEMENTATION PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "GSD IMPLEMENTATION PLAN"
-issues: []
-discussions: []
 ## 🎯 Phase Goal
 
 **Achieve 95%+ visual parity between local homepage and reference Design Comuni homepage using CSS and JavaScript modifications only (no HTML changes, no Bootstrap Italia CSS, Tailwind + Alpine.js only).**

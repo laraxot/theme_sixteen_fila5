@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison: appuntamento-01-ufficio-luogo

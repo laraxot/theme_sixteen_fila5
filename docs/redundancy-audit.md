@@ -10,6 +10,7 @@ tags: [redundancy, blade, components, design-system]
 created: 2026-05-21
 related:
   - https://github.com/laraxot/base_fixcity_fila5/issues/89
+status: draft
 ---
 
 # Sixteen redundancy audit 2026-05-21

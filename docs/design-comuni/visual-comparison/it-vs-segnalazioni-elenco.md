@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "it vs segnalazioni elenco"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Confronto visivo: `/it` vs Design Comuni «Elenco segnalazioni»

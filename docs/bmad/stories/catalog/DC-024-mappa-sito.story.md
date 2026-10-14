@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/mappa-sito.html
 local: http://192.168.1.40:8000/it/tests/mappa-sito
+title: "DC-024 — mappa-sito"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-024   mappa-sito sixteen"
 ---
 
 # DC-024 — mappa-sito

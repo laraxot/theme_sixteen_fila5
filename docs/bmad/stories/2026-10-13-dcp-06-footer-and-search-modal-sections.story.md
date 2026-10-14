@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-06: footer e modale di ricerca con markup design comuni bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-06: footer e modale di ricerca con markup Design Comuni

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DIFF analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # DIFF Analysis: appuntamento-02-data-orario

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "xotbasefield view resolution rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # XotBaseField View Resolution Rule (Theme)

@@ -10,6 +10,9 @@ title: "DCP-24: segnalazione area personale"
 links:
   github_issue: #24
 github_discussion: "#dcp-24-design-comuni"
+type: story
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 # DCP-24 — Area personale segnalazione (Design Comuni)
 

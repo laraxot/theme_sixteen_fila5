@@ -11,6 +11,7 @@ name: Theme Stack - DaisyUI + Tailwind + Alpine + Lit
 description: Architettura frontend per Sixteen theme con DaisyUI, Design Comuni Italia e componenti moderni
 metadata:
   type: decision
+status: draft
 ---
 
 # Theme Stack - DaisyUI + Tailwind + Alpine + Lit

@@ -7,6 +7,7 @@ title: Theme CSS discipline - global site CSS, no per-page selectors (wizard par
 type: concept
 updated: 2026-04-23
 tags: [sixteen, css, parity, bootstrap-italia, wizard, best-practices, false-friends]
+status: draft
 ---
 
 # Regola

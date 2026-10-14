@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FEATURED TOPICS GRADIENT ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Detailed Analysis: "Argomenti in Evidenza" Section
@@ -16,15 +17,6 @@ discussions: []
 **Status**: Visual Difference Identified  
 
 ---
-
-title: "FEATURED TOPICS GRADIENT ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FEATURED TOPICS GRADIENT ANALYSIS"
-issues: []
-discussions: []
 ## 🔍 Visual Comparison
 
 ### Reference (Design Comuni)

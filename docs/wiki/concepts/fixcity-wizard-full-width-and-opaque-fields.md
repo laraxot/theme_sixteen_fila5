@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "fixcity wizard full width and opaque fields"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Wizard Design Comuni Matching Container
@@ -113,13 +114,5 @@ After applying these changes:
 - [[../../docs/wiki/concepts/laraxot-architecture]] (project-wide architecture)
 
 ---
-title: "fixcity wizard full width and opaque fields"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "fixcity wizard full width and opaque fields"
-issues: []
-discussions: []
 *Updated: 2026-05-14*
 *Author: Gemini CLI*

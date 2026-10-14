@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "route patterns"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pattern Route - Tema Sixteen

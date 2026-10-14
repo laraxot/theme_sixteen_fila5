@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "header area personale login auth route login menu utente pagine area-personale pratiche seguite notifiche impostazioni scopo norme multilingua mobile"
 related: [dcp-42, dcp-98, dcp-97]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-106: l'header dice la verita' e ogni voce porta da qualche parte

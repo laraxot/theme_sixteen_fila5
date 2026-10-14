@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "structure comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Structure comparison

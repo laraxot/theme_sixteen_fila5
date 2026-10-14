@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design comuni compliance"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Compliance - Sixteen Theme
@@ -16,15 +17,6 @@ discussions: []
 **Target**: Full AGID compliance for Italian municipalities
 
 ---
-
-title: "design comuni compliance"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "design comuni compliance"
-issues: []
-discussions: []
 ## Overview
 
 This document tracks the Sixteen theme's adherence to the design-comuni-pagine-statiche standard for Italian municipal websites.

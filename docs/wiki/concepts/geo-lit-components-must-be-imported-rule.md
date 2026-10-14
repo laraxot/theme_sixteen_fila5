@@ -9,6 +9,7 @@ discussions: []
 name: geo-lit-components-must-be-imported-rule
 description: "OGNI componente Lit nel modulo Geo deve essere importato in Themes/Sixteen/resources/js/app.js — altrimenti il browser non riconosce il custom element"
 type: rule
+status: draft
 ---
 
 # Geo Lit Components Must Be Imported Rule

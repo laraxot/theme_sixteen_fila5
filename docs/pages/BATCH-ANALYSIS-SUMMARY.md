@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BATCH ANALYSIS SUMMARY"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Batch Analysis Report - All Pages

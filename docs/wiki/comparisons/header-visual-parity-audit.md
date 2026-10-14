@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header visual parity audit"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header Visual Parity Audit — 2026-05-04

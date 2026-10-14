@@ -3,6 +3,8 @@ title: "Documentation knowledge architecture"
 type: architecture
 tags: [bmad, second-brain, qmd, graphify, governance]
 qmd: "Sixteen documentation architecture BMAD second brain QMD Graphify"
+status: draft
+updated: 2026-10-11
 ---
 
 # Architettura della documentazione Sixteen

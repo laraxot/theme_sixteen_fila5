@@ -8,6 +8,9 @@ qmd: "design comuni servizi page blocchi JSON"
 links:
   github_issue: "#12"
   discussion: "#design-comuni-servizi"
+title: "DCP-12 — Servizi (Design Comuni)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 # DCP-12 — Servizi (Design Comuni)
 

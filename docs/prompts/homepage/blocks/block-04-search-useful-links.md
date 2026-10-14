@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "block 04 search useful links"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 04: Ricerca Rapida + Link Utili
@@ -200,13 +201,4 @@ discussions: []
 - → [07-useful-links.md](./07-useful-links.md) — dettaglio struttura
 
 ---
-
-title: "block 04 search useful links"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "block 04 search useful links"
-issues: []
-discussions: []
 *Blocco 04/11 — Fonte: italia.github.io/design-comuni-pagine-statiche/sito/homepage.html*

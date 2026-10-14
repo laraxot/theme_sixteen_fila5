@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni elenco structure analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Analysis: ticket-list

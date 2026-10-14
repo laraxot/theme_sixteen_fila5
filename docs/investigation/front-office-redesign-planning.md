@@ -11,6 +11,9 @@ links:
   tech_spec: "docs/bmad/front-office-redesign-tech-spec.md"
   prd: "docs/bmad/front-office-redesign-prd.md"
   decision_log: "docs/decision-log.md"
+status: draft
+updated: 2026-10-11
+qmd: "pianificazione redesign front office con designcomuni sixteen"
 ---
 
 # Pianificazione redesign front office con DesignComuni

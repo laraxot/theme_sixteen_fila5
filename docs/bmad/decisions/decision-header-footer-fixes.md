@@ -8,6 +8,9 @@ status: implemented
 links:
   github_issue: #999
   discussion: #999
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "header and footer fix decisions (bmad) sixteen"
 ---
 # Header and Footer Fix Decisions (BMAD)
 

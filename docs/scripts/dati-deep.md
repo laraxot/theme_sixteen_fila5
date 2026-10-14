@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "dati deep"
 issues: []
 discussions: []
+status: draft
 ---
 
 # dati-deep.cjs

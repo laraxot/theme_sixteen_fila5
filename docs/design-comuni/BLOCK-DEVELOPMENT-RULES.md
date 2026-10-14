@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BLOCK DEVELOPMENT RULES"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Block Development Rules
@@ -16,15 +17,6 @@ discussions: []
 **Type:** Architectural Rules
 
 ---
-
-title: "BLOCK DEVELOPMENT RULES"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BLOCK DEVELOPMENT RULES"
-issues: []
-discussions: []
 ## 1. Tech Stack: TailwindCSS + Alpine.js ONLY
 
 ### Core Principle

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni html parity summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni HTML Parity Summary

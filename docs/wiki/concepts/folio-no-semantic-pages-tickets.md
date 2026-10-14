@@ -12,6 +12,7 @@ related:
   - ../../page-directory-structure.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/tickets-view-cms-folio-page.md
   - ../../../../../../docs/stories/STORY-285-folio-no-pages-tickets-pub-theme.md
+status: draft
 ---
 
 # Perché non esiste `pages/tickets/` nel tema

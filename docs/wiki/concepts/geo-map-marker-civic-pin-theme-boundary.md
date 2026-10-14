@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "geo map marker civic pin theme boundary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # marker mappa — confine tema (civic pin)
@@ -16,15 +17,6 @@ discussions: []
 Il tema Sixteen **non** ridefinisce la struttura HTML del marker (owned by Geo `marker-config.js`). Applica override cascade su cluster, contrasto glifo e conflitti con CSS parity Design Comuni.
 
 ---
-
-title: "geo map marker civic pin theme boundary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "geo map marker civic pin theme boundary"
-issues: []
-discussions: []
 ## responsabilità
 
 | layer | file | cosa fa |

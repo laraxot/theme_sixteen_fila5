@@ -8,6 +8,7 @@ discussions: []
 title: Playwright — Visual Testing Tema Sixteen
 description: Verifica visuale e regressione per il tema Sixteen (Bootstrap Italia) nel 2026
 tags: [playwright, visual-testing, sixteen, bootstrap-italia, laravel, frontend]
+status: draft
 ---
 
 # Playwright — Visual Testing Tema Sixteen

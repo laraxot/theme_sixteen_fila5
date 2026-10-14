@@ -1,3 +1,11 @@
+---
+title: "Sixteen Theme — BMAD + Second Brain Index"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen]
+qmd: "sixteen theme   bmad + second brain index sixteen"
+---
 # Sixteen Theme — BMAD + Second Brain Index
 
 ## BMAD Structure

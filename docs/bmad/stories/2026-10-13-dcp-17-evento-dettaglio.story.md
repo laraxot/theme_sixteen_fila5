@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity evento dettaglio event-detail galleria carosello dropdown popper accordion bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-17: evento-dettaglio

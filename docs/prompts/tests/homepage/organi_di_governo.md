@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "organi di governo"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Organi di governo
@@ -16,15 +17,6 @@ discussions: []
 # Status: 🔄 IN CORSO
 
 ---
-
-title: "organi di governo"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "organi di governo"
-issues: []
-discussions: []
 ## 📸 SCREENSHOT 8 ANALYSIS
 
 **Problema**: Card "Organi di Governo" sono UNA SOTTO L'ALTRA (verticali) invece che AFFIANCATE (3 colonne)

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "00 INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Documentation Index
@@ -23,15 +24,6 @@ discussions: []
 - **[Body Plain Rule](./body-plain-rule.md)** - Regola: body tag senza classi/attributi
 
 ---
-
-title: "00 INDEX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "00 INDEX"
-issues: []
-discussions: []
 ## 🎯 Ticket Creation Wizard
 
 ### Pages Architecture
@@ -51,7 +43,7 @@ discussions: []
 - **Base class**: `Modules\Xot\Filament\Widgets\XotBaseWizardWidget`
 - **Steps**: 3 (Privacy → Data → Summary + Submit)
 - **Redirect**: After submit → `/it/tests/segnalazione-04-conferma`
-- **Latest parity follow-up**: [7-51 segnalazione-crea step2 columns header ultra parity](../../../../_bmad-output/implementation-artifacts/7-51-segnalazione-crea-step2-columns-header-ultra-parity.md)
+- **Latest parity follow-up**: 7-51 segnalazione-crea step2 columns header ultra parity (artefatto non presente in `bmad-output/`, il percorso `_bmad-output/` non esiste piu')
 
 ### Visual Parity
 
@@ -134,8 +126,8 @@ docs/design-comuni/
 - [REPLIKATE Block System](../prompts/replikate.txt#-block-system)
 
 ### Verso Component Catalog
-- [Component Reference](../COMPONENT_CATALOG.md)
-- [CSS Strategy](../CSS_STRATEGY.md)
+- Component Reference: `COMPONENT_CATALOG.md` non esiste; il riferimento attuale e' l'elenco dei blocchi in [blocks](./blocks/)
+- CSS Strategy: `CSS_STRATEGY.md` non esiste; vedi [CSS-FIX-STRATEGY](../html-structure-analysis/CSS-FIX-STRATEGY.md) e [DAISYUI](../DAISYUI.md)
 
 ### Verso Laravel Structure
 - [Blade File](../../resources/views/pages/tests/[slug].blade.php)
@@ -178,9 +170,9 @@ Homepage:
 
 - **Capire cosa fare**: Leggi [Homepage Structure Analysis](./homepage-structure-diff.md)
 - **Seguire il protocollo**: Vedi [REPLIKATE Protocol](../prompts/replikate.txt)
-- **Trovare un componente**: Cerca in [Component Catalog](../COMPONENT_CATALOG.md)
+- **Trovare un componente**: Cerca in Component Catalog (`COMPONENT_CATALOG.md` non esiste, vedi [blocks](./blocks/))
 - **Modificare la blade**: Vedi File structure sopra
-- **Aggiungere CSS**: Leggi [CSS Strategy](../CSS_STRATEGY.md)
+- **Aggiungere CSS**: Leggi CSS Strategy (vedi [CSS-FIX-STRATEGY](../html-structure-analysis/CSS-FIX-STRATEGY.md))
 
 ---
 

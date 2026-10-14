@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
 local: http://192.168.1.40:8000/it/tests/homepage
+title: "DC-020 — homepage"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-020   homepage sixteen"
 ---
 
 # DC-020 — homepage

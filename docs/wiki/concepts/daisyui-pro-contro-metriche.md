@@ -8,6 +8,7 @@ type: concept
 module: Sixteen
 tags: [daisyui, tailwind, sixteen, governance]
 updated: 2026-05-15
+status: draft
 ---
 
 # DaisyUI nel tema Sixteen: sintesi

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VITE MANIFEST ROOT CAUSE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite Manifest Error - Root Cause Analysis

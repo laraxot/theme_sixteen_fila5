@@ -11,6 +11,7 @@ related:
   - register-ux-audit-2026-06-04.md
   - login-ux-fixes-2026-06-04.md
   - ../architecture/fo-pa-tokens-uniformity.md
+status: draft
 ---
 
 # `/it/auth/register` — handoff UX (BMAD create-ux-design)

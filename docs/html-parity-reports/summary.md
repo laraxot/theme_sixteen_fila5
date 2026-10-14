@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison - Batch Summary
@@ -17,15 +18,6 @@ discussions: []
 **Pages compared**:        7
 
 ---
-
-title: "summary"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "summary"
-issues: []
-discussions: []
 ## Overview
 
 | Metric | Value |

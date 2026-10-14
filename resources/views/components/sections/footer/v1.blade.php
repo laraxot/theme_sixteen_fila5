@@ -114,6 +114,7 @@
             @foreach ($legal as $link)
                 <a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '/')) }}">{{ $value($link['label'] ?? null) }}</a>
             @endforeach
+            <a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize('/terms') }}">{{ __('pub_theme::legal.documents.terms_disclaimer.title') }}</a>
             @if (!empty($footer_bottom_links))
                 @foreach ($footer_bottom_links as $link)
                     <a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '/')) }}">{{ $value($link['label'] ?? null) }}</a>

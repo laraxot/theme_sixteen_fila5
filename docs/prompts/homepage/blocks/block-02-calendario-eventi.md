@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "block 02 calendario eventi"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 02: Governance + Calendario Eventi
@@ -206,13 +207,4 @@ discussions: []
 - → [Blade Component](../../../../resources/views/components/blocks/governance/cards.blade.php)
 
 ---
-
-title: "block 02 calendario eventi"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "block 02 calendario eventi"
-issues: []
-discussions: []
 *Blocco 02/11 — Fonte: italia.github.io/design-comuni-pagine-statiche/sito/homepage.html*

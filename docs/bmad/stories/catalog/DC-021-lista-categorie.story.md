@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/lista-categorie.html
 local: http://192.168.1.40:8000/it/tests/lista-categorie
+title: "DC-021 — lista-categorie"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-021   lista-categorie sixteen"
 ---
 
 # DC-021 — lista-categorie

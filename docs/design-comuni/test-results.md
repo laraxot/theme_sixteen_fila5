@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "test results"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🧪 DESIGN COMUNI PAGES - TEST RESULTS
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: HIGH
 
 ---
-
-title: "test results"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "test results"
-issues: []
-discussions: []
 ## 📊 TEST SUMMARY
 
 | # | Page | URL | Status | Errors | Missing Components |

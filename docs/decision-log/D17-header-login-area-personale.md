@@ -2,6 +2,11 @@
 type: design-contract
 github_issue: #101
 decision: D17
+title: "D17 — Header 'Accedi all'area personale': logica, normativa, scopo, professionale"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d17   header 'accedi all'area personale': logica, normativa, scopo, professionale sixteen"
 ---
 # D17 — Header "Accedi all'area personale": logica, normativa, scopo, professionale
 

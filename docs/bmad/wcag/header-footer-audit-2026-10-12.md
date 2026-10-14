@@ -5,6 +5,9 @@ status: remediation-in-progress
 date: 2026-10-12
 scope: [header, footer, language-switcher, personal-area-cta, social-links]
 standards: [WCAG-2.1-AA, WCAG-2.2-AA]
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "audit e piano di remediation sixteen"
 ---
 
 # Audit e piano di remediation

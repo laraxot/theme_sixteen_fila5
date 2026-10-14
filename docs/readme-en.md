@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "readme en"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🇮🇹 Sixteen — English presentation
@@ -26,15 +27,6 @@ discussions: []
 > **FixCity's civic face.** Design Comuni in Tailwind + Alpine + Lit — 190+ components, a convincing `/it`.
 
 ---
-
-title: "readme en"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "readme en"
-issues: []
-discussions: []
 ## Why it exists
 
 Active frontoffice theme: PA parity, map, wizard, homepage.

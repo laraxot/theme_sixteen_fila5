@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-20 90% html 97% visual bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # dcp-20: Design Comuni redesign

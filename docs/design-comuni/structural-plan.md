@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "structural plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Structural Parity Plan – 2026-04-06

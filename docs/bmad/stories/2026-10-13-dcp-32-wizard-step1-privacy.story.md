@@ -15,6 +15,7 @@ related:
   - 2026-10-13-dcp-33-wizard-step2-dati.story.md
   - 2026-10-13-dcp-34-wizard-step3-riepilogo.story.md
   - 2026-10-13-dcp-35-conferma-parity.story.md
+tags: [docs, sixteen, bmad]
 ---
 > Numerazione: esiste un'altra DCP-32 della sessione tema ([scope data-dc](2026-10-13-dcp-32-scope-data-dc-pagine-reali.story.md)); questa ne dipende (lo scope CSS delle pagine reali). Registro: [DCP-97](2026-10-13-dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md).
 

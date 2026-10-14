@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: bootstrap-italia-examples
 canonical: ../../docs/shared-components/bootstrap-english-examples.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/bootstrap-english-examples.md

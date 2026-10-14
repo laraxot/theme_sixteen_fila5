@@ -13,6 +13,7 @@ discussions:
 related:
   - ./homepage-taste-contract-2026-10-07.md
   - ../../../../Modules/Fixcity/docs/bmad/citizen-journey-audit-2026-10-07.md
+qmd: "contratto di presentazione dei flussi sixteen"
 ---
 
 # Contratto di presentazione dei flussi

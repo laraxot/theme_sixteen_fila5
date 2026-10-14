@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login agid analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Criticità Login AGID - Tema Sixteen
@@ -184,14 +185,5 @@ resources/views/
 - [Assets Management](../assets.md)
 
 ---
-
-title: "login agid analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "login agid analysis"
-issues: []
-discussions: []
 **Prossimi Step**: Implementazione del nuovo layout AGID e refactoring completo della pagina di login.
 

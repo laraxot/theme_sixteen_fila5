@@ -5,6 +5,8 @@ theme: Sixteen
 created: 2026-10-09
 updated: 2026-10-09
 qmd: "Sixteen homepage JSON CMS decisions"
+status: draft
+tags: [docs, sixteen, bmad]
 ---
 
 # Decision log

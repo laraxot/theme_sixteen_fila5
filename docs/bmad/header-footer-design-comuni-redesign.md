@@ -20,6 +20,7 @@ related:
   - ./design-system/components.md
   - ./design-comuni-navigation-comparison.md
   - ./decision-layout-test.md
+qmd: "header + footer   redesign design comuni (sezioni `<x-section>`) sixteen"
 ---
 
 > **Aggiornamento 2026-10-11** — l'inventario storico sotto resta utile per la

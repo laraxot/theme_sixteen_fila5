@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login correction implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Correzione Implementazione Login - Tema Sixteen
@@ -55,15 +56,6 @@ class AdminPanelProvider extends XotBaseMainPanelProvider
 ```
 
 ---
-
-title: "login correction implementation"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "login correction implementation"
-issues: []
-discussions: []
 ## Problema Identificato
 
 Il tema Sixteen non era configurato correttamente per funzionare con il sistema di autenticazione. Inoltre, non ho seguito la **REGOLA CRITICA** per l'autenticazione: **per i form di autenticazione utilizzare SEMPRE widget Filament, NON Volt!**

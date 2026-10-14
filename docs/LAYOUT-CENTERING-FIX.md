@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "LAYOUT CENTERING FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Layout Centering Fix Report
@@ -102,15 +103,6 @@ npm run copy     # Deploy to public_html
 ✅ **Search modal** - Already correct, no changes needed
 
 ---
-
-title: "LAYOUT CENTERING FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "LAYOUT CENTERING FIX"
-issues: []
-discussions: []
 ## 📚 Related Documentation
 
 - **[← INDEX](./index.md)** - Documentation overview

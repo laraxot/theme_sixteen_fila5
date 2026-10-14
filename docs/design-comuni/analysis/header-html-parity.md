@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header html parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header HTML Parity — Design Comuni vs Blade v1
@@ -18,15 +19,6 @@ discussions: []
 **Riferimento HBS**: https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/components/cmp-header/cmp-header.hbs
 
 ---
-
-title: "header html parity"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "header html parity"
-issues: []
-discussions: []
 ## 1. Metodologia
 
 **Non rifare da zero ciò che esiste già.** Il `cmp-header.hbs` è il template canonico DC.  

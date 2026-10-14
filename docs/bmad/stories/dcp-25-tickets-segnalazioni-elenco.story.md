@@ -15,6 +15,8 @@ related:
   - ../public-ticket-listing-visual-contract.md
   - ../../../../../Modules/Fixcity/docs/bmad/public-ticket-listing-experience.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/segnalazioni-elenco-blocks.md
+type: story
+tags: [docs, sixteen, bmad]
 ---
 
 ## Scopo e modello di accesso

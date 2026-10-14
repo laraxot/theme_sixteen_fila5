@@ -8,6 +8,10 @@ logica: geo prima descrizione
 zen: step sequenziale — non si descrive prima di localizzare
 stack: Tailwind + Alpine + mappa statica o componente geo
 riferimento: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
+title: "Segnalazione 02 — Dati + Mappa"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazione 02   dati + mappa sixteen"
 ---
 # Segnalazione 02 — Dati + Mappa
 

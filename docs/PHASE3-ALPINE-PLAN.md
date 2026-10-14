@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PHASE3 ALPINE PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Phase 3: Alpine.js Interactivity

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Homepage - Analisi Differenze Visive
@@ -16,15 +17,6 @@ discussions: []
 **Riferimenti**: [← Piano CSS/JS](../design-comuni-html-match-css-js-plan.md) | [← Index](../00-INDEX.md)
 
 ---
-
-title: "ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ANALYSIS"
-issues: []
-discussions: []
 ## Risultato Finale
 
 | Metrica | Valore |

@@ -16,6 +16,7 @@ related:
   - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
   - ../../../../../../docs/wiki/memories/folio-frontoffice-links-localize-url.md
   - ../../../../../../laravel/Modules/Cms/docs/folio-routing-locale.md
+status: draft
 ---
 
 # Link FO multilingua — path Folio + `FrontofficeUrl`

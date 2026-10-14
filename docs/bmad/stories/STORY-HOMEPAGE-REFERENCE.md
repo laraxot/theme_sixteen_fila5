@@ -7,4 +7,8 @@ sections:
   - header: brand, region, utility, social, language, nav
   - hero: eyebrow, heading, intro, primary/secondary CTAs, meta
   - content: 5 sections (calendario, evidenza, link-utili, rating)
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "story homepage reference sixteen"
 ---

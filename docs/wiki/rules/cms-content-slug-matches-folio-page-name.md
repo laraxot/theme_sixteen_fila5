@@ -11,6 +11,7 @@ related:
   - ../../../../../Modules/Fixcity/docs/tests-pages-content-files.md
   - ../concepts/test-page-routing.md
   - ../../../../../Modules/Cms/app/Models/Traits/HasBlocks.php
+status: draft
 ---
 
 # CMS content slug = Folio page name

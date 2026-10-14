@@ -1,3 +1,11 @@
+---
+title: "Discrepancy Audit: Risultati Ricerca (m00579)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "discrepancy audit: risultati ricerca (m00579) sixteen"
+---
 # Discrepancy Audit: Risultati Ricerca (m00579)
 
 ## Visual Parity Gap Analysis (local vs reference)

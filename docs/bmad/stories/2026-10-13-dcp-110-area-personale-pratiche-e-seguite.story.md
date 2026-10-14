@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "area personale pratiche seguite le mie segnalazioni segnalazioni che seguo owner_id tracciamento codice capability token auth middleware personal-area-practices BuildPersonalAreaPracticesDataAction BuildPersonalAreaFollowedDataAction multilingua it en de es"
 related: [dcp-106, dcp-97, dcp-42, dcp-102, dcp-111, dcp-120]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-110: le due pagine dell'area personale che il menu promette

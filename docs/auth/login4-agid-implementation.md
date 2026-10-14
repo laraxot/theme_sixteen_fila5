@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login4 agid implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Login AGID Migliorato - Tema Sixteen

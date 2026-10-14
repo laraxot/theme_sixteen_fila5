@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage structure analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Analysis: Design Comuni vs Current Implementation
@@ -21,15 +22,6 @@ discussions: []
 > Questo vale per TUTTE le pagine, non solo argomenti.
 
 ---
-
-title: "homepage structure analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "homepage structure analysis"
-issues: []
-discussions: []
 ## 1. Reference Homepage Structure
 
 Il body della reference homepage contiene queste sezioni:

@@ -1,3 +1,11 @@
+---
+title: "DOCS ORGANIZATION — Sixteen Theme + Modules (BMAD + Second Brain)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "docs organization   sixteen theme + modules (bmad + second brain) sixteen"
+---
 # DOCS ORGANIZATION — Sixteen Theme + Modules (BMAD + Second Brain)
 
 ## Structure (BMAD convention, YAML frontmatter required)

@@ -12,6 +12,7 @@ related:
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/no-controllers-folio-volt-filament.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/fixcity-best-practices.md
   - ../../../../../docs/wiki/concepts/stack-folio-volt-filament.md
+status: draft
 ---
 
 # No Controllers — Solo Folio + Volt + Filament

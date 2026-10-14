@@ -2,6 +2,11 @@
 type: philosophy-decision
 github_issue: #101
 decision: D13
+title: "D13 — Filosofia/Zen/Politica della mappa nel wizard tickets/create (step dati-di-segnalazione)"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d13   filosofia/zen/politica della mappa nel wizard tickets/create (step dati-di-segnalazione) sixteen"
 ---
 # D13 — Filosofia/Zen/Politica della mappa nel wizard tickets/create (step dati-di-segnalazione)
 

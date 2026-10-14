@@ -5,6 +5,9 @@ doc_type: update
 status: completed
 scope: module:Fixcity + theme:Sixteen
 qmd: "update docs for dcp-22 tickets create wizard design comuni parity"
+title: "Documentazione aggiornata — dcp-22: tickets/create (Filament Wizard)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Documentazione aggiornata — dcp-22: tickets/create (Filament Wizard)

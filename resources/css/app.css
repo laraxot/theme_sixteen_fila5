@@ -5,8 +5,8 @@
  * Based on: https://italia.github.io/design-comuni-pagine-statiche/
  */
 
-/* Google Fonts - MUST be first @import */
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+/* Font: Titillium Web, Lora e Roboto Mono sono serviti dai file locali dichiarati in css/design-comuni/fonts.css (DCP-137).
+   Niente @import verso fonts.googleapis.com: ogni visita manderebbe l'indirizzo IP del visitatore a un terzo non dichiarato nell'informativa. */
 
 /* Leaflet + cluster (mappa segnalazioni /it/) */
 @import 'leaflet/dist/leaflet.css';
@@ -73,6 +73,7 @@
    Bootstrap Italia classes → Tailwind CSS
 ======================================== */
 @import './components/header-footer-colors.css';
+@import './components/cookiebar-tokens.css';
 /* @import './components/bootstrap-italia-classes.css'; -- RIMOSSO: convertito in Tailwind puro, classi semantiche mantenute in design-system/tokens.md */
 
 /* ========================================

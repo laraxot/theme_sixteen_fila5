@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni elenco map integration"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni elenco — integrazione mappa in Sixteen

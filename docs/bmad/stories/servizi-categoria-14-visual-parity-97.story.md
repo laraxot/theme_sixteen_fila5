@@ -6,6 +6,9 @@ status: draft
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "servizi categoria 14 visual parity 97% target sixteen"
 ---
 # Servizi Categoria 14 Visual Parity 97% Target
 

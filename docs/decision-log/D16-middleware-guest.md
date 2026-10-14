@@ -2,6 +2,11 @@
 type: philosophy-decision
 github_issue: #101
 decision: D16
+title: "D16 — Middleware guest per /it/tickets/create (filosofia della trasparenza)"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d16   middleware guest per /it/tickets/create (filosofia della trasparenza) sixteen"
 ---
 # D16 — Middleware guest per /it/tickets/create (filosofia della trasparenza)
 

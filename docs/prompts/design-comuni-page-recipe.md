@@ -7,6 +7,9 @@ status: active
 source_of_truth: true
 created: 2026-10-13
 qmd: "ricetta pagina design comuni parity json blocco gate proprieta file agenti paralleli bmad"
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, prompts]
 ---
 
 # Ricetta per replicare una pagina Design Comuni

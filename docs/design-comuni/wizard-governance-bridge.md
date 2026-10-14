@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "wizard governance bridge"
 issues: []
 discussions: []
+status: draft
 ---
 
 # wizard governance bridge

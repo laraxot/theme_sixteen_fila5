@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison Report

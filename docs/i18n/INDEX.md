@@ -5,6 +5,8 @@ theme: Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "i18n multilingua indice lingua locale it en de es glossario fallback selettore lingua"
+status: draft
+tags: [docs, sixteen, i18n]
 ---
 
 # i18n del tema Sixteen

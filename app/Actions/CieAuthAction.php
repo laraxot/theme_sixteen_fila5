@@ -301,7 +301,6 @@ class CieAuthAction
             throw new Exception('Invalid JWT format');
         }
 
-        $header = json_decode(base64_decode($parts[0]), true);
         $payload = json_decode(base64_decode($parts[1]), true);
 
         if (! is_array($payload)) {

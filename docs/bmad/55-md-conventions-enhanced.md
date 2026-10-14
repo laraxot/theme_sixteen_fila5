@@ -1,3 +1,11 @@
+---
+title: "BMAD — 55-md-conventions Enhanced"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad   55-md-conventions enhanced sixteen"
+---
 # BMAD — 55-md-conventions Enhanced
 
 Improvement applied per user request: file enhanced with full verification script, QMD indexing notes, duplicate detection rules, and visual parity tracking link to current initiative (kp-74b044824cd14f12baf3b365cda36d86).

@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 related: [dcp-104, dcp-93, dcp-33, dcp-124]
 qmd: "dettaglio pubblico segnalazione tickets id segui follow SetTicketSubscriptionAction BuildPublicTicketDetailAction FollowTicketAction occurred_date design-comuni"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-148: dettaglio pubblico della segnalazione e "Segui"

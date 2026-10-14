@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VITE SECOND PARAMETER GUIDE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite @vite() Second Parameter - Complete Guide
@@ -16,15 +17,6 @@ discussions: []
 **Priority:** 🔴 **Critical**  
 
 ---
-
-title: "VITE SECOND PARAMETER GUIDE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VITE SECOND PARAMETER GUIDE"
-issues: []
-discussions: []
 ## 🎯 Problem Statement
 
 ### Error Message

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FINAL VISUAL PARITY REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Final Visual Parity Report
@@ -23,15 +24,6 @@ discussions: []
 - [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md)
 
 ---
-
-title: "FINAL VISUAL PARITY REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FINAL VISUAL PARITY REPORT"
-issues: []
-discussions: []
 ## Executive Summary
 
 **CSS work is COMPLETE for all pages that render.** The remaining issues are blade template errors (`blocks.breadcrumb.default not found`), which are NOT CSS issues.

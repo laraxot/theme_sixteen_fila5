@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "fo pa tokens uniformity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Architettura FO — uniformità token PA (no hex per pagina)
@@ -15,15 +16,6 @@ discussions: []
 **Brand FixCity:** verde `#007A52` per CTA / Filament `primary` (scelta prodotto, documentata in token)
 
 ---
-
-title: "fo pa tokens uniformity"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "fo pa tokens uniformity"
-issues: []
-discussions: []
 ## Religione (regola permanente)
 
 | Vietato | Obbligatorio |

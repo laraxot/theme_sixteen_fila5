@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-06-conferma.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-06-conferma
+title: "DC-011 — appuntamento-06-conferma"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-011   appuntamento-06-conferma sixteen"
 ---
 
 # DC-011 — appuntamento-06-conferma

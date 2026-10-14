@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "tailwind alpine philosophy"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filosofia TailwindCSS + Alpine (NO Bootstrap Italia)

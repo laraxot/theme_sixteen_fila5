@@ -9,6 +9,7 @@ discussions: []
 name: segnalazione-crea-navbar-green-contract
 description: Header navbar green contract for the segnalazione-crea wizard
 type: concept
+status: draft
 ---
 
 # Segnalazione Crea Navbar Green Contract

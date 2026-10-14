@@ -1,3 +1,11 @@
+---
+title: "STORY-REF-FIX-FOLIO-RESOLVER — Semplificazione Folio Resolver"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story-ref-fix-folio-resolver   semplificazione folio resolver sixteen"
+---
 # STORY-REF-FIX-FOLIO-RESOLVER — Semplificazione Folio Resolver
 
 ## Analisi

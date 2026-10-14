@@ -5,6 +5,10 @@ status: accepted
 links:
   github_issue: "#999"
   discussion: "#design-comuni"
+title: "Header Auth-State — Design + Function + Legal Framework"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "header auth-state   design + function + legal framework sixteen"
 ---
 # Header Auth-State — Design + Function + Legal Framework
 

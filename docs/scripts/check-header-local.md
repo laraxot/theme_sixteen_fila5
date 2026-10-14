@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "check header local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # check-header-local.cjs

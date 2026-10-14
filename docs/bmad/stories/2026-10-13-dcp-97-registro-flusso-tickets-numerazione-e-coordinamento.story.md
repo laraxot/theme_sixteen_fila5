@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "registro numerazione dcp duplicati 32 33 34 35 tickets create wizard coordinamento sessioni story bmad claim"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-97: un solo posto per sapere chi fa cosa sul wizard dei ticket

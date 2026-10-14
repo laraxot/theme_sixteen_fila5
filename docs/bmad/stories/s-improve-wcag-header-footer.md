@@ -1,3 +1,11 @@
+---
+title: "BMAD Story — s-improve-wcag-header-footer"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad story   s-improve-wcag-header-footer sixteen"
+---
 # BMAD Story — s-improve-wcag-header-footer
 
 - Type: epic-story

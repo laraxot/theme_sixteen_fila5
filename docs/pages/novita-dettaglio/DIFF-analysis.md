@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DIFF analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # DIFF Analysis: novita-dettaglio
@@ -22,15 +23,6 @@ discussions: []
 - REF-mobile.png | LOCAL-mobile.png
 
 ---
-
-title: "DIFF analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DIFF analysis"
-issues: []
-discussions: []
 ## Critical Differences (Priority 1)
 
 ### 1.1 Missing two-column layout with navscroll sidebar

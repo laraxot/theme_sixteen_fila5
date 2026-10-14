@@ -6,6 +6,9 @@ status: draft
 links:
   github_issue: #999
   discussion: #999
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "homepage visual parity   brainstorming log sixteen"
 ---
 # Homepage Visual Parity — Brainstorming Log
 

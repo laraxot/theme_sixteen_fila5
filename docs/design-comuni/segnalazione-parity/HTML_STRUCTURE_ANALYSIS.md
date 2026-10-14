@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML STRUCTURE ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione Pages - HTML Structure Parity Analysis
@@ -17,15 +18,6 @@ discussions: []
 **Goal:** 90%+ HTML structure parity, then CSS/JS visual parity
 
 ---
-
-title: "HTML STRUCTURE ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML STRUCTURE ANALYSIS"
-issues: []
-discussions: []
 ## Pages Analyzed
 
 | # | Page | Reference HBS | Local Blade | Structure Match |

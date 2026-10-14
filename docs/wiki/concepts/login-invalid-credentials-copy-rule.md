@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login invalid credentials copy rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Login invalid credentials copy rule

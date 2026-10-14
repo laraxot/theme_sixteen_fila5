@@ -4,6 +4,10 @@ title: "Segnalazione Area Personale — Design Comuni v2.4.0"
 github_issue: #100
 github_discussion: #100
 decision_log: docs/decision-log.md
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story: segnalazione area personale sixteen"
 ---
 # Story: Segnalazione Area Personale
 

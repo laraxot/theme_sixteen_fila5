@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "01 header slim"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 01: Header Slim

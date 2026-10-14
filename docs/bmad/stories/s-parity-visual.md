@@ -1,3 +1,11 @@
+---
+title: "BMAD Story — Visual Parity /it/tests/*"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "bmad story   visual parity /it/tests/* sixteen"
+---
 # BMAD Story — Visual Parity /it/tests/*
 
 - Type: epic-story

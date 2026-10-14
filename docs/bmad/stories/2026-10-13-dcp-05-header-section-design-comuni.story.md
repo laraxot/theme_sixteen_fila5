@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-05: sezione header con markup design comuni da header.json bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-05: sezione header con markup Design Comuni da header.json

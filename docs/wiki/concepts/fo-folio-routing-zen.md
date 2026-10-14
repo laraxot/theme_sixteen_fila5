@@ -12,6 +12,7 @@ related:
   - ../troubleshooting/route-not-found-view-cache.md
   - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
   - ../../../../../../docs/wiki/memories/folio-no-web-routes-religion.md
+status: draft
 ---
 
 # FO Folio — zen routing (file = rotta)

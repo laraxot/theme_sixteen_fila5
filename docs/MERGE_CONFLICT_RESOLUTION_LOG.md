@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "MERGE CONFLICT RESOLUTION LOG"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Merge Conflict Resolution Log
@@ -16,15 +17,6 @@ discussions: []
 > **Regola**: Forward-only Git - NEVER revert/reset, sempre studiare e migliorare
 
 ---
-
-title: "MERGE CONFLICT RESOLUTION LOG"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "MERGE CONFLICT RESOLUTION LOG"
-issues: []
-discussions: []
 ## File Risolti
 
 ### 1. skills-lock.json

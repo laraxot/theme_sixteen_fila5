@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HOMEPAGE PARITY SUMMARY"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Parity - Final Summary
@@ -135,13 +136,4 @@ All new documents are linked bidirectionally:
 - [../../../docs/design-comuni/README.md](README.md)
 
 ---
-
-title: "HOMEPAGE PARITY SUMMARY"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HOMEPAGE PARITY SUMMARY"
-issues: []
-discussions: []
 *Generated on 2026-04-07 by AI agent collaboration*

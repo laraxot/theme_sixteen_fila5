@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "page component conflict"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Page Component — conflitto namespace (storico)

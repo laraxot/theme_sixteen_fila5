@@ -10,6 +10,7 @@ theme: sixteen
 updated: 2026-05-29
 related:
   - ../../../../../../docs/wiki/concepts/theme-as-vestito-philosophy.md
+status: draft
 ---
 
 # Sixteen — `data-page="page-shell"`

@@ -212,8 +212,8 @@ $title = $data['title']['it'] ?? 'fallback';
 
 ## Links
 
-- ← [HTML Analysis](./HOMEPAGE_HTML_ANALYSIS.md)
-- ← [Visual Parity Session](./HOMEPAGE_VISUAL_PARITY_SESSION.md)
+- ← [HTML Analysis](../../design-comuni/HOMEPAGE_HTML_ANALYSIS.md)
+- ← [Visual Parity Session](../../design-comuni/HOMEPAGE_VISUAL_PARITY_SESSION.md)
 - → [Master Index](./00-index.md)
 - → [Batch Comparison Script](../../../../bashscripts/html-comparison/compare-all-pages.sh)
 

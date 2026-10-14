@@ -12,6 +12,10 @@ politica: docs nel tema (Sixteen/docs/, NON root design-system/); JSON `tests.in
 stack: Tailwind + Alpine + componente conferma + mappa statica (o componente geo con pin salvato)
 second-brain: kp-174d15a58ff94901b2b0df0d86b8907a (aperto, geo persistente tra step, conferma con mappa)
 antierrore: `tests.tickets-create.json` NON esiste; `tickets.create.json` è il JSON corretto per /it/tickets/create — verificare con `ls` prima di assumere namespace
+title: "Segnalazione 04 — Conferma"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazione 04   conferma sixteen"
 ---
 # Segnalazione 04 — Conferma
 

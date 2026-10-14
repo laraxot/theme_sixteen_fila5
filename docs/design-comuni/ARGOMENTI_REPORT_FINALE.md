@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ARGOMENTI REPORT FINALE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Argomenti - Report Finale Implementazione
@@ -139,15 +140,6 @@ Differenze nell'header globale e footer non specifici della pagina.
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
-title: "ARGOMENTI REPORT FINALE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ARGOMENTI REPORT FINALE"
-issues: []
-discussions: []
 **Stato**: ✅ 77.7% - Struttura principale corretta  
 **Prossimo**: Fix breadcrumb rendering, CSS refinements  
 **Data**: 2026-04-03

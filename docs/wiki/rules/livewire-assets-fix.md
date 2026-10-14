@@ -7,6 +7,7 @@ discussions: []
 title: "Livewire Assets Out‑of‑Date Fix"
 type: rule
 updated: 2026-06-10
+status: draft
 ---
 
 ## Symptom

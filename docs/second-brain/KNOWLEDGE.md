@@ -1,3 +1,11 @@
+---
+title: "Second Brain — Sixteen Theme Knowledge Base"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, second-brain]
+qmd: "second brain   sixteen theme knowledge base sixteen"
+---
 # Second Brain — Sixteen Theme Knowledge Base
 
 ## Key Concepts

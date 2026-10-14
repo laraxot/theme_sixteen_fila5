@@ -6,6 +6,9 @@ status: in_progress
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "fix risultati ricerca 500 error for visual parity achievement sixteen"
 ---
 # Fix Risultati Ricerca 500 Error for Visual Parity Achievement
 

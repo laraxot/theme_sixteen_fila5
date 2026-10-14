@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design comuni implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Design Comuni nel Tema Sixteen

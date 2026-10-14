@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-03-dettagli.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-03-dettagli
+title: "DC-007 — appuntamento-03-dettagli"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-007   appuntamento-03-dettagli sixteen"
 ---
 
 # DC-007 — appuntamento-03-dettagli

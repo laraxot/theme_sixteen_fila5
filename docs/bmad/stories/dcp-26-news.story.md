@@ -13,6 +13,8 @@ labels: [bmaddesign, design-comuni-parity, news-section, tailwind, no-bootstrap]
 qmd: "design comuni dcp-26 novita news-cards blade component token #007A52 real data"
 github_issue: "#26"
 discussion: "https://github.com/fixcity/issues/26"
+title: "DCP-26: novita / news section — Blade component + real data"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-26: novita / news section — Blade component + real data

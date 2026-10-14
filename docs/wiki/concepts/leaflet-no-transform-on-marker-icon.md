@@ -11,6 +11,7 @@ tags: [leaflet, markercluster, css-cascade, lit, light-dom, git, multi-repo, STO
 related:
   - marker-cluster-hover-stability.md
   - leaflet-z-index-layering.md
+status: draft
 ---
 
 # Map-lit cluster fix — cascade + lezioni operative

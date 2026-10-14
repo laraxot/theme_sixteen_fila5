@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "TAILWIND DESIGN COMUNI COMPLETE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # ✅ Design Comuni - Tailwind CSS Implementation COMPLETE
@@ -195,15 +196,6 @@ resources/css/
 - [TAILWIND_ONLY_BUILD_COMPLETE.md](TAILWIND_ONLY_BUILD_COMPLETE.md)
 
 ---
-
-title: "TAILWIND DESIGN COMUNI COMPLETE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "TAILWIND DESIGN COMUNI COMPLETE"
-issues: []
-discussions: []
 **Stato**: ✅ **TAILWIND CSS IMPLEMENTATION COMPLETE**  
 **Bootstrap Italia**: **NONE**  
 **Tailwind CSS**: **100%**  

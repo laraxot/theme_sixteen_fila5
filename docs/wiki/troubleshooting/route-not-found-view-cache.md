@@ -12,6 +12,7 @@ related:
   - ../concepts/fo-folio-named-routes-header.md
   - ../concepts/fo-folio-routing-zen.md
   - ../../../../../Modules/Cms/docs/wiki/troubleshooting/folio-route-not-found.md
+status: draft
 ---
 
 # RouteNotFoundException — vista compilata stale

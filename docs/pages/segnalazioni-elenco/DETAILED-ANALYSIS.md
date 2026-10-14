@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DETAILED ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Detailed Page Analysis: ticket-list

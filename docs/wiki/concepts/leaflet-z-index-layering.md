@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "leaflet z index layering"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Leaflet Z-Index Layering Rule

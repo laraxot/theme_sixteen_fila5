@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login implementation plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Piano di Implementazione - Pagina Login AGID Compliant
@@ -308,15 +309,6 @@ module.exports = {
 - ✅ Performance test con Lighthouse
 
 ---
-
-title: "login implementation plan"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "login implementation plan"
-issues: []
-discussions: []
 **Data Piano**: Dicembre 2024  
 **Versione**: 1.0  
 **Status**: Piano Completato  

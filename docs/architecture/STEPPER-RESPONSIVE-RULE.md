@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "STEPPER RESPONSIVE RULE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Stepper Responsive Rule

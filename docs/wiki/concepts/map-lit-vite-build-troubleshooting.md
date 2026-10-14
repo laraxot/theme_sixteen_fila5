@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "map lit vite build troubleshooting"
 issues: []
 discussions: []
+status: draft
 ---
 
 # map-lit — build Vite e mappa non visibile

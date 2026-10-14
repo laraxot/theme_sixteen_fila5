@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "licenza bsd-3-clause bootstrap italia design comuni notice attribuzioni font titillium ofl sprites leaflet openstreetmap odbl license mit eupl agpl cad art 69 riuso"
 related: [dcp-112, dcp-137]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-145: cio' che si riusa ha la sua licenza rispettata e la propria e' dichiarata

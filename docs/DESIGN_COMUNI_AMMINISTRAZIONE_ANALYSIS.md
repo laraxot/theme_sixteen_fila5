@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI AMMINISTRAZIONE ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Amministrazione HTML Analysis
@@ -20,15 +21,6 @@ discussions: []
 **FixCity URL:** http://127.0.0.1:8000/it/tests/amministrazione
 
 ---
-
-title: "DESIGN COMUNI AMMINISTRAZIONE ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI AMMINISTRAZIONE ANALYSIS"
-issues: []
-discussions: []
 ## 📐 Struttura HTML Body (Design Comuni)
 
 ```html

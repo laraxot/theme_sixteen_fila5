@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "color palette"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 Design Comuni Color Palette - EXACT VALUES
@@ -16,15 +17,6 @@ discussions: []
 **Reference**: https://italia.github.io/design-comuni/
 
 ---
-
-title: "color palette"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "color palette"
-issues: []
-discussions: []
 ## 🎨 Official Color Palette
 
 ### Primary Colors (Blu Italia)

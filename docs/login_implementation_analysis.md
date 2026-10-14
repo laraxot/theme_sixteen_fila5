@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: login_implementation_analysis
 canonical: ../../docs/shared-components/login-implementation-analysis.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/login-implementation-analysis.md

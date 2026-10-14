@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "css filename english naming"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Architettura — nomi file CSS solo in inglese
@@ -15,15 +16,6 @@ discussions: []
 **Slug interno tema:** `civic-design-*` (template PA), non `design-comuni-*`
 
 ---
-
-title: "css filename english naming"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "css filename english naming"
-issues: []
-discussions: []
 ## Religione
 
 Il codice tecnico è **language-agnostic**. L’italiano è solo in `lang/`, copy UI e slug route pubblici.

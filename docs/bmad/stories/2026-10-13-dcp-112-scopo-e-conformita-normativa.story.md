@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "scopo progetto fixcity norme conformita gdpr cad spid cie accessibilita legge stanca cookie garante nis2 matrice prove lacune dcp-130 dcp-145 imprecisioni documenti"
 related: [dcp-54, dcp-106, dcp-111, dcp-42, dcp-48, dcp-49, dcp-102, dcp-120, dcp-123]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-112: scopo, norme e conformita' con prove

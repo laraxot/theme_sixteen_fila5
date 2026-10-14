@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "MCP TOOLS FOR THEME"
 issues: []
 discussions: []
+status: draft
 ---
 
 # MCP Tools for Sixteen Theme
@@ -17,15 +18,6 @@ discussions: []
 **Stack:** Laravel + Livewire + Tailwind CSS + Filament
 
 ---
-
-title: "MCP TOOLS FOR THEME"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "MCP TOOLS FOR THEME"
-issues: []
-discussions: []
 ## Overview
 
 This document describes how MCP (Model Context Protocol) tools enhance the Sixteen theme development workflow.

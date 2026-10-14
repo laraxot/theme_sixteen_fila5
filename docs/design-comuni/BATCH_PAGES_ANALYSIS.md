@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BATCH PAGES ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Batch Tutte le Pagine Design Comuni

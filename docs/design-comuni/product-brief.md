@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "product brief"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication - Product Brief
@@ -33,15 +34,6 @@ Creare un sistema di **componenti riutilizzabili** che permetta di:
 4. Garantire conformità accessibilità PA
 
 ---
-
-title: "product brief"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "product brief"
-issues: []
-discussions: []
 ## 🎯 Obiettivi Strategici
 
 ### Obiettivo 1: Censimento Completo

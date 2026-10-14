@@ -8,6 +8,9 @@ category: architecture
 status: stable
 source_of_truth: true
 scope: [laravel/Themes/Sixteen, laravel/config/local/fixcity/database/content/pages]
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Brainstorm BMAD: perché la homepage diverge

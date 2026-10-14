@@ -13,6 +13,7 @@ related:
   - ../../bmad/services-catalog-expected-2026-09-27.md
   - ../../../../../Modules/Fixcity/docs/bmad/services-catalog-gap-analysis-2026-09-27.md
   - ../../../../../Modules/Fixcity/docs/bmad/stories/STORY-519-design-comuni-services-entry.md
+status: draft
 ---
 
 # Design System Reference for Sixteen Theme

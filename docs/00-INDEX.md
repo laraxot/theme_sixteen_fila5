@@ -3,21 +3,32 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-updated: 2026-10-13
-qmd: "sixteen theme design comuni folio volt accessibility documentation index"
+updated: 2026-10-14
+qmd: "sixteen theme design comuni folio volt accessibility documentation index classificazione cartelle indici storici INDEX.md index.md"
+status: active
+tags: [docs, sixteen]
 ---
 
 # Sixteen — indice canonico
 
 Sixteen è il tema web/PWA pubblico di FixCity: è il proprietario della resa
-Design Comuni, del markup e dei componenti visuali. Non contiene business logic,
-controller o rotte; le pagine sono Folio + Blade/Volt e le Actions appartengono
-al modulo owner.
+Design Comuni, del markup e dei componenti visuali. Le pagine sono Folio +
+Blade/Volt e le Actions di dominio appartengono al modulo owner. Per regola non
+deve avere controller o rotte proprie, ma il codice le contiene ancora: 5
+controller in `app/Http/Controllers/`, `routes/web.php` e `routes/auth.php`
+(verificato 2026-10-14). A runtime non risultano registrate: `php artisan
+route:list` non ha `comune/*`, `auth/spid` ne' `auth/cie`. Stato e conteggi in
+[README.md](README.md).
 
-Questo file è l'indice operativo unico. `INDEX.md`,
-`DOCUMENTATION_INDEX.md`, `00-index.md` e `MASTER_DOCUMENTATION.md` sono indici
-storici (suffisso `.old` dal 2026-10-13): non usarli per decidere una nuova
-struttura.
+Questo file è l'indice operativo unico. Stato reale degli altri indici (verificato
+2026-10-14): `00-index.old.md`, `DOCUMENTATION_INDEX.old.md` e
+`INDEX.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` NON è
+storico, è la mappa viva delle sottocartelle (DCP-112); `index.md` è l'indice
+BMAD/QMD più vecchio e `MASTER_DOCUMENTATION.md` è un resoconto del 2026-04-01,
+entrambi senza suffisso `.old`; restano anche `00-INDEX.md.tmp` (residuo del
+2026-09-24), `00-HOMEPAGE-REPLICATION-INDEX.md`, `DESIGN_COMUNI_REPLICATION_INDEX.md`,
+`REPLIKATE-MASTER-INDEX.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
+nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 
 ## Riorganizzazione docs 2026-10-13
 
@@ -29,6 +40,17 @@ struttura.
   eliminato);
 - `visual-parity-screenshots/` accorpato in `visual-parity/screenshots/pages/`;
 - `visual-comparison/` resta evidence storica cross-referenziata.
+
+## Classificazione delle cartelle (file presenti il 2026-10-14)
+
+| Ruolo | Cartelle (n. file) |
+|---|---|
+| Canoniche | `bmad/` (410, story in `bmad/stories/`, decisioni in `bmad/decisions/`), `stories/` (37), `decision-log/` (14), `wiki/` (278), `architecture/` (19), `rules/` (3), `i18n/` (3), `compliance/` (1), `build/` (15), `design-system/` (6), `components/` (8), `pages/` (334, contratti per pagina), `design-comuni/` (643, vincoli visuali; i suoi `*/raw` sono evidence) |
+| Supporto | `prompts/` (338, coordinamento tra agenti, es. `prompts/homepage/`), `scripts/` (16), `llm-wiki/` (9) |
+| Evidence (immutabili o storiche) | `screenshots/` (260), `visual-parity/` (280), `visual-comparison/` (224), `body-structure-comparison/` (156), `analysis/` (142), `comparisons/` (83), `visual-analysis/` (53), `html-parity-reports/` (29), `html-structure-comparison/` (21), `html-compare/` (12), `Main_files/` (47), `raw/` (16), `design-comuni/*/raw` |
+| Generate | `graphify-out/` (1.556 file: `cache/`, `graph.json`, `manifest.json`), `qmd-index/` |
+| Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `BATCH_PAGES_ANALYSIS.md`: 98) |
+| Mappa viva | [INDEX.md](INDEX.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
 
 ## Percorsi di lettura
 
@@ -52,7 +74,7 @@ struttura.
 
 | Area | Canonico | Non usare come SSoT |
 |---|---|---|
-| Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` |
+| Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` (contraddizione aperta: `components/layouts/design-comuni.blade.php`, `-authenticated` e `-bare` esistono dal 2026-10-13 e `pages/tests/index.blade.php` usa `-bare`; vedi la story del 2026-10-14) |
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
 | Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
@@ -76,6 +98,10 @@ verificata non garantisce tutti i riferimenti.
 Ogni modifica deve avere: mobile/tablet/desktop evidence, zero overflow, focus visibile,
 target touch adeguato, contrasto e reduced-motion verificati. Un screenshot isolato non
 chiude il gate.
+
+## Studio docs e ingressi (2026-10-14)
+
+- [Studio del tema reale e correzione degli ingressi](bmad/stories/2026-10-14-docs-studio-stato-e-ingressi.story.md): stato vivo provato, conteggi, rotte dormienti, layout `design-comuni*`, indici storici.
 
 ## Story BMAD recenti (standard di codice)
 
@@ -111,3 +137,8 @@ chiude il gate.
 - [Registro completo delle story](bmad/stories/00-REGISTRO-COMPLETO.md): le story di `stories/` e `bmad/stories/` che prima non avevano un indice (stato e titolo dichiarati nei file)
 - [DCP-148 dettaglio pubblico e Segui](bmad/stories/2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md): blocco `components/blocks/ticket-detail/design-comuni.blade.php`
 - [DCP-152 (modulo Geo): marker del dettaglio e pulsanti della mappa](../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md): il blocco passa `marker-icon-url`, `marker-color`, `marker-label` al `coordinate-picker-lit` (vedi [coordinate-picker](wiki/coordinate-picker.md))
+
+--- BMAD + second brain note (agent AI update 2026-10-14) ---
+- [second brain: kp-174d15a58ff94901b2b0df0d86b8907a] Design Comuni parity
+- [BMAD] Design Comuni scope, no Bootstrap Italia
+- [AGENTS.md m00088] Prompt 98-daily-report: ruoli chiari AI

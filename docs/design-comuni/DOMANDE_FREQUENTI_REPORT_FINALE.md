@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DOMANDE FREQUENTI REPORT FINALE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Report Finale Differenze - Domande Frequenti
@@ -19,15 +20,6 @@ discussions: []
 **Screenshots**: `laravel/Themes/Sixteen/docs/design-comuni/screenshots/`
 
 ---
-
-title: "DOMANDE FREQUENTI REPORT FINALE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DOMANDE FREQUENTI REPORT FINALE"
-issues: []
-discussions: []
 ## Riepilogo Esecuzione
 
 ### ✅ Completato (90%)

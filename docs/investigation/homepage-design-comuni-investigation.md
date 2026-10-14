@@ -13,6 +13,9 @@ links:
   dati_ref: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
   riepilogo_ref: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html
   conferma_ref: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-04-conferma.html
+status: draft
+updated: 2026-10-11
+qmd: "investigazione   homepage designcomuni sixteen"
 ---
 
 # Investigazione — Homepage DesignComuni

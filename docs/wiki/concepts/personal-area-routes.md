@@ -12,6 +12,7 @@ related:
   - fo-folio-named-routes-header.md
   - fo-folio-routing-zen.md
   - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
+status: draft
 ---
 
 # Area personale — rotte FO

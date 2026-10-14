@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "story 8 108 ticket crea parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Story 8-108: Segnalazione-Crea Parity con Design Comuni

@@ -66,7 +66,7 @@ discussions: []
 - Feedback form
 
 **Documentazione:**
-- [Argomenti Page](./argomenti.md)
+- [Argomenti Page](../../design-system/argomenti.md)
 - [Screenshot](../../screenshots/argomenti)
 
 ---
