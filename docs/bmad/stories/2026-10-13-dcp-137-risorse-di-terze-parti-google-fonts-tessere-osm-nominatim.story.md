@@ -46,5 +46,6 @@ Parte font applicata e misurata (Chromium, 6 pagine a 375 e 1440 px): host ester
 - `Themes/Sixteen/resources/css/app.css`: tolto l'`@import` di Google Fonts.
 - Aggiunto Titillium Web 900 locale: 2 file woff2 in `public/design-comuni/assets/fonts/Titillium_Web/` e 2 `@font-face` in `resources/css/design-comuni/fonts.css`.
 - Il CSS compilato (`public/assets/app-UD7Kp0l8.css`, `public/manifest.json`) e' stato corretto a mano perche' un rebuild completo avrebbe portato con se' 94 regole di modifiche di un'altra sessione. Il prossimo `npm run build` completo deve dare lo stesso risultato dal sorgente: verificarlo con la sonda host esterni prima di chiudere.
+- **Aggiornamento 2026-10-14 (DCP-183)**: i woff2 sono ora sorgenti di Vite (`resources/fonts/`, `url()` relativi in `fonts.css`): al prossimo build completo escono con hash e voce nel manifest. Misurato su build in cartella temporanea: 18 woff2, 0 a zero byte, 0 richieste Google; contro la ricostruzione di base le differenze sono solo gli URL. La nota sul "CSS corretto a mano" resta vera finche' non c'e' un build completo concordato (46 utility in piu' e 10 in meno rispetto al CSS vivo).
 - **Ancora aperto**: tessere OSM e Nominatim (geocoding dall'indirizzo digitato, dato personale verso terzi) non sono dichiarate nell'informativa; decisione su tessere proprie o accordo con il fornitore.
 

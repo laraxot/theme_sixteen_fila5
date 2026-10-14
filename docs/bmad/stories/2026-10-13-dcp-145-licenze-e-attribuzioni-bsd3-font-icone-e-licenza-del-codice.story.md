@@ -19,7 +19,7 @@ Nata da DCP-112 (matrice normativa N-38, N-39; matrice interfaccia I-27).
 
 ## Lacuna e prova (2026-10-13)
 - `Themes/Sixteen/resources/css/design-comuni/components.css` (righe 1-8) e' generato da `bootstrap-italia.min.css` 2.9.0 e riporta «licenza BSD-3-Clause, (c) Presidenza del Consiglio dei Ministri». La licenza letta su GitHub (`italia/bootstrap-italia`, `italia/design-comuni-pagine-statiche`) e' BSD-3-Clause con intestazione «Copyright (c) 2022, the respective contributors, as shown by the AUTHORS file» e tre titolari nel file AUTHORS (Team per la Trasformazione Digitale e Dipartimento per la trasformazione digitale della PCM; AgID). Mancano il testo completo con il disclaimer e l'elenco dei titolari.
-- Lo sprite `public/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg`, i font locali (`Titillium_Web`, `Lora`, `Roboto_Mono`) e le immagini copiate dal riferimento non hanno avviso; la licenza di font e icone del pacchetto non e' stata verificata (registro fonti 03).
+- Lo sprite `public/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg`, i font locali (`Titillium_Web`, `Lora`, `Roboto_Mono`; dal 2026-10-14 le sorgenti sono in `resources/fonts/{titillium-web,lora,roboto-mono}`, vedi DCP-183) e le immagini copiate dal riferimento non hanno avviso; la licenza di font e icone del pacchetto non e' stata verificata (registro fonti 03).
 - Nessun file `LICENSE`, `NOTICE` o pagina di crediti in `Themes/Sixteen`, `Modules/Fixcity` e radice `laravel/`; i `composer.json` dichiarano `"license": "MIT"` (solo `Modules/Gdpr/LICENSE` esiste).
 - `Themes/Sixteen/docs/NO_BOOTSTRAP_ITALIA.md` afferma «NON stiamo usando Bootstrap Italia (CSS o JS)»: vero per il pacchetto, non per le regole CSS derivate.
 
