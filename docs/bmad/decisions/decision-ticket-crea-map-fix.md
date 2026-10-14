@@ -13,7 +13,7 @@ links:
 The wizard step 2 (`dati-di-segnalazione`) requires the user to click on the map to set damage location (geo transparency — function). If geo fails (no HTTPS, browser denies, network unavailable) the layout must stay centered, not break — this is a SERVICE FUNCTION, not decoration.
 
 ## What was wrong
-- `/it/tickets/create?step=form...` redirected to `/auth/login` (expected — `guest` middleware + `callSchemaComponentMethod` needs auth/session; must authenticate with marco.sottana@gmail.com/prova123 for wizard)
+- `/it/tickets/create?step=form...` redirected to `/auth/login` (expected — `guest` middleware + `callSchemaComponentMethod` needs auth/session; serve un utente autenticato per il wizard (credenziali di test fuori repo))
 - Map container (`#map`) was `w-full h-80` without centering or fallback — when geo blocked, empty container breaks visual service quality
 
 ## Fix (verified, no invent — R006)

@@ -55,7 +55,7 @@ new class extends Component {
         $utilityPage === 'sitemap' => __('pub_theme::sitemap.meta.description'),
         $nativePage === 'services' => __('pub_theme::services.meta.description'),
         $nativePage === 'segnalazioni' => __('pub_theme::segnalazione.elenco.subtitle', ['count' => 73]),
-        default => $cmsPage?->getAttribute('description') ?? '',
+        default => \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
     };
     // `layout` del JSON: `test` (chrome v1), `design-comuni*` (chrome Design Comuni, asset relativi e voce di menu dal JSON), altrimenti `app`
     $jsonLayout = $cmsPage?->getAttribute('layout') ?? 'app';

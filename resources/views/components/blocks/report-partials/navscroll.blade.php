@@ -1,6 +1,6 @@
 {{--
     Indice laterale con barra di avanzamento (scroll-spy: `dcNavscroll`, montato per selettore `[data-bs-navscroll]`).
-    Parametro: $nav = [suffix (id degli elementi: one|Three), title, items[anchor, label]].
+    Parametro: $nav = [suffix (id degli elementi: one|Three), title, items[anchor, label], progress_label (opzionale: nome accessibile della barra, il riferimento non lo ha)].
 --}}
 <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-{{ $nav['suffix'] ?? 'one' }}">
     <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="{{ $nav['title'] ?? '' }}" data-bs-navscroll>
@@ -14,7 +14,7 @@
                                     <svg class="icon icon-xs right"><use href="{{ $icon('it-expand') }}"></use></svg></button>
                             </span>
                             <div class="progress">
-                                <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"@if (filled($nav['progress_label'] ?? null)) aria-label="{{ $nav['progress_label'] }}"@endif></div>
                             </div>
                             <div id="collapse-{{ $nav['suffix'] ?? 'one' }}" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-{{ $nav['suffix'] ?? 'one' }}">
                                 <div class="accordion-body">

@@ -30,8 +30,7 @@ new class extends Component {
     $cmsHome = \Modules\Cms\Models\Page::findUniqueBySlug('home');
     $homeTitle = $cmsHome?->getTranslation('title', app()->getLocale(), false) ?? config('app.name');
     // `description` non e' una colonna traducibile del modello Page: nel JSON e' un oggetto per lingua, letto come attributo grezzo
-    $homeDescriptions = json_decode((string) ($cmsHome?->getAttribute('description') ?? ''), true);
-    $homeDescription = is_array($homeDescriptions) ? (string) ($homeDescriptions[app()->getLocale()] ?? $homeDescriptions['it'] ?? '') : (string) ($cmsHome?->getAttribute('description') ?? '');
+    $homeDescription = \Themes\Sixteen\Support\PageDescription::resolve($cmsHome?->getAttribute('description'), app()->getLocale());
 @endphp
 <x-layouts.app :title="$homeTitle" :meta-description="$homeDescription">
     @volt('home')

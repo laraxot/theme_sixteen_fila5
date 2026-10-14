@@ -6,7 +6,7 @@ links:
   github_issue: #999
   discussion: #design-comuni
 ---
-> Stato 2026-10-13: story NON autorevole. Contiene affermazioni non verificate (classi o percorsi inesistenti, ordine dei passi errato). Fonte attuale: DCP-35 (`Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md`).
+> Stato 2026-10-13: story NON autorevole. Contiene affermazioni non verificate (classi o percorsi inesistenti, ordine dei passi errato). Fonte attuale: DCP-35 (`Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md`). Aggiornamento: ogni richiesta/implicazione di HTTPS come prerequisito del ticket e' superseded; la mappa deve partire da coordinate esistenti del record quando presenti, altrimenti dalla posizione browser/utente se disponibile, altrimenti da fallback Comune/default Geo con selezione manuale sempre possibile.
 
 # /it/tickets/create?step=form.dati-di-segnalazione — Wizard Step 2 + Mappa (Visual Parity con segnalazione-02-dati.html)
 

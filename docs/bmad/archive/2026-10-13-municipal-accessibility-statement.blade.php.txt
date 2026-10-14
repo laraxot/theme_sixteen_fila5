@@ -1,3 +1,5 @@
+ARCHIVIATO il 2026-10-13 (DCP-132). Componente d'esempio mai usato, con valori inventati (accessibilita@comune.example.it, URL AgID xxxxxxxx-..., 'Parzialmente conforme', elenco di contenuti non accessibili d'esempio). Non e' piu' nel runtime: la dichiarazione vera e' il blocco components/blocks/accessibility-statement (dati dal JSON accessibilita.index, forniti dall'ente). Qui resta solo come riferimento storico.
+
 {{--
 /**
  * Dichiarazione di Accessibilità Component - Bootstrap Italia Compliant

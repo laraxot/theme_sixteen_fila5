@@ -24,6 +24,7 @@
     $nav = [
         'suffix' => 'one',
         'title' => $t('fixcity::ticket_form.navscroll.title', 'INFORMAZIONI RICHIESTE'),
+        'progress_label' => $t('fixcity::ticket_form.navscroll.title', 'INFORMAZIONI RICHIESTE'),
         'items' => collect($childSchema->getComponents())
             ->filter(static fn ($component): bool => $component instanceof \Filament\Schemas\Components\Section && filled($component->getHeading()))
             ->map(static fn (\Filament\Schemas\Components\Section $section): array => ['anchor' => $section->getId(), 'label' => $section->getHeading()])
@@ -41,7 +42,7 @@
             <div class="it-page-sections-container">
                 {{ $childSchema }}
             </div>
-            <div class="cmp-nav-steps">
+            <div class="cmp-nav-steps" data-wizard-nav>
                 <nav class="steppers-nav" aria-label="{{ $t('fixcity::ticket_form.nav.aria_label', 'Step') }}">
                     <button type="button" class="btn btn-sm steppers-btn-prev p-0" x-on:click="goToPreviousStep()">
                         <svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon('it-chevron-left') }}"></use></svg>

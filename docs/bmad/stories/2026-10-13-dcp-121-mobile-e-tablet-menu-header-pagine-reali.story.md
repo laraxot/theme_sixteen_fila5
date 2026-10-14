@@ -40,7 +40,7 @@ Sulle pagine REALI (home `/it`, login, ...), che dopo il cambio di `layouts/app`
 
 ## Aperto (mobile/tablet)
 - ~~A 375 px la barra superiore copre il nome della regione con l'icona del menu~~ **chiuso in DCP-125** (hamburger riportato nella riga centrale, misurato a 375 e 768 px).
-- Contenitore del marchio nel footer oltre il viewport (tagliato, senza scroll orizzontale).
+- ~~Contenitore del marchio nel footer oltre il viewport~~ **chiuso in DCP-129** (footer delle pagine reali in colonna sotto 768 px, misurato a 375).
 - La casella "Ricevi aggiornamenti via email" ha l'etichetta alta 24 px; breadcrumb "Home" e indice laterale sotto 44 px (componenti del riferimento).
 - `map-lit` ha `min-height: 320px` contro 305 px del riferimento (+15 px a 375 su `/it/tickets`): serve una modifica in `Modules/Geo/resources/js/components/map-lit.js:140-141` con build di Geo.
-- Audit sistematico di tutte le pagine reali a 375/768/1024 (overflow, bersagli, testi lunghi de/es) con uno script e una tabella: da fare (DCP-121 resta in corso).
+- ~~Audit sistematico delle pagine reali a 375/768/1024~~ **fatto in DCP-129** (13 percorsi, ospite e loggato: 0 px di scroll orizzontale; difetto del footer corretto; bersagli < 24 px elencati). Restano i testi lunghi de/es da misurare a mano.

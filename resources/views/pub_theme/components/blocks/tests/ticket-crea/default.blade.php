@@ -1,5 +1,8 @@
 <div>
     <h2>Segnala disservizio</h2>
+    @if(session('ticket_step'))
+        <input type="hidden" id="wizard-step-data" value="{{ session('ticket_step') }}" aria-label="Passo wizard attuale" />
+    @endif
     <form wire:submit.prevent="save" class="space-y-4">
         <div>
             <label>Tipo</label>
@@ -19,7 +22,7 @@
         </div>
         <div class="map-section flex flex-col items-center">
             <label class="w-full mb-2">Posizione del danno (clicca sulla mappa)</label>
-            <div id="map" class="w-full h-80 rounded shadow mb-4 flex items-center justify-center relative" data-lat="41.89" data-lng="12.49" aria-label="Mappa interattiva — posizione del danno" role="region">
+            <div id="map" class="w-full h-80 rounded shadow mb-4 flex items-center justify-center relative" data-auto-center="true" aria-label="Mappa interattiva — centrata sulla tua posizione attuale" role="region">
                 <noscript><p class="text-center text-sm">Mappa disponibile con JavaScript abilitato</p></noscript>
             </div>
             <input type="hidden" wire:model="form.lat" />
