@@ -54,8 +54,9 @@
             </div>
             <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist">
                 @foreach ($d('tabs', []) as $tab)
-                    <li class="nav-item w-100" role="tab">
-                        <a @class(['nav-link', 'active' => $loop->first, 'title-medium-semi-bold pt-0']) href="#data-ex-disservizio{{ $loop->iteration }}" aria-current="page" data-bs-toggle="tab" role="button" aria-controls="disservizio{{ $loop->iteration }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}"> {{ $tab }} </a>
+                    {{-- ARIA valida (li presentation, a role=tab, aria-controls sul pannello): il riferimento ha li role=tab con a role=button e aria-controls su un id che non esiste (axe: nested-interactive, aria-allowed-attr, aria-valid-attr-value) --}}
+                    <li class="nav-item w-100" role="presentation">
+                        <a @class(['nav-link', 'active' => $loop->first, 'title-medium-semi-bold pt-0']) href="#data-ex-disservizio{{ $loop->iteration }}" data-bs-toggle="tab" role="tab" aria-controls="data-ex-disservizio{{ $loop->iteration }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}"> {{ $tab }} </a>
                     </li>
                 @endforeach
             </ul>

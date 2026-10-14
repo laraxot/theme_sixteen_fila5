@@ -8,6 +8,8 @@ local: http://192.168.1.40:8000/it/tests/segnalazione-02-dati
 
 # DC-029 — segnalazione-02-dati
 
+> Nota di coordinamento 2026-10-13: questa catalog story copre la pagina statica JSON-driven di test. Per il flusso reale `/it/tickets/create` passo dati + mappa, usare DCP-35/DCP-43. Ogni interpretazione che renda HTTPS requisito del ticket e' superseded: la posizione automatica e' progressiva, la selezione manuale sulla mappa resta sempre valida, e il centro iniziale deve preferire coordinate del record/stato gia' presenti prima della posizione browser/utente e del fallback Comune/default Geo.
+
 Implement the JSON-driven Sixteen page for the reference route and preserve the existing <x-section slug="header" /> / <x-section slug="footer" /> shell.
 
 ## Acceptance criteria

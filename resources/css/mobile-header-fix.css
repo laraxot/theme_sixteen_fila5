@@ -137,10 +137,8 @@
     margin-right: 0.5rem !important;
   }
 
-  /* Wizard specific adjustments */
-  .cmp-wizard-widget {
-    margin-top: 1rem !important;
-  }
+  /* Wizard specific adjustments: rimosso `.cmp-wizard-widget{margin-top:1rem !important}` (DCP-146). Il riferimento Design Comuni attacca il container
+     all'header (stepper a y=317 a 375 px, 294 a 768); la regola spingeva tutta la pagina di 16 px in basso sotto i 992 px. */
 
   /* Make sure mobile nav doesn't overlap wizard */
   .navbar-collapsable {
