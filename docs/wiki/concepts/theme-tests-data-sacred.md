@@ -8,7 +8,7 @@ created: 2026-08-31
 updated: 2026-08-31
 qmd: sixteen theme tests RefreshDatabase DatabaseTransactions fixcity skip
 related:
-  - ./ai-handoff.md
+  - ../../ai-handoff.md
   - ../../../../../../docs/wiki/rules/data-sacred-no-destructive-db.md
   - ../../../Modules/Xot/docs/testing/laraxot-test-db-architecture.md
   - ../overviews/perfection-checklist.md

@@ -7,8 +7,8 @@ updated: 2026-10-13
 story: dcp-143
 related:
   - ../../bmad/stories/2026-10-13-dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md
-  - ../../../../../bashscripts/docs/visual-comparison/keyboard-audit.md
-  - ../../../../../bashscripts/docs/visual-comparison/a11y-page-probe.md
+  - ../../../../../../bashscripts/docs/visual-comparison/keyboard-audit.md
+  - ../../../../../../bashscripts/docs/visual-comparison/a11y-page-probe.md
 qmd: "accessibilita axe wcag aria tablist role=tab progressbar aria-label focus tastiera escape keyboard-audit a11y-axe.spec playwright nvda non verificato dcp-143"
 ---
 

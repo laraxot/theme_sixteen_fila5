@@ -264,7 +264,7 @@ Questo task è stato eseguito in parallelo con altri agenti AI. Per evitare conf
 
 **Collegamenti**:
 - [00-index.md](../00-INDEX.md) - Indice documentazione Design Comuni
-- [css-js-alignment-plan.md](../css-js-alignment-plan.md) - Piano CSS/JS
+- [css-js-alignment-plan.md](css-js-alignment-plan.md) - Piano CSS/JS
 - [screenshots/00-index.md](../screenshots/00-index.md) - Indice screenshot
 - [POST-FIX-VERIFICATION.md](./screenshots/comparison/POST-FIX-VERIFICATION.md) - Verifica post-fix
 

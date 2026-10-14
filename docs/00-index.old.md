@@ -67,7 +67,7 @@ discussions: []
   Fixcity content seeding before relying on it)
 
 ### Vite + Lit Web Components Integration
-- [vite-lit-integration.md](./vite-lit-integration.md) — Vite configuration for building Lit Web Components (Lit 3.3.2, Leaflet 1.9.4)
+- [vite-lit-integration.md](./build/vite-lit-integration.md) — Vite configuration for building Lit Web Components (Lit 3.3.2, Leaflet 1.9.4)
 - [../../../Modules/Geo/docs/wiki/concepts/lit-web-components.md](../../../Modules/Geo/docs/wiki/concepts/lit-web-components.md) — Lit concepts, patterns, MyMap component
 - **Status**: ✅ Build working (2026-04-15)
 - **Key fix**: Added `@rollup/plugin-node-resolve` + `optimizeDeps` to resolve "lit" and "leaflet/dist/leaflet.css" imports

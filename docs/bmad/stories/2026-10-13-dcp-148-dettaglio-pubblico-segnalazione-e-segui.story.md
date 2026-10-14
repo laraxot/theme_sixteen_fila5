@@ -78,3 +78,6 @@ Struttura della pagina: breadcrumb (Home / Elenco segnalazioni / titolo, link lo
 3. Mostrare o no la `reason` dell'operatore nella cronologia.
 4. Dopo il login tornare alla segnalazione (serve impostare `url.intended`, ora si perde).
 5. Se un cittadino proprietario puo' seguire la propria segnalazione ancora non pubblica (oggi si', come da policy `view`).
+
+## Seguito DCP-152 (2026-10-14)
+Il marker della mappa del dettaglio era nero con un `?` (stili del marker assenti nel picker, nessun tipo passato). Ora il blocco passa `marker-icon-url`, `marker-color`, `marker-label`; spec `tests/browser/ticket-detail-marker.spec.mjs`. Causa e fix: `Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md`.

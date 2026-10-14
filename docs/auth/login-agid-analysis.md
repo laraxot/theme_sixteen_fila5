@@ -179,9 +179,9 @@ resources/views/
 
 ## 🔗 Collegamenti
 
-- [Layout Usage Rules](./layout-usage-rules.md)
-- [Vite Configuration Rules](./vite-configuration-rules.md)
-- [Assets Management](./assets.md)
+- [Layout Usage Rules](../layout-usage-rules.md)
+- [Vite Configuration Rules](../build/vite-configuration-rules.md)
+- [Assets Management](../assets.md)
 
 ---
 

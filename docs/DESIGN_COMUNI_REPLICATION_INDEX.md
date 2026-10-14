@@ -33,7 +33,7 @@ discussions: []
 
 ### Analysis & Research
 - [Reference Design Analysis](./analysis/REFERENCE_DESIGN_ANALYSIS.md) - Deep dive into Bootstrap Italia design
-- [HTML Structure Report](./analysis/HTML_STRUCTURE_ANALYSIS.md) - All 32 pages verified
+- [HTML Structure Report](./design-comuni/segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md) - All 32 pages verified
 - [Component Mapping](./analysis/COMPONENT_MAPPING.md) - Bootstrap → Tailwind classes
 
 ### Implementation Guides

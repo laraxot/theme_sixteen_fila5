@@ -44,7 +44,7 @@ discussions: []
 - **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md)** - Piano dettagliato per raggiungere 90% similarità
 - **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)** - Sessione implementazione 90% (2026-04-07)
 - **[prompts/homepage/blocks/00-index.md](./prompts/homepage/blocks/00-index.md)** - 🔴 Documentazione completa 10 blocchi homepage
-- **[MERGE_CONFLICT_RESOLUTION_LOG.md](./MERGE_CONFLICT_RESOLUTION_LOG.md)** - Log risoluzione conflitti di merge
+- **[MERGE_CONFLICT_RESOLUTION_LOG.md](../MERGE_CONFLICT_RESOLUTION_LOG.md)** - Log risoluzione conflitti di merge
 - **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - Confronto strutturale HTML homepage (2026-04-07)
 - **[analysis/REFERENCE-STRUCTURE-PATTERNS.md](./analysis/REFERENCE-STRUCTURE-PATTERNS.md)** - Pattern strutturali Design Comuni
 - **[segnalazione-flow/README.md](./segnalazione-flow/README.md)** - Stato parity CSS/JS flow 8 pagine segnalazione (2026-04-07)

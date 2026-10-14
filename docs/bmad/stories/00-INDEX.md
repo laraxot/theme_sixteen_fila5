@@ -52,3 +52,8 @@ screenshot 375/768/1440, DOM evidence e WCAG evidence.
 Le story con AC, Testing e Owned Scope completi passano a `ready-for-dev`; il
 codice viene modificato solo dall'external dev tool. Il coordinatore integra i
 risultati, esegue il conflict check e aggiorna `bmad-output/sprint-status.yaml`.
+
+## Registro completo (2026-10-14)
+
+- [00-REGISTRO-COMPLETO.md](00-REGISTRO-COMPLETO.md): tutte le story non citate negli indici principali (famiglie `catalog/`, `pages/`, `dcp-NN` senza data, `s-*`, `s150-*`, `DC-*`, `STORY-*` e `docs/stories/`), con stato e titolo dichiarati nei file.
+- Story collegata di un altro modulo: [DCP-152 (owner Geo)](../../../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md), marker del dettaglio ticket (blocco `ticket-detail/design-comuni`) e pulsanti opachi del `coordinate-picker-lit` nelle pagine `data-dc`. Relazione con [DCP-148](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md).

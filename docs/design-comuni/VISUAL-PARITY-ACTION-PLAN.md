@@ -213,10 +213,10 @@ node bashscripts/screenshots/compare-html-structure.mjs [page]
 | Document | Location |
 |----------|----------|
 | [Visual Parity Report](visual-comparison/screenshots/VISUAL-PARITY-REPORT.md) | Latest parity scores |
-| [CSS/JS Plan](design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
+| [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
 | [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md) | Tool documentation |
-| [Complete Visual Parity Report](COMPLETE-VISUAL-PARITY-REPORT.md) | Historical data |
-| [Design Comuni Index](design-comuni-implementation.md) | Implementation status |
+| [Complete Visual Parity Report](../COMPLETE-VISUAL-PARITY-REPORT.md) | Historical data |
+| [Design Comuni Index](../design-comuni-implementation.md) | Implementation status |
 
 ---
 

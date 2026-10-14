@@ -40,6 +40,8 @@ Folio preferisce path statico `pages/tickets/index` rispetto a `[container0]/ind
 | `/it/tickets` | `pages/[container0]/index.blade.php` | `tickets.index` |
 | `/it/tickets/{id}` | `pages/[container0]/[slug0]/index.blade.php` | `tickets.view` |
 | `/it/tickets/create` | `pages/[container0]/[slug0]/index.blade.php` | `tickets.create` via `container0.view` |
+
+> Aggiornamento 2026-10-14: per `/it/tickets/{id}` la colonna `CMS slug` (`tickets.view`) non e' piu' il percorso attivo per un id numerico: un `/{lang}/tickets/{id}` con id numerico e' servito dal ramo `ticket-detail` di `Themes/Sixteen/resources/views/pages/[container0]/[slug0]/index.blade.php` (condizione `ctype_digit($slug0)`): chiama `BuildPublicTicketDetailAction`, risponde 404 se la segnalazione non e' pubblica, aggiunge `data-dc` a `.page-content` e include `components/pages/ticket-detail.blade.php`, che include il blocco `components/blocks/ticket-detail/design-comuni.blade.php` (DCP-148). Il blocco usa `coordinate-picker-lit` in sola lettura con icona del tipo e colore dello stato (DCP-152, vedi [coordinate-picker](../coordinate-picker.md)). Gli slug `tickets.create` e `tickets.index` hanno un JSON in `Modules/Fixcity/config/database/content/pages/`, `tickets.view` no.
 ## Checklist agente (prima di creare file sotto `pages/`)
 
 1. Leggere [page-directory-structure.md](../../page-directory-structure.md)

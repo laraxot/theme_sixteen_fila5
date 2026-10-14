@@ -263,9 +263,9 @@ route('pages.view', ['slug' => 'help'])
 ## 📚 **DOCUMENTAZIONE CORRELATA**
 
 - [sixteen-agid-naming-fundamental-rule.md](./sixteen-agid-naming-fundamental-rule.md)
-- [vite-configuration-rules.md](./vite-configuration-rules.md)
-- [accessibility.md](./accessibility.md)
-- [layout-usage-rules.md](./layout-usage-rules.md)
+- [vite-configuration-rules.md](../build/vite-configuration-rules.md)
+- [accessibility.md](../accessibility.md)
+- [layout-usage-rules.md](../layout-usage-rules.md)
 
 ## 🏁 **CONCLUSIONI**
 
