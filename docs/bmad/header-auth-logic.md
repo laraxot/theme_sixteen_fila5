@@ -9,6 +9,10 @@ norme-legislative: multilingua (it/en), mobile responsive, accessibilità (aria-
 zen: passo invisibile = identità verificata; poi accesso all'area personale con trasparenza e responsabilità
 second-brain: kp-174d15a58ff94901b2b0df0d86b8907a (aperto, auth-state, multilingua, mobile, accessibilità)
 antierrore: verificare file con ls/find (tests.tickets-create NON esiste; tickets.create.json corretto); no design-system/ root; docs in Sixteen/docs/
+title: "Header — Logica Autenticazione Area Personale"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "header   logica autenticazione area personale sixteen"
 ---
 # Header — Logica Autenticazione Area Personale
 

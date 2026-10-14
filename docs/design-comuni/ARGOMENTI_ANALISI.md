@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ARGOMENTI ANALISI"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Argomenti - Analisi Struttura HTML
@@ -55,15 +56,6 @@ Confronto tra pagina di riferimento e implementazione locale per `argomenti`.
 **Local**: ✅ **IDENTICA**
 
 ---
-
-title: "ARGOMENTI ANALISI"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ARGOMENTI ANALISI"
-issues: []
-discussions: []
 ### In Evidenza Section ✅ MATCH
 
 **Reference**:

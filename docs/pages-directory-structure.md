@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "pages directory structure"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Pages Directory Structure - DRY + KISS
@@ -20,15 +21,6 @@ discussions: []
 **Stato:** ✅ **CORRETTO**
 
 ---
-
-title: "pages directory structure"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "pages directory structure"
-issues: []
-discussions: []
 ## ✅ Struttura CORRETTA
 
 ### Cartelle CHE DEVONO ESISTERE

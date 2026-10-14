@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ui kit english integration plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Piano Integrazione UI Kit Italia - Tema Sixteen
@@ -296,15 +297,6 @@ Themes/Sixteen/
 - Documentazione completa
 
 ---
-
-title: "ui kit english integration plan"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ui kit english integration plan"
-issues: []
-discussions: []
 **Data Piano**: Settembre 2025  
 **Versione**: 1.0  
 **Stato**: Piano Completo - Pronto per Implementazione

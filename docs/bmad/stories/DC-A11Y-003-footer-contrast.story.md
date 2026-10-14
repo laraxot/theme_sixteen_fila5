@@ -2,6 +2,10 @@
 id: DC-A11Y-003
 title: "Garantire contrasto e leggibilità del footer"
 status: in-progress
+type: story
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "user story sixteen"
 ---
 
 # User story

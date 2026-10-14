@@ -1,3 +1,11 @@
+---
+title: "BMAD Brainstorm — accesso-servizio"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad brainstorm   accesso-servizio sixteen"
+---
 # BMAD Brainstorm — accesso-servizio
 
 ## Obiettivo

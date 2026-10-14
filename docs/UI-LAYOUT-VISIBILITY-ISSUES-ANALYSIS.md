@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # UI Layout & Visibility Issues - Comprehensive Analysis
@@ -16,15 +17,6 @@ discussions: []
 **Status**: Issues identified, documentation created  
 
 ---
-
-title: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "UI LAYOUT VISIBILITY ISSUES ANALYSIS"
-issues: []
-discussions: []
 ## 🔍 Issues Identified
 
 ### 1. Layout Centering Issue

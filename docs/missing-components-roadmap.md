@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "missing components roadmap"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🗺️ Roadmap Componenti Mancanti - Tema Sixteen
@@ -577,15 +578,6 @@ php artisan test
 ```
 
 ---
-
-title: "missing components roadmap"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "missing components roadmap"
-issues: []
-discussions: []
 **Ultimo aggiornamento**: 1 Settembre 2025  
 **Stato**: Inizio implementazione  
 **Responsabile**: Team Sviluppo Sixteen

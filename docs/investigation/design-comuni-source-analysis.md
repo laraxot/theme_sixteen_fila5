@@ -12,6 +12,7 @@ confidence: high
 related:
   - docs/wiki/rules/no-controllers-rule.md
   - docs/wiki/concepts/agent-bootstrap-compact.md
+qmd: "design comuni   source analysis (v2.4.0) sixteen"
 ---
 
 # Design Comuni — Source Analysis (v2.4.0)

@@ -11,6 +11,7 @@ updated: 2026-04-21
 tags: [wiki, governance, structure]
 related:
   - concepts/no-docs-archive-rule.md
+status: draft
 ---
 
 For the theme wiki, the canonical folders are mandatory and protected:

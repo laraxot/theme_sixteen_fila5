@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual parity report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Parity Report - Homepage
@@ -17,15 +18,6 @@ discussions: []
 **Stato**: ✅ **COMPLETATO** - 99.5% parity
 
 ---
-
-title: "visual parity report"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "visual parity report"
-issues: []
-discussions: []
 ## 📊 Risultato Finale
 
 | Metrica | Valore |

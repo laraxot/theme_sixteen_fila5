@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid filament 4x integration"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Integrazione AGID con Filament 4.x - Tema Sixteen
@@ -193,15 +194,6 @@ ls -la public/assets/
 - ✅ Documentazione completa
 
 ---
-
-title: "agid filament 4x integration"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid filament 4x integration"
-issues: []
-discussions: []
 **Ultimo aggiornamento**: Settembre 2024  
 **Versione**: 1.0.0  
 **Compatibilità**: Filament 4.x, Tailwind CSS 4.x, Laravel 10+

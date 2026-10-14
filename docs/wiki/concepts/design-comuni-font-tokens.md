@@ -13,6 +13,7 @@ related:
   - ../concepts/header-dynamic-navigation.md
   - ../../../docs/wiki/concepts/segnalazione-privacy-design-comuni-parity.md
   - ../../../../../../docs/wiki/concepts/design-comuni-header-auth-state.md
+status: draft
 ---
 
 # Design Comuni Font Tokens for Sixteen Theme

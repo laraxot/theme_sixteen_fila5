@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEGNALAZIONI ELENCO COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni Elenco - HTML Comparison
@@ -18,15 +19,6 @@ discussions: []
 **Status:** ✅ 92%+ Structural Parity
 
 ---
-
-title: "SEGNALAZIONI ELENCO COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEGNALAZIONI ELENCO COMPARISON"
-issues: []
-discussions: []
 ## Summary
 
 | Metric | Reference | Local | Match |

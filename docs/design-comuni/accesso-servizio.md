@@ -1,3 +1,11 @@
+---
+title: "Accesso servizio — implementazione Sixteen"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, design-comuni]
+qmd: "accesso servizio   implementazione sixteen sixteen"
+---
 # Accesso servizio — implementazione Sixteen
 
 ## Scopo

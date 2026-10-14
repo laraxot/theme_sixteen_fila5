@@ -6,6 +6,9 @@ status: draft
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazione dettaglio   visual parity 97% sixteen"
 ---
 # Segnalazione Dettaglio — Visual Parity 97%
 ## Objective

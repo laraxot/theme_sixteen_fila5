@@ -5,6 +5,9 @@ tags: [design-comuni, front-office, bmad]
 links:
   story: docs/stories/front-office-design-comuni-rebuild.story.md
   investigation: docs/investigation/front-office-design-comuni.md
+status: draft
+updated: 2026-10-11
+qmd: "decision log   front office redesign with designcomuni sixteen"
 ---
 
 # Decision log — Front Office Redesign with DesignComuni

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SESSIONE FINALE 2026 04 07"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Sessione REPLIKATE - Report Finale
@@ -15,15 +16,6 @@ discussions: []
 **Status**: ✅ Sessione completata
 
 ---
-
-title: "SESSIONE FINALE 2026 04 07"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SESSIONE FINALE 2026 04 07"
-issues: []
-discussions: []
 ## Riepilogo Progressi
 
 ### 1. Homepage (tests.homepage) - ✅ COMPLETATA 100%

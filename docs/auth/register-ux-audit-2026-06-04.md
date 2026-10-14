@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "register ux audit 2026 06 04"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Register `/it/auth/register` — audit UX/WCAG/funzionamento (2026-06-04)

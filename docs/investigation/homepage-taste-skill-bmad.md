@@ -8,6 +8,9 @@ links:
   github_issue: "#54"
   github_discussion: "https://github.com/leonxlnx/taste-skill"
   related_story: "homepage-taste-skill-bmad"
+updated: 2026-10-07
+tags: [docs, sixteen, investigation]
+qmd: "homepage audit   sixteen design comuni (design read + taste-skill) sixteen"
 ---
 
 # Homepage Audit — Sixteen Design Comuni (Design Read + Taste-Skill)

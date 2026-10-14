@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Blocks - Index Completo
@@ -59,15 +60,6 @@ La homepage di riferimento contiene **6 blocchi principali** organizzati vertica
 **Tailwind:** Da implementare con `@apply` + Alpine.js per toggle menu
 
 ---
-
-title: "INDEX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "INDEX"
-issues: []
-discussions: []
 ### Block 01: Hero/Contenuti in Evidenza
 
 **Sezione principale** - Notizia in primo piano con immagine

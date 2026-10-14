@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "increment 90"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Similarity - Incremento a 90%

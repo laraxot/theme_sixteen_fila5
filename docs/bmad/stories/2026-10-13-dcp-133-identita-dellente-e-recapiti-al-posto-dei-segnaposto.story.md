@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "nome del comune segnaposto numero verde urp config comune.php footer header regione titolare trattamento"
 related: [dcp-112, dcp-130, dcp-131]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-133: il sito dice chi e' l'ente

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "00 skiplink"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 00: Skiplink (Accessibilità)

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bmad gsd status"
 issues: []
 discussions: []
+status: draft
 ---
 
 # BMAD + GSD Status 2026-04-03

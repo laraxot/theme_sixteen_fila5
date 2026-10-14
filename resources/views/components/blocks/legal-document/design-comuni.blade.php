@@ -12,7 +12,8 @@
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $document = (string) $d('document');
     $title = __('pub_theme::legal.documents.'.$document.'.title');
-    $built = app(\Modules\Fixcity\Actions\BuildLegalDocumentAction::class)->execute((string) $d('markdown'), $d('assess') === 'gdpr-art13');
+    $built = app(\Modules\Fixcity\Actions\BuildLegalDocumentAction::class)->execute((string) $d('markdown'), (string) $d('assess'));
+    $assessNs = $d('assess') === 'legal-notes' ? 'legal_notes' : 'privacy';
     $issues = $built['issues'];
     $html = $built['html'];
     $hasNotice = $issues !== [] || $html === null;
@@ -54,7 +55,7 @@
                         <p>{{ __($html === null ? 'pub_theme::legal.incomplete.intro_missing' : 'pub_theme::legal.incomplete.intro_present') }}</p>
                         <ul>
                             @foreach ($issues as $section => $reason)
-                                <li><strong>{{ __('fixcity::privacy.sections.'.$section.'.title') }}</strong>: {{ __('fixcity::privacy.reason.'.$reason) }}. {{ __('fixcity::privacy.sections.'.$section.'.hint') }}</li>
+                                <li><strong>{{ __('fixcity::'.$assessNs.'.sections.'.$section.'.title') }}</strong>: {{ __('fixcity::privacy.reason.'.$reason) }}. {{ __('fixcity::'.$assessNs.'.sections.'.$section.'.hint') }}</li>
                             @endforeach
                         </ul>
                     @endif

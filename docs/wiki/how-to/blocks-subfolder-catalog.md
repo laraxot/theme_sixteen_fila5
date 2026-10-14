@@ -13,6 +13,7 @@ related:
   - ../rules/frontend-stack-canonical.md
   - ../../../../../../docs/wiki/rules/011-blocks-view-convention.md
   - ../concepts/ai-harness-theme-sixteen.md
+status: draft
 ---
 
 # Catalogo sottocartelle `blocks/`

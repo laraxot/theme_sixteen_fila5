@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-02: contratto "le pagine /tests sono dato" bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-02: contratto "le pagine /tests sono dato"

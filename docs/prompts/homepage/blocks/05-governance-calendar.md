@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "05 governance calendar"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 05: Governance & Calendar

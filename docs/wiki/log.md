@@ -7,7 +7,15 @@ updated: 2026-09-26
 qmd: "log"
 issues: []
 discussions: []
+status: draft
 ---
+
+## [2026-10-14] docs | studio del tema reale e correzione degli ingressi
+
+- Story: [studio e ingressi](../bmad/stories/2026-10-14-docs-studio-stato-e-ingressi.story.md). `README.md` e `00-INDEX.md` riscritti con fatti verificati (stato vivo: `pub_theme = Sixteen` nei 4 `xra.php`; conteggi; build da `package.json`).
+- Verificato: controller e rotte del tema esistono ma non sono registrati (`route:list`, 461 rotte, senza `comune/*`, `auth/spid`, `auth/cie`); `INDEX.md` e' la mappa viva, `index.md` e' storico (marcato `stale`).
+- Contraddizione aperta con la voce del 2026-10-11 qui sotto: `components/layouts/design-comuni.blade.php`, `-authenticated` e `-bare` esistono (2026-10-13) e `pages/tests/index.blade.php` usa `<x-layouts.design-comuni-bare>`.
+- Link: 5 ripuntati, 10 annotati in `wiki/index.md` e `wiki/log.md`. Memoria: `bashscripts/ai/wiki/memories/2026-10-14-docs-temi-studio.md`.
 
 ## [2026-10-11] architecture | Sixteen è già DesignComuni
 
@@ -66,7 +74,7 @@ discussions: []
 
 ## [2026-06-05] docs | HackerNoon harness — tips 001-022 in wiki locale
 
-- Stub/checklist: second-brain → canon Xot, ai-harness, [hackernoon map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md), [llm-wiki.txt](../../../../../bashscripts/tools/prompts/llm-wiki.txt)
+- Stub/checklist: second-brain → canon Xot, ai-harness, [hackernoon map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md), [llm-wiki.txt](../../../../../bashscripts/tools/prompts/llm-wiki.txt) _(target mancante, verificato 2026-10-14)_
 - GitHub: [#272](https://github.com/laraxot/base_fixcity_fila5/issues/272) / [D#273](https://github.com/laraxot/base_fixcity_fila5/discussions/273)
 
 # Sixteen Wiki Log
@@ -106,7 +114,7 @@ discussions: []
 ## [2026-06-05] docs | AI harness tema + HackerNoon
 
 - [ai-harness-theme-sixteen.md](concepts/ai-harness-theme-sixteen.md) in index
-- Canon temi: [ai-harness-theme-discipline.md](../../../docs/wiki/concepts/ai-harness-theme-discipline.md)
+- Canon temi: [ai-harness-theme-discipline.md](../../../Barthelemy/docs/wiki/concepts/ai-harness-theme-discipline.md)
 
 ## [2026-06-03] skill | Anthropic frontend-design × civic parity
 
@@ -159,7 +167,7 @@ discussions: []
 ## [2026-05-22] troubleshooting | alpine init vs vite esm (bootstrap header pre-livewire)
 
 - **Motivo**: gli script tema `@vite(resources/js/app.js)` sono **`type="module"` differiti**, posizionati dopo `@livewireScripts` nei layout pubblici — Alpine parte prima e `Alpine.data` / listener `alpine:init` in `app.js` arrivano troppo tardi → `headerMobileNav` non risolto al primo boot.
-- **Artifact**: [concepts/livewire-alpine-esm-order.md](concepts/livewire-alpine-esm-order.md), partial [resources/views/partials/alpine-livewire-bootstrap-header.blade.php](../../resources/views/partials/alpine-livewire-bootstrap-header.blade.php), factory [resources/js/theme/header-mobile-nav-scope.js](../../resources/js/theme/header-mobile-nav-scope.js).
+- **Artifact**: [concepts/livewire-alpine-esm-order.md](concepts/livewire-alpine-esm-order.md), partial [resources/views/partials/alpine-livewire-bootstrap-header.blade.php](../../resources/views/partials/alpine-livewire-bootstrap-header.blade.php) _(target mancante, verificato 2026-10-14)_, factory [resources/js/theme/header-mobile-nav-scope.js](../../resources/js/theme/header-mobile-nav-scope.js) _(target mancante, verificato 2026-10-14)_.
 - **Layout**: include partial all’avvio `<body>` in [components/layouts/main.blade.php](../../resources/views/components/layouts/main.blade.php) e [layouts/main.blade.php](../../resources/views/layouts/main.blade.php).
 
 ## [2026-05-15] concept | Tailwind `@apply` come alias preferito
@@ -394,7 +402,7 @@ discussions: []
 ## [2026-05-04] wiki | segnalazione-01-privacy vs locale + path relativi
 - Creato `comparisons/segnalazione-01-privacy-design-comuni-vs-local-wizard.md` (delta vs [reference Design Comuni](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html), piano correzione Tailwind+Alpine+Lit, HTML parity senza `<style>` in Blade).
 - Allineati link `_bmad-output` e mirror Fixcity: da `comparisons/` servono **6** segmenti `../` fino alla root workspace (`../../../../../_bmad-output/...`).
-- Aggiornati `docs/wiki/index.md` (sezione 2026-05-04) con backlink story [7-103](../../../../../_bmad-output/implementation-artifacts/7-103-segnalazione-01-privacy-tailwind-lit-html-audit-correction-plan.md).
+- Aggiornati `docs/wiki/index.md` (sezione 2026-05-04) con backlink story [7-103](../../../../../_bmad-output/implementation-artifacts/7-103-segnalazione-01-privacy-tailwind-lit-html-audit-correction-plan.md) _(target mancante, verificato 2026-10-14)_.
 
 ## [2026-05-04] documentation | Segnalazione Visual Parity Correction Plan
 - Cross-link from Fixcity module: `../../laravel/Modules/Fixcity/docs/wiki/concepts/segnalazione-design-comuni-comparison.md`
@@ -1272,3 +1280,8 @@ Fase BMAD: documentazione/qualita'. Pacchetto P6 dello swarm in [DCP-152](../../
 - **`wiki/concepts/coordinate-picker-design-comuni-parity-rule.md`**: aggiornamento DCP-152 (pulsanti opachi garantiti da `.map-container .ctrl-btn.ctrl-btn` nel modulo Geo, sola lettura, test Playwright).
 - **Dettaglio ticket**: `filament-first-frontoffice.md`, `mcp-validation-fo-pages.md`, `folio-no-semantic-pages-tickets.md` dicevano che `/it/tickets/{id}` e' il Widget `ViewWidget` con CMS `tickets.view`. Verificato: `tickets.view.json` non esiste in `Modules/Fixcity/config/database/content/pages/`; un id numerico e' servito dal ramo `ticket-detail` di `pages/[container0]/[slug0]/index.blade.php` (`BuildPublicTicketDetailAction`, `data-dc`, blocco `ticket-detail/design-comuni`). Aggiunta una nota datata a ciascun doc; il testo precedente resta come storico.
 - Non verificato: specificita' CSS e cause del bug pulsanti (da DCP-152, non rimisurate), precedenza Folio tra `Modules/Fixcity/.../pages/tickets/[id].blade.php` e la pagina del tema (dedotta dal test Pest `TicketPublicDetailPageTest`, non da `route:list`), esistenza di `TicketInfolist` fuori da `Filament/Infolists`.
+## [2026-10-14] docs | boundary UI consenso legale
+
+- Aggiunta `concepts/legal-consent-ui-boundary.md` per il contratto UI Sixteen.
+- Collegati Gdpr/User e le story BMAD relative a consenso, verifica e legal content.
+- La pagina non introduce Bootstrap runtime e non attribuisce al tema decisioni legali.

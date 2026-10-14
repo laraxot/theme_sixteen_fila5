@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI BASELINE ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Baseline Analysis Report
@@ -16,15 +17,6 @@ discussions: []
 **Tool:** `bashscripts/design-comuni-compare/html-diff.js`
 
 ---
-
-title: "DESIGN COMUNI BASELINE ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI BASELINE ANALYSIS"
-issues: []
-discussions: []
 ## Executive Summary
 
 We compared **16 Design Comuni pages** between the reference (italia.github.io) and local implementation (127.0.0.1:8000) using DOM-based structural analysis.

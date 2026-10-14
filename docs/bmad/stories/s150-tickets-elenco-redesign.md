@@ -4,6 +4,10 @@ title: "Tickets Elenco — Design Comuni v2.4.0 (Pubblico, non test)"
 github_issue: #103
 github_discussion: #103
 decision_log: docs/decision-log.md
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story: tickets elenco redesign (pubblico trasparenza) sixteen"
 ---
 # Story: Tickets Elenco Redesign (pubblico trasparenza)
 

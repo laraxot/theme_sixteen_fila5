@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # FAQ Visual Comparison Analysis
@@ -28,15 +29,6 @@ discussions: []
 | `10-reference-mobile.png` | Reference mobile view |
 
 ---
-
-title: "VISUAL ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL ANALYSIS"
-issues: []
-discussions: []
 ## Visual Differences Identified
 
 ### 1. HEADER COLORS (CRITICAL)

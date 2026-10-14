@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "component namespace"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Component Namespace Architecture - DRY + KISS
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Architettura namespace componenti
 
 ---
-
-title: "component namespace"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "component namespace"
-issues: []
-discussions: []
 ## 🐛 Errori da Evitare
 
 ### ❌ ERRORE 1: Usare `<x-sixteen::page>`

@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni service-flow consolidamento varianti chiavi opzionali json imu multa permessi vantaggi graduatoria ingresso unico design-comuni diff html pixel sweep bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-100: consolidamento delle varianti del service-flow

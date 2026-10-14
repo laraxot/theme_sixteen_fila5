@@ -10,6 +10,10 @@ root-cause: la view Geo invocava `callSchemaComponentMethod` per il reverse geoc
 azione-applicata: il reverse geocoding del componente Lit resta client-side e la view non esegue piu' RPC schema; asset Geo rigenerati; CSS Filament corretto; middleware [web,auth]; no coordinate fisse
 verifica: autenticazione Playwright su HTTP, apertura dello step, click sulla mappa e reverse geocoding riusciti; 2 POST Livewire 200, nessun errore console, stato coordinate e marker aggiornati
 loop: CHIUSO (2026-10-13)
+title: "Bug — Wizard Schema Component Method (Livewire/Volt)"
+updated: 2026-10-14
+tags: [docs, sixteen, bmad]
+qmd: "bug   wizard schema component method (livewire/volt) sixteen"
 ---
 # Bug — Wizard Schema Component Method (Livewire/Volt)
 

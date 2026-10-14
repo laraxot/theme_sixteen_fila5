@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login4 component verification"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Verifica Componenti Login4 - Tema Sixteen

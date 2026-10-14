@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/servizi-categoria.html
 local: http://192.168.1.40:8000/it/tests/servizi-categoria
+title: "DC-035 — servizi-categoria"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-035   servizi-categoria sixteen"
 ---
 
 # DC-035 — servizi-categoria

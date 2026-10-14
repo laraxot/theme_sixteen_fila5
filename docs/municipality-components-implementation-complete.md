@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "municipality components implementation complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Componenti Municipali Completata ✅
@@ -222,14 +223,6 @@ L'implementazione è **completamente riuscita** e tutti i componenti sono:
 Il tema Sixteen è ora una soluzione **enterprise-ready** per comuni italiani che soddisfa tutti i requisiti normativi e offre un'esperienza utente eccezionale.
 
 ---
-title: "municipality components implementation complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "municipality components implementation complete"
-issues: []
-discussions: []
 *Documento aggiornato il: 2025-09-02*  
 *Versione: 1.0.0*  
 *Stato: IMPLEMENTATION COMPLETE*

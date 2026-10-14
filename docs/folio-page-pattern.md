@@ -12,6 +12,7 @@ discussions:
 related:
   - ../../../../docs/wiki/bmad/architecture-folio-page-shell.md
   - docs/wiki/concepts/folio-route-params-mount.md
+status: draft
 ---
 
 # Folio Page Pattern — `mount()` + `<x-page>`

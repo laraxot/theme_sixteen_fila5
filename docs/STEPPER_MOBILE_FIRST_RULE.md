@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "STEPPER MOBILE FIRST RULE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Stepper Mobile-First Rule - CSS Responsive Enforcement

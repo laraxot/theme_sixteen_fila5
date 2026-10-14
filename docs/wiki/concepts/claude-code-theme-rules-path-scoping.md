@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "claude code theme rules path scoping"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Claude Code Theme Rules Path Scoping

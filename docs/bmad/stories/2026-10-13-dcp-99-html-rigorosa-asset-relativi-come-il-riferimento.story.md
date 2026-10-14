@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "html rigorosa asset relativi sprites svg href src alias rotta lingua assets DesignComuniAssets route cache dcp94 dcp99 90 per cento"
 related: [dcp-94, dcp-92, dcp-00]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-99: stessi valori di `href`/`src` degli asset del riferimento

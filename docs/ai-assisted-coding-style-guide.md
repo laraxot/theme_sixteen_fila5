@@ -19,6 +19,7 @@ related:
   - ../../User/docs/r1-form-fields-self-validate.md
   - ../../Fixcity/docs/r3-one-migration-per-model.md
   - ../../Gdpr/docs/r8-gdpr-register-widget-wins.md
+status: draft
 ---
 
 # AI-assisted coding style guide for Sixteen theme (R13-R20)

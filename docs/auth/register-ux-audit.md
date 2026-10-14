@@ -9,6 +9,7 @@ issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues/572"
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/573"
+status: draft
 ---
 
 # Register `/it/auth/register` — audit UX/WCAG/funzionamento (2026-06-04)

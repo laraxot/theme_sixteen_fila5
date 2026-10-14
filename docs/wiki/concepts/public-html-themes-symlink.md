@@ -7,6 +7,7 @@ updated: 2026-10-07
 qmd: "sixteen public_html themes symlink vite build emptyOutDir copy manifest 404 asset"
 issues: []
 discussions: []
+status: draft
 ---
 
 # public_html/themes/Sixteen -> laravel/Themes/Sixteen/public

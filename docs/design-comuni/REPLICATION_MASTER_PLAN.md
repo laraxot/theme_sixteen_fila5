@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "REPLICATION MASTER PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication - Master Plan
@@ -17,15 +18,6 @@ discussions: []
 **Priority:** 🔴 **Critical**  
 
 ---
-
-title: "REPLICATION MASTER PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "REPLICATION MASTER PLAN"
-issues: []
-discussions: []
 ## 🎯 Executive Summary
 
 Replicare **tutte le pagine statiche** di [Design Comuni Pagine Statiche](https://italia.github.io/design-comuni-pagine-statiche/) utilizzando:

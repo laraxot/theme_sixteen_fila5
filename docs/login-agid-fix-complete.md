@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: login-agid-fix-complete
 canonical: ../../docs/shared-components/login-agid-fix-complete.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/login-agid-fix-complete.md

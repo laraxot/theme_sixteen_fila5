@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML STRUCTURE COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: Reference vs Local
@@ -62,12 +63,4 @@ discussions: []
 4. Update CSS until all pages reach >=90% similarity
 
 ---
-title: "HTML STRUCTURE COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML STRUCTURE COMPARISON"
-issues: []
-discussions: []
 *See also: [Visual Comparison](../screenshots/comparisons/) | [CSS Fix Plan](../design-comuni-css-fix-plan.md)*

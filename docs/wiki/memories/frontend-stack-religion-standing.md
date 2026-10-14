@@ -8,6 +8,7 @@ title: frontend stack religion standing
 type: memory
 module: Sixteen
 updated: 2026-06-03
+status: draft
 ---
 
 # Memoria tema — stack FO

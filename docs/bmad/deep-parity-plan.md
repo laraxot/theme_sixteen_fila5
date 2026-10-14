@@ -1,3 +1,11 @@
+---
+title: "Deep Visual Parity — Deep-dive Plan"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "deep visual parity   deep-dive plan sixteen"
+---
 # Deep Visual Parity — Deep-dive Plan
 
 ## Verified parity assets (real, not invented)

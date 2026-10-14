@@ -9,6 +9,7 @@ discussions: []
 name: segnalazione-crea-header-and-map-visual-regression-contract
 description: Visual regression guardrails for header and map on segnalazione-crea
 type: concept
+status: draft
 ---
 
 # Segnalazione Crea Header And Map Visual Regression Contract

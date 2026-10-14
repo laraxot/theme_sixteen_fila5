@@ -6,6 +6,8 @@ story: dcp-120
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "glossario traduzione de es segnalazione Meldung incidencia comune Gemeinde Ayuntamiento pratica Vorgang tramite registro tu Sie"
+status: draft
+tags: [docs, sixteen, i18n]
 ---
 
 # Glossario e scelte di traduzione

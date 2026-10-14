@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity novita news-page news-detail assistenza assistance-form assistance-confirm catalogo tests-index bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-20: novita, assistenza e catalogo

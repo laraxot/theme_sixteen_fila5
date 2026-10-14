@@ -1,3 +1,11 @@
+---
+title: "STORY-REF-HOMEPAGE-BLOCKS-FIX — Correzione parità blocchi e contenuti homepage"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story-ref-homepage-blocks-fix   correzione parità blocchi e contenuti homepage sixteen"
+---
 # STORY-REF-HOMEPAGE-BLOCKS-FIX — Correzione parità blocchi e contenuti homepage
 
 ## URL

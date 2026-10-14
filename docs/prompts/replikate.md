@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "replikate"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Replikate
@@ -15,15 +16,6 @@ discussions: []
 *Version: 3.0.0 — Ultimo aggiornamento: 2026-04-07*
 
 ---
-
-title: "replikate"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "replikate"
-issues: []
-discussions: []
 ## 🎯 GOAL
 
 Replica ogni pagina di Design Comuni rendendo:

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PAGES GROUP 6"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Pages HTML Structure Parity Analysis
@@ -14,15 +15,6 @@ discussions: []
 ## Group 6 Analysis Results
 
 ---
-
-title: "PAGES GROUP 6"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "PAGES GROUP 6"
-issues: []
-discussions: []
 ## Page: prenotazione-appuntamento
 
 ### Status: Error (500)

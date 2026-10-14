@@ -12,6 +12,7 @@ related:
   - ../../../../../../docs/wiki/rules/laravel/volt-route-params-via-mount.md
   - ../../../../../../docs/wiki/memories/volt-route-params-mount-contract.md
   - ../../../../../../docs/wiki/rules/no-volt-in-blade-views.md
+status: draft
 ---
 
 # Folio — parametri route via `mount()`

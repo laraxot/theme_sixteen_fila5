@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-07: risultati-ricerca a 90% html e 97% visual bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-07: risultati-ricerca a 90% HTML e 97% visual

@@ -16,6 +16,7 @@ related:
   - ../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md
 upstream:
   - https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design
+status: draft
 ---
 
 # Frontend design — Anthropic plugin × Sixteen

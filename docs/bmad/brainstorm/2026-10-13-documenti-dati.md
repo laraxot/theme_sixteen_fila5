@@ -1,3 +1,11 @@
+---
+title: "BMAD Brainstorm — `documenti-dati`"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad brainstorm   `documenti-dati` sixteen"
+---
 # BMAD Brainstorm — `documenti-dati`
 
 ## Obiettivo

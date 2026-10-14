@@ -13,6 +13,8 @@ links:
   reference_segnalazione: "https://italia.github.io/design-comuni-pagine-statiche/index.html#segnalazione"
   architecture: "arc-sixteen-design-comuni-redesign"
   decision_log: "dl-sixteen-design-comuni-redesign"
+tags: [docs, sixteen, bmad]
+qmd: "story: segnalazione   redesign design comuni sixteen"
 ---
 
 # Story: Segnalazione — Redesign Design Comuni

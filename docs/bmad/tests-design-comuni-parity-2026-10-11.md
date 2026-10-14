@@ -1,3 +1,11 @@
+---
+title: "BMAD verification — tests Design Comuni parity"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "bmad verification   tests design comuni parity sixteen"
+---
 # BMAD verification — tests Design Comuni parity
 
 ## Scope

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket 03 riepilogo reference"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket 03 riepilogo reference

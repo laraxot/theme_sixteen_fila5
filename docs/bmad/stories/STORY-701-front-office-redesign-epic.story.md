@@ -14,6 +14,7 @@ design_ref: "https://italia.github.io/design-comuni-pagine-statiche/index.html"
 segnalazione_ref: "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html"
 freellmapi_boundary: "docs/bmad/freellmapi-theme-boundary.md"
 tech_stack: "TailwindCSS v4 + Alpine.js 3.x + Lit 3.x + DaisyUI + Flowbite + Filament v5 (NO Bootstrap Italia)"
+qmd: "epic: front office redesign   designcomuni v2.4.0 sixteen"
 ---
 
 # Epic: Front Office Redesign — DesignComuni v2.4.0

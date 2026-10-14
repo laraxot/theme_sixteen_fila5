@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "LAYOUT ISSUES ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Layout & Visual Issues Analysis
@@ -31,15 +32,6 @@ discussions: []
 **Impact**: Entire page layout appears shifted left, creating visual mismatch
 
 ---
-
-title: "LAYOUT ISSUES ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "LAYOUT ISSUES ANALYSIS"
-issues: []
-discussions: []
 ### 2. 🟡 MEDIUM: Social Icons Partially Hidden
 **Severity**: MEDIUM - Some social icons not visible
 

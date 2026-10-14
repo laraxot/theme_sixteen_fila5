@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-10: accesso-servizio 90% html 97% visual bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-10: Accesso Servizio (SPID/CIE + Altre utenze)

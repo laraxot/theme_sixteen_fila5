@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "tracking pubblico rate limit throttle capability code ticket track oscurata tema folio ticket-track 429"
 related: [dcp-90, dcp-42]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-102: codici di tracking pubblici senza limite di tentativi

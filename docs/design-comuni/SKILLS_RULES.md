@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SKILLS RULES"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Skills & Rules Documentation
@@ -138,15 +139,6 @@ Documentazione delle skills, rules e best practices per il progetto Design Comun
 - **Progress Report**: [laravel/Themes/Sixteen/docs/design-comuni/PROGRESS_REPORT.md](PROGRESS_REPORT.md)
 
 ---
-
-title: "SKILLS RULES"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SKILLS RULES"
-issues: []
-discussions: []
 **Data**: 2026-04-03  
 **Stato**: ✅ 63.0% OK  
 **Target**: 90%+ OK  

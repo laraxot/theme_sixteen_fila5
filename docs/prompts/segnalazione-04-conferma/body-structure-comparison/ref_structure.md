@@ -7,19 +7,12 @@ updated: 2026-09-26
 qmd: "ref structure"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ref structure
 
 ---
-title: "ref structure"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ref structure"
-issues: []
-discussions: []
 module: theme
 topic: ref_structure
 canonical: ../../../../../docs/shared-components/ref_structure-Themes.txt

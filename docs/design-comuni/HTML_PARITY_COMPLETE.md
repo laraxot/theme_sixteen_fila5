@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML PARITY COMPLETE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Italia - HTML Parity Verification Complete
@@ -15,15 +16,6 @@ discussions: []
 **Status**: ✅ **HOMEPAGE VERIFIED - 95%+ HTML MATCH**
 
 ---
-
-title: "HTML PARITY COMPLETE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML PARITY COMPLETE"
-issues: []
-discussions: []
 ## 🎯 What Was Done
 
 ### 1. Fixed Git Conflict ✅

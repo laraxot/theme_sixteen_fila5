@@ -6,6 +6,8 @@ story: dcp-120
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "multilingua lingua locale it en de es fallback_locale SetFolioLocale hreflang html lang selettore lingua link localizzati wcag 3.1.1 3.1.2"
+status: draft
+tags: [docs, sixteen, i18n]
 ---
 
 # Comportamento multilingua del sito

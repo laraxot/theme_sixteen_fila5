@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CSS FIXES PHASE2"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS Fixes Phase 2 - Detailed Analysis

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SESSION REPORT 2026 04 07"
 issues: []
 discussions: []
+status: draft
 ---
 
 # REPLIKATE - Report Completo Sessione
@@ -15,15 +16,6 @@ discussions: []
 **Sessione**: Analisi e fix strutturali Design Comuni
 
 ---
-
-title: "SESSION REPORT 2026 04 07"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SESSION REPORT 2026 04 07"
-issues: []
-discussions: []
 ## Riepilogo Progressi
 
 ### ✅ Homepage (100% Completata)

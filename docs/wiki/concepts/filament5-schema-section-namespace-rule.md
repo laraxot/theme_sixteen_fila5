@@ -10,6 +10,7 @@ updated: 2026-04-22
 sources:
   - ../../../../../../docs/wiki/concepts/filament5-schema-section-namespace-rule.md
   - https://filamentphp.com/docs/5.x/components/form#using-multiple-forms
+status: draft
 ---
 
 # Filament 5 Schema Section Namespace Rule For Sixteen Views

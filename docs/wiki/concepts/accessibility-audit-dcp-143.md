@@ -10,6 +10,7 @@ related:
   - ../../../../../../bashscripts/docs/visual-comparison/keyboard-audit.md
   - ../../../../../../bashscripts/docs/visual-comparison/a11y-page-probe.md
 qmd: "accessibilita axe wcag aria tablist role=tab progressbar aria-label focus tastiera escape keyboard-audit a11y-axe.spec playwright nvda non verificato dcp-143"
+status: draft
 ---
 
 # Accessibilita': come si misura e che cosa e' stato corretto

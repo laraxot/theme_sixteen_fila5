@@ -11,6 +11,9 @@ issues:
   - https://github.com/laraxot/base_fixcity_fila5/issues/522
 discussions:
   - https://github.com/laraxot/base_fixcity_fila5/discussions/523
+status: draft
+tags: [docs, sixteen, bmad]
+qmd: "confronto: atteso e realtà osservata sixteen"
 ---
 
 # Confronto: atteso e realtà osservata

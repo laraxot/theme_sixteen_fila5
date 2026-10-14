@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "geo map popup leaflet boundary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # geo-map-popup — confine tema sixteen / leaflet

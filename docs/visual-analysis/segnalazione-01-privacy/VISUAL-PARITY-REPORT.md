@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL PARITY REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Parity Analysis - segnalazione-01-privacy

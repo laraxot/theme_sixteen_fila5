@@ -3,6 +3,8 @@ title: "Header/footer JSON data model"
 type: architecture
 tags: [bmad, json, sections, header, footer, design-comuni, wcag]
 qmd: "Sixteen header footer JSON brand navigation contact social data model"
+status: draft
+updated: 2026-10-11
 ---
 
 # Modello dati delle sections

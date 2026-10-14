@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "area personale notifiche impostazioni privacy preferenze notifica email-ticket-updates tabella notifications read_at segna come letta GDPR diritti artt 15-22 informativa privacy 404 contatti comune footer segnaposto personal-area-settings PersonalAreaNotificationsWidget TicketNotificationPreferencesWidget"
 related: [dcp-106, dcp-110, dcp-112, dcp-97, dcp-42, dcp-120]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-111: le altre due voci del menu utente hanno ora una pagina vera

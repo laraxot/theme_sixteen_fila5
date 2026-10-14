@@ -14,6 +14,7 @@ related:
   - fo-folio-links-multilingua.md
   - ../../../../../../docs/wiki/memories/no-hardcoded-locale-italian-in-fo-blade.md
   - ../../../../../../docs/wiki/agents/rules/translations.md
+status: draft
 ---
 
 # Header FO — contratto URL + traduzioni

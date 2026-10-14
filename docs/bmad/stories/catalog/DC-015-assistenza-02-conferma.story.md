@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/assistenza-02-conferma.html
 local: http://192.168.1.40:8000/it/tests/assistenza-02-conferma
+title: "DC-015 — assistenza-02-conferma"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-015   assistenza-02-conferma sixteen"
 ---
 
 # DC-015 — assistenza-02-conferma

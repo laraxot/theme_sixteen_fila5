@@ -7,6 +7,7 @@ discussions: []
 title: "Asset 404 Fixes (Theme Sixteen)"
 type: rule
 updated: 2026-06-10
+status: draft
 ---
 
 ## Problem

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "map lit legend theme boundary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Legenda mappa — confine tema vs modulo Geo

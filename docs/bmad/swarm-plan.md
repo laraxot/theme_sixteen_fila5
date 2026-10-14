@@ -2,6 +2,10 @@
 type: plan
 slug: swarm-plan-random-bmad
 status: aperto
+title: "Piano Swarm Random (BMAD + Second Brain)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "piano swarm random (bmad + second brain) sixteen"
 ---
 # Piano Swarm Random (BMAD + Second Brain)
 

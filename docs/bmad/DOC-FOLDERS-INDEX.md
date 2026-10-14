@@ -2,6 +2,10 @@
 frontmatter: true
 title: DOC Folders Index (BMAD + Second Brain)
 type: bmad-index
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "doc folders index sixteen"
 ---
 # DOC Folders Index
 

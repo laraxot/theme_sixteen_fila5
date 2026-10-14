@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI TEAM GUIDE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication - Team Guide
@@ -81,15 +82,6 @@ laravel/Themes/Sixteen/resources/css/style-apply.css
 **Contains**: Tailwind @apply for all Bootstrap Italia classes
 
 ---
-
-title: "DESIGN COMUNI TEAM GUIDE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI TEAM GUIDE"
-issues: []
-discussions: []
 ## Development Workflow
 
 ### 1. Start Working on a Page

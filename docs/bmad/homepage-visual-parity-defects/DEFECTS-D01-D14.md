@@ -6,6 +6,8 @@ status: in-progress
 epic: dc-parity-v2
 created: 2026-10-13
 qmd: "difetti homepage design comuni causa prevenzione fix verifica d01 d14"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # I 14 difetti: causa, prevenzione, fix, controllo

@@ -3,6 +3,10 @@ type: decision
 title: Consolidate Header and Footer into CMS-Driven Components
 links:
   github_issue: "#55"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "decision: header & footer consolidation sixteen"
 ---
 
 # Decision: Header & Footer Consolidation

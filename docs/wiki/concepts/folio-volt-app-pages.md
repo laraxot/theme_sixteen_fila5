@@ -14,6 +14,7 @@ related:
   - ../../../../../Modules/Cms/docs/wiki/concepts/cms-page-middleware-json-ssot.md
   - ../../../../../Modules/Cms/docs/wiki/concepts/folio-volt-static-mount-contract.md
   - fo-folio-routing-zen.md
+status: draft
 ---
 
 # Folio app pages — Volt + PageSlugMiddleware

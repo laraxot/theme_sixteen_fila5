@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "zen wizard header philosophy"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filosofia Zen: Wizard & Header Architecture
@@ -39,15 +40,6 @@ pub_theme::components.wizard = Nostro "vestito" Design Comuni
 | **Scopo** | Separazione logica (PHP) da presentazione (Blade) |
 
 ---
-
-title: "zen wizard header philosophy"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "zen wizard header philosophy"
-issues: []
-discussions: []
 ## 🏛️ Zen dell'Header Dynamic
 
 ### Architecture Chain

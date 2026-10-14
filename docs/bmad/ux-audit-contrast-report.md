@@ -1,3 +1,11 @@
+---
+title: "BMAD Auditor Report — WCAG/APCA Contrast Audit (Design Comuni Palette)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad auditor report   wcag/apca contrast audit (design comuni palette) sixteen"
+---
 # BMAD Auditor Report — WCAG/APCA Contrast Audit (Design Comuni Palette)
 
 **Delegate**: researcher (runId `del_mv5mpjzv_qvw3`, exit 0)  

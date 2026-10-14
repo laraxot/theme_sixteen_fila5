@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "STRUCTURE DIFF"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: DOMANDE FREQUENTI

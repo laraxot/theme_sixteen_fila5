@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FASE2 RISULTATO"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Body Structure Comparison — comparison

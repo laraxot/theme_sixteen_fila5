@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme namespace rules"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CRITICAL: Theme Namespace Rules
@@ -74,13 +75,4 @@ $this->loadConfigFrom(__DIR__ . '/../../config', 'sixteen');
 4. **Never assume** - always verify namespace usage in existing code
 
 ---
-
-title: "theme namespace rules"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "theme namespace rules"
-issues: []
-discussions: []
 **This rule is non-negotiable and must be followed in all theme development.**

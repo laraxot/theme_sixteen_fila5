@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "vite configuration guide"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite Configuration - Sixteen Theme
@@ -17,15 +18,6 @@ discussions: []
 **Related**: [[00-index]], [[build-commands-guide]], [[layout-hierarchy]]
 
 ---
-
-title: "vite configuration guide"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "vite configuration guide"
-issues: []
-discussions: []
 ## 🎯 Overview
 
 The Sixteen theme uses **Vite** as its build tool with a **custom configuration** optimized for Laravel theme architecture.

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison: lista-risorse

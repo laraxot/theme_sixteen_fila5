@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "00 HOMEPAGE REPLICATION INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Replication - Master Index
@@ -16,15 +17,6 @@ discussions: []
 **Technology**: Tailwind CSS 4 + Alpine.js (NO Bootstrap Italia)
 
 ---
-
-title: "00 HOMEPAGE REPLICATION INDEX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "00 HOMEPAGE REPLICATION INDEX"
-issues: []
-discussions: []
 ## 🎯 Project Goal
 
 Replicate the visual design of [Design Comuni reference homepage](https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html) in the local Laravel implementation at [http://127.0.0.1:8000/it/tests/homepage](http://127.0.0.1:8000/it/tests/homepage) using:

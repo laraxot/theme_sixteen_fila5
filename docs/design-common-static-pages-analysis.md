@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design common static pages analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Design Comuni Pagine Statiche vs Tema Sixteen ✅

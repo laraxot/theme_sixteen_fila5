@@ -12,6 +12,7 @@ related:
   - segnalazione-02-dati-design-comuni-vs-local.md
   - ../../../../Modules/docs/redundancy-report.md
 sources: []
+status: draft
 ---
 
 # Mappa documentazione parity wizard Segnalazione (Sixteen)

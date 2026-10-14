@@ -21,6 +21,15 @@ Come leggerlo:
 
 | Story | Stato | Titolo |
 |---|---|---|
+| [DCP-153](../../../../../Modules/Gdpr/docs/stories/2026-10-14-dcp-153-cookiebar-integrata-nel-modulo-gdpr.story.md) | done (owner Gdpr) | Cookiebar integrata nel modulo Gdpr, multilingua, non bloccante e a norma. |
+| [DCP-154](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-154-gate-di-messa-in-produzione.story.md) | ready-for-dev (owner Fixcity) | Gate di messa in produzione. |
+| [DCP-155](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-155-dominio-e-identita-di-rete.story.md) | needs-decision (owner Fixcity) | Dominio, DNS, posta e identita' di rete. |
+| [DCP-156](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-156-responsabile-del-procedimento-e-termini.story.md) | needs-decision (owner Fixcity) | Responsabile del procedimento e termini (L. 241/1990). |
+| [DCP-157](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-157-soddisfazione-dell-utente-e-dati-pubblicati.story.md) | needs-decision (owner Fixcity) | Soddisfazione dell'utente e dati pubblicati. |
+| [DCP-158](2026-10-14-dcp-158-accessibilita-obiettivi-contratti-e-linee-guida-design.story.md) | needs-data | Accessibilita': obiettivi annuali, contratti, linee guida di design. |
+| [DCP-159](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-159-sicurezza-organizzativa-della-pa-nis2-agid-rtd.story.md) | needs-data (owner Fixcity) | Sicurezza organizzativa della PA. |
+| [DCP-160](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-160-lingue-minoritarie-e-lingue-del-servizio.story.md) | needs-data (owner Fixcity) | Lingue minoritarie. |
+| [DCP-161](2026-10-14-dcp-161-rimozione-delle-implementazioni-cookie-duplicate.story.md) | ready-for-dev | Una sola cookiebar, rimozione dei duplicati. |
 | [DCP-152](../../../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md) | done (owner Geo, dal frontmatter) | Marker del dettaglio ticket con tipo e stato, pulsanti della mappa opachi nelle pagine DC. Riguarda il blocco `ticket-detail/design-comuni` del tema e il Lit `coordinate-picker-lit` del modulo Geo. |
 | [DCP-148](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md) | story del tema | Dettaglio pubblico della segnalazione e Segui (pagina `/{lang}/tickets/{id}`). |
 

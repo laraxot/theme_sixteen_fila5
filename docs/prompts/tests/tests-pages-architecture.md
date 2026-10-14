@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "tests pages architecture"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Tests Pages Architecture: Why NO design-comuni.blade.php
@@ -16,15 +17,6 @@ discussions: []
 **Pattern:** Tests pages MUST use `<x-layouts.app>` EXACTLY like CMS pages.
 
 ---
-
-title: "tests pages architecture"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "tests pages architecture"
-issues: []
-discussions: []
 ## ✅ Correct Pattern
 
 ### File: `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`

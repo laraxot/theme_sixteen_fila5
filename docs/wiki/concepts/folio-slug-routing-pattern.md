@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "folio slug routing pattern"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Folio Slug Routing Pattern

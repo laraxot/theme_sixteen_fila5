@@ -9,6 +9,7 @@ discussions: []
 name: obsolete-segnalazione-crea-blade
 description: Blade file `segnalazione-crea.blade.php` should not exist; the page is rendered via JSON configuration and Livewire wizard.
 type: concept
+status: draft
 ---
 
 # Why `segnalazione-crea.blade.php` is obsolete

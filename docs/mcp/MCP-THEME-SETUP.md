@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "MCP THEME SETUP"
 issues: []
 discussions: []
+status: draft
 ---
 
 # MCP Configuration - Sixteen Theme

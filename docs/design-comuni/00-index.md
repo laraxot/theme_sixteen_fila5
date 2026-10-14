@@ -41,8 +41,8 @@ discussions: []
 - **[HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md)** - Analisi dettagliata struttura HTML homepage (81% similarita, 2026-04-07)
 - **[HOMEPAGE_VISUAL_PARITY_SESSION.md](./HOMEPAGE_VISUAL_PARITY_SESSION.md)** - Sessione fix CSS/JS homepage (2026-04-07) ✅ Phase 1 Complete
 - **[HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md](./HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)** - 🔴 Analisi strutturale finale (85% structural, ~90% visual)
-- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md)** - Piano dettagliato per raggiungere 90% similarità
-- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)** - Sessione implementazione 90% (2026-04-07)
+- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md](../prompts/homepage/HTML_SIMILARITY_90_PERCENT_PLAN.md)** - Piano dettagliato per raggiungere 90% similarità
+- **[prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md](../prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)** - Sessione implementazione 90% (2026-04-07)
 - **[prompts/homepage/blocks/00-index.md](./prompts/homepage/blocks/00-index.md)** - 🔴 Documentazione completa 10 blocchi homepage
 - **[MERGE_CONFLICT_RESOLUTION_LOG.md](../MERGE_CONFLICT_RESOLUTION_LOG.md)** - Log risoluzione conflitti di merge
 - **[analysis/HTML-STRUCTURE-COMPARISON.md](./analysis/HTML-STRUCTURE-COMPARISON.md)** - Confronto strutturale HTML homepage (2026-04-07)

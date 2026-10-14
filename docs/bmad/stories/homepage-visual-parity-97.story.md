@@ -6,6 +6,9 @@ status: in_progress
 links:
   github_issue: #54
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "homepage visual parity 97% target (tailwind + alpine + lit + daisyui + flowbite) sixteen"
 ---
 # Homepage Visual Parity 97% Target (Tailwind + Alpine + Lit + DaisyUI + Flowbite)
 

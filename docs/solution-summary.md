@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "solution summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Riepilogo Soluzione - Problema Layout Tema Sixteen

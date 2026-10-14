@@ -15,6 +15,7 @@ related:
   - "../../docs/gestionale-docs-index.md"
   - "../../docs/wave1-fo-operator-note.md"
   - "../../../../docs/gestionale-commesse-comparison/functional-readiness.md"
+status: draft
 ---
 
 # Panels SRC vs Themes Sixteen

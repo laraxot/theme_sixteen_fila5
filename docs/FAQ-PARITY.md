@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FAQ PARITY"
 issues: []
 discussions: []
+status: draft
 ---
 
 # FAQ Page Documentation

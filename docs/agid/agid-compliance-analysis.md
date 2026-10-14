@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid compliance analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 📋 Analisi Compliance AGID - Tema Sixteen
@@ -303,15 +304,6 @@ composer require italia/bootstrap-italia:^2.16
 - [Modelli Comuni](https://designers.italia.it/modelli/comuni/)
 
 ---
-
-title: "agid compliance analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid compliance analysis"
-issues: []
-discussions: []
 **Ultimo aggiornamento**: 1 Settembre 2025  
 **Stato Compliance**: 30% completato  
 **Target Compliance**: 100% entro Dicembre 2025  

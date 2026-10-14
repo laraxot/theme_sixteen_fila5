@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CSS VISUAL ALIGNMENT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 CSS Visual Alignment Plan
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: 🔴 P0
 
 ---
-
-title: "CSS VISUAL ALIGNMENT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "CSS VISUAL ALIGNMENT"
-issues: []
-discussions: []
 ## 📸 Screenshot Analysis
 
 ### Upstream (AGID) vs FixCity

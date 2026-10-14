@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid gap analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🔍 AGID Design System - Gap Analysis
@@ -18,15 +19,6 @@ discussions: []
 **Status**: 🔴 CRITICO - Mancano componenti fondamentali
 
 ---
-
-title: "agid gap analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid gap analysis"
-issues: []
-discussions: []
 ## 📊 Executive Summary
 
 **Conformità attuale**: ~35%  

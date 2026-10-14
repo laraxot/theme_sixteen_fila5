@@ -21,6 +21,7 @@ tags:
      - alpine.js
      - vite
      - tema-sixteen
+status: draft
 ---
 
 # ordinamento Livewire Alpine e bundle ESM tema Sixteen

@@ -6,6 +6,9 @@ status: ready-for-dev
 links:
   github_issue: #999
   discussion: #999
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "ricerca risultati visual parity 97% target sixteen"
 ---
 # Ricerca Risultati Visual Parity 97% Target
 

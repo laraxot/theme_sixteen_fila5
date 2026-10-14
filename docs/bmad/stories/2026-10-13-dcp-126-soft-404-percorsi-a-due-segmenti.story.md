@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "soft-404 catch-all container0 slug0 folio volt ResolvePageAction 404 main vuoto"
 related: [dcp-104, dcp-106, dcp-125]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-126: soft-404 sui percorsi a due segmenti

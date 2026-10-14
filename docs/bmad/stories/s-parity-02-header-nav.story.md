@@ -1,3 +1,11 @@
+---
+title: "STORY-REF-HEADER-NAV-FIX — Correzione parità header e navigazione homepage"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story-ref-header-nav-fix   correzione parità header e navigazione homepage sixteen"
+---
 # STORY-REF-HEADER-NAV-FIX — Correzione parità header e navigazione homepage
 
 ## URL

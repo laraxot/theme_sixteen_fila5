@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "lessons learned header auth state"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Lessons Learned – Header Authenticated State

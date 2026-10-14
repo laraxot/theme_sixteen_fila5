@@ -9,6 +9,7 @@ discussions: []
 name: wizard-visual-parity
 description: Regola di parità visuale per il wizard Segnalazione (tema Sixteen)
 type: concept
+status: draft
 ---
 
 # Parità Visuale del Wizard Segnalazione – Tema Sixteen

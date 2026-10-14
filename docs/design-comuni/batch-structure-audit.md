@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "batch structure audit"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Batch Structure Audit

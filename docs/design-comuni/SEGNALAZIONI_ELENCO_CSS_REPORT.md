@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEGNALAZIONI ELENCO CSS REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni Elenco - CSS/JS Fix Report
@@ -143,15 +144,6 @@ discussions: []
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---
-
-title: "SEGNALAZIONI ELENCO CSS REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEGNALAZIONI ELENCO CSS REPORT"
-issues: []
-discussions: []
 **Stato**: ✅ CSS 90%+ Completato  
 **HTML**: ✅ 95.7%  
 **Prossimo**: Test visivo nel browser  

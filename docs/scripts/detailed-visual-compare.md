@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "detailed visual compare"
 issues: []
 discussions: []
+status: draft
 ---
 
 # detailed-visual-compare.cjs

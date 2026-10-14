@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket 02 dati local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket 02 dati local

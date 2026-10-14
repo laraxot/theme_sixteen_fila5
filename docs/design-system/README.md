@@ -2,6 +2,10 @@
 title: "Sixteen DesignComuni design system"
 type: design-system-index
 owner: Themes/Sixteen
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, design-system]
+qmd: "ownership and usage sixteen"
 ---
 
 # Ownership and usage

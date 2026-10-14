@@ -14,6 +14,7 @@ sources:
   - ../../Main_files/five/segnalazione-02-dati.html
   - ../../Main_files/five/src/style.css
   - ../../../resources/views/components/sections/header/v1.blade.php
+status: draft
 ---
 
 # Header style layer rule

@@ -11,6 +11,7 @@ tags: [css, naming, sixten]
 related:
   - ../../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md
   - ../../architecture/css-filename-english-naming.md
+status: draft
 ---
 
 # Regola tema — CSS filename in inglese

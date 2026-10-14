@@ -10,6 +10,7 @@ discussions: []
 related:
   - ../index.md
   - ../wiki/concepts/design-comuni-parity-method.md
+status: draft
 ---
 
 # Visual Parity Index

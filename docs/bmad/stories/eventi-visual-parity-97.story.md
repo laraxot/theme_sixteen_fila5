@@ -6,6 +6,9 @@ status: review
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "eventi visual parity 97% target sixteen"
 ---
 # Eventi Visual Parity 97% Target
 

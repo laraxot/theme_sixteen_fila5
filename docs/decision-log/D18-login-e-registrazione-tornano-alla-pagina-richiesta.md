@@ -4,6 +4,10 @@ title: "Login e registrazione tornano alla pagina richiesta (url.intended)"
 status: accepted
 date: 2026-10-13
 story: Modules/Fixcity/docs/stories/2026-10-13-dcp-124-viaggio-cittadino-login-registrazione-ritorno.story.md
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d18: login e registrazione tornano alla pagina richiesta sixteen"
 ---
 
 # D18: login e registrazione tornano alla pagina richiesta

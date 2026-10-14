@@ -11,6 +11,7 @@ tags: [sixteen, vite, tailwind, alpine, lit, bootstrap, runtime]
 related:
   - ../../../../../../docs/wiki/memories/sixteen-tailwind-vite-runtime-boundary.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/frontoffice-wizard-theme-runtime-boundary.md
+status: draft
 ---
 
 # No Bootstrap Runtime Assets Rule

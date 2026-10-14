@@ -2,6 +2,11 @@
 type: philosophy-decision
 github_issue: #101
 decision: D15
+title: "D15 — Conferma post-save (segnalazione-04-conferma, 10 sezioni, 1.7KB)"
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
+qmd: "d15   conferma post-save (segnalazione-04-conferma, 10 sezioni, 1.7kb) sixteen"
 ---
 # D15 — Conferma post-save (segnalazione-04-conferma, 10 sezioni, 1.7KB)
 

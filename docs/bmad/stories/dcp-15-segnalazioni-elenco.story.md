@@ -12,6 +12,7 @@ qmd: "design comuni parity dcp-15 segnala-elenco"
 links:
   github_issue: "#15"
   design_ref: "https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-15 — Segnalazioni elenco (tests.segnalazioni-elenco)

@@ -1,3 +1,11 @@
+---
+title: "STORY-700 — Homepage Redesign with Impeccable/Tasteskill Standards"
+type: story
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "story-700   homepage redesign with impeccable/tasteskill standards sixteen"
+---
 # STORY-700 — Homepage Redesign with Impeccable/Tasteskill Standards
 
 **Status**: In Progress

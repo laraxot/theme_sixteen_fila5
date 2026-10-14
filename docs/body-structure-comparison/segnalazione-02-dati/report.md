@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: report
 canonical: ../../../../docs/shared-components/report.md
+status: stub
 ---
 
 See canonical documentation: ../../../../docs/shared-components/report.md

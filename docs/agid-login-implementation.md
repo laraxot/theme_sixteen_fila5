@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid login implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Implementazione Login AGID-Compliant - Tema Sixteen

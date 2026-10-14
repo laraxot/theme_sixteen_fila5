@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/novita.html
 local: http://192.168.1.40:8000/it/tests/novita
+title: "DC-026 — novita"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-026   novita sixteen"
 ---
 
 # DC-026 — novita

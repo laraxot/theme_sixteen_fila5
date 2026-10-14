@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SUMMARY"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Batch Visual Parity — Screenshot Summary

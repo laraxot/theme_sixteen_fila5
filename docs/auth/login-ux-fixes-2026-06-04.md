@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "login ux fixes 2026 06 04"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Login `/it/auth/login` — fix UX/a11y (2026-06-04)

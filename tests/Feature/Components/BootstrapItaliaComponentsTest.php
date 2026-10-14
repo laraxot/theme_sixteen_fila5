@@ -30,17 +30,19 @@ test('skiplinks component renders correctly', function (): void {
 
 test('cookiebar component has gdpr features', function (): void {
     /** @var TestCase $this */
-    $view = $this->view('pub_theme::bootstrap-italia.cookiebar', [
-        'acceptText' => 'Accetta tutti',
-        'rejectText' => 'Rifiuta tutti',
-        'customizeText' => 'Personalizza',
-    ]);
+    $view = $this->view('pub_theme::bootstrap-italia.cookiebar');
 
     $view->assertSee('cookiebar');
-    $view->assertSee('Accetta tutti');
-    $view->assertSee('Rifiuta tutti');
-    $view->assertSee('Personalizza');
-    $view->assertSee('role="alert"');
+    $view->assertSee('role="region"');
+    $view->assertSee('aria-label');
+    $view->assertSee('x-cloak');
+    $view->assertSee('x-show="visible"');
+    $view->assertSee('Accetto');
+    $view->assertSee('Solo necessari');
+    $view->assertSee('Preferenze');
+    $view->assertSee('cookie-policy');
+    $view->assertSee('data-bs-accept', false);
+    $view->assertSee('role="alert"', false);
 });
 
 test('hero component variants', function (): void {

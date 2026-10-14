@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL PARITY ACTION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Visual Parity - Action Plan
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: CRITICAL  
 
 ---
-
-title: "VISUAL PARITY ACTION PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL PARITY ACTION PLAN"
-issues: []
-discussions: []
 ## Current State (Updated 2026-04-04 End of Session)
 
 ### Visual Parity Scores

@@ -10,6 +10,9 @@ issues:
 discussions:
   - https://github.com/laraxot/base_fixcity_fila5/discussions/392
 created: 2026-10-11
+title: "Sixteen — Architettura Folio + JSON content blocks + PageSlugMiddleware"
+tags: [docs, sixteen, investigation]
+qmd: "sixteen   architettura folio + json content blocks + pageslugmiddleware sixteen"
 ---
 
 # Sixteen — Architettura Folio + JSON content blocks + PageSlugMiddleware

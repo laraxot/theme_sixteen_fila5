@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme namespace issue"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Problema Namespace Tema Sixteen

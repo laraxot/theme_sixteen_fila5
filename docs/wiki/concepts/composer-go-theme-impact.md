@@ -13,6 +13,7 @@ related:
   - ./filament5-schema-form-access-rule.md
   - ../../../../../../docs/wiki/skills/cursor-second-brain-max-workflow.md
   - ../../../../../../docs/wiki/memories/second-brain-max-power-discipline.md
+status: draft
 ---
 
 # Sixteen — dopo `composer go`

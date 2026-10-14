@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione 01 privacy reference"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione 01 privacy reference

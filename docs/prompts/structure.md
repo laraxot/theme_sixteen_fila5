@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "structure"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Structure
@@ -110,15 +111,6 @@ Duplicare temporaneamente gli array e' intenzionale: e' il male minore per stacc
 Solo forward-only. Studiare `git log/show`, mai ripristinare vecchi file.
 
 ---
-
-title: "structure"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "structure"
-issues: []
-discussions: []
 # Best Practices ✅
 
 ## Naming Conventions

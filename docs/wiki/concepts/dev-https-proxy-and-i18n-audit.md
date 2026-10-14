@@ -7,6 +7,7 @@ updated: 2026-10-07
 qmd: "dev https proxy 8080 8081 trustProxies geolocation secure context i18n audit it en puppeteer contrasto"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Proxy HTTPS di sviluppo

@@ -1,3 +1,11 @@
+---
+title: "Design Comuni — workboard completo"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "design comuni   workboard completo sixteen"
+---
 # Design Comuni — workboard completo
 
 ## Fonte

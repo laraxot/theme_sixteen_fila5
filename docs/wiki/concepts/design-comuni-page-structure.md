@@ -7,6 +7,7 @@ discussions: []
 title: Design Comuni Italia — Struttura pagine di riferimento
 type: concept
 tags: [design-comuni, bootstrap-italia, page-templates, UX, sixteen]
+status: draft
 ---
 
 # Design Comuni Italia — Struttura pagine di riferimento

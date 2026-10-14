@@ -1,3 +1,11 @@
+---
+title: "Parity Verification Status — /it/tests/* vs Design Comuni"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "parity verification status   /it/tests/* vs design comuni sixteen"
+---
 # Parity Verification Status — /it/tests/* vs Design Comuni
 
 ## Screenshot comparison (Quantitative data captured)

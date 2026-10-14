@@ -9,6 +9,7 @@ discussions: []
 name: coordinate-picker-fullscreen-wizard-contract
 description: CoordinatePicker fullscreen behavior inside the segnalazione wizard
 type: concept
+status: draft
 ---
 
 # Coordinate Picker Fullscreen Wizard Contract

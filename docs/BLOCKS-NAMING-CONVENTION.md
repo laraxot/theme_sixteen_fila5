@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BLOCKS NAMING CONVENTION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Naming Convention Blocks — Theme Sixteen
@@ -16,15 +17,6 @@ discussions: []
 Questo file è storico; per allowlist completa e cosa mettere in ogni cartella usare **folder-vocabulary.md**.
 
 ---
-
-title: "BLOCKS NAMING CONVENTION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BLOCKS NAMING CONVENTION"
-issues: []
-discussions: []
 # Naming Convention Blocks - Theme Sixteen
 
 > **Regola**: I nomi delle cartelle in `resources/views/components/blocks/` devono seguire Flowbite e Tailwind UI.

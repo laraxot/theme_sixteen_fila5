@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "theme owned scripts rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Theme-Owned Scripts Rule

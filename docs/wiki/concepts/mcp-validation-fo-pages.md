@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "mcp validation fo pages"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Validazione MCP — pagine FO Sixteen
@@ -16,15 +17,6 @@ discussions: []
 **Story:** [STORY-137](../../../../../../docs/stories/STORY-137-mcp-validation-mauve-pagespeed-gsc.md)
 
 ---
-
-title: "mcp validation fo pages"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "mcp validation fo pages"
-issues: []
-discussions: []
 ## URL smoke (ordine consigliato)
 
 | Priorità | Path | Perché |

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI HTML REPLICATION ACTION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni HTML Replication - Action Plan
@@ -17,15 +18,6 @@ discussions: []
 **Priority:** 🔴 **Critical**
 
 ---
-
-title: "DESIGN COMUNI HTML REPLICATION ACTION PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI HTML REPLICATION ACTION PLAN"
-issues: []
-discussions: []
 ## 🎯 Goal
 
 Replicare **ESATTAMENTE** l'HTML di Design Comuni (dentro `<body>`, esclusi `<script>`) usando componenti Blade riutilizzabili.

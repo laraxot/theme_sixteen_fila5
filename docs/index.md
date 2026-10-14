@@ -1,3 +1,14 @@
+---
+title: "Sixteen Theme Documentation Index (BMAD + Second Brain + QMD + Graphify)"
+type: index
+updated: 2026-10-14
+tags: [docs, sixteen]
+qmd: "sixteen theme documentation index (bmad + second brain + qmd + graphify) sixteen"
+status: stale
+---
+
+> Nota 2026-10-14 (docs-audit): indice BMAD/QMD precedente a 00-INDEX.md: 4 percorsi della tabella 'Visual Comparison' non esistono (visual-comparison/segnalazione-dettaglio/README.md, homepage/comparison.md, VISUAL-PARITY-REPORT.md, COMPLETE-REPORT.md; structure-analysis/ esiste) e nessun file wiki/story-8-108-* c'e'; l'indice vigente e' 00-INDEX.md. Contenuto non riscritto, verificare prima di usarlo.
+
 # Sixteen Theme Documentation Index (BMAD + Second Brain + QMD + Graphify)
 
 This index organizes all documentation under `/laravel/Themes/Sixteen/docs/` for BMAD, second brain (hindsight), QMD search (`qmd` CLI), and graph visualization (`graphify` / `qmd` graph commands).

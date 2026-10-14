@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "RISULTATI RICERCA HTML COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Risultati Ricerca - HTML & Visual Comparison
@@ -26,15 +27,6 @@ discussions: []
 - [Comparison Screenshots](../screenshots/risultati-ricerca/) - Before/after screenshots
 
 ---
-
-title: "RISULTATI RICERCA HTML COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "RISULTATI RICERCA HTML COMPARISON"
-issues: []
-discussions: []
 All 10 key structural elements verified as present and matching:
 
 | # | Element | Status | Count |

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VITE MANIFEST ERROR FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite Manifest Error Fix - @vite() Second Parameter
@@ -16,15 +17,6 @@ discussions: []
 **Priority:** 🔴 **Critical**  
 
 ---
-
-title: "VITE MANIFEST ERROR FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VITE MANIFEST ERROR FIX"
-issues: []
-discussions: []
 ## 🎯 Error
 
 ```

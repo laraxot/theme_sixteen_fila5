@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design comuni census blocks"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Pages Census - Blocchi Riusabili
@@ -16,15 +17,6 @@ discussions: []
 Totale pagine: **38** (9 Generali + 2 Amministrazione + 2 Novità + 3 Servizi + 2 Vivere il Comune + 8 Prenotazione Appuntamento + 2 Richiesta Assistenza + 7 Segnalazione Disservizio)
 
 ---
-
-title: "design comuni census blocks"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "design comuni census blocks"
-issues: []
-discussions: []
 ## Blocchi Comuni (RIUSABILI)
 
 ### 🔴 HEADER (100% - TUTTE LE PAGINE)

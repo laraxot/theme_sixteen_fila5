@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Parity Report: segnalazione-01-privacy
@@ -17,15 +18,6 @@ discussions: []
 **Local:** http://127.0.0.1:8000/it/tests/segnalazione-01-privacy
 
 ---
-
-title: "report"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "report"
-issues: []
-discussions: []
 ## 📊 Summary
 
 | Metric | Value |

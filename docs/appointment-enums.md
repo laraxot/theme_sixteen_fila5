@@ -4,6 +4,8 @@ type: reference
 tags: [sixteen, appointment, enum, filament, i18n]
 created: 2026-10-06
 updated: 2026-10-08
+status: draft
+qmd: "appointment enums (sixteen) sixteen"
 ---
 
 # Appointment enums (Sixteen)

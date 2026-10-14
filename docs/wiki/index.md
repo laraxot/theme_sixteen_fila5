@@ -13,7 +13,8 @@ related:
   - ../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md
   - ../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
   - ./concepts/ai-harness-theme-sixteen.md
-  - ../../docs/wiki/concepts/ai-harness-theme-discipline.md
+  - ../../../Barthelemy/docs/wiki/concepts/ai-harness-theme-discipline.md
+status: draft
 ---
 
 # Sixteen Theme Wiki
@@ -25,6 +26,10 @@ Indice operativo minimo del wiki tema `Sixteen`.
 Il tema accumula solo conoscenza locale di presentazione, parity visuale, asset pipeline e boundary tema/modulo.
 Le regole generiche di context compression restano nel wiki root e nel modulo AI; qui si documenta solo l'impatto sul corpus del tema. **DB/modelli**: parità migrate/factory/seeder nei moduli — [architecture-module-model-artifact-parity.md](../../../../../docs/wiki/bmad/architecture-module-model-artifact-parity.md). **Ogni `.md` nuovo**: [frontmatter + GitHub](../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md).
 
+### Boundary legale e autenticazione
+
+- [legal-consent-ui-boundary](./concepts/legal-consent-ui-boundary.md) — UI accessibile e multilingua; policy ed evidenze restano in Gdpr/User.
+
 **Stack frontoffice (pub)**: Tailwind + [DaisyUI docs](https://daisyui.com/docs/) + Alpine + Lit (Geo) + Filament v5 dove applicabile; **alias stile preferiti con `@apply`** nel CSS tema: [bootstrap-italia-tailwind-philosophy](./concepts/bootstrap-italia-tailwind-philosophy.md); nomi classe Design Comuni / HTML semantico: [design-comuni-class-mapping](./entities/design-comuni-class-mapping.md).
 
 ## AI / second brain (root)
@@ -32,18 +37,18 @@ Le regole generiche di context compression restano nel wiki root e nel modulo AI
 - [hackernoon-ai-coding-tips-fixcity-map](../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md)
 - [ai-harness-theme-sixteen](./concepts/ai-harness-theme-sixteen.md) — harness locale tema
 - [second-brain-theme-boundary](./concepts/second-brain-theme-boundary.md) — confine memoria tema
-- [llm-wiki prompt](../../../../bashscripts/tools/prompts/llm-wiki.txt) — router agente
+- [llm-wiki prompt](../../../../bashscripts/tools/prompts/llm-wiki.txt) _(target mancante, verificato 2026-10-14)_ — router agente
 - [bmad/architecture](../../../../../docs/wiki/bmad/architecture.md)
 
 ## Gestionale / moduli (2026-07-27)
 
 Menu admin Filament **non** dipende dal tema — dipende da `config/local/workorder/modules_statuses.json`:
 
-- [tenant-modules-navigation-discipline.md](../../docs/tenant-modules-navigation-discipline.md) — hub Themes
-- [runtime-config-religion-hub.md](../../docs/shared-components/runtime-config-religion-hub.md) — permission + config.php + statuses + Dashboard
-- [module-dashboard-page-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-dashboard-page-mandatory.md) — landing `{modulo}/admin`
-- [module-admin-panel-provider-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-admin-panel-provider-mandatory.md) — panel `{modulo}/admin`
-- [module-providers-dual-registration-mandatory.md](../../../Modules/Xot/docs/wiki/concepts/module-providers-dual-registration-mandatory.md) — 2 provider in module.json + composer.json
+- [tenant-modules-navigation-discipline.md](../../docs/tenant-modules-navigation-discipline.md) _(target mancante, verificato 2026-10-14)_ — hub Themes
+- [runtime-config-religion-hub.md](../../docs/shared-components/runtime-config-religion-hub.md) _(target mancante, verificato 2026-10-14)_ — permission + config.php + statuses + Dashboard
+- [module-dashboard-page-mandatory.md](../../../../../bashscripts/ai/wiki/rules/module-dashboard-page-mandatory.md) — landing `{modulo}/admin`
+- [module-admin-panel-provider-mandatory.md](../../../../../bashscripts/ai/wiki/rules/module-admin-panel-provider-mandatory.md) — panel `{modulo}/admin`
+- [module-providers-dual-registration-mandatory.md](../../../../../bashscripts/ai/wiki/rules/module-providers-dual-registration-mandatory.md) — 2 provider in module.json + composer.json
 - [tenant-module-status-registry](../../../../Modules/Tenant/docs/tenant-module-status-registry.md) — canon Tenant
 
 ## Testing / PHPStan (2026-06-13)
@@ -54,7 +59,7 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 - [page-directory-structure](../page-directory-structure.md) — regola Folio canonica (root docs)
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
-- [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) — hub temi
+- [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) _(target mancante, verificato 2026-10-14)_ — hub temi
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
@@ -80,7 +85,7 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 
 ## Pagine
 - [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruire mappa `/it` da documentazione
-- [ticket-list-map-integration.md](./concepts/ticket-list-map-integration.md) — blade, filtri, contratto JSON
+- [ticket-list-map-integration.md](./concepts/ticket-list-map-integration.md) _(target mancante, verificato 2026-10-14)_ — blade, filtri, contratto JSON
 - [geo-map-marker-civic-pin-theme-boundary.md](./concepts/geo-map-marker-civic-pin-theme-boundary.md) — override CSS marker
 - [geo-map-popup-leaflet-boundary.md](./concepts/geo-map-popup-leaflet-boundary.md) — popup + conflitti CSS tema
 - [geo-map-lit-reconstruction-guide.md](../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md) — ricostruzione marker + popup (SSoT modulo Geo)
@@ -105,7 +110,7 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 - [fo-pa-tokens-uniformity](../architecture/fo-pa-tokens-uniformity.md) — token PA + `.fo-filament-form-shell`; no hex per `data-page`
 - [auth-login-ux-design-wcag](./design/auth-login-ux-design-wcag.md) — login/register WCAG + Filament primary
 - [filament-first-frontoffice](./concepts/filament-first-frontoffice.md) — Filament Blade su FO (`x-filament::tabs` su `/it`, skin Design Comuni)
-- [ticket-list-filament-tabs](./concepts/ticket-list-filament-tabs.md) — tab Mappa/Elenco STORY-065
+- [ticket-list-filament-tabs](./concepts/ticket-list-filament-tabs.md) _(target mancante, verificato 2026-10-14)_ — tab Mappa/Elenco STORY-065
 - [wizard-parity-documentation-map](./concepts/wizard-parity-documentation-map.md) — ordine lettura parity segnalazione (dry tema)
 - [bootstrap-italia-tailwind-philosophy](./concepts/bootstrap-italia-tailwind-philosophy.md) — `@apply` come alias, HTML semantico
 - [daisyui-pro-contro-metriche](./concepts/daisyui-pro-contro-metriche.md) — sintesi tema; SSoT in modulo Cms

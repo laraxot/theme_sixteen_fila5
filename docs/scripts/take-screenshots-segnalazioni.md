@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "take screenshots segnalazioni"
 issues: []
 discussions: []
+status: draft
 ---
 
 # take-screenshots-segnalazioni.cjs

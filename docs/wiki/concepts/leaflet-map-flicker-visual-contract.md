@@ -9,6 +9,7 @@ issues: []
 discussions: []
 name: leaflet-map-flicker-visual-contract
 description: Theme-side visual contract for stable Leaflet rendering inside public wizards
+status: draft
 ---
 
 # Leaflet Map Flicker Visual Contract

@@ -5,6 +5,10 @@ type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/servizi/index.html
 local: http://192.168.1.40:8000/it/tests/servizi-index
 superseded_by: ../2026-10-13-dcp-31-servizi-index-catalogo-flussi.story.md
+title: "DC-002 — servizi-index"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-002   servizi-index sixteen"
 ---
 
 # DC-002 — servizi-index

@@ -8,6 +8,10 @@ funzionalita: componente segnalazione-crea.blade.php ora include mx-auto max-w-3
 norme: multilingua (label da $data), mobile (responsive), accessibilità (aria-label su mappa), privacy (dichiarazione valore pubblico), APCA contrast
 zen: geo prima descrizione — il cittadino localizza prima di parlare
 second-brain: kp-174d15a58ff94901b2b0df0d86b8907a (aperto, geo persistente, auth-state, multilingua)
+title: "Visual Fix — Wizard Step 2 (Dati di Segnalazione)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "visual fix   wizard step 2 (dati di segnalazione) sixteen"
 ---
 # Visual Fix — Wizard Step 2 (Dati di Segnalazione)
 

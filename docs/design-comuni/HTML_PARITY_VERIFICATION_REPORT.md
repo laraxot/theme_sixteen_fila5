@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML PARITY VERIFICATION REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Parity Verification Report - Design Comuni Italia
@@ -17,15 +18,6 @@ discussions: []
 **FixCity**: http://fixcity.local/it/tests/homepage
 
 ---
-
-title: "HTML PARITY VERIFICATION REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML PARITY VERIFICATION REPORT"
-issues: []
-discussions: []
 ## 📊 Executive Summary
 
 ### Obiettivo

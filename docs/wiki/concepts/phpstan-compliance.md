@@ -15,6 +15,7 @@ related:
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/phpstan-compliance.md
   - ../../../../docs/wiki/concepts/phpstan-level-max-compliance.md
   - ../../../../../../docs/wiki/rules/git-forward-only.md
+status: draft
 ---
 
 # Sixteen Theme — PHPStan Type Compliance

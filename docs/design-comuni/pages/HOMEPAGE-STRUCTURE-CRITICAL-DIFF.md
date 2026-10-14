@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HOMEPAGE STRUCTURE CRITICAL DIFF"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🚨 HOMEPAGE: CRITICAL HTML DIFFERENCES

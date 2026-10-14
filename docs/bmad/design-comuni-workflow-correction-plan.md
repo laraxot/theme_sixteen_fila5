@@ -13,6 +13,7 @@ discussions:
 related:
   - ../../../Modules/Fixcity/docs/bmad/design-comuni-service-workflow-audit-2026-09-27.md
   - ../../../../Modules/Fixcity/docs/bmad/stories/STORY-525-design-comuni-report-journey-transparency.md
+qmd: "correction plan sixteen"
 ---
 
 # Correction plan

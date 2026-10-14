@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione 02 dati html comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: segnalazione-02-dati
@@ -16,15 +17,6 @@ discussions: []
 **Local**: http://127.0.0.1:8000/it/tests/segnalazione-02-dati
 
 ---
-
-title: "segnalazione 02 dati html comparison"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "segnalazione 02 dati html comparison"
-issues: []
-discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

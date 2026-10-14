@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "accessibility"
 issues: []
 discussions: []
+status: draft
 ---
 
 
@@ -218,15 +219,6 @@ axe.run((err, results) => {
 - **Struttura semantica**: Corretta
 
 ---
-
-title: "accessibility"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "accessibility"
-issues: []
-discussions: []
 **Versione**: 1.0.0  
 **Ultimo aggiornamento**: Gennaio 2025  
 **Standard**: WCAG 2.1 AA, Legge Stanca, Linee Guida AGID 

@@ -10,6 +10,7 @@ qmd: "sixteen git forward-only never restore checkout reset revert study show"
 related:
   - ../../../../../../docs/wiki/concepts/git-forward-only-discipline.md
   - ../../../../../../docs/wiki/concepts/git-forward-only-study-old-version.md
+status: draft
 ---
 
 # Politica Git: Forward-Only (Sixteen)

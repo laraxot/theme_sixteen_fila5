@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VIEW PATH FIX REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # View Path Fix - Progress Report
@@ -16,15 +17,6 @@ discussions: []
 **Next**: CSS/JS visual fixes  
 
 ---
-
-title: "VIEW PATH FIX REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VIEW PATH FIX REPORT"
-issues: []
-discussions: []
 ## Problem Identified
 
 Pages were broken with error:

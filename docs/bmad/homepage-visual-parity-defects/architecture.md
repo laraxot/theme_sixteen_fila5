@@ -1,3 +1,11 @@
+---
+title: "BMAD Architecture for Homepage Visual Parity Fix"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "bmad architecture for homepage visual parity fix sixteen"
+---
 # BMAD Architecture for Homepage Visual Parity Fix
 
 ## Defect Analysis (14 Issues Identified)
