@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PHPSTAN LAYOUT FIX COMPLETE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # PHPStan + Layout Fix - BMad Method Complete
@@ -16,15 +17,6 @@ discussions: []
 **Server:** http://0.0.0.0:8000  
 
 ---
-
-title: "PHPSTAN LAYOUT FIX COMPLETE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "PHPSTAN LAYOUT FIX COMPLETE"
-issues: []
-discussions: []
 ## 🎯 Executive Summary
 
 Ho completato un workflow BMad-METHOD completo che include:

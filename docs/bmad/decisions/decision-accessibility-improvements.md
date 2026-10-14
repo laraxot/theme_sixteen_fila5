@@ -25,4 +25,7 @@ next_steps:
   - Verify with WCAG 2.1 AA
 created_at: 2026-10-11
 updated_at: 2026-10-11
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "decision accessibility improvements sixteen"
 ---

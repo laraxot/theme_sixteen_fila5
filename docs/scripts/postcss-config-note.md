@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "postcss config note"
 issues: []
 discussions: []
+status: draft
 ---
 
 # postcss.config.cjs — Design Decision

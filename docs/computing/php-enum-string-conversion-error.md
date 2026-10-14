@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "php enum string conversion error"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Errore: "Object of class Enum could not be converted to string"

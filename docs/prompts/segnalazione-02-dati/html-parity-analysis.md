@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "html parity analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Parity Analysis: segnalazione-02-dati

@@ -6,6 +6,9 @@ type: story
 links:
   github_issue: #999
   discussion: #design-comuni
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "fix random design comuni page (risultati-ricerca selected) sixteen"
 ---
 # Fix Random Design Comuni Page (risultati-ricerca selected)
 

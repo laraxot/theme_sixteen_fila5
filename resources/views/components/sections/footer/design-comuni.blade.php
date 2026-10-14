@@ -117,7 +117,7 @@
                 <div class="col-12 footer-items-wrapper">
                     <div class="footer-bottom">
                         @foreach ($d('footer_bottom_links', []) as $link)
-                            <a{!! $attr($link['url'] ?? '') !!}>{{ $link['label'] ?? '' }}</a>
+                            <a{!! $attr($link['url'] ?? '') !!}@if (! empty($link['preferences'])) data-cookie-preferences data-element="cookie-preferences"@endif>{{ $link['label'] ?? '' }}</a>
                         @endforeach
                     </div>
                 </div>

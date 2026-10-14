@@ -16,6 +16,7 @@ related:
   - "../sources/design-comuni-header-reference.md"
   - "../concepts/header-section-owner-rule.md"
   - "../concepts/header-style-layer-rule.md"
+status: draft
 ---
 
 # Header HTML Structure Delta — Design Comuni vs Sixteen

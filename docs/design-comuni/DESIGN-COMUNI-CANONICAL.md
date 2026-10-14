@@ -5,6 +5,7 @@ tags: [design-comuni, tailwind, bootstrap-italia-migration, canonical]
 created: 2026-10-11
 updated: 2026-10-11
 qmd: "design comuni canonical"
+status: draft
 ---
 
 # Design Comuni v2.4.0 — Canonical Reference (TailwindCSS)

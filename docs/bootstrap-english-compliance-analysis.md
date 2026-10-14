@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bootstrap english compliance analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Bootstrap Italia Compliance Analysis - Sixteen Theme

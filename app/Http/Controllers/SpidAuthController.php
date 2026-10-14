@@ -198,8 +198,7 @@ class SpidAuthController extends Controller
     public function singleLogout(Request $request): Response
     {
         try {
-            // Processa la richiesta SLO
-            $logoutRequest = $request->input('SAMLRequest');
+            // Processa la richiesta SLO (la SAMLRequest non viene ancora interpretata: oggi si registra e si chiude la sessione)
             $relayState = $request->string('RelayState')->toString();
 
             Log::info('SPID SLO received', [

@@ -8,6 +8,9 @@ links:
   tech_spec: "docs/bmad/front-office-redesign-tech-spec.md"
   decision_log: "docs/decision-log.md"
   design_ref: "https://italia.github.io/design-comuni-pagine-statiche/index.html"
+status: draft
+updated: 2026-10-11
+qmd: "product requirements document (prd)   front office redesign designcomuni v2.4.0 sixteen"
 ---
 
 # Product Requirements Document (PRD) — Front Office Redesign DesignComuni v2.4.0

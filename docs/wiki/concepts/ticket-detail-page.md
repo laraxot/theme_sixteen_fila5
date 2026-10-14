@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket detail page"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket Detail Page - Static Map + Comments

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "7 4 segnalazioni elenco html parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Story 7.4: HTML Parity — ticket-list

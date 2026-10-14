@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "06 evidence section"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Block 06: Evidence Section

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bootstrap italia classes tailwind apply"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎨 Bootstrap Italia Classes + Tailwind @apply
@@ -318,15 +319,6 @@ laravel/Themes/Sixteen/
 - `resources/views/components/blocks/` - Block views
 
 ---
-
-title: "bootstrap italia classes tailwind apply"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "bootstrap italia classes tailwind apply"
-issues: []
-discussions: []
 **Stato**: ✅ **INTEGRATO - Bootstrap Italia Classes + Tailwind @apply**  
 **HTML**: **Classi Bootstrap Italia**  
 **CSS**: **Tailwind @apply**  

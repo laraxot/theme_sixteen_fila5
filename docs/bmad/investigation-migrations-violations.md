@@ -11,6 +11,7 @@ related:
   - "laravel/Themes/Sixteen/docs/bmad/decision-log.md"
 created: 2026-10-11
 updated: 2026-10-11
+qmd: "investigazione: migrazioni fixcity che violano convenzioni sixteen"
 ---
 
 # Investigazione: migrazioni Fixcity che violano convenzioni

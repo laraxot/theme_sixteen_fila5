@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEGNALAZIONI ELENCO FIX COMPLETI"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazioni Elenco - Fix Completi e Analisi Elementi
@@ -189,15 +190,6 @@ x-data="{
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
-title: "SEGNALAZIONI ELENCO FIX COMPLETI"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEGNALAZIONI ELENCO FIX COMPLETI"
-issues: []
-discussions: []
 **Data**: 2026-04-03  
 **Stato**: ✅ Tutti i problemi risolti, documentazione completa  
 **Match**: 92.5%

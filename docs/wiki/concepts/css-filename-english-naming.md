@@ -12,6 +12,7 @@ related:
   - ../../architecture/css-filename-english-naming.md
   - ../../../../../../docs/wiki/decisions/css-filenames-english-no-italian.md
   - ../rules/no-italian-component-names.md
+status: draft
 ---
 
 # CSS filenames — solo inglese

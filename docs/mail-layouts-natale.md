@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "mail layouts natale"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Mail Layouts Natale
@@ -262,14 +263,5 @@ $template = MailTemplate::create([
 - [6 Principles](../../../../bashscripts/docs_naming/6_principi.md) - Principi di design
 
 ---
-
-title: "mail layouts natale"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "mail layouts natale"
-issues: []
-discussions: []
 **Creato con ❄️ per le festività 2025-2026**  
 **Compliance: DRY + KISS + Clean Code** 🎄

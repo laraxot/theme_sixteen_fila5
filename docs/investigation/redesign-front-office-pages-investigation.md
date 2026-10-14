@@ -7,6 +7,10 @@ frontmatter:
   github_issue: "#55"
 links:
   github_issue: "#55"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, investigation]
+qmd: "redesign front office pages investigation sixteen"
 ---
 ## Contesto
 

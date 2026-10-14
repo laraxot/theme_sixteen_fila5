@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HEADER ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header Analysis - Design Comuni vs FixCity
@@ -16,15 +17,6 @@ discussions: []
 **Priority:** 🔴 **Critical**  
 
 ---
-
-title: "HEADER ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HEADER ANALYSIS"
-issues: []
-discussions: []
 ## 📊 Comparison Overview
 
 ### Reference

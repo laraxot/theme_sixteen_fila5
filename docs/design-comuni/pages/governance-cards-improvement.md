@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "governance cards improvement"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🎯 Governance Cards + Events Calendar - CSS Improvement Plan

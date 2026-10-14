@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SECTION STRUCTURE DIFF"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Section Structure Differences

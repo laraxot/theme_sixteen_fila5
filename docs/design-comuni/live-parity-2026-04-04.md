@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "live parity 2026 04 04"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Live Parity Audit 2026-04-04

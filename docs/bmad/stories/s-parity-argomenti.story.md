@@ -1,3 +1,11 @@
+---
+title: "STORY-PARITY-ARGOMENTI — Parity visuale e funzionale"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story-parity-argomenti   parity visuale e funzionale sixteen"
+---
 # STORY-PARITY-ARGOMENTI — Parity visuale e funzionale
 
 ## URL

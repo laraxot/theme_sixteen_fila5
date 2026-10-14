@@ -5,6 +5,9 @@ document_type: verification-report
 category: bmad
 status: verified
 qmd: "Sixteen homepage Playwright visual parity HTML parity deterministic picsum WCAG"
+type: note
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Verifica HP-001

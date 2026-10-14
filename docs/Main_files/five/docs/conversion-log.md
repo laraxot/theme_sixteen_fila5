@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: conversion-log
 canonical: ../../../../../docs/shared-components/conversion-log.md
+status: stub
 ---
 
 See canonical documentation: ../../../../../docs/shared-components/conversion-log.md

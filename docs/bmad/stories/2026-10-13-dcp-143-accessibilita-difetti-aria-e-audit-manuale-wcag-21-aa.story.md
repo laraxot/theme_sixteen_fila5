@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "accessibilita axe aria-allowed-attr aria-required-children tickets tab mappa elenco wizard tastiera screen reader nvda wcag 2.1 aa audit manuale"
 related: [dcp-112, dcp-132, dcp-49, dcp-98]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-143: le pagine pubbliche e il wizard passano axe e un audit manuale

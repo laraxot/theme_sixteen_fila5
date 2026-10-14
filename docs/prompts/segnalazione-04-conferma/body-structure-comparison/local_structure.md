@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "local structure"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Local structure

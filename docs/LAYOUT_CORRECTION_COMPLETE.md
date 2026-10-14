@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "LAYOUT CORRECTION COMPLETE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Layout Architecture Correction - Complete
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Correzione architetturale
 
 ---
-
-title: "LAYOUT CORRECTION COMPLETE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "LAYOUT CORRECTION COMPLETE"
-issues: []
-discussions: []
 ## 🐛 Problema Rilevato
 
 ### Errore in `[slug].blade.php`

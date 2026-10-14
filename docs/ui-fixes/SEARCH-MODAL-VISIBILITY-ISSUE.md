@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEARCH MODAL VISIBILITY ISSUE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Search Modal Visibility Issue - Detailed Analysis
@@ -17,15 +18,6 @@ discussions: []
 **Status**: Documented, ready for fix  
 
 ---
-
-title: "SEARCH MODAL VISIBILITY ISSUE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEARCH MODAL VISIBILITY ISSUE"
-issues: []
-discussions: []
 ## 🔍 Problem Details
 
 ### HTML Structure

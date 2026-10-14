@@ -7,6 +7,10 @@ zen: passo invisibile = identità; passo 2 = dati + geo; passo 3 = riepilogo con
 stack: Tailwind SVG statica (no dipendenza esterna); Alpine per stati interattivi se necessario
 second-brain: kp-174d (aperto, geo persistente tra wizard step)
 loop: APERTO (97% — componente creato, integrazione wizard rimanente)
+title: "Geo Component — Mappa Statica"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "geo component   mappa statica sixteen"
 ---
 # Geo Component — Mappa Statica
 

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "JSON DRIVEN PHILOSOPHY"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filosofia JSON-Driven — La Religione Laraxot

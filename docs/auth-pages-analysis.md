@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "auth pages analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Pagine di Autenticazione - AGID e Bootstrap Italia
@@ -372,14 +373,5 @@ Il componente `@livewire(\Modules\User\Http\Livewire\Auth\Login::class)` deve ri
 5. **Documentazione Finale**: Aggiornare guide per sviluppatori
 
 ---
-
-title: "auth pages analysis"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "auth pages analysis"
-issues: []
-discussions: []
 *Documento creato: Luglio 2025*
 *Conforme a: AGID, Bootstrap Italia, WCAG 2.1 AA*

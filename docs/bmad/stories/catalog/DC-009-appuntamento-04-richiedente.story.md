@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-04-richiedente.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-04-richiedente
+title: "DC-009 — appuntamento-04-richiedente"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-009   appuntamento-04-richiedente sixteen"
 ---
 
 # DC-009 — appuntamento-04-richiedente

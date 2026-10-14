@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ticket 04 conferma reference"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Ticket 04 conferma reference

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML PARITY WORKFLOW"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Parity Workflow
@@ -14,15 +15,6 @@ discussions: []
 Guida completa per raggiungere la parità strutturale HTML (≥90%) con le pagine Design Comuni.
 
 ---
-
-title: "HTML PARITY WORKFLOW"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML PARITY WORKFLOW"
-issues: []
-discussions: []
 ## Panoramica
 
 Questo documento descrive il flusso di lavoro per verificare e migliorare la parità HTML tra le pagine reference di Design Comuni e le nostre implementazioni locali.

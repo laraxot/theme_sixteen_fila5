@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html
 local: http://192.168.1.40:8000/it/tests/argomenti
+title: "DC-012 — argomenti"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-012   argomenti sixteen"
 ---
 
 # DC-012 — argomenti

@@ -2,6 +2,11 @@
 type: epic-story
 github_issue: #104
 decision: D19
+title: "D19 — CoordinatePicker dinamiche (luogo reale dell'utente, NON fisso)"
+status: draft
+updated: 2026-10-14
+tags: [docs, sixteen, decision-log]
+qmd: "d19   coordinatepicker dinamiche (luogo reale dell'utente, non fisso) sixteen"
 ---
 # D19 — CoordinatePicker dinamiche (luogo reale dell'utente, NON fisso)
 

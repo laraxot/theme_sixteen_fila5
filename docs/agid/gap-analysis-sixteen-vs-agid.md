@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "gap analysis sixteen vs agid"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Gap Analysis: Tema Sixteen vs Siti Comunali AGID

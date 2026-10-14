@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual fix report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Fix Report - 2026-04-02

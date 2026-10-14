@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "UCFIRST ARRAY ERROR FIX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # ucfirst() Array Error Fix - Header Social
@@ -21,15 +22,6 @@ discussions: []
 **File:** `components/blocks/header/slim.blade.php:62`
 
 ---
-
-title: "UCFIRST ARRAY ERROR FIX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "UCFIRST ARRAY ERROR FIX"
-issues: []
-discussions: []
 ## 🐛 Errore
 
 ```

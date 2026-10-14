@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 supersedes: dcp-16
 qmd: "design comuni parity segnalazione disservizio report-step report-area report-detail report-list stepper area personale elenco bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-23: segnalazione

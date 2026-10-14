@@ -7,6 +7,9 @@ related: Modules/Geo/docs/stories/2026-10-13-dcp-127-mappa-centratura-senza-http
 links:
   github_issue: "#999"
   discussion: "#design-comuni"
+updated: 2026-10-14
+tags: [docs, sixteen, bmad]
+qmd: "user location   dynamic center (not fixed coordinates) sixteen"
 ---
 # User Location — Dynamic Center (Not Fixed Coordinates)
 

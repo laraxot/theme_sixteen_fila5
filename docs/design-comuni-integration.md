@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "design comuni integration"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🏛️ DESIGN COMUNI ITALIANI - INTEGRATION GUIDE
@@ -17,15 +18,6 @@ discussions: []
 **Purpose**: Integrare il design system ufficiale dei comuni italiani in FixCity  
 
 ---
-
-title: "design comuni integration"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "design comuni integration"
-issues: []
-discussions: []
 ## 📊 ANALISI DESIGN COMUNI
 
 ### Scopo

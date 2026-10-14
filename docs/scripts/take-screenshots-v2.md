@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "take screenshots v2"
 issues: []
 discussions: []
+status: draft
 ---
 
 # take-screenshots-v2.cjs

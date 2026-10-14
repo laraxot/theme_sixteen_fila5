@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ANALISI"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Visual Comparison - Analisi 90%+ HTML
@@ -15,15 +16,6 @@ discussions: []
 **Conclusione**: HTML Structure ~95% MATCH ✅
 
 ---
-
-title: "ANALISI"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "ANALISI"
-issues: []
-discussions: []
 ## Screenshot Comparison
 
 | Reference | Local |

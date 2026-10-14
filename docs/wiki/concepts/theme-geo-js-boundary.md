@@ -13,6 +13,7 @@ related:
   - ../../../../../Modules/Geo/docs/wiki/concepts/map-js-module-naming-rule.md
   - theme-owned-scripts-rule.md
   - coordinate-picker-design-comuni-parity-rule.md
+status: draft
 ---
 
 # Boundary: JS mappa Geo nel tema Sixteen

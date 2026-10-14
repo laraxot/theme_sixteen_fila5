@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid naming correction complete"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Correzione Completa: Naming Convention AGID nel Tema Sixteen
@@ -123,13 +124,4 @@ grep -r "agid" Themes/Sixteen/resources/views/ | grep -v "agid.gov.it"
 - [components.md](./components.md)
 
 ---
-
-title: "agid naming correction complete"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid naming correction complete"
-issues: []
-discussions: []
 *Questa correzione è definitiva e deve essere sempre rispettata.*

@@ -10,6 +10,7 @@ issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions"
+qmd: "ux spec   homepage sixteen json-driven sixteen"
 ---
 
 # UX spec — Homepage Sixteen JSON-driven

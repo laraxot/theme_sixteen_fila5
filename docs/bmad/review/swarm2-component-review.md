@@ -5,6 +5,11 @@ github_issue: "#swarm2-review"
 initiative: kp-174d15a58ff94901b2b0df0d86b8907a
 stack: "Tailwind+Alpine+Lit+DaisyUI+Flowbite — NO Bootstrap Italia"
 constraint: "AGENTS.md + UX strict; token #007A52; mobile responsive (sm/md/lg/xl); nessun blocco HTTPS"
+title: "Swarm 2 — Component Review (4 blocchi)"
+type: note
+updated: 2026-10-14
+tags: [docs, sixteen, bmad]
+qmd: "swarm 2   component review (4 blocchi) sixteen"
 ---
 
 # Swarm 2 — Component Review (4 blocchi)

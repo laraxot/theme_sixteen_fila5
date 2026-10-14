@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid checklist"
 issues: []
 discussions: []
+status: draft
 ---
 
 # ✅ AGID COMPLIANCE - CHECKLIST 100%
@@ -17,15 +18,6 @@ discussions: []
 **Status**: 🎯 90% → 100%  
 
 ---
-
-title: "agid checklist"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid checklist"
-issues: []
-discussions: []
 ## 🎯 OBIETTIVO
 
 Raggiungere il 100% di compliance con le linee guida AGID per l'accessibilità dei siti web della Pubblica Amministrazione.

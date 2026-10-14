@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header logged in parity delta"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header slim — utente loggato vs Design Comuni (delta)

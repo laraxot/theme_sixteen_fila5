@@ -5,6 +5,8 @@ theme: Sixteen
 created: 2026-09-27
 updated: 2026-09-27
 qmd: "sixteen mobile demo accessibility nativephp touch target focus contrast"
+status: draft
+tags: [docs, sixteen]
 ---
 
 # Contratto demo mobile e responsive

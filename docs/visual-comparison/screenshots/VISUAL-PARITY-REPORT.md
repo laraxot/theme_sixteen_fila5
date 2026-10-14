@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL PARITY REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Parity Report - 2026-04-06
@@ -60,15 +61,6 @@ All screenshots saved to: `laravel/Themes/Sixteen/docs/visual-comparison/screens
 5. Re-run this script to verify improvements
 
 ---
-
-title: "VISUAL PARITY REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL PARITY REPORT"
-issues: []
-discussions: []
 **Related Docs**:
 - [Visual Comparison README](../README.md)
 - [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)

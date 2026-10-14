@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "WEB COMPONENTS AND BUILD SYSTEM"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Sixteen Theme — Web Components & Build System Architecture
@@ -16,15 +17,6 @@ discussions: []
 **Related**: Story 8-10 (segnalazione-crea map bidirectional sync)
 
 ---
-
-title: "WEB COMPONENTS AND BUILD SYSTEM"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "WEB COMPONENTS AND BUILD SYSTEM"
-issues: []
-discussions: []
 ## Overview
 
 The Sixteen theme is a **presentation layer** that compiles CSS and JavaScript assets for the entire application. It imports components from other modules but **must maintain strict boundaries** to avoid cross-cutting concerns and build failures.

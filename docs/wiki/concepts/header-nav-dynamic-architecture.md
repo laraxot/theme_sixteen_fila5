@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header nav dynamic architecture"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header Navigation Dynamic Architecture (Sixteen Theme)

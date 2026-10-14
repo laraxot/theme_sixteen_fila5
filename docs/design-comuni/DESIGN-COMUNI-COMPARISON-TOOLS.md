@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI COMPARISON TOOLS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Visual Comparison Tools
@@ -18,15 +19,6 @@ discussions: []
 **Location:** `bashscripts/design-comuni-compare/`
 
 ---
-
-title: "DESIGN COMUNI COMPARISON TOOLS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI COMPARISON TOOLS"
-issues: []
-discussions: []
 ## Overview
 
 This suite of tools automates the comparison of 47+ Design Comuni static pages between:

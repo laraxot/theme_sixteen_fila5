@@ -7,6 +7,10 @@ frontmatter:
   github_issue: "#54"
 links:
   github_issue: "#54"
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, investigation]
+qmd: "design comuni homepage investigation sixteen"
 ---
 ## Contesto
 

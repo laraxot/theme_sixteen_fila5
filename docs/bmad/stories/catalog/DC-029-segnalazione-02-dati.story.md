@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-02-dati.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-02-dati
+title: "DC-029 — segnalazione-02-dati"
+updated: 2026-10-14
+tags: [docs, sixteen, bmad]
+qmd: "dc-029   segnalazione-02-dati sixteen"
 ---
 
 # DC-029 — segnalazione-02-dati

@@ -12,6 +12,7 @@ related:
   - ../../../../../Modules/Xot/docs/wiki/redundancy/byte-identical-files-static-scan.md
   - ../../../../../Modules/Xot/docs/wiki/redundancy/audit-profondo-ridondanze-holistic.md
 tags: [redundancy, blade]
+status: draft
 ---
 
 # Duplicated Blade Blocks (Content-Identical Components)

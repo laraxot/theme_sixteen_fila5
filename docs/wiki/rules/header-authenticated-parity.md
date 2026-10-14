@@ -12,6 +12,7 @@ sources:
   - ../../../resources/views/components/header-comune.blade.php
   - ../../../resources/views/components/sections/header/partials/user-dropdown.blade.php
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
+status: draft
 ---
 
 # Header Authenticated State Parity

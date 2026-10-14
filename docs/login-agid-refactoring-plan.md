@@ -10,6 +10,7 @@ discussions: []
 module: theme
 topic: login-agid-refactoring-plan
 canonical: ../../docs/shared-components/login-agid-refactoring-plan.md
+status: stub
 ---
 
 See canonical documentation: ../../docs/shared-components/login-agid-refactoring-plan.md

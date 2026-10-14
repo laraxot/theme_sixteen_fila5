@@ -13,6 +13,7 @@ related:
   - ../concepts/theme-component-test-contract.md
   - ../concepts/phpstan-compliance.md
   - ../../../../../Modules/Fixcity/docs/wiki/overviews/completion-roadmap.md
+status: draft
 ---
 
 # Sixteen — roadmap completamento tema FO

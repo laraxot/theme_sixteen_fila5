@@ -3,6 +3,8 @@ title: "Geo map + ticket wizard fixes — 2026-10-14"
 type: decision
 tags: [second-brain, map-marker, geolocation, wizard, design-comuni, wcag]
 qmd: "geo map ticket wizard marker button geolocation fix 2026-10-14"
+status: draft
+updated: 2026-10-14
 ---
 
 # Geo Map + Ticket Wizard — Fixes 2026-10-14

@@ -9,6 +9,9 @@ qmd: "header navbar megamenu block 03 design-comuni visual-parity BMAD"
 related:
   - ./../../../../bashscripts/docs/prompts/55-md-conventions.md
   - ./../../../docs/stories/EPIC-DESIGN-COMUNI-REPLICATION.md
+title: "Block 03: Header Navbar"
+updated: 2026-10-13
+tags: [docs, sixteen, prompts]
 ---
 
 title: "03 header navbar — BMAD + second brain + visual parity 98%"

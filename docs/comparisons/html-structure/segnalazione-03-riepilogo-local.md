@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione 03 riepilogo local"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Segnalazione 03 riepilogo local

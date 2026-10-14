@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/appuntamento-05-riepilogo.html
 local: http://192.168.1.40:8000/it/tests/appuntamento-05-riepilogo
+title: "DC-010 — appuntamento-05-riepilogo"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-010   appuntamento-05-riepilogo sixteen"
 ---
 
 # DC-010 — appuntamento-05-riepilogo

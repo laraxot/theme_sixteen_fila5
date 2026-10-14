@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "7 6 segnalazione 01 privacy html parity"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Story 7.6: HTML Parity — segnalazione-01-privacy

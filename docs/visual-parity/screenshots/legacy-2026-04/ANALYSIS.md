@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Screenshots Analysis - Visual Parity

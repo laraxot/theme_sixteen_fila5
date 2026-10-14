@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "leaflet shadow dom visual verification rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Leaflet Shadow DOM Visual Verification Rule

@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/lista-risorse-categorie.html
 local: http://192.168.1.40:8000/it/tests/lista-risorse-categorie
+title: "DC-022 — lista-risorse-categorie"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-022   lista-risorse-categorie sixteen"
 ---
 
 # DC-022 — lista-risorse-categorie

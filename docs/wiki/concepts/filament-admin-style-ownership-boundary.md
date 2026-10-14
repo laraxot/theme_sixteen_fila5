@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "filament admin style ownership boundary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filament admin style ownership boundary

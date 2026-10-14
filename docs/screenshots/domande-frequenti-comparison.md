@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "domande frequenti comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Comparison: Domande Frequenti (FAQ)

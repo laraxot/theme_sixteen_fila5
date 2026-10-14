@@ -5,6 +5,10 @@ status: open
 links:
   github_issue: "#999"
   discussion: "#design-comuni"
+title: "/it/tickets — High Visual Parity with Function + Purpose"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "/it/tickets   high visual parity with function + purpose sixteen"
 ---
 # /it/tickets — High Visual Parity with Function + Purpose
 

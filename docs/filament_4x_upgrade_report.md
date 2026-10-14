@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "filament 4x upgrade report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Rapporto Aggiornamento Filament 4.x - Tema Sixteen

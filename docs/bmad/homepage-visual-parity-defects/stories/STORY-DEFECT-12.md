@@ -11,6 +11,10 @@ links:
   discussion: "https://github.com/org/repo/discussions/14"
 related_defect: $IDX
 scope: [homepage.blade.php, layout-test.blade.php, pub_theme/components/]
+title: "Defect $IDX — Fix Story"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "defect $idx   fix story sixteen"
 ---
 
 # Defect $IDX — Fix Story

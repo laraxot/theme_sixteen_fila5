@@ -8,6 +8,10 @@ logica: geo persistente tra step 2 (dati) e 3 (riepilogo)
 zen: non si conferma ciò che non si è localizzato
 stack: Tailwind + mappa componente + wizard state
 riferimento: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html
+title: "Segnalazione 03 — Riepilogo + Mappa"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "segnalazione 03   riepilogo + mappa sixteen"
 ---
 # Segnalazione 03 — Riepilogo + Mappa
 

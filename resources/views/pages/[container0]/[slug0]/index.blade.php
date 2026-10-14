@@ -57,14 +57,18 @@ new class extends Component {
         ? 'ticket-track'
         : ($container0 === 'tickets' && ctype_digit($slug0) ? 'ticket-detail' : null)));
     $pageTitle = $specialPage === 'auth-login'
-        ? __('Accedi a FixCity')
+        ? __('fixcity::auth.title')
         : ($specialPage === 'auth-register'
-        ? __('Crea il tuo account')
+        ? __('fixcity::auth.register_title')
         : ($specialPage === 'ticket-track'
         ? __('fixcity::ticket.track.title')
         : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
         : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
-    $pageDescription = \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale());
+    $pageDescription = match ($specialPage) {
+        'auth-login' => __('fixcity::auth.meta_description'),
+        'auth-register' => __('fixcity::auth.register_meta_description'),
+        default => \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
+    };
     // pagine con chrome Design Comuni: asset con percorso relativo come il riferimento (DesignComuniAssets) e voce di menu attiva dal JSON
     $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
     $isDesignComuni && view()->share('dcRelativeAssets', true);

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "STRUCTURE COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Page Structure Comparison: RISULTATI-RICERCA

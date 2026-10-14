@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FIX ACCORDION PARITY JS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Report Fix Accordion - Rimozione domande-frequenti-parity.js
@@ -29,15 +30,6 @@ Il file `domande-frequenti-parity.js` stava **sovrascrivendo** completamente l'H
    - Nessuna classe `title-snall-semi-bold py-3`
 
 ---
-
-title: "FIX ACCORDION PARITY JS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FIX ACCORDION PARITY JS"
-issues: []
-discussions: []
 ## Soluzione Applicata
 
 ### 1. Disabilitato Import

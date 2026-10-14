@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML STRUCTURE DIFF"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Difference Analysis: ticket-list

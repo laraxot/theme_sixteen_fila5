@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "geo picker theme consumption rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Geo Picker Theme Consumption Rule

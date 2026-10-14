@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "filament wizard theme override"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Filament Wizard Theme Override — Philosophy & Implementation

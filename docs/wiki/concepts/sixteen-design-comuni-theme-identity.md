@@ -4,6 +4,8 @@ type: concept
 created: 2026-10-11
 updated: 2026-10-11
 tags: [second-brain, sixteen, design-comuni, theme-identity, layout]
+status: draft
+qmd: "identità del tema sixteen"
 ---
 
 # Identità del tema

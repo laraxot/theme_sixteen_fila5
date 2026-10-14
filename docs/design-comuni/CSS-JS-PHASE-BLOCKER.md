@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CSS JS PHASE BLOCKER"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS/JS Phase - BLOCKER Report
@@ -16,15 +17,6 @@ discussions: []
 **Status**: 🔴 **BLOCKED** - Database missing
 
 ---
-
-title: "CSS JS PHASE BLOCKER"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "CSS JS PHASE BLOCKER"
-issues: []
-discussions: []
 ## Critical Blocker
 
 ### Issue: Database SQLite Non Esiste

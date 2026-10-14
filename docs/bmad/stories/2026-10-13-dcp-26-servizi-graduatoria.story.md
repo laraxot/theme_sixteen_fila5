@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity graduatoria scuola infanzia consenso privacy service-flow wizard area personale messaggio perfezionamento riepilogo conferma bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-26: servizi graduatoria e consenso privacy

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "dynamic route correction"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🔄 Dynamic Route Correction - [slug].blade.php Only
@@ -16,15 +17,6 @@ discussions: []
 **Owner**: Multi-Agent Team
 
 ---
-
-title: "dynamic route correction"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "dynamic route correction"
-issues: []
-discussions: []
 ## 🚨 Error Fixed
 
 **WRONG**: Created specific blade files for each page

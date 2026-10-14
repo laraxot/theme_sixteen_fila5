@@ -2,6 +2,10 @@
 id: DC-A11Y-002
 title: "Rendere accessibili i controlli condivisi dell'header"
 status: in-progress
+type: story
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "user story sixteen"
 ---
 
 # User story

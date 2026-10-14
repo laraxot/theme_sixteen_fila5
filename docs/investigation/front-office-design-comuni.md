@@ -4,6 +4,9 @@ type: investigation
 tags: [design-comuni, front-office, redesign]
 links:
   story: docs/stories/front-office-design-comuni-rebuild.story.md
+status: draft
+updated: 2026-10-11
+qmd: "fo designcomuni   investigazione sixteen"
 ---
 
 # FO DesignComuni — Investigazione

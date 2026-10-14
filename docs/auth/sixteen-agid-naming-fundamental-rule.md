@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "sixteen agid naming fundamental rule"
 issues: []
 discussions: []
+status: draft
 ---
 
 # REGOLA FONDAMENTALE: Naming Convention Tema Sixteen
@@ -95,13 +96,4 @@ Questa regola è stata stabilita dopo aver identificato errori ricorrenti nell'u
 **Impatto**: Tutti i componenti del tema Sixteen
 
 ---
-
-title: "sixteen agid naming fundamental rule"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "sixteen agid naming fundamental rule"
-issues: []
-discussions: []
 *Questa è una regola fondamentale che deve essere sempre rispettata e mai violata.*

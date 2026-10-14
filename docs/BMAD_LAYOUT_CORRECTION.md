@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "BMAD LAYOUT CORRECTION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🧠 BMAD Method - Layout Component Correction
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: 🔴 CRITICAL
 
 ---
-
-title: "BMAD LAYOUT CORRECTION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "BMAD LAYOUT CORRECTION"
-issues: []
-discussions: []
 ## 🚨 Errors Fixed
 
 ### 1. Bootstrap Italia CSS Link ❌

@@ -13,6 +13,7 @@ related:
   - design-comuni-site-wide-component-css-rule.md
   - ../../../../../../docs/wiki/decisions/fo-pa-tokens-no-per-page-hex.md
   - ../../../../../Modules/Xot/docs/wiki/concepts/filament-pa-design-colors.md
+status: draft
 ---
 
 # FO PA tokens — uniformità

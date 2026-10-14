@@ -4,6 +4,8 @@ type: design-system
 title: "Component Catalog — Tema Sixteen"
 status: active
 updated: 2026-10-11
+tags: [docs, sixteen, design-system]
+qmd: "catalogo componenti   tema sixteen sixteen"
 ---
 
 # Catalogo Componenti — Tema Sixteen

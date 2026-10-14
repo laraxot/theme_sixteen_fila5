@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "comparison report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Body Structure Comparison: segnalazione-dettaglio

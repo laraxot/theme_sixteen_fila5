@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "form components"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Form Components - Bootstrap Italia to Tailwind

@@ -1,3 +1,11 @@
+---
+title: "BMAD decision: optional layout selection from CMS JSON"
+type: note
+status: draft
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "bmad decision: optional layout selection from cms json sixteen"
+---
 # BMAD decision: optional layout selection from CMS JSON
 
 ## Context

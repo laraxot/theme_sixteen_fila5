@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "tests pages architecture"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Tests Pages Architecture Rules

@@ -13,6 +13,7 @@ related:
   - concepts/header-section-owner-rule
   - concepts/header-composition-rule
   - concepts/blade-component-extraction-governance
+status: draft
 ---
 
 # Header Dynamic Navigation

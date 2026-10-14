@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid layout usage rules"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Regole per l'Uso dei Layout AGID - Tema Sixteen
@@ -339,15 +340,6 @@ Prima di pubblicare una pagina con layout AGID, verificare:
 - [layout-usage-rules.md](layout-usage-rules.md) - Regole generali layout tema
 
 ---
-
-title: "agid layout usage rules"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "agid layout usage rules"
-issues: []
-discussions: []
 **Regola stabilita**: 31 Luglio 2025  
 **Autorità**: Implementazione AGID-compliant per PA italiane  
 **Stato**: REGOLA FONDAMENTALE  

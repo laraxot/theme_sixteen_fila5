@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "auth login ux design wcag"
 issues: []
 discussions: []
+status: draft
 ---
 
 # UX design — `/it/auth/login` (accessibilità e CTA)
@@ -17,15 +18,6 @@ discussions: []
 **Piattaforme:** Web desktop, tablet, mobile
 
 ---
-
-title: "auth login ux design wcag"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "auth login ux design wcag"
-issues: []
-discussions: []
 ## User flow
 
 ```mermaid

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "QUICK START"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🚀 Replikate Quick Start Guide
@@ -24,15 +25,6 @@ discussions: []
 | **Homepage Docs** | Esempio completo | `design-comuni/pages/homepage.md` |
 
 ---
-
-title: "QUICK START"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "QUICK START"
-issues: []
-discussions: []
 ## 🎯 Percorsi di Apprendimento
 
 ### Per Sviluppatori Nuovi

@@ -1,3 +1,11 @@
+---
+title: "STORY-PARITY-DOMANDE-FREQUENTI — Parity visuale e funzionale"
+type: story
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story-parity-domande-frequenti   parity visuale e funzionale sixteen"
+---
 # STORY-PARITY-DOMANDE-FREQUENTI — Parity visuale e funzionale
 
 ## URL

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "pages complete guide"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 📄 DESIGN COMUNI PAGES - COMPLETE GUIDE
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: HIGH
 
 ---
-
-title: "pages complete guide"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "pages complete guide"
-issues: []
-discussions: []
 ## 🎯 PAGES CREATED
 
 ### 1. Homepage

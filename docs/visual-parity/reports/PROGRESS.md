@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "PROGRESS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Parity Progress - 2026-04-05

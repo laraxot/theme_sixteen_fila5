@@ -4,6 +4,8 @@ type: design-system
 title: "Design Tokens — Tema Sixteen / Design Comuni"
 status: active
 updated: 2026-10-11
+tags: [docs, sixteen, design-system]
+qmd: "design tokens   tema sixteen (design comuni v2.4.0) sixteen"
 ---
 
 # Design Tokens — Tema Sixteen (Design Comuni v2.4.0)

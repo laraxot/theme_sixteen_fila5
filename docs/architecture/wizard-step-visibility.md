@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "wizard step visibility"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Wizard Step Visibility Mechanism

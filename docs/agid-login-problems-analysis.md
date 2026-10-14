@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid login problems analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Problemi Pagina Login - AGID Compliance

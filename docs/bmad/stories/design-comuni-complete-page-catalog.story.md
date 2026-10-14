@@ -2,6 +2,10 @@
 id: DC-CATALOG
 status: ready-for-dev
 type: bmad-story-index
+title: "Story index — complete Design Comuni catalogue"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story index   complete design comuni catalogue sixteen"
 ---
 
 # Story index — complete Design Comuni catalogue

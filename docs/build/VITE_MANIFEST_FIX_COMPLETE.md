@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VITE MANIFEST FIX COMPLETE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Vite Manifest Fix - Complete
@@ -16,15 +17,6 @@ discussions: []
 **Error Fixed:** `Vite manifest not found at: /var/www/_bases/base_fixcity_fila5/public_html/themes/Sixteen/manifest.json`
 
 ---
-
-title: "VITE MANIFEST FIX COMPLETE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VITE MANIFEST FIX COMPLETE"
-issues: []
-discussions: []
 ## Problem
 
 ```

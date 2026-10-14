@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "css fix plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS Fix Plan - 2026-04-02

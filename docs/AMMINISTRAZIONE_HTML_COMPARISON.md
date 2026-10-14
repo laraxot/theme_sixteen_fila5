@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "AMMINISTRAZIONE HTML COMPARISON"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Amministrazione Page - HTML Body Comparison
@@ -22,15 +23,6 @@ discussions: []
 **Stato:** 🔴 **DIFFERENZE CRITICHE RILEVATE**
 
 ---
-
-title: "AMMINISTRAZIONE HTML COMPARISON"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "AMMINISTRAZIONE HTML COMPARISON"
-issues: []
-discussions: []
 ## 🔍 Differenze Strutturali
 
 ### 1. Skip Links

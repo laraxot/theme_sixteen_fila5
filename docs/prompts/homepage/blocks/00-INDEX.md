@@ -79,7 +79,7 @@ discussions: []
 
 ### Indici
 - ← [Design Comuni Index](../../../00-INDEX.md)
-- ← [Homepage Structural Analysis](../../HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
+- ← [Homepage Structural Analysis](../../../design-comuni/HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
 - ← [Bashscripts HTML Compare](../../../../../bashscripts/html/compare-html.sh) — script agnostico di confronto
 
 ### Documenti Correlati

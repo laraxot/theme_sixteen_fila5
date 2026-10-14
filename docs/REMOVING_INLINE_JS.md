@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "REMOVING INLINE JS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Rimozione JS inline da Blade — COMPLETATO

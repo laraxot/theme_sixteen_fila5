@@ -4,6 +4,11 @@ title: Continuazione domani — loop aperto (97%)
 document_type: continuation-log
 date: 2026-10-13
 source_of_truth: true
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "stato loop aperto (non chiuso) sixteen"
 ---
 
 # Stato loop aperto (non chiuso)

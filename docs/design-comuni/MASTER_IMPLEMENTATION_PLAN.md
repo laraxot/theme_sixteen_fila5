@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "MASTER IMPLEMENTATION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Italia - Master Implementation Plan
@@ -17,15 +18,6 @@ discussions: []
 **Methodology**: GSD + BMAD + Superpowers
 
 ---
-
-title: "MASTER IMPLEMENTATION PLAN"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "MASTER IMPLEMENTATION PLAN"
-issues: []
-discussions: []
 ## 🎯 Obiettivo Principale
 
 Replicare **ESATTAMENTE** le 38 pagine statiche di Design Comuni Italia:

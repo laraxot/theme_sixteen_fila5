@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "visual parity plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Piano Miglioramento Visual Parity - Segnalazione Creazione

@@ -22,6 +22,7 @@ related:
   - "../../../../../../_bmad-output/implementation-artifacts/7-105-design-comuni-segnalazione-static-pages-bootstrap-to-tailwind-class-map.md"
   - "../../../../../../_bmad-output/implementation-artifacts/7-103-segnalazione-01-privacy-tailwind-lit-html-audit-correction-plan.md"
   - "../../../../../../_bmad-output/implementation-artifacts/7-104-segnalazione-01-privacy-tailwind-correction-implementation.md"
+status: draft
 ---
 
 # Estrazione riproducibile `class="..."` — sette pagine segnalazione

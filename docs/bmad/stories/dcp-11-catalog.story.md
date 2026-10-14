@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni catalog page dcp-11 bmad story catalog grid link list search form"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-11 — Catalog (Design Comuni /catalog)

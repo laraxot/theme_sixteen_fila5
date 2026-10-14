@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL ANALYSIS v2"
 issues: []
 discussions: []
+status: draft
 ---
 
 # FAQ Visual Analysis - Complete Comparison (v2)
@@ -16,15 +17,6 @@ discussions: []
 **Local:** http://127.0.0.1:8000/it/tests/domande-frequenti
 
 ---
-
-title: "VISUAL ANALYSIS v2"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL ANALYSIS v2"
-issues: []
-discussions: []
 ## 1. Header - ✅ FIXED
 
 | Element | Reference | Local | Status |

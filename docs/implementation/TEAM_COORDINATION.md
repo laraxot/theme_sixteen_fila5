@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "TEAM COORDINATION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Multi-Agent Team Coordination - Design Comuni Replication
@@ -84,15 +85,6 @@ discussions: []
 - Per-component guides
 
 ---
-
-title: "TEAM COORDINATION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "TEAM COORDINATION"
-issues: []
-discussions: []
 ## Parallel Workflow
 
 ### Phase 2A: CSS Mapping (Days 1-2)

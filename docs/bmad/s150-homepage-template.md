@@ -6,6 +6,10 @@ type: epic-story
 status: in_progress
 priority: high
 version: "1.0"
+title: "BMAD Story — Homepage Design Comuni (`sito/homepage.html`) replica con TailwindCSS + Alpine + Lit"
+updated: 2026-10-11
+tags: [docs, sixteen, bmad]
+qmd: "bmad story   homepage design comuni (`sito/homepage.html`) replica con tailwindcss + alpine + lit sixteen"
 ---
 
 # BMAD Story — Homepage Design Comuni (`sito/homepage.html`) replica con TailwindCSS + Alpine + Lit

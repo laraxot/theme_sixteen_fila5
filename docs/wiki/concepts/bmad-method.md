@@ -11,6 +11,7 @@ sources:
 confidence: high
 created: 2026-04-22
 tags: [bmad, theme, sixteen, ui-ux, antigravity]
+status: draft
 ---
 
 # BMad Method in Sixteen Theme

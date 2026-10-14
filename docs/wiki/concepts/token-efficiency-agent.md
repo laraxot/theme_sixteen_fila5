@@ -13,6 +13,7 @@ related:
   - ./bmad-context-compression.md
   - ../../../../../../docs/wiki/concepts/token-efficiency-2026.md
   - ../../../../../../docs/wiki/rules/token-optimization-discipline.md
+status: draft
 ---
 
 # Token efficiency agente — Sixteen

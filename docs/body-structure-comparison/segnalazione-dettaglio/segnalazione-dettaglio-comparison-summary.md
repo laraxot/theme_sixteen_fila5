@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazione dettaglio comparison summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: segnalazione-dettaglio

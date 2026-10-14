@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity servizi pagamenti imu anteprima f24 preferenze riepilogo conferma area personale scheda servizio service-flow imu- toggle cmp-tot bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-27: servizi IMU sul service-flow

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL DIFFERENCES ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Differences Analysis: Reference vs Local Homepage
@@ -16,15 +17,6 @@ discussions: []
 **Status**: Visual Analysis Complete  
 
 ---
-
-title: "VISUAL DIFFERENCES ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL DIFFERENCES ANALYSIS"
-issues: []
-discussions: []
 ## 📸 Screenshots Analyzed
 
 - **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html

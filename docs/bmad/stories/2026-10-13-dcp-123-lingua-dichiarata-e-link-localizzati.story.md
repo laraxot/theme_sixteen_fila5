@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "lang parti fallback html lang wcag 3.1.2 hreflang canonical link localizzati ResolveLocalizedBlockDataAction route Folio nome rotte selettore lingua query string"
 related: [dcp-120, dcp-121]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-123: dichiarare la lingua vera e non perdere la lingua nei link

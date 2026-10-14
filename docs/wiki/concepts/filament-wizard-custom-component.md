@@ -12,6 +12,7 @@ tags: [filament, wizard, component, blade, architecture, theme, design-comuni]
 related:
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/wizard-theme-integration.md
   - ../../../../../docs/wiki/concepts/laraxot-theme-module-separation.md
+status: draft
 ---
 
 # Filament Wizard Custom Component - Theme Sixteen

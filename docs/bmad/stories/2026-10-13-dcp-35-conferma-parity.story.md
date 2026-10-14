@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "conferma segnalazione parity segnalazione 04 conferma tickets confirmation Tailwind Filament"
+tags: [docs, sixteen, bmad]
 ---
 > Numerazione e argomento: la conferma e' coperta dalla [DCP-34 del modulo Fixcity](../../../../../Modules/Fixcity/docs/stories/2026-10-13-dcp-34-tickets-confirmation-design-comuni.story.md) (azione, blocco, JSON it/en, test, misure); questa resta come storico, da leggere come superseded. Registro: [DCP-97](2026-10-13-dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md).
 

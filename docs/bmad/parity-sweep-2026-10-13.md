@@ -6,6 +6,8 @@ epic: dc-parity-v2
 status: partial
 created: 2026-10-13
 qmd: "sweep parity gate ondata 1 pagine misurate html pixel altezze design comuni"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
 ---
 
 # Sweep del gate di parity, ondata 1

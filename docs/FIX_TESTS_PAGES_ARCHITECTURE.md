@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FIX TESTS PAGES ARCHITECTURE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # FixCity Tests Pages - Architecture & Troubleshooting
@@ -17,15 +18,6 @@ discussions: []
 **Priority:** 🔴 **Blocker - RESOLVED**
 
 ---
-
-title: "FIX TESTS PAGES ARCHITECTURE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FIX TESTS PAGES ARCHITECTURE"
-issues: []
-discussions: []
 ## 🎯 Scopo
 
 Questo documento spiega l'architettura delle pagine di test (`/it/tests/*`), gli errori incontrati e le soluzioni applicate.

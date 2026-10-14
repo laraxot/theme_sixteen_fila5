@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "route correction summary"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Riepilogo Correzione Route - Tema Sixteen

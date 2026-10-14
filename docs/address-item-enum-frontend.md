@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "address item enum frontend"
 issues: []
 discussions: []
+status: draft
 ---
 
 # AddressItemEnum - Frontend Integration Guide

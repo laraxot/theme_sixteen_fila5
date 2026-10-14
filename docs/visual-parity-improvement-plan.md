@@ -1,3 +1,11 @@
+---
+title: "Visual Parity Improvement Plan — Sixteen Redesign"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen]
+qmd: "visual parity improvement plan   sixteen redesign sixteen"
+---
 # Visual Parity Improvement Plan — Sixteen Redesign
 
 Status: 90% HTML / 95% visual parity (not fully verified for all pages, but significant progress made)

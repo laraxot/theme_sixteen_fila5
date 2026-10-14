@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-04: blocco homepage (main) a 97% bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-04: blocco homepage (main) a 97%

@@ -15,6 +15,7 @@ related:
   - ../../../../../../docs/wiki/concepts/second-brain-operating-model.md
   - ../../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
   - ../../../../../../bashscripts/tools/prompts/llm-wiki.txt
+status: draft
 ---
 
 # Second Brain Theme Boundary

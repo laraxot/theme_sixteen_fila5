@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "email templates improvement plan"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Email Templates 2025 - Piano di Miglioramento
@@ -15,15 +16,6 @@ discussions: []
 **Obiettivo**: Rendere i template email più belli, più natalizi e più professionali seguendo le tendenze 2025
 
 ---
-
-title: "email templates improvement plan"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "email templates improvement plan"
-issues: []
-discussions: []
 ## 📊 Analisi Template Esistenti
 
 ### Template Attuali (13)

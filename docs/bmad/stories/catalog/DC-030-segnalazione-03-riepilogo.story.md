@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-03-riepilogo.html
 local: http://192.168.1.40:8000/it/tests/segnalazione-03-riepilogo
+title: "DC-030 — segnalazione-03-riepilogo"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-030   segnalazione-03-riepilogo sixteen"
 ---
 
 # DC-030 — segnalazione-03-riepilogo

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CMS DRIVEN BLOCKS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CMS-Driven Blocks Philosophy

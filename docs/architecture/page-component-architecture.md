@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "page component architecture"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Page Component Architecture - DRY + KISS
@@ -20,15 +21,6 @@ discussions: []
 **Tipo:** Architettura componenti CMS  
 
 ---
-
-title: "page component architecture"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "page component architecture"
-issues: []
-discussions: []
 ## 🐛 I 2 Errori Fondamentali
 
 ### ❌ ERRORE 1: `<x-sixteen::page>` - Namespace non registrato

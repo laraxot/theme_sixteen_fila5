@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DOCUMENTATION INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Sixteen Theme Documentation Index
@@ -17,15 +18,6 @@ discussions: []
 **Version**: 2.0
 
 ---
-
-title: "DOCUMENTATION INDEX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DOCUMENTATION INDEX"
-issues: []
-discussions: []
 ## 🎯 Quick Navigation
 
 ### 🚀 Start Here

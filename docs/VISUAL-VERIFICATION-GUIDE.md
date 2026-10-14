@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL VERIFICATION GUIDE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Verification Guide
@@ -16,15 +17,6 @@ discussions: []
 **Status**: Ready for testing
 
 ---
-
-title: "VISUAL VERIFICATION GUIDE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "VISUAL VERIFICATION GUIDE"
-issues: []
-discussions: []
 ## 🎯 Verification Checklist
 
 ### Before Testing

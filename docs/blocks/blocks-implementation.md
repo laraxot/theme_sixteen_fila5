@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "blocks implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # 🛠️ BLADE COMPONENTS IMPLEMENTATION
@@ -16,15 +17,6 @@ discussions: []
 **Priority**: HIGH
 
 ---
-
-title: "blocks implementation"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "blocks implementation"
-issues: []
-discussions: []
 ## 📊 COMPONENTS STATUS
 
 ### Created (11/26) ✅

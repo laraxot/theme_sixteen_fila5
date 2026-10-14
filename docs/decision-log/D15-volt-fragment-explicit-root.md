@@ -6,6 +6,9 @@ date: 2026-10-13
 owner: theme:Sixteen
 related: [D12-correction-json-path-tickets, dcp-22]
 qmd: "volt fragment explicit root wire:id livewire nested widget callSchemaComponentMethod tickets create"
+title: "D15: il Volt della pagina generica ha una radice propria"
+updated: 2026-10-13
+tags: [docs, sixteen, decision-log]
 ---
 # D15: il Volt della pagina generica ha una radice propria
 

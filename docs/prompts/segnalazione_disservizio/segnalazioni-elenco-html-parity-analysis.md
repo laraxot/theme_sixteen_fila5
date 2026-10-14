@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "segnalazioni elenco html parity analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Fase 1: HTML Body Structure Parity

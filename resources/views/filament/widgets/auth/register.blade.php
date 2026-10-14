@@ -81,11 +81,11 @@
                 <legend class="text-lg font-semibold text-slate-950">{{ __('gdpr::register.consents.title') }}</legend>
                 <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
                     <input type="checkbox" wire:model="privacy_accepted" required class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />
-                    <span>{{ __('gdpr::register.consents.privacy_policy_label') }}</span>
+                    <span>{{ __('gdpr::register.consents.privacy_policy_label') }} <a class="ms-1 font-semibold text-sky-900 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ url('/'.app()->getLocale().'/privacy') }}" target="_blank" rel="noopener">{{ __('gdpr::register.consents.privacy_policy_link') }}<span class="visually-hidden"> ({{ __('gdpr::register.consents.opens_new_tab') }})</span></a></span>
                 </label>
                 <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
                     <input type="checkbox" wire:model="terms_accepted" required class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />
-                    <span>{{ __('gdpr::register.consents.terms_label') }}</span>
+                    <span>{{ __('gdpr::register.consents.terms_label') }} <a class="ms-1 font-semibold text-sky-900 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-sky-800" href="{{ url('/'.app()->getLocale().'/terms') }}" target="_blank" rel="noopener">{{ __('gdpr::register.consents.terms_link') }}<span class="visually-hidden"> ({{ __('gdpr::register.consents.opens_new_tab') }})</span></a></span>
                 </label>
                 <label class="flex min-h-11 items-start gap-3 text-sm text-slate-800">
                     <input type="checkbox" wire:model="marketing_consent" class="mt-1 h-5 w-5 rounded border-slate-500 text-sky-800 focus:ring-2 focus:ring-sky-800" />

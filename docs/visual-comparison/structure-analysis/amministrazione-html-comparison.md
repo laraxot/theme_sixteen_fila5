@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "amministrazione html comparison"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Structure Comparison: amministrazione
@@ -16,15 +17,6 @@ discussions: []
 **Local**: http://127.0.0.1:8000/it/tests/amministrazione
 
 ---
-
-title: "amministrazione html comparison"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "amministrazione html comparison"
-issues: []
-discussions: []
 ## Summary
 
 | Metric | Reference | Local | Difference |

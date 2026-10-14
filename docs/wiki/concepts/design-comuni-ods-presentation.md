@@ -4,6 +4,8 @@ type: concept
 created: 2026-10-11
 updated: 2026-10-11
 tags: [second-brain, design-comuni, ods, sixteen, ux]
+status: draft
+qmd: "presentare il modello comunale sixteen"
 ---
 
 # Presentare il modello comunale

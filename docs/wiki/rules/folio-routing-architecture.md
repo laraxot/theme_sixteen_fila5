@@ -14,6 +14,7 @@ related:
   - ../concepts/fo-folio-named-routes-header.md
   - ../concepts/fo-folio-links-multilingua.md
   - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
+status: draft
 ---
 
 # Folio Frontend Architecture Rule

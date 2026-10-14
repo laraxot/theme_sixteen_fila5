@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FOOTER FIXES REPORT"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Footer Fixes Report
@@ -122,15 +123,6 @@ npm run copy     # Deploy to public_html
 
 ## Status
 ---
-
-title: "FOOTER FIXES REPORT"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FOOTER FIXES REPORT"
-issues: []
-discussions: []
 ## 📚 Related Documentation
 
 - **[← INDEX](./index.md)** - Documentation overview

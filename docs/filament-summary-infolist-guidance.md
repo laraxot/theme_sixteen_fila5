@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "filament summary infolist guidance"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Theme Guidance: Wizard Summary (Sixteen)

@@ -3,6 +3,10 @@ id: sixteenth-design-comuni-parity-nine-core-pages
 title: Parity delle nove pagine core Design Comuni
 status: in-progress
 source: visual-reference-catalog
+type: story
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "story bmad: parity delle nove pagine core sixteen"
 ---
 
 # Story BMAD: parity delle nove pagine core

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "CONTAINER CENTERING ISSUE"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Container Centering Issue - Detailed Analysis
@@ -17,15 +18,6 @@ discussions: []
 **Status**: Documented, ready for fix  
 
 ---
-
-title: "CONTAINER CENTERING ISSUE"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "CONTAINER CENTERING ISSUE"
-issues: []
-discussions: []
 ## 🔍 Problem Details
 
 ### Current CSS (WRONG)

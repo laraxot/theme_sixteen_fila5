@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI REPLICATION INDEX"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication - Master Index
@@ -15,15 +16,6 @@ discussions: []
 > **Status**: ✅ Phase 1 Complete (HTML structure verified 99%)  | 🔄 Phase 2 Starting (CSS + Alpine)
 
 ---
-
-title: "DESIGN COMUNI REPLICATION INDEX"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "DESIGN COMUNI REPLICATION INDEX"
-issues: []
-discussions: []
 ## 📋 Quick Navigation
 
 ### Project Status

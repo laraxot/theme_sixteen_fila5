@@ -5,6 +5,7 @@ tags: [sixteen, design-comuni, wcag, alpinejs, lit, tailwind]
 created: 2026-10-09
 updated: 2026-10-09
 qmd: "Sixteen DesignComuni front office WCAG contrast Tailwind apply Alpine Lit map marker"
+status: draft
 ---
 
 # DesignComuni front-office quality skill

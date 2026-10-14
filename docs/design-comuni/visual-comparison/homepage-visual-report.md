@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage visual report"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Visual Comparison Report
@@ -22,15 +23,6 @@ discussions: []
 - [bmad-gsd-status-2026-04-03.md](../bmad-gsd-status-2026-04-03.md) - GSD Status
 
 ---
-
-title: "homepage visual report"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "homepage visual report"
-issues: []
-discussions: []
 ## Executive Summary
 
 Visual comparison reveals **significant layout differences** between reference and local implementation. The HTML structure is mostly correct, but CSS styling needs substantial work to match the Bootstrap Italia design using Tailwind CSS.

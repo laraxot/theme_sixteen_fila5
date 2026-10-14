@@ -12,6 +12,7 @@ related:
   - "laravel/Themes/Sixteen/docs/bmad/investigation-migrations-violations.md"
 created: 2026-10-11
 updated: 2026-10-11
+qmd: "investigazione: `http://localhost:8000/it/tests` restituisce 404 sixteen"
 ---
 
 # Investigazione: `http://localhost:8000/it/tests` restituisce 404

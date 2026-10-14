@@ -6,6 +6,10 @@ to: "tickets.create.json esiste gia', slug corretto tickets.create. Non creare t
 type: correction
 scope: dcp-22 / tickets/create
 status: verified
+title: "correction dcp 22 json file"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "correction dcp 22 json file sixteen"
 ---
 
 dcp-22 (tickets/create): il file JSON corretto e' `laravel/config/local/fixcity/database/content/pages/tickets.create.json` (slug: `tickets.create`). Non ho creato `tests.tickets.create.json`; il componente Blade `ticket-crea.blade.php` (che usa `@livewire(CreateTicketWizardWidget)`) non necessita di un JSON `tests.*` — la pagina e' filareata dal modulo Fixcity, non dal tema Sixteen tramite JSON `tests.*`.

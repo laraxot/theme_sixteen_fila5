@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "agid static pages analysis"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Analisi Template Pagine Statiche AGID per Comuni

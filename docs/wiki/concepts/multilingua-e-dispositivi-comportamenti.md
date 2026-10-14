@@ -6,6 +6,7 @@ tags: [i18n, multilingua, mobile, tablet, responsive, a11y, wizard, selettore-li
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "multilingua dispositivi comportamenti selettore lingua fallback it hreflang canonical wizard step lingua cambio lingua touch target 44 menu utente tendina responsive 375 768"
+status: draft
 ---
 
 # Multilingua e dispositivi: comportamenti osservati

@@ -1,3 +1,11 @@
+---
+title: "Homepage Issues Audit (m00477)"
+type: note
+status: draft
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "homepage issues audit (m00477) sixteen"
+---
 # Homepage Issues Audit (m00477)
 
 ## Summary of 13 Visual Parity Issues (40% → 97% target)

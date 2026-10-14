@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "auth best practices"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Best Practices Autenticazione - Tema Sixteen
@@ -274,12 +275,4 @@ name('login');
 - [ ] Documentare componenti disponibili
 
 ---
-title: "auth best practices"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "auth best practices"
-issues: []
-discussions: []
 *Regole critiche da rispettare sempre - Mai usare componenti senza verifica - Mai fidarsi delle assunzioni* 

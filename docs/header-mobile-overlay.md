@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "header mobile overlay"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Header mobile/tablet — overlay hamburger (story 7-10)

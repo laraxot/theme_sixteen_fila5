@@ -11,6 +11,7 @@ updated: 2026-05-29
 related:
   - ../../../../../../docs/wiki/concepts/theme-as-vestito-philosophy.md
   - ./theme-page-shell.md
+status: draft
 ---
 
 # Sixteen — classi CSS presentation-only

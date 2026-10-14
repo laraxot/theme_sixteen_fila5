@@ -5,6 +5,10 @@ status: open
 links:
   github_issue: #999
   discussion: #design-comuni
+title: "Next Batch — Continuare Domani (BMAD + Second Brain)"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "next batch   continuare domani (bmad + second brain) sixteen"
 ---
 # Next Batch — Continuare Domani (BMAD + Second Brain)
 

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI REPLICATION PLAN"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication Plan

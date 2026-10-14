@@ -4,6 +4,10 @@ status: ready-for-dev
 type: design-comuni-page-parity
 reference: https://italia.github.io/design-comuni-pagine-statiche/sito/lista-risorse.html
 local: http://192.168.1.40:8000/it/tests/lista-risorse
+title: "DC-023 — lista-risorse"
+updated: 2026-10-13
+tags: [docs, sixteen, bmad]
+qmd: "dc-023   lista-risorse sixteen"
 ---
 
 # DC-023 — lista-risorse

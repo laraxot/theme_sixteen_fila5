@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "css js phase status"
 issues: []
 discussions: []
+status: draft
 ---
 
 # CSS/JS Phase - Status Report

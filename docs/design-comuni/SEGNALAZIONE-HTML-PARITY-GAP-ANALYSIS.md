@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "SEGNALAZIONE HTML PARITY GAP ANALYSIS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # HTML Parity Gap Analysis: Segnalazione Pages
@@ -18,15 +19,6 @@ discussions: []
 **Methodology:** Combined live curl fetch of reference + local dev server, cross-referenced with existing `compare-html-body.py` reports
 
 ---
-
-title: "SEGNALAZIONE HTML PARITY GAP ANALYSIS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "SEGNALAZIONE HTML PARITY GAP ANALYSIS"
-issues: []
-discussions: []
 ## 1. Current Parity Score Dashboard
 
 | Page | Parity Score | HTML Status | CSS/JS Status | Date Verified |

@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity dcp-11: riparazione mcp e second brain bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-11: riparazione MCP e second brain

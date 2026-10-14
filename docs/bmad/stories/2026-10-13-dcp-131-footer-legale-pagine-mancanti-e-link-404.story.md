@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "footer link 404 note legali media policy amministrazione trasparente mappa del sito rss href cancelletto privacy accessibilita"
 related: [dcp-112, dcp-123, dcp-130, dcp-132]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-131: ogni link del footer porta a una pagina che esiste

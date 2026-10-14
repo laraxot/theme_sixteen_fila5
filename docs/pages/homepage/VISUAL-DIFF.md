@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "VISUAL DIFF"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Visual Difference Report: homepage

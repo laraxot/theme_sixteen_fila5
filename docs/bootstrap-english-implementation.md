@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "bootstrap english implementation"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Bootstrap Italia Design System Implementation
@@ -212,13 +213,4 @@ npm run build
 - [Tailwind CSS](https://tailwindcss.com/)
 
 ---
-
-title: "bootstrap english implementation"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "bootstrap english implementation"
-issues: []
-discussions: []
 *Implementazione conforme alle linee guida AGID per i siti web della Pubblica Amministrazione*

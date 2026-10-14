@@ -9,6 +9,7 @@ owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
 qmd: "design comuni parity epic: parity design comuni v2, pagine guidate da json bmad story"
+tags: [docs, sixteen, bmad]
 ---
 
 # Epic: parity Design Comuni v2, pagine guidate da JSON

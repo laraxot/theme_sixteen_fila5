@@ -10,6 +10,7 @@ created: 2026-10-13
 updated: 2026-10-13
 qmd: "wizard filament css legacy fi-sc-wizard data-dc passi inattivi footer steppers isolate-legacy-important"
 related: [dcp-32, dcp-33, dcp-35]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-91: cosa e' cambiato per il wizard quando le pagine reali passano a `data-dc`

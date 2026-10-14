@@ -9,6 +9,10 @@ norme: privacy (GDPR — richiesta permesso esplicito per geolocation); accessib
 zen: il cittadino non segna 'dove dovrei andare', ma 'dove sono ora' — la responsabilità è nel presente
 second-brain: kp-174d15a58ff94901b2b0df0d86b8907a (aperto, geo persistente, geolocation dinamica, auth-state)
 antierrore: non impostare coordinate fisse (NO CoordinatePicker::make con valori hardcoded); verificare con ls/find; docs in Sixteen/docs/
+title: "Geo — Localizzazione Dinamica dell'Utente (Non Coordinate Fisse)"
+updated: 2026-10-14
+tags: [docs, sixteen, bmad]
+qmd: "geo   localizzazione dinamica dell'utente (non coordinate fisse) sixteen"
 ---
 # Geo — Localizzazione Dinamica dell'Utente (Non Coordinate Fisse)
 
