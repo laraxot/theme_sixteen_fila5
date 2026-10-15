@@ -12,7 +12,7 @@ qmd: "coordinamento tra agenti sixteen"
 # Coordinamento tra agenti
 
 Il 2026-10-13 hanno scritto negli stessi file Claude, codex, opencode, qwen e omp, con approcci diversi. Regole per non sovrascriversi
-(story [DCP-12](../../bmad/stories/2026-10-13-dcp-12-multi-agent-ownership-protocol.story.md)).
+(story [DCP-12](../../bmad/stories/dcp-12-multi-agent-ownership-protocol.story.md)).
 
 ## Prima di scrivere (obbligatorio)
 ```bash
@@ -45,7 +45,7 @@ Il layout `layouts/test.blade.php` ora usa header/footer/modale Design Comuni (s
 - Misure: con scope solo su `<main>` header 95,5% e footer 76,6%; con scope sul body header 100% e footer 100%.
 
 ## ATTENZIONE: eventi in parallelo (2026-10-13 11:45)
-Un altro agente lavora su `sito/eventi.html` (story `bmad/stories/eventi-visual-parity-97.story.md`, evidenze in `bmad/evidence/eventi-*`, `blocks/events-calendar/default.blade.php`) e ha creato `config/local/fixcity/database/content/pages/eventi.json` con lo **stesso slug** `tests.eventi` di `tests.eventi.json`: due record con lo stesso slug = `CMS content collision` (HTTP 500) per tutti. Il file non canonico e' stato spostato (backup nello scratchpad della sessione Claude); il nome canonico e' `tests.eventi.json` (regola in `Modules/Cms/docs/json-content-slug-uniqueness.md`).
+Un altro agente lavora su `sito/eventi.html` (story `bmad/stories/eventi-visual-parity.story.md`, evidenze in `bmad/evidence/eventi-*`, `blocks/events-calendar/default.blade.php`) e ha creato `config/local/fixcity/database/content/pages/eventi.json` con lo **stesso slug** `tests.eventi` di `tests.eventi.json`: due record con lo stesso slug = `CMS content collision` (HTTP 500) per tutti. Il file non canonico e' stato spostato (backup nello scratchpad della sessione Claude); il nome canonico e' `tests.eventi.json` (regola in `Modules/Cms/docs/json-content-slug-uniqueness.md`).
 Metodo usato qui: un solo blocco `blocks/events-page/design-comuni.blade.php` guidato da JSON + CSS generato (non `events-calendar/default`, non Tailwind a mano). Confrontare con i numeri di `bashscripts/tools/visual/parity-gate.sh` prima di cambiare approccio.
 
 ## Contratto non negoziabile
@@ -65,7 +65,7 @@ Se due approcci confliggono, si confrontano con i numeri del gate (`bashscripts/
 
 
 ## tickets/create (DCP-35, 2026-10-13 12:57)
-Tabella dei file contesi e protocollo: `Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md`.
+Tabella dei file contesi e protocollo: `Modules/Fixcity/docs/stories/dcp-35-tickets-create-privacy-dati-coordinamento.story.md`.
 Passi 3 e 4: DCP-33 e DCP-34. Aggiornare la tabella della story prima e dopo ogni lavoro; prossimo numero di decisione libero: D18 (D15 e D16 doppie, D17 e' `tickets-create-richiede-auth`).
 
 Blocco id DCP-40..49 riservato alle story tickets/create di DCP-35 (DCP-40 radice Volt ... DCP-46 passo 1). Chi crea una nuova story DCP usi 50 o piu', oppure controlli `ls` su Fixcity, Sixteen, Cms e Xot prima.

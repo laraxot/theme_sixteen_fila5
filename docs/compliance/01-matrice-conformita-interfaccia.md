@@ -11,7 +11,7 @@ related:
   - ../../../../Modules/Fixcity/docs/compliance/00-scopo-del-progetto.md
   - ../../../../Modules/Fixcity/docs/compliance/01-matrice-conformita-normativa.md
   - ../../../../Modules/Fixcity/docs/compliance/03-fonti-cad-accessibilita-verificate.md
-  - ../bmad/stories/2026-10-13-dcp-112-scopo-e-conformita-normativa.story.md
+  - ../bmad/stories/dcp-112-scopo-e-conformita-normativa.story.md
 qmd: "matrice conformita interfaccia accessibilita wcag 2.1 aa en 301 549 dichiarazione accessibilita lang de es footer link 404 google fonts cookie mobile axe prove"
 ---
 
@@ -121,5 +121,5 @@ La sonda e' descritta in `Modules/Fixcity/docs/compliance/01-matrice-conformita-
 | I-01 | assente | `/{it,en,de,es}/accessibilita` risponde 200 (blocco `accessibility-statement`, dati dell'ente nel JSON); modulo di feedback che invia email alla casella dichiarata; link alla procedura dell'art. 3-quinquies; link dal footer e dalle pagine di login e registrazione. Stato di conformita', date e casella restano da fornire (guardia `AccessibilityDeclarationPublicationGateTest`, rossa per costruzione) |
 | I-16 | assente | footer: tutti i link interni rispondono 200 (o 302 al login per `/tickets/create`) in 4 lingue e nessun `href="#"` sul sito reale (test `FooterLinksResolveTest`); le voci senza pagina sono testo non attivo. Header: NON risolto (9 link 404 per lingua, 12 `href="#"`), fuori perimetro di DCP-131 |
 
-Story: `../bmad/stories/2026-10-13-dcp-131-footer-legale-pagine-mancanti-e-link-404.story.md` e `...dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md`.
+Story: `../bmad/stories/dcp-131-footer-legale-pagine-mancanti-e-link.story.md` e `...dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md`.
 

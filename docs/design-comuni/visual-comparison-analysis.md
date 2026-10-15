@@ -122,6 +122,6 @@ FixCity:   16KB (+8.4KB)
 **Collegamenti**:
 - [00-index.md](00-index.md) - Indice documentazione
 - [work-plan.md](work-plan.md) - Piano di lavoro
-- [html-structure-comparison-2026-04-02.md](html-structure-comparison-2026-04-02.md) - Analisi struttura HTML
-- [visual-comparison-report-2026-04-02.md](visual-comparison-report-2026-04-02.md) - Report precedente
+- [html-structure-comparison-2026-04-02.md](html-structure-comparison.md) - Analisi struttura HTML
+- [visual-comparison-report-2026-04-02.md](visual-comparison-report.md) - Report precedente
 - [../../../docs/design-comuni/html-match.md](../../../docs/design-comuni/html-match.md) - Regola globale

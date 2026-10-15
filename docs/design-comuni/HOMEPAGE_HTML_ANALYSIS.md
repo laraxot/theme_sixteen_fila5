@@ -393,7 +393,7 @@ The template at `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php` wi
 - [Homepage Analysis (previous)](./homepage-structure-analysis.md) — Analisi precedente della struttura homepage
 - [Homepage Gap Analysis](./homepage-gap-analysis.md) — Analisi gap precedenti
 - [Homepage Parity Report](./homepage-parity-report.md) — Report di parity precedente
-- [Homepage Structure Diff](./homepage-structure-diff-2026-04-02.md) — Diff strutturale precedente
+- [Homepage Structure Diff](./homepage-structure-diff.md) — Diff strutturale precedente
 - [ARCHITECTURAL_DECISIONS.md](./ARCHITECTURAL_DECISIONS.md) — Decisioni architetturali Design Comuni
 - [HTML Body Comparison Report](./HTML_BODY_COMPARISON_REPORT.md) — Report comparativo HTML body
 - [CSS/JS Alignment Plan](./css-js-alignment-plan.md) — Piano allineamento CSS/JS

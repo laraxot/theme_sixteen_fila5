@@ -10,7 +10,7 @@ tags: [front-office, scheda, scopo, politica, audit, bmad]
 qmd: "front office scheda per pagina scopo funzione politica coerenza verdetto tenere correggere togliere decidere pagine legali terms privacy note legali cookie media policy accessibilita faq"
 related:
   - ./01-matrice-conformita-interfaccia.md
-  - ../bmad/stories/2026-10-14-dcp-186-front-office-scopo-e-senso-di-ogni-pagina-ed-elemento.story.md
+  - ../bmad/stories/dcp-186-front-office-scopo-e-senso-di-ogni-pagina-ed-elemento.story.md
   - ../../../../Modules/Fixcity/docs/compliance/00-scopo-del-progetto.md
 ---
 

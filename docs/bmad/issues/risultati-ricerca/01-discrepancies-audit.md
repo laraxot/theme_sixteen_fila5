@@ -78,11 +78,11 @@ After implementing fixes:
 3. Check visual parity ≥97% (pixel comparison)
 4. Run WCAG audit (Mauve/axe): contrast ≥4.5:1 body, ≥3:1 UI
 5. Verify zero console errors, zero missing images, zero horizontal overflow
-6. Update `risultati-ricerca-visual-parity-97.story.md` with new metrics
+6. Update `risultati-ricerca-visual-parity.story.md` with new metrics
 
 ## BMAD Integration
 
-- Story: `risultati-ricerca-visual-parity-97.story.md` (already exists, needs update)
+- Story: `risultati-ricerca-visual-parity.story.md` (already exists, needs update)
 - Decision log: Record fixes in `docs/bmad/decision-log.md`
 - Second brain: D21 tracking
 - Commands: `bash bashscripts/quality-gates/verify-llm-wiki.sh`, Playwright screenshot comparison

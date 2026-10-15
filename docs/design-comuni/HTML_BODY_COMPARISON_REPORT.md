@@ -203,4 +203,4 @@ Le differenze sono:
 ### 🔗 Documenti Correlati
 - [HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md) — Analisi HTML aggiornata con diff strutturale dettagliata (2026-04-07)
 - [homepage-structure-analysis.md](./homepage-structure-analysis.md) — Analisi struttura homepage
-- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md) — Diff strutturale precedente
+- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff.md) — Diff strutturale precedente

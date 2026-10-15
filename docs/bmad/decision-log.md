@@ -206,7 +206,7 @@ misurate a 375, 768 e 1440px con body comparator e screenshot.
 
 ## D16: Documentazione parallela — aggiornamento second-brain
 - **Fixcity**: `second-brain.md` §8 aggiornato con 3 storie parallele e riferimenti ai BMAD stories.
-- **Sixteen**: `second-brain/geo-map-tickets-2026-10-14.md` creato con dettagli tecnici e riferimenti.
+- **Sixteen**: `second-brain/geo-map-tickets.md` creato con dettagli tecnici e riferimenti.
 - **BMAD stories**: `STORY-054-ticket-marker-visibility.md`, `STORY-XXX-wizard-map-buttons.md`, `STORY-530-geolocation-not-working.md` create con frontmatter completo.
 
 ## D17: Documentation standards — consistency across modules

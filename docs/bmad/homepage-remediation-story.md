@@ -60,6 +60,6 @@ non sostituirle con una valutazione soggettiva.
 ## Definition of Done
 
 Tutti gli acceptance criteria sono dimostrati nel report
-`homepage-remediation-verification-2026-10-13.md`. La verifica controllata è
+`homepage-remediation-verification.md`. La verifica controllata è
 100% a 375, 768 e 1440 px; il body HTML è 95.14%. Il raw screenshot resta
 95.86–95.98% solo per le immagini casuali della reference.

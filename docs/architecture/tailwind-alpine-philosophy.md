@@ -141,4 +141,4 @@ I componenti Bootstrap Italia vengono replicati con classi Tailwind usando `@app
 - [Layout Architecture](./layout-architecture.md)
 - [Page Component Architecture](./page-component-architecture.md)
 - [Bootstrap Italia → Tailwind Migration](../bootstrap-italia-to-tailwind.md)
-- [CSS/JS Parity](../design-comuni/css-js-parity-2026-04-04.md)
+- [CSS/JS Parity](../design-comuni/css-js-parity.md)

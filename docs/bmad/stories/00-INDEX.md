@@ -17,14 +17,14 @@ devono introdurre percorsi, JSON o componenti che non esistono nel repository.
 
 | Story | Scope | Stato | File owner principale |
 |---|---|---|---|
-| [DCP-32](2026-10-13-dcp-32-wizard-step1-privacy.story.md) | Privacy / consenso | ready-for-dev | `TicketForm.php`, privacy view |
-| [DCP-33](2026-10-13-dcp-33-wizard-step2-dati.story.md) | Dati + CoordinatePicker | ready-for-dev | `TicketForm.php`, Geo map |
-| [DCP-34](2026-10-13-dcp-34-wizard-step3-riepilogo.story.md) | Riepilogo readonly + mappa | ready-for-dev | summary schema/infolist |
-| [DCP-35](2026-10-13-dcp-35-conferma-parity.story.md) | Conferma post-save | ready-for-dev | confirmation block/action |
+| [DCP-32](dcp-32-wizard-step1-privacy.story.md) | Privacy / consenso | ready-for-dev | `TicketForm.php`, privacy view |
+| [DCP-33](dcp-33-wizard-step2-dati.story.md) | Dati + CoordinatePicker | ready-for-dev | `TicketForm.php`, Geo map |
+| [DCP-34](dcp-34-wizard-step3-riepilogo.story.md) | Riepilogo readonly + mappa | ready-for-dev | summary schema/infolist |
+| [DCP-35](dcp-35-conferma-parity.story.md) | Conferma post-save | ready-for-dev | confirmation block/action |
 
 ## Wave B — pagine Design Comuni
 
-La story [DCP-32S](2026-10-13-dcp-32-scope-data-dc-pagine-reali.story.md) copre
+La story [DCP-32S](dcp-32-scope-data-dc-pagine-reali.story.md) copre
 lo scope CSS/layout sulle pagine reali e non è lo step privacy: il suffisso `S`
 evita l’ID duplicato. Le story DCP-04–DCP-31 coprono homepage, header/footer, ricerca, FAQ, servizi,
 eventi, liste e flussi. Ogni agente deve leggere i documenti BMAD radice, dichiarare
@@ -35,9 +35,9 @@ screenshot 375/768/1440, DOM evidence e WCAG evidence.
 
 | Story | Scope | Stato | Owner principale |
 |---|---|---|---|
-| [DCP-106](2026-10-13-dcp-106-header-area-personale-reale-e-pagine-collegate.story.md) | specifica, coordinamento e causa radice delle pagine vuote | in-progress | tema |
-| [DCP-110](2026-10-13-dcp-110-area-personale-pratiche-e-seguite.story.md) | "Le mie segnalazioni" e "Segnalazioni che seguo" | done | modulo Fixcity |
-| [DCP-111](2026-10-13-dcp-111-area-personale-notifiche-e-impostazioni.story.md) | "Notifiche" (tabella `notifications`, segna come letta) e "Impostazioni e privacy" (preferenza email, dati dell'account, diritti GDPR) | done | modulo Fixcity |
+| [DCP-106](dcp-106-header-area-personale-reale-e-pagine-collegate.story.md) | specifica, coordinamento e causa radice delle pagine vuote | in-progress | tema |
+| [DCP-110](dcp-110-area-personale-pratiche-e-seguite.story.md) | "Le mie segnalazioni" e "Segnalazioni che seguo" | done | modulo Fixcity |
+| [DCP-111](dcp-111-area-personale-notifiche-e-impostazioni.story.md) | "Notifiche" (tabella `notifications`, segna come letta) e "Impostazioni e privacy" (preferenza email, dati dell'account, diritti GDPR) | done | modulo Fixcity |
 
 ## Wave D — compliance Design Italia, cookiebar e disclaimer
 
@@ -46,10 +46,10 @@ senza duplicare il runtime Gdpr o trasformare un audit visuale in approvazione l
 
 | Story | Scope | Stato | Owner |
 |---|---|---|---|
-| [DCP-170](2026-10-14-dcp-170-cookiebar-visual-semantic-audit.story.md) | audit visuale/semantico Cookiebar | ready-for-dev | Sixteen |
-| [DCP-171](2026-10-14-dcp-171-disclaimer-content-and-route-verification.story.md) | verifica disclaimer, dati e route | ready-for-dev | Sixteen + legal owner |
-| [DCP-172](2026-10-14-dcp-172-legal-surface-localization-regression.story.md) | regressione link legali it/en/de/es | ready-for-dev | Sixteen |
-| [DCP-173](2026-10-14-dcp-173-design-guideline-evidence-retest.story.md) | retest matrice requisiti/evidenze | ready-for-dev | Sixteen + release owner |
+| [DCP-170](dcp-170-cookiebar-visual-semantic-audit.story.md) | audit visuale/semantico Cookiebar | ready-for-dev | Sixteen |
+| [DCP-171](dcp-171-disclaimer-content-and-route-verification.story.md) | verifica disclaimer, dati e route | ready-for-dev | Sixteen + legal owner |
+| [DCP-172](dcp-172-legal-surface-localization-regression.story.md) | regressione link legali it/en/de/es | ready-for-dev | Sixteen |
+| [DCP-173](dcp-173-design-guideline-evidence-retest.story.md) | retest matrice requisiti/evidenze | ready-for-dev | Sixteen + release owner |
 
 ## Story hygiene
 
@@ -70,5 +70,5 @@ risultati, esegue il conflict check e aggiorna `bmad-output/sprint-status.yaml`.
 ## Registro completo (2026-10-14)
 
 - [00-REGISTRO-COMPLETO.md](00-REGISTRO-COMPLETO.md): tutte le story non citate negli indici principali (famiglie `catalog/`, `pages/`, `dcp-NN` senza data, `s-*`, `s150-*`, `DC-*`, `STORY-*` e `docs/stories/`), con stato e titolo dichiarati nei file.
-- Story collegata di un altro modulo: [DCP-152 (owner Geo)](../../../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md), marker del dettaglio ticket (blocco `ticket-detail/design-comuni`) e pulsanti opachi del `coordinate-picker-lit` nelle pagine `data-dc`. Relazione con [DCP-148](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md).
-- [DCP-183](2026-10-14-dcp-183-font-come-asset-di-vite.story.md): i font del tema come asset di Vite (hash, manifest, preload) senza aggiornare Vite; strada nativa scelta, opzione `fonts` di laravel-vite-plugin rinviata (richiede Vite 8). Sorgente pronto, attivazione al prossimo build completo concordato.
+- Story collegata di un altro modulo: [DCP-152 (owner Geo)](../../../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md), marker del dettaglio ticket (blocco `ticket-detail/design-comuni`) e pulsanti opachi del `coordinate-picker-lit` nelle pagine `data-dc`. Relazione con [DCP-148](dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md).
+- [DCP-183](dcp-183-font-come-asset-di-vite.story.md): i font del tema come asset di Vite (hash, manifest, preload) senza aggiornare Vite; strada nativa scelta, opzione `fonts` di laravel-vite-plugin rinviata (richiede Vite 8). Sorgente pronto, attivazione al prossimo build completo concordato.

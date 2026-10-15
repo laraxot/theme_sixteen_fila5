@@ -93,7 +93,7 @@ Vincoli confermati:
 
 - `resources/css/app.css`
 - `resources/js/app.js`
-- `docs/design-comuni/homepage-structure-diff-2026-04-02.md`
+- `docs/design-comuni/homepage-structure-diff.md`
 - `docs/design-comuni/screenshots/homepage-visual-pass-2026-04-02.md`
 
 ---
@@ -109,5 +109,5 @@ Vincoli confermati:
 
 ## Riferimenti
 
-- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md)
+- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff.md)
 - [screenshots/homepage-visual-pass-2026-04-02.md](./screenshots/homepage-visual-pass-2026-04-02.md)

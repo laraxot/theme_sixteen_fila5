@@ -10,7 +10,7 @@ updated: 2026-10-13
 tags: [docs, sixteen, bmad]
 qmd: "/it/tickets/create?step=form.riepilogo::data::wizard-step   wizard step 3 (riepilogo) + mappa di verifica sixteen"
 ---
-> Stato 2026-10-13: story NON autorevole. Contiene affermazioni non verificate (classi o percorsi inesistenti, ordine dei passi errato). Fonte attuale: DCP-35 (`Modules/Fixcity/docs/stories/2026-10-13-dcp-35-tickets-create-privacy-dati-coordinamento.story.md`).
+> Stato 2026-10-13: story NON autorevole. Contiene affermazioni non verificate (classi o percorsi inesistenti, ordine dei passi errato). Fonte attuale: DCP-35 (`Modules/Fixcity/docs/stories/dcp-35-tickets-create-privacy-dati-coordinamento.story.md`).
 
 # /it/tickets/create?step=form.riepilogo::data::wizard-step — Wizard Step 3 (Riepilogo) + Mappa di Verifica
 
