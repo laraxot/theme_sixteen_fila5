@@ -1,4 +1,26 @@
 ---
+<<<<<<< .merge_file_dvYGWh
+title: "Sixteen — tool di qualità"
+type: reference
+status: stable
+source_of_truth: true
+theme: Sixteen
+created: 2025-01-27
+updated: 2026-10-15
+tags: [quality, phpstan, theme, sixteen]
+qmd: "sixteen code quality tools phpstan eslint prettier stylelint markdown gate"
+related:
+  - ./CODE_QUALITY_ANALYSIS.md
+  - ./README.md
+  - ../../../../bashscripts/docs/prompts/03-quality-gates.md
+  - ../../../../bashscripts/docs/prompts/11-phpstan.md
+  - ../../../../bashscripts/ai/wiki/memories/phpstan-quality-docs-bmad-standing-order.md
+issues: []
+discussions: []
+---
+
+# Sixteen: tool di qualità
+=======
 title: "CODE QUALITY TOOLS"
 type: note
 tags: [documentation]
@@ -157,52 +179,46 @@ I report vengono generati nella cartella `reports/` e includono:
 ## 🚨 TROUBLESHOOTING
 
 ### **Problemi Comuni**
+>>>>>>> .merge_file_XdmcY8
 
-#### Build Errors
-```bash
-# Pulisci cache e reinstalla
-rm -rf node_modules package-lock.json
-npm install
-npm run build
-```
+## Scopo
 
-#### Linting Errors
-```bash
-# Correggi automaticamente
-npx eslint --fix "resources/js/**/*.{js,ts,jsx,tsx}"
-npx prettier --write "resources/**/*.{js,ts,jsx,tsx,css,scss,html,md}"
-npx stylelint --fix "resources/**/*.{css,scss}"
-```
+Il tema Sixteen serve il front office (layout, componenti, asset). La qualità
+qui significa: markup/CSS/JS coerenti col design system e nessun silenziatore
+che nasconda errori statici nei moduli PHP che il tema consuma.
 
-#### Performance Issues
-```bash
-# Analizza bundle
-npm run build -- --analyze
+## Gate rilevanti
 
-# Controlla Lighthouse
-npx lighthouse http://localhost --view
-```
+| Area | Dove | Prompt |
+|------|------|--------|
+| PHP (moduli usati dal tema) | `cd laravel && ./vendor/bin/phpstan analyse Modules` | [11-phpstan.md](../../../../bashscripts/docs/prompts/11-phpstan.md) |
+| Gate sessione | perimetro toccato + lock | [03-quality-gates.md](../../../../bashscripts/docs/prompts/03-quality-gates.md) |
+| Docs tema | questa cartella `docs/` | [44-module-docs-continuous.md](../../../../bashscripts/docs/prompts/44-module-docs-continuous.md) |
 
-## 📚 RISORSE
+Standing order:
+[phpstan-quality-docs-bmad-standing-order.md](../../../../bashscripts/ai/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
 
-### **Documentazione**
-- [ESLint Documentation](https://eslint.org/)
-- [Prettier Documentation](https://prettier.io/)
-- [Stylelint Documentation](https://stylelint.io/)
-- [Vite Documentation](https://vitejs.dev/)
+## Frontend (quando il task tocca asset del tema)
 
+<<<<<<< .merge_file_dvYGWh
+- Lint/format del tree del tema (ESLint, Prettier, Stylelint) solo se i binari
+  e le config esistono nel tema; assenza binario = skip ambiente, non pass.
+- Niente claim di "0 errori" senza output allegato della run.
+=======
 ### **Guide Specifiche**
 - [Frontend Code Quality Guide](../../Modules/Xot/docs/frontend-code-quality.md)
-- [Performance Optimization Guide](./PERFORMANCE-OPTIMIZATION.md)
+- [Performance Optimization Guide](./performance-optimization.md)
 - [AGID Design System Guide](./agid-design-system.md)
+>>>>>>> .merge_file_XdmcY8
 
----
+## Docs
 
-**Last Updated**: 2025-01-27  
-**Next Review**: 2025-02-27  
-**Status**: 🚀 ACTIVE IMPLEMENTATION  
-**Confidence Level**: 98%  
+- Un canonico per argomento; nomi `.md` minuscoli kebab-case senza date
+  (eccezione case: `README.md`). Prima di creare:
+  `python3 -I bashscripts/tools/docs/md-filenames.py name <percorso>`.
+- Analisi storica: [CODE_QUALITY_ANALYSIS.md](./CODE_QUALITY_ANALYSIS.md)
+  (evidence; non sostituisce una rimisurazione).
 
----
+## Divieti
 
-*Il tema Sixteen mantiene i più alti standard di qualità del codice attraverso l'utilizzo di strumenti di analisi all'avanguardia.*
+Git forward-only; niente ignore/baseline PHPStan; niente nuove cartelle `docs/`.
