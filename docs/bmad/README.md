@@ -4,7 +4,7 @@ title: "BMAD UI/UX Sixteen — boundary FixCity"
 type: workflow-boundary
 status: active
 created: 2026-09-26
-updated: 2026-09-27
+updated: 2026-10-15
 tags: [bmad, ui, ux, sixteen, fixcity]
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
@@ -89,3 +89,9 @@ accessibilità completa né staging.
 
 - [Information architecture presentation](./design-comuni-information-architecture.md) — contratto di resa ODS
 - [Theme identity decision](./design-comuni-theme-identity-decision.md) — nessun layout DesignComuni parallelo
+
+## Standing order (tema)
+
+PHPStan a zero, qualità continua, docs BMAD aggiornate: [standing order wiki](../../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
+Contratti header/footer: [header-footer-sections-contract.md](header-footer-sections-contract.md).
+Moduli: [Cms](../../../../Modules/Cms/docs/README.md), [UI](../../../../Modules/UI/docs/README.md).
