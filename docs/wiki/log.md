@@ -1251,7 +1251,7 @@ status: draft
   consolidato (`reports/`, `screenshots/pages/` evidenza per pagina,
   `screenshots/legacy-2026-04/`); bug path annidato
   `visual-parity/scripts/docs/visual-parity/scripts/` eliminato;
-  indici root duplicati (`INDEX.md`, `DOCUMENTATION_INDEX.md`,
+  indici root duplicati (`INDEX.md`, `documentation-index.md`,
   `00-index.md`) ritirati con `.old`; `00-INDEX.md` e
   `visual-parity/INDEX.md` aggiornati.
 - **Nuova regola** `wiki/rules/cms-content-slug-matches-folio-page-name.md`:
