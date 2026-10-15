@@ -31,7 +31,7 @@ BSD-3-Clause: la ridistribuzione, anche modificata, e' consentita se si conserva
 2. L'intestazione del CSS generato (script `bashscripts/tools/visual/extract-used-css.mjs`) riproduce l'avviso completo, cosi' sopravvive alla rigenerazione.
 3. Pagina «Crediti e licenze» raggiungibile dal footer (si integra con DCP-131), in 4 lingue.
 4. File `LICENSE` nei repository del tema e del modulo Fixcity e decisione scritta sulla licenza (MIT, EUPL-1.2 o AGPL-3.0-or-later) con titolare dei diritti indicato dal Comune.
-5. Correggere `NO_BOOTSTRAP_ITALIA.md` (non cancellare): distinguere pacchetto e regole derivate.
+5. Correggere `no-bootstrap-italia.md` (non cancellare): distinguere pacchetto e regole derivate.
 
 ## Criteri di accettazione
 - [ ] `head -20 laravel/Themes/Sixteen/resources/css/design-comuni/components.css` mostra avviso, condizioni e disclaimer; dopo una rigenerazione del file l'intestazione e' identica.
