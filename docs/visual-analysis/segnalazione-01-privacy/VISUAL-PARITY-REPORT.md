@@ -1,3 +1,15 @@
+---
+title: "VISUAL PARITY REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL PARITY REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Visual Parity Analysis - segnalazione-01-privacy
 
 **Date**: 2026-04-09  
@@ -105,7 +117,7 @@ node check-all-pages.cjs        # HTML parity + screenshots
 
 ## Related Docs
 
-- [segnalazione-parity.css](../../resources/css/segnalazione-parity.css)
-- [style-apply.css](../../resources/css/style-apply.css)
+- [segnalazione-parity.css](../../../resources/css/segnalazione-parity.css)
+- [style-apply.css](../../../resources/css/style-apply.css)
 - [HTML Structure Comparison](../html-structure-comparison.md)
-- [MCP Theme Setup](../mcp/MCP-THEME-SETUP.md)
+- [MCP Theme Setup](../../mcp/MCP-THEME-SETUP.md)

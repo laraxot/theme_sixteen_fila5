@@ -1,3 +1,15 @@
+---
+title: "SECTION STRUCTURE DIFF"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SECTION STRUCTURE DIFF"
+issues: []
+discussions: []
+status: draft
+---
+
 # Section Structure Differences
 
 ## Discovery: Governance Carousel Not in Reference Design

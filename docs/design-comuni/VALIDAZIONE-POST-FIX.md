@@ -1,10 +1,21 @@
+---
+title: "VALIDAZIONE POST FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VALIDAZIONE POST FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Validazione Post-Fix - Homepage
 
 **Data**: 2026-04-07
 **URL**: http://127.0.0.1:8000/it/tests/homepage
 
 ---
-
 ## ✅ Stato Componenti
 
 ### Governance Cards

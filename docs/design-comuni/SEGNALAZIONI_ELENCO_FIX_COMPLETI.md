@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO FIX COMPLETI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO FIX COMPLETI"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazioni Elenco - Fix Completi e Analisi Elementi
 
 ## Panoramica
@@ -175,10 +187,9 @@ x-data="{
 - **Elementi Analisi**: [SEGNALAZIONI_ELENCO_ELEMENTI_ANALISI.md](./SEGNALAZIONI_ELENCO_ELEMENTI_ANALISI.md)
 - **Layout Fix**: [SEGNALAZIONI_ELENCO_LAYOUT_FIX.md](./SEGNALAZIONI_ELENCO_LAYOUT_FIX.md)
 - **Rating Fix**: [SEGNALAZIONI_ELENCO_RATING_FIX.md](./SEGNALAZIONI_ELENCO_RATING_FIX.md)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Data**: 2026-04-03  
 **Stato**: ✅ Tutti i problemi risolti, documentazione completa  
 **Match**: 92.5%

@@ -17,6 +17,9 @@ new class extends Component {
 
     public string $pageSlug = '';
 
+    /** Chrome Design Comuni (JSON `layout` = design-comuni*): attiva lo scope CSS di resources/css/design-comuni. */
+    public bool $isDesignComuni = false;
+
     /** @var array<string, mixed> */
     public array $data = [];
 
@@ -28,8 +31,11 @@ new class extends Component {
         $resolved = app(ResolvePageAction::class)->execute($container0, $slug0);
 
         $this->pageSlug = $resolved->pageSlug;
-
         $item = $resolved->item;
+        $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug($this->pageSlug);
+        // ne' un modello ne' una pagina CMS: 404 vero, non un 200 con <main> vuoto (soft-404: i motori di ricerca lo indicizzano)
+        abort_if($item === null && $cmsPage === null, 404);
+        $this->isDesignComuni = str_starts_with((string) $cmsPage?->layout, 'design-comuni');
 
         $this->data = [
             'container0' => $container0,
@@ -41,10 +47,73 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app>
-    @volt('container0.view')
-    <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
-        <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
-    </div>
-    @endvolt
-</x-layouts.app>
+@php
+    $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug(request()->segment(2).'.'.request()->segment(3));
+    $specialPage = $container0 === 'auth' && $slug0 === 'login'
+        ? 'auth-login'
+        : ($container0 === 'auth' && $slug0 === 'register'
+        ? 'auth-register'
+        : ($container0 === 'tickets' && $slug0 === 'track'
+        ? 'ticket-track'
+        : ($container0 === 'tickets' && ctype_digit($slug0) ? 'ticket-detail' : null)));
+    $pageTitle = $specialPage === 'auth-login'
+        ? __('fixcity::auth.title')
+        : ($specialPage === 'auth-register'
+        ? __('fixcity::auth.register_title')
+        : ($specialPage === 'ticket-track'
+        ? __('fixcity::ticket.track.title')
+        : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
+        : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
+    $pageDescription = match ($specialPage) {
+        'auth-login' => __('fixcity::auth.meta_description'),
+        'auth-register' => __('fixcity::auth.register_meta_description'),
+        default => \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
+    };
+    // pagine con chrome Design Comuni: asset con percorso relativo come il riferimento (DesignComuniAssets) e voce di menu attiva dal JSON
+    $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
+    $isDesignComuni && view()->share('dcRelativeAssets', true);
+    $headerActive = $isDesignComuni ? (string) data_get($cmsPage?->content_blocks, '0.data.header_active', '') : '';
+    // `layout` del JSON: `test` (chrome v1), `design-comuni*` (chrome Design Comuni, vedi layouts/design-comuni*), altrimenti `app`
+    $jsonLayout = $cmsPage?->getAttribute('layout') ?? 'app';
+    $layoutComponent = $jsonLayout === 'test'
+        ? 'layouts.test'
+        : (str_starts_with($jsonLayout, 'design-comuni') ? 'layouts.'.$jsonLayout : 'layouts.app');
+    // dettaglio pubblico di una segnalazione (DCP-148): dati dall'Action (404 se non esiste o non e' pubblica), chrome Design Comuni come /it/tickets
+    $ticketDetail = null;
+    if ($specialPage === 'ticket-detail') {
+        $ticketDetail = app(\Modules\Fixcity\Actions\BuildPublicTicketDetailAction::class)->execute((int) $slug0, auth()->user());
+        abort_if($ticketDetail === null, 404);
+        $pageTitle = $ticketDetail['title'];
+        $pageDescription = $ticketDetail['meta_description'];
+        $isDesignComuni = true;
+        view()->share('dcRelativeAssets', true);
+        $headerActive = 'all-services';
+        $layoutComponent = 'layouts.design-comuni';
+    }
+@endphp
+<x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription" :header-active="$headerActive">
+    @if ($specialPage !== null)
+        <div class="page-content content"{!! $ticketDetail !== null ? ' data-dc' : '' !!} data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
+            @if ($specialPage === 'auth-login')
+                @include('pub_theme::components.pages.auth-login')
+            @elseif ($specialPage === 'auth-register')
+                @include('pub_theme::components.pages.auth-register')
+            @elseif ($specialPage === 'ticket-track')
+                @include('pub_theme::components.pages.ticket-track')
+            @else
+                @include('pub_theme::components.pages.ticket-detail')
+            @endif
+        </div>
+    @else
+        {{--
+            Il div.page-content e' la radice del componente Volt. Livewire stampa wire:id sul primo tag a inizio
+            riga del fragment: con <x-page> come unico contenuto finiva dentro il widget Livewire di un blocco
+            (es. CreateTicketWizardWidget) e ogni wire:model / callSchemaComponentMethod colpiva il Volt.
+        --}}
+        @volt('container0.view')
+            <div class="page-content content"{!! $this->isDesignComuni ? ' data-dc' : '' !!} data-slug="{{ $this->container0.'.'.$this->slug0 }}" data-side="content">
+                <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+            </div>
+        @endvolt
+    @endif
+</x-dynamic-component>

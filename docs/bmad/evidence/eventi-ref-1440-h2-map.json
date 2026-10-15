@@ -1,0 +1,112 @@
+[
+  {
+    "h2": "Eventi in evidenza",
+    "y": 1063,
+    "container": "container",
+    "cards": [
+      {
+        "title": "Un'estate indimenticabile",
+        "img": "../assets/images/eventi-estate.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "La biblioteca nel parco",
+        "img": "../assets/images/eventi-biblioteca-parco.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Festa delle associazioni della sesta circoscrizione",
+        "img": "../assets/images/eventi-festa-associazioni.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Celluloide film festival",
+        "img": "../assets/images/eventi-celluloide-festival.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Street art e murales in città",
+        "img": "../assets/images/eventi-street-art.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Tramvia, dibattito aperto a tutti i cittadini",
+        "img": "../assets/images/eventi-tram-via.png",
+        "cls": "card no-after rounded"
+      }
+    ]
+  },
+  {
+    "h2": "Luoghi in evidenza",
+    "y": 2399,
+    "container": "container p-3 p-md-5",
+    "cards": [
+      {
+        "title": "Il castello normanno",
+        "img": "../assets/images/luoghi-castello-1.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Il castello normanno",
+        "img": "../assets/images/luoghi-castello-2.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Il castello normanno",
+        "img": "../assets/images/luoghi-castello-3.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "La Gipsoteca canoviana",
+        "img": "../assets/images/luoghi-gipsoteca.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Tomba Brion",
+        "img": "../assets/images/luoghi-tomba.png",
+        "cls": "card no-after rounded"
+      },
+      {
+        "title": "Il castello normanno",
+        "img": "../assets/images/luoghi-castello-4.png",
+        "cls": "card no-after rounded"
+      }
+    ]
+  },
+  {
+    "h2": "Quanto sono chiare le informazioni su questa pagina?",
+    "y": 3684,
+    "container": "card-header border-0",
+    "cards": []
+  },
+  {
+    "h2": "Grazie, il tuo parere ci aiuterà a migliorare il servizio!",
+    "y": 0,
+    "container": "card-header border-0 mb-0",
+    "cards": []
+  },
+  {
+    "h2": "Contatta il comune",
+    "y": 3930,
+    "container": "card-body",
+    "cards": []
+  },
+  {
+    "h2": "Problemi in città",
+    "y": 4152,
+    "container": "card-body",
+    "cards": []
+  },
+  {
+    "h2": "Cerca",
+    "y": 0,
+    "container": "modal-title",
+    "cards": []
+  },
+  {
+    "h2": "Nome del Comune",
+    "y": 4336,
+    "container": "it-brand-text",
+    "cards": []
+  }
+]

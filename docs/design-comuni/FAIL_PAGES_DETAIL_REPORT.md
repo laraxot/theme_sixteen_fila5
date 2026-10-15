@@ -1,3 +1,15 @@
+---
+title: "FAIL PAGES DETAIL REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES DETAIL REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Analisi Dettagliata Pagine FAIL (<50%)
 
 ## Panoramica
@@ -53,7 +65,6 @@
 - Implementare componente: `contacts`
 
 ---
-
 ## segnalazione-area-personale (37.1%)
 
 ### Metriche

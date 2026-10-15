@@ -51,8 +51,9 @@
                         </div>
                          @if (!empty($cta))
                              <div class="col-lg-6 mt-50 mb-4 mb-lg-0">
-                                 @include('pub_theme::components.blocks.cta.ticket', [
-                                     'cta' => $cta
+                                @include('pub_theme::components.blocks.cta.ticket', [
+                                     'cta' => $cta,
+                                     'headingId' => 'create-ticket-heading',
                                  ])
                              </div>
                          @endif
@@ -74,14 +75,27 @@
                              </div>
                          @endforelse
                      </div>
-                     <button type="button" class="btn btn-outline-primary mobile-full py-3 mt-10 mx-auto">
-                         <span>{{ __($ns . '.load-more.button.label') }}</span>
-                     </button>
+                     @if ($vm->hasPreviousListPage() || $vm->hasNextListPage())
+                         <nav class="d-flex flex-wrap align-items-center justify-content-center gap-3 mt-10" aria-label="{{ __($ns . '.pagination.aria') }}">
+                             @if ($vm->hasPreviousListPage())
+                                 <a class="btn btn-outline-primary mobile-full" href="{{ $vm->listPageUrl($vm->listPage() - 1) }}">
+                                     {{ __($ns . '.pagination.previous') }}
+                                 </a>
+                             @endif
+                             <span aria-current="page">{{ __($ns . '.pagination.page', ['page' => $vm->listPage()]) }}</span>
+                             @if ($vm->hasNextListPage())
+                                 <a class="btn btn-outline-primary mobile-full" href="{{ $vm->listPageUrl($vm->listPage() + 1) }}">
+                                     {{ __($ns . '.pagination.next') }}
+                                 </a>
+                             @endif
+                         </nav>
+                     @endif
                      @if (!empty($cta))
                      <div class="row mt-50 mb-4 mb-lg-0">
                          <div class="col-lg-6">
                              @include('pub_theme::components.blocks.cta.ticket', [
                                  'cta' => $cta,
+                                 'headingId' => null,
                              ])
                          </div>
                      </div>

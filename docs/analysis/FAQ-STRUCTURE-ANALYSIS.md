@@ -1,4 +1,11 @@
 ---
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ STRUCTURE ANALYSIS"
+issues: []
+discussions: []
 title: FAQ Page Structure Analysis
 page: domande-frequenti
 analysis-date: 2026-04-03
@@ -164,8 +171,8 @@ The FAQ page structure between reference and local implementation is **98.3% ide
 
 ## 🔗 Bidirectional Links
 
-- **Parent**: [Theme Sixteen Documentation](../INDEX.md)
-- **Related**: [Homepage Structure Analysis](./homepage-structure-analysis.md)
+- **Parent**: [Theme Sixteen Documentation](../index.md)
+- **Related**: [Homepage Structure Analysis](../design-comuni/homepage-structure-analysis.md)
 - **Related**: [Visual Comparison Process](./VISUAL-COMPARISON-GUIDE.md)
 - **Related**: [CSS Fixes Documentation](../css/CSS-FIXES-TRACKER.md)
 

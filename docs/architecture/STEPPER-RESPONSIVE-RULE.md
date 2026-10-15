@@ -1,3 +1,15 @@
+---
+title: "STEPPER RESPONSIVE RULE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STEPPER RESPONSIVE RULE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Stepper Responsive Rule
 
 > **Date:** 2026-04-13

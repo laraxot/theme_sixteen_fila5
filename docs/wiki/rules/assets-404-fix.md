@@ -1,7 +1,13 @@
 ---
+tags: [documentation]
+created: 2026-09-26
+qmd: "assets 404 fix"
+issues: []
+discussions: []
 title: "Asset 404 Fixes (Theme Sixteen)"
 type: rule
 updated: 2026-06-10
+status: draft
 ---
 
 ## Problem

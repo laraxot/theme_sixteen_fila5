@@ -1,3 +1,15 @@
+---
+title: "PAGES INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "PAGES INDEX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Pages Index - 49 Pagine Task
 
 **Generato**: 2026-04-06

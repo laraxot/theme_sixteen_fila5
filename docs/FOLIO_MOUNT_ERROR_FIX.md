@@ -1,3 +1,15 @@
+---
+title: "FOLIO MOUNT ERROR FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FOLIO MOUNT ERROR FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Folio Mount Error Fix - 404 Pages Not Found
 
 > **Risolto: Pagine Folio 404 perché `mount()` non esiste come funzione**
@@ -9,7 +21,6 @@
 **Tipo:** Errore routing Folio - Funzione inesistente
 
 ---
-
 ## 🐛 Problema
 
 ```

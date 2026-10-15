@@ -8,9 +8,9 @@
 
 @if (!empty($filters['items']))
     <fieldset class="mb-0">
-        <legend class="h6 text-uppercase category-list__title">{{ $filters['title'] }}</legend>
-        <div class="categoy-list pb-3">
-            <ul>
+        <legend class="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600">{{ $filters['title'] }}</legend>
+        <div class="pb-3">
+            <ul class="space-y-3">
                 @foreach ($filters['items'] as $item)
                     @php
                         $value = (string) ($item['value'] ?? '');
@@ -23,8 +23,8 @@
                         $iconUrl = (string) ($item['iconUrl'] ?? $item['icon_url'] ?? '');
                     @endphp
                     <li>
-                        <div class="form-check">
-                            <div class="checkbox-body border-light py-1">
+                        <div>
+                            <div class="flex items-start gap-3 py-1">
                                 <input
                                     id="{{ $inputId }}"
                                     type="checkbox"
@@ -37,13 +37,13 @@
                                 >
                                 <label
                                     for="{{ $inputId }}"
-                                    class="subtitle-small_semi-bold mb-0 category-list__list filter-type-label d-inline-flex align-items-center flex-nowrap gap-2"
+                                    class="inline-flex cursor-pointer items-center gap-2 text-base leading-6 text-slate-900 hover:text-emerald-700"
                                 >
                                     @if ($iconUrl !== '')
                                         <img
                                             src="{{ $iconUrl }}"
                                             alt=""
-                                            class="filter-type-icon flex-shrink-0"
+                                            class="h-5 w-5 shrink-0"
                                             width="20"
                                             height="20"
                                             loading="lazy"
@@ -54,7 +54,7 @@
                                         {{ $displayLabel }}
                                     @else
                                         {{ $displayLabel }}
-                                        <span class="count text-muted ms-1">({{ (int) ($item['count'] ?? 0) }})</span>
+                                        <span class="ml-1 text-slate-500">({{ (int) ($item['count'] ?? 0) }})</span>
                                     @endif
                                     </span>
                                 </label>
@@ -69,9 +69,9 @@
 
 @if (!empty($statusFilters['items']))
     <fieldset class="mb-0 pt-3 mt-2 border-top border-light filter-status-fieldset">
-        <legend class="h6 text-uppercase category-list__title">{{ $statusFilters['title'] }}</legend>
-        <div class="categoy-list pb-4">
-            <ul>
+        <legend class="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600">{{ $statusFilters['title'] }}</legend>
+        <div class="pb-4">
+            <ul class="space-y-3">
                 @foreach ($statusFilters['items'] as $item)
                     @php
                         $value = (string) ($item['value'] ?? '');
@@ -84,8 +84,8 @@
                         $statusColor = (string) ($item['color'] ?? '#607d8b');
                     @endphp
                     <li>
-                        <div class="form-check">
-                            <div class="checkbox-body border-light py-1">
+                        <div>
+                            <div class="flex items-start gap-3 py-1">
                                 <input
                                     id="{{ $inputId }}"
                                     type="checkbox"
@@ -98,10 +98,10 @@
                                 >
                                 <label
                                     for="{{ $inputId }}"
-                                    class="subtitle-small_semi-bold mb-0 category-list__list filter-type-label filter-status-label d-inline-flex align-items-center flex-nowrap gap-2"
+                                    class="inline-flex cursor-pointer items-center gap-2 text-base leading-6 text-slate-900 hover:text-emerald-700"
                                 >
                                     <span
-                                        class="filter-status-color flex-shrink-0"
+                                        class="h-3 w-3 shrink-0 rounded-full"
                                         style="background-color: {{ $statusColor }}"
                                         aria-hidden="true"
                                     ></span>
@@ -110,7 +110,7 @@
                                         {{ $displayLabel }}
                                     @else
                                         {{ $displayLabel }}
-                                        <span class="count text-muted ms-1">({{ (int) ($item['count'] ?? 0) }})</span>
+                                        <span class="ml-1 text-slate-500">({{ (int) ($item['count'] ?? 0) }})</span>
                                     @endif
                                     </span>
                                 </label>

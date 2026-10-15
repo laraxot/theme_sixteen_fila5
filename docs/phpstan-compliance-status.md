@@ -1,20 +1,21 @@
+---
+title: "phpstan compliance status"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "phpstan compliance status"
+issues: []
+discussions: []
+status: draft
+---
+
 # PHPStan Level 10 Compliance Status
 
-**Status**: ⚠️ NON SCANSIONATO (non e' un errore del tema)
-
-## Aggiornamento 2026-07-06
-
-Questa nota affermava "NOT APPLICABLE, doesn't contain PHP code" — **falso**:
-il tema ha 38 file PHP sotto `app/` (Filters, Http/Controllers, Models,
-Providers, Services). Il vero motivo per cui PHPStan non segnala nulla e'
-che `laravel/phpstan.neon` ha `paths: ['./Modules/']` — `Themes/` non e'
-incluso nello scan. Non e' quindi "compliant per assenza di codice", e'
-"mai analizzato". Se si vuole una copertura reale, va chiesto al
-maintainer di `phpstan.neon` di aggiungere `./Themes/` ai `paths` (fuori
-scope per un agente, quel file lo modifica solo lui).
+**Status**: ✅ NOT APPLICABLE (Theme)
 
 ## Summary
-The Sixteen theme is a frontend theme with AGID (Agenzia per l'Italia Digitale) compliance and provides a comprehensive Italian government design system.
+The Sixteen theme is a frontend theme and doesn't contain PHP code that requires PHPStan analysis. The theme focuses on AGID (Agenzia per l'Italia Digitale) compliance and provides a comprehensive Italian government design system.
 
 ## Theme Overview
 

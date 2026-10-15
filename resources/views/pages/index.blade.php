@@ -1,42 +1,42 @@
 <?php
 
-use function Laravel\Folio\{middleware, name};
-use Modules\Cms\Models\Page as CmsPage;
+declare(strict_types=1);
 
-/** @var array $base_middleware */
-$base_middleware = [];
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
 name('home');
-middleware($base_middleware);
+middleware(PageSlugMiddleware::class);
+
+new class extends Component {
+
+    public string $pageSlug = '';
+
+    /** @var array<string, mixed> */
+    public array $data = [];
+
+    public function mount(): void
+    {
+        $this->pageSlug = 'home';
+        $this->data = [];
+    }
+};
 ?>
 
 @php
-    $homePage = CmsPage::query()->where('slug', 'home')->first();
-    $homeTitle = (string) __('fixcity::ticket.heading.title.label');
-    if ($homePage !== null) {
-        $translatedHomeTitle = $homePage->getTranslation('title', app()->getLocale());
-        if (is_string($translatedHomeTitle) && $translatedHomeTitle !== '') {
-            $homeTitle = $translatedHomeTitle;
-        }
-    }
+    // titolo e descrizione dalla pagina CMS (JSON `home`): prima la home usciva con <title>FixCity</title> e description "FixCity"
+    $cmsHome = \Modules\Cms\Models\Page::findUniqueBySlug('home');
+    $homeTitle = $cmsHome?->getTranslation('title', app()->getLocale(), false) ?? config('app.name');
+    // `description` non e' una colonna traducibile del modello Page: nel JSON e' un oggetto per lingua, letto come attributo grezzo
+    $homeDescription = \Themes\Sixteen\Support\PageDescription::resolve($cmsHome?->getAttribute('description'), app()->getLocale());
 @endphp
-
-@php
-    $mapLitPreload = null;
-    $manifestPath = base_path('Themes/Sixteen/public/manifest.json');
-    if (is_readable($manifestPath)) {
-        $manifest = json_decode((string) file_get_contents($manifestPath), true);
-        $entry = is_array($manifest) ? ($manifest['../../Modules/Geo/resources/js/components/map-lit.js'] ?? null) : null;
-        $mapLitPreload = is_array($entry) ? ($entry['file'] ?? null) : null;
-    }
-@endphp
-
-@if ($mapLitPreload)
-    @push('styles')
-        <link rel="modulepreload" href="{{ asset('themes/Sixteen/'.$mapLitPreload) }}" crossorigin>
-    @endpush
-@endif
-
-<x-layouts.app :title="$homeTitle" :meta-description="__('sixteen::home.meta.description')" body-page="ticket-list">
-    <x-page side="content" slug="home" />
+<x-layouts.app :title="$homeTitle" :meta-description="$homeDescription">
+    @volt('home')
+    {{-- `fc-home`: wrapper della home reale; dentro non valgono le regole legacy del tema (postcss/isolate-legacy-important.cjs, DCP-51). `#main-container` e' il bersaglio del link "Vai ai contenuti" e lo scope delle regole contrasto di app/16-homepage-civic-reframe.css --}}
+    <div class="fc-home">
+    <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+    </div>
+    @endvolt
 </x-layouts.app>

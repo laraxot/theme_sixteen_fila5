@@ -1,3 +1,15 @@
+---
+title: "roadmap complete"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "roadmap complete"
+issues: []
+discussions: []
+status: draft
+---
+
 # 🗺️ ROADMAP COMPLETA - Theme Sixteen
 
 ## 📊 Descrizione Generale
@@ -13,7 +25,6 @@
 - **Vite**: Build tool
 
 ---
-
 ## 🎯 Funzionalità Implementate
 
 ### ✅ Layout & Structure
@@ -399,7 +410,7 @@ Senza questi comandi, le modifiche NON saranno visibili!
 
 ### Documentazione Correlata
 - [Roadmap Progetto](../../../laravel/docs/roadmap_project.md)
-- [Modulo Fixcity](../../../laravel/Modules/Fixcity/docs/ROADMAP.md)
+- [Modulo Fixcity](../../../Modules/Fixcity/docs/roadmap.md)
 - [Modulo CMS](../../../laravel/Modules/Cms/docs/roadmap_complete.md)
 
 ### Design Resources

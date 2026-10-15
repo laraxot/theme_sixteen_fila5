@@ -7,6 +7,7 @@ import fs from 'fs';
 
 export default defineConfig({
     base: '/themes/Sixteen/',
+    publicDir: false,
     resolve: {
         alias: {
             '@modules': path.resolve(__dirname, '../../Modules'),
@@ -32,10 +33,7 @@ export default defineConfig({
                 '../../Modules/Geo/resources/js/components/map-lit.js',
                 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
             ],
-            refresh: [
-                ...refreshPaths,
-                'app/Livewire/**',
-            ],
+            refresh: false,
         }),
         tailwindcss(),
         {
@@ -57,10 +55,6 @@ export default defineConfig({
                 const outBase = path.resolve(__dirname, '../../../public_html/themes/Sixteen/design-comuni');
                 const copies = [
                     {
-                        src: path.resolve(__dirname, 'node_modules/bootstrap-italia/dist/svg/sprites.svg'),
-                        dst: path.join(outBase, 'assets/bootstrap-italia/dist/svg/sprites.svg'),
-                    },
-                    {
                         src: path.resolve(__dirname, 'Main_files/five/assets/images/logo-eu-inverted.svg'),
                         dst: path.join(outBase, 'assets/images/logo-eu-inverted.svg'),
                     },
@@ -81,8 +75,9 @@ export default defineConfig({
         },
     ],
     build: {
+        // public_html/themes/Sixteen e' un symlink a ./public (tracciato): non svuotarlo
         outDir: '../../../public_html/themes/Sixteen',
-        emptyOutDir: true,
+        emptyOutDir: false,
         manifest: 'manifest.json',
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
@@ -109,6 +104,10 @@ export default defineConfig({
         },
     },
     server: {
-        hmr: { host: 'localhost' }
+        host: '127.0.0.1',
+        // Demo mode does not need HMR. Disabling chokidar prevents recursive
+        // .claude/.agents symlinks in modules from causing an ELOOP crash.
+        watch: null,
+        hmr: { host: '127.0.0.1' }
     },
 });

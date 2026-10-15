@@ -106,7 +106,7 @@
 
                                         <div class="dropdown-divider"></div>
 
-                                        <a href="{{ route('logout') }}" class="dropdown-item text-danger" role="menuitem">
+                                        <a href="{{ url('/'.app()->getLocale().'/auth/logout') }}" class="dropdown-item text-danger" role="menuitem">
                                             <x-ui::icon name="arrow-right-on-rectangle" class="w-4 h-4 mr-2" />
                                             {{ __('pub_theme::header.user.dropdown.logout.label') }}
                                         </a>
@@ -184,8 +184,8 @@
                                     </ul>
                                 </div>
                                 <div class="it-search-wrapper">
-                                    <span class="d-none d-md-block">Cerca</span>
-                                    <button class="search-link rounded-icon" type="button" aria-label="Cerca nel sito">
+                                    <span class="d-none d-md-block">{{ __('sixteen::header.center.search.label') }}</span>
+                                    <button class="search-link rounded-icon" type="button" aria-label="{{ __('sixteen::header.center.search.toggle_aria.label') }}">
                                         <x-filament::icon icon="heroicon-o-magnifying-glass" class="icon" />
                                     </button>
                                 </div>

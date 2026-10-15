@@ -1,3 +1,15 @@
+---
+title: "QUICK REFERENCE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "QUICK REFERENCE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni - Quick Reference Card
 
 ## 🎯 Phase 2 Launch (START HERE)
@@ -112,7 +124,6 @@ Found a blocker?
 4. Post update in status tracking
 
 ---
-
 ## 📊 Progress Tracking
 
 Check todo status:

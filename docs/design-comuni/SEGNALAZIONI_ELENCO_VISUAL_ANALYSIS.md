@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO VISUAL ANALYSIS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Analisi Visiva Segnalazioni Elenco - CSS/JS Fix Plan
 
 ## Panoramica
@@ -201,11 +213,10 @@
 
 - **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
 - **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---
-
 **Data**: 2026-04-03  
 **Stato HTML**: ✅ 95.7%  
 **Focus**: CSS/JS per allineamento visivo  

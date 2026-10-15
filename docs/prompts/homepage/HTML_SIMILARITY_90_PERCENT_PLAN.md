@@ -1,3 +1,15 @@
+---
+title: "HTML SIMILARITY 90 PERCENT PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML SIMILARITY 90 PERCENT PLAN"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage HTML Similarity: 81% → 90% Action Plan
 
 > **Data**: 2026-04-07
@@ -7,7 +19,6 @@
 > **Gap to Close**: 153 reference-only elements
 
 ---
-
 ## Executive Summary
 
 ### Element Breakdown by Category
@@ -468,12 +479,12 @@ Note: The first 6 slides in reference DO have `h-100` on both wrappers. Only the
 ## Related Documentation
 
 ### Internal Links
-- [Homepage HTML Analysis](../design-comuni/HOMEPAGE_HTML_ANALYSIS.md) — Previous analysis with section-by-section breakdown
-- [HTML Body Comparison Report](../design-comuni/HTML_BODY_COMPARISON_REPORT.md) — Raw comparison data
-- [CSS/JS Alignment Plan](../design-comuni/css-js-alignment-plan.md) — CSS and JS parity strategy
-- [ARCHITECTURAL_DECISIONS.md](../design-comuni/ARCHITECTURAL_DECISIONS.md) — Design Comuni architecture decisions
-- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) — CMS page component structure
+- [Homepage HTML Analysis](../../design-comuni/HOMEPAGE_HTML_ANALYSIS.md) — Previous analysis with section-by-section breakdown
+- [HTML Body Comparison Report](../../design-comuni/HTML_BODY_COMPARISON_REPORT.md) — Raw comparison data
+- [CSS/JS Alignment Plan](../../design-comuni/css-js-alignment-plan.md) — CSS and JS parity strategy
+- [ARCHITECTURAL_DECISIONS.md](../../design-comuni/ARCHITECTURAL_DECISIONS.md) — Design Comuni architecture decisions
+- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) — CMS page component structure
 
 ### Master Index
-- ← Torna all'[indice principale Design Comuni](../design-comuni/00-index.md)
-- → Vedi [ALL_PAGES_ANALYSIS.md](../design-comuni/ALL_PAGES_ANALYSIS.md) per analisi completa 54 pagine
+- ← Torna all'[indice principale Design Comuni](../../design-comuni/00-index.md)
+- → Vedi [ALL_PAGES_ANALYSIS.md](../../design-comuni/ALL_PAGES_ANALYSIS.md) per analisi completa 54 pagine

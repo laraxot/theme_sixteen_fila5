@@ -1,4 +1,5 @@
 ---
+qmd: "folio page shell pattern"
 title: "Folio Page Shell Pattern - Volt Component"
 type: concept
 tags: [folio, volt, page-shell, pattern, architecture]
@@ -9,8 +10,9 @@ issues:
 discussions:
   - "https://github.com/laraxot/base_fixcity_fila5/discussions/287"
 related:
-  - ../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
+  - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
   - ../../../docs/wiki/concepts/fo-folio-links-multilingua.md
+status: draft
 ---
 
 # Folio Page Shell Pattern - Volt Component
@@ -92,4 +94,4 @@ new class extends Component {
 - [ ] `@volt('container0.index')` coerente con il nome
 
 ## Backlink
-- [TRIGGER_MAP](../../../docs/wiki/rules/00-TRIGGER_MAP.md)
+- [TRIGGER_MAP](../../../../../../docs/wiki/rules/00-TRIGGER_MAP.md)

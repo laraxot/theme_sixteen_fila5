@@ -1,3 +1,15 @@
+---
+title: "body plain rule"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "body plain rule"
+issues: []
+discussions: []
+status: draft
+---
+
 # Body Plain Rule - HTML Parity Policy
 
 **Status**: ✅ Enforced  
@@ -5,7 +17,6 @@
 **Scope**: All theme layouts (Sixteen, etc.)
 
 ---
-
 ## Rule Statement
 
 The `<body>` tag MUST remain plain without any classes or attributes:
@@ -105,5 +116,5 @@ Before committing any layout changes:
 ## 🔗 Cross-References
 
 - → [Stepper Component](./stepper-component.md) — Uses body plain rule
-- → [segnalazione-02-dati](./segnalazione-02-dati.md) — Page implementation example
+- → [segnalazione-02-dati](../bmad/segnalazione-02-dati.md) — Page implementation example
 - → [main.blade.php](../../resources/views/components/layouts/main.blade.php) — Layout file

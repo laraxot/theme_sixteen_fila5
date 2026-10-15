@@ -1,22 +1,17 @@
-{{-- Service Details Component --}}
 @props([
     'title' => 'Informazioni sul servizio',
     'sections' => [],
 ])
 
-<div class="service-details py-8">
-    <h2 class="title-xxlarge mb-6">{{ $title }}</h2>
-    
-    <div class="row g-4">
+<div class="service-details mx-auto max-w-4xl px-4 py-8">
+    <h2 class="mb-6 text-3xl font-bold text-[#17324d]">{{ $title }}</h2>
+
+    <div class="grid gap-4 sm:grid-cols-2">
         @foreach($sections as $section)
-        <div class="col-12 col-md-6">
-            <div class="card card-bg shadow-sm">
-                <div class="card-body p-4">
-                    <h3 class="h5 mb-3">{{ $section['title'] }}</h3>
-                    <p class="text-gray-700">{{ $section['content'] }}</p>
-                </div>
+            <div class="rounded-lg border border-[#d9e2e8] bg-white p-4 shadow-sm">
+                <h3 class="mb-2 text-xl font-bold text-[#17324d]">{{ $section['title'] ?? '' }}</h3>
+                <p class="text-[#334e68]">{{ $section['content'] ?? '' }}</p>
             </div>
-        </div>
         @endforeach
     </div>
 </div>

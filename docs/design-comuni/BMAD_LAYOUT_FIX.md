@@ -1,3 +1,15 @@
+---
+title: "BMAD LAYOUT FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD LAYOUT FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # ✅ BMAD-METHOD Applied - Layout Fix
 
 **Data**: 2026-03-31  
@@ -160,7 +172,6 @@ resources/views/
 - `resources/views/components/sections/header.blade.php`
 
 ---
-
 **Stato**: ✅ **BMAD-METHOD APPLICATO CORRETTAMENTE**  
 **Vite**: **Second parameter aggiunto**  
 **DRY**: **Header/Footer non duplicati**  

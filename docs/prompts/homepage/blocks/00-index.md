@@ -1,3 +1,14 @@
+---
+title: "00 index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 index"
+issues: []
+discussions: []
+---
+
 # Homepage Blocks Index
 
 > Documentazione completa di ogni blocco HTML nella homepage Design Comuni
@@ -5,6 +16,14 @@
 
 ---
 
+title: "00 index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 index"
+issues: []
+discussions: []
 ## Blocchi Identificati
 
 ### 0. Accessibilità
@@ -62,8 +81,8 @@
 ## 🔗 Link Bidirezionali
 
 ### Indici
-- ← [Design Comuni Index](../../00-index.md)
-- ← [Homepage Structural Analysis](../../HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
+- ← [Design Comuni Index](../../../00-INDEX.md)
+- ← [Homepage Structural Analysis](../../../design-comuni/HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
 - ← [Bashscripts HTML Compare](../../../../../bashscripts/html/compare-html.sh) — script agnostico di confronto
 
 ### Documenti Correlati

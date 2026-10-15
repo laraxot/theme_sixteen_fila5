@@ -7,9 +7,9 @@
             class="mx-auto h-12 w-12 text-primary-600"
         />
         
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h1 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
             {{ __('Accedi a FixCity') }}
-        </h2>
+        </h1>
         
         @if (Route::has('register'))
             <p class="mt-2 text-center text-sm text-gray-600">

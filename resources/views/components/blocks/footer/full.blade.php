@@ -6,7 +6,7 @@
         <div class="row g-4">
             {{-- Contatta il Comune --}}
             <div class="col-12 col-md-6 col-lg-3">
-                <h3 class="h6 text-uppercase mb-3">Contatta il comune</h3>
+                <h3 class="h6 text-uppercase mb-3">{{ __('sixteen::footer.contact_municipality') }}</h3>
                 <ul class="list-unstyled">
                     <li class="mb-2"><a href="#" class="text-decoration-none">Leggi le domande frequenti</a></li>
                     <li class="mb-2"><a href="#" class="text-decoration-none">Richiedi assistenza</a></li>
@@ -37,7 +37,7 @@
             
             {{-- Forse stavi cercando --}}
             <div class="col-12 col-md-6 col-lg-3">
-                <h3 class="h6 text-uppercase mb-3">Forse stavi cercando</h3>
+                <h3 class="h6 text-uppercase mb-3">{{ __('fixcity::global.related_title') }}</h3>
                 <ul class="list-unstyled">
                     <li class="mb-2"><a href="#" class="text-decoration-none">Rilascio Carta Identità Elettronica</a></li>
                     <li class="mb-2"><a href="#" class="text-decoration-none">Cambio di residenza</a></li>

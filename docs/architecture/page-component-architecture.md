@@ -1,3 +1,15 @@
+---
+title: "page component architecture"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "page component architecture"
+issues: []
+discussions: []
+status: draft
+---
+
 # Page Component Architecture - DRY + KISS
 
 > **Perché `<x-page>` funziona e `<x-sixteen::page>` no**
@@ -9,7 +21,6 @@
 **Tipo:** Architettura componenti CMS  
 
 ---
-
 ## 🐛 I 2 Errori Fondamentali
 
 ### ❌ ERRORE 1: `<x-sixteen::page>` - Namespace non registrato
@@ -407,8 +418,8 @@ $configPath = base_path('config/local/fixcity/database/content/pages/'.$slug.'.j
 - [Layout Architecture](./layout-architecture.md)
 - [Blocks Implementation](../BLOCKS_IMPLEMENTATION.md)
 - [ThemeServiceProvider](../../app/Providers/ThemeServiceProvider.php)
-- [Page Component PHP](../../../Modules/Cms/app/View/Components/Page.php)
-- [Page Component Blade CMS](../../../Modules/Cms/resources/views/components/page.blade.php)
+- [Page Component PHP](../../../../Modules/Cms/app/View/Components/Page.php)
+- [Page Component Blade CMS](../../../../Modules/Cms/resources/views/components/page.blade.php)
 - [Page Component Blade Theme](../../resources/views/components/page.blade.php)
 
 ---

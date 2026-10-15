@@ -1,3 +1,15 @@
+---
+title: "RISULTATI RICERCA ANALISI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA ANALISI"
+issues: []
+discussions: []
+status: draft
+---
+
 # Analisi Struttura HTML - Risultati Ricerca
 
 ## Panoramica
@@ -111,6 +123,5 @@ Confronto tra pagina di riferimento e implementazione locale per `risultati-rice
 3. ⏳ Rating interaction
 
 ---
-
 **Data**: 2026-04-03
 **Stato**: ⚠️ 37.1% - Da fixare struttura principale

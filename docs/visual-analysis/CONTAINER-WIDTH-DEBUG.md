@@ -1,3 +1,15 @@
+---
+title: "CONTAINER WIDTH DEBUG"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "CONTAINER WIDTH DEBUG"
+issues: []
+discussions: []
+status: draft
+---
+
 # Container Width Fix - Debug & Resolution Documentation
 
 **Date**: 2026-04-03  
@@ -5,7 +17,6 @@
 **Status**: 🔍 IN INVESTIGATION
 
 ---
-
 ## Problem Discovery
 
 ### Visual Parity Issue

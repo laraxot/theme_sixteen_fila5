@@ -1,3 +1,15 @@
+---
+title: "LAYOUT CENTERING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT CENTERING FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Layout Centering Fix Report
 
 ## Issue
@@ -91,10 +103,9 @@ npm run copy     # Deploy to public_html
 ✅ **Search modal** - Already correct, no changes needed
 
 ---
-
 ## 📚 Related Documentation
 
-- **[← INDEX](./INDEX.md)** - Documentation overview
+- **[← INDEX](./index.md)** - Documentation overview
 - **[← LAYOUT-ISSUES-ANALYSIS](./LAYOUT-ISSUES-ANALYSIS.md)** - Initial layout problem analysis
 - **[→ FINAL-VISUAL-PARITY-REPORT](./FINAL-VISUAL-PARITY-REPORT.md)** - Comprehensive validation report
 

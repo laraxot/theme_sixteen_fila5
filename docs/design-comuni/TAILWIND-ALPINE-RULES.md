@@ -1,3 +1,15 @@
+---
+title: "TAILWIND ALPINE RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "TAILWIND ALPINE RULES"
+issues: []
+discussions: []
+status: draft
+---
+
 # TailwindCSS + Alpine.js Rules - Design Comuni Replication
 
 **Created:** 2026-04-08
@@ -5,7 +17,6 @@
 **Type:** Architectural Rule
 
 ---
-
 ## Core Principle
 
 This project replicates Design Comuni pages using **TailwindCSS + Alpine.js ONLY**.
@@ -102,9 +113,9 @@ Pattern: `<namespace>::<context>.<collection>.<key>.<type>`
 
 ## Cross-References
 
-- → [HTML Structure Comparison](../../../docs/html-structure-comparison.md)
+- → [HTML Structure Comparison](../../../../../docs/html-structure-comparison.md)
 - → [Design Comuni Index](./00-index.md)
-- → [Master Docs Index](../../../docs/MODULE_DOCS_INDEX.md)
+- → [Master Docs Index](../../../../../docs/MODULE_DOCS_INDEX.md)
 
 ---
 

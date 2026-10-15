@@ -1,4 +1,7 @@
 ---
+created: 2026-09-26
+qmd: "header authenticated state"
+discussions: []
 title: "Header slim — stato autenticazione (Design Comuni)"
 type: concept
 confidence: high
@@ -14,8 +17,9 @@ related:
 sources:
   - ../../../resources/views/components/sections/header/v1.blade.php
   - ../../../lang/it/ui.php
-  - ../../../Main_files/five/segnalazione-area-personale.html
+  - ../../Main_files/five/segnalazione-area-personale.html
   - https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-area-personale.html
+status: draft
 ---
 
 # Header slim — stato autenticazione (Design Comuni)

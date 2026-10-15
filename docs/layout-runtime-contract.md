@@ -1,3 +1,15 @@
+---
+title: "layout runtime contract"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout runtime contract"
+issues: []
+discussions: []
+status: draft
+---
+
 # Layout Runtime Contract
 
 ## Scopo
@@ -45,6 +57,14 @@ Deve contenere solo:
 - `<x-layouts.app>`
 - `<x-page side="content" :slug="$pageSlug" :data="$data" />`
 
+Non deve importare `File`, consultare `tests.catalog.json`, eseguire fallback
+per slug speciali o includere blocchi direttamente. Il JSON canonico è
+`database/content/pages/tests.<slug>.json`; la risoluzione e il rendering dei
+blocchi restano responsabilità del CMS e del tema.
+
+Se il componente viene montato senza parametro, il valore canonico è
+`tests.index`, mai `tests`: l'indice CMS è `tests.index.json`.
+
 ## Perche
 
 ### DRY
@@ -69,4 +89,4 @@ Per mantenere una sola fonte di verita, quel file deve fare da bridge verso `res
 
 - [README.md](./README.md)
 - [design-comuni-page-census.md](./design-comuni-page-census.md)
-- [../../Modules/Cms/docs/layout-runtime-contract.md](../../Modules/Cms/docs/layout-runtime-contract.md)
+- [../../Modules/Cms/docs/layout-runtime-contract.md](../../../Modules/Cms/docs/layout-runtime-contract.md)

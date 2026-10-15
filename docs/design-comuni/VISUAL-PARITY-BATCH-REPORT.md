@@ -1,3 +1,15 @@
+---
+title: "VISUAL PARITY BATCH REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL PARITY BATCH REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Visual Parity - Batch Analysis Report
 
 **Date:** 2026-04-03  
@@ -6,11 +18,10 @@
 
 **Related:**
 - [00-index.md](./00-index.md) - Design Comuni Index
-- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS-2026-04-03.md) - Previous status report
-- [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage detailed
+- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS.md) - Previous status report
+- [visual-comparison/homepage-visual-report.md](./visual-comparison/homepage-visual-report.md) - Homepage detailed
 
 ---
-
 ## Summary
 
 | Status | Count | Percentage |

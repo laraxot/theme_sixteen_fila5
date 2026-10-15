@@ -1,10 +1,21 @@
+---
+title: "START HERE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "START HERE"
+issues: []
+discussions: []
+status: draft
+---
+
 # 🎯 Design Comuni - START HERE
 
 > **You are reading the entry point document.**  
 > This guides you through the entire Design Comuni conversion project from Phase 1 completion to Phase 2 execution.
 
 ---
-
 ## 📍 Where We Are
 
 ✅ **Phase 1 Complete**: Analysis, planning, tooling, and documentation done  

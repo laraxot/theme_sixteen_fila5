@@ -76,3 +76,33 @@ test.describe('STORY-147 header logged dropdown', () => {
     await browser.close();
   });
 });
+
+/*
+ * DCP-55: a 375 e 768 px il menu utente (230 px) e quello lingua (160 px) uscivano a destra dal viewport e restavano tagliati
+ * (`placeDropdownMenu` in resources/js/app.js non guardava il bordo destro). Il test sopra controllava solo `toBeVisible`,
+ * che passa anche con il menu tagliato: qui si misura il rettangolo.
+ */
+test.describe('STORY-DCP-55 menu dentro il viewport', () => {
+  for (const width of [375, 768, 1024]) {
+    for (const toggleSelector of ['#header-user-toggle', 'button[aria-controls="languages"]']) {
+      test(`${width}px: ${toggleSelector} resta nel viewport`, async () => {
+        const browser = await chromium.launch({ headless: true });
+        const page = await browser.newPage({ viewport: { width, height: 900 } });
+        await login(page);
+        await page.goto(`${BASE}/it/tickets`, { waitUntil: 'networkidle' });
+
+        const toggle = page.locator(toggleSelector).first();
+        await expect(toggle).toBeVisible({ timeout: 15000 });
+        await toggle.click();
+        const menu = toggle.locator('xpath=ancestor::*[contains(@class,"dropdown")][1]').locator('.dropdown-menu');
+        await expect(menu).toBeVisible();
+
+        const box = await menu.boundingBox();
+        const viewportWidth = await page.evaluate(() => document.documentElement.clientWidth);
+        expect(box.x, 'bordo sinistro fuori dal viewport').toBeGreaterThanOrEqual(0);
+        expect(box.x + box.width, 'bordo destro fuori dal viewport').toBeLessThanOrEqual(viewportWidth);
+        await browser.close();
+      });
+    }
+  }
+});

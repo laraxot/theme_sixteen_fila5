@@ -1,3 +1,15 @@
+---
+title: "HOMEPAGE PARITY SUMMARY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE PARITY SUMMARY"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage Parity - Final Summary
 
 **Date:** 2026-04-07
@@ -120,9 +132,8 @@ All new documents are linked bidirectionally:
 
 - [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](HOMEPAGE-HTML-STRUCTURE-COMPARISON.md)
 - [VISUAL-COMPARISON-REPORT.md](VISUAL-COMPARISON-REPORT.md)
-- [../ARCHITECTURAL_DECISIONS.md](../ARCHITECTURAL_DECISIONS.md)
-- [../../../docs/design-comuni/README.md](../../../docs/design-comuni/README.md)
+- [../ARCHITECTURAL_DECISIONS.md](ARCHITECTURAL_DECISIONS.md)
+- [../../../docs/design-comuni/README.md](README.md)
 
 ---
-
 *Generated on 2026-04-07 by AI agent collaboration*

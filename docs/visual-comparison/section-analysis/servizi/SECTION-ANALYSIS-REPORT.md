@@ -1,9 +1,20 @@
+---
+title: "SECTION ANALYSIS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SECTION ANALYSIS REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Section Analysis: servizi
 
 **Generated**: 2026-04-05T07:27:08.574Z
 
 ---
-
 ## Section Comparison Summary
 
 | Metric | Value |
@@ -32,6 +43,6 @@ No major height differences found.
 ---
 
 **Related Docs**:
-- [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [HTML Comparison](../structure-analysis/servizi-html-comparison.md)
+- [Visual Parity Report](../../screenshots/VISUAL-PARITY-REPORT.md)
+- [HTML Comparison](../../structure-analysis/servizi-html-comparison.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

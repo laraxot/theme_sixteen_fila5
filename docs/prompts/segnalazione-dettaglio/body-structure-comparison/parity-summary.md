@@ -1,0 +1,24 @@
+---
+title: "parity summary"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "parity summary"
+issues: []
+discussions: []
+status: draft
+---
+
+# Parity summary
+
+page=segnalazione-dettaglio
+parity_score=62.9
+reference_elements=804
+local_elements=806
+identical=208
+different=596
+missing=0
+extra=2
+threshold=90
+status=FAIL

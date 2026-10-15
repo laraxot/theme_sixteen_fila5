@@ -1,3 +1,15 @@
+---
+title: "MERGE CONFLICT RESOLUTION LOG"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MERGE CONFLICT RESOLUTION LOG"
+issues: []
+discussions: []
+status: draft
+---
+
 # Merge Conflict Resolution Log
 
 > **Data inizio**: 2026-04-07
@@ -5,7 +17,6 @@
 > **Regola**: Forward-only Git - NEVER revert/reset, sempre studiare e migliorare
 
 ---
-
 ## File Risolti
 
 ### 1. skills-lock.json
@@ -137,7 +148,7 @@ grep -rl "<<<<<< HEAD\|<<<<<<< HEAD" . --include="*.md" | grep -v "node_modules\
 
 ## Link Bidirezionali
 
-- ← [Master Index Tema](./00-index.md)
+- ← [Master Index Tema](./00-INDEX.md)
 - ← [Design Comuni Index](./design-comuni/00-index.md)
 - → [Sessione 90% Similarity](./prompts/homepage/HTML_SIMILARITY_90_PERCENT_SESSION.md)
 

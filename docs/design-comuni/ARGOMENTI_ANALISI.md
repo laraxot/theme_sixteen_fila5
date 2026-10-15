@@ -1,3 +1,15 @@
+---
+title: "ARGOMENTI ANALISI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ANALISI"
+issues: []
+discussions: []
+status: draft
+---
+
 # Argomenti - Analisi Struttura HTML
 
 ## Panoramica
@@ -44,7 +56,6 @@ Confronto tra pagina di riferimento e implementazione locale per `argomenti`.
 **Local**: ✅ **IDENTICA**
 
 ---
-
 ### In Evidenza Section ✅ MATCH
 
 **Reference**:
@@ -151,7 +162,7 @@ Differenze minori nel footer
 
 - **Screenshot**: [screenshots/argomenti/](./screenshots/argomenti/)
 - **Script**: [bashscripts/design-comuni/capture-argomenti.js](../../../bashscripts/design-comuni/capture-argomenti.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

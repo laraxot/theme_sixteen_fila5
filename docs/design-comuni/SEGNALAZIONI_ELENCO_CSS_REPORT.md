@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO CSS REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO CSS REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazioni Elenco - CSS/JS Fix Report
 
 ## Panoramica
@@ -128,11 +140,10 @@
 - **Visual Analysis**: [SEGNALAZIONI_ELENCO_VISUAL_ANALYSIS.md](./SEGNALAZIONI_ELENCO_VISUAL_ANALYSIS.md)
 - **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
 - **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---
-
 **Stato**: ✅ CSS 90%+ Completato  
 **HTML**: ✅ 95.7%  
 **Prossimo**: Test visivo nel browser  

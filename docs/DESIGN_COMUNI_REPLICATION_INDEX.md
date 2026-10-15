@@ -1,10 +1,21 @@
+---
+title: "DESIGN COMUNI REPLICATION INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI REPLICATION INDEX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Replication - Master Index
 
 > **Project Goal**: Replicate all 32 Design Comuni pages locally using Tailwind CSS + Alpine.js (NO Bootstrap Italia)  
 > **Status**: ✅ Phase 1 Complete (HTML structure verified 99%)  | 🔄 Phase 2 Starting (CSS + Alpine)
 
 ---
-
 ## 📋 Quick Navigation
 
 ### Project Status
@@ -14,7 +25,7 @@
 
 ### Analysis & Research
 - [Reference Design Analysis](./analysis/REFERENCE_DESIGN_ANALYSIS.md) - Deep dive into Bootstrap Italia design
-- [HTML Structure Report](./analysis/HTML_STRUCTURE_ANALYSIS.md) - All 32 pages verified
+- [HTML Structure Report](./design-comuni/segnalazione-parity/HTML_STRUCTURE_ANALYSIS.md) - All 32 pages verified
 - [Component Mapping](./analysis/COMPONENT_MAPPING.md) - Bootstrap → Tailwind classes
 
 ### Implementation Guides

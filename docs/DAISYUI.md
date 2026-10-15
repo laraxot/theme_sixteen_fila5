@@ -1,3 +1,15 @@
+---
+title: "DAISYUI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DAISYUI"
+issues: []
+discussions: []
+status: draft
+---
+
 # daisyUI — Documentazione Progetto Sixteen
 
 ## Panoramica
@@ -87,7 +99,6 @@ export default {
 | `app.css` | Entry CSS principale con `@import "tailwindcss"` |
 
 ---
-
 ## Pro & Contro
 
 ### ✅ Pro

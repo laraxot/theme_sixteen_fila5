@@ -1,3 +1,15 @@
+---
+title: "VISUAL VERIFICATION GUIDE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL VERIFICATION GUIDE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Visual Verification Guide
 
 **Purpose**: Manual verification of CSS fixes and visual parity  
@@ -5,7 +17,6 @@
 **Status**: Ready for testing
 
 ---
-
 ## 🎯 Verification Checklist
 
 ### Before Testing

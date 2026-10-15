@@ -1,3 +1,15 @@
+---
+title: "ARGOMENTI REPORT AGGIORNATO"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI REPORT AGGIORNATO"
+issues: []
+discussions: []
+status: draft
+---
+
 # Argomenti - Report Finale Aggiornato
 
 ## Panoramica
@@ -141,10 +153,9 @@ La differenza di 211 righe è principalmente dovuta a:
 - **Report Aggiornato**: [ARGOMENTI_REPORT_AGGIORNATO.md](./ARGOMENTI_REPORT_AGGIORNATO.md) (questo file)
 - **Screenshots**: [screenshots/argomenti/](./screenshots/argomenti/)
 - **Script**: [bashscripts/design-comuni/capture-argomenti.js](../../../bashscripts/design-comuni/capture-argomenti.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Stato**: ✅ 81.9% - Tutti i componenti corretti  
 **Prossimo**: CSS refinements se necessari, test visivo  
 **Data**: 2026-04-03

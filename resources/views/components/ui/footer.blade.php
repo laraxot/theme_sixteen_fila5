@@ -16,7 +16,7 @@
                 {{-- Logo e descrizione ente --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
                     <div class="it-brand-wrapper">
-                        <a href="{{ url('/') }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
                             <svg class="icon" role="img" aria-labelledby="footer-logo-title">
                                 <title id="footer-logo-title">{{ config('app.name') }}</title>
                                 <use href="#it-pa"></use>
@@ -34,37 +34,37 @@
 
                 {{-- Link utili --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
-                    <h3 class="footer-heading-title">{{ __('Link Utili') }}</h3>
-                    <nav aria-label="{{ __('Link utili del footer') }}">
+                    <h3 class="footer-heading-title">{{ __('footer.useful_links') }}</h3>
+                    <nav aria-label="{{ __('footer.useful_links_aria') }}">
                         <ul class="footer-list">
                             <li>
-                                <a href="{{ url('/amministrazione-trasparente') }}" title="{{ __('Vai alla sezione Amministrazione Trasparente') }}">
-                                    {{ __('Amministrazione Trasparente') }}
+                                <a href="{{ url('/amministrazione-trasparente') }}" title="{{ __('footer.go_to_transparent_administration') }}">
+                                    {{ __('footer.amministrazione_trasparente') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/privacy') }}" title="{{ __('Vai alla Privacy Policy') }}">
-                                    {{ __('Privacy Policy') }}
+                                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/privacy') }}" title="{{ __('footer.go_to_privacy') }}">
+                                    {{ __('footer.privacy') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/note-legali') }}" title="{{ __('Vai alle Note Legali') }}">
-                                    {{ __('Note Legali') }}
+                                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/note-legali') }}" title="{{ __('footer.go_to_legal_notes') }}">
+                                    {{ __('footer.legal_notes') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/cookie-policy') }}" title="{{ __('Vai alla Cookie Policy') }}">
-                                    {{ __('Cookie Policy') }}
+                                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/cookie-policy') }}" title="{{ __('footer.go_to_cookie_policy') }}">
+                                    {{ __('footer.cookie_policy') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/accessibilita') }}" title="{{ __('Vai alla Dichiarazione di Accessibilità') }}">
-                                    {{ __('Dichiarazione di Accessibilità') }}
+                                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/accessibilita') }}" title="{{ __('footer.go_to_accessibility') }}">
+                                    {{ __('footer.accessibility') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/sitemap') }}" title="{{ __('Vai alla Mappa del Sito') }}">
-                                    {{ __('Mappa del Sito') }}
+                                <a href="{{ url('/sitemap') }}" title="{{ __('footer.go_to_sitemap') }}">
+                                    {{ __('footer.sitemap') }}
                                 </a>
                             </li>
                         </ul>
@@ -73,7 +73,7 @@
 
                 {{-- Contatti --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
-                    <h3 class="footer-heading-title">{{ __('Contatti') }}</h3>
+                    <h3 class="footer-heading-title">{{ __('footer.contacts') }}</h3>
                     <address>
                         <p>
                             <strong>{{ config('app.name') }}</strong><br>
@@ -82,16 +82,16 @@
                             Italia
                         </p>
                         <p>
-                            <strong>{{ __('Email') }}:</strong> 
+                            <strong>{{ __('footer.email') }}:</strong> 
                             <a href="mailto:info@fixcity.it" class="text-decoration-underline">info@fixcity.it</a><br>
-                            <strong>{{ __('PEC') }}:</strong> 
+                            <strong>{{ __('footer.pec') }}:</strong> 
                             <a href="mailto:pec@fixcity.it" class="text-decoration-underline">pec@fixcity.it</a><br>
-                            <strong>{{ __('Telefono') }}:</strong> 
+                            <strong>{{ __('footer.phone') }}:</strong> 
                             <a href="tel:+390612345678">+39 06 1234 5678</a>
                         </p>
                         <p>
-                            <strong>{{ __('Codice Fiscale') }}:</strong> 12345678901<br>
-                            <strong>{{ __('Partita IVA') }}:</strong> 12345678901
+                            <strong>{{ __('footer.fiscal_code') }}:</strong> 12345678901<br>
+                            <strong>{{ __('footer.vat_number') }}:</strong> 12345678901
                         </p>
                     </address>
                 </div>
@@ -100,11 +100,11 @@
             {{-- Social media --}}
             <div class="row mt-4">
                 <div class="col-12">
-                    <h3 class="footer-heading-title">{{ __('Seguici su') }}</h3>
-                    <ul class="list-inline text-start social" aria-label="{{ __('Link ai social media') }}">
+                    <h3 class="footer-heading-title">{{ __('footer.follow_us') }}</h3>
+                    <ul class="list-inline text-start social" aria-label="{{ __('footer.social_links') }}">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/fixcity" target="_blank" rel="noopener noreferrer" 
-                               aria-label="{{ __('Facebook - si apre in una nuova finestra') }}" title="Facebook">
+                               aria-label="{{ __('footer.social_facebook') }}" title="Facebook">
                                 <svg class="icon icon-sm icon-white align-top">
                                     <use href="#it-facebook"></use>
                                 </svg>
@@ -113,7 +113,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="https://twitter.com/fixcity" target="_blank" rel="noopener noreferrer"
-                               aria-label="{{ __('Twitter - si apre in una nuova finestra') }}" title="Twitter">
+                               aria-label="{{ __('footer.social_twitter') }}" title="Twitter">
                                 <svg class="icon icon-sm icon-white align-top">
                                     <use href="#it-twitter"></use>
                                 </svg>
@@ -122,7 +122,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="https://www.linkedin.com/company/fixcity" target="_blank" rel="noopener noreferrer"
-                               aria-label="{{ __('LinkedIn - si apre in una nuova finestra') }}" title="LinkedIn">
+                               aria-label="{{ __('footer.social_linkedin') }}" title="LinkedIn">
                                 <svg class="icon icon-sm icon-white align-top">
                                     <use href="#it-linkedin"></use>
                                 </svg>
@@ -131,7 +131,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="https://www.instagram.com/fixcity" target="_blank" rel="noopener noreferrer"
-                               aria-label="{{ __('Instagram - si apre in una nuova finestra') }}" title="Instagram">
+                               aria-label="{{ __('footer.social_instagram') }}" title="Instagram">
                                 <svg class="icon icon-sm icon-white align-top">
                                     <use href="#it-instagram"></use>
                                 </svg>
@@ -148,20 +148,20 @@
     <div class="it-footer-small-prints">
         <div class="container">
             <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row" 
-                aria-label="{{ __('Link del footer secondario') }}">
+                aria-label="{{ __('footer.footer_secondary_links') }}">
                 <li class="list-inline-item">
-                    <a href="{{ url('/privacy') }}" title="{{ __('Privacy Policy') }}">
-                        {{ __('Privacy Policy') }}
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/privacy') }}" title="{{ __('footer.go_to_privacy') }}">
+                        {{ __('footer.privacy') }}
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="{{ url('/note-legali') }}" title="{{ __('Note Legali') }}">
-                        {{ __('Note Legali') }}
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/note-legali') }}" title="{{ __('footer.go_to_legal_notes') }}">
+                        {{ __('footer.legal_notes') }}
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="{{ url('/accessibilita') }}" title="{{ __('Dichiarazione di Accessibilità') }}">
-                        {{ __('Accessibilità') }}
+                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/accessibilita') }}" title="{{ __('footer.go_to_accessibility') }}">
+                        {{ __('footer.accessibility') }}
                     </a>
                 </li>
             </ul>
@@ -169,57 +169,16 @@
     </div>
 
     {{-- Back to top button --}}
-    <a href="#" 
-       aria-hidden="true" 
-       data-attribute="back-to-top" 
-       class="back-to-top shadow" 
-       title="{{ __('Torna su') }}">
+    <a href="#"
+       aria-hidden="true"
+       data-attribute="back-to-top"
+       class="back-to-top shadow"
+       title="{{ __('footer.back_to_top') }}">
         <svg class="icon icon-light">
             <use href="#it-arrow-up"></use>
         </svg>
-        <span class="visually-hidden">{{ __('Torna all\'inizio della pagina') }}</span>
+        <span class="visually-hidden">{{ __('footer.back_to_top_aria') }}</span>
     </a>
 </footer>
 
-{{-- Cookie consent banner (GDPR compliance) --}}
-<div class="cookiebar hide" aria-label="{{ __('Banner cookie') }}" role="region">
-    <p>
-        {{ __('Questo sito utilizza cookie tecnici, analytics e di terze parti.') }}
-        <br>
-        {{ __('Proseguendo nella navigazione accetti l\'utilizzo dei cookie.') }}
-    </p>
-    <div class="cookiebar-buttons">
-        <a href="{{ url('/cookie-policy') }}" class="cookiebar-btn" title="{{ __('Vai alla Cookie Policy') }}">
-            {{ __('Maggiori informazioni') }}
-            <span class="visually-hidden">{{ __('sui cookie') }}</span>
-        </a>
-        <button data-accept="cookiebar" class="cookiebar-btn cookiebar-confirm" 
-                aria-label="{{ __('Accetta i cookie') }}">
-            {{ __('Accetta') }}<span class="visually-hidden"> {{ __('i cookie') }}</span>
-        </button>
-    </div>
-</div>
-
-<script>
-    // Initialize back-to-top button
-    document.addEventListener('DOMContentLoaded', function() {
-        const backToTop = document.querySelector('[data-attribute="back-to-top"]');
-        if (backToTop) {
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('back-to-top-show');
-                } else {
-                    backToTop.classList.remove('back-to-top-show');
-                }
-            });
-            
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    });
-</script>
+{{-- Cookie consent banner (GDPR compliance): lo inietta InjectCookieBanner -> Modules/Gdpr/resources/views/cookie-consent (DCP-153). Nessun include qui. --}}

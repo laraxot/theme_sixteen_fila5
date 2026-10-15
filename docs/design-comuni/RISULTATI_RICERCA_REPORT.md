@@ -1,3 +1,15 @@
+---
+title: "RISULTATI RICERCA REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Risultati Ricerca - Report Implementazione
 
 ## Panoramica
@@ -132,10 +144,9 @@ Modal di ricerca più completa nel reference
 - **Analisi HTML**: [RISULTATI_RICERCA_ANALISI.md](./RISULTATI_RICERCA_ANALISI.md)
 - **Screenshot**: [screenshots/risultati-ricerca/](./screenshots/risultati-ricerca/)
 - **Script**: [bashscripts/design-comuni/capture-risultati-ricerca.js](../../../bashscripts/design-comuni/capture-risultati-ricerca.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Stato**: ✅ 47.4% - Struttura principale corretta  
 **Prossimi Passi**: Completare rating section, CSS refinements  
 **Data**: 2026-04-03

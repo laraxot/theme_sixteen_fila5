@@ -1,3 +1,15 @@
+---
+title: "DIFF analysis"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DIFF analysis"
+issues: []
+discussions: []
+status: draft
+---
+
 # DIFF Analysis: novita-dettaglio
 
 **Reference URL**: https://italia.github.io/design-comuni-pagine-statiche/sito/novita-dettaglio.html
@@ -11,7 +23,6 @@
 - REF-mobile.png | LOCAL-mobile.png
 
 ---
-
 ## Critical Differences (Priority 1)
 
 ### 1.1 Missing two-column layout with navscroll sidebar

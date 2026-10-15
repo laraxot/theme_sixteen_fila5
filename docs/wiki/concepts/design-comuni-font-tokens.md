@@ -1,4 +1,7 @@
 ---
+qmd: "design comuni font tokens"
+issues: []
+discussions: []
 title: "Design Comuni Font Tokens for Sixteen Theme"
 type: concept
 sources: ["https://github.com/italia/design-comuni-pagine-statiche", "laravel/Themes/Sixteen/resources/css/app.css"]
@@ -9,7 +12,8 @@ tags: [design-comuni, fonts, tokens, sixteeen-theme, tailwind]
 related:
   - ../concepts/header-dynamic-navigation.md
   - ../../../docs/wiki/concepts/segnalazione-privacy-design-comuni-parity.md
-  - ../../../docs/wiki/concepts/design-comuni-header-auth-state.md
+  - ../../../../../../docs/wiki/concepts/design-comuni-header-auth-state.md
+status: draft
 ---
 
 # Design Comuni Font Tokens for Sixteen Theme

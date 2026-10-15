@@ -1,3 +1,15 @@
+---
+title: "REPLICATION MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "REPLICATION MASTER PLAN"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Replication - Master Plan
 
 **Project:** FixCity Fila5  
@@ -6,7 +18,6 @@
 **Priority:** 🔴 **Critical**  
 
 ---
-
 ## 🎯 Executive Summary
 
 Replicare **tutte le pagine statiche** di [Design Comuni Pagine Statiche](https://italia.github.io/design-comuni-pagine-statiche/) utilizzando:
@@ -92,7 +103,7 @@ Render → <x-pub_theme::components.blocks.topics-grid :data="$block['data']" />
 laravel/Themes/Sixteen/
 ├── resources/
 │   ├── css/
-│   │   └── app.css (with @apply for Bootstrap Italia)
+│   │   └── app.css (Tailwind layers and local Design Comuni-compatible primitives)
 │   ├── js/
 │   │   └── app.js (Alpine.js, NOT Bootstrap Italia JS)
 │   └── views/
@@ -470,7 +481,7 @@ export default defineConfig({
 ### Key Documents
 
 - [Layout Architecture](Themes/Sixteen/docs/layout-architecture.md)
-- [Vite Manifest Fix](Themes/Sixteen/docs/VITE_MANIFEST_FIX_COMPLETE.md)
+- [Vite Manifest Fix](../build/VITE_MANIFEST_FIX_COMPLETE.md)
 - [Master Documentation Index](docs/MODULE_DOCS_INDEX.md)
 
 ### External Resources
