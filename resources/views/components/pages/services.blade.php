@@ -8,9 +8,9 @@
     <div class="mx-auto max-w-5xl">
         <nav aria-label="{{ __('fixcity::global.breadcrumb') }}">
             <ol class="flex flex-wrap gap-2 text-sm text-slate-700">
-                <li><a class="underline underline-offset-4 hover:text-sky-800" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">{{ __('pub_theme::footer.home') }}</a></li>
+                <li><a class="underline underline-offset-4 hover:text-sky-800" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">{{ __('pub_theme::navigation.home') }}</a></li>
                 <li aria-hidden="true">/</li>
-                <li aria-current="page">{{ __('pub_theme::services.title') }}</li>
+                <li aria-current="page">{{ __('pub_theme::services.meta.breadcrumb') }}</li>
             </ol>
         </nav>
         <header class="mt-8 max-w-3xl">
