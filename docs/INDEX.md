@@ -18,7 +18,7 @@ Nessun file e' stato spostato, rinominato o cancellato per scrivere questa mappa
 
 | Cartella | Scopo |
 |---|---|
-| [`compliance/`](compliance/01-matrice-conformita-interfaccia.md) | Nuova (DCP-112). Matrice di conformita' dell'interfaccia: accessibilita', lingue, design, cookie e terze parti, mobile, licenze. Complementa `Modules/Fixcity/docs/compliance/` |
+| [`compliance/`](compliance/01-matrice-conformita-interfaccia.md) | Nuova (DCP-112). Matrice di conformita' dell'interfaccia: accessibilita', lingue, design, cookie e terze parti, mobile, licenze. Complementa `Modules/Fixcity/docs/compliance/` Scheda per pagina del front office (DCP-186, 2026-10-14): scopo, funzione, politica e coerenza di ogni pagina ed elemento, con difetti e proprietari: [`03-front-office-scheda-per-pagina.md`](compliance/03-front-office-scheda-per-pagina.md). |
 | `bmad/` (386) | Story, decisioni, studi e piani BMAD del tema: `stories/` (DCP-xx), `decisions/`, `studies/` |
 | `decision-log/` (12) | Decisioni D11-D17 (attenzione: D15, D16 e D17 hanno due file ciascuno) |
 | `architecture/` (19) | Regole di architettura: pagine guidate da JSON, routing, scoping CSS (`CSS-SCOPING-RULE.md`) |

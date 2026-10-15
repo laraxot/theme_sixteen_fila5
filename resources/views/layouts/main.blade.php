@@ -28,6 +28,28 @@ use Laravel\Folio\{title, middleware, name};
         @vite(['resources/js/app.js'], 'themes/Sixteen')
         @stack('scripts')
 
+        <script>
+            // Flash messages (Laravel session `status`) → toast. Multilingua: la chiave e' nel namespace
+            // del modulo che l'ha generata (es. account.delete.flash.account_deleted).
+            @php
+                $flash = session('status');
+                $flashMessage = null;
+                if (is_string($flash) && \Illuminate\Support\Str::contains($flash, '.')) {
+                    [$ns, $key] = explode('.', $flash, 2);
+                    $flashMessage = __($ns.'.'.$key);
+                } elseif (is_string($flash)) {
+                    $flashMessage = $flash;
+                }
+            @endphp
+            @if ($flashMessage)
+            <script>
+                if (window.toast) {
+                    window.toast(@json($flashMessage), { type: 'success' });
+                }
+            </script>
+            @endif
+        </script>
+
         {{-- Banner cookie: lo inietta CookieConsentMiddleware (vista Modules/Gdpr/resources/views/cookie-consent, DCP-153); nessun include qui. --}}
     </body>
 </html>

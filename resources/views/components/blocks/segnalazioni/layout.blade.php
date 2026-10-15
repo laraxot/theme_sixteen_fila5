@@ -66,7 +66,8 @@
 
     $tabsSectionId = $blockData['tabs']['id'] ?? 'map-and-list';
     $filtersSectionId = $mainContent['id'] ?? 'filter-and-cards';
-    $listApiUrl = (string) LaravelLocalization::localizeURL('/api/tickets/list');
+    // Senza lingua: con il prefisso (/it/api/...) la rotta risponde HTML, non JSON (ApiUrlsAreNotLocalizedTest).
+    $listApiUrl = '/api/tickets/list';
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
 
     $contactLinks = [
@@ -120,7 +121,7 @@
         <div class="row justify-content-center mb-md-40 mb-lg-80">
             <div class="col-12 col-lg-10">
                 <div class="cmp-breadcrumbs" role="navigation">
-                    <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::footer.home') }}">
+                    <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                         <ol class="breadcrumb p-0" data-element="breadcrumb">
                             @foreach ($breadcrumbItems as $item)
                                 <li class="breadcrumb-item{{ $item['active'] ? ' active' : '' }}"{{ $item['active'] ? ' aria-current="page"' : '' }}>
