@@ -334,7 +334,7 @@ status: draft
 - Screenshot comparativo Puppeteer: locale vs Design Comuni `segnalazione-02-dati.html`
 - 6 gap confermati: dropdown lingua/utente (data-bs-toggle non funziona su Livewire), classi Tailwind spurie nel dropdown, guest CTA inline style verde, nav active box blu, logo size
 - Story `8-103` aggiornata con: delta visivo da screenshot, fix P7 (nav active underline), fix P9 (Tailwind→BootstrapItalia), nota P1 (slim bg già corretto `#00402b`)
-- Wiki aggiornati: `concepts/header-slim-dropdown-behavior.md` (direzione Alpine + stato file), `comparisons/header-visual-parity-audit-2026-05-04.md` (nuovo)
+- Wiki aggiornati: `concepts/header-slim-dropdown-behavior.md` (direzione Alpine + stato file), `comparisons/header-visual-parity-audit.md` (nuovo)
 - Nota importante: il verde `#007A52` su guest CTA è **deliberato** per il branding Fixcity (non un bug rispetto al reference blu Design Comuni)
 
 ## [2026-05-04] story 8-103 | header dropdown Livewire fix + parity audit
@@ -518,23 +518,23 @@ status: draft
 - eseguito recheck visuale post-fix sulla stessa URL/step con evidenza screenshot.
 - riferimento screenshot: `../../../Modules/Fixcity/docs/assets/segnalazione-step-dati-after-fix-2026-04-28-full-recheck.png`.
 - esito: clipping search risolto, stato mappa stabilizzato, overlay testuale assente; sidebar non ambigua ma ancora visivamente compressa.
-- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit-2026-04-28.md`.
+- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit.md`.
 
 ## [2026-04-28] fix | wizard step dati parity css (sidebar/search/spacing) + build
 - source: `../../../resources/css/app.css`
 - applicati fix CSS su wizard: indicatore accordion duplicato rimosso, link sidebar resi piu' leggibili, ridotto spacing verticale, padding input search corretto con `autocomplete-icon`.
 - build/copy eseguiti: `npm run build && npm run copy`.
-- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit-2026-04-28.md`.
+- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit.md`.
 
 ## [2026-04-28] tooling | playwright mcp verification + screenshot audit refinement
 - verificata disponibilita' Playwright MCP in runtime locale con `npx -y @playwright/mcp@latest --help`.
 - raffinato audit visuale screenshot step `Dati della segnalazione` con evidenza file e piano fix owner-side tema.
-- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit-2026-04-28.md`.
+- pagina aggiornata: `comparisons/segnalazione-crea-step-dati-screenshot-audit.md`.
 
 ## [2026-04-28] audit | screenshot runtime segnalazione-crea step dati
 - formalizzato audit visuale da screenshot utente sulla URL `http://127.0.0.1:8001/it/tests/segnalazione-crea?step=form.dati-della-segnalazione%3A%3Adata%3A%3Awizard-step`.
 - registrati i sintomi principali: sidebar vuota ma dominante, stato accordion ambiguo, spacing eccessivo, search input con clipping, mappa con testo grezzo sovrapposto.
-- nuova pagina: `comparisons/segnalazione-crea-step-dati-screenshot-audit-2026-04-28.md`.
+- nuova pagina: `comparisons/segnalazione-crea-step-dati-screenshot-audit.md`.
 
 ## [2026-04-28] governance | boundary tema su reintroduzione pacchetti Laravel 13
 - chiarito che la reintroduzione dipendenze post-upgrade resta owner del modulo (`Modules/*/composer.json`), non del tema.
