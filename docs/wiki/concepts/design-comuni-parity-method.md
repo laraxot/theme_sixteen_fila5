@@ -23,8 +23,8 @@ Per portare una pagina `/it/tests/<slug>` a >= 90% HTML e >= 97% visual rispetto
 8. **Sentinelle** prima/dopo (indice test, argomenti, home reale `/it`).
 9. **Chiudere**: story con l'output del gate; memoria e wiki aggiornate; `bash bashscripts/docs/llm-wiki-qmd.sh update`.
 
-Cause degli errori del 2026-10-13 e guardrail: `docs/bmad/decisions/2026-10-13-parity-root-cause-and-guardrails.md`.
-Stato e prossimi passi: `docs/bmad/stories/2026-10-13-dcp-00-epic-design-comuni-parity-v2.story.md`.
+Cause degli errori del 2026-10-13 e guardrail: `docs/bmad/decisions/parity-root-cause-and-guardrails.md`.
+Stato e prossimi passi: `docs/bmad/stories/dcp-00-epic-design-comuni-parity-v2.story.md`.
 
 10. **Chrome**: header, footer e modale sono sezioni JSON con `tpl="design-comuni"` (`layouts/design-comuni`, solo pagine `pages/tests/*`); `layouts/test` e' condiviso col front office reale e non si tocca. Comportamenti con Alpine montato per selettore (`mountDesignComuniComponents`) e controller del tema (`header-mobile-nav.js`, modali in `app.js`), attivi solo se c'e' `.page-content[data-slug*="tests."]`.
 11. **Prima di cambiare un layout**: `grep` di chi lo usa e una sentinella per ciascun utente.

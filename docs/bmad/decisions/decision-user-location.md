@@ -3,7 +3,7 @@ id: user-location-not-fixed-coords
 type: decision
 title: /it/tickets/create — User location (not fixed coordinates) + map center logic
 status: open
-related: Modules/Geo/docs/stories/2026-10-13-dcp-127-mappa-centratura-senza-https.story.md
+related: Modules/Geo/docs/stories/dcp-127-mappa-centratura-senza-https.story.md
 links:
   github_issue: "#999"
   discussion: "#design-comuni"

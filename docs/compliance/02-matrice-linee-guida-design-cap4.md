@@ -8,7 +8,7 @@ owner: theme:Sixteen
 story: dcp-163
 tags: [compliance, linee-guida-design, agid, designers-italia, matrice]
 qmd: "matrice linee guida design pa capitolo 4 requisiti 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 lg-design-servizi-web conforme parziale assente docs italia designers italia superata"
-related: [01-matrice-conformita-interfaccia.md, ../bmad/stories/2026-10-14-dcp-163-matrice-linee-guida-design-in-vigore.story.md, ../../../../../bmad-output/stories/8.1.design-guideline-baseline.story.md]
+related: [01-matrice-conformita-interfaccia.md, ../bmad/stories/dcp-163-matrice-linee-guida-design-in-vigore.story.md, ../../../../../bmad-output/stories/8.1.design-guideline-baseline.story.md]
 ---
 
 # Matrice di conformita' alle Linee guida di design, capitolo 4

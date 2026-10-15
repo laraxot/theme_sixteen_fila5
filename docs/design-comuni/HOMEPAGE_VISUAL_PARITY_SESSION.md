@@ -217,7 +217,7 @@ Compensates for double-nested containers, matches reference width
 
 ### Cross-References
 - ← [HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md)
-- ← [Homepage Structure Diff](./homepage-structure-diff-2026-04-02.md)
+- ← [Homepage Structure Diff](./homepage-structure-diff.md)
 - ← [CSS/JS Alignment Plan](./css-js-alignment-plan.md)
 - → [Master Index](./00-index.md)
 

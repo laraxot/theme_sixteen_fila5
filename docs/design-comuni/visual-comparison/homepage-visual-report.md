@@ -20,7 +20,7 @@ status: draft
 **Related:**
 - [00-index.md](../00-index.md) - Design Comuni Documentation Index
 - [CSS-JS-ALIGNMENT-PLAN.md](../css-js-alignment-plan.md) - CSS/JS Fix Plan
-- [bmad-gsd-status-2026-04-03.md](../bmad-gsd-status-2026-04-03.md) - GSD Status
+- [bmad-gsd-status-2026-04-03.md](../bmad-gsd-status.md) - GSD Status
 
 ---
 ## Executive Summary

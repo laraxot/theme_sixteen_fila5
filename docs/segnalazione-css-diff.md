@@ -9,8 +9,8 @@ issues: []
 discussions: []
 module: theme
 topic: segnalazione-css-diff
-canonical: ../../docs/shared-components/segnalazione-css-diff-2026-04-07.md
+canonical: ../../docs/shared-components/segnalazione-css-diff-pagine-analisi.md
 status: stub
 ---
 
-See canonical documentation: ../../docs/shared-components/segnalazione-css-diff-2026-04-07.md
+See canonical documentation: ../../docs/shared-components/segnalazione-css-diff-pagine-analisi.md

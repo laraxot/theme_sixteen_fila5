@@ -225,7 +225,7 @@ Each fix must be verified with:
 - Initiative: `kp-e8aae9de701a4371a3c059431d83e54c`
 - Knowledge: `homepage-visual-parity-arch.md`
 - Brainstorm: `homepage-visual-parity-brainstorm.md`
-- Story: `homepage-visual-parity-97.story.md`
+- Story: `homepage-visual-parity.story.md`
 
 ## Status
 

@@ -221,7 +221,7 @@ php artisan serve --host=127.0.0.1 --port=8000
 - `docs/design-comuni/00-index.md` - Updated with fix session links
 
 ### Nuovi Documenti
-- `docs/design-comuni/SEGNALAZIONE-FIX-SESSION-2026-04-07.md` (questo file)
+- `docs/design-comuni/SEGNALAZIONE-FIX-SESSION.md` (questo file)
 - `docs/design-comuni/screenshots/comparison/POST-FIX-VERIFICATION.md`
 
 ### Cross-References

@@ -19,7 +19,7 @@ status: draft
 
 **Related:**
 - [00-index.md](./00-index.md) - Design Comuni Index
-- [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage detailed report
+- [visual-comparison/homepage-visual-report.md](./visual-comparison/homepage-visual-report.md) - Homepage detailed report
 - [../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md](../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md) - Scripts docs
 
 ---
