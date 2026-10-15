@@ -55,5 +55,12 @@ Home: 92 link = 21 reali + 4 verso il login + **9 che danno 404** + **18 `#`** +
 - [ ] Un solo numero di telefono nel sito, preso dai dati dell'ente.
 - [ ] La matrice di interfaccia e' riallineata.
 
+## Owned File/Module Scope
+- `laravel/config/*/fixcity/database/content/sections/header.json` e `footer.json`
+- `laravel/Themes/Sixteen/resources/views/components/{header,footer,sections}/**`
+- `laravel/Themes/Sixteen/lang/*/sitemap.php` e le chiavi del footer
+- `laravel/Modules/Fixcity/tests/Feature/Pages/Footer*Test.php`
+Non toccare: dati dell'ente (decisioni D198-1..6).
+
 ## Non verificato
 Il menu dell'utente autenticato (dropdown); la visibilita' a schermo delle voci morte a ogni larghezza; i siti esterni.
