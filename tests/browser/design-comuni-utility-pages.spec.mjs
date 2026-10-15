@@ -26,7 +26,7 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             await firstFaq.locator('summary').focus();
             await page.keyboard.press('Enter');
             await expect(firstFaq.locator('p')).toBeVisible();
-            await expect(page.getByRole('link', { name: locale.service })).toHaveAttribute('href', new RegExp(`/${locale.code}/services/report-issue$`));
+            await expect(page.getByRole('link', { name: locale.service })).toHaveAttribute('href', new RegExp(`/${locale.code}/tickets/create$`));
             await expect(page.locator(`footer a[href$="/${locale.code}/mappa-sito"]`)).toBeVisible();
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
             expect(pageErrors).toEqual([]);
