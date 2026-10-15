@@ -3,7 +3,7 @@ title: "Sixteen: ingresso alla documentazione"
 type: readme
 tags: [documentation, sixteen]
 created: 2026-09-26
-updated: 2026-10-14
+updated: 2026-10-15
 qmd: "sixteen theme readme stato pub_theme vivo contenuti conteggi build npm limiti rotte dormienti layout design-comuni"
 issues: []
 discussions: []
@@ -56,6 +56,27 @@ Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
 - routing pubblico: Folio e `PageSlugMiddleware`;
 - accessibilità: WCAG 2.1 AA come requisito minimo, con verifica manuale e automatizzata;
 - build: Vite, con asset generati nella public del tema.
+
+
+## Moduli correlati (contratti, non duplicare)
+
+Sixteen rende la UI pubblica; la logica di dominio e i contenuti restano nei moduli.
+
+| Modulo | Perché | Docs |
+|---|---|---|
+| `Cms` | JSON pagine/blocchi, Folio mount, `ResolvePageAction`, sezioni header/footer | [Cms README](../../../Modules/Cms/docs/README.md) |
+| `UI` | vocabolario Blade/Filament condiviso (colonne, campi, blocchi admin) | [UI README](../../../Modules/UI/docs/README.md) |
+| `Fixcity` | journeys cittadino, ownership BMAD dei flussi | [Fixcity docs](../../../Modules/Fixcity/docs/README.md) |
+
+Header/footer: contratto in [bmad/header-footer-sections-contract.md](bmad/header-footer-sections-contract.md); dati da blocchi CMS → fallback `config('comune.*')` → URL localizzati.
+
+## Qualità (standing order)
+
+Applicare sempre, senza conferma: PHPStan a zero (causa, non silenziatori), qualità DRY+KISS, docs tema ordinate via BMAD + second brain. Canonico: [phpstan-quality-docs-bmad-standing-order](../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
+
+- Test del tema solo in `Themes/Sixteen/tests/` (minuscolo). Vietato `Tests/` PascalCase (FS case-sensitive, PSR-4, Pest).
+- Nomi `.md`: kebab-case minuscolo, no date/timestamp nel filename (solo `README.md` può avere maiuscole).
+- Stack runtime: Tailwind + Alpine + Lit + DaisyUI + Flowbite; **no Bootstrap** come dipendenza ([no-bootstrap-italia.md](no-bootstrap-italia.md), [daisyui.md](daisyui.md)).
 
 ## Documentazione
 

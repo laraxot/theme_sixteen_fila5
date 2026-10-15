@@ -3,7 +3,7 @@ title: "testing"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-10-15
 qmd: "testing"
 issues: []
 discussions: []
@@ -29,3 +29,7 @@ Prima di ogni commit, i test devono passare i seguenti controlli:
 1. Pest: `cd laravel && ./vendor/bin/pest laravel/Themes/Sixteen/tests`
 2. PHPStan: `cd laravel && ./vendor/bin/phpstan analyse laravel/Themes/Sixteen/tests --level=5`
 3. PHPMD: `phpmd laravel/Themes/Sixteen/tests text phpmd.xml`
+
+## Directory `tests/` (minuscolo)
+
+I test del tema vivono in `Themes/Sixteen/tests/`. Vietato `Tests/` PascalCase: su FS case-sensitive collide con PSR-4 e con la convenzione Pest del monorepo; lo standing order vieta anche `Modules/*/Tests`.
