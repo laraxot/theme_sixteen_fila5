@@ -1,3 +1,15 @@
+---
+title: "HOMEPAGE 404 FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE 404 FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # 404 Error Fix - Homepage Not Found
 
 > **Risolto: http://127.0.0.1:8000/it/tests/homepage dava errore 404**
@@ -9,7 +21,6 @@
 **Tipo:** Errore routing + JSON mancante
 
 ---
-
 ## 🐛 Problema
 
 ```

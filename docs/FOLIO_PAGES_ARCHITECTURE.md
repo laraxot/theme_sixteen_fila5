@@ -1,3 +1,15 @@
+---
+title: "FOLIO PAGES ARCHITECTURE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FOLIO PAGES ARCHITECTURE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Folio Pages Architecture - FixCity Fila5
 
 **Project:** FixCity Fila5
@@ -6,7 +18,6 @@
 **Priority:** 🔴 **Critical Architecture**
 
 ---
-
 ## 🎯 Scopo
 
 Questo documento definisce l'architettura delle pagine Folio nel tema Sixteen, applicando i principi **DRY** e **KISS**.
@@ -243,7 +254,7 @@ Per creare una pagina con slug:
 
 ### Internal Documents
 
-- → [Theme Detection System](../../../docs/project/THEME_DETECTION_SYSTEM.md) - Theme detection
+- → [Theme Detection System](../../../../docs/project/THEME_DETECTION_SYSTEM.md) - Theme detection
 - → [Page Component Architecture](../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) - Page component
 - → [JSON Content Guide](../../../Modules/Cms/docs/JSON_CONTENT_GUIDE.md) - JSON structure
 - → [Master Index](../../../docs/project/MODULE_DOCS_INDEX.md) - Central navigation

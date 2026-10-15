@@ -1,3 +1,15 @@
+---
+title: "HOMEPAGE VISUAL ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE VISUAL ANALYSIS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage Visual Analysis & CSS/JS Fixes
 ## Reference vs. Local Implementation (Tailwind + Alpine.js)
 
@@ -8,7 +20,6 @@
 **Date**: 2024-04-02  
 
 ---
-
 ## Executive Summary
 
 | Metric | Result |
@@ -465,8 +476,8 @@ theme: {
 
 ## Related Documentation
 
-- [THEMES_DOCUMENTATION_INDEX.md](../../docs/THEMES_DOCUMENTATION_INDEX.md)
-- [ARCHITECTURE-DIAGRAMS.md](../../docs/ARCHITECTURE-DIAGRAMS.md)
+- [THEMES_DOCUMENTATION_INDEX.md](../../../../docs/THEMES_DOCUMENTATION_INDEX.md)
+- [ARCHITECTURE-DIAGRAMS.md](../../../../docs/ARCHITECTURE-DIAGRAMS.md)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Alpine.js Docs](https://alpinejs.dev)
 - [Bootstrap Italia Design System](https://italia.github.io/design-comuni/)

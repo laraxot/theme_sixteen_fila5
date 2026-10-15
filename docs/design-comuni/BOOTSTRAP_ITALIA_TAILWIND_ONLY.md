@@ -1,3 +1,15 @@
+---
+title: "BOOTSTRAP ITALIA TAILWIND ONLY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BOOTSTRAP ITALIA TAILWIND ONLY"
+issues: []
+discussions: []
+status: draft
+---
+
 # ✅ Bootstrap Italia Classes - Tailwind @apply ONLY
 
 **Data**: 2026-03-31  
@@ -148,7 +160,6 @@
 - [HEADER_FOOTER_COLOR_FIX_COMPLETE.md](HEADER_FOOTER_COLOR_FIX_COMPLETE.md)
 
 ---
-
 **Stato**: ✅ **BOOTSTRAP ITALIA CLASSES REPLICATE**  
 **Metodo**: **Tailwind @apply ONLY**  
 **Import CSS**: **NONE**  

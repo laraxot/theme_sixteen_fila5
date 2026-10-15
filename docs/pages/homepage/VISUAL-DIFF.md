@@ -1,3 +1,15 @@
+---
+title: "VISUAL DIFF"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL DIFF"
+issues: []
+discussions: []
+status: draft
+---
+
 # Visual Difference Report: homepage
 
 **Analysis Date:** 2026-04-03T10:01:03.665Z

@@ -1,0 +1,59 @@
+{
+  "h": 5066,
+  "h1": "Vivere il comune",
+  "breadcrumb": "Home/ Vivere il comune",
+  "h2": [
+    "Eventi in evidenza",
+    "Luoghi in evidenza",
+    "Quanto sono chiare le informazioni su questa pagina?",
+    "Grazie, il tuo parere ci aiuterà a migliorare il servizio!",
+    "Contatta il comune",
+    "Problemi in città",
+    "Cerca",
+    "Nome del Comune"
+  ],
+  "h3": [
+    "Un'estate indimenticabile",
+    "La biblioteca nel parco",
+    "Festa delle associazioni della sesta circoscrizione",
+    "Celluloide film festival",
+    "Street art e murales in città",
+    "Tramvia, dibattito aperto a tutti i cittadini",
+    "Il castello normanno",
+    "Il castello normanno",
+    "Il castello normanno",
+    "La Gipsoteca canoviana",
+    "Tomba Brion",
+    "Il castello normanno",
+    "Quali sono stati gli aspetti che hai preferito? 1/2",
+    "Dove hai incontrato le maggiori difficoltà? 1/2",
+    "Vuoi aggiungere altri dettagli? 2/2"
+  ],
+  "links": 44,
+  "images": [
+    "../assets/images/roma-colosseo.png",
+    "../assets/images/eventi-estate.png",
+    "../assets/images/eventi-biblioteca-parco.png",
+    "../assets/images/eventi-festa-associazioni.png",
+    "../assets/images/eventi-celluloide-festival.png",
+    "../assets/images/eventi-street-art.png",
+    "../assets/images/eventi-tram-via.png",
+    "../assets/images/luoghi-castello-1.png",
+    "../assets/images/luoghi-castello-2.png",
+    "../assets/images/luoghi-castello-3.png",
+    "../assets/images/luoghi-gipsoteca.png",
+    "../assets/images/luoghi-tomba.png",
+    "../assets/images/luoghi-castello-4.png",
+    "../assets/images/logo-eu-inverted.svg"
+  ],
+  "buttons": [
+    "Lingua attiva: ITA",
+    "Accedi all'area personale",
+    "Nascondi la navigazione",
+    "Tutti gli eventi",
+    "Tutti i luoghi",
+    "Indietro",
+    "Avanti",
+    "Cerca"
+  ]
+}

@@ -1,3 +1,15 @@
+---
+title: "DESIGN COMUNI COMPARISON TOOLS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI COMPARISON TOOLS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Visual Comparison Tools
 
 **Purpose:** Systematically compare and align local Design Comuni pages with the reference implementation (italia.github.io) to achieve visual parity using Tailwind CSS + Alpine.js (no Bootstrap Italia).
@@ -7,7 +19,6 @@
 **Location:** `bashscripts/design-comuni-compare/`
 
 ---
-
 ## Overview
 
 This suite of tools automates the comparison of 47+ Design Comuni static pages between:
@@ -275,7 +286,7 @@ npm run copy     # Copies to public_html/themes/Sixteen
 
 ## Related Documentation
 
-- [Design Comuni Index](../00-index.md) — Main design-comuni documentation index
+- [Design Comuni Index](../00-INDEX.md) — Main design-comuni documentation index
 - [Block Census](../design-comuni-census-blocks.md) — All content blocks analyzed
 - [Implementation Plan](../design-comuni-implementation.md) — Original implementation strategy
 - [HTML Parity Plan](../design-comuni-html-parity-plan.md) — Original HTML parity approach
@@ -285,7 +296,7 @@ npm run copy     # Copies to public_html/themes/Sixteen
 
 - [Screenshot Index](screenshots/README.md) — Screenshot organization
 - [HTML Comparisons](html-comparisons/HTML-STRUCTURE-COMPARISON.md) — Structure comparison results
-- [Master Project Index](../../../../docs/MODULE_DOCS_INDEX.md) — Project-wide documentation index
+- [Master Project Index](../../../../../docs/MODULE_DOCS_INDEX.md) — Project-wide documentation index
 
 ---
 

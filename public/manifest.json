@@ -1,6 +1,6 @@
 {
   "../../Modules/Geo/resources/js/components/map-lit.js": {
-    "file": "assets/map-lit-D4K-wE4-.js",
+    "file": "assets/map-lit-B41t_qPx.js",
     "name": "map-lit",
     "src": "../../Modules/Geo/resources/js/components/map-lit.js",
     "isEntry": true,
@@ -11,18 +11,12 @@
       "node_modules/leaflet.heat/dist/leaflet-heat.js"
     ],
     "css": [
-      "assets/map-lit-25t4MxmA.css"
+      "assets/map-lit-B7ZJD1_Z.css"
     ]
   },
   "_leaflet.markercluster-kYRFWcpd.js": {
     "file": "assets/leaflet.markercluster-kYRFWcpd.js",
     "name": "leaflet.markercluster"
-  },
-  "node_modules/@splidejs/splide/dist/js/splide.esm.js": {
-    "file": "assets/splide.esm-BWa4TFV4.js",
-    "name": "splide.esm",
-    "src": "node_modules/@splidejs/splide/dist/js/splide.esm.js",
-    "isDynamicEntry": true
   },
   "node_modules/leaflet.heat/dist/leaflet-heat.js": {
     "file": "assets/leaflet-heat-hQeRTJ38.js",
@@ -40,7 +34,7 @@
     ]
   },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-dkt6CV16.css",
+    "file": "assets/app-test-D3Hy2xMX.css",
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -49,7 +43,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-B-CW9-gg.css",
+    "file": "assets/app-UD7Kp0l8.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -58,7 +52,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BDpAKEGq.js",
+    "file": "assets/app-DGLMgRXY.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -66,11 +60,8 @@
       "../../Modules/Geo/resources/js/components/map-lit.js",
       "_leaflet.markercluster-kYRFWcpd.js"
     ],
-    "dynamicImports": [
-      "node_modules/@splidejs/splide/dist/js/splide.esm.js"
-    ],
     "css": [
-      "assets/app-BRKXMWAJ.css"
+      "assets/app-BjINPWW4.css"
     ]
   }
 }

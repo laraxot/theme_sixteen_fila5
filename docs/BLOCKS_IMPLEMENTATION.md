@@ -1,3 +1,15 @@
+---
+title: "BLOCKS IMPLEMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCKS IMPLEMENTATION"
+issues: []
+discussions: []
+status: draft
+---
+
 # Blocks Implementation - Complete
 
 > **Documentazione implementazione blocchi universali per Design Comuni**
@@ -9,7 +21,6 @@
 **Totale Blocchi:** 7 blocchi creati
 
 ---
-
 ## 🧩 Blocchi Implementati
 
 ### 1. Navigation Main

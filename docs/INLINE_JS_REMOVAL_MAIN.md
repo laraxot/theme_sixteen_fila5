@@ -1,3 +1,15 @@
+---
+title: "INLINE JS REMOVAL MAIN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INLINE JS REMOVAL MAIN"
+issues: []
+discussions: []
+status: draft
+---
+
 # Rimozione JS inline da layouts/main.blade.php
 
 Motivazione

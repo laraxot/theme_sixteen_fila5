@@ -1,3 +1,15 @@
+---
+title: "VISUAL PARITY ACTION PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "VISUAL PARITY ACTION PLAN"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Visual Parity - Action Plan
 
 **Created**: 2026-04-04  
@@ -5,7 +17,6 @@
 **Priority**: CRITICAL  
 
 ---
-
 ## Current State (Updated 2026-04-04 End of Session)
 
 ### Visual Parity Scores
@@ -194,10 +205,10 @@ node bashscripts/screenshots/compare-html-structure.mjs [page]
 | Document | Location |
 |----------|----------|
 | [Visual Parity Report](visual-comparison/screenshots/VISUAL-PARITY-REPORT.md) | Latest parity scores |
-| [CSS/JS Plan](design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
+| [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md) | CSS fix strategy |
 | [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md) | Tool documentation |
-| [Complete Visual Parity Report](COMPLETE-VISUAL-PARITY-REPORT.md) | Historical data |
-| [Design Comuni Index](design-comuni-implementation.md) | Implementation status |
+| [Complete Visual Parity Report](../COMPLETE-VISUAL-PARITY-REPORT.md) | Historical data |
+| [Design Comuni Index](../design-comuni-implementation.md) | Implementation status |
 
 ---
 

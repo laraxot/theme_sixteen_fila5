@@ -1,3 +1,15 @@
+---
+title: "FASE1 ANALISI DIFFERENZE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FASE1 ANALISI DIFFERENZE"
+issues: []
+discussions: []
+status: draft
+---
+
 # FASE 1 - Analisi Dettagliata Differenze HTML
 
 ## 📊 Riepilogo Parity
@@ -79,6 +91,5 @@ Confrontare i testi dinamici con il reference.
 Verificare il raggiungimento del 90% parity.
 
 ---
-
 *Documento generato automaticamente da HTML comparison script*
 *Data: 2026-04-08*

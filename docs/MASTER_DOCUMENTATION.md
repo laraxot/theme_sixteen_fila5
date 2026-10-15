@@ -1,3 +1,15 @@
+---
+title: "MASTER DOCUMENTATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MASTER DOCUMENTATION"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Replication - Master Documentation
 
 **Project**: FixCity - Sixteen Theme  
@@ -7,7 +19,6 @@
 **Repository**: laraxot/base_fixcity_fila5
 
 ---
-
 ## 🎯 Project Overview
 
 Replicate the Italian Design Comuni template using **Tailwind CSS + Alpine.js** (NOT Bootstrap Italia) following **DRY + KISS** principles.
@@ -39,6 +50,12 @@ pages/tests/amministrazione.blade.php ← DON'T
 pages/tests/[slug].blade.php       ← DO THIS (ONE file for ALL pages)
 ```
 
+La regola vale per ogni URL `/it/tests/{slug}`. `homepage` e
+`segnalazione-dettaglio` sono slug CMS, non eccezioni Folio: il route file
+costruisce `tests.<slug>` e delega tutto a `<x-page>`. Non creare
+`pages/tests/segnalazioni/[slug].blade.php` né fallback basati su
+`tests.catalog.json`.
+
 ### 2. Component Naming
 **❌ WRONG**: Page-specific blocks
 ```
@@ -60,6 +77,12 @@ pub_theme::components.blocks.events.calendar   ← CORRECT (type.variant)
     <main>{{ $slot }}</main>
     <x-section slug="footer" tpl="full" />
 </x-layouts.app>
+
+The catalogue route `pages/tests/index.blade.php` is the intentional exception
+and uses `<x-layouts.test>` for the Design Comuni preview shell. The detail
+route remains `pages/tests/[slug].blade.php` and uses `<x-layouts.app>`; its
+JSON blocks provide the page content. This is not a reason to create a
+`homepage.blade.php` file.
 ```
 
 **NOT**:
@@ -234,9 +257,9 @@ Keep Bootstrap Italia class names in HTML for compatibility:
 ### Architecture Documentation
 1. **[layout-hierarchy.md](./layout-hierarchy.md)** - `x-layouts.app` extends `x-layouts.main`
 2. **[components-directory-structure.md](./components-directory-structure.md)** - Complete component organization
-3. **[vite-configuration-guide.md](./vite-configuration-guide.md)** - Build configuration (`outDir: './public'`)
+3. **[vite-configuration-guide.md](./build/vite-configuration-guide.md)** - Build configuration (`outDir: './public'`)
 4. **[build-commands-guide.md](./build-commands-guide.md)** - Complete build process
-5. **[vite-config-fix-summary.md](./vite-config-fix-summary.md)** - Why `outDir: './public'`
+5. **[vite-config-fix-summary.md](./build/vite-config-fix-summary.md)** - Why `outDir: './public'`
 6. **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** - Master documentation index
 
 ### Design Comuni Documentation

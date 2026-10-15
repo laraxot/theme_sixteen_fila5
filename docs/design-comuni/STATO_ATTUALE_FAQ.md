@@ -1,3 +1,15 @@
+---
+title: "STATO ATTUALE FAQ"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STATO ATTUALE FAQ"
+issues: []
+discussions: []
+status: draft
+---
+
 # Stato Attuale FAQ - Analisi e Piano di Fix
 
 ## Data: 2026-04-03
@@ -120,6 +132,5 @@
 | **Totale** | **69.4%** | **✅ 90%+** |
 
 ---
-
 **Stato**: ⚠️ CRITICO - Accordion da rifare completamente  
 **Prossimo Step**: Fix blade template accordion

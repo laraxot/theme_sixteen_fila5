@@ -1,3 +1,15 @@
+---
+title: "DESIGN COMUNI HTML REPLICATION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI HTML REPLICATION"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni HTML Replication - Body Structure Analysis
 
 **Project:** FixCity Fila5
@@ -6,7 +18,6 @@
 **Priority:** 🔴 **Critical**
 
 ---
-
 ## 🎯 Obiettivo
 
 Replicare l'HTML esatto di Design Comuni all'interno del tag `<body>` (esclusi gli `<script>`).
@@ -364,7 +375,7 @@ Replicare l'HTML esatto di Design Comuni all'interno del tag `<body>` (esclusi g
 
 ### Internal Documents
 
-- → [Layout Architecture](Themes/Sixteen/docs/LAYOUT_ARCHITECTURE_AND_NAMESPACE.md) - Layout hierarchy
+- → [Layout Architecture](LAYOUT_ARCHITECTURE_AND_NAMESPACE.md) - Layout hierarchy
 - → [Page Component Architecture](Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) - Page component
 - → [Block Analysis](_bmad-output/design-comuni-block-analysis.md) - 47 componenti
 - → [BMad UI Spec](_bmad-output/design-comuni-ui-spec.md) - Component specs

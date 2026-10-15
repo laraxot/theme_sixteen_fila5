@@ -1,3 +1,15 @@
+---
+title: "UI FIXES MASTER PLAN"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "UI FIXES MASTER PLAN"
+issues: []
+discussions: []
+status: draft
+---
+
 # UI Layout & Visibility Fixes - Master Plan
 
 **Date**: 2026-04-02  
@@ -6,7 +18,6 @@
 **Approach**: BMAD + GSD structured workflow  
 
 ---
-
 ## 📋 Issues Overview
 
 | Issue | Severity | Impact | Status |

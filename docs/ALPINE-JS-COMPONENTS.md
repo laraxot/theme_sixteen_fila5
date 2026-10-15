@@ -1,3 +1,15 @@
+---
+title: "ALPINE JS COMPONENTS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ALPINE JS COMPONENTS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Alpine.js Components Documentation
 
 **Location**: `laravel/Themes/Sixteen/resources/js/components/`  
@@ -50,7 +62,6 @@ All Alpine components follow a consistent pattern for easy maintenance and testi
 ```
 
 ---
-
 ### 2. Modal Component (`modal.js`)
 
 **Purpose**: Manage modal dialog visibility and focus

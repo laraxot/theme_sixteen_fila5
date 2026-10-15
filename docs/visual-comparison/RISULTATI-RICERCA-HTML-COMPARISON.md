@@ -1,3 +1,15 @@
+---
+title: "RISULTATI RICERCA HTML COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA HTML COMPARISON"
+issues: []
+discussions: []
+status: draft
+---
+
 # Risultati Ricerca - HTML & Visual Comparison
 
 **Date:** 2026-04-03
@@ -7,7 +19,7 @@
 **Status:** ✅ 95%+ Structural Parity Achieved
 
 **Cross-references:**
-- [Theme Index](../00-index.md#risultati-ricerca-parity-docs) - Main theme documentation index
+- [Theme Index](../00-INDEX.md#risultati-ricerca-parity-docs) - Main theme documentation index
 - [Blade Template](../../resources/views/components/blocks/search/results.blade.php) - Search results block template
 - [Rating Block](../../resources/views/components/blocks/rating/default.blade.php) - Rating block template
 - [Bootstrap Italia CSS](../../resources/css/bootstrap-italia.css) - CSS utility classes (425+ lines added)
@@ -15,7 +27,6 @@
 - [Comparison Screenshots](../screenshots/risultati-ricerca/) - Before/after screenshots
 
 ---
-
 All 10 key structural elements verified as present and matching:
 
 | # | Element | Status | Count |

@@ -1,3 +1,15 @@
+---
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
+status: draft
+---
+
 # UI Layout & Visibility Fixes - Documentation Index
 
 **Created**: 2026-04-02  
@@ -5,7 +17,6 @@
 **Approach**: BMAD + GSD structured workflow  
 
 ---
-
 ## 📚 Documentation Structure
 
 ### 📋 Master Analysis

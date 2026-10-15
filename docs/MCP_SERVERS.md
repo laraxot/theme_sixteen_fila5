@@ -1,3 +1,15 @@
+---
+title: "MCP SERVERS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "MCP SERVERS"
+issues: []
+discussions: []
+status: draft
+---
+
 # MCP Servers - Theme Context
 
 **Theme**: Sixteen (Active)  
@@ -5,7 +17,7 @@
 
 ## Master Documentation
 
-**See [Project MCP Servers](../../../docs/MCP_SERVERS.md)** for complete server list, configuration, and usage examples.
+**See [Project MCP Servers](../../../../docs/MCP_SERVERS.md)** for complete server list, configuration, and usage examples.
 
 This document provides Sixteen theme-specific MCP usage guidelines only.
 
@@ -102,12 +114,11 @@ This document provides Sixteen theme-specific MCP usage guidelines only.
 
 ## Cross-References
 
-- **Master MCP Docs**: [Project MCP Servers](../../../docs/MCP_SERVERS.md)
+- **Master MCP Docs**: [Project MCP Servers](../../../../docs/MCP_SERVERS.md)
 - **Xot Module MCP**: [Xot MCP Guide](../../Modules/Xot/docs/MCP_SERVERS.md)
 - **Theme Documentation**: [Sixteen Theme Index](README.md)
 - **Vite Configuration**: [Theme Vite Config](../vite.config.js)
 - **Tailwind Configuration**: [Theme Tailwind Config](../tailwind.config.js)
 
 ---
-
 *This document follows DRY+KISS principles. Server list and configuration are in the master doc.*

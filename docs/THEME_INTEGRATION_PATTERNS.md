@@ -1,3 +1,15 @@
+---
+title: "THEME INTEGRATION PATTERNS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "THEME INTEGRATION PATTERNS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Theme Sixteen: Integration Patterns
 
 **Data:** 2026-06-03  
@@ -5,7 +17,6 @@
 **Status:** STORY-121/122/123 completati
 
 ---
-
 ## Map-Lit Integration Pattern
 
 ### Blade Component Usage
@@ -114,5 +125,5 @@ cat public_html/themes/Sixteen/manifest.json | grep map-lit
 
 ## Collegamenti
 
-- [Geo Module: map-lit-lessons-learned](../../Modules/Geo/docs/map-lit-lessons-learned.md)
-- [Root: STORY-121](../../../docs/stories/STORY-121-map-lit-non-visibile-verifica-fix.md)
+- [Geo Module: map-lit-lessons-learned](../../../Modules/Geo/docs/map-lit-lessons-learned.md)
+- [Root: STORY-121](../../../../docs/stories/STORY-121-map-lit-non-visibile-verifica-fix.md)

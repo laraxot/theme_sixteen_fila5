@@ -1,3 +1,15 @@
+---
+title: "BMAD SUMMARY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BMAD SUMMARY"
+issues: []
+discussions: []
+status: draft
+---
+
 # BMAD Design Comuni Replication - Complete Summary
 
 > **Sintesi completa del progetto di replica Design Comuni Italia**
@@ -10,7 +22,6 @@
 **Data:** 2026-04-01
 
 ---
-
 ## 📊 Risultati Fase 1: Analisi e Censimento
 
 ### ✅ Deliverables Completati
@@ -478,7 +489,7 @@ config/local/fixcity/database/content/pages/
 
 ### Documentazione Interna
 
-- [Main Index](../00-index.md)
+- [Main Index](../00-INDEX.md)
 - [Design Comuni Index](./00-index.md)
 - [Product Brief](./product-brief.md)
 - [Pages Census](./pages-census.md)

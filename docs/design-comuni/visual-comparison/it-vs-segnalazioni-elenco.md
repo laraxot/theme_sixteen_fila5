@@ -1,3 +1,15 @@
+---
+title: "it vs segnalazioni elenco"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "it vs segnalazioni elenco"
+issues: []
+discussions: []
+status: draft
+---
+
 # Confronto visivo: `/it` vs Design Comuni «Elenco segnalazioni»
 
 **Data audit:** 2026-05-28  
@@ -31,7 +43,7 @@
 
 ## Elementi già allineati (non rifare)
 
-- `GET /it` → 200; nessun `@livewire(TicketList)` ([STORY-059](../../../../docs/stories/STORY-059-it-ticketlist-500-uninitialized-fix.md)).
+- `GET /it` → 200; nessun `@livewire(TicketList)` ([STORY-059](../../../../../../docs/stories/STORY-059-it-ticketlist-500-uninitialized-fix.md)).
 - `cmp-breadcrumbs`, `cmp-heading`, tab Filament `fi-tabs` (Mappa/Elenco), `accordion`, `modal-categories` (mobile), `cmp-rating`, `info-contacts`.
 - Percorso canonico: `pages/index.blade.php` → `<x-page slug="home" />` → blocco `segnalazioni-layout`.
 

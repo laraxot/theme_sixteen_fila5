@@ -1,3 +1,15 @@
+---
+title: "BLOCK DEVELOPMENT RULES"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCK DEVELOPMENT RULES"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni - Block Development Rules
 
 **Created:** 2026-04-08  
@@ -5,7 +17,6 @@
 **Type:** Architectural Rules
 
 ---
-
 ## 1. Tech Stack: TailwindCSS + Alpine.js ONLY
 
 ### Core Principle
@@ -181,8 +192,8 @@ new class extends Component {
 
 ## Cross-References
 
-- → [Master Docs Index](../../../docs/MODULE_DOCS_INDEX.md)
-- → [HTML Structure Comparison](../../../docs/html-structure-comparison.md)
+- → [Master Docs Index](../../../../../docs/MODULE_DOCS_INDEX.md)
+- → [HTML Structure Comparison](../../../../../docs/html-structure-comparison.md)
 - → [Body Structure Comparison Index](../body-structure-comparison/INDEX.md)
 - → [Comparison Scripts](../../../../bashscripts/docs/html/README.md)
 

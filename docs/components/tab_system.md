@@ -1,3 +1,15 @@
+---
+title: "tab system"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "tab system"
+issues: []
+discussions: []
+status: draft
+---
+
 # Tab System Component
 
 ## Features

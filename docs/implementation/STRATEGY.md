@@ -1,3 +1,15 @@
+---
+title: "STRATEGY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRATEGY"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Replication - Strategic Implementation Plan
 
 ## Status: HTML Structure ✅ VERIFIED (99% match across all 32 pages)
@@ -14,7 +26,6 @@
 **FOCUS**: Tailwind CSS + Alpine.js styling and interactions
 
 ---
-
 ## Phase 1: CSS Mapping & Analysis
 
 ### Bootstrap Italia → Tailwind Mapping

@@ -1,0 +1,23 @@
+{
+  "h": 3199,
+  "w": 1440,
+  "admin": true,
+  "cards": 12,
+  "title": "Amministrazione",
+  "breadcrumb": "Home/ Amministrazione",
+  "sectionsH2": [
+    "In evidenza",
+    "Esplora l'amministrazione",
+    "Quanto sono chiare le informazioni su questa pagina?",
+    "Grazie, il tuo parere ci aiuterà a migliorare il servizio!",
+    "Contatta il comune",
+    "Problemi in città"
+  ],
+  "cta": [
+    "Leggi le domande frequenti",
+    "Richiedi assistenza",
+    "Chiama il numero verde 05 0505",
+    "Prenota appuntamento",
+    "Segnala disservizio"
+  ]
+}

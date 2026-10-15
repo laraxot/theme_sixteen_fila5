@@ -1,3 +1,15 @@
+---
+title: "ARCHITECTURE QUEUEABLE ACTION"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARCHITECTURE QUEUEABLE ACTION"
+issues: []
+discussions: []
+status: draft
+---
+
 # Architecture: QueueableAction Pattern (Theme Sixteen)
 
 > **Inherited Rule**: From `laravel/Modules/docs/QUEUEABLE-ACTION-RULE.md`  
@@ -125,5 +137,4 @@ class TicketPageViewModel {
 4. **Theme Sixteen** handles presentation only
 
 ---
-
 **DRY Principle**: This file references the full documentation in Modules/docs/ to avoid duplication.

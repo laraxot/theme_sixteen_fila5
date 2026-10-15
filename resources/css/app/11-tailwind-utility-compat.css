@@ -33,24 +33,24 @@
 .lead { @apply text-xl text-gray-700; }
 
 /* Colors - Design Comuni: verde PA = sfondo primario, blu = testo/link istituzionale */
-.bg-primary { @apply bg-[#007A52]; }
-.text-primary { @apply text-[#0066CC]; }
-.bg-secondary { @apply bg-[#6C7688]; }
-.text-secondary { @apply text-[#6C7688]; }
-.bg-success { @apply bg-[#198754]; }
-.text-success { @apply text-[#198754]; }
-.bg-danger { @apply bg-[#DC3545]; }
-.text-danger { @apply text-[#DC3545]; }
-.bg-warning { @apply bg-[#FFC107]; }
-.text-warning { @apply text-[#FFC107]; }
+.bg-primary { @apply bg-primary-500; }
+.text-primary { @apply text-primary-500; }
+.bg-secondary { @apply bg-neutral-500; }
+.text-secondary { @apply text-neutral-500; }
+.bg-success { @apply bg-emerald-600; }
+.text-success { @apply text-emerald-600; }
+.bg-danger { @apply bg-red-600; }
+.text-danger { @apply text-red-600; }
+.bg-warning { @apply bg-amber-500; }
+.text-warning { @apply text-amber-500; }
 .bg-light { @apply bg-gray-100; }
 .text-white { @apply text-white; }
 
-/* Buttons - Design Comuni primary button = #0066CC (header override in 03/08/13) */
+/* Buttons - Design Comuni primary button = verde PA #007A52 (header override in 03/08/13) */
 .btn { @apply inline-flex items-center justify-center gap-2 rounded transition-colors; }
-.btn-primary { @apply bg-[#0066CC] text-white px-4 py-2 hover:bg-[#004A99]; }
-.btn-secondary { @apply bg-[#6C7688] text-white px-4 py-2 hover:bg-[#5A6270]; }
-.btn-outline-secondary { @apply border-2 border-[#6C7688] text-[#6C7688] px-4 py-2 rounded hover:bg-[#6C7688] hover:text-white; }
+.btn-primary { @apply bg-primary-600 text-white px-4 py-2 hover:bg-primary-700; }
+.btn-secondary { @apply bg-neutral-500 text-white px-4 py-2 hover:bg-neutral-600; }
+.btn-outline-secondary { @apply border-2 border-neutral-500 text-neutral-500 px-4 py-2 rounded hover:bg-neutral-500 hover:text-white; }
 .btn-lg { @apply px-6 py-3 text-lg; }
 .btn-sm { @apply px-3 py-1.5 text-sm; }
 .btn-icon { @apply inline-flex items-center; }
@@ -186,7 +186,7 @@
 }
 
 /* Submit button (wizard segnalazione — escluso login FO) */
-body:not([data-page='auth-login']) button[type="submit"].fi-btn {
+body:not([data-page^='auth-']) button[type="submit"].fi-btn {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;
@@ -195,7 +195,7 @@ body:not([data-page='auth-login']) button[type="submit"].fi-btn {
     --c-600: none !important;
     cursor: pointer;
 }
-body:not([data-page='auth-login']) button[type="submit"].fi-btn:hover {
+body:not([data-page^='auth-']) button[type="submit"].fi-btn:hover {
     background-color: white !important;
     color: #007a52 !important;
     border: 2px solid #007a52 !important;
@@ -282,3 +282,8 @@ button[type="button"].fi-btn-color-gray:hover {
    Keep this block last: older imported parity chunks must not override it.
    Scope must remain component/theme-level; never use module/domain hooks.
 ======================================== */
+
+/* === HOMEPAGE AUDIT FIX — taste-skill states + motion + token links === */
+.btn:focus-visible, .chip:focus-visible, .nav-link:focus-visible, .form-control:focus-visible { outline: 2px solid var(--fixcity-primary); outline-offset: 2px; }
+.btn:disabled, .chip:disabled { opacity: 0.5; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .btn, .chip, .nav-link, .form-control { transition: none; } }

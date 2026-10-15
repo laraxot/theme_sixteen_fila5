@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO RATING FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO RATING FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazioni Elenco - Fix Rating Duplicato
 
 ## Panoramica
@@ -52,9 +64,8 @@ grep -c "Quanto sono chiare" local-structure.html
 
 - **Layout Fix**: [SEGNALAZIONI_ELENCO_LAYOUT_FIX.md](./SEGNALAZIONI_ELENCO_LAYOUT_FIX.md)
 - **CSS Report**: [SEGNALAZIONI_ELENCO_CSS_REPORT.md](./SEGNALAZIONI_ELENCO_CSS_REPORT.md)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Stato**: ✅ 99.1% - Rating duplicato rimosso  
 **Data**: 2026-04-03

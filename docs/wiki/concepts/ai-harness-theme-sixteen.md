@@ -13,13 +13,14 @@ discussions:
 related:
   - ../../folio-page-pattern.md
   - ../../r2-ux-register-form-stacked-password.md
-  - ../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
-  - ../../../../docs/wiki/bmad/architecture.md
+  - ../../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md
+  - ../../../../../../docs/wiki/bmad/architecture.md
+status: draft
 ---
 
 # AI harness — Sixteen
 
-Estensione locale della [mappa HackerNoon root](../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md).
+Estensione locale della [mappa HackerNoon root](../../../../../../docs/wiki/concepts/hackernoon-ai-coding-tips-fixcity-map.md).
 
 ## Scope tema
 

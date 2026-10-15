@@ -1,3 +1,15 @@
+---
+title: "FAIL PAGES FIX REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAIL PAGES FIX REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Fix Pagine FAIL - Report Aggiornato
 
 ## Panoramica
@@ -49,10 +61,9 @@
 - **Detail Report**: [FAIL_PAGES_DETAIL_REPORT.md](./FAIL_PAGES_DETAIL_REPORT.md)
 - **Batch Analysis**: [BATCH_PAGES_ANALYSIS.md](./BATCH_PAGES_ANALYSIS.md)
 - **Batch Progress**: [BATCH_PROGRESS_REPORT.md](./BATCH_PROGRESS_REPORT.md)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Data**: 2026-04-03  
 **Stato**: Fix in corso  
 **Prossimo**: Verificare match % dopo fix, creare componenti rimanenti

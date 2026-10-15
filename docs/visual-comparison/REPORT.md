@@ -1,3 +1,15 @@
+---
+title: "REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Visual Comparison Report
 
 Date: 2026-04-07T08:32:20.813Z

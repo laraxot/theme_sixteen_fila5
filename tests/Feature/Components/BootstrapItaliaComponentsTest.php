@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\Assert;
 
-uses(TestCase::class, RefreshDatabase::class);
+uses(TestCase::class);
 
 test('skiplinks component renders correctly', function (): void {
     /** @var TestCase $this */
@@ -24,17 +23,16 @@ test('skiplinks component renders correctly', function (): void {
 
 test('cookiebar component has gdpr features', function (): void {
     /** @var TestCase $this */
-    $view = $this->view('pub_theme::bootstrap-italia.cookiebar', [
-        'acceptText' => 'Accetta tutti',
-        'rejectText' => 'Rifiuta tutti',
-        'customizeText' => 'Personalizza',
-    ]);
+    $html = view('cookie-consent::index')->render();
 
-    $view->assertSee('cookiebar');
-    $view->assertSee('Accetta tutti');
-    $view->assertSee('Rifiuta tutti');
-    $view->assertSee('Personalizza');
-    $view->assertSee('role="alert"');
+    Assert::assertStringContainsString('class="gdpr-cookiebar"', $html);
+    Assert::assertStringContainsString('data-cookie-key="__cookie_consent"', $html);
+    Assert::assertStringContainsString('data-cookiebar="info"', $html, 'Con soli cookie tecnici il banner informa, non chiede consenso');
+    Assert::assertStringContainsString('Ho capita', $html);
+    Assert::assertStringContainsString('data-cookie-action="reject"', $html);
+    Assert::assertStringContainsString('data-cookie-preferences', $html, 'Link «Gestisci cookie» per riaprire le preferenze');
+    Assert::assertStringNotContainsString('lcc-modal', $html, 'La vista di statikbe non deve comparire: quella del modulo Gdpr la sostituisce');
+    Assert::assertStringNotContainsString('js-lcc-', $html);
 });
 
 test('hero component variants', function (): void {

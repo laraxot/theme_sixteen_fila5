@@ -1,3 +1,15 @@
+---
+title: "INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "INDEX"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Structure Analysis & CSS Fix Strategy
 
 ## 📋 Navigation
@@ -17,7 +29,6 @@
   - Success criteria
 
 ---
-
 ## 🎯 Quick Summary
 
 **HTML Structural Match**: 98.3%
@@ -49,7 +60,7 @@
 
 ## 📁 Related Documents
 
-- **[← INDEX](../INDEX.md)** - Main theme docs
+- **[← INDEX](../index.md)** - Main theme docs
 - **[PHASE6-ALPINE-STATUS.md](../PHASE6-ALPINE-STATUS.md)** - Alpine.js status (blocked)
 - **[FINAL-VISUAL-PARITY-REPORT.md](../FINAL-VISUAL-PARITY-REPORT.md)** - Previous visual analysis
 

@@ -1,3 +1,15 @@
+---
+title: "product roadmap"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "product roadmap"
+issues: []
+discussions: []
+status: draft
+---
+
 # Product Roadmap - Theme Sixteen
 
 ## AGID-Compliant Public Administration Theme
@@ -7,7 +19,6 @@
 **Status:** Active
 
 ---
-
 ## Vision Statement
 
 > **Become the definitive frontend theme for Italian public administration websites, setting the gold standard for accessibility, compliance, and developer experience while enabling rapid delivery of citizen-centric digital services.**

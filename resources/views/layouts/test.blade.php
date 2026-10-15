@@ -35,5 +35,7 @@
         @livewire('notifications')
         @filamentScripts
         @vite(['resources/js/app.js'], 'themes/Sixteen')
+
+        {{-- Banner cookie: lo inietta CookieConsentMiddleware (vista Modules/Gdpr/resources/views/cookie-consent, DCP-153); nessun include qui. --}}
     </body>
 </html>

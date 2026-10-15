@@ -1,3 +1,15 @@
+---
+title: "HTML STRUCTURE ANALYSIS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML STRUCTURE ANALYSIS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazione Pages - HTML Structure Parity Analysis
 
 **Date:** 2026-04-07
@@ -6,7 +18,6 @@
 **Goal:** 90%+ HTML structure parity, then CSS/JS visual parity
 
 ---
-
 ## Pages Analyzed
 
 | # | Page | Reference HBS | Local Blade | Structure Match |
@@ -375,8 +386,8 @@ After blade templates match reference structure:
 
 - → [segnalazione-parity/](./) - This analysis
 - → [reference-html/](./reference-html/) - Reference HBS templates
-- → [../../../00-index.md](../../../00-index.md) - Theme docs index
-- → [../../../../Modules/Cms/docs/design-comuni-homepage.md](../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
+- → [../../../00-index.md](../../00-INDEX.md) - Theme docs index
+- → [../../../../Modules/Cms/docs/design-comuni-homepage.md](../../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
 - → [../../../../../bashscripts/docs/design-comuni-selected-page-comparisons.md](../../../../../bashscripts/docs/design-comuni-selected-page-comparisons.md) - Scripts docs
 
 ---

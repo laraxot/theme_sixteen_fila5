@@ -1,3 +1,15 @@
+---
+title: "REMOVING INLINE JS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "REMOVING INLINE JS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Rimozione JS inline da Blade — COMPLETATO
 
 **STATUS**: ✅ Pulito. Solo inline bootstrapping strutturale necessario.

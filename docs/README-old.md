@@ -1,3 +1,15 @@
+---
+title: "README old"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README old"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Theme Documentation Index
 
 **Theme:** Sixteen  
@@ -7,7 +19,6 @@
 **Total Files:** 325+
 
 ---
-
 ## 🎯 Quick Navigation
 
 | Category | Document | Description |
@@ -16,9 +27,9 @@
 | 🧭 **Page Tree** | [page-directory-structure.md](page-directory-structure.md) | Regola canonica per `resources/views/pages` |
 | 🗺️ **Navigation Map** | [LAYOUT_ARCHITECTURE_MAP.md](LAYOUT_ARCHITECTURE_MAP.md) | Bidirectional links |
 | 🔧 **Recent Fixes** | [LAYOUT_FIX_COMPLETE_BMAD.md](LAYOUT_FIX_COMPLETE_BMAD.md) | Layout fix summary |
-| ⚡ **Vite Fix** | [VITE_MANIFEST_FIX_COMPLETE.md](VITE_MANIFEST_FIX_COMPLETE.md) | Build manifest fix |
+| ⚡ **Vite Fix** | [VITE_MANIFEST_FIX_COMPLETE.md](build/VITE_MANIFEST_FIX_COMPLETE.md) | Build manifest fix |
 | 🇮🇹 **Design Comuni** | [design-comuni/HTML_PARITY_VERIFICATION_REPORT.md](design-comuni/HTML_PARITY_VERIFICATION_REPORT.md) | HTML parity verification |
-| 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
+| 📚 **Master Index** | [../../../docs/MODULE_DOCS_INDEX.md](../../../../docs/MODULE_DOCS_INDEX.md) | Central navigation |
 
 ---
 
@@ -126,7 +137,7 @@ npm run build
 
 ### For Developers
 
-1. **[Vite Configuration Guide](./vite-configuration-guide.md)** ✅ - Build configuration
+1. **[Vite Configuration Guide](./build/vite-configuration-guide.md)** ✅ - Build configuration
    - `outDir: './public'` explained
    - Manifest generation and Laravel integration
 2. **[Build Commands Guide](./build-commands-guide.md)** ✅ - Complete build process
@@ -139,7 +150,7 @@ npm run build
 ### For Designers
 
 1. [Design Tokens](guides/design-tokens.md)
-2. [Color Palette](guides/color-palette.md)
+2. [Color Palette](design-comuni/color-palette.md)
 3. [Typography Scale](guides/typography.md)
 4. [Component Patterns](guides/component-patterns.md)
 

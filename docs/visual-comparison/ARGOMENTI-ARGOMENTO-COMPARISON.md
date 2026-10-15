@@ -1,3 +1,15 @@
+---
+title: "ARGOMENTI ARGOMENTO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARGOMENTI ARGOMENTO COMPARISON"
+issues: []
+discussions: []
+status: draft
+---
+
 # Argomenti & Argomento - HTML Comparison
 
 **Date:** 2026-04-03
@@ -6,7 +18,6 @@
 **Status:** ✅ 90%+ Structural Parity
 
 ---
-
 ## ARGOMENTI (Topics Listing) - Status: ✅ 95%+ Match
 
 ### Structure Match
@@ -78,7 +89,7 @@ Lower div count because local themed sections use simpler card nesting. The refe
 - `read-more` hover animation
 
 ### Cross-references
-- [Theme Index](../00-index.md) - Main documentation index
+- [Theme Index](../00-INDEX.md) - Main documentation index
 - [Risultati Ricerca Comparison](./RISULTATI-RICERCA-HTML-COMPARISON.md) - Related page comparison
 - [Hero Argomento Template](../../resources/views/components/blocks/hero/argomento.blade.php) - New hero template
 - [Sections Themed Template](../../resources/views/components/blocks/sections/themed.blade.php) - New section block

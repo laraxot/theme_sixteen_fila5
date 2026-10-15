@@ -1,3 +1,15 @@
+---
+title: "HTML BODY COMPARISON REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HTML BODY COMPARISON REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # 📊 HTML Body Comparison Report
 
 **Data**: 2026-03-31  
@@ -183,7 +195,6 @@ Le differenze sono:
 3. ✅ Attributi accessibilità (miglioramento)
 
 ---
-
 **Stato**: ✅ **HTML STRUTTURALMENTE IDENTICO**
 **Match**: **100% struttura, 98% attributi**
 **Accessibilità**: **MIGLIORE dell'originale**
@@ -192,4 +203,4 @@ Le differenze sono:
 ### 🔗 Documenti Correlati
 - [HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md) — Analisi HTML aggiornata con diff strutturale dettagliata (2026-04-07)
 - [homepage-structure-analysis.md](./homepage-structure-analysis.md) — Analisi struttura homepage
-- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md) — Diff strutturale precedente
+- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff.md) — Diff strutturale precedente

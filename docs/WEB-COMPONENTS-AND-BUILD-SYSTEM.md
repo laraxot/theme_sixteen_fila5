@@ -1,3 +1,15 @@
+---
+title: "WEB COMPONENTS AND BUILD SYSTEM"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "WEB COMPONENTS AND BUILD SYSTEM"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Theme — Web Components & Build System Architecture
 
 **Date**: 2026-04-15  
@@ -5,7 +17,6 @@
 **Related**: Story 8-10 (segnalazione-crea map bidirectional sync)
 
 ---
-
 ## Overview
 
 The Sixteen theme is a **presentation layer** that compiles CSS and JavaScript assets for the entire application. It imports components from other modules but **must maintain strict boundaries** to avoid cross-cutting concerns and build failures.
@@ -331,7 +342,7 @@ npm run copy:filament
 ## References
 
 - [Sixteen Theme Documentation](./00-INDEX.md)
-- [Geo Module: Filament Forms Components](../../Modules/Geo/docs/filament-forms-components.md)
+- [Geo Module: Filament Forms Components](../../../Modules/Geo/docs/filament-forms-components.md)
 - [Story 8-10: Map Bidirectional Sync](../../../_bmad-output/implementation-artifacts/8-10-segnalazione-crea-map-bidirectional-sync-and-no-refresh-on-marker-drag.md)
 - [Lit.dev Official](https://lit.dev/)
 - [Web Components on MDN](https://developer.mozilla.org/en-US/docs/web/web_components)

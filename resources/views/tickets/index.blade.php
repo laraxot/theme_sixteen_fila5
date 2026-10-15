@@ -4,7 +4,7 @@
     Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html
 --}}
 
-@extends('sixteen::layouts.app')
+@extends('pub_theme::layouts.app')
 
 @section('content')
 <div class="min-h-screen bg-gray-50" x-data="{ activeTab: 'map' }">
@@ -201,22 +201,41 @@
         // Marker cluster group
         const markerCluster = L.markerClusterGroup();
 
+        const escapeHtml = (value) => {
+            const element = document.createElement('div');
+            element.textContent = String(value ?? '');
+            return element.innerHTML;
+        };
+
         // Build markers from the SAME JSON data used for filters
+        // DesignComuni / WCAG 2.1 AA: high-contrast marker with aria-label for accessibility
         ticketData.forEach(function (ticket) {
             if (!ticket.geometry || !ticket.geometry.coordinates) return;
 
             const coords = ticket.geometry.coordinates;
-            const latlng = [coords[1], coords[0]]; // [lat, lng]
+            const latlng = [coords[1], coords[0]];
 
-            const marker = L.marker(latlng);
+            // Custom high-contrast DivIcon (no CDN CSS) — visible at all zoom levels, WCAG compliant
+            const markerIcon = L.divIcon({
+                className: 'ticket-marker-visible',
+                html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="48" aria-label="Segnalazione sul territorio" role="img" aria-hidden="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#007a52" stroke="#007a52" stroke-width="2"/><circle cx="12" cy="9" r="3" fill="#ffffff" stroke="#007a52" stroke-width="1.5"/></svg>`,
+                iconSize: [36, 48],
+                iconAnchor: [18, 48],
+                popupAnchor: [0, -48]
+            });
+
+            const marker = L.marker(latlng, { icon: markerIcon, title: escapeHtml(props.title || 'Segnalazione') });
 
             // Build popup content from ticket properties
             const props = ticket.properties || {};
+            const detailUrl = typeof props.detail_url === 'string' && /^(https?:\/\/|\/)/.test(props.detail_url)
+                ? props.detail_url
+                : '#';
             const popupContent = `
                 <div class="ticket-popup">
-                    <strong>${props.title || 'Segnalazione'}</strong><br>
-                    ${props.address || ''}<br>
-                    <a href="${props.detail_url || '#'}" class="text-blue-600 underline">Dettagli</a>
+                    <strong>${escapeHtml(props.title || 'Segnalazione')}</strong>
+                    <span>${escapeHtml(props.address || '')}</span>
+                    <a href="${escapeHtml(detailUrl)}" class="text-blue-600 underline">Dettagli</a>
                 </div>
             `;
             marker.bindPopup(popupContent);

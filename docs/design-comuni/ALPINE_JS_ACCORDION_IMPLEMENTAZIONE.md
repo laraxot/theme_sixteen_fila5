@@ -1,3 +1,15 @@
+---
+title: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ALPINE JS ACCORDION IMPLEMENTAZIONE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Implementazione Alpine.js per Accordion FAQ
 
 ## Panoramica
@@ -9,7 +21,6 @@ Implementazione dell'interattività accordion utilizzando Alpine.js invece di Bo
 - **Stato**: ✅ COMPLETATO
 
 ---
-
 ## 🎯 Obiettivo
 
 Sostituire `data-bs-toggle="collapse"` (Bootstrap JS) con Alpine.js per:
@@ -217,7 +228,7 @@ if (activeIndex === current) activeIndex = null  // Chiude
 - [Implementazione FAQ](./DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md)
 - [Analisi Visiva](./DOMANDE_FREQUENTI_ANALISI_VISIVA.md)
 - [Report Finale](./DOMANDE_FREQUENTI_REPORT_FINALE.md)
-- [Master Index](../../../docs/design-comuni/MASTER_INDEX.md)
+- [Master Index](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
 

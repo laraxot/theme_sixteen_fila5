@@ -1,3 +1,15 @@
+---
+title: "LAYOUT ARCHITECTURE AND NAMESPACE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "LAYOUT ARCHITECTURE AND NAMESPACE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Layout Architecture & Component Namespace - Design Comuni
 
 **Project:** FixCity Fila5
@@ -6,7 +18,6 @@
 **Priority:** 🔴 **Blocker**
 
 ---
-
 ## 🎯 Scopo e Architettura
 
 Questo documento spiega l'architettura dei layout e dei componenti nel tema Sixteen, gli errori da evitare, e le convenzioni da seguire.
@@ -281,7 +292,7 @@ A riga 62 di `slim.blade.php`:
 ### Internal Documents
 
 - → [Layout Architecture](Themes/Sixteen/docs/layout-architecture.md) - Layout system overview
-- → [Component Namespace Guide](Themes/Sixteen/docs/component-namespace.md) - Namespace conventions
+- → [Component Namespace Guide](architecture/component-namespace.md) - Namespace conventions
 - → [Folio + Volt Guide](Themes/Sixteen/docs/folio-volt-guide.md) - Routing guide
 - → [BMad Architecture](_bmad-output/design-comuni-architecture.md) - System architecture
 

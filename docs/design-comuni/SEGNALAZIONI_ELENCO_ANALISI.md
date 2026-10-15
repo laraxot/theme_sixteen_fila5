@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO ANALISI"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO ANALISI"
+issues: []
+discussions: []
+status: draft
+---
+
 # Analisi Segnalazioni Elenco
 
 ## Panoramica
@@ -58,5 +70,4 @@
 - CSS refinements necessari per allineamento visivo
 
 ---
-
 **Data**: 2026-04-04

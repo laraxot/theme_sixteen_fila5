@@ -1,3 +1,14 @@
+---
+title: "00 index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 index"
+issues: []
+discussions: []
+---
+
 # Pages Documentation Index
 
 > **Documentazione di tutte le pagine Design Comuni replicate**
@@ -28,10 +39,18 @@ Ogni pagina Design Comuni viene replicata utilizzando:
 
 **Documentazione:**
 - [Homepage Page](./homepage.md)
-- [Screenshot](../screenshots/homepage/)
+- [Screenshot](../../screenshots/homepage)
 
 ---
 
+title: "00 index"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 index"
+issues: []
+discussions: []
 ### Argomenti
 
 - **Originale:** https://italia.github.io/design-comuni-pagine-statiche/sito/argomenti.html
@@ -47,8 +66,8 @@ Ogni pagina Design Comuni viene replicata utilizzando:
 - Feedback form
 
 **Documentazione:**
-- [Argomenti Page](./argomenti.md)
-- [Screenshot](../screenshots/argomenti/)
+- [Argomenti Page](../../design-system/argomenti.md)
+- [Screenshot](../../screenshots/argomenti)
 
 ---
 

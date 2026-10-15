@@ -1,3 +1,15 @@
+---
+title: "HOMEPAGE HTML STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "HOMEPAGE HTML STRUCTURE COMPARISON"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage HTML Structure Comparison
 
 **Remote Reference:** https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
@@ -7,7 +19,6 @@
 **Date:** 2026-04-07
 
 ---
-
 ## 1. Overall Architecture
 
 ### Remote (Static HTML)

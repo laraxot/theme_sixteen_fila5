@@ -1,3 +1,15 @@
+---
+title: "BOOTSTRAP ITALIA JS FIX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BOOTSTRAP ITALIA JS FIX"
+issues: []
+discussions: []
+status: draft
+---
+
 # ✅ Bootstrap Italia JS - Correct Import
 
 **Data**: 2026-03-31  
@@ -141,7 +153,6 @@ import * as bootstrap from 'bootstrap' // Solo se necessario
 - [JavaScript Components](https://italia.github.io/bootstrap-italia/docs/javascript/)
 
 ---
-
 **Stato**: ✅ **BOOTSTRAP ITALIA JS CORRETTO**  
 **Build**: **COMPLETATO** ✓  
 **Bundle Import**: **RIMOSSO** ✓

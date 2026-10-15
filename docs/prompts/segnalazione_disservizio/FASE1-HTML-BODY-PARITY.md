@@ -1,3 +1,15 @@
+---
+title: "FASE1 HTML BODY PARITY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FASE1 HTML BODY PARITY"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Body Structure Comparison — ticket-list
 
 - Data: 2026-04-08 11:14:28

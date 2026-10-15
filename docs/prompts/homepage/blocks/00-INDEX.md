@@ -1,3 +1,14 @@
+---
+title: "00 INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 INDEX"
+issues: []
+discussions: []
+---
+
 # Homepage Blocks Index
 
 > Documentazione completa di ogni blocco HTML nella homepage Design Comuni
@@ -5,6 +16,14 @@
 
 ---
 
+title: "00 INDEX"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "00 INDEX"
+issues: []
+discussions: []
 ## Blocchi Identificati
 
 ### 0. Accessibilità
@@ -29,9 +48,6 @@
 
 ### 5. Footer
 - [10-footer.md](./10-footer.md) - `footer#footer.it-footer` - Footer con link, contatti, logo Europa
-
-### 6. Modale
-- [11-search-modal.md](./11-search-modal.md) - `div#search-modal` - Modale ricerca globale con autocomplete
 
 ---
 
@@ -62,8 +78,8 @@
 ## 🔗 Link Bidirezionali
 
 ### Indici
-- ← [Design Comuni Index](../../00-index.md)
-- ← [Homepage Structural Analysis](../../HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
+- ← [Design Comuni Index](../../../00-INDEX.md)
+- ← [Homepage Structural Analysis](../../../design-comuni/HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
 - ← [Bashscripts HTML Compare](../../../../../bashscripts/html/compare-html.sh) — script agnostico di confronto
 
 ### Documenti Correlati
@@ -72,6 +88,13 @@
 
 ---
 
-**Ultimo Aggiornamento**: 2026-04-07  
-**Blocchi Documentati**: 12  
-**Stato**: ✅ Completi
+## Contratto di aggiornamento
+
+Per ogni blocco registrare: struttura reference, dati JSON, Blade/section
+responsabile, stati responsive/interattivi, criteri WCAG e prova screenshot.
+La ricerca inline della homepage appartiene al blocco link utili; la modale
+globale appartiene alla shell e non va conteggiata come blocco homepage.
+
+**Ultimo Aggiornamento**: 2026-10-13
+**Blocchi Documentati**: 11
+**Stato**: in verifica fino a HTML ≥90% e visual parity ≥97%

@@ -1,3 +1,15 @@
+---
+title: "layout hierarchy"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "layout hierarchy"
+issues: []
+discussions: []
+status: draft
+---
+
 # Layout Hierarchy - Sixteen Theme
 
 **Type**: Architecture Documentation  
@@ -6,7 +18,6 @@
 **Related**: [[00-index]], [[components]], [[vite-configuration-rules]]
 
 ---
-
 ## 🎯 Overview
 
 The Sixteen theme uses a **layered layout architecture** following **DRY (Don't Repeat Yourself)** and **KISS (Keep It Simple, Stupid)** principles.
@@ -156,7 +167,7 @@ laravel/Themes/Sixteen/resources/views/layouts/
 
 ### Example 1: Public Page with Sections
 ```blade
-{{-- pages/tests/homepage.blade.php --}}
+{{-- pages/tests/[slug].blade.php: vale per /it/tests/{slug} --}}
 <x-layouts.app>
     <x-section slug="header" />
     <main id="main-container">
@@ -165,6 +176,12 @@ laravel/Themes/Sixteen/resources/views/layouts/
     <x-section slug="footer" tpl="full" />
 </x-layouts.app>
 ```
+
+`homepage`, `segnalazione-dettaglio`, `segnalazioni-elenco` e ogni altro
+segmento dopo `/tests/` sono valori di slug, non nomi di file Blade. Non creare
+quindi `pages/tests/homepage.blade.php`, `pages/tests/segnalazioni/` o altri
+sotto-router semantici: il CMS risolve `tests.<slug>` dal JSON tenant e i
+blocchi riutilizzabili appartengono a `resources/views/components/blocks/`.
 
 ### Example 2: Custom Structure
 ```blade

@@ -1,3 +1,15 @@
+---
+title: "STRUCTURE COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "STRUCTURE COMPARISON"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Structure Comparison Report
 
 ## Executive Summary
@@ -8,7 +20,6 @@
 The local homepage has **EXCELLENT** structural alignment with the reference. Total element variance is only +14 elements (857 local vs 843 reference).
 
 ---
-
 ## Element Count Analysis
 
 ### Overall Comparison

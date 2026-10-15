@@ -1,3 +1,15 @@
+---
+title: "navigation components"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "navigation components"
+issues: []
+discussions: []
+status: draft
+---
+
 # Navigation Components - Bootstrap Italia to Tailwind
 
 ## Header Navigation

@@ -1,4 +1,5 @@
 ---
+discussions: []
 title: "Header FO — named route Folio verificate"
 type: concept
 tags: [folio, header, routing, named-routes, six]
@@ -11,8 +12,9 @@ related:
   - fo-folio-routing-zen.md
   - fo-folio-links-multilingua.md
   - ../troubleshooting/route-not-found-view-cache.md
-  - ../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
+  - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
   - ../../../../../../docs/wiki/rules/folio-frontoffice-navigation-links.md
+status: draft
 ---
 
 # Header FO — named route Folio verificate

@@ -1,3 +1,15 @@
+---
+title: "NO INLINE JS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "NO INLINE JS"
+issues: []
+discussions: []
+status: draft
+---
+
 # NO INLINE JAVASCRIPT IN BLADE — Critical Rule
 
 **Severity**: 🔴 CRITICAL  
@@ -5,7 +17,6 @@
 **Enforcement**: Zero tolerance — block all PRs with inline `<script>`
 
 ---
-
 ## ❌ FORBIDDEN
 
 ```blade

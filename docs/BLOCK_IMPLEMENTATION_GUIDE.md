@@ -1,3 +1,15 @@
+---
+title: "BLOCK IMPLEMENTATION GUIDE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "BLOCK IMPLEMENTATION GUIDE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Block Implementation Guide
 
 > **TailwindCSS + Alpine.js + Multilingual Patterns**
@@ -8,7 +20,6 @@ This guide defines the **correct patterns** for implementing blade blocks in the
 It prevents common mistakes: Bootstrap Italia usage, hardcoded language strings, inconsistent architecture.
 
 ---
-
 ## 🚫 CRITICAL RULES (NEVER VIOLATE)
 
 ### 1. HTML Structural Parity è ESSENZIALE

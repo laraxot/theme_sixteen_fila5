@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO COMPARISON"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO COMPARISON"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazioni Elenco - HTML Comparison
 
 **Date:** 2026-04-03
@@ -7,7 +19,6 @@
 **Status:** ✅ 92%+ Structural Parity
 
 ---
-
 ## Summary
 
 | Metric | Reference | Local | Match |
@@ -77,7 +88,7 @@
 - `components/blocks/contacts/faq.blade.php` - Renders contacts ✅
 
 ## Cross-references
-- [Theme Index](../00-index.md) - Main documentation index
+- [Theme Index](../00-INDEX.md) - Main documentation index
 - [Argomenti/Argomento Comparison](./ARGOMENTI-ARGOMENTO-COMPARISON.md) - Related pages
 - [Risultati Ricerca Comparison](./RISULTATI-RICERCA-HTML-COMPARISON.md) - Related page
 - [JSON Content](../../../../config/local/fixcity/database/content/pages/tests.ticket-list.json)

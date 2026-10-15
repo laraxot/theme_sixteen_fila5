@@ -1,3 +1,15 @@
+---
+title: "FAQ PARITY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ PARITY"
+issues: []
+discussions: []
+status: draft
+---
+
 # FAQ Page Documentation
 
 Documentation for making the local FAQ page visually identical to the reference.
@@ -5,7 +17,7 @@ Documentation for making the local FAQ page visually identical to the reference.
 ## Index
 
 ### Main Comparison
-- **[FAQ Comparison](faq-comparison-2026-04-03.md)** - Initial HTML structure comparison
+- **[FAQ Comparison](faq-comparison-riferimento-vs.md)** - Initial HTML structure comparison
 
 ### Screenshots & Visual Analysis
 - **[Screenshots Output](screenshots/faq/)** - All screenshot files

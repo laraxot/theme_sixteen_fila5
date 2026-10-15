@@ -1,4 +1,11 @@
 ---
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "FAQ VISUAL ANALYSIS"
+issues: []
+discussions: []
 title: FAQ Page Visual Comparison Analysis
 page: domande-frequenti
 analysis-date: 2026-04-03
@@ -223,9 +230,9 @@ Based on Tailwind + Alpine implementation:
 
 ## 🔗 Bidirectional Links
 
-- **Parent**: [Theme Sixteen Documentation](../INDEX.md)
+- **Parent**: [Theme Sixteen Documentation](../index.md)
 - **Previous**: [FAQ Structure Analysis](./FAQ-STRUCTURE-ANALYSIS.md)
-- **Related**: [Homepage Visual Comparison](./HOMEPAGE-VISUAL-ANALYSIS.md)
+- **Related**: [Homepage Visual Comparison](../HOMEPAGE-VISUAL-ANALYSIS.md)
 - **Related**: [CSS Implementation Guide](../CSS-GUIDE.md)
 - **Related**: [Alpine.js Components Documentation](../ALPINEJS-GUIDE.md)
 

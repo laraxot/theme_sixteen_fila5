@@ -1,3 +1,15 @@
+---
+title: "ARCHITECTURAL DECISIONS"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "ARCHITECTURAL DECISIONS"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Italia - Architectural Decisions & Zen Philosophy
 
 **Data**: 2026-04-01  
@@ -5,7 +17,6 @@
 **Methodology**: DRY + KISS + Forward-Only
 
 ---
-
 ## 🧘 La Filosofia, Lo Zen, La Religione
 
 ### 1. UNO [slug].blade.php per TUTTE le pagine

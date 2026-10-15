@@ -1,3 +1,15 @@
+---
+title: "CSS JS PARITY COMPLETE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "CSS JS PARITY COMPLETE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazione Pages - CSS/JS Parity Work Complete
 
 **Date:** 2026-04-07
@@ -5,7 +17,6 @@
 **Build:** Built successfully, copied to public_html/themes/Sixteen/
 
 ---
-
 ## Summary
 
 All 7 segnalazione pages have been updated to use Design Comuni class system instead of generic Tailwind utilities. The blade templates now match the reference HTML structure from the official Design Comuni static pages.
@@ -102,10 +113,10 @@ Copied to: `public_html/themes/Sixteen/`
 - → [reference-html/](./reference-html/) - Reference HBS templates
 
 ### Theme Documentation
-- → [00-index.md](../../../00-index.md) - Theme docs index
-- → [work-plan.md](../../../work-plan.md) - Work plan
-- → [visual-parity-report-2026-04-02.md](./visual-parity-report-2026-04-02.md) - Previous parity report
-- → [css-js-parity-2026-04-04.md](./css-js-parity-2026-04-04.md) - Previous CSS/JS parity
+- → [00-index.md](../../00-INDEX.md) - Theme docs index
+- → [work-plan.md](../work-plan.md) - Work plan
+- → [visual-parity-report-2026-04-02.md](../visual-parity-report.md) - Previous parity report
+- → [css-js-parity-2026-04-04.md](../css-js-parity.md) - Previous CSS/JS parity
 
 ### Blade Templates
 - → [segnalazione-dettaglio.blade.php](../../../resources/views/components/blocks/tests/ticket-detail.blade.php)
@@ -120,7 +131,7 @@ Copied to: `public_html/themes/Sixteen/`
 - → [tailwind-bootstrap-mapping.css](../../../resources/css/tailwind-bootstrap-mapping.css) - Bootstrap mapping
 
 ### Module Docs
-- → [Modules/Cms/docs/design-comuni-homepage.md](../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
+- → [Modules/Cms/docs/design-comuni-homepage.md](../../../../../Modules/Cms/docs/design-comuni-homepage.md) - Cms module docs
 
 ### Scripts
 - → [bashscripts/docs/design-comuni-selected-page-comparisons.md](../../../../../bashscripts/docs/design-comuni-selected-page-comparisons.md) - Scripts docs

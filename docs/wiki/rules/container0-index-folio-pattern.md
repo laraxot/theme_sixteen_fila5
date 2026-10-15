@@ -1,3 +1,15 @@
+---
+title: "container0 index folio pattern"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "container0 index folio pattern"
+issues: []
+discussions: []
+status: draft
+---
+
 # Regola: Folio Route Pattern per `container0.index`
 
 ## Sintesi

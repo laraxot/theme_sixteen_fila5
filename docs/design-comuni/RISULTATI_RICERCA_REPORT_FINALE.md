@@ -1,3 +1,15 @@
+---
+title: "RISULTATI RICERCA REPORT FINALE"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "RISULTATI RICERCA REPORT FINALE"
+issues: []
+discussions: []
+status: draft
+---
+
 # Risultati Ricerca - Report Finale Implementazione
 
 ## Panoramica
@@ -140,10 +152,9 @@ Il componente rating è stato creato ma potrebbe non essere visibile a causa di:
 - **Report**: [RISULTATI_RICERCA_REPORT.md](./RISULTATI_RICERCA_REPORT.md)
 - **Screenshot**: [screenshots/risultati-ricerca/](./screenshots/risultati-ricerca/)
 - **Script**: [bashscripts/design-comuni/capture-risultati-ricerca.js](../../../bashscripts/design-comuni/capture-risultati-ricerca.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 
 ---
-
 **Stato**: ✅ Struttura principale implementata  
 **Data**: 2026-04-03  
 **Prossimo**: Test visivo nel browser

@@ -1,3 +1,15 @@
+---
+title: "SEGNALAZIONI ELENCO REPORT"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "SEGNALAZIONI ELENCO REPORT"
+issues: []
+discussions: []
+status: draft
+---
+
 # Analisi Segnalazioni Elenco - Report Finale
 
 ## Panoramica
@@ -63,11 +75,10 @@ Fix 5:       95.7% (1293 righe) ← +14.1% ✅ TARGET RAGGIUNTO
 
 - **Screenshot**: [screenshots/ticket-list/](./screenshots/ticket-list/)
 - **Script**: [bashscripts/design-comuni/analyze-ticket-list.js](../../../bashscripts/design-comuni/analyze-ticket-list.js)
-- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../docs/design-comuni/MASTER_INDEX.md)
+- **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
 - **Progress Report**: [PROGRESS_REPORT.md](./PROGRESS_REPORT.md)
 
 ---
-
 **Stato**: ✅ 95.7% - TARGET RAGGIUNTO (>90%)  
 **Prossimo**: CSS refinements per allineamento visivo perfetto  
 **Data**: 2026-04-03

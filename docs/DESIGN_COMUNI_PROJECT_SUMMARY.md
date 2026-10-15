@@ -1,3 +1,15 @@
+---
+title: "DESIGN COMUNI PROJECT SUMMARY"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DESIGN COMUNI PROJECT SUMMARY"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Replication - Project Summary
 
 **Date**: April 1, 2026  
@@ -5,7 +17,6 @@
 **Timeline**: 12 weeks (April 1 - June 30, 2026)
 
 ---
-
 ## Executive Summary
 
 This document summarizes the comprehensive planning and preparation for replicating **38 Design Comuni static pages** using **Tailwind CSS + Alpine.js** with **JSON-driven content blocks**.

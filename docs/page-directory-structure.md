@@ -1,3 +1,15 @@
+---
+title: "page directory structure"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "page directory structure"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Page Directory Structure
 
 ## Regola canonica
@@ -60,6 +72,9 @@ Non devono esistere directory semantiche hardcoded come:
 
 Il file [`[slug].blade.php`](../resources/views/pages/tests/[slug].blade.php) è l'unico entrypoint dinamico per tutte le pagine `tests/*`.
 
+Non creare sotto-directory semantiche come `pages/tests/segnalazioni/`: il
+segmento `segnalazioni-*` è parte dello slug CMS, non una directory Folio.
+
 Il file [`index.blade.php`](../resources/views/pages/tests/index.blade.php) è l'entrypoint per `/tests`.
 
 ### Frontoffice dinamico
@@ -89,4 +104,4 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 - [README.md](./README.md)
 - [layout-runtime-contract.md](./layout-runtime-contract.md)
 - [component-page-runtime.md](./component-page-runtime.md)
-- [../../Modules/Cms/docs/page-directory-structure.md](../../Modules/Cms/docs/page-directory-structure.md)
+- [../../Modules/Cms/docs/page-directory-structure.md](../../../Modules/Cms/docs/page-directory-structure.md)

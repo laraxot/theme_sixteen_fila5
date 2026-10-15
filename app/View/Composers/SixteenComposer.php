@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
+use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
-use Themes\Sixteen\Services\MenuBuilder;
 
 /**
  * View Composer per il tema Sixteen
@@ -17,7 +17,7 @@ use Themes\Sixteen\Services\MenuBuilder;
 class SixteenComposer
 {
     public function __construct(
-        protected MenuBuilder $menuBuilder
+        protected MenuBuilderAction $menuBuilder
     ) {}
 
     /**
@@ -71,19 +71,23 @@ class SixteenComposer
     {
         $menuConfig = config('sixteen.menu', []);
 
-        if (isset($menuConfig['slim_header'])) {
+        if (! is_array($menuConfig)) {
+            $menuConfig = [];
+        }
+
+        if (isset($menuConfig['slim_header']) && is_array($menuConfig['slim_header'])) {
             $this->menuBuilder->addSlimHeader($menuConfig['slim_header']);
         }
 
-        if (isset($menuConfig['header'])) {
+        if (isset($menuConfig['header']) && is_array($menuConfig['header'])) {
             $this->menuBuilder->addHeader($menuConfig['header']);
         }
 
-        if (isset($menuConfig['footer'])) {
+        if (isset($menuConfig['footer']) && is_array($menuConfig['footer'])) {
             $this->menuBuilder->addFooter($menuConfig['footer']);
         }
 
-        if (isset($menuConfig['footer_bar'])) {
+        if (isset($menuConfig['footer_bar']) && is_array($menuConfig['footer_bar'])) {
             $this->menuBuilder->addFooterBar($menuConfig['footer_bar']);
         }
     }
