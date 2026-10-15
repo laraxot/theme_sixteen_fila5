@@ -50,5 +50,11 @@ Plan. Nata dall'audit [DCP-186](./dcp-186-front-office-scopo-e-senso-di-ogni-pag
 - [ ] `FolioPageMountContractTest` e `TicketTrackPageJsonGuardTest` verdi.
 - [ ] La causa e la correzione sono scritte qui e nel registro di [DCP-03](./dcp-03-legacy-parity-css-cascade-debt.story.md).
 
+## Owned File/Module Scope
+- `laravel/Themes/Sixteen/resources/css/app.css` e `resources/css/design-comuni/**` (reset e cascata)
+- `laravel/Themes/Sixteen/tests/browser/**` (spec del pulsante e della cookiebar)
+- `laravel/config/*/fixcity/database/content/pages/tickets.track.json` (solo `layout`, non il `middleware`)
+Non toccare: `Themes/Sixteen/resources/views/layouts/main.blade.php` (altra sessione: cookiebar), il build (DCP-183).
+
 ## Non verificato
 Origine esatta del reset; l'effetto della correzione sul resto delle pagine non Design Comuni (login, wizard Filament); il comportamento dopo il build (mai eseguito in questa sessione).

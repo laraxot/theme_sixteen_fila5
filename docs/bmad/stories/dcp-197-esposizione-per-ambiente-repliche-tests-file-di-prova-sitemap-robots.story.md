@@ -55,5 +55,13 @@ Gia' fatto in DCP-186: E1 (`public_html/info.php` rimosso), E4 (`/it/a/b/c/d` ri
 - [ ] Pagine 404, 403, 429 e 500 a tema e in 4 lingue, un solo `<main>`.
 - [ ] `go-live-gate.py` include i controlli di esposizione e fallisce se ne manca uno.
 
+## Owned File/Module Scope
+- `laravel/bootstrap/app.php` (gestori degli errori, host fidati)
+- `public_html/robots.txt`
+- `laravel/Themes/Sixteen/resources/views/pages/**` (soft 404, repliche `tests`)
+- `laravel/Modules/Fixcity/app/Actions/**` (sitemap)
+- `bashscripts/tools/release/go-live-gate.py` (controlli di esposizione)
+Non toccare: `pages/[container0]/index.blade.php` finche' chi l'ha modificato non riallinea `FolioPageMountContractTest`.
+
 ## Non verificato
 Comportamento in produzione (route cache, tenant `eu` mai attivato, risposta di Apache a file `.php` in `public_html`, 500 senza debug); pagina 429 reale (il corpo non e' stato salvato); indicizzazione reale (nessun dato dei motori di ricerca).

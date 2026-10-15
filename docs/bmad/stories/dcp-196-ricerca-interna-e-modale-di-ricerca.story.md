@@ -50,5 +50,11 @@ Il campo «Cerca nel sito» c'e' su ogni pagina (header e modale). Le linee guid
 - [ ] Nessun suggerimento con `href="#"`.
 - [ ] Nessuna richiesta a terzi; il testo cercato e' escapato.
 
+## Owned File/Module Scope
+- `laravel/Themes/Sixteen/resources/views/components/sections/search-modal.blade.php`
+- `laravel/Themes/Sixteen/resources/views/pages/**` (rotta e pagina dei risultati)
+- `laravel/Themes/Sixteen/lang/*/` (testi della ricerca, 4 lingue)
+- `laravel/Themes/Sixteen/tests/**` (test della ricerca)
+
 ## Non verificato
 Il perche' di `pointer-events: none` in home (regola ereditata dal riferimento o difetto); l'effetto sulla modale di eventuali script di Bootstrap Italia.
