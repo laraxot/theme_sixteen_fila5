@@ -93,4 +93,4 @@ BASE=http://192.168.1.40:8000 python3 bashscripts/tools/i18n/audit-locales.py ""
 cd laravel && APP_ENV=testing DB_CONNECTION=sqlite ./vendor/bin/pest Modules/Fixcity/tests/Unit/ContentLocaleParityTest.php
 ```
 
-Le "chiavi grezze" riportate dall'audit sono commenti HTML delle viste, non chiavi mancanti. Glossario e scelte di traduzione: [01-glossario.md](01-glossario.md). Story: `bmad/stories/2026-10-13-dcp-120-multilingua-comportamenti-e-copertura.story.md`.
+Le "chiavi grezze" riportate dall'audit sono commenti HTML delle viste, non chiavi mancanti. Glossario e scelte di traduzione: [01-glossario.md](01-glossario.md). Story: `bmad/stories/dcp-120-multilingua-comportamenti-e-copertura.story.md`.

@@ -5,7 +5,7 @@ status: accepted
 created: 2026-10-13
 updated: 2026-10-13
 related:
-  - Modules/Fixcity/docs/stories/2026-10-13-dcp-146-wizard-passo-dati-mappa-sempre-funzionante.story.md
+  - Modules/Fixcity/docs/stories/dcp-146-wizard-passo-dati-mappa-sempre-funzionante.story.md
   - docs/architecture/CSS-SCOPING-RULE.md
 tags: [wizard, parity, mobile, css, design-comuni]
 qmd: "D20 wizard passo dati geometria stepper max-width 760 1152 legacy css dcp-146"

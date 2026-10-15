@@ -40,7 +40,7 @@ Based on error logs and investigation:
    - Namespace or visibility problems
 
 ## Related Work
-- BMAD story: risultati-ricerca-visual-parity-97.story.md (m00631)
+- BMAD story: risultati-ricerca-visual-parity.story.md (m00631)
 - JSON data updates: m00633
 - Component creation: m00634-m00637 (filters, sorting, pagination)
 

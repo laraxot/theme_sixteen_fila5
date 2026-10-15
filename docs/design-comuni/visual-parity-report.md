@@ -104,7 +104,7 @@ status: draft
 ### Tema Sixteen
 - [00-index.md](00-index.md) - Indice documentazione
 - [work-plan.md](work-plan.md) - Piano di lavoro
-- [visual-comparison-analysis-2026-04-02.md](visual-comparison-analysis-2026-04-02.md) - Analisi precedente
+- [visual-comparison-analysis-2026-04-02.md](visual-comparison-analysis.md) - Analisi precedente
 - [screenshots/00-index.md](screenshots/00-index.md) - Indice screenshot
 
 ### Modulo Cms

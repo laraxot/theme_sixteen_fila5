@@ -118,4 +118,4 @@ Screenshot catturati in `docs/design-comuni/screenshots/`:
 **Collegamenti**:
 - [00-index.md](00-index.md) - Indice documentazione
 - [css-js-alignment-plan.md](css-js-alignment-plan.md) - Piano di lavoro
-- [html-structure-comparison-2026-04-02.md](html-structure-comparison-2026-04-02.md) - Analisi struttura
+- [html-structure-comparison-2026-04-02.md](html-structure-comparison.md) - Analisi struttura

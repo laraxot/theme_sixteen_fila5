@@ -3,7 +3,7 @@ title: "Legal Consent UI Boundary"
 type: concept
 theme: Sixteen
 sources:
-  - "../../../../../../bmad-output/registration-compliance-audit-2026-10-14.md"
+  - "../../../../../../bmad-output/registration-compliance-audit.md"
   - "../../../../../../bmad-output/stories/5.3.registration-consent-evidence.story.md"
   - "../../../../../../bmad-output/stories/6.13.legal-identity-content-checklist.story.md"
 confidence: high

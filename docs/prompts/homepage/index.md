@@ -30,8 +30,8 @@ non e' un risultato. Misura reale a fine giornata (comandi in `docs/bmad/stories
 Aggiornamento di sera: restano header, footer e modale (dinamici, condivisi). Dettaglio nell'epic DCP-00.
 
 Anche la riga iniziale "99,6% di HTML similarity" non era mai stata prodotta da un comando (misura reale quel giorno: 26,9%).
-Piano e stato: [epic DCP-00](../../bmad/stories/2026-10-13-dcp-00-epic-design-comuni-parity-v2.story.md).
-Cause e guardrail: [decisione 2026-10-13](../../bmad/decisions/2026-10-13-parity-root-cause-and-guardrails.md).
+Piano e stato: [epic DCP-00](../../bmad/stories/dcp-00-epic-design-comuni-parity-v2.story.md).
+Cause e guardrail: [decisione 2026-10-13](../../bmad/decisions/parity-root-cause-and-guardrails.md).
 Coordinamento tra agenti: [00-COORDINATION.md](00-COORDINATION.md).
 
 ## Purpose / Scope
@@ -91,7 +91,7 @@ Reference: `sito/homepage.html`; local route:
 
 Playwright also verified `HTTP 200`, no console errors, `scrollWidth ===
 viewport width`, equal header/main/footer geometry and loaded images. Full
-evidence is in `../../bmad/homepage-remediation-verification-2026-10-13.md`.
+evidence is in `../../bmad/homepage-remediation-verification.md`.
 
 ## Constraint — NO Bootstrap Italia (reinforced 2026-10-13)
 
@@ -103,7 +103,7 @@ component, or `header.json` view — violates the locked stack (D4 / AGENTS.md):
 - **NO Bootstrap Italia CDN, NO `.min.css`, NO `d-none` / `d-md-block` / `btn-primary` Bootstrap classes**.
 - All 13 defects (SVG, hamburger, underlined links, title font/color, "Notizie / Estate", governance images/buttons, calendar, argomenti bg, siti colors, search icon/submit, rating, spacing) must be fixed with Tailwind CSS utilities (`text-white`, `bg-[#007A52]`, `hover:text-[#006b4f]`, `focus-visible:ring-2`) and the `pub_theme::components.sections.header.tailwind.blade.php` component — never with Bootstrap Italia assets.
 - The existing `header.tailwind.blade.php` (Tailwind only) already implements this; do NOT insert any `<link>` pointing to `bootstrap-italia` assets anywhere.
-- All fixes documented in `docs/bmad/issues/homepage/homepage-audit-1-13.md` and tracked in Hindsight initiative `kp-74b044...`.
+- All fixes documented in `docs/bmad/issues/homepage/homepage-audit.md` and tracked in Hindsight initiative `kp-74b044...`.
 
 **Verification command before any edit**:
 `curl -sS http://192.168.1.40:8000/it/tests/homepage | rg -i

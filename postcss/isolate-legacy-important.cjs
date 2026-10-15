@@ -12,7 +12,7 @@
  * dipende dal wrapper `page-content[data-dc]` (presenza dell'attributo: non si confronta nessun valore, quindi i marcatori `|---LINE:n---|` dell'exception renderer
  * di Laravel nella cache delle viste non possono farlo saltare), e copre header, footer, modale e skiplink, che stanno
  * fuori da `page-content` ma dentro lo stesso body. Provato e scartato: una lista di 5 hook (CSS compilato 6,6 MB, parity crollata).
- * Vedi docs/bmad/stories/2026-10-13-dcp-03-legacy-parity-css-cascade-debt.story.md.
+ * Vedi docs/bmad/stories/dcp-03-legacy-parity-css-cascade-debt.story.md.
  */
 const SCOPE = 'body:has(.page-content[data-dc])';
 const SCOPE_KEY = 'page-content[data-dc]';

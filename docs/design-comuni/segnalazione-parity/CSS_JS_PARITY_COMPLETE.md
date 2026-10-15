@@ -115,8 +115,8 @@ Copied to: `public_html/themes/Sixteen/`
 ### Theme Documentation
 - → [00-index.md](../../00-INDEX.md) - Theme docs index
 - → [work-plan.md](../work-plan.md) - Work plan
-- → [visual-parity-report-2026-04-02.md](../visual-parity-report-2026-04-02.md) - Previous parity report
-- → [css-js-parity-2026-04-04.md](../css-js-parity-2026-04-04.md) - Previous CSS/JS parity
+- → [visual-parity-report-2026-04-02.md](../visual-parity-report.md) - Previous parity report
+- → [css-js-parity-2026-04-04.md](../css-js-parity.md) - Previous CSS/JS parity
 
 ### Blade Templates
 - → [segnalazione-dettaglio.blade.php](../../../resources/views/components/blocks/tests/ticket-detail.blade.php)

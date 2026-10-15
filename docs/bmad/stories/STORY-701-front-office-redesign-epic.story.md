@@ -91,5 +91,5 @@ Alpine.js-data o Lit.
 
 - Epic: `docs/stories/front-office-complete-redesign.story.md` (root story)
 - Fixcity stories: `Modules/Fixcity/docs/bmad/stories/STORY-013-public-landing-page.md` etc.
-- Runtime audit: `docs/bmad/segnalazioni-tailwind-runtime-audit-2026-10-11.md`
+- Runtime audit: `docs/bmad/segnalazioni-tailwind-runtime-audit.md`
 - Visual contract: `docs/bmad/homepage-guest-visual-contract.md`

@@ -18,8 +18,8 @@ status: draft
 
 **Related:**
 - [00-index.md](./00-index.md) - Design Comuni Index
-- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS-2026-04-03.md) - Previous status report
-- [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage detailed
+- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS.md) - Previous status report
+- [visual-comparison/homepage-visual-report.md](./visual-comparison/homepage-visual-report.md) - Homepage detailed
 
 ---
 ## Summary

@@ -37,7 +37,7 @@ discussions: []
 - **[BATCH_PROGRESS_REPORT.md](./BATCH_PROGRESS_REPORT.md)** - Report progresso batch
 - **[FAIL_PAGES_DETAIL_REPORT.md](./FAIL_PAGES_DETAIL_REPORT.md)** - Analisi dettagliata 3 pagine fail
 - **[FAIL_PAGES_FIX_REPORT.md](./FAIL_PAGES_FIX_REPORT.md)** - Report fix pagine fail
-- **[css-js-pass-2026-04-04.md](./css-js-pass-2026-04-04.md)** - Pass operativo CSS/JS con screenshot aggiornati e blocker JSON/Blade
+- **[css-js-pass-2026-04-04.md](./css-js-pass.md)** - Pass operativo CSS/JS con screenshot aggiornati e blocker JSON/Blade
 - **[HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md)** - Analisi dettagliata struttura HTML homepage (81% similarita, 2026-04-07)
 - **[HOMEPAGE_VISUAL_PARITY_SESSION.md](./HOMEPAGE_VISUAL_PARITY_SESSION.md)** - Sessione fix CSS/JS homepage (2026-04-07) ✅ Phase 1 Complete
 - **[HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md](./HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)** - 🔴 Analisi strutturale finale (85% structural, ~90% visual)
@@ -74,8 +74,8 @@ Il lavoro visivo resta limitato a:
 - [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md) - Index globale progetto
 
 ### Visual Comparison Reports
-- [visual-comparison/homepage-visual-report-2026-04-03.md](./visual-comparison/homepage-visual-report-2026-04-03.md) - Homepage screenshot comparison
-- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS-2026-04-03.md) - Complete status report (54 pages)
+- [visual-comparison/homepage-visual-report.md](./visual-comparison/homepage-visual-report.md) - Homepage screenshot comparison
+- [VISUAL-PARITY-STATUS-2026-04-03.md](./VISUAL-PARITY-STATUS.md) - Complete status report (54 pages)
 - [VISUAL-PARITY-BATCH-REPORT.md](./VISUAL-PARITY-BATCH-REPORT.md) - Batch analysis report
 - [FINAL-VISUAL-PARITY-REPORT.md](./FINAL-VISUAL-PARITY-REPORT.md) - Final comprehensive report
 
@@ -107,13 +107,13 @@ Il lavoro visivo resta limitato a:
 - [ALL_PAGES_ANALYSIS.md](./ALL_PAGES_ANALYSIS.md) - Audit completo 54 pagine
 - [PROGRESS_REPORT.md](./PROGRESS_REPORT.md) - Report progresso
 - [FAIL_PAGES_ANALYSIS.md](./FAIL_PAGES_ANALYSIS.md) - Analisi pagine fail
-- [batch-body-parity-2026-04-03.md](./batch-body-parity-2026-04-03.md) - Audit batch della struttura del `body`
-- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff-2026-04-02.md) - Confronto strutturale homepage
+- [batch-body-parity-2026-04-03.md](./batch-body-parity.md) - Audit batch della struttura del `body`
+- [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff.md) - Confronto strutturale homepage
 - [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](./HOMEPAGE-HTML-STRUCTURE-COMPARISON.md) - HTML structure comparison (remote vs local)
 - [VISUAL-COMPARISON-REPORT.md](./VISUAL-COMPARISON-REPORT.md) - Visual comparison with screenshots
 - [HOMEPAGE-PARITY-SUMMARY.md](./HOMEPAGE-PARITY-SUMMARY.md) - Homepage parity final summary (2026-04-07)
 - [work-plan.md](./work-plan.md) - Piano BMAD + GSD operativo
-- [bmad-gsd-status-2026-04-03.md](./bmad-gsd-status-2026-04-03.md) - Stato reale dell'ultimo loop
+- [bmad-gsd-status-2026-04-03.md](./bmad-gsd-status.md) - Stato reale dell'ultimo loop
 - [screenshots/homepage-visual-pass-2026-04-02.md](./screenshots/homepage-visual-pass-2026-04-02.md) - Diario visuale homepage
 
 ## Batch audit status

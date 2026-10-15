@@ -14,8 +14,8 @@ qmd: "doc folders index sixteen"
 ## Theme (Sixteen) — docs/bmad/
 - `stories/` — 121 .story.md (homepage-visual-parity-97, risultati-ricerca, eventi, evento-dettaglio, accesso-servizio, segnalazione-01-privacy, segnalazione-dettaglio, segnalazioni-elenco)
 - `architecture/` — homepage-visual-parity-arch.md + index
-- `brainstorm/` — 2026-10-13-accesso-servizio.md, 2026-10-13-eventi.md, 2026-10-13-documenti-dati.md
-- `decisions/` — decision-accessibility-improvements.md, decision-header-footer-consolidation.md, decision-header-footer-fixes.md, 2026-10-13-parity-root-cause-and-guardrails.md
+- `brainstorm/` — accesso-servizio.md, eventi.md, documenti-dati.md
+- `decisions/` — decision-accessibility-improvements.md, decision-header-footer-consolidation.md, decision-header-footer-fixes.md, parity-root-cause-and-guardrails.md
 - `evidence/` — reference PNG + JSON screenshots (risultati-ricerca, amministrazione, accesso-servizio a 1440/768)
 - `prompts/` — homepage/index.md, search-results/index.md
 - `README.md` + `55-md-conventions-enhanced.md`
@@ -27,7 +27,7 @@ qmd: "doc folders index sixteen"
 ## Theme — docs/ (root)
 - `chat/chat/INDEX.md` — log conversazioni
 - `bmad/` — as above
-- `bmad/story/homepage-visual-parity-97.story.md` — principale (97% target, 14 difformità, 90% HTML verified)
+- `bmad/story/homepage-visual-parity.story.md` — principale (97% target, 14 difformità, 90% HTML verified)
 - `visual-parity/scripts/` — script verifica
 
 ## Module (example) — Modules/*/docs/

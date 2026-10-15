@@ -41,5 +41,5 @@ Il commit `30d521c` (2026-10-11) ha cancellato `resources/views/pages/privacy/in
   al test `PrivacyPolicyPublicationGateTest` (rosso finche' il Comune non fornisce il testo).
 - Modello da compilare: `Modules/Fixcity/resources/templates/privacy-policy.<lingua>.md`.
 
-Story: `Modules/Fixcity/docs/stories/2026-10-13-dcp-130-informativa-privacy-art13-e-pagina-servita.story.md`.
+Story: `Modules/Fixcity/docs/stories/dcp-130-informativa-privacy-art13-e-pagina-servita.story.md`.
 
