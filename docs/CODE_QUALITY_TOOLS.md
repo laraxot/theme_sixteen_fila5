@@ -207,7 +207,7 @@ Standing order:
 =======
 ### **Guide Specifiche**
 - [Frontend Code Quality Guide](../../Modules/Xot/docs/frontend-code-quality.md)
-- [Performance Optimization Guide](./PERFORMANCE-OPTIMIZATION.md)
+- [Performance Optimization Guide](./performance-optimization.md)
 - [AGID Design System Guide](./agid-design-system.md)
 >>>>>>> .merge_file_XdmcY8
 
