@@ -260,7 +260,7 @@ Keep Bootstrap Italia class names in HTML for compatibility:
 3. **[vite-configuration-guide.md](./build/vite-configuration-guide.md)** - Build configuration (`outDir: './public'`)
 4. **[build-commands-guide.md](./build-commands-guide.md)** - Complete build process
 5. **[vite-config-fix-summary.md](./build/vite-config-fix-summary.md)** - Why `outDir: './public'`
-6. **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** - Master documentation index
+6. **[DOCUMENTATION_INDEX.md](./documentation-index.md)** - Master documentation index
 
 ### Design Comuni Documentation
 1. **[design-comuni-implementation.md](./design-comuni-implementation.md)** - Primary technical reference
