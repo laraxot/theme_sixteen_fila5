@@ -11,7 +11,7 @@ status: draft
 
 # Multilingua e dispositivi: comportamenti osservati
 
-Misure fatte il 2026-10-13 sul sito di sviluppo (`http://192.168.1.40:8000`) con Playwright (Chromium, `hasTouch` e `isMobile` a 375 e 768), sessione autenticata per le pagine riservate. Dove una riga dice "verificato" c'e' una misura; dove dice "ipotesi" e' lettura del codice. Studio e difetti con priorita': story DCP-55 (`../../bmad/stories/2026-10-13-dcp-55-multilingua-e-dispositivi.story.md`). Regole di traduzione e glossario: `../../i18n/00-comportamento-multilingua.md`.
+Misure fatte il 2026-10-13 sul sito di sviluppo (`http://192.168.1.40:8000`) con Playwright (Chromium, `hasTouch` e `isMobile` a 375 e 768), sessione autenticata per le pagine riservate. Dove una riga dice "verificato" c'e' una misura; dove dice "ipotesi" e' lettura del codice. Studio e difetti con priorita': story DCP-55 (`../../bmad/stories/dcp-55-multilingua-e-dispositivi.story.md`). Regole di traduzione e glossario: `../../i18n/00-comportamento-multilingua.md`.
 
 Avvertenza sul metodo: nella stessa ora altri agenti hanno tradotto header, footer e home in de/es e localizzato i link. Le misure portano l'orario; il quadro finale e' quello delle 17:45 UTC.
 

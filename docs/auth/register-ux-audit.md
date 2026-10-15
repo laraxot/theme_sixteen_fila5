@@ -90,7 +90,7 @@ deve cambiare anche `app()->getLocale()` e tutto il copy visibile.
 
 ## Collegamenti
 
-- [login-ux-fixes-2026-06-04.md](./login-ux-fixes-2026-06-04.md)
+- [login-ux-fixes-2026-06-04.md](./login-ux-fixes.md)
 - [filament-pa-design-colors.md](../../../Modules/Xot/docs/wiki/concepts/filament-pa-design-colors.md)
 
 ## Pass 2026-10-07 (seconda): chiavi grezze, card annidate, mobile

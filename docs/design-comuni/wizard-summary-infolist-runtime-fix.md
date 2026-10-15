@@ -32,5 +32,5 @@ Il riepilogo deve restare governato dallo schema Filament del widget Fixcity, us
 
 - Filament 5 schema overview: schema come contenitore di fields, layout, infolist entries e prime components.
 - Filament 5 infolists overview: entry read-only in `Filament\Infolists\Components`, stato tramite `state()`.
-- Fixcity docs: `docs/stories/wizard-summary-infolist-runtime-fix-2026-04-22.md`.
+- Fixcity docs: `docs/stories/wizard-summary-infolist-runtime-fix.md`.
 

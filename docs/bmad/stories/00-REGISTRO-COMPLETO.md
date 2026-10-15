@@ -14,49 +14,49 @@ Elenco delle story del tema che prima non erano raggiungibili da nessun indice. 
 Come leggerlo:
 
 - `Stato` e `Titolo` sono copiati dal frontmatter (o dalla prima intestazione) di ciascun file; `n/d` = il file non dichiara uno stato. Non sono stati riverificati sul codice: per lo stato reale di una pagina contano le evidenze della story DCP corrispondente.
-- Gli indici gia' esistenti restano la fonte per le story correnti: [00-INDEX.md](00-INDEX.md) (ondate A, B, C), [../../00-INDEX.md](../../00-INDEX.md), [registro e numerazione DCP-97](2026-10-13-dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md) e [epic DCP-00](2026-10-13-dcp-00-epic-design-comuni-parity-v2.story.md).
+- Gli indici gia' esistenti restano la fonte per le story correnti: [00-INDEX.md](00-INDEX.md) (ondate A, B, C), [../../00-INDEX.md](../../00-INDEX.md), [registro e numerazione DCP-97](dcp-97-registro-flusso-tickets-numerazione-e-coordinamento.story.md) e [epic DCP-00](dcp-00-epic-design-comuni-parity-v2.story.md).
 - Le story di questo registro non sono rinominate, spostate ne' rinumerate. Le famiglie piu' vecchie restano contesto storico: non introdurre percorsi, JSON o componenti che non esistono nel repository.
 
 ## Story di altri moduli collegate al tema
 
 | Story | Stato | Titolo |
 |---|---|---|
-| [DCP-153](../../../../../Modules/Gdpr/docs/stories/2026-10-14-dcp-153-cookiebar-integrata-nel-modulo-gdpr.story.md) | done (owner Gdpr) | Cookiebar integrata nel modulo Gdpr, multilingua, non bloccante e a norma. |
-| [DCP-154](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-154-gate-di-messa-in-produzione.story.md) | ready-for-dev (owner Fixcity) | Gate di messa in produzione. |
-| [DCP-155](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-155-dominio-e-identita-di-rete.story.md) | needs-decision (owner Fixcity) | Dominio, DNS, posta e identita' di rete. |
-| [DCP-156](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-156-responsabile-del-procedimento-e-termini.story.md) | needs-decision (owner Fixcity) | Responsabile del procedimento e termini (L. 241/1990). |
-| [DCP-157](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-157-soddisfazione-dell-utente-e-dati-pubblicati.story.md) | needs-decision (owner Fixcity) | Soddisfazione dell'utente e dati pubblicati. |
-| [DCP-158](2026-10-14-dcp-158-accessibilita-obiettivi-contratti-e-linee-guida-design.story.md) | needs-data | Accessibilita': obiettivi annuali, contratti, linee guida di design. |
-| [DCP-159](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-159-sicurezza-organizzativa-della-pa-nis2-agid-rtd.story.md) | needs-data (owner Fixcity) | Sicurezza organizzativa della PA. |
-| [DCP-160](../../../../../Modules/Fixcity/docs/stories/2026-10-14-dcp-160-lingue-minoritarie-e-lingue-del-servizio.story.md) | needs-data (owner Fixcity) | Lingue minoritarie. |
-| [DCP-161](2026-10-14-dcp-161-rimozione-delle-implementazioni-cookie-duplicate.story.md) | ready-for-dev | Una sola cookiebar, rimozione dei duplicati. |
-| [DCP-152](../../../../../Modules/Geo/docs/stories/2026-10-14-dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md) | done (owner Geo, dal frontmatter) | Marker del dettaglio ticket con tipo e stato, pulsanti della mappa opachi nelle pagine DC. Riguarda il blocco `ticket-detail/design-comuni` del tema e il Lit `coordinate-picker-lit` del modulo Geo. |
-| [DCP-148](2026-10-13-dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md) | story del tema | Dettaglio pubblico della segnalazione e Segui (pagina `/{lang}/tickets/{id}`). |
+| [DCP-153](../../../../../Modules/Gdpr/docs/stories/dcp-153-cookiebar-integrata-nel-modulo-gdpr.story.md) | done (owner Gdpr) | Cookiebar integrata nel modulo Gdpr, multilingua, non bloccante e a norma. |
+| [DCP-154](../../../../../Modules/Fixcity/docs/stories/dcp-154-gate-di-messa-in-produzione.story.md) | ready-for-dev (owner Fixcity) | Gate di messa in produzione. |
+| [DCP-155](../../../../../Modules/Fixcity/docs/stories/dcp-155-dominio-e-identita-di-rete.story.md) | needs-decision (owner Fixcity) | Dominio, DNS, posta e identita' di rete. |
+| [DCP-156](../../../../../Modules/Fixcity/docs/stories/dcp-156-responsabile-del-procedimento-e-termini.story.md) | needs-decision (owner Fixcity) | Responsabile del procedimento e termini (L. 241/1990). |
+| [DCP-157](../../../../../Modules/Fixcity/docs/stories/dcp-157-soddisfazione-dell-utente-e-dati-pubblicati.story.md) | needs-decision (owner Fixcity) | Soddisfazione dell'utente e dati pubblicati. |
+| [DCP-158](dcp-158-accessibilita-obiettivi-contratti-e-linee-guida-design.story.md) | needs-data | Accessibilita': obiettivi annuali, contratti, linee guida di design. |
+| [DCP-159](../../../../../Modules/Fixcity/docs/stories/dcp-159-sicurezza-organizzativa-della-pa-nis2-agid-rtd.story.md) | needs-data (owner Fixcity) | Sicurezza organizzativa della PA. |
+| [DCP-160](../../../../../Modules/Fixcity/docs/stories/dcp-160-lingue-minoritarie-e-lingue-del-servizio.story.md) | needs-data (owner Fixcity) | Lingue minoritarie. |
+| [DCP-161](dcp-161-rimozione-delle-implementazioni-cookie-duplicate.story.md) | ready-for-dev | Una sola cookiebar, rimozione dei duplicati. |
+| [DCP-152](../../../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md) | done (owner Geo, dal frontmatter) | Marker del dettaglio ticket con tipo e stato, pulsanti della mappa opachi nelle pagine DC. Riguarda il blocco `ticket-detail/design-comuni` del tema e il Lit `coordinate-picker-lit` del modulo Geo. |
+| [DCP-148](dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md) | story del tema | Dettaglio pubblico della segnalazione e Segui (pagina `/{lang}/tickets/{id}`). |
 
 ## Story DCP datate non ancora negli altri indici (20)
 
 | File | Stato | Titolo |
 |---|---|---|
-| [2026-10-13-dcp-131-footer-legale-pagine-mancanti-e-link-404.story.md](2026-10-13-dcp-131-footer-legale-pagine-mancanti-e-link-404.story.md) | in-progress | DCP-131: footer: pagine legali mancanti e link morti |
-| [2026-10-13-dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md](2026-10-13-dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md) | in-progress | DCP-132: dichiarazione di accessibilita' e meccanismo di feedback |
-| [2026-10-13-dcp-133-identita-dellente-e-recapiti-al-posto-dei-segnaposto.story.md](2026-10-13-dcp-133-identita-dellente-e-recapiti-al-posto-dei-segnaposto.story.md) | needs-data | DCP-133: identita' dell'ente e recapiti reali al posto dei segnaposto |
-| [2026-10-13-dcp-137-risorse-di-terze-parti-google-fonts-tessere-osm-nominatim.story.md](2026-10-13-dcp-137-risorse-di-terze-parti-google-fonts-tessere-osm-nominatim.story.md) | ready-for-dev | DCP-137: risorse di terze parti: Google Fonts, tessere OpenStreetMap, Nominatim |
-| [2026-10-13-dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md](2026-10-13-dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md) | in-progress | DCP-143: accessibilita': audit manuale WCAG 2.1 AA, axe sulle pagine con login, ACC-01..05 del wizard |
-| [2026-10-13-dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md](2026-10-13-dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md) | ready-for-dev | DCP-145: licenze e attribuzioni: BSD-3 di Bootstrap Italia, font, icone, licenza del codice |
-| [2026-10-13-dcp-20-novita-assistenza.story.md](2026-10-13-dcp-20-novita-assistenza.story.md) | done | DCP-20: novita, novita-dettaglio, assistenza-01-dati, assistenza-02-conferma e catalogo (index) |
-| [2026-10-13-dcp-21-servizi-pagamento-e-service-flow.story.md](2026-10-13-dcp-21-servizi-pagamento-e-service-flow.story.md) | done | DCP-21: servizi-pagamento (7 pagine) e scheletro generico service-flow per le famiglie servizi/ |
-| [2026-10-13-dcp-22-liste-e-servizi.story.md](2026-10-13-dcp-22-liste-e-servizi.story.md) | in-review | DCP-22: liste (categorie, risorse) ed elenco/dettaglio servizi |
-| [2026-10-13-dcp-23-segnalazione.story.md](2026-10-13-dcp-23-segnalazione.story.md) | done | DCP-23: segnalazione (passi 01-04, area personale, dettaglio, elenco) |
-| [2026-10-13-dcp-24-appuntamento.story.md](2026-10-13-dcp-24-appuntamento.story.md) | done | DCP-24: prenotazione appuntamento, passi 1, 3, 4, 5 e 6 (7 pagine di riferimento) |
-| [2026-10-13-dcp-25-contenuti.story.md](2026-10-13-dcp-25-contenuti.story.md) | done | DCP-25: amministrazione, argomenti, argomento, documenti-dati, domande-frequenti, mappa-sito |
-| [2026-10-13-dcp-26-servizi-graduatoria.story.md](2026-10-13-dcp-26-servizi-graduatoria.story.md) | done | DCP-26: servizi graduatoria (scuola dell'infanzia) e consenso privacy sul service-flow |
-| [2026-10-13-dcp-27-servizi-imu.story.md](2026-10-13-dcp-27-servizi-imu.story.md) | done | DCP-27: servizi IMU (7 pagine pagamenti-imu-*) sul service-flow |
-| [2026-10-13-dcp-28-servizi-multa.story.md](2026-10-13-dcp-28-servizi-multa.story.md) | done | DCP-28: servizi pagamenti-multa (9 pagine) sul service-flow |
-| [2026-10-13-dcp-29-servizi-permessi.story.md](2026-10-13-dcp-29-servizi-permessi.story.md) | done | DCP-29: servizi/permessi-* (7 pagine) sul service-flow, solo JSON piu' poche varianti permessi-* |
-| [2026-10-13-dcp-30-servizi-vantaggi.story.md](2026-10-13-dcp-30-servizi-vantaggi.story.md) | done | DCP-30: servizi/vantaggi-* (5 pagine) con il blocco service-flow |
-| [2026-10-13-dcp-52-header-accesso-e-menu-utente.story.md](2026-10-13-dcp-52-header-accesso-e-menu-utente.story.md) | done | Header: accesso e menu utente coerenti con lo stato di autenticazione |
-| [2026-10-13-dcp-documenti-dati.story.md](2026-10-13-dcp-documenti-dati.story.md) | in-review (implementazione locale eseguita; p... | Story DCP — pagina Documenti e Dati JSON-driven |
-| [2026-10-14-next-batch.story.md](2026-10-14-next-batch.story.md) | open | Next Batch — Continuare Domani (BMAD + Second Brain) |
+| [2026-10-13-dcp-131-footer-legale-pagine-mancanti-e-link-404.story.md](dcp-131-footer-legale-pagine-mancanti-e-link.story.md) | in-progress | DCP-131: footer: pagine legali mancanti e link morti |
+| [2026-10-13-dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md](dcp-132-dichiarazione-accessibilita-e-meccanismo-feedback.story.md) | in-progress | DCP-132: dichiarazione di accessibilita' e meccanismo di feedback |
+| [2026-10-13-dcp-133-identita-dellente-e-recapiti-al-posto-dei-segnaposto.story.md](dcp-133-identita-dellente-e-recapiti-al-posto-dei-segnaposto.story.md) | needs-data | DCP-133: identita' dell'ente e recapiti reali al posto dei segnaposto |
+| [2026-10-13-dcp-137-risorse-di-terze-parti-google-fonts-tessere-osm-nominatim.story.md](dcp-137-risorse-di-terze-parti-google-fonts-tessere-osm-nominatim.story.md) | ready-for-dev | DCP-137: risorse di terze parti: Google Fonts, tessere OpenStreetMap, Nominatim |
+| [2026-10-13-dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md](dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md) | in-progress | DCP-143: accessibilita': audit manuale WCAG 2.1 AA, axe sulle pagine con login, ACC-01..05 del wizard |
+| [2026-10-13-dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md](dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md) | ready-for-dev | DCP-145: licenze e attribuzioni: BSD-3 di Bootstrap Italia, font, icone, licenza del codice |
+| [2026-10-13-dcp-20-novita-assistenza.story.md](dcp-20-novita-assistenza.story.md) | done | DCP-20: novita, novita-dettaglio, assistenza-01-dati, assistenza-02-conferma e catalogo (index) |
+| [2026-10-13-dcp-21-servizi-pagamento-e-service-flow.story.md](dcp-21-servizi-pagamento-e-service-flow.story.md) | done | DCP-21: servizi-pagamento (7 pagine) e scheletro generico service-flow per le famiglie servizi/ |
+| [2026-10-13-dcp-22-liste-e-servizi.story.md](dcp-22-liste-e-servizi.story.md) | in-review | DCP-22: liste (categorie, risorse) ed elenco/dettaglio servizi |
+| [2026-10-13-dcp-23-segnalazione.story.md](dcp-23-segnalazione.story.md) | done | DCP-23: segnalazione (passi 01-04, area personale, dettaglio, elenco) |
+| [2026-10-13-dcp-24-appuntamento.story.md](dcp-24-appuntamento.story.md) | done | DCP-24: prenotazione appuntamento, passi 1, 3, 4, 5 e 6 (7 pagine di riferimento) |
+| [2026-10-13-dcp-25-contenuti.story.md](dcp-25-contenuti.story.md) | done | DCP-25: amministrazione, argomenti, argomento, documenti-dati, domande-frequenti, mappa-sito |
+| [2026-10-13-dcp-26-servizi-graduatoria.story.md](dcp-26-servizi-graduatoria.story.md) | done | DCP-26: servizi graduatoria (scuola dell'infanzia) e consenso privacy sul service-flow |
+| [2026-10-13-dcp-27-servizi-imu.story.md](dcp-27-servizi-imu.story.md) | done | DCP-27: servizi IMU (7 pagine pagamenti-imu-*) sul service-flow |
+| [2026-10-13-dcp-28-servizi-multa.story.md](dcp-28-servizi-multa.story.md) | done | DCP-28: servizi pagamenti-multa (9 pagine) sul service-flow |
+| [2026-10-13-dcp-29-servizi-permessi.story.md](dcp-29-servizi-permessi.story.md) | done | DCP-29: servizi/permessi-* (7 pagine) sul service-flow, solo JSON piu' poche varianti permessi-* |
+| [2026-10-13-dcp-30-servizi-vantaggi.story.md](dcp-30-servizi-vantaggi.story.md) | done | DCP-30: servizi/vantaggi-* (5 pagine) con il blocco service-flow |
+| [2026-10-13-dcp-52-header-accesso-e-menu-utente.story.md](dcp-52-header-accesso-e-menu-utente.story.md) | done | Header: accesso e menu utente coerenti con lo stato di autenticazione |
+| [2026-10-13-dcp-documenti-dati.story.md](dcp-documenti-dati.story.md) | in-review (implementazione locale eseguita; p... | Story DCP — pagina Documenti e Dati JSON-driven |
+| [2026-10-14-next-batch.story.md](next-batch.story.md) | open | Next Batch — Continuare Domani (BMAD + Second Brain) |
 
 ## Ricerca (DC-027.x) e accessibilita (DC-A11Y) (7)
 
@@ -197,7 +197,7 @@ Come leggerlo:
 | [s-parity-all-pages.md](s-parity-all-pages.md) | n/d | BMAD Story — s-parity-all-pages (complete) |
 | [s-parity-argomenti.story.md](s-parity-argomenti.story.md) | n/d | STORY-PARITY-ARGOMENTI — Parity visuale e funzionale |
 | [s-parity-domande-frequenti.story.md](s-parity-domande-frequenti.story.md) | n/d | STORY-PARITY-DOMANDE-FREQUENTI — Parity visuale e funzionale |
-| [s-parity-nine-core-pages-98.story.md](s-parity-nine-core-pages-98.story.md) | in-progress | Parity delle nove pagine core Design Comuni |
+| [s-parity-nine-core-pages-98.story.md](s-parity-nine-core-pages.story.md) | in-progress | Parity delle nove pagine core Design Comuni |
 | [s-parity-risultati-ricerca.story.md](s-parity-risultati-ricerca.story.md) | n/d | STORY-PARITY-RISULTATI-RICERCA — Parity visuale e funzionale |
 | [s-parity-visual.md](s-parity-visual.md) | n/d | BMAD Story — Visual Parity /it/tests/* |
 | [s150-amministrazione-home-redesign.md](s150-amministrazione-home-redesign.md) | n/d | (senza titolo) |
@@ -222,11 +222,11 @@ Come leggerlo:
 
 | File | Stato | Titolo |
 |---|---|---|
-| [accesso-servizio-visual-parity-97.story.md](accesso-servizio-visual-parity-97.story.md) | open | Accesso Servizio (Area Riservata) Visual Parity 97% Target |
+| [accesso-servizio-visual-parity-97.story.md](accesso-servizio-visual-parity.story.md) | open | Accesso Servizio (Area Riservata) Visual Parity 97% Target |
 | [amministrazione-visual-parity.story.md](amministrazione-visual-parity.story.md) | open | Operazioni Orario — Visual Parity 97% Target _(titolo condiviso con altre 3 story)_ |
 | [design-comuni-complete-page-catalog.story.md](design-comuni-complete-page-catalog.story.md) | ready-for-dev | Story index — complete Design Comuni catalogue |
-| [eventi-visual-parity-97.story.md](eventi-visual-parity-97.story.md) | review | Eventi Visual Parity 97% Target |
-| [evento-dettaglio-visual-parity-97.story.md](evento-dettaglio-visual-parity-97.story.md) | open | Evento Dettaglio Visual Parity 97% Target |
+| [eventi-visual-parity-97.story.md](eventi-visual-parity.story.md) | review | Eventi Visual Parity 97% Target |
+| [evento-dettaglio-visual-parity-97.story.md](evento-dettaglio-visual-parity.story.md) | open | Evento Dettaglio Visual Parity 97% Target |
 | [fil-tickets-create-confirmation-parity.story.md](fil-tickets-create-confirmation-parity.story.md) | open | /it/tickets/create — Conferma dopo salvataggio (post-save confirmation) — Visual Parity con segnalazione-04... |
 | [fil-tickets-create-filament-wizard-parity.story.md](fil-tickets-create-filament-wizard-parity.story.md) | open | /it/tickets/create — Filament Wizard + Design-Comuni Parity |
 | [fil-tickets-create-wizard-step2-map.story.md](fil-tickets-create-wizard-step2-map.story.md) | open | /it/tickets/create?step=form.dati-di-segnalazione — Wizard Step 2 + Mappa (Visual Parity con segnalazione-0... |
@@ -236,11 +236,11 @@ Come leggerlo:
 | [map-popup-contrast.story.md](map-popup-contrast.story.md) | implemented-runtime-pending | Popup marker mappa leggibile e accessibile |
 | [operazioni-orario-visual-parity.story.md](operazioni-orario-visual-parity.story.md) | open | Operazioni Orario — Visual Parity 97% Target _(titolo condiviso con altre 3 story)_ |
 | [risultati-ricerca-random-page-fix.story.md](risultati-ricerca-random-page-fix.story.md) | open | Fix random Design Comuni page replicate |
-| [segnalazione-01-privacy-visual-parity-97.story.md](segnalazione-01-privacy-visual-parity-97.story.md) | draft | Segnalazione 01 Privacy Visual Parity 97% Target |
-| [segnalazione-dettaglio-visual-parity-97.story.md](segnalazione-dettaglio-visual-parity-97.story.md) | draft | Segnalazione Dettaglio Visual Parity 97% Target |
-| [segnalazioni-elenco-visual-parity-97.story.md](segnalazioni-elenco-visual-parity-97.story.md) | done | Segnalazioni Elenco Visual Parity 97% Target |
+| [segnalazione-01-privacy-visual-parity-97.story.md](segnalazione-01-privacy-visual-parity.story.md) | draft | Segnalazione 01 Privacy Visual Parity 97% Target |
+| [segnalazione-dettaglio-visual-parity-97.story.md](segnalazione-dettaglio-visual-parity.story.md) | draft | Segnalazione Dettaglio Visual Parity 97% Target |
+| [segnalazioni-elenco-visual-parity-97.story.md](segnalazioni-elenco-visual-parity.story.md) | done | Segnalazioni Elenco Visual Parity 97% Target |
 | [servizi-catalogo-visual-parity.story.md](servizi-catalogo-visual-parity.story.md) | open | Operazioni Orario — Visual Parity 97% Target _(titolo condiviso con altre 3 story)_ |
-| [servizi-categoria-14-visual-parity-97.story.md](servizi-categoria-14-visual-parity-97.story.md) | draft | Servizi Categoria 14 Visual Parity 97% Target |
+| [servizi-categoria-14-visual-parity-97.story.md](servizi-categoria-14-visual-parity.story.md) | draft | Servizi Categoria 14 Visual Parity 97% Target |
 | [servizi-utente-visual-parity.story.md](servizi-utente-visual-parity.story.md) | open | Operazioni Orario — Visual Parity 97% Target _(titolo condiviso con altre 3 story)_ |
 | [tickets-visual-parity-high-purpose.story.md](tickets-visual-parity-high-purpose.story.md) | open | /it/tickets — High Visual Parity with Function + Purpose |
 
@@ -261,8 +261,8 @@ Come leggerlo:
 | [11-auth-pages-design-comuni-redesign.story.md](../../stories/11-auth-pages-design-comuni-redesign.story.md) | n/d | Authentication pages redesign with Design Comuni |
 | [12-profile-dashboard-design-comuni-redesign.story.md](../../stories/12-profile-dashboard-design-comuni-redesign.story.md) | n/d | User profile / dashboard redesign with Design Comuni |
 | [13-search-pages-design-comuni-redesign.story.md](../../stories/13-search-pages-design-comuni-redesign.story.md) | n/d | Search pages redesign with Design Comuni |
-| [2026-10-06-const-to-enum-sixteen-appointment.dev.md](../../stories/2026-10-06-const-to-enum-sixteen-appointment.dev.md) | done | [DEV] Costanti -> enum: Appointment (tema Sixteen) |
-| [2026-10-06-const-to-enum-sixteen-appointment.story.md](../../stories/2026-10-06-const-to-enum-sixteen-appointment.story.md) | done | [STORY] Costanti -> enum: Appointment (tema Sixteen) |
+| [2026-10-06-const-to-enum-sixteen-appointment.dev.md](../../stories/const-to-enum-sixteen-appointment.dev.md) | done | [DEV] Costanti -> enum: Appointment (tema Sixteen) |
+| [2026-10-06-const-to-enum-sixteen-appointment.story.md](../../stories/const-to-enum-sixteen-appointment.story.md) | done | [STORY] Costanti -> enum: Appointment (tema Sixteen) |
 | [701-tests-segnalazione-wizard-parity.story.md](../../stories/701-tests-segnalazione-wizard-parity.story.md) | in-progress | Tests DesignComuni: complete segnalazione wizard parity (4 steps + elenco + area personale) |
 | [702-tests-page-design-comuni-parity.story.md](../../stories/702-tests-page-design-comuni-parity.story.md) | completed | Sixteen front-office: tests page + DesignComuni argomenti parity |
 | [702-tests-risultati-ricerca-parity.story.md](../../stories/702-tests-risultati-ricerca-parity.story.md) | todo | Tests DesignComuni: risultati-ricerca (search results) parity |
@@ -271,18 +271,18 @@ Come leggerlo:
 | [705-tests-domande-frequenti-parity.story.md](../../stories/705-tests-domande-frequenti-parity.story.md) | todo | Tests DesignComuni: /it/tests/domande-frequenti (FAQ) parity |
 | [design-comuni-homepage-improvement.story.md](../../stories/design-comuni-homepage-improvement.story.md) | n/d | Homepage improvement using Design Comuni as reference |
 | [docs-index-audit.story.md](../../stories/docs-index-audit.story.md) | n/d | docs index audit.story |
-| [fo-hardening-https-register-i18n-2026-10-07.story.md](../../stories/fo-hardening-https-register-i18n-2026-10-07.story.md) | n/d | FO: HTTPS di sviluppo, registrazione, inglese, contrasto |
+| [fo-hardening-https-register-i18n-2026-10-07.story.md](../../stories/fo-hardening-https-register-i18n.story.md) | n/d | FO: HTTPS di sviluppo, registrazione, inglese, contrasto |
 | [front-office-complete-redesign.story.md](../../stories/front-office-complete-redesign.story.md) | planning | Redesign front office completo con DesignComuni v2.4.0 |
 | [front-office-design-comuni-rebuild.story.md](../../stories/front-office-design-comuni-rebuild.story.md) | in-progress | Redesign tutte le pagine front office con DesignComuni v2.4.0 |
 | [homepage-design-comuni-rebuild.story.md](../../stories/homepage-design-comuni-rebuild.story.md) | n/d | Redesign homepage con DesignComuni italia/design-comuni-pagine-statiche |
 | [homepage-taste-skill-bmad.story.md](../../stories/homepage-taste-skill-bmad.story.md) | in-progress | Homepage audit — taste-skill + BMAD v6 + second brain |
-| [map-popup-white-on-white-home-2026-10-07.story.md](../../stories/map-popup-white-on-white-home-2026-10-07.story.md) | n/d | Popup marker: testo bianco su bianco nella home |
+| [map-popup-white-on-white-home-2026-10-07.story.md](../../stories/map-popup-white-on-white-home.story.md) | n/d | Popup marker: testo bianco su bianco nella home |
 | [phpstan-zero-themes-debt.story.md](../../stories/phpstan-zero-themes-debt.story.md) | done (residuo infra: 22 view-string argument.... | phpstan zero themes debt.story |
 | [redesign-front-office-pages-with-design-comuni.story.md](../../stories/redesign-front-office-pages-with-design-comuni.story.md) | n/d | Redesign all front office pages using Design Comuni design system |
 | [theme-sixerteen-sync-quality.story.md](../../stories/theme-sixerteen-sync-quality.story.md) | backlog | theme sixerteen sync quality.story |
 | [theme-sixteen-nine11-homepage-json-alignment.story.md](../../stories/theme-sixteen-nine11-homepage-json-alignment.story.md) | n/d | Sixteen Theme: Homepage JSON Structure Alignment |
 | [theme-sixteen-twentyone-json-alignment.story.md](../../stories/theme-sixteen-twentyone-json-alignment.story.md) | n/d | Sixteen Theme JSON-Based Refactoring (TwentyOne Aligned) |
-| [tickets-ux-theme-symlink-geolocation-2026-10-07.story.md](../../stories/tickets-ux-theme-symlink-geolocation-2026-10-07.story.md) | n/d | Tickets FO: asset tema persi, bottone filtri, posizione |
+| [tickets-ux-theme-symlink-geolocation-2026-10-07.story.md](../../stories/tickets-ux-theme-symlink-geolocation.story.md) | n/d | Tickets FO: asset tema persi, bottone filtri, posizione |
 | [visual-parity-95-design-comuni.story.md](../../stories/visual-parity-95-design-comuni.story.md) | in-progress | Visual parity 95%+ — Design Comuni test pages |
 
 ## Numeri DCP presenti in due famiglie
@@ -291,23 +291,23 @@ Gli stessi numeri compaiono nella famiglia datata (`2026-10-13-dcp-NN-*`) e in q
 
 | N | Famiglia datata | Famiglia senza data |
 |---|---|---|
-| 7 | `2026-10-13-dcp-07-risultati-ricerca-90-97.story.md` | `dcp-07-risultati-ricerca.story.md` |
-| 8 | `2026-10-13-dcp-08-asset-integrity-and-fonts.story.md` | `dcp-08-amministrazione.story.md` |
-| 9 | `2026-10-13-dcp-09-json-content-integrity-guard.story.md` | `dcp-09-evento-dettaglio.story.md` |
-| 10 | `2026-10-13-dcp-10-faq-block-500-and-pages-sweep.story.md` | `dcp-10-accesso-servizio.story.md` |
-| 11 | `2026-10-13-dcp-11-mcp-repair-and-second-brain.story.md` | `dcp-11-catalog.story.md` |
-| 12 | `2026-10-13-dcp-12-multi-agent-ownership-protocol.story.md` | `dcp-12-servizi.story.md` |
-| 13 | `2026-10-13-dcp-13-docs-correction-and-defect-dossier.story.md` | `dcp-13-documenti-dati.story.md` |
-| 14 | `2026-10-13-dcp-14-appuntamento-02-data-orario.story.md` | `dcp-14-eventi.story.md` |
-| 15 | `2026-10-13-dcp-15-eventi.story.md` | `dcp-15-segnalazione-dettaglio.story.md`, `dcp-15-segnalazioni-elenco.story.md` |
-| 16 | `2026-10-13-dcp-16-segnalazione-01-privacy.story.md` | `dcp-16-segnalazioni-elenco.story.md` |
-| 17 | `2026-10-13-dcp-17-evento-dettaglio.story.md` | `dcp-17-segnalazione-area-personale.story.md` |
-| 18 | `2026-10-13-dcp-18-accesso-servizio.story.md` | `dcp-18-segnalazione-01-privacy.story.md` |
-| 19 | `2026-10-13-dcp-19-piano-replica-tutte-le-pagine.story.md` | `dcp-19-segnalazione-02-dati.story.md` |
-| 20 | `2026-10-13-dcp-20-novita-assistenza.story.md` | `dcp-20-segnalazione-03-riepilogo.story.md` |
-| 21 | `2026-10-13-dcp-21-servizi-pagamento-e-service-flow.story.md` | `dcp-21-segnalazione-04-conferma.story.md` |
-| 22 | `2026-10-13-dcp-22-liste-e-servizi.story.md` | `dcp-22-tickets-create.story.md` |
-| 23 | `2026-10-13-dcp-23-segnalazione.story.md` | `dcp-23-tickets-create-riepilogo.story.md` |
-| 24 | `2026-10-13-dcp-24-appuntamento.story.md` | `dcp-24-segnalazione-area-personale.story.md` |
-| 25 | `2026-10-13-dcp-25-contenuti.story.md` | `dcp-25-tickets-segnalazioni-elenco.story.md` |
-| 26 | `2026-10-13-dcp-26-servizi-graduatoria.story.md` | `dcp-26-news.story.md` |
+| 7 | `dcp-07-risultati-ricerca-html-visual.story.md` | `dcp-07-risultati-ricerca.story.md` |
+| 8 | `dcp-08-asset-integrity-and-fonts.story.md` | `dcp-08-amministrazione.story.md` |
+| 9 | `dcp-09-json-content-integrity-guard.story.md` | `dcp-09-evento-dettaglio.story.md` |
+| 10 | `dcp-10-faq-block-500-and-pages-sweep.story.md` | `dcp-10-accesso-servizio.story.md` |
+| 11 | `dcp-11-mcp-repair-and-second-brain.story.md` | `dcp-11-catalog.story.md` |
+| 12 | `dcp-12-multi-agent-ownership-protocol.story.md` | `dcp-12-servizi.story.md` |
+| 13 | `dcp-13-docs-correction-and-defect-dossier.story.md` | `dcp-13-documenti-dati.story.md` |
+| 14 | `dcp-14-appuntamento-02-data-orario.story.md` | `dcp-14-eventi.story.md` |
+| 15 | `dcp-15-eventi.story.md` | `dcp-15-segnalazione-dettaglio.story.md`, `dcp-15-segnalazioni-elenco.story.md` |
+| 16 | `dcp-16-segnalazione-01-privacy.story.md` | `dcp-16-segnalazioni-elenco.story.md` |
+| 17 | `dcp-17-evento-dettaglio.story.md` | `dcp-17-segnalazione-area-personale.story.md` |
+| 18 | `dcp-18-accesso-servizio.story.md` | `dcp-18-segnalazione-01-privacy.story.md` |
+| 19 | `dcp-19-piano-replica-tutte-le-pagine.story.md` | `dcp-19-segnalazione-02-dati.story.md` |
+| 20 | `dcp-20-novita-assistenza.story.md` | `dcp-20-segnalazione-03-riepilogo.story.md` |
+| 21 | `dcp-21-servizi-pagamento-e-service-flow.story.md` | `dcp-21-segnalazione-04-conferma.story.md` |
+| 22 | `dcp-22-liste-e-servizi.story.md` | `dcp-22-tickets-create.story.md` |
+| 23 | `dcp-23-segnalazione.story.md` | `dcp-23-tickets-create-riepilogo.story.md` |
+| 24 | `dcp-24-appuntamento.story.md` | `dcp-24-segnalazione-area-personale.story.md` |
+| 25 | `dcp-25-contenuti.story.md` | `dcp-25-tickets-segnalazioni-elenco.story.md` |
+| 26 | `dcp-26-servizi-graduatoria.story.md` | `dcp-26-news.story.md` |

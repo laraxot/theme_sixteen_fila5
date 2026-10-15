@@ -205,7 +205,7 @@ ls -la public_html/themes/Sixteen/build/
 
 **Collegamenti**:
 - [00-index.md](00-index.md) - Indice documentazione
-- [html-structure-comparison-2026-04-02.md](html-structure-comparison-2026-04-02.md) - Analisi struttura
+- [html-structure-comparison-2026-04-02.md](html-structure-comparison.md) - Analisi struttura
 - [GSD_HTML_PARITY_PLAN.md](GSD_HTML_PARITY_PLAN.md) - Piano originale
 - [../../../docs/design-comuni/html-match.md](../../../docs/design-comuni/html-match.md) - Regola globale
 

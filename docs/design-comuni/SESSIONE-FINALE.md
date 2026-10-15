@@ -80,7 +80,7 @@ status: draft
 ```
 docs/design-comuni/
 ├── STATUS.md (aggiornato)
-├── SESSION-REPORT-2026-04-07.md
+├── SESSION-REPORT-completo-sessione.md
 ├── VALIDAZIONE-ARGOMENTI-SERVIZI.md
 ├── VALIDAZIONE-POST-FIX.md
 ├── pages/

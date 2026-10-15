@@ -17,7 +17,7 @@ Documentation for making the local FAQ page visually identical to the reference.
 ## Index
 
 ### Main Comparison
-- **[FAQ Comparison](faq-comparison-2026-04-03.md)** - Initial HTML structure comparison
+- **[FAQ Comparison](faq-comparison-riferimento-vs.md)** - Initial HTML structure comparison
 
 ### Screenshots & Visual Analysis
 - **[Screenshots Output](screenshots/faq/)** - All screenshot files
