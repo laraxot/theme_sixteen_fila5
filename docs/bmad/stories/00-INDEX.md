@@ -76,3 +76,4 @@ risultati, esegue il conflict check e aggiorna `bmad-output/sprint-status.yaml`.
 - [DCP-196](dcp-196-ricerca-interna-e-modale-di-ricerca.story.md): la ricerca interna non ha funzione e la modale in home non e' cliccabile; decisioni D196-1..4.
 - [DCP-197](dcp-197-esposizione-per-ambiente-repliche-tests-file-di-prova-sitemap-robots.story.md): cio' che e' pubblico e non dovrebbe esserlo (84 repliche `tests`, host, sitemap, robots, pagine di errore); decisioni D197-1..6.
 - [DCP-198](dcp-198-menu-footer-social-e-segnaposto-del-front-office.story.md): menu, footer, social e segnaposto (92 link in home: 9 a 404, 18 `#`, 32 senza href); decisioni D198-1..6.
+- [DCP-203](dcp-203-front-office-restanti-dell-audit-non-ancora-in-una-story.story.md): front office, i difetti dell'audit DCP-186 che nessuna story ancora copre (stelle, accedi per seguire, OSM, soft 404, data di aggiornamento, terms e note legali)
