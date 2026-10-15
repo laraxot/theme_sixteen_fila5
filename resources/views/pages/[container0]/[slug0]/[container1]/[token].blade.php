@@ -16,6 +16,18 @@ new class extends Component {
     public string $slug0 = '';
     public string $container1 = '';
     public string $token = '';
+
+    public function mount(string $container0, string $slug0, string $container1, string $token): void
+    {
+        // L'unica pagina a quattro segmenti e' il ripristino della password: per ogni altro percorso il frammento non avrebbe radice
+        // e Livewire darebbe 500. Un percorso senza pagina e' un 404 vero (stesso criterio di DCP-126 per i due segmenti).
+        abort_unless($container0 === 'auth' && $slug0 === 'password' && $container1 === 'reset', 404);
+
+        $this->container0 = $container0;
+        $this->slug0 = $slug0;
+        $this->container1 = $container1;
+        $this->token = $token;
+    }
 };
 ?>
 
