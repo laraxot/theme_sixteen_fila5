@@ -10,7 +10,13 @@
     $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
-<div class="container" id="main-container">
+{{--
+  Callers: blocks/events/index.blade.php @include (line ~pageData) — unique Design Comuni
+  events listing markup. Also tests.eventi JSON demos. No other FO events listing template.
+  Reads: $data breadcrumb/hero/sections/card (no writes).
+  User: «devi sempre correggere quello che trovi da correggere, … non ti serve la mia conferma !»
+--}}
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
@@ -38,6 +44,7 @@
         </div>
     </div>
 </div>
+@if (filled($d('hero.image.file')))
 <section class="hero-img mb-20 mb-lg-50">
     <section class="it-hero-wrapper it-hero-small-size cmp-hero-img-small">
         <div class="img-responsive-wrapper">
@@ -46,20 +53,33 @@
             </div>
         </div>
     </section>
-    <p class="title-xsmall cmp-hero-img-small__description">{{ $d('hero.caption') }}</p>
+    @if (filled($d('hero.caption')))
+        <p class="title-xsmall cmp-hero-img-small__description">{{ $d('hero.caption') }}</p>
+    @endif
 </section>
+@endif
 @foreach ($d('sections', []) as $section)
     @if (($section['style'] ?? '') === 'grey')<div class="bg-grey-dsk py-5"> @endif
     <div @class(['container', 'p-3 p-md-5' => ($section['style'] ?? '') !== 'grey'])>
         <h2 class="mb-4">{{ $section['title'] ?? '' }}</h2>
         <div class="row g-4">
-            @foreach ($section['items'] ?? [] as $item)
+            @forelse ($section['items'] ?? [] as $item)
+                @php
+                    $imgUrl = filled($item['image']['url'] ?? null)
+                        ? (string) $item['image']['url']
+                        : (filled($item['image']['file'] ?? null) ? $assets.'/images/'.$item['image']['file'] : '');
+                    $ariaTpl = (string) $d('card.read_more_aria', 'Leggi di più: %s');
+                    $ariaLabel = str_contains($ariaTpl, '%')
+                        ? sprintf($ariaTpl, (string) ($item['title'] ?? ''))
+                        : $ariaTpl.' '.(string) ($item['title'] ?? '');
+                @endphp
                 <div class="col-lg-6 col-xl-4">
                     <div class="card-wrapper border border-light rounded shadow-sm">
                         <div class="card no-after rounded">
+                            @if ($imgUrl !== '')
                             <div class="img-responsive-wrapper">
                                 <div class="img-responsive img-responsive-panoramic"><figure class="img-wrapper">
-                                    <img class="" src="{{ $assets }}/images/{{ $item['image']['file'] ?? '' }}" title="{{ $item['image']['title'] ?? '' }}" alt="{{ $item['image']['alt'] ?? '' }}"></figure>
+                                    <img src="{{ $imgUrl }}" title="{{ $item['image']['title'] ?? '' }}" alt="{{ $item['image']['alt'] ?? '' }}"></figure>
                                     @if (filled($item['calendar'] ?? null))
                                         <div class="card-calendar d-flex flex-column justify-content-center">
                                             <span class="card-date">{{ $item['calendar']['date'] }}</span>
@@ -68,6 +88,7 @@
                                     @endif
                                 </div>
                             </div>
+                            @endif
                             <div class="card-body">
                                 <div class="category-top">
                                     <a class="category text-decoration-none" href="{{ $item['category']['url'] ?? '#' }}">{{ $item['category']['label'] ?? '' }}</a>
@@ -75,7 +96,7 @@
                                 </div>
                                 <h3 class="card-title"><a href="{{ $item['url'] ?? '' }}" class="text-decoration-none">{{ $item['title'] ?? '' }}</a></h3>
                                 <p class="card-text text-secondary pb-3">{{ $item['text'] ?? '' }}</p>
-                                <a class="read-more t-primary text-uppercase" href="{{ $item['read_more_url'] ?? '#' }}" aria-label="{{ sprintf($d('card.read_more_aria'), $item['title'] ?? '') }}">
+                                <a class="read-more t-primary text-uppercase" href="{{ $item['read_more_url'] ?? '#' }}" aria-label="{{ $ariaLabel }}">
                                     <span class="text">{{ $d('card.read_more') }}</span>
                                     <span class="visually-hidden">{{ $d('card.read_more_hidden') }}</span><svg class="icon icon-inverse icon-xs ml-10"><use href="{{ $icon('it-arrow-right') }}"></use></svg>
                                 </a>
@@ -83,10 +104,16 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-12">
+                    <p class="u-grey-light text-paragraph-card" role="status">{{ $section['empty'] ?? 'Nessun elemento da mostrare.' }}</p>
+                </div>
+            @endforelse
+            @if (filled($section['button']['label'] ?? null))
             <div class="d-flex justify-content-end">
-                <a href="{{ $section['button']['url'] ?? '#' }}" class="btn btn-outline-primary full-mb" data-element="{{ $section['button']['element'] ?? '' }}"> {{ $section['button']['label'] ?? '' }} <svg class="icon icon-primary icon-xs ml-10"><use href="{{ $icon('it-arrow-right') }}"></use></svg></a>
+                <a href="{{ $section['button']['url'] ?? '#' }}" class="btn btn-outline-primary full-mb" data-element="{{ $section['button']['element'] ?? '' }}"> {{ $section['button']['label'] }} <svg class="icon icon-primary icon-xs ml-10"><use href="{{ $icon('it-arrow-right') }}"></use></svg></a>
             </div>
+            @endif
         </div>
     </div>
     @if (($section['style'] ?? '') === 'grey')</div> @endif
