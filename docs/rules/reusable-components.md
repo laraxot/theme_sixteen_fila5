@@ -8,6 +8,7 @@ Ogni componente `components/blocks/` deve essere un pezzo riutilizzabile. Non de
 2. Non hard-codare URL o slug specifici.
 3. Usa `ThemeComposer` per dati, Blade solo per presentazione.
 4. Aggiorna `docs/stories/` per ogni componente nuovo o modificato.
+5. Parità visiva: 90% HTML / 95% visual rispetto a `design-comuni-pagine-statiche`.
 
 ## Riferimento BMAD
 - Story: STORY-BLOG003-reusable-components.md
