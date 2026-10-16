@@ -15,13 +15,15 @@
     $categorySlug = trim((string) request()->query('categoria', ''));
     $featured = $composer->featuredBlogPosts(3);
     $featuredIds = $featured->pluck('id')->filter()->values()->all();
-    $posts = $composer->paginatedBlogPosts(9, $search !== '' ? $search : null, $categorySlug !== '' ? $categorySlug : null);
+    // Ref lista-risorse: 3 evidenza + 6 explore. Fetch ampio, poi reject featured e take(6).
+    $posts = $composer->paginatedBlogPosts(12, $search !== '' ? $search : null, $categorySlug !== '' ? $categorySlug : null);
     // Escludi featured dalla lista (Design Comuni). Mai transform→null senza setCollection.
     if ($featuredIds !== [] && $search === '' && $categorySlug === '') {
         $posts->setCollection(
             $posts->getCollection()
                 ->reject(static fn ($item): bool => $item instanceof \Modules\Blog\Models\Article
                     && in_array($item->getKey(), $featuredIds, true))
+                ->take(6)
                 ->values()
         );
     }
@@ -55,11 +57,23 @@
     $currentPage = method_exists($posts, 'currentPage') ? (int) $posts->currentPage() : 1;
     $lastPage = method_exists($posts, 'lastPage') ? max(1, (int) $posts->lastPage()) : 1;
     $pageUrl = static fn (int $page): string => $posts->url($page);
+    // Ref: "62 notizie trovate in ordine alfabetico"
     $statusLabel = $resultCount === 1
-        ? '1 novità trovata'
-        : $resultCount.' novità trovate';
+        ? '1 notizia trovata'
+        : $resultCount.' notizie trovate';
 
-    $parityData = array_replace_recursive(config('sixteen.blog.parity', []), is_array($data['parity'] ?? null) ? $data['parity'] : []);
+    // CMS JSON (feedback/contacts) > parity nest > config tema (se caricata).
+    $parityFromConfig = config('sixteen.sixteen.blog.parity')
+        ?? config('sixteen.blog.parity')
+        ?? [];
+    $parityData = array_replace_recursive(
+        is_array($parityFromConfig) ? $parityFromConfig : [],
+        array_filter([
+            'feedback' => is_array($data['feedback'] ?? null) ? $data['feedback'] : null,
+            'contacts' => is_array($data['contacts'] ?? null) ? $data['contacts'] : null,
+        ]),
+        is_array($data['parity'] ?? null) ? $data['parity'] : [],
+    );
     foreach (['main', 'problems'] as $group) {
         $parityData['contacts'][$group]['items'] = array_map(
             static function (array $contact) use ($localize): array {

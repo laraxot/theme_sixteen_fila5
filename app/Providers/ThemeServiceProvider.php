@@ -104,6 +104,9 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'sixteen');
 
         // Caricamento delle configurazioni del tema
+        // Keep the main theme contract at config('sixteen.*'); the per-file
+        // namespace loader below remains available for legacy config groups.
+        $this->mergeConfigFrom(__DIR__.'/../../config/sixteen.php', 'sixteen');
         $this->loadConfigFrom(__DIR__.'/../../config', 'sixteen');
     }
 

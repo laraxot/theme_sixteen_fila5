@@ -6,7 +6,6 @@ use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
-use Modules\Cms\Models\Page;
 
 name('container0.index');
 middleware(PageSlugMiddleware::class);
@@ -16,9 +15,6 @@ new class extends Component {
 
     public string $pageSlug = '';
 
-    /** Attiva CSS `body:has(.page-content[data-dc])` se JSON `layout` = design-comuni*. */
-    public bool $isDesignComuni = false;
-
     /** @var array<string, mixed> */
     public array $data = [];
 
@@ -27,22 +23,31 @@ new class extends Component {
         $this->container0 = $container0;
         $this->pageSlug = $container0.'.index';
         $this->data = ['container0' => $container0];
-        $layout = (string) (Page::findUniqueBySlug($this->pageSlug)?->layout ?? '');
-        $this->isDesignComuni = str_starts_with($layout, 'design-comuni');
     }
 };
 ?>
 
-{{-- body-page fuori da @volt: $this non esiste nel contesto Folio esterno. --}}
+{{--
+  D20 shell sottile: mount lineare, no CmsPage/title/meta nel Component.
+  data-dc sempre (Sixteen FO = Design Comuni CSS scope).
+  body-page: opzionale da JSON parity_page — letto fuori @volt (mai $this lì).
+--}}
 @php
-    $cmsIndex = Page::findUniqueBySlug($container0.'.index');
-    $parityPage = data_get($cmsIndex?->content_blocks, '0.data.parity_page', '');
-    $bodyPage = is_string($parityPage) ? $parityPage : '';
+    $bodyPage = '';
+    $cmsForParity = \Modules\Cms\Models\Page::findUniqueBySlug($container0.'.index');
+    $parityPage = data_get($cmsForParity?->content_blocks, '0.data.parity_page', '');
+    if (is_string($parityPage) && $parityPage !== '') {
+        $bodyPage = $parityPage;
+    } elseif ($container0 === 'blog') {
+        $bodyPage = 'lista-risorse';
+    } elseif ($container0 === 'events') {
+        $bodyPage = 'eventi';
+    }
 @endphp
 <x-layouts.app :body-page="$bodyPage">
     @volt('container0.index')
-        <div class="page-content content" @if ($isDesignComuni) data-dc @endif data-slug="{{ $pageSlug }}" data-side="content">
-            <x-page side="content" :slug="$pageSlug" :data="$data" />
+        <div class="page-content content" data-dc data-slug="{{ $this->pageSlug }}" data-side="content">
+            <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
         </div>
     @endvolt
 </x-layouts.app>
