@@ -23,10 +23,10 @@ Plan. La scheda per pagina e' `Themes/Sixteen/docs/compliance/03-front-office-sc
 - [ ] **Widget a stelle (B3, C8).** In elenco e in conferma non salva nulla ma dice «il tuo parere ci aiutera'». Proposta DEC-20: toglierlo ora; implementarlo solo dopo l'approvazione di una nuova tabella (regola del progetto).
 - [ ] **«Accedi per seguire» (B10) perde la destinazione.** Il login deve riportare alla pagina del ticket (`redirectIntended`, come DCP-124); test in 4 lingue.
 - [ ] **Attribuzione OpenStreetMap (A13, B4) e host non dichiarati nel selettore di layer (B5).** Aggiungere l'attribuzione ODbL sulle mappe e togliere dal selettore i fornitori non dichiarati (DEC-14).
-- [ ] **Soft 404 (E3).** URL inesistenti che rispondono 200 con `<main>` vuoto: devono dare 404 con la pagina a tema (come `/it/a/b/c/d`, DCP-151 e la correzione di oggi).
+- [x] **Soft 404 (E3) a due segmenti.** Gia' chiuso da [DCP-126](./dcp-126-soft-404-percorsi-a-due-segmenti.story.md) (`abort_if` + `UnknownTwoSegmentPageTest`). Residuo multi-segmento: vedi DCP-197 E3.
 - [ ] **Data di ultimo aggiornamento su ogni pagina (DCP-167).** Regola in DEC-21 (proposta: data di ultima modifica del contenuto nel JSON della pagina); poi blocco nel layout e test in 4 lingue.
 - [ ] **`terms` e `note-legali` (D1, D2).** La registrazione impone di accettare una pagina che non esiste come tale: DEC-17 (proposta: fonderle in «Termini e note legali» e collegare la registrazione). Il testo resta dell'ente (DEC-02).
-- [ ] **Mappa del sito (A7).** 3 link su 11 morti: verificare dopo DCP-198 se sono gia' coperti, altrimenti correggere qui.
+- [x] **Mappa del sito (A7).** Chiuso in [DCP-198](./dcp-198-menu-footer-social-e-segnaposto-del-front-office.story.md) + `SitemapPathsGuardTest`.
 - [ ] **Cookiebar duplicata (DCP-161).** C'e' una story di un'altra sessione sul footer duplicato della cookiebar, in `Themes/Sixteen/docs/stories/`: collegarla, non rifarla.
 - [ ] **Font in Vite (DCP-183).** Sorgente pronto, build vivo non eseguito; il CSS vivo e' indietro di 46 classi su 10 utility rispetto ai sorgenti. Eseguire `npm run build` solo a lavoro fermo, poi misurare con `--stub-images`.
 - [ ] **6 link rotti nel README della UI** (elenco nella story DCP-154, voce docs).

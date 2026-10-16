@@ -340,7 +340,7 @@ body {
 
   .navbar-collapsable .logo-hamburger .it-brand-title {
     font-size: 16px !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important; /* DCP-221 */
   }
 }
 

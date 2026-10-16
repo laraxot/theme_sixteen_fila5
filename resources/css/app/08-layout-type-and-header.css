@@ -212,18 +212,19 @@ main[data-page="page-shell"] .cmp-contacts .cmp-contacts__container {
 
 /* ============================================================================
    FINAL FONT OVERRIDE - Must be LAST to win over Filament/Tailwind defaults
-   Applied to ALL body content to ensure Titillium Web everywhere
+   Titillium Web = sans istituzionale (BI). Eccezioni: Lora sul hero civico,
+   Roboto Mono su code (BI tipografia).
    ============================================================================ */
 body,
-body *,
+body *:not(pre):not(code):not(kbd):not(samp),
 main,
-main *,
+main *:not(pre):not(code):not(kbd):not(samp),
 .container,
-.container *,
+.container *:not(pre):not(code):not(kbd):not(samp),
 .row,
-.row *,
+.row *:not(pre):not(code):not(kbd):not(samp),
 [class*="col-"],
-[class*="col-"] * {
+[class*="col-"] *:not(pre):not(code):not(kbd):not(samp) {
   font-family: "Titillium Web" !important;
 }
 
@@ -231,7 +232,7 @@ main *,
 pre, code, kbd, samp,
 .phpdebugbar, .phpdebugbar *,
 .sf-dump, .sf-dump * {
-  /* keep their own fonts */
+  font-family: "Roboto Mono", ui-monospace, monospace !important;
 }
 
 /* ABSOLUTE FINAL OVERRIDE - body font with !important */

@@ -127,7 +127,7 @@ docs/design-comuni/
 
 ### Verso Component Catalog
 - Component Reference: `COMPONENT_CATALOG.md` non esiste; il riferimento attuale e' l'elenco dei blocchi in [blocks](./blocks/)
-- CSS Strategy: `CSS_STRATEGY.md` non esiste; vedi [CSS-FIX-STRATEGY](../html-structure-analysis/CSS-FIX-STRATEGY.md) e [DAISYUI](../daisyui.md)
+- CSS Strategy: `CSS_STRATEGY.md` non esiste; vedi [CSS-FIX-STRATEGY](../html-structure-analysis/CSS-FIX-STRATEGY.md) e [DAISYUI](../DAISYUI.md)
 
 ### Verso Laravel Structure
 - [Blade File](../../resources/views/pages/tests/[slug].blade.php)

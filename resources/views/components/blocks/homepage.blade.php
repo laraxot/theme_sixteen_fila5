@@ -12,7 +12,7 @@
     $hero = $d('hero', []);
 @endphp
 
-<h1 class="visually-hidden" id="main-container">{{ $d('hero.title') }}</h1>
+<h1 class="visually-hidden" id="home-page-title">{{ $d('hero.title') }}</h1>
 
 <section id="head-section">
     <h2 class="visually-hidden">{{ $d('hero.eyebrow') }}</h2>
