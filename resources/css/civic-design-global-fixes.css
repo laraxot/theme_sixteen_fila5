@@ -40,7 +40,7 @@
 .it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page'],
 .it-header-navbar-wrapper .nav-item.active .nav-link {
   color: #ffffff !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   background-color: transparent !important;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .it-brand-title {
-  font-weight: 700 !important;
+  font-weight: 600 !important; /* DCP-221: semibold FO, no bold ciccione */
   /* Colore: non forzare qui — header (center/menu) usa tema; contenuto usa utility / altri layer */
 }
 

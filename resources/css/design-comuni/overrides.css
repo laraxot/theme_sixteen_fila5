@@ -197,3 +197,16 @@ body:has(.page-content[data-dc]) .upload-wrapper .img{width:48px;height:48px;fle
     body:has(.page-content[data-dc]) .cmp-wizard-widget :is(.cmp-input input, .select-wrapper select, .cmp-input-autocomplete input, .cmp-text-area textarea) { min-height: 44px; }
     body:has(.page-content[data-dc]) .cmp-wizard-widget :is(.steppers-btn-prev, .cmp-info-button-card .accordion-button, .cmp-input-autocomplete a.list-item) { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* FO Novità/Eventi dettaglio: immagine a tutta colonna; testo sopra la piega (cookiebar). */
+body:has(.page-content[data-dc]) .blog-article-detail__media img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+body:has(.page-content[data-dc]) .blog-article-detail .post-content,
+body:has(.page-content[data-dc]) .blog-article-detail .lead {
+  color: #191919;
+}

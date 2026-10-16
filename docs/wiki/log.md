@@ -3,12 +3,81 @@ title: "log"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-10-16
 qmd: "log"
 issues: []
 discussions: []
 status: draft
 ---
+
+## [2026-10-16] bugfix | /it/blog getAttribute on null
+
+- Causa: exclude featured con `transform→null` + `filter()` non riassegnato
+- Fix: `setCollection(reject)` + `$renderCard` tipizzato + `@continue`
+- Stesso pattern su `blocks/events/index.blade.php`
+- Smoke: `/it/blog` e `/it/events` → 200
+- Doc: [blog-public-index.md](../bmad/blog-public-index.md)
+
+## [2026-10-16] architecture | container0.index shell JSON-only (D20)
+
+- Folio `[container0]/index` ridotta a Volt + `<x-layouts.app>` + `<x-page>`
+- Rimossi native/utility match e `x-dynamic-component`; chiusura tag coerente
+- JSON tenant: `domande-frequenti.index`, `mappa-sito.index`, `services.index`,
+  `segnalazioni.index`, `lista-categorie.index`
+- Contratto: [container0-index-shell-contract.md](../bmad/container0-index-shell-contract.md)
+- Pest: `FolioPageMountContractTest` rafforzato
+
+## [2026-10-15] inbound | blog + eventi (AFC pattern)
+
+- Doc: [inbound-marketing-blog-eventi.md](../inbound-marketing-blog-eventi.md)
+- Dossier: [inbound-marketing](../../../../Modules/Fixcity/docs/bmad/inbound-marketing/README.md)
+- Pattern: promessa verticale, hub risorse, CTA progressive; no ads/WP copy.
+
+## [2026-10-15] sustainability | modello a strati + docs FO
+
+- Come sostenere FixCity: B2G/co-funding P0; grant+partner P1; no banner ads.
+- Doc tema: [project-sustainability-front-office.md](../project-sustainability-front-office.md)
+- Dossier: [project-sustainability](../../../../../../bmad-output/project-sustainability/README.md)
+
+## [2026-10-15] marketing | footer partner vs banner (BMAD only)
+
+- Domanda: «Sostieni il progetto» + banner sponsor nel footer?
+- Verdict: **partner/sostenitori sì; banner commerciali no** (primo rilascio).
+  CTA monetaria solo con governance. Nessuna modifica runtime.
+- Dossier: [footer-sponsorship](../../../../../../bmad-output/footer-sponsorship/README.md)
+- Concept: [footer-partner-sponsorship-marketing](concepts/footer-partner-sponsorship-marketing.md)
+- Story: [footer-sponsor-marketing](../bmad/stories/footer-sponsor-marketing.story.md)
+
+## [2026-10-15] fo | footer JSON SSoT (DCP-222 / DCP-198 A5)
+
+- `<x-section slug="footer">` → `footer.json`: brand FixCity + slogan, solo path
+  reali; `social: []`; no logo UE. Blade = vestito + `FrontofficeUrl`, niente
+  `<a>` nudi.
+- Guard: `FooterJsonBrandAndLinksSsotTest`. Live `/it`: FixCity, 0 bare anchors.
+- Story: [dcp-222](../bmad/stories/dcp-222-footer-json-ssot-vestito.story.md)
+- Filosofia: [zen-wizard-header-philosophy](concepts/zen-wizard-header-philosophy.md)
+
+## [2026-10-15] ecc | home-page-title + timeline `<time>` (follow-up)
+
+- ECC implement: `homepage.blade.php` → `id="home-page-title"` (no doppio `#main-container`);
+  cronologia dettaglio → `occurred_on` + `<time datetime>` (DCP-148).
+- **Nota runtime `/it`:** la home viva usa `blocks/home/hero` / `hero/split` con
+  `id="fc-home-hero-heading"` (Lora DCP-221); il blocco `blocks/homepage.blade.php`
+  resta corretto per path JSON legacy, ma non e' l'H1 servito oggi.
+- Live check: un solo `#main-container`, H1 = `fc-home-hero-heading`.
+- Docs gia' aggiornati nello ECC: [homepage-guest-visual-fix](concepts/homepage-guest-visual-fix.md),
+  [dcp-148](../bmad/stories/dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md).
+
+## [2026-10-15] a11y | tipografia home /it (DCP-221) + Lora hero
+
+- Problema: titoli «ciccioni» + H1 poco leggibile in Titillium bold.
+- Fix: H1 hero in **Lora Regular 400 `!important`** (BI `.font-serif`, scale
+  h1 40–48px) per battere `body *` Titillium dello shell Filament FO;
+  sans UI a 600; token `--font-serif`/`--dc-font-serif`; self-host Vite (DCP-183).
+- Verifica Playwright `/it`: family Lora, weight 400, 48px, lh 1.2;
+  `FontsCssGuardTest` 4/4; rebuild `app-BfW1LND_.css`.
+- Story: [dcp-221](../bmad/stories/dcp-221-homepage-tipografia-leggibilita-wcag.story.md)
+- Concetto: [design-comuni-font-tokens](concepts/design-comuni-font-tokens.md)
 
 ## [2026-10-14] docs | studio del tema reale e correzione degli ingressi
 
@@ -1251,7 +1320,7 @@ status: draft
   consolidato (`reports/`, `screenshots/pages/` evidenza per pagina,
   `screenshots/legacy-2026-04/`); bug path annidato
   `visual-parity/scripts/docs/visual-parity/scripts/` eliminato;
-  indici root duplicati (`INDEX.md`, `documentation-index.md`,
+  indici root duplicati (`INDEX.md`, `DOCUMENTATION_INDEX.md`,
   `00-index.md`) ritirati con `.old`; `00-INDEX.md` e
   `visual-parity/INDEX.md` aggiornati.
 - **Nuova regola** `wiki/rules/cms-content-slug-matches-folio-page-name.md`:

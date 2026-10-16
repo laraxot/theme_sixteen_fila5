@@ -36,6 +36,13 @@ new class extends Component {
         // ne' un modello ne' una pagina CMS: 404 vero, non un 200 con <main> vuoto (soft-404: i motori di ricerca lo indicizzano)
         abort_if($item === null && $cmsPage === null, 404);
         $this->isDesignComuni = str_starts_with((string) $cmsPage?->layout, 'design-comuni');
+        // Callers: Folio /it/blog/{slug} e /it/events/{slug} (ThemeComposer Article).
+        // Nessun altro file setta data-dc sul dettaglio Article: senza questo flag il
+        // body sparisce sotto CSS legacy+Filament (layout app). Schema: Article item.
+        // User: «al posto di aggiungere i commenti non si vede piu' il contenuto».
+        if ($item instanceof \Modules\Blog\Models\Article && \in_array($container0, ['blog', 'events'], true)) {
+            $this->isDesignComuni = true;
+        }
 
         $this->data = [
             'container0' => $container0,
@@ -56,6 +63,12 @@ new class extends Component {
         : ($container0 === 'tickets' && $slug0 === 'track'
         ? 'ticket-track'
         : ($container0 === 'tickets' && ctype_digit($slug0) ? 'ticket-detail' : null)));
+    $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
+    $blogPost = $container0 === 'blog' && $slug0 !== ''
+        ? $composer->findPublishedPostBySlug($slug0)
+        : ($container0 === 'events' && $slug0 !== ''
+            ? $composer->findPublishedEventBySlug($slug0)
+            : null);
     $pageTitle = $specialPage === 'auth-login'
         ? __('fixcity::auth.title')
         : ($specialPage === 'auth-register'
@@ -63,11 +76,15 @@ new class extends Component {
         : ($specialPage === 'ticket-track'
         ? __('fixcity::ticket.track.title')
         : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
-        : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name')))));
+        : ($blogPost instanceof \Modules\Blog\Models\Article
+            ? (string) $blogPost->getAttribute('title')
+            : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name'))))));
     $pageDescription = match ($specialPage) {
         'auth-login' => __('fixcity::auth.meta_description'),
         'auth-register' => __('fixcity::auth.register_meta_description'),
-        default => \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
+        default => $blogPost instanceof \Modules\Blog\Models\Article
+            ? (string) ($blogPost->getAttribute('excerpt') ?: $blogPost->getAttribute('description') ?: '')
+            : \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
     };
     // pagine con chrome Design Comuni: asset con percorso relativo come il riferimento (DesignComuniAssets) e voce di menu attiva dal JSON
     $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
@@ -88,6 +105,14 @@ new class extends Component {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
         $headerActive = 'all-services';
+        $layoutComponent = 'layouts.design-comuni';
+    }
+    // dettaglio Novità/Eventi (Article): stesso pattern ticket-detail — layout DC + data-dc
+    // anche senza JSON CMS `blog.view`/`events.view` (solo `blog.index`/`events.index` esistono).
+    if ($blogPost instanceof \Modules\Blog\Models\Article) {
+        $isDesignComuni = true;
+        view()->share('dcRelativeAssets', true);
+        $headerActive = $container0 === 'events' ? 'live' : 'news';
         $layoutComponent = 'layouts.design-comuni';
     }
 @endphp
@@ -112,7 +137,13 @@ new class extends Component {
         --}}
         @volt('container0.view')
             <div class="page-content content"{!! $this->isDesignComuni ? ' data-dc' : '' !!} data-slug="{{ $this->container0.'.'.$this->slug0 }}" data-side="content">
-                <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+                @if ($this->data['item'] instanceof \Modules\Blog\Models\Article && $this->container0 === 'events')
+                    @include('pub_theme::components.blocks.events.detail', ['event' => $this->data['item']])
+                @elseif ($this->data['item'] instanceof \Modules\Blog\Models\Article)
+                    @include('pub_theme::components.blocks.blog.detail', ['post' => $this->data['item']])
+                @else
+                    <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+                @endif
             </div>
         @endvolt
     @endif

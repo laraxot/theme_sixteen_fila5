@@ -1,0 +1,6 @@
+LOCKED at 2026-10-15T14:08:42+00:00
+Task: DCP-195
+Agent: ecc-subagent
+Session: unknown
+PID: 4114721
+PID note: subshell di lock.sh, gia' terminato — NON usarlo per giudicare il lock stale, guarda 'LOCKED at'

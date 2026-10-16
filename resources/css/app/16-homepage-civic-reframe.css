@@ -14,12 +14,13 @@
   --fc-radius: 20px;
 }
 
+/* Eyebrow: semibold (600) — Designers Italia; mai 800 (Titillium non ha 800 → fallback Black). */
 .fc-eyebrow {
   color: var(--fc-green);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  line-height: 1.2;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
   margin: 0 0 0.8rem;
   text-transform: uppercase;
 }
@@ -66,14 +67,22 @@
   max-width: 44rem;
 }
 
+/*
+ * Hero H1: Lora (Bootstrap Italia `.font-serif`) — serif per leggibilita' su display.
+ * Pesi self-hosted: solo 400/700 (DCP-183). Regular 400 evita fake-bold.
+ * Scale allineata a BI h1 (40/48 → 48/60 px), lh 1.2.
+ * https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tipografia/
+ */
 .fc-home-hero h1 {
   color: #fff !important;
-  font-size: clamp(2.5rem, 5vw, 5.2rem);
-  font-weight: 800;
-  letter-spacing: -0.055em;
-  line-height: 0.98;
+  /* !important: batte body * Titillium in 08-layout-type-and-header (FO Filament shell). */
+  font-family: "Lora", Georgia, serif !important;
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-weight: 400 !important;
+  letter-spacing: 0;
+  line-height: 1.2;
   margin: 0;
-  max-width: 10ch;
+  max-width: 18ch;
   text-wrap: balance;
 }
 
@@ -99,7 +108,7 @@
   border: 2px solid transparent;
   border-radius: 999px;
   display: inline-flex;
-  font-weight: 750;
+  font-weight: 600;
   justify-content: center;
   min-height: 3rem;
   padding: 0.75rem 1.2rem;
@@ -158,10 +167,10 @@
 
 .fc-home-hero__signal-value {
   color: #fff !important;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 750;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  font-size: clamp(1.35rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -208,7 +217,7 @@
 
 .fc-home-hero__map-footer a {
   color: var(--fc-sun);
-  font-weight: 750;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -235,10 +244,10 @@
 .fc-section-heading h2,
 .fc-track-section h2 {
   color: var(--fc-ink) !important;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   margin: 0;
   text-wrap: balance;
 }
@@ -322,7 +331,7 @@
   border-radius: 50%;
   color: var(--fc-green-dark);
   display: inline-flex;
-  font-weight: 800;
+  font-weight: 600;
   height: 2.5rem;
   justify-content: center;
   margin-bottom: 1.5rem;
@@ -332,8 +341,8 @@
 .fc-how-card h3 {
   color: var(--fc-ink);
   font-size: 1.3rem;
-  font-weight: 750;
-  letter-spacing: -0.025em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0 0 0.6rem;
 }
 
@@ -506,21 +515,14 @@ body:has(.fc-home) .fc-track-section p:not(.fc-eyebrow) {
   padding-block: 0;
 }
 
-/* con i corpi dei titoli ora alla dimensione prevista (fino a 5,2rem) la spaziatura -0.05em fa sovrapporre le lettere del Titillium Web */
-.fc-home-hero h1 {
-  letter-spacing: -0.025em;
-}
-
+/* Titillium Web non ha 750/800: chiederli fa fallback al Black 900 (testo "ciccione").
+   Contratto FO Titillium: titoli display = 600 (DCP-221). Hero h1 escluso: Lora Regular 400. */
 .fc-section-heading h2,
-.fc-track-section h2 {
-  letter-spacing: -0.025em;
-}
-
-.fc-how-card h3 {
+.fc-track-section h2,
+.fc-how-card h3,
+.fc-home-hero__signal-value,
+.fc-eyebrow {
+  font-weight: 600;
   letter-spacing: -0.01em;
-}
-
-.fc-home-hero__signal-value {
-  letter-spacing: -0.02em;
 }
 

@@ -1,5 +1,5 @@
 {{-- Pannello filtri su schermo piccolo (pulsante "Filtra" dei risultati): stesso form della colonna desktop, id con prefisso `tlm`. --}}
-<div class="modal fade d-lg-none" id="modal-categories" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">
+<div class="modal fade d-lg-none" id="modal-categories" role="dialog" tabindex="-1" aria-labelledby="modal-categories-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

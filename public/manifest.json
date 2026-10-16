@@ -34,7 +34,7 @@
     ]
   },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-D3Hy2xMX.css",
+    "file": "assets/app-test-B50oxW5w.css",
     "src": "resources/css/app-test.css",
     "isEntry": true,
     "name": "app-test",
@@ -43,7 +43,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-UD7Kp0l8.css",
+    "file": "assets/app-Dy_nx18v.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -51,8 +51,80 @@
       "app.css"
     ]
   },
+  "resources/fonts/lora/lora-v20-latin-ext_latin-700.woff2": {
+    "file": "assets/lora-v20-latin-ext_latin-700-O-3ZXgol.woff2",
+    "src": "resources/fonts/lora/lora-v20-latin-ext_latin-700.woff2"
+  },
+  "resources/fonts/lora/lora-v20-latin-ext_latin-700italic.woff2": {
+    "file": "assets/lora-v20-latin-ext_latin-700italic-DfGvzA_5.woff2",
+    "src": "resources/fonts/lora/lora-v20-latin-ext_latin-700italic.woff2"
+  },
+  "resources/fonts/lora/lora-v20-latin-ext_latin-italic.woff2": {
+    "file": "assets/lora-v20-latin-ext_latin-italic-A-kpPA1X.woff2",
+    "src": "resources/fonts/lora/lora-v20-latin-ext_latin-italic.woff2"
+  },
+  "resources/fonts/lora/lora-v20-latin-ext_latin-regular.woff2": {
+    "file": "assets/lora-v20-latin-ext_latin-regular-CtjnVUWh.woff2",
+    "src": "resources/fonts/lora/lora-v20-latin-ext_latin-regular.woff2"
+  },
+  "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-700.woff2": {
+    "file": "assets/roboto-mono-v13-latin-ext_latin-700-BRL5H2gg.woff2",
+    "src": "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-700.woff2"
+  },
+  "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-700italic.woff2": {
+    "file": "assets/roboto-mono-v13-latin-ext_latin-700italic-C_TjhsIC.woff2",
+    "src": "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-700italic.woff2"
+  },
+  "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-italic.woff2": {
+    "file": "assets/roboto-mono-v13-latin-ext_latin-italic-BiA9PzYd.woff2",
+    "src": "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-italic.woff2"
+  },
+  "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-regular.woff2": {
+    "file": "assets/roboto-mono-v13-latin-ext_latin-regular-CaZVEwk5.woff2",
+    "src": "resources/fonts/roboto-mono/roboto-mono-v13-latin-ext_latin-regular.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-300.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-300-D5gAhp_e.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-300.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-300italic.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-300italic-BBNC2VDT.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-300italic.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-600.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-600-CZkZfRB4.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-600.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-600italic.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-600italic-Byzy8xuw.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-600italic.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-700.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-700-CYyl8lB4.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-700.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-700italic.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-700italic-CdIIZ-A-.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-700italic.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-italic.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-italic-BeXuUoqu.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-italic.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-regular.woff2": {
+    "file": "assets/titillium-web-v10-latin-ext_latin-regular-kbgPVAFU.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v10-latin-ext_latin-regular.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v19-latin-900.woff2": {
+    "file": "assets/titillium-web-v19-latin-900-CE5cGYJA.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v19-latin-900.woff2"
+  },
+  "resources/fonts/titillium-web/titillium-web-v19-latin-ext-900.woff2": {
+    "file": "assets/titillium-web-v19-latin-ext-900-DbUGIJDR.woff2",
+    "src": "resources/fonts/titillium-web/titillium-web-v19-latin-ext-900.woff2"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-DGLMgRXY.js",
+    "file": "assets/app-CW6UqK5Y.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

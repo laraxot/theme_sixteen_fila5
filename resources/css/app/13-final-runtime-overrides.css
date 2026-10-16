@@ -523,3 +523,17 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
     border-radius: 0.25rem;
   }
 }
+
+/* DCP-221: tipografia FO leggibile (WCAG / ipovedenti).
+   Vince su ticket-parity !important 700: Titillium semibold 600, niente Black fallback. */
+.it-brand-title,
+.it-header-center-content-wrapper .it-brand-title,
+.it-header-center-wrapper .it-brand-title,
+.navbar-collapsable .logo-hamburger .it-brand-title {
+  font-weight: 600 !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link,
+.it-header-navbar-wrapper .navbar-secondary .nav-link {
+  font-weight: 600 !important;
+}
