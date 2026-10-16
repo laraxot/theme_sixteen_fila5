@@ -24,6 +24,21 @@
     $followMessage = in_array($followMessage, ['followed', 'unfollowed'], true) ? $followMessage : null;
     $followUrl = $base.'/'.$detail['id'].'/follow';
     $isLogged = auth()->check();
+    // CommentsWidget canonico (Comment filament-blueprint): mount per chi può vieware
+    // il ticket; guest non vede thread privati (lifecycle blueprint).
+    $ticketCommentable = $isLogged
+        ? \Modules\Fixcity\Models\Ticket::query()->find($detail['id'])
+        : null;
+    $canAccessComments = $ticketCommentable instanceof \Modules\Fixcity\Models\Ticket
+        && \Illuminate\Support\Facades\Gate::forUser(auth()->user())->allows('view', $ticketCommentable);
+    $canWriteComments = $canAccessComments
+        && \Illuminate\Support\Facades\Gate::forUser(auth()->user())->allows('update', $ticketCommentable);
+    $ticketForNextSteps = $ticketCommentable instanceof \Modules\Fixcity\Models\Ticket
+        ? $ticketCommentable
+        : \Modules\Fixcity\Models\Ticket::query()->find($detail['id']);
+    $nextSteps = $ticketForNextSteps instanceof \Modules\Fixcity\Models\Ticket
+        ? app(\Modules\Fixcity\Actions\BuildTicketNextStepsAction::class)->execute($ticketForNextSteps)
+        : null;
     // dati per il partial condiviso del breadcrumb: voci localizzate, mai '#'
     $partialData = ['breadcrumb' => ['items' => [
         ['label' => $t('breadcrumb.home'), 'url' => '/'.$locale],
@@ -83,6 +98,31 @@
                 <h2 class="title-xxlarge mb-3" id="td-status-title">{{ $t('status.title') }}</h2>
                 @include('pub_theme::components.blocks.ticket-detail.timeline')
             </section>
+            @if ($nextSteps !== null)
+                <section aria-labelledby="td-next-steps-title" class="mt-40">
+                    <h2 class="title-xxlarge mb-3" id="td-next-steps-title">{{ $t('next_steps.title') }}</h2>
+                    <div class="cmp-card p-4">
+                        <h3 class="title-medium mb-2">{{ $nextSteps['title'] }}</h3>
+                        <p class="text-paragraph mb-2">{{ $nextSteps['description'] }}</p>
+                        <p class="text-paragraph-small mb-0">{{ $t('next_steps.deadline_not_configured') }}</p>
+                    </div>
+                </section>
+            @endif
+            @auth
+                @if ($canAccessComments)
+                    <section aria-labelledby="td-comments-title" class="mt-40">
+                        <h2 class="title-xxlarge mb-3" id="td-comments-title">Commenti e aggiornamenti</h2>
+                        @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
+                            'commentableType' => $ticketCommentable::class,
+                            'commentableKey' => (string) $ticketCommentable->getKey(),
+                            'readOnly' => false,
+                            'hideNotifications' => true,
+                            'noReplies' => false,
+                            'noReactions' => true,
+                        ], key('ticket-comments-'.$ticketCommentable->getKey()))
+                    </section>
+                @endif
+            @endauth
             <section aria-labelledby="td-actions-title" class="mt-40 mb-4">
                 <h2 class="title-xxlarge mb-3" id="td-actions-title">{{ $t('actions.title') }}</h2>
                 <div class="td-actions">

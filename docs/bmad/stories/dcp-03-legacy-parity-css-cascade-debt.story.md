@@ -30,6 +30,11 @@ Disattivando i 7 import specifici della homepage: homepage di test 35,4% -> 52,4
 - Verifica: `find-important-overrides.mjs <url> .dc-page` da 143 regole esterne a 0; home reale `/it` identica (0,000% pixel diversi), indice 88,1% e argomenti invariati.
 - Trappola scoperta: regole a mano con `.dc-page` nel selettore (aggiunte da altri agenti) non vengono isolate e rompono lo stile generato: vietate (DCP-12).
 
+## Voce DCP-195 (reset button unlayered, 2026-10-15)
+- **Problema:** preflight Tailwind su `button`/`[type=submit]` con `appearance:button` e `background-color:#0000` restava **fuori da `@layer`**, quindi batteva le utility (`bg-sky-800`) su pagine FO come `/it/tickets/track` (pulsante «Cerca» invisibile).
+- **Fix:** `postcss/layer-button-preflight.cjs`, registrato in `postcss.config.js` **prima** di `isolate-legacy-important`, avvolge quel reset in `@layer base` (stessa esclusione Design Comuni del plugin successivo).
+- **Verifica:** `node postcss/layer-button-preflight.test.cjs`; CSS compilato con `@layer base{button...background-color:#0000}`; Playwright su `/it/tickets/track` (contrasto >= 4,5:1 a 375 e 1280 px). Story: [DCP-195](./dcp-195-pulsante-cerca-invisibile-e-reset-button-senza-layer.story.md).
+
 ## Resta da fare
 1. Inventario: per ogni file legacy, quali pagine/classi lo usano (grep sui blade + screenshot prima/dopo).
 2. Isolare i file che servono a `/it` sotto un selettore del suo blocco (`.design-comuni-homepage` o attributo su body), poi scollegarli per le pagine `/tests`.

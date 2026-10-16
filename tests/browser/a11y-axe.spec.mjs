@@ -87,3 +87,35 @@ for (const width of WIDTHS) {
     });
   }
 }
+
+async function dismissCookiebarIfVisible(page) {
+  const accept = page.locator('.gdpr-cookiebar button').first();
+  if (await accept.isVisible().catch(() => false)) {
+    await accept.click();
+    await page.locator('.gdpr-cookiebar').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+  }
+}
+
+test('mobile ticket filters modal receives focus and closes with Escape (DCP-195 B18)', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 800 });
+  await page.goto(`${BASE}/it/tickets`, { waitUntil: 'networkidle', timeout: 60000 });
+  await dismissCookiebarIfVisible(page);
+
+  const openFilters = page.locator('[data-bs-target="#modal-categories"]').first();
+  await expect(openFilters).toBeVisible();
+  await openFilters.click();
+
+  const modal = page.locator('#modal-categories');
+  await expect(modal).toHaveAttribute('aria-modal', 'true');
+  await expect(modal).toHaveAttribute('role', 'dialog');
+
+  const focusInside = await page.evaluate(() => {
+    const root = document.getElementById('modal-categories');
+    return Boolean(root && root.contains(document.activeElement));
+  });
+  expect(focusInside, 'il focus deve entrare nella modale all\'apertura').toBe(true);
+
+  await page.keyboard.press('Escape');
+  await expect(modal).toHaveAttribute('aria-hidden', 'true');
+  await expect(openFilters).toBeFocused();
+});
