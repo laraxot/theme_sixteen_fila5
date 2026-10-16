@@ -9,10 +9,26 @@ vestito Design Comuni.
 
 ## Contratto dati
 
+Linked from: [inbound-fo-events.md](./blueprints/inbound-fo-events.md),
+[inbound-fo-index.md](./inbound-fo-index.md). Supersedes: nessuna story; aggiorna
+il contratto runtime corrente (featured+explore). User: «devi sempre correggere
+quello che trovi da correggere, … non ti serve la mia conferma !».
+
 `Article` è il modello condiviso. Un evento è un Article con
 `content_type=event`, pubblicato e con data iniziale futura. La query pubblica
-è centralizzata nel Blog, mentre il tema consuma il paginator e non replica la
-logica editoriale.
+è centralizzata nel Blog (`ThemeComposer::featuredEvents` + `paginatedEvents`),
+mentre il tema monta il vestito e non replica la logica editoriale.
+
+### Shell + blocco
+
+- Folio `pages/[container0]/index.blade.php`: shell sottile, `data-dc`,
+  `body-page=eventi` quando `container0=events`.
+- CMS `events.index` → `pub_theme::components.blocks.events.index`.
+- Il blocco costruisce sezioni **evidenza** (featured, esclusi dall'explore) +
+  **tutti gli eventi** (paginator) + luoghi opzionali da
+  `config('sixteen.events.parity')`, poi include
+  `events-page/design-comuni` (hero img solo se file presente; empty state;
+  pulsante sezione solo se `button.label` valorizzato).
 
 ## UI e accessibilità
 

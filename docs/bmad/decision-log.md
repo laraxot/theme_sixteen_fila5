@@ -15,6 +15,15 @@ qmd: "decision log   redesign design comuni sixteen"
 
 # Decision Log — Redesign Design Comuni
 
+## D21: `/it/blog` parity `lista-risorse.html` (body only)
+**Contesto**: lista Novità “si vedeva male”: CSS DC spento (`data-dc` assente),
+`listing-parity` stilizzava il breadcrumb come card, markup featured spezzato.
+**Decisione**: shell con `data-dc` + `body-page=lista-risorse`; blocco allineato
+a lista-risorse.html (HTML≥90%/visual≥95% tranne header/footer); CSS lista-risorse
+riscritto su `cmp-hero`/`card-wrapper`/`bg-grey-card`.
+**Rationale**: Sixteen è Design Comuni; parity sul body, chrome da JSON sections.
+**Stato**: ✅ Confirmato — [blog-public-index.md](./blog-public-index.md)
+
 ## D20: Folio `container0.index` = shell JSON-only
 **Contesto**: `[container0]/index.blade.php` accumulava `match` native/utility,
 `@include` di `components/pages/*`, `x-dynamic-component` sul layout e fetch CMS
@@ -22,9 +31,9 @@ in `@php` — seconda verità rispetto ai JSON tenant.
 **Decisione**: shell Volt minimale (`name` + `PageSlugMiddleware` + `mount` +
 `<x-layouts.app>` + `<x-page>`). Contenuto solo da slug `{container0}.index`.
 Chiusura tag = `</x-layouts.app>` (mai residuo `</x-dynamic-component>`).
-Utility FO (`domande-frequenti`, `mappa-sito`, `services`, `segnalazioni`,
-`lista-categorie`) hanno JSON dedicati che puntano alle view legacy come blocco
-fino a eventuale refactor a blocchi atomici.
+`.page-content` porta sempre `data-dc`. Fuori `@volt` niente `$this` (usa
+parametri Folio tipo `$container0` per `body-page`).
+Utility FO hanno JSON `{container}.index` dedicati.
 **Rationale**: DRY + KISS + religione pages/ (tema = vestito, Cms = contenuto);
 allinea Filament way e parallelismo BMAD.
 **Stato**: ✅ Confirmato — [container0-index-shell-contract.md](./container0-index-shell-contract.md)
