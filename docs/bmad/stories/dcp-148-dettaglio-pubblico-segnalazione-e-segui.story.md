@@ -41,7 +41,7 @@ Struttura della pagina: breadcrumb (Home / Elenco segnalazioni / titolo, link lo
 2. Indirizzo: riga etichetta + valore, non il partial `info-summary`: ha un'intestazione vuota con filo e padding da riepilogo del wizard (visto nello screenshot, disallineato dalla mappa). Riusati `breadcrumb` e le classi dell'elenco.
 3. Visibilita': stessa query della mappa (`BuildPublicTicketsQueryAction::execute()` con `includeOwnTickets` di default). Il proprietario loggato apre il dettaglio della propria segnalazione ancora `pending` (lo richiede `CitizenMyTicketsDetailLinkTest`); ospite e altri cittadini: 404.
 4. Cronologia: mostro anche `reason` (motivazione scritta dall'operatore su un'attivita' con visibilita' pubblica) e "Prima: stato". Se la privacy dell'operatore non e' voluta, e' una riga da togliere.
-5. Cronologia: aggiunta una sola chiave, `occurred_date`; le date dei cambi di stato sono testo semplice, senza `<time datetime>`.
+5. Cronologia: chiavi `occurred_date` (giorno localizzato) e `occurred_on` (ISO `Y-m-d` per `<time datetime>` nel blocco `timeline.blade.php`, ECC 2026-10-15).
 6. Codice morto lasciato: nella ternaria `$pageTitle` di `index.blade.php` il ramo `ticket-detail` con `home.map.details` non e' piu' usato (il blocco lo sovrascrive); non l'ho tolto per toccare il minimo nel file contesto.
 
 ## Prove (comandi e output reali, 2026-10-13)

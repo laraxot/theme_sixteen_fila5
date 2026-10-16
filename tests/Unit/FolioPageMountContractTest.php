@@ -48,11 +48,21 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
 
     expect($html)->toContain("name('container0.index')");
     expect($html)->toContain("\$this->pageSlug = \$container0.'.index'");
+    expect($html)->toContain('<x-layouts.app');
+    expect($html)->toContain('</x-layouts.app>');
+    expect($html)->toContain('<x-page side="content"');
+    expect($html)->toContain(':slug="$this->pageSlug"');
+    expect($html)->toContain(':data="$this->data"');
+    expect($html)->toContain('data-dc');
+    expect($html)->toContain('data-slug="{{ $this->pageSlug }}"');
     expect($html)->not->toContain('resolveHomeTitle');
-    expect($html)->not->toContain('CmsPage');
     expect($html)->not->toContain('pageTitle');
     expect($html)->not->toContain('metaDescription');
     expect($html)->not->toContain('supportedLocales');
+    expect($html)->not->toContain('nativePage');
+    expect($html)->not->toContain('utilityPage');
+    expect($html)->not->toContain('x-dynamic-component');
+    expect($html)->not->toContain("@include('pub_theme::components.pages.");
 });
 
 test('folio pages con Component vietano props extends section e php slug hack', function (): void {

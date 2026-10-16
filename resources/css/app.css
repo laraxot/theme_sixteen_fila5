@@ -28,13 +28,15 @@
 @plugin "daisyui";
 
 /* ========================================
-   OVERRIDE TAILWIND DEFAULT FONTS
-   Force Titillium Web ONLY - no fallbacks
+   FONT TOKENS — Bootstrap Italia / Designers Italia
+   Titillium Web (sans), Lora (serif), Roboto Mono (mono).
+   Self-hosted via design-comuni/fonts.css + Vite relative url (DCP-183 /
+   https://laravel.com/docs/vite#working-with-fonts — Local Fonts / native Vite).
 ======================================== */
 @theme {
-  --font-sans: "Titillium Web";
-  --font-serif: "Titillium Web";
-  --font-mono: "Titillium Web";
+  --font-sans: "Titillium Web", system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
 
   /* Verde PA — allineato a tailwind.config.js e PaDesignColors (#007A52) */
   --color-primary-50: #e6f7f0;
@@ -183,6 +185,26 @@
 @import './design-comuni/fonts.css';
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
+
+/* Leggibilità: gerarchia più sobria su /it senza ridurre il testo di base.
+   I controlli mantengono almeno 16px e le aree di attivazione WCAG. */
+.design-comuni-header .text-2xl,
+.design-comuni-header .sm\:text-3xl {
+    font-size: clamp(1.25rem, 2vw, 2rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+.design-comuni-header nav a.text-lg {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+/* DCP-221: un solo contratto tipografico home in 16-homepage-civic-reframe.css.
+   Qui niente peso/famiglia rivali (Lora/700) che ripristinano il "ciccione". */
+.fc-home-hero__intro {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+}
 
 /* Search results parity: keep the query control on one line at every viewport. */
 .search-results-page .dc-search-form {

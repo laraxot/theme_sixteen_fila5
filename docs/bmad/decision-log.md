@@ -4,7 +4,7 @@ title: "Decision Log — Redesign Design Comuni Tema Sixteen"
 type: decision-log
 status: active
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 owner: "@team-fixcity"
 links:
   github_issue: "#150"
@@ -14,6 +14,36 @@ qmd: "decision log   redesign design comuni sixteen"
 ---
 
 # Decision Log — Redesign Design Comuni
+
+## D20: Folio `container0.index` = shell JSON-only
+**Contesto**: `[container0]/index.blade.php` accumulava `match` native/utility,
+`@include` di `components/pages/*`, `x-dynamic-component` sul layout e fetch CMS
+in `@php` — seconda verità rispetto ai JSON tenant.
+**Decisione**: shell Volt minimale (`name` + `PageSlugMiddleware` + `mount` +
+`<x-layouts.app>` + `<x-page>`). Contenuto solo da slug `{container0}.index`.
+Chiusura tag = `</x-layouts.app>` (mai residuo `</x-dynamic-component>`).
+Utility FO (`domande-frequenti`, `mappa-sito`, `services`, `segnalazioni`,
+`lista-categorie`) hanno JSON dedicati che puntano alle view legacy come blocco
+fino a eventuale refactor a blocchi atomici.
+**Rationale**: DRY + KISS + religione pages/ (tema = vestito, Cms = contenuto);
+allinea Filament way e parallelismo BMAD.
+**Stato**: ✅ Confirmato — [container0-index-shell-contract.md](./container0-index-shell-contract.md)
+
+## D19: Footer JSON SSoT (DCP-222 / DCP-198 A5)
+**Contesto**: Footer mostrava «Nome del Comune» e voci morte come link.
+**Decisione**: Come header — contenuto in `footer.json`; Blade solo vestito;
+URL vuoti non emessi; FixCity brand+slogan; social/UE vuoti.
+**Rationale**: D11 + Ponytail; accessibilita' (niente `<a>` nudi).
+**Stato**: ✅ Confirmato — `dcp-222-footer-json-ssot-vestito.story.md`
+
+## D18: Tipografia FO — Lora hero + Titillium 600 (DCP-221)
+**Contesto**: H1 poco leggibile; BI impone Titillium / Lora / Roboto Mono.
+**Decisione**: H1 home = **Lora Regular 400** (`.font-serif`), scale BI h1,
+lh 1.2; sans UI = Titillium 600. Font via Vite local (`fonts.css` relative url,
+DCP-183). Token `--font-serif` / `--dc-font-serif` = Lora.
+**Rationale**: Bootstrap Italia tipografia + WCAG; Lora nato per lettura display;
+niente peso 600 su Lora (non self-hosted).
+**Stato**: ✅ Confirmato — story `dcp-221-homepage-tipografia-leggibilita-wcag.story.md`
 
 ## D1: Script non in laravel/scripts/ ma in bashscripts/
 **Contesto**: Richiesta esplicita dell'utente.

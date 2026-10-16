@@ -51,3 +51,20 @@ it('has no font file in resources/fonts that css does not declare', function () 
     Assert::assertNotSame([], $onDisk, 'resources/fonts e\' vuota o manca.');
     Assert::assertSame([], array_values(array_diff($onDisk, $declared)), 'woff2 orfani in resources/fonts (non dichiarati in fonts.css)');
 });
+
+it('uses the local editorial serif only for the homepage civic headline', function () use ($themeRoot): void {
+    $homepageCss = file_get_contents($themeRoot.'/resources/css/app/16-homepage-civic-reframe.css');
+
+    Assert::assertStringContainsString('.fc-home-hero h1', $homepageCss);
+    // !important obbligatorio: 08-layout forza Titillium su body * (shell Filament FO).
+    Assert::assertStringContainsString('font-family: "Lora", Georgia, serif !important', $homepageCss);
+    Assert::assertStringContainsString('font-size: clamp(2.5rem, 4vw, 3rem)', $homepageCss);
+    Assert::assertStringContainsString('font-weight: 400 !important', $homepageCss);
+    Assert::assertStringContainsString('line-height: 1.2', $homepageCss);
+    // Lora self-hosted non ha 600: il contratto Titillium 600 non deve riapplicarsi all'h1 hero.
+    Assert::assertDoesNotMatchRegularExpression(
+        '/\.fc-home-hero h1[^{]*\{[^}]*font-weight:\s*600/',
+        $homepageCss,
+        'Hero h1 Lora deve restare a weight 400 (niente 600 sintetizzato).'
+    );
+});

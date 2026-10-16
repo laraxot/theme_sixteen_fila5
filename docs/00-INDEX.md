@@ -3,7 +3,7 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-updated: 2026-10-15
+updated: 2026-10-14
 qmd: "sixteen theme design comuni folio volt accessibility documentation index classificazione cartelle indici storici INDEX.md index.md"
 status: active
 tags: [docs, sixteen]
@@ -92,14 +92,6 @@ nel log Second Brain.
 I nuovi `.md` usano nomi lowercase senza date/timestamp e senza suffissi numerici
 sequenziali (`-1`, `-2`, `-3`). I file storici restano tali finché una mappa di rinomina
 verificata non garantisce tutti i riferimenti.
-
-
-## Standing order e moduli
-
-- Qualità/PHPStan/BMAD: [standing order](../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md) — azzerare PHPStan, docs ordinate, forward-only.
-- Cms (contenuti/Folio): [Modules/Cms/docs](../../../Modules/Cms/docs/README.md)
-- UI (componenti condivisi): [Modules/UI/docs](../../../Modules/UI/docs/README.md)
-- Scaffold root rinominati in kebab-case (2026-10-15): `qmd-setup.md`, `on-demand-pattern.md`, `project-structure.md`, `performance-optimization.md`, `redundancy-analysis.md`, `no-bootstrap-italia.md`, `daisyui.md`, `build-workflow.md`. Debito UPPERCASE residuo in root: non creare nuovi file UPPERCASE; consolidare verso i canonici in `wiki/`, `bmad/`, `build/`.
 
 ## Definition of done visuale
 

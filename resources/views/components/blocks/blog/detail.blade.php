@@ -1,0 +1,144 @@
+@props(['post', 'container0' => 'blog'])
+
+{{-- Callers: Folio [container0]/[slug0] (Article) + Blog pages/blog/[slug]. Schema: content_blocks image alt/caption/credit + nestedComments. --}}
+{{-- Layout: lead+body PRIMA dell'immagine così il testo non resta sotto la cookiebar fissa (y~749). --}}
+@php
+    $title = (string) $post->getAttribute('title');
+    $image = (string) $post->getAttribute('main_image_url');
+    $blocks = $post->getAttribute('content_blocks');
+    $blockCollection = is_array($blocks) ? collect($blocks) : collect();
+    $paragraphs = $blockCollection->where('type', 'paragraph')->pluck('data.text')->filter();
+    $imageBlock = $blockCollection->firstWhere('type', 'image');
+    $imageAlt = is_array($imageBlock)
+        ? (string) data_get($imageBlock, 'data.alt', $title)
+        : $title;
+    $imageCaption = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.caption', '') : '';
+    $imageCredit = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.credit', '') : '';
+    if ($image === '' && is_array($imageBlock)) {
+        $image = (string) data_get($imageBlock, 'data.url', '');
+    }
+    $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
+    $isEvent = $container0 === 'events';
+    $listingPath = $isEvent ? '/events' : '/blog';
+    $category = $post->category?->getAttribute('name');
+    $description = (string) ($post->getAttribute('description') ?? '');
+@endphp
+
+<div class="container" id="main-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="cmp-breadcrumbs" role="navigation">
+                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                    <ol class="breadcrumb p-0" data-element="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ $localize('/') }}">Home</a>
+                            <span class="separator">/</span>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ $localize($listingPath) }}">{{ $isEvent ? 'Eventi' : 'Novità' }}</a>
+                            <span class="separator">/</span>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<article class="container pt-3 pb-5 blog-article-detail" aria-labelledby="post-title">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <header class="mb-3">
+                @if (is_string($category) && $category !== '')
+                    <p class="category-top mb-2">
+                        <span class="category">{{ strtoupper($category) }}</span>
+                    </p>
+                @endif
+                <h1 id="post-title" class="text-black h2 mb-2" data-element="page-name">{{ $title }}</h1>
+                <p class="text-muted mb-0">
+                    @if ($isEvent && $post->event_start_date)
+                        <time datetime="{{ $post->event_start_date->toIso8601String() }}">
+                            {{ $post->event_start_date->translatedFormat('j F Y, H:i') }}
+                        </time>
+                        @if ($post->event_end_date)
+                            <span aria-hidden="true"> – </span>
+                            <time datetime="{{ $post->event_end_date->toIso8601String() }}">
+                                {{ $post->event_end_date->translatedFormat('j F Y, H:i') }}
+                            </time>
+                        @endif
+                    @else
+                        <time datetime="{{ optional($post->published_at)->toDateString() }}">
+                            {{ optional($post->published_at)->translatedFormat('j F Y') }}
+                        </time>
+                    @endif
+                </p>
+            </header>
+
+            @if ($description !== '')
+                <p class="lead mb-3">{{ $description }}</p>
+            @endif
+
+            <div class="post-content richtext-wrapper lora mb-4">
+                @forelse ($paragraphs as $paragraph)
+                    {!! $paragraph !!}
+                @empty
+                    @if ($description === '')
+                        <p class="text-secondary" role="status">Contenuto non ancora disponibile.</p>
+                    @endif
+                @endforelse
+            </div>
+
+            @if ($image !== '')
+                <figure class="mb-4 blog-article-detail__media">
+                    <img src="{{ $image }}" alt="{{ $imageAlt }}" class="img-fluid w-100 rounded" width="1200" height="675" fetchpriority="high">
+                    @if ($imageCaption !== '' || $imageCredit !== '')
+                        <figcaption class="figure-caption text-center pt-3">
+                            @if ($imageCaption !== '')
+                                {{ $imageCaption }}
+                            @endif
+                            @if ($imageCredit !== '')
+                                <span class="d-block text-muted small">{{ $imageCredit }}</span>
+                            @endif
+                        </figcaption>
+                    @endif
+                </figure>
+            @endif
+
+            <section class="mt-5 pt-4 border-top" aria-labelledby="comments-title">
+                <h2 id="comments-title" class="h3 mb-4">Commenti</h2>
+                @auth
+                    @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
+                        'commentableType' => $post::class,
+                        'commentableKey' => (string) $post->getKey(),
+                        'readOnly' => false,
+                        'hideNotifications' => true,
+                        'noReplies' => true,
+                        'noReactions' => true,
+                    ], key('blog-comments-'.$post->getKey()))
+                @endauth
+                @guest
+                    @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
+                        'commentableType' => $post::class,
+                        'commentableKey' => (string) $post->getKey(),
+                        'readOnly' => true,
+                        'hideNotifications' => true,
+                        'noReplies' => true,
+                        'noReactions' => true,
+                    ], key('blog-comments-ro-'.$post->getKey()))
+                    <p class="mt-3 text-sm text-muted">
+                        <a class="underline" href="{{ $localize('/auth/login') }}">
+                            {{ __('comment::txt.log-in-for-comment') }}
+                        </a>
+                    </p>
+                @endguest
+            </section>
+
+            <p class="mt-5">
+                <a class="read-more" href="{{ $localize($listingPath) }}">
+                    <span class="text">{{ $isEvent ? 'Torna agli eventi' : 'Torna alle novità' }}</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</article>

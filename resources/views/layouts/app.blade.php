@@ -7,7 +7,7 @@
 
     <x-section slug="header" />
 
-    <main id="main-container">
+    <main id="main-container" @if(!empty($bodyPage)) data-page="{{ $bodyPage }}" @endif>
         @hasSection('content')
             @yield('content')
         @else

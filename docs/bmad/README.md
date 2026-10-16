@@ -4,7 +4,7 @@ title: "BMAD UI/UX Sixteen — boundary FixCity"
 type: workflow-boundary
 status: active
 created: 2026-09-26
-updated: 2026-10-15
+updated: 2026-09-27
 tags: [bmad, ui, ux, sixteen, fixcity]
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
@@ -14,10 +14,24 @@ discussions:
 
 # Ownership BMAD del tema Sixteen
 
+## Kit BMAD owner (canonico)
+
+- [BMAD Planning](../bmad-planning.md)
+- [BMAD Brainstorming](../bmad-brainstorming.md)
+- [Filament blueprint](./filament-blueprint.md)
+- [Project context](./project-context.md)
+- [Decision log](./decision-log.md)
+- [Shell Folio `container0.index`](./container0-index-shell-contract.md) (D20)
+
+**Inbound FO Novità/Eventi:** [inbound-fo-index.md](./inbound-fo-index.md).
+
 Sixteen partecipa ai workflow FixCity `07-ui-ux`, `08-security` (privacy visuale) e
 `09-release` (smoke browser), più al percorso [actor-citizen](../../../../Modules/Fixcity/docs/bmad/workflows/actor-citizen.md).
 Non replica Actions, policy, schema o persistenza di FixCity.
 Indice: [FixCity workflows](../../../../Modules/Fixcity/docs/bmad/workflows/README.md).
+
+**Design Comuni BMAD (ex `bmad-output/`):** [front-office-design-comuni/](front-office-design-comuni/README.md).
+Documenti FO solo qui — mai in `bmad-output/`.
 
 ## Homepage guest (2026-09-27)
 
@@ -85,13 +99,13 @@ accessibilità completa né staging.
 
 - [FreeLLMAPI theme boundary](./freellmapi-theme-boundary.md) — nessuna dipendenza dal runtime visuale
 
+## Inbound marketing
+
+- [Contratto Blog/Eventi (`content_type`)](content-type-contract.md)
+- [Liste blog/eventi](../stories/inbound-blog-event-listing.story.md)
+- [Dossier coordinatore](../../../../Modules/Fixcity/docs/bmad/inbound-marketing/README.md)
+
 ## DesignComuni
 
 - [Information architecture presentation](./design-comuni-information-architecture.md) — contratto di resa ODS
 - [Theme identity decision](./design-comuni-theme-identity-decision.md) — nessun layout DesignComuni parallelo
-
-## Standing order (tema)
-
-PHPStan a zero, qualità continua, docs BMAD aggiornate: [standing order wiki](../../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
-Contratti header/footer: [header-footer-sections-contract.md](header-footer-sections-contract.md).
-Moduli: [Cms](../../../../Modules/Cms/docs/README.md), [UI](../../../../Modules/UI/docs/README.md).

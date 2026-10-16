@@ -78,7 +78,7 @@
 .it-header-navbar-wrapper .navbar-nav .nav-link {
   background-color: transparent !important;
   color: #ffffff !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important; /* DCP-221: Designers Italia medium/semibold */
   border-left: none !important;
 }
 
