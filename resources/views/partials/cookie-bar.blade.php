@@ -114,7 +114,7 @@
                 <p id="cookie-description" class="text-sm leading-relaxed text-neutral-300">
                     {{ __('gdpr::cookie.description') }}
                     <a 
-                        href="{{ route('pages.view', ['slug' => 'privacy']) }}" 
+                        href="{{ url('/pages/'privacy'') }}" 
                         class="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors ml-1"
                         target="_blank"
                         rel="noopener noreferrer"

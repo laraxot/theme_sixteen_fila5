@@ -7,7 +7,7 @@
     'cta_url' => null,
     'items' => [],
     'navigation' => [],
-    'region' => null,
+    'logo' => null,
     'utility_links' => [],
     'account' => null,
 ])
@@ -22,7 +22,7 @@
             'cta_url' => $cta_url,
             'items' => $items,
             'navigation' => $navigation,
-            'region' => $region,
+            'logo' => $logo,
             'utility_links' => $utility_links,
             'account' => $account,
         ];

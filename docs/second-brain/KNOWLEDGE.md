@@ -28,6 +28,12 @@ qmd: "second brain   sixteen theme knowledge base sixteen"
 - `components.blocks.homepage` — Hero, news cards, CTA
 - `components.blocks.segnalazione-dettaglio` — Privacy, dati, riepilogo
 - `components.blocks.template-index` — Indice template
+- `auth.login` JSON — `pages/auth/login.blade.php.json` + `content/pages/auth.login.json`; slug `auth.login`; blade vestito, CMS contenuto; nessuna Resource Filament tema
+- `XotBaseMigration` — ogni migrazione che estende deve dichiarare esplicitamente `protected ?string $model_class`; nome file deve seguire `create_<table>_table.php`; se tabella esiste già, `up()` vuota + commento BMAD
+- Regola preventiva (D34): `grep -L 'model_class' ...` deve essere vuoto per tutte le migrazioni XotBaseMigration; commento BMAD obbligatorio in cima; nessun controller
+- Regola inviolabile D35 — dati sacri: mai `migrate:fresh`, `migrate --force`, `migrate:refresh`; nei test mai `RefreshDatabase`; documento primario `Modules/Fixcity/docs/REGOLA_DATI_SACRI.md`
+- Regola D36 — allineamento DB-codice: prima di usare comandi Filament (`make:filament-user`) verificare `Schema::getColumnType('users','id')` vs `HasUuids`; discrepanza documentata in `docs/bmad/discrepanza-db-codice-users-id.story.md`
+- Regola D37 — localizzazione mcamara: usare `localizeURL($url, $locale?)`; `getLocalizedURL($locale, $url)` ha il locale per primo. Mai `getLocalizedURL('/it')` né `getLocalizedURL('/')`. Vedi `docs/bmad/locale-unsupported-correction.story.md`
 
 ## QMD Index
 ```bash
