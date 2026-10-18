@@ -1,33 +1,29 @@
-<div id="faq-content" class="container-italia mx-auto max-w-5xl px-4 py-10" aria-labelledby="faq-title">
-    <nav class="mb-8 text-sm" aria-label="{{ __('pub_theme::faq.navigation.label') }}">
-        <a class="font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">
-            {{ __('pub_theme::faq.navigation.home') }}
-        </a>
-    </nav>
-
-    <header class="mb-8 max-w-3xl">
-        <h1 id="faq-title" class="mb-4 text-4xl font-bold text-gray-900">{{ __('pub_theme::faq.meta.title') }}</h1>
-        <p class="text-lg leading-relaxed text-gray-700">{{ __('pub_theme::faq.intro') }}</p>
-    </header>
-
-    <section class="space-y-4" aria-label="{{ __('pub_theme::faq.meta.title') }}">
-        @foreach (__('pub_theme::faq.items') as $item)
-            <details class="group rounded-lg border border-gray-300 bg-white p-5 open:border-primary-600 open:shadow-sm">
-                <summary class="cursor-pointer text-lg font-semibold text-gray-900 marker:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2">
-                    {{ $item['question'] }}
-                </summary>
-                <p class="mt-4 leading-relaxed text-gray-700">{{ $item['answer'] }}</p>
-            </details>
-        @endforeach
-    </section>
-
-    <nav class="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6" aria-label="{{ __('pub_theme::faq.navigation.label') }}">
-        <h2 class="mb-4 text-xl font-bold text-gray-900">{{ __('pub_theme::faq.navigation.label') }}</h2>
-        <ul class="flex flex-wrap gap-x-6 gap-y-4">
-            <li><a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create') }}">{{ __('pub_theme::faq.links.service') }}</a></li>
-            <li><a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets') }}">{{ __('pub_theme::faq.links.reports') }}</a></li>
-            <li><a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track') }}">{{ __('pub_theme::faq.links.tracking') }}</a></li>
-            <li><a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/privacy') }}">{{ __('pub_theme::faq.links.privacy') }}</a></li>
-        </ul>
-    </nav>
-</div>
+{{-- BMAD + Second Brain: /it/domande-frequenti — alta visual parity design-comuni-pagine-statiche --}}
+{{-- Stack: Tailwind + Alpine + Lit + DaisyUI + Flowbite (NO Bootstrap Italia) --}}
+{{-- DB: MariaDB — SQLite escluso; MCP migliorati (mcp__laravel_boost / mcp__qmd) --}}
+<section class="faq-design-comuni container mx-auto px-4 py-12" aria-label="Domande frequenti">
+  <header class="mb-10">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">Domande frequenti</h1>
+    <nav aria-label="Breadcrumb" class="mt-3 text-sm text-slate-500">{{ __('Home') }} / {{ __('FAQ') }}</nav>
+  </header>
+  <div class="grid lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2 space-y-6">
+      @foreach($faqs ?? [] as $faq)
+        <article class="card bg-white shadow-md rounded-2xl p-6 border border-slate-100">
+          <h2 class="text-xl font-bold text-slate-800 mb-2">{{ $faq->title }}</h2>
+          <p class="text-slate-600 leading-relaxed">{{ $faq->body }}</p>
+        </article>
+      @endforeach
+    </div>
+    <aside class="space-y-6" aria-label="Filtri e categorie">
+      <div class="bg-base-100 rounded-2xl p-5 shadow-sm border border-slate-100">
+        <h3 class="font-bold text-lg mb-3">Categorie</h3>
+        <div class="flex flex-wrap gap-2">
+          @foreach($categories ?? [] as $cat)
+            <a href="#" class="badge badge-lg badge-soft badge-primary">{{ $cat }}</a>
+          @endforeach
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
