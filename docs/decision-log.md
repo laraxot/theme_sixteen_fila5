@@ -43,3 +43,9 @@ qmd: "decision log   front office redesign with designcomuni sixteen"
 
 ## Second brain
 - `memory/` e `daily/` aggiornati con riferimenti DesignComuni e regola operativa BMAD.
+
+## Decisione 6 — Consumer auth dipendenti da UserContract
+- **Scelta**: nei consumer del tema controllare l'utente con `UserContract`, non con `BaseUser`.
+- **Motivazione**: `BaseUser` è una implementazione astratta; il contratto consente modelli utente concreti di altri moduli senza accoppiamento del tema.
+- **Capability**: relazioni o comportamenti opzionali devono usare il contratto specifico o una guardia capability, non un ritorno implicito a `BaseUser`.
+- **Fonte**: `Modules/User/docs/wiki/concepts/usercontract-boundary.md` e `Themes/Sixteen/docs/auth/user-contract-boundary.md`.

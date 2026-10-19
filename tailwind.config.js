@@ -73,6 +73,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Titillium Web', 'Inter var', ...defaultTheme.fontFamily.sans],
+                serif: ['Lora', 'Georgia', ...defaultTheme.fontFamily.serif],
                 mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
             },
             colors: {

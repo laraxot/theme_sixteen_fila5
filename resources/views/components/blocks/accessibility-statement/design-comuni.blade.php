@@ -25,7 +25,7 @@
 <div class="container" id="main-container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-            @include('pub_theme::components.blocks.content-page.partials.breadcrumb', ['breadcrumb' => ['items' => [['label' => __('pub_theme::accessibility.home'), 'url' => '/'.app()->getLocale()]], 'current' => __('pub_theme::accessibility.title')]])
+            @include('pub_theme::components.blocks.content-page.partials.breadcrumb', ['breadcrumb' => ['items' => [['label' => __('pub_theme::accessibility.home'), 'url' => '/'.app()->getLocale()]], 'current' => __('pub_theme::accessibility.page.title.text')]])
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
             <div class="cmp-hero">
                 <section class="it-hero-wrapper bg-white align-items-start">
                     <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
-                        <h1 class="text-black" data-element="page-name">{{ __('pub_theme::accessibility.title') }}</h1>
+                        <h1 class="text-black" data-element="page-name">{{ __('pub_theme::accessibility.page.title.text') }}</h1>
                         <div class="hero-text"><p>{{ __('pub_theme::accessibility.lead') }} <a href="#feedback">{{ __('pub_theme::accessibility.feedback.jump') }}</a></p></div>
                     </div>
                 </section>

@@ -432,6 +432,11 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
 .it-brand-wrapper svg image {
   width: 100% !important;
   height: 100% !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.it-brand-wrapper > a > svg {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Hamburger: mobile-header-fix.css usa grid con navbar-wrapper a z-index:1 sotto il center (z-index:20).
