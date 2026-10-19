@@ -17,6 +17,7 @@ status: active
 - [Documentation index](./INDEX.md)
 - [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
 - [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
+- [Testing boundary](./testing-convention.md)
 
 Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8.4, Filament 5. Biglietto da visita: [IT](../README.md), [EN](./readme-en.md). L'indice operativo e' [00-INDEX.md](00-INDEX.md).
 
