@@ -1,1 +1,23 @@
-# TRANSLATION KEY CONVENTION (5 ELEMENTS)\nnamespace::context.collection.key.type\nEsempi:\nfixcity::auth.login.form.email.input\nfixcity::auth.login.form.password.input\nfixcity::auth.login.form.submit.button\nuser::auth.login.email.label\nuser::auth.login.password.label\nfixcity::auth.register.link.text\nfixcity::auth.forgot.password.link.text\nuser::auth.register.intro.text\npub_theme::accessibility.page.title
+# Translation key convention (five elements)
+
+Every new translation key has exactly five elements:
+
+```text
+<namespace>::<context>.<collection>.<key>.<type>
+```
+
+Examples:
+
+- `fixcity::auth.login.form.email.input`
+- `fixcity::auth.login.form.password.input`
+- `user::auth.login.password.text`
+- `fixcity::auth.register.link.text`
+- `pub_theme::accessibility.page.title.text`
+
+The namespace is part of the count. Therefore `fixcity::auth.intro`,
+`user::auth.password`, `user::auth.login.password`, and
+`pub_theme::accessibility.title` are incomplete and must not be introduced.
+
+For legacy keys, migrate the caller and the owning locale tree together;
+preserve the translated value and add a focused contract test when the key is
+used by a public page or Filament widget.

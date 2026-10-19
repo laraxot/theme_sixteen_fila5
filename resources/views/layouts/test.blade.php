@@ -12,9 +12,6 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        
         <!-- Tailwind CSS + Test overrides (includes Filament wizard parity) -->
         @vite(['resources/css/app-test.css'], 'themes/Sixteen')
 

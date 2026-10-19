@@ -8,16 +8,17 @@ Conforme a `AGENTS.md` + `MEMORY.md`, tutte le chiavi di traduzione devono avere
 
 Esempi validi:
 - `fixcity::auth.login.intro.text`
-- `fixcity::auth.register.link`
+- `fixcity::auth.register.link.text`
 - `user::auth.login.email.text`
 - `user::auth.login.password.text`
-- `user::auth.login.login.button`
+- `user::auth.login.button.text`
 - `user::auth.login.forgot_password.text`
-- `pub_theme::accessibility.title`
+- `pub_theme::accessibility.page.title.text`
 
 Non valide (mancano elementi):
-- `fixcity::auth.intro` → mancano `.login.` e `.text`
-- `user::auth.password` → mancano `.login.` e `.text`
+- `fixcity::auth.intro` → mancano `.login.` e `.text` → **FIXED**: `fixcity::auth.login.intro.text`
+- `user::auth.password` → mancano `.login.` e `.text` → **FIXED**: `user::auth.login.password.text`
+- `pub_theme::accessibility.title` → mancano `.page.` → **FIXED**: `pub_theme::accessibility.page.title.text`
 
 Stack: Tailwind + Alpine + Lit + DaisyUI + Flowbite (NO Bootstrap Italia)
 DB: mysql (MariaDB) — dati sacri, mai `migrate --force` / `database:refresh`
@@ -34,3 +35,7 @@ Pattern standard (da pages/index.blade.php -> applicato a pages/auth/login.blade
 - Link OAuth: `route('oauth.redirect', ['provider' => 'google'])`
 - DesignComuni: `agid-form-container`, `agid-form-header`, `agid-button`
 - NO Bootstrap Italia / NO controllers / NO web.php/api.php
+
+# Convenzione 5 elementi aggiornata BMAD
+<namespace>::<contesto>.<collezione>.<chiave>.<tipo>
+Esempio corretto: user::auth.login.intro.text

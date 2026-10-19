@@ -17,13 +17,13 @@ Ho erroneamente cambiato chiavi di traduzione strutturate in stringhe dirette.
 
 **SBAGLIATO:**
 ```php
-// DA: {{ __('pub_theme::auth.login.submit') }}
+// DA: {{ __('pub_theme::auth.login.submit.text') }}
 // A: {{ __('Accedi') }}  ❌ ERRORE GRAVE!
 ```
 
 **GIUSTO:**
 ```php
-{{ __('pub_theme::auth.login.submit') }}  ✅ CORRETTO
+{{ __('pub_theme::auth.login.submit.text') }}  ✅ CORRETTO
 ```
 
 ## 🎯 REGOLE FONDAMENTALI
@@ -32,11 +32,11 @@ Ho erroneamente cambiato chiavi di traduzione strutturate in stringhe dirette.
 Laravel usa un sistema di namespace per le traduzioni:
 
 ```php
-__('namespace::file.key.subkey')
+__('namespace::context.collection.key.type')
 ```
 
 **Esempi:**
-- `pub_theme::auth.login.submit` → `/lang/it/auth.php` → `['login' => ['submit' => 'Accedi']]`
+- `pub_theme::auth.login.submit.text` → `/lang/it/auth.php` → `['login' => ['submit' => ['text' => 'Accedi']]]`
 - `user::profile.settings` → Modulo User → `['profile' => ['settings' => 'Impostazioni']]`
 
 ### 2. STRUTTURA CORRETTA

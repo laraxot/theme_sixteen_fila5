@@ -8,7 +8,14 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Startseite',
-    'title' => 'Erklärung zur Barrierefreiheit',
+    'page' => [
+        'title' => ['text' => 'Erklärung zur Barrierefreiheit'],
+    ],
+    'page' => ['title' => ['text' => 'Barrierefreiheitserklärung']],
+    'title' => [
+        'text' => 'Erklärung zur Barrierefreiheit',
+        'label' => 'Erklärung zur Barrierefreiheit',
+    ],
     'lead' => 'Erklärung nach Art. 3-quater des italienischen Gesetzes Nr. 4 vom 9. Januar 2004.',
     'incomplete' => [
         'title' => 'Erklärung noch nicht vollständig',

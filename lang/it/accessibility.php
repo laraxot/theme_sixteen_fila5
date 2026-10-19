@@ -8,7 +8,14 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Home',
-    'title' => 'Dichiarazione di accessibilità',
+    'page' => [
+        'title' => ['text' => 'Dichiarazione di accessibilità'],
+    ],
+    'page' => ['title' => ['text' => 'Dichiarazione di accessibilità']],
+    'title' => [
+        'text' => 'Dichiarazione di accessibilità',
+        'label' => 'Dichiarazione di accessibilità',
+    ],
     'lead' => 'Dichiarazione resa ai sensi dell’art. 3-quater della legge 9 gennaio 2004, n. 4.',
     'incomplete' => [
         'title' => 'Dichiarazione non ancora completa',

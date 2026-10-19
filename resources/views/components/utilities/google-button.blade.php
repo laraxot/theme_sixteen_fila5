@@ -12,6 +12,7 @@
     };
 @endphp
 
+@if (Route::has('oauth.redirect'))
 <div x-data="{ open: false }" class="google-login-wrapper w-full">
     <a
         href="{{ route('oauth.redirect', ['provider' => 'google']) }}"
@@ -21,3 +22,4 @@
         <span>{{ __('user::auth.login.google.button.text') }}</span>
     </a>
 </div>
+@endif

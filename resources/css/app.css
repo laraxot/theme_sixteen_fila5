@@ -8,6 +8,9 @@
 /* Font: Titillium Web, Lora e Roboto Mono sono serviti dai file locali dichiarati in css/design-comuni/fonts.css (DCP-137).
    Niente @import verso fonts.googleapis.com: ogni visita manderebbe l'indirizzo IP del visitatore a un terzo non dichiarato nell'informativa. */
 
+/* Must be before all CSS rules so Vite bundles the local font assets reliably. */
+@import './design-comuni/fonts.css';
+
 /* Leaflet + cluster (mappa segnalazioni /it/) */
 @import 'leaflet/dist/leaflet.css';
 @import 'leaflet.markercluster/dist/MarkerCluster.css';
@@ -150,6 +153,7 @@
 @import './components/design-comuni-shell-a11y.css';
 
 @import './homepage-tailwind-parity.css';
+@import './design-comuni/typography.css';
 
 /* Homepage-only Tailwind parity overrides must remain last: generic civic rules
    intentionally keep legacy front-office carousels horizontal elsewhere. */
@@ -182,7 +186,6 @@
 }
 
 /* Design Comuni: blocco homepage (stili generati, scope .dc-page) */
-@import './design-comuni/fonts.css';
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
 

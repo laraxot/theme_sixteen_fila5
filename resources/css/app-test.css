@@ -2,6 +2,9 @@
  * Sixteen Theme - Design Comuni Italia - TEST
  */
 
+/* The test layout is a separate Vite entry; it must carry the same local font contract. */
+@import './design-comuni/fonts.css';
+
 /* ========================================
    TAILWIND CSS 4.x BASE
 ======================================== */
@@ -30,3 +33,9 @@
    Forces Filament runtime classes to look like Design Comuni
 ======================================== */
 @import './components/filament-wizard-parity.css';
+
+/* The test entry does not import the front-office runtime overrides. */
+.it-brand-wrapper > a > svg,
+.it-brand-wrapper > a > svg image {
+    filter: brightness(0) invert(1) !important;
+}

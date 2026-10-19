@@ -8,7 +8,14 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Inicio',
-    'title' => 'Declaración de accesibilidad',
+    'page' => [
+        'title' => ['text' => 'Declaración de accesibilidad'],
+    ],
+    'page' => ['title' => ['text' => 'Declaración de accesibilidad']],
+    'title' => [
+        'text' => 'Declaración de accesibilidad',
+        'label' => 'Declaración de accesibilidad',
+    ],
     'lead' => 'Declaración hecha conforme al art. 3-quater de la ley italiana n.º 4 de 9 de enero de 2004.',
     'incomplete' => [
         'title' => 'Declaración aún incompleta',
