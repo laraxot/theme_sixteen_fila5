@@ -70,9 +70,9 @@ new class extends Component {
             ? $composer->findPublishedEventBySlug($slug0)
             : null);
     $pageTitle = $specialPage === 'auth-login'
-        ? __('fixcity::auth.title')
+        ? __('fixcity::auth.login.title.text')
         : ($specialPage === 'auth-register'
-        ? __('fixcity::auth.register_title')
+        ? __('fixcity::auth.register.title.text')
         : ($specialPage === 'ticket-track'
         ? __('fixcity::ticket.track.title')
         : ($specialPage === 'ticket-detail' ? __('pub_theme::home.map.details')
@@ -80,8 +80,8 @@ new class extends Component {
             ? (string) $blogPost->getAttribute('title')
             : ($cmsPage?->getTranslation('title', app()->getLocale(), false) ?? config('app.name'))))));
     $pageDescription = match ($specialPage) {
-        'auth-login' => __('fixcity::auth.meta_description'),
-        'auth-register' => __('fixcity::auth.register_meta_description'),
+        'auth-login' => __('fixcity::auth.login.meta_description.text'),
+        'auth-register' => __('fixcity::auth.register.meta_description.text'),
         default => $blogPost instanceof \Modules\Blog\Models\Article
             ? (string) ($blogPost->getAttribute('excerpt') ?: $blogPost->getAttribute('description') ?: '')
             : \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),

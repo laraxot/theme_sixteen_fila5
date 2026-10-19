@@ -3,7 +3,7 @@ title: "Sixteen: ingresso alla documentazione"
 type: readme
 tags: [documentation, sixteen]
 created: 2026-09-26
-updated: 2026-10-14
+updated: 2026-10-19
 qmd: "sixteen theme readme stato pub_theme vivo contenuti conteggi build npm limiti rotte dormienti layout design-comuni"
 issues: []
 discussions: []
@@ -11,6 +11,12 @@ status: active
 ---
 
 # Sixteen
+
+## Operational guides
+
+- [Documentation index](./INDEX.md)
+- [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
+- [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
 
 Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8.4, Filament 5. Biglietto da visita: [IT](../README.md), [EN](./readme-en.md). L'indice operativo e' [00-INDEX.md](00-INDEX.md).
 
@@ -66,6 +72,17 @@ Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
 | 📚 Wiki tecnica | [./wiki/](./wiki/) |
 | 💶 Sostenibilità FO | [project-sustainability-front-office.md](./project-sustainability-front-office.md) |
 | 📣 Inbound blog/eventi | [inbound-marketing-blog-eventi.md](./inbound-marketing-blog-eventi.md) |
+| 🧭 Dipendenze e font | [Sixteen dependency maintenance](../../../../bmad-output/sixteen-dependency-maintenance-tech-spec.md) |
+| 🧠 Regole hub temi | [Laravel themes documentation hub](../../docs/README.md) |
+
+## Verifica 2026-10-19
+
+Il pipeline font canonico usa `laravel-vite-plugin/fonts` (`google(...)`) in
+`vite.config.js` per Titillium Web, Lora e Roboto Mono. Vite emette il
+`fonts-manifest.json` e gli asset hashati sotto `public/assets/`; il build
+obbligatorio è passato con `npm run build`. La pagina di riferimento per la
+tipografia è il Design Comuni, mentre Bootstrap Italia resta solo riferimento
+normativo/stilistico e non dipendenza runtime.
 
 ---
 **Tema** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan `level: max` (`laravel/phpstan.neon`) · Filament 5

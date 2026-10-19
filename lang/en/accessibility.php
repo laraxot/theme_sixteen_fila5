@@ -8,7 +8,14 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Home',
-    'title' => 'Accessibility statement',
+    'page' => [
+        'title' => ['text' => 'Accessibility statement'],
+    ],
+    'page' => ['title' => ['text' => 'Accessibility statement']],
+    'title' => [
+        'text' => 'Accessibility statement',
+        'label' => 'Accessibility statement',
+    ],
     'lead' => 'Statement made under art. 3-quater of Italian Law no. 4 of 9 January 2004.',
     'incomplete' => [
         'title' => 'Statement not complete yet',

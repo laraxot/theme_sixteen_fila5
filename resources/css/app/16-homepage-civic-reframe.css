@@ -68,17 +68,17 @@
 }
 
 /*
- * Hero H1: Lora (Bootstrap Italia `.font-serif`) — serif per leggibilita' su display.
- * Pesi self-hosted: solo 400/700 (DCP-183). Regular 400 evita fake-bold.
- * Scale allineata a BI h1 (40/48 → 48/60 px), lh 1.2.
+ * Hero H1: Titillium Web — headings in Design Comuni use the sans family.
+ * Lora remains opt-in for editorial copy via `.font-serif`.
+ * Scale aligned to Design Comuni h1 (40/48 → 48/60 px), lh 1.2.
  * https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tipografia/
  */
 .fc-home-hero h1 {
   color: #fff !important;
-  /* !important: batte body * Titillium in 08-layout-type-and-header (FO Filament shell). */
-  font-family: "Lora", Georgia, serif !important;
+  /* !important: wins over legacy front-office heading overrides. */
+  font-family: "Titillium Web", system-ui, sans-serif !important;
   font-size: clamp(2.5rem, 4vw, 3rem);
-  font-weight: 400 !important;
+  font-weight: 700 !important;
   letter-spacing: 0;
   line-height: 1.2;
   margin: 0;

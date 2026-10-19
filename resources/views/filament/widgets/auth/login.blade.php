@@ -48,8 +48,20 @@
             color="primary"
             class="w-full"
             wire:loading.attr="disabled"
+            wire:loading.attr="aria-busy"
+            wire:target="login"
+            aria-describedby="login-submit-status"
         >
-            {{ __('user::login.actions.login.label') }}
+            <span wire:loading wire:target="login" class="inline-flex items-center gap-2" role="status" aria-live="polite">
+                <x-filament::icon icon="heroicon-o-arrow-path" class="h-5 w-5 animate-spin motion-reduce:animate-none" aria-hidden="true" />
+                {{ __('user::auth.login.logging_in.text') }}
+            </span>
+            <span wire:loading.remove wire:target="login">
+                {{ __('user::login.actions.login.label') }}
+            </span>
         </x-filament::button>
+        <span id="login-submit-status" class="sr-only" wire:loading wire:target="login" role="status" aria-live="polite">
+            {{ __('user::auth.login.logging_in.text') }}
+        </span>
     </form>
 </div>
