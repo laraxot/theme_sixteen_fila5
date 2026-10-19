@@ -21,7 +21,7 @@ updated: 2026-10-18
 - `fixcity::auth.login.password.label`
 - `fixcity::auth.login.submit.text`
 - `user::auth.login_widget.providers.google.label`
-- `pub_theme::accessibility.title`
+- `pub_theme::accessibility.page.title.text`
 
 ## References
 

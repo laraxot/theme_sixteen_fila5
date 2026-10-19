@@ -25,7 +25,7 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app >
+<x-layouts.app body-page="homepage">
     @volt('home')
     <div class="fc-home">
     <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />

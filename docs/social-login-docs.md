@@ -35,13 +35,14 @@ Ogni chiave deve seguire il formato: `<namespace>::<contesto>.<collezione>.<chia
 - `user::auth.login.intro.text`
 - `user::auth.login.google.button.text`
 - `user::auth.login.email.placeholder`
-- `user::auth.login.password.error.text` (precedentemente `user::auth.password` — FIXED)
-- `user::auth.create-account.text`
-- `user::auth.forgot-password.text`
+- `user::auth.login.password.text` (precedentemente `user::auth.password` — FIXED)
+- `user::auth.login.create_account.text`
+- `user::auth.login.forgot_password.text`
 
 **Esempi errati corretti:**
-- `fixcity::auth.intro` → `user::auth.login.intro.text`
-- `user::auth.password` → `user::auth.password.error.text`
+- `fixcity::auth.intro` → `fixcity::auth.login.intro.text`
+- `user::auth.password` → `user::auth.login.password.text`
+- `pub_theme::accessibility.title` → `pub_theme::accessibility.page.title.text`
 
 **Regola Second Brain:** nessuna chiave con meno di 5 elementi (`namespace`, `contesto`, `collezione`, `chiave`, `tipo`).
 

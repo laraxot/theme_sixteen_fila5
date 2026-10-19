@@ -101,7 +101,7 @@
                             <div class="it-brand-wrapper">
                                 <a href="{{ url('/'.app()->getLocale()) }}" title="Vai alla homepage">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-header.svg') }}"/>
+                                        <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ config('app.name', 'Il mio Comune') }}</div>

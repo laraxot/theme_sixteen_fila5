@@ -4,10 +4,13 @@ type: index
 updated: 2026-10-14
 tags: [docs, sixteen]
 qmd: "sixteen theme documentation index (bmad + second brain + qmd + graphify) sixteen"
-status: stale
+status: legacy-router
 ---
 
-> Nota 2026-10-14 (docs-audit): indice BMAD/QMD precedente a 00-INDEX.md: 4 percorsi della tabella 'Visual Comparison' non esistono (visual-comparison/segnalazione-dettaglio/README.md, homepage/comparison.md, VISUAL-PARITY-REPORT.md, COMPLETE-REPORT.md; structure-analysis/ esiste) e nessun file wiki/story-8-108-* c'e'; l'indice vigente e' 00-INDEX.md. Contenuto non riscritto, verificare prima di usarlo.
+> Questo è un router storico. L'ingresso canonico è [README.md](README.md);
+> l'indice operativo corrente è [00-INDEX.md](00-INDEX.md). I link storici
+> sotto non sono una garanzia di esistenza: verificare il target prima di
+> usarli e non aggiungere nuove sezioni qui.
 
 # Sixteen Theme Documentation Index (BMAD + Second Brain + QMD + Graphify)
 

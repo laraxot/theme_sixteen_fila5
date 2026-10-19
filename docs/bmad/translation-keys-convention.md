@@ -9,13 +9,13 @@ Esempi corretti:
 - `fixcity::auth.login.button.text`
 - `fixcity::auth.register.action.text`
 - `user::auth.login.google.button.text`
-- `pub_theme::accessibility.title.text`
+- `pub_theme::accessibility.page.title.text`
 
 Esempi SBAGLIATI (da correggere):
 - `fixcity::auth.email` → manca collezione, chiave, tipo
 - `fixcity::auth.title` → manca collezione
 - `fixcity::auth.register` → manca chiave/tipo
-- `pub_theme::accessibility.title` → manca tipo
+- `pub_theme::accessibility.title` → manca collezione, chiave e tipo
 
 ## Documentazione aggiornata nelle cartelle:
 - `Topics/Sixteen/docs/`

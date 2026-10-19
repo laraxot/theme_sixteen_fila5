@@ -1354,3 +1354,7 @@ Fase BMAD: documentazione/qualita'. Pacchetto P6 dello swarm in [DCP-152](../../
 - Aggiunta `concepts/legal-consent-ui-boundary.md` per il contratto UI Sixteen.
 - Collegati Gdpr/User e le story BMAD relative a consenso, verifica e legal content.
 - La pagina non introduce Bootstrap runtime e non attribuisce al tema decisioni legali.
+## Logo FixCity — Heroicons Outline (Blu Navy) — 2026-10-18
+- Originale: public_html/images/logo-fixcity.svg (complesso, 200+ path, 8KB)
+- Nuova versione (non sovrascritta): public_html/images/logo-fixcity-outline.svg (linee sottili, outline, 2.2 stroke-width, 1.1KB, heroicons-style)
+- Header (application-logo.blade.php) punta al nuovo SVG con alt descrittivo e max-height 2.5rem.
