@@ -538,6 +538,17 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
   font-weight: 600 !important;
 }
 
+/* DCP-228: the homepage hero must touch the mobile/tablet header.
+   ticket-parity.css reserves 18px above #main-container to protect inner
+   page titles; that rule also matched /it and rendered as a white strip.
+   Keep the spacing for ticket/detail pages, but remove it only for the
+   homepage shell where the hero owns the first visual block. */
+@media (max-width: 991.98px) {
+  body:has(.fc-home) #main-container {
+    padding-top: 0 !important;
+  }
+}
+
 .it-header-navbar-wrapper .navbar-nav .nav-link,
 .it-header-navbar-wrapper .navbar-secondary .nav-link {
   font-weight: 600 !important;
