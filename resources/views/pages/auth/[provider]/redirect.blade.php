@@ -2,33 +2,29 @@
 
 declare(strict_types=1);
 
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-use Livewire\Volt\Component;
-use Modules\Cms\Http\Middleware\PageSlugMiddleware;
+/**
+ * Legacy Folio path /auth/{provider}/redirect — delege a oauth.redirect.
+ * Non reclamare name('oauth.redirect'): SSoT e' Modules/User/routes/socialite.php.
+ */
 
-name('oauth.redirect');
-middleware(PageSlugMiddleware::class);
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\User\Http\Controllers\Socialite\RedirectToProviderController;
 
-new class extends Component {
+/** @var string $provider */
+$provider = is_string($provider ?? null) ? $provider : 'google';
 
-    public string $pageSlug = '';
+if (! in_array($provider, ['google', 'microsoft', 'github'], true)) {
+    abort(404, __('user::auth.login.invalid_provider'));
+}
 
-    /** @var array<string, mixed> */
-    public array $data = [];
+$locale = trim((string) app()->getLocale(), '/');
+$supported = LaravelLocalization::getSupportedLanguagesKeys();
+if (! in_array($locale, $supported, true)) {
+    $locale = (string) config('app.locale', 'it');
+}
 
-    public function mount(): void
-    {
-        $this->pageSlug = 'oauth.redirect';
-        $this->data = [];
-    }
-};
-?>
+if (Route::has('oauth.redirect')) {
+    return redirect()->to(route('oauth.redirect', ['provider' => $provider, 'lang' => $locale]));
+}
 
-<x-layouts.app >
-    @volt('oauth.redirect')
-    <div class="fc-home">
-    <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
-    </div>
-    @endvolt
-</x-layouts.app>
+return app(RedirectToProviderController::class)(request(), $provider);

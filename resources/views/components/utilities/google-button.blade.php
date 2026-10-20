@@ -1,6 +1,6 @@
 {{-- BMAD + Second Brain + Filament Blueprint: Google Login button --}}
-{{-- Folio + Volt + Filament, NO controllers/web.php --}}
-{{-- Route: oauth.redirect (redirect provider), NOT oauth.callback --}}
+{{-- SSoT URL: route oauth.redirect = {lang}/auth/login/{provider} (Modules/User/routes/socialite.php) --}}
+{{-- Mai href senza lang: la pagina login e' /it/auth/login, quindi Google = /it/auth/login/google --}}
 @props(['size' => 'md', 'variant' => 'primary'])
 
 @php
@@ -10,12 +10,22 @@
         'lg' => 'px-8 py-4 text-lg',
         default => 'px-6 py-3 text-base',
     };
+
+    $locale = trim((string) app()->getLocale(), '/');
+    $supported = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLanguagesKeys();
+    if (! in_array($locale, $supported, true)) {
+        $locale = (string) config('app.locale', 'it');
+    }
+
+    $googleUrl = Route::has('oauth.redirect')
+        ? route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])
+        : \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/auth/login/google', $locale);
 @endphp
 
-@if (Route::has('oauth.redirect'))
+@if (Route::has('oauth.redirect') || filled($googleUrl))
 <div x-data="{ open: false }" class="google-login-wrapper w-full">
     <a
-        href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/auth/login/google') }}"
+        href="{{ $googleUrl }}"
         class="inline-flex items-center justify-center w-full {{ $classes }} font-medium rounded-xl border border-gray-200 bg-white text-gray-900 hover:bg-gray-50 hover:border-gray-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-500 shadow-sm transition-all duration-200"
     >
         <svg class="mr-2 h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
