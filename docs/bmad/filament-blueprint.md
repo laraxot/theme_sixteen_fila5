@@ -4,7 +4,7 @@ type: filament-blueprint
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-19
+updated: 2026-10-20
 tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page]
 qmd: "filament blueprint theme sixteen widget mount no resource folio shell"
 related:
@@ -34,7 +34,7 @@ resta quindi **N/A per Resource**, ma il contratto di mount viene verificato da
 I widget Filament FO (commenti, wizard ticket, ecc.) entrano **solo** se un blocco
 JSON CMS li monta — il tema non decide il dominio.
 
-L'accesso pubblico segue la stessa regola: `pages/auth/login.blade.php` chiede lo slug `auth.login` e il blocco monta `LoginWidget` (modulo User: email, password rivelabile di Filament, «Ricordami», submit). L'occhio sulla password è la suffix action del campo, non un bottone del tema. Il vestito non è una card del tema: è la grammatica di [accesso-servizio](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs), e il form è il blocco «Altre utenze». SPID e CIE non si montano finché un modulo owner non esiste. Piano: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md).
+L'accesso pubblico segue la stessa regola: `pages/auth/login.blade.php` chiede lo slug `auth.login` e il blocco monta `LoginWidget` (modulo User: email, password rivelabile di Filament, «Ricordami», submit). L'occhio sulla password è la suffix action del campo, non un bottone del tema. Il vestito non è una card del tema: è la grammatica di [accesso-servizio](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs), e il form è il blocco «Altre utenze». SPID e CIE non si montano finché un modulo owner non esiste. Piano: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md). «Accedi con Google» è href localizzato via `oauth.redirect` + `lang` ([oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md)); il tema non inventa path senza prefisso lingua.
 
 La registrazione pubblica segue la stessa regola: `pages/auth/register.blade.php`
 chiede lo slug `auth.register` e il blocco include
@@ -64,6 +64,10 @@ intro stanno nelle traduzioni del modulo Fixcity, non duplicati nel JSON.
 ## Widget tipici consumati
 
 - mount widget moduli (CommentsWidget, ecc.) — nessuna Resource nel tema
+
+## PHPStan (tema)
+
+Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto `Themes/Sixteen`. Durante le wave swarm, aggiornare `docs/bmad/` in parallelo al codice (decision-log, blueprint) senza toccare `phpstan.neon`. Ordine permanente monorepo: [phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md).
 
 ## Related
 

@@ -106,5 +106,5 @@ tests/AuditCoverage/
 phpinsights.php
 rector.php
 storage/
-graphify-out/
+# graphify-out: generated AST/knowledge graph — never commit (no git-lfs; rebuild with graphify update)
 graphify-out/
