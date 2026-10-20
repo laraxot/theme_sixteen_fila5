@@ -59,11 +59,11 @@ Deve contenere solo:
 
 Non deve importare `File`, consultare `tests.catalog.json`, eseguire fallback
 per slug speciali o includere blocchi direttamente. Il JSON canonico è
-`database/content/pages/tests.<slug>.json`; la risoluzione e il rendering dei
+`database/content/pages/tests/<slug>.json` (lo slug nel file è l'ultimo pezzo, la cartella `tests` lo prefissa); la risoluzione e il rendering dei
 blocchi restano responsabilità del CMS e del tema.
 
 Se il componente viene montato senza parametro, il valore canonico è
-`tests.index`, mai `tests`: l'indice CMS è `tests.index.json`.
+`tests.index`, mai `tests`: il file è `pages/tests/` con slug `index`.
 
 ## Perche
 

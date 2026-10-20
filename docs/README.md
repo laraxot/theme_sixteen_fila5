@@ -15,11 +15,27 @@ status: active
 ## Operational guides
 
 - [Documentation index](./INDEX.md)
+- [Documentation governance](../../../../docs/project/docs-governance.md)
 - [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
 - [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
+- [FAQ route ownership](./bmad/faq-route-ownership.md)
+- [FAQ CSS remediation plan](./bmad/plans/css-data-page-elimination-plan.md)
+- [Login UX and reusable CSS contract](./auth/login-ux-fixes.md)
 - [Testing boundary](./testing-convention.md)
 
+### Regola prima di modificare una pagina pubblica
+
+La risoluzione canonica è `URL → Folio shell → slug CMS → JSON tenant → block
+view → action del modulo`. Non aggiungere una Blade in `pages/<slug>/` per
+correggere una pagina già coperta dallo shell dinamico: per FAQ ciò significa
+che `resources/views/pages/domande-frequenti/index.blade.php` deve restare
+assente. Il test di contratto lo verifica; il dettaglio è in
+[faq-route-ownership.md](./bmad/faq-route-ownership.md).
+
 Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8.4, Filament 5. Biglietto da visita: [IT](../README.md), [EN](./readme-en.md). L'indice operativo e' [00-INDEX.md](00-INDEX.md).
+
+`README.md` è l'ingresso canonico del tema. `00-INDEX.md` e `INDEX.md` sono
+mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 
 ## Stato verificato (2026-10-14)
 
@@ -73,7 +89,7 @@ Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
 | 📚 Wiki tecnica | [./wiki/](./wiki/) |
 | 💶 Sostenibilità FO | [project-sustainability-front-office.md](./project-sustainability-front-office.md) |
 | 📣 Inbound blog/eventi | [inbound-marketing-blog-eventi.md](./inbound-marketing-blog-eventi.md) |
-| 🧭 Dipendenze e font | [Sixteen dependency maintenance](../../../../bmad-output/sixteen-dependency-maintenance-tech-spec.md) |
+| 🧭 Dipendenze e font | [Sixteen dependency maintenance](./bmad/dependency-refresh-and-verification.md) |
 | 🧠 Regole hub temi | [Laravel themes documentation hub](../../docs/README.md) |
 
 ## Verifica 2026-10-19

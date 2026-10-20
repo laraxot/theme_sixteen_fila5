@@ -3,7 +3,7 @@ title: "page directory structure"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-10-20
 qmd: "page directory structure"
 issues: []
 discussions: []
@@ -34,6 +34,10 @@ resources/views/pages/
 
 ## Directory vietate
 
+Qualunque directory il cui nome è una pagina (`domande-frequenti`, `blog`, `eventi`, `tickets`) è vietata, anche se non è in un elenco. Folio fa vincere quel nome su `[container0]`: la URL esce dallo slug CMS e da `<x-page>`.
+
+Esempio: `pages/domande-frequenti/index.blade.php` è sbagliato. Folio prova quella cartella prima di `[container0]`, e `/it/domande-frequenti` esce dallo slug `domande-frequenti.index`. Il perché: [why-domande-frequenti-blade-php-must-not-exist.md](bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+
 Non devono esistere directory semantiche hardcoded come:
 
 - `resources/views/pages/administration`
@@ -58,6 +62,8 @@ Non devono esistere directory semantiche hardcoded come:
 - `resources/views/pages/sport`
 - `resources/views/pages/tickets`
 - `resources/views/pages/turismo`
+
+I JSON del tenant seguono la regola opposta: una cartella per contenitore (`pages/services/view.json`, `pages/area-personale/pratiche.json`). È il CMS a conoscere la tassonomia, non l'albero Folio. Vedi [json-content-slug-uniqueness.md](../../../Modules/Cms/docs/json-content-slug-uniqueness.md).
 
 ## Perché
 
@@ -94,7 +100,7 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 ## Enforcement (agenti + CI)
 
 - Rule Cursor: `.cursor/rules/no-semantic-folio-page-dirs.mdc`
-- Wiki: [no-semantic-folio-page-directories.md](../../../../docs/wiki/rules/no-semantic-folio-page-directories.md)
+- Wiki: [sixteen-pages-folder-religion.md](wiki/rules/sixteen-pages-folder-religion.md)
 - Script: `bash bashscripts/tools/verify-no-semantic-folio-pages.sh`
 - Pest: `NoSemanticFolioPageDirectoriesTest.php`
 

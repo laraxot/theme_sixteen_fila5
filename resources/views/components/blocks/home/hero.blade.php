@@ -15,7 +15,7 @@
     <div class="fc-home-hero__inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="fc-home-hero__copy">
             <p class="fc-eyebrow">{{ $eyebrow }}</p>
-            <h1 id="fc-home-hero-heading">{{ $heading }}</h1>
+            <h1 id="fc-home-hero-heading" class="font-serif">{{ $heading }}</h1>
             <p class="fc-home-hero__intro">{{ $intro }}</p>
             <div class="fc-home-hero__actions">
                 <a class="fc-button fc-button--primary" href="{{ $primary_url }}">{{ $primary_label }}</a>

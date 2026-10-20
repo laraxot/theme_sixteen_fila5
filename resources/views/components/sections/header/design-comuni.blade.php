@@ -149,7 +149,8 @@
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
                                 <a href="{{ $localizedUrl((string) $d('brand.url')) }}"{!! ! $isSignedIn && filled($d('brand.link_title')) ? ' title="'.e($d('brand.link_title')).'"' : '' !!}>
-                                    <svg width="82" height="82" class="icon" aria-hidden="true"><image xlink:href="{{ \Themes\Sixteen\Support\DesignComuniAssets::url($d('brand.logo')) }}"/></svg>
+                                    {{-- Sulla barra verde il marchio è bianco. Il filtro nello sheet è !important e isolate-legacy lo toglie dalle pagine con data-dc, quindi il logo restava nero. --}}
+                                    <svg width="82" height="82" class="icon" aria-hidden="true" style="filter: brightness(0) invert(1)"><image xlink:href="{{ \Themes\Sixteen\Support\DesignComuniAssets::url($d('brand.logo')) }}" style="filter: brightness(0) invert(1)"/></svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ $d('brand.header_title') ?: $d('brand.name') }}</div>
                                         <div class="it-brand-tagline d-none d-md-block">{{ $d('brand.tagline') }}</div>

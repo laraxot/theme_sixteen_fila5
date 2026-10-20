@@ -56,6 +56,10 @@ new class extends Component {
 
 @php
     $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug(request()->segment(2).'.'.request()->segment(3));
+    // /services/{slug} non ha una pagina per slug: il chrome è pages/services/view.json (slug view → services.view).
+    if ($cmsPage === null && $container0 !== '') {
+        $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug($container0.'.view');
+    }
     $specialPage = $container0 === 'auth' && $slug0 === 'login'
         ? 'auth-login'
         : ($container0 === 'auth' && $slug0 === 'register'
@@ -107,8 +111,8 @@ new class extends Component {
         $headerActive = 'all-services';
         $layoutComponent = 'layouts.design-comuni';
     }
-    // dettaglio Novità/Eventi (Article): stesso pattern ticket-detail — layout DC + data-dc
-    // anche senza JSON CMS `blog.view`/`events.view` (solo `blog.index`/`events.index` esistono).
+    // dettaglio Novità/Eventi (Article): layout DC + data-dc.
+    // Il corpo lo monta il JSON `pages/{blog|events}/view.json` (slug `view` → `blog.view` / `events.view`).
     if ($blogPost instanceof \Modules\Blog\Models\Article) {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
@@ -136,14 +140,8 @@ new class extends Component {
             (es. CreateTicketWizardWidget) e ogni wire:model / callSchemaComponentMethod colpiva il Volt.
         --}}
         @volt('container0.view')
-            <div class="page-content content"{!! $this->isDesignComuni ? ' data-dc' : '' !!} data-slug="{{ $this->container0.'.'.$this->slug0 }}" data-side="content">
-                @if ($this->data['item'] instanceof \Modules\Blog\Models\Article && $this->container0 === 'events')
-                    @include('pub_theme::components.blocks.events.detail', ['event' => $this->data['item']])
-                @elseif ($this->data['item'] instanceof \Modules\Blog\Models\Article)
-                    @include('pub_theme::components.blocks.blog.detail', ['post' => $this->data['item']])
-                @else
-                    <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
-                @endif
+            <div class="page-content content"@if($this->isDesignComuni) data-dc @endif data-slug="{{ $this->pageSlug }}" data-side="content">
+                <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
             </div>
         @endvolt
     @endif

@@ -35,7 +35,7 @@ Esporre al cittadino i **post** editoriali (`content_type=post`) come
 
 - Lista: `content_type=post` + `published` + `publishedUntilToday`
 - In evidenza: stesso filtro + (`is_featured` OR `show_on_homepage`); **no** update massivo
-- Dettaglio: stesso filtro + slug via `ThemeComposer::findPublishedPostBySlug`; 404 se assente/event
+- Dettaglio: stesso filtro + slug via `ThemeComposer::findPublishedPostBySlug`; 404 se assente/event. La shell è il JSON `pages/blog/view.json` (dentro la cartella lo slug è `view`, Sushi lo legge `blog.view`)
 - Parental `type` ignorato
 - Commenti: sempre montare `CommentsWidget` (anche thread vuoto); guest
   `readOnly` + CTA login; auth `readOnly=false`. Canon:
@@ -52,7 +52,7 @@ Esporre al cittadino i **post** editoriali (`content_type=post`) come
 - Explore `bg-grey-card` + search + conteggio + card + pagination DC
 - Card: immagine panoramica, categoria, data maiuscola, titolo, excerpt
 - Empty state `role=status`
-- Dettaglio Article: sempre chrome DC + `data-dc` (anche senza CMS `blog.view`)
+- Dettaglio Article: sempre chrome DC + `data-dc`. Il blocco lo monta `pages/blog/view.json`; il testo resta sull'Article
   Evidence: [blog-detail-data-dc-comments.md](../investigations/blog-detail-data-dc-comments.md).
 
 ## Fuori scope

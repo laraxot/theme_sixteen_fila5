@@ -32,10 +32,10 @@ restano; sotto, body e sezione commenti sembrano assenti. HTML e query OK.
 
 ## Causa
 
-Esiste solo CMS `blog.index` (`design-comuni`). Il dettaglio Article non ha
-`blog.view` → Folio usava `layouts.app` con `isDesignComuni=false` → **niente
-`data-dc`**. CSS legacy + Filament del `CommentsWidget` fuori scope DC
-collidono col body. Stesso pattern già risolto per ticket-detail (DCP-148).
+Il dettaglio chiede lo slug CMS `blog.view`. Quel file vive in
+`pages/blog/view.json` (dentro la cartella lo slug è solo `view`). Senza quel
+JSON la shell Folio stampa un `<main>` vuoto: il titolo c'è, il corpo no.
+Senza `data-dc` il CSS legacy nasconde comunque il body.
 
 ## Fix
 

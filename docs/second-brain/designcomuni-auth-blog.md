@@ -17,8 +17,11 @@ initiative_id: kp-designcomuni-auth-blog
 - Pagine: argomenti, argomento, lista-risorse, lista-risorse-categorie, novità, novità-dettaglio, eventi, evento-dettaglio
 
 ## Pattern da applicare su FixCity
-- Register: card gradient header + form + footer accessibilità + link login/recovery + link registrazione + CTA bottom
-- Login: card gradient header + form widget Filament + footer accessibilità + link registrazione/recovery + CTA SPID/CIE
+
+La password del login è il campo Filament `revealable()`: l'occhio è la suffix action, il tema sistema solo il flex del wrapper perché lo sheet non dipinge dentro `data-dc`. Il login non è una card con gradient. Il riferimento è `src/pages/servizi/accesso-servizio.hbs`: `cmp-heading`, blocchi `cmp-text-button`, fascia contatti. L'account Fixcity (email e password, widget User) è il blocco «Altre utenze». SPID e CIE si aggiungono solo con un provider vero. Censimento: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md).
+
+- Register: stesso ritmo di componenti del login, non una card gradient
+- Login: heading + «Altre utenze» (`LoginWidget`) + contatti
 - Blog/Eventi: grid card con immagine, titolo, descrizione breve, badge stato/data, link a pagine correlate, footer standard
 
 ## Decisioni EEC (Every Exception Counts)

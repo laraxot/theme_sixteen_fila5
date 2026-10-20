@@ -108,7 +108,6 @@
 @import './components/civic-design-components.css';
 @import './civic-design-visual-fix.css';
 @import './civic-design-global.css';
-@import './faq-parity.css';
 @import './topics-parity.css';
 @import './homepage-visual-fix.css';
 @import './listing-parity.css';
@@ -141,6 +140,7 @@
 @import './app/17-dc-chrome-mobile-nav.css'; /* generato: menu mobile dell'header Design Comuni sulle pagine reali (DCP-121) */
 @import './app/18-real-pages-footer-mobile.css'; /* footer delle pagine reali fuori scope sotto 768 px (DCP-129) */
 @import './app/19-ticket-detail.css'; /* dettaglio pubblico di una segnalazione /{lang}/tickets/{id} (DCP-148) */
+@import './app/20-dc-components.css'; /* .cmp-* una volta, dentro data-dc: niente main[data-page] */
 
 /* Motion Reveal — scroll-triggered animations */
 @import './components/motion-reveal.css';

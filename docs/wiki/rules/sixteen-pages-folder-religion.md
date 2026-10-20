@@ -50,7 +50,7 @@ Themes/Sixteen/resources/views/pages/
 | `area-personale/`, `profile/`, `dashboard` | `Modules/User/resources/views/pages/` |
 | `genesis/`, `learn/`, `pages/` | `Modules/User/resources/views/pages/` |
 | `lista-categorie.blade.php` | `Modules/Fixcity/.../lista-categorie.blade.php` |
-| `[slug].blade.php` catch-all | Rimosso — usa `container0` o 404 Laravel |
+| `domande-frequenti/`, `blog/`, `eventi/` | JSON `{nome}.index` + `[container0]/index`. Folio prova la cartella letterale prima del jolly. [Perché, sul caso FAQ](../../bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md) |
 | `[container0]/[slug].blade.php` (`cms.view`) | Duplicato di `[slug0]/index` — rimosso |
 
 ## `non-routed-pages/`
@@ -60,7 +60,7 @@ Artefatti **non** registrati da Folio: stub, backup, riferimenti parity. Vietato
 ## Audit
 
 ```bash
-bash bashscripts/tools/audit-sixteen-pages-folders.sh
+bash bashscripts/tools/verify-no-semantic-folio-pages.sh
 ```
 
 ## Collegamenti

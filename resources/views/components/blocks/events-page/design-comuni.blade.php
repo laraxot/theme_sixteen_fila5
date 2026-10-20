@@ -8,8 +8,34 @@
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
     $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
-    $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $heroFile = (string) $d('hero.image.file');
+    $heroUrl = (string) $d('hero.image.url');
+    $heroSrc = $heroUrl !== '' ? $heroUrl : ($heroFile !== '' ? $assets.'/images/'.$heroFile : '');
 @endphp
+<style>
+    main[data-page="eventi"] .cmp-hero h1 { font-size: 2.5rem; line-height: 1.12; color: #1a1a1a; font-weight: 700; }
+    main[data-page="eventi"] .hero-text p { max-width: 44rem; color: #5c6f82; font-size: 1.25rem; line-height: 1.55; }
+    main[data-page="eventi"] .hero-img .it-hero-wrapper,
+    main[data-page="eventi"] .hero-img .img-responsive-wrapper,
+    main[data-page="eventi"] .hero-img .img-responsive,
+    main[data-page="eventi"] .hero-img .img-wrapper { background: transparent !important; position: static !important; height: auto !important; min-height: 0 !important; padding: 0 !important; }
+    main[data-page="eventi"] .hero-img img { position: static !important; width: 100% !important; height: 22rem !important; max-height: 22rem !important; object-fit: cover !important; display: block !important; }
+    main[data-page="eventi"] .bg-grey-dsk { background: #eceff1; }
+    main[data-page="eventi"] .row.g-4 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    main[data-page="eventi"] .row.g-4 > [class*="col-"] { width: auto; max-width: none; padding: 0; }
+    main[data-page="eventi"] .img-responsive { position: relative; }
+    main[data-page="eventi"] .img-responsive-panoramic img { width: 100%; height: 12rem; object-fit: cover; display: block; }
+    main[data-page="eventi"] .card-calendar { position: absolute; left: 1rem; bottom: 1rem; background: #fff; min-width: 4.5rem; text-align: center; padding: 0.35rem 0.5rem; }
+    main[data-page="eventi"] .card-date { display: block; font-size: 1.5rem; font-weight: 700; color: #007a52; line-height: 1; }
+    main[data-page="eventi"] .card-day { display: block; font-size: 0.75rem; text-transform: uppercase; color: #5c6f82; }
+    main[data-page="eventi"] .card-title a,
+    main[data-page="eventi"] .category,
+    main[data-page="eventi"] .read-more { color: #007a52; text-decoration: none; }
+    main[data-page="eventi"] .card-text { color: #5c6f82; }
+    @media (max-width: 768px) {
+        main[data-page="eventi"] .row.g-4 { grid-template-columns: 1fr; }
+    }
+</style>
 {{--
   Callers: blocks/events/index.blade.php @include (line ~pageData) — unique Design Comuni
   events listing markup. Also tests.eventi JSON demos. No other FO events listing template.
@@ -44,12 +70,12 @@
         </div>
     </div>
 </div>
-@if (filled($d('hero.image.file')))
+@if ($heroSrc !== '')
 <section class="hero-img mb-20 mb-lg-50">
     <section class="it-hero-wrapper it-hero-small-size cmp-hero-img-small">
         <div class="img-responsive-wrapper">
             <div class="img-responsive">
-                <div class="img-wrapper"><img src="{{ $assets }}/images/{{ $d('hero.image.file') }}" title="{{ $d('hero.image.title') }}" alt="{{ $d('hero.image.alt') }}"></div>
+                <div class="img-wrapper"><img src="{{ $heroSrc }}" title="{{ $d('hero.image.title') }}" alt="{{ $d('hero.image.alt') }}"></div>
             </div>
         </div>
     </section>
@@ -98,7 +124,8 @@
                                 <p class="card-text text-secondary pb-3">{{ $item['text'] ?? '' }}</p>
                                 <a class="read-more t-primary text-uppercase" href="{{ $item['read_more_url'] ?? '#' }}" aria-label="{{ $ariaLabel }}">
                                     <span class="text">{{ $d('card.read_more') }}</span>
-                                    <span class="visually-hidden">{{ $d('card.read_more_hidden') }}</span><svg class="icon icon-inverse icon-xs ml-10"><use href="{{ $icon('it-arrow-right') }}"></use></svg>
+                                    <span class="visually-hidden">{{ $d('card.read_more_hidden') }}</span>
+                                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -109,9 +136,9 @@
                     <p class="u-grey-light text-paragraph-card" role="status">{{ $section['empty'] ?? 'Nessun elemento da mostrare.' }}</p>
                 </div>
             @endforelse
-            @if (filled($section['button']['label'] ?? null))
+            @if (filled($section['button']['label'] ?? null) && ($section['button']['url'] ?? '#') !== '#')
             <div class="d-flex justify-content-end">
-                <a href="{{ $section['button']['url'] ?? '#' }}" class="btn btn-outline-primary full-mb" data-element="{{ $section['button']['element'] ?? '' }}"> {{ $section['button']['label'] }} <svg class="icon icon-primary icon-xs ml-10"><use href="{{ $icon('it-arrow-right') }}"></use></svg></a>
+                <a href="{{ $section['button']['url'] }}" class="btn btn-outline-primary full-mb" data-element="{{ $section['button']['element'] ?? '' }}"> {{ $section['button']['label'] }}</a>
             </div>
             @endif
         </div>

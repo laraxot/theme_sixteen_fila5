@@ -1,8 +1,9 @@
 {{--
     Campo di ricerca `cmp-input-search` del riferimento (senza comportamento: l'autocomplete del riferimento ha elenco vuoto).
-    Parametro: $search = {id, name, label, placeholder, button_id, button, spacing?, result?} (result = riga di esito sotto il campo).
+    Parametro: $search = {id, name, label, placeholder, button_id, button, spacing?, result?, filter?} (result = riga di esito sotto il campo).
+    `filter` = accordion_id di una sezione `accordion` con `filterable`: mentre si scrive l'elenco si filtra (evento `list-filter`, Alpine, nessun CSS).
 --}}
-<div class="cmp-input-search">
+<div class="cmp-input-search"@if (filled($search['filter'] ?? null)) x-data x-on:input.debounce.150ms="$dispatch('list-filter', { target: '{{ $search['filter'] }}', q: $event.target.value })" x-on:click="$event.target.closest('button') && $dispatch('list-filter', { target: '{{ $search['filter'] }}', q: $root.querySelector('input').value })"@endif>
     <div class="{{ $cx('form-group autocomplete-wrapper', $search['spacing'] ?? null) }}">
         <div class="input-group">
             <label for="{{ $search['id'] ?? '' }}" class="visually-hidden">{{ $search['label'] ?? '' }}</label>
