@@ -1,6 +1,19 @@
-@props(['event'])
+@props(['event' => null, 'item' => null, 'slug0' => null, 'slug' => null])
 
-{{-- Callers: Folio events/[slug] + [container0]/[slug0] when events. Schema: content_blocks image + nestedComments. --}}
+{{-- Callers: CMS pages/events/view.json (slug view → events.view). Il corpo è l'Article, non il JSON. --}}
+@php
+    if (! $event instanceof \Modules\Blog\Models\Article && $item instanceof \Modules\Blog\Models\Article) {
+        $event = $item;
+    }
+    if (! $event instanceof \Modules\Blog\Models\Article) {
+        $lookup = is_string($slug0) && $slug0 !== '' ? $slug0 : (is_string($slug) ? $slug : '');
+        $found = $lookup === ''
+            ? null
+            : app(\Modules\Blog\View\Composers\ThemeComposer::class)->findPublishedEventBySlug($lookup);
+        $event = $found instanceof \Modules\Blog\Models\Article ? $found : null;
+    }
+@endphp
+@if ($event instanceof \Modules\Blog\Models\Article)
 @php
     $title = (string) $event->getAttribute('title');
     $image = (string) $event->getAttribute('main_image_url');
@@ -137,3 +150,4 @@
         </div>
     </div>
 </article>
+@endif

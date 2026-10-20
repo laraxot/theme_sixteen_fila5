@@ -56,7 +56,7 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 
 1. [README](README.md) — identità, ownership e stack;
 2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
-3. [docs architecture](../../../../bmad-output/docs-architecture/README.md) — regole cross-project;
+3. [docs governance](../../../../docs/project/docs-governance.md) — regole cross-project;
 4. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
 5. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
 6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
@@ -69,6 +69,12 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 13. [stories](stories/) — storie BMAD e acceptance criteria;
 14. [visual-parity](visual-parity/) — verifiche, screenshot per pagina e report;
 15. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
+
+Per le pagine CMS di primo livello, leggere anche il contratto
+[FAQ route ownership](bmad/faq-route-ownership.md): una pagina come
+`domande-frequenti` usa lo shell Folio generico e il JSON del tenant; non si
+crea `resources/views/pages/domande-frequenti/index.blade.php`.
+Il perché: [why-domande-frequenti-blade-php-must-not-exist.md](bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
 
 ## SSoT per area
 

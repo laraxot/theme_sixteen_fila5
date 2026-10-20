@@ -4,7 +4,7 @@ type: contract
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-20
 tags: [bmad, folio, volt, x-page, cms, dry, kiss]
 qmd: "container0 index shell folio x-page layouts.app no native match"
 related:
@@ -50,6 +50,9 @@ Mai lasciare `</x-dynamic-component>` dopo un refactor.
 ## Vietato nella shell
 
 - `nativePage` / `utilityPage` / `match ($container0)`
+- creare una view Folio esplicita `pages/{container0}/index.blade.php` per una
+  pagina già coperta da `[container0]/index.blade.php` (es. FAQ): sarebbe una
+  route concorrente e bypasserebbe il contratto CMS
 - `@include('pub_theme::components.pages.*')` nella Folio page
 - `x-dynamic-component` per scegliere layout da JSON
 - fetch CMS / titoli / meta nel `mount()` o in `@php` grasso
@@ -62,9 +65,11 @@ Mai lasciare `</x-dynamic-component>` dopo un refactor.
 | `/it/tickets` | `tickets.index` |
 | `/it/blog` | `blog.index` |
 | `/it/events` | `events.index` |
-| `/it/domande-frequenti` | `domande-frequenti.index` |
+| `/it/domande-frequenti` | `domande-frequenti.index` — blocco `content-page`, accordion `source: faq`. Mai `pages/domande-frequenti/index.blade.php`: la cartella letterale precede la shell. [Perché](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md) |
 | `/it/mappa-sito` | `mappa-sito.index` |
 | `/it/services` | `services.index` |
+| `/it/services/{slug}` | `services.view` |
+| `/it/area-personale/{voce}` | `area-personale.{voce}` |
 | `/it/segnalazioni` | `segnalazioni.index` |
 | `/it/lista-categorie` | `lista-categorie.index` |
 

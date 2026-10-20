@@ -63,6 +63,17 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
     expect($html)->not->toContain('utilityPage');
     expect($html)->not->toContain('x-dynamic-component');
     expect($html)->not->toContain("@include('pub_theme::components.pages.");
+    expect($html)->not->toContain("=== 'domande-frequenti'");
+    expect($html)->not->toContain("=== 'blog'");
+    expect($html)->not->toContain("=== 'events'");
+});
+
+test('le pagine CMS container0 non hanno route Folio esplicite concorrenti', function (): void {
+    $themeRoot = dirname(__DIR__, 2);
+    $faqPage = $themeRoot.'/resources/views/pages/domande-frequenti/index.blade.php';
+
+    // FAQ è domande-frequenti.index nel CMS: una view omonima bypasserebbe il resolver JSON.
+    expect(file_exists($faqPage))->toBeFalse();
 });
 
 test('folio pages con Component vietano props extends section e php slug hack', function (): void {

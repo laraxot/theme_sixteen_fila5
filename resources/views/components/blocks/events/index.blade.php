@@ -9,6 +9,46 @@
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
     $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
+    // Chrome DC (feedback/contacts): CMS JSON > config tema > default a11y (mai h2 vuoti).
+    $parityFromConfig = config('sixteen.sixteen.events.parity')
+        ?? config('sixteen.events.parity')
+        ?? [];
+    $blogChrome = config('sixteen.sixteen.blog.parity')
+        ?? config('sixteen.blog.parity')
+        ?? [];
+    $defaultFeedback = [
+        'title' => 'Quanto sono chiare le informazioni su questa pagina?',
+        'legend' => 'Valuta da 1 a 5 stelle la pagina',
+        'star_label' => 'Valuta %d stelle su 5',
+        'thanks' => 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!',
+        'positive' => [
+            'question' => 'Quali sono stati gli aspetti che hai preferito?',
+            'answers' => [
+                'Le indicazioni erano chiare',
+                'Le indicazioni erano complete',
+                'Capivo sempre che stavo procedendo correttamente',
+                'Non ho avuto problemi tecnici',
+                'Altro',
+            ],
+        ],
+        'negative' => [
+            'question' => 'Dove hai incontrato le maggiori difficoltà?',
+            'answers' => [
+                'A volte le indicazioni non erano chiare',
+                'A volte le indicazioni non erano complete',
+                'A volte non capivo se stavo procedendo correttamente',
+                'Ho avuto problemi tecnici',
+                'Altro',
+            ],
+        ],
+        'detail' => [
+            'question' => 'Vuoi aggiungere altri dettagli?',
+            'label' => 'Dettaglio',
+            'help' => 'Inserire massimo 200 caratteri',
+        ],
+        'back' => 'Indietro',
+        'next' => 'Avanti',
+    ];
     $parity = array_replace_recursive(
         [
             'title' => 'Vivere il comune',
@@ -26,11 +66,40 @@
                 ['image' => ['file' => 'luoghi-tomba.png', 'title' => 'Tomba Brion', 'alt' => 'Tomba Brion'], 'title' => 'Tomba Brion', 'text' => 'Un luogo affascinante e ricco di simbologia.'],
                 ['image' => ['file' => 'luoghi-castello-4.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Un itinerario per scoprire il territorio.'],
             ],
+            'feedback' => $defaultFeedback,
+            'contacts' => is_array($blogChrome['contacts'] ?? null) ? $blogChrome['contacts'] : [],
         ],
-        config('sixteen.events.parity', []),
+        is_array($parityFromConfig) ? $parityFromConfig : [],
+        is_array($blogChrome['feedback'] ?? null) ? ['feedback' => $blogChrome['feedback']] : [],
+        array_filter([
+            'feedback' => is_array($data['feedback'] ?? null) ? $data['feedback'] : null,
+            'contacts' => is_array($data['contacts'] ?? null) ? $data['contacts'] : null,
+        ]),
         is_array($data['parity'] ?? null) ? $data['parity'] : [],
         is_array($data) ? $data : [],
     );
+    // I luoghi e il Colosseo del riferimento statico non sono contenuti FixCity.
+    // Restano solo se il JSON della pagina li passa esplicitamente.
+    if (! is_array($data['locations'] ?? null)) {
+        $parity['locations'] = [];
+    }
+    if (! is_array(data_get($data, 'hero.image'))) {
+        $parity['hero']['image'] = ['file' => '', 'url' => '', 'title' => '', 'alt' => ''];
+        $parity['hero']['caption'] = '';
+    }
+    foreach (['main', 'problems'] as $group) {
+        $parity['contacts'][$group]['items'] = array_map(
+            static function (array $contact) use ($localize): array {
+                $url = (string) ($contact['url'] ?? '#');
+                $contact['url'] = $url === '#' || str_starts_with($url, '#') || str_starts_with($url, 'http')
+                    ? $url
+                    : $localize($url);
+
+                return $contact;
+            },
+            $parity['contacts'][$group]['items'] ?? [],
+        );
+    }
     $featured = $composer->featuredEvents(6);
     $featuredIds = $featured->pluck('id')->filter()->values()->all();
     $events = $composer->paginatedEvents(9);
@@ -48,7 +117,10 @@
             return null;
         }
         $start = filled($event->event_start_date) ? \Illuminate\Support\Carbon::parse($event->event_start_date) : null;
-        $title = (string) ($event->getAttribute('title') ?? '');
+        $title = $event->getTitle();
+        if ($title === '') {
+            return null;
+        }
         $url = $localize('/events/'.(string) ($event->getAttribute('slug') ?? ''));
         $category = $event->category?->getAttribute('name') ?: $event->category?->getAttribute('title');
         $date = $start?->translatedFormat('j M Y');
@@ -92,6 +164,25 @@
         ];
     }
 
+    $heroImage = is_array($parity['hero']['image'] ?? null) ? $parity['hero']['image'] : ['file' => '', 'url' => '', 'title' => '', 'alt' => ''];
+    $heroCaption = (string) ($parity['hero']['caption'] ?? '');
+    if (($heroImage['file'] ?? '') === '' && ($heroImage['url'] ?? '') === '') {
+        foreach (array_merge($featuredItems, $exploreItems) as $candidate) {
+            $candidateUrl = (string) ($candidate['image']['url'] ?? '');
+            if ($candidateUrl === '' || $candidateUrl === '#') {
+                continue;
+            }
+            $heroImage = [
+                'file' => '',
+                'url' => $candidateUrl,
+                'title' => (string) ($candidate['title'] ?? ''),
+                'alt' => (string) ($candidate['title'] ?? ''),
+            ];
+            $heroCaption = (string) ($candidate['title'] ?? '');
+            break;
+        }
+    }
+
     $pageData = array_replace_recursive($parity, [
         'title' => $data['title'] ?? ($parity['title'] ?? 'Vivere il comune'),
         'breadcrumb' => [
@@ -101,8 +192,8 @@
         'sections' => $sections,
         'hero' => [
             'text' => $data['intro'] ?? ($parity['hero']['text'] ?? ''),
-            'image' => $parity['hero']['image'] ?? ['file' => '', 'title' => '', 'alt' => ''],
-            'caption' => $parity['hero']['caption'] ?? '',
+            'image' => $heroImage,
+            'caption' => $heroCaption,
         ],
         'card' => [
             'read_more' => $data['read_more'] ?? ($parity['card']['read_more'] ?? 'Leggi di più'),

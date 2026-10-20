@@ -68,17 +68,19 @@
 }
 
 /*
- * Hero H1: Titillium Web — headings in Design Comuni use the sans family.
- * Lora remains opt-in for editorial copy via `.font-serif`.
- * Scale aligned to Design Comuni h1 (40/48 → 48/60 px), lh 1.2.
+ * Hero H1: Lora Regular 400 — DCP-221 / D18.
+ * Slogan lungo su fondo scuro: Lora (serif display) batte Titillium Bold
+ * per leggibilità e ipovedenti; Titillium 700/800 cade sul Black 900
+ * ("ciccione"). Scale BI h1 (40/48 → 48/60), lh 1.2.
  * https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tipografia/
  */
-.fc-home-hero h1 {
+.fc-home-hero h1,
+.fc-home-hero h1#fc-home-hero-heading {
   color: #fff !important;
   /* !important: wins over legacy front-office heading overrides. */
-  font-family: "Titillium Web", system-ui, sans-serif !important;
+  font-family: "Lora", "Lora fallback", Georgia, "Times New Roman", serif !important;
   font-size: clamp(2.5rem, 4vw, 3rem);
-  font-weight: 700 !important;
+  font-weight: 400 !important;
   letter-spacing: 0;
   line-height: 1.2;
   margin: 0;

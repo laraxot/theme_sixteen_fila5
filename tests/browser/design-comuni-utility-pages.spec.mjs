@@ -26,8 +26,8 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             await firstFaq.locator('summary').focus();
             await page.keyboard.press('Enter');
             await expect(firstFaq.locator('p')).toBeVisible();
-            await expect(page.getByRole('link', { name: locale.service })).toHaveAttribute('href', new RegExp(`/${locale.code}/tickets/create$`));
-            await expect(page.locator(`footer a[href$="/${locale.code}/mappa-sito"]`)).toBeVisible();
+            await expect(page.locator(`a[href$="/${locale.code}/tickets/create"]`).last()).toBeVisible();
+            await expect(page.locator(`footer a[href$="/${locale.code}/mappa-sito"]`).first()).toBeVisible();
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
             expect(pageErrors).toEqual([]);
 
@@ -38,7 +38,7 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             await expect(page.locator('#sitemap-content')).not.toContainText(/pub_theme::|fixcity::/i);
             await expect(page.locator(`#sitemap-content a[href$="/${locale.code}/tickets"]`)).toBeVisible();
             await expect(page.locator(`#sitemap-content a[href$="/${locale.code}/area-personale/pratiche"]`)).toBeVisible();
-            await expect(page.locator(`footer a[href$="/${locale.code}/domande-frequenti"]`)).toBeVisible();
+            await expect(page.locator(`footer a[href$="/${locale.code}/domande-frequenti"]`).first()).toBeVisible();
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
             expect(pageErrors).toEqual([]);
 

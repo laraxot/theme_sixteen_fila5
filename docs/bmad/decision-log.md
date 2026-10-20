@@ -4,7 +4,7 @@ title: "Decision Log — Redesign Design Comuni Tema Sixteen"
 type: decision-log
 status: active
 created: 2026-10-11
-updated: 2026-10-16
+updated: 2026-10-20
 owner: "@team-fixcity"
 links:
   github_issue: "#150"
@@ -14,6 +14,76 @@ qmd: "decision log   redesign design comuni sixteen"
 ---
 
 # Decision Log — Redesign Design Comuni
+
+## D24: Login — la pagina di riferimento è accesso-servizio, non una card
+**Contesto**: `/it/auth/login` è una card bianca da 36rem con form Filament e uno `<style>` privato. Il riferimento [accesso-servizio.hbs](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs) è `cmp-heading` (h1 40px), poi blocchi `cmp-text-button` (SPID, CIE, Altre utenze), poi `cmp-contacts`. Due documenti (User e second brain) prescrivevano card, blu `#0066CC` o gradient e bottoni SPID.
+**Decisione**: il vestito segue quella pagina. L'email è il blocco «Altre utenze». SPID e CIE non si disegnano finché un modulo non li possiede. `LoginWidget` resta il dominio. Niente `<style>` di pagina e niente `main[data-page]`.
+**Rationale**: il comune riconosce l'accesso dai componenti, non da una scheda. Un bottone SPID senza provider è una bugia.
+**Stato**: censito — [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md). Il vestito live è ancora la colonna del 2026-10-20.
+
+## D25: Occhio password = suffix Filament `revealable()`, non del tema
+**Contesto**: richiesta di password rivelabile su `/it/auth/login` alla Filament way
+([revealable password inputs](https://filamentphp.com/docs/5.x/forms/text-input#revealable-password-inputs)).
+Già in `UserForm::getLoginFormSchema()`; lo sheet FO non dipinge `.fi-input-wrp`
+sotto `data-dc`, quindi l'occhio finiva sotto il campo.
+**Decisione**: dominio = `->password()->revealable()` nel modulo User. Sixteen
+sistema solo il flex della suffix action in `.auth-login-card`. Niente toggle
+Alpine del tema. Non duplica [login-ux-fixes.md](../auth/login-ux-fixes.md) né
+[filament-blueprint.md](./filament-blueprint.md): qui resta la decisione.
+**Rationale**: Filament Blueprint — il tema veste, User possiede il campo.
+**Stato**: live su fixcity.eu; guardrail `LoginPasswordRevealableTest`.
+
+## D26: Checkbox «Ricordami» = Filament `Checkbox`, visibile sotto data-dc
+**Contesto**: su `/it/auth/login` il `Checkbox::make('remember')` è nel DOM ma
+invisibile. DC applica `appearance: none !important` a ogni `input` sotto
+`data-dc`; le utility Filament del checkbox non dipingono.
+**Decisione**: dominio invariato (`UserForm::getLoginFormSchema()`). Vestito:
+`appearance: auto !important` + `-webkit-appearance: checkbox !important` nello
+`<style>` di `components/pages/auth-login.blade.php` **e** in
+`resources/css/app/20-dc-components.css` (regole già scoped a
+`.page-content[data-dc]`, quindi non isolate dal PostCSS legacy). Niente
+toggle HTML custom. Story: [dcp-268](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md).
+**Rationale**: Filament Blueprint — User possiede il campo; Sixteen solo lo
+rende leggibile nel perimetro Design Comuni.
+**Stato**: fix nel working tree NAS + `npm run build`. Prod `fixcity.eu`
+(`46.225.90.178`) ha copia asset/Blade separata: serve sync tema +
+`php artisan view:clear` sul server. Guardrail: `AuthLoginStyleContractTest`.
+
+## D23: FAQ = JSON che compone blocchi condivisi, nessun CSS di pagina
+**Contesto**: dopo D22 la FAQ restava un blocco monolitico `faq-page`
+(`components/pages/faq.blade.php`) con utility Tailwind, `<style>` inline e CSS
+`main[data-page="domande-frequenti"]`. Misurato il 2026-10-20: HTML 11,59% vs
+`domande-frequenti.html` (la replica composta `/it/tests/domande-frequenti`:
+99,31%); su `data-dc` le utility sono spente da
+`postcss/isolate-legacy-important.cjs` (titolo rating 40px, contenitore 1280px,
+stelle 0×0); `faq-parity.css` = 700 righe mai applicabili.
+**Decisione**: la pagina compone il blocco `content-page/design-comuni`
+(sezioni `search` + `accordion` con `source: faq`, `feedback`, `contacts`) con
+copy per lingua nel JSON; niente `parity_page`, niente CSS/JS di pagina, niente
+utility Tailwind su pagine `data-dc`; filtro e «carica altre» sono flag
+opzionali dei componenti condivisi. **Supera la clausola «blocco `faq-page`» di
+D22**; resta valida la rimozione della Folio concorrente, estesa al file omonimo.
+**Rationale**: il riferimento assembla componenti `cmp-*` con SCSS per
+componente e nessuna regola di pagina; il riuso sta nel componente; il CSS non
+cresce. Vedi [shared-block-composition-no-page-css](../wiki/concepts/shared-block-composition-no-page-css.md).
+**Stato**: ✅ locale e verificato — [DCP-260](./stories/dcp-260-faq-composizione-blocchi-condivisi.story.md);
+⏳ build, rilascio e rimozione del monolite (T1–T3).
+
+## D22: FAQ senza route Folio esplicita concorrente
+**Contesto**: `domande-frequenti.index` è una pagina CMS di primo livello,
+quindi `/it/domande-frequenti` è già servita dalla shell generica
+`pages/[container0]/index.blade.php`. Una view aggiuntiva in
+`pages/domande-frequenti/index.blade.php` duplicava il routing e poteva
+selezionare una sorgente diversa dal JSON tenant.
+**Decisione**: la view speciale resta assente. La FAQ è il blocco
+`content-page` del JSON `domande-frequenti/index.json` (accordion
+`source: faq`). I test `FolioPageMountContractTest` e
+`NoSemanticFolioPageDirectoriesTest` impediscono il ritorno della cartella.
+Perché: [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+**Rationale**: Folio trasporta, CMS risolve lo slug, il blocco renderizza il
+dominio. È il contratto `container0.index` e la regola Filament Blueprint del
+tema; nessun dominio va duplicato nella pagina Folio.
+**Stato**: ✅ Corretto e verificato con test di contratto + browser smoke.
 
 ## D21: `/it/blog` parity `lista-risorse.html` (body only)
 **Contesto**: lista Novità “si vedeva male”: CSS DC spento (`data-dc` assente),
@@ -53,6 +123,8 @@ DCP-183). Token `--font-serif` / `--dc-font-serif` = Lora.
 **Rationale**: Bootstrap Italia tipografia + WCAG; Lora nato per lettura display;
 niente peso 600 su Lora (non self-hosted).
 **Stato**: ✅ Confirmato — story `dcp-221-homepage-tipografia-leggibilita-wcag.story.md`
+**Nota 2026-10-20**: regressione a Titillium 700 nel civic-reframe CSS; ripristinata
+Lora 400 + rebuild. Guardia: `FontsCssGuardTest`. Prompt operativo: `docs/prompts/04.md`.
 
 ## D1: Script non in laravel/scripts/ ma in bashscripts/
 **Contesto**: Richiesta esplicita dell'utente.

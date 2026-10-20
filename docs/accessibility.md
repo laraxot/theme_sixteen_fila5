@@ -3,7 +3,7 @@ title: "accessibility"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-15
+updated: 2026-10-20
 qmd: "accessibility"
 issues: []
 discussions: []
@@ -18,10 +18,13 @@ Il tema Sixteen è progettato per garantire **accessibilità completa** seguendo
 ## Tipografia FO (DCP-221)
 
 Allineata a Bootstrap Italia: Titillium (sans), **Lora** (serif), Roboto Mono.
-L'H1 hero di `/it` usa **Lora Regular 400** (leggibilità display); gli altri titoli
-UI Titillium a **600** con lh >= 1.15. Font self-hosted via Vite (DCP-183), no CDN.
+L'H1 hero di `/it` («Segnalazioni e servizi per la tua comunità») usa **Lora Regular 400**
+(leggibilità display / ipovedenti); gli altri titoli UI Titillium a **600** con lh >= 1.15.
+Font self-hosted via Vite (DCP-183), no CDN. Il 2026-10-20 è stata corretta una regressione
+che aveva riportato l'H1 a Titillium 700 («ciccione»).
 [dcp-221](bmad/stories/dcp-221-homepage-tipografia-leggibilita-wcag.story.md) ·
-[font tokens](wiki/concepts/design-comuni-font-tokens.md).
+[font tokens](wiki/concepts/design-comuni-font-tokens.md) ·
+[prompt 04](prompts/04.md).
 
 ## Standard di Conformità
 

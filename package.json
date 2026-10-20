@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "npm run prepare:static-assets && vite build",
+        "prepare:static-assets": "node resources/scripts/prepare-static-assets.mjs",
         "build1": "vite build && npm run copy && cd ../../../laravel && php artisan view:clear",
         "build:clear-views": "npm run build",
         "build:with-webroot": "vite build && npm run copy",
