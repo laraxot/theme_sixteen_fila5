@@ -1,10 +1,10 @@
 ---
-qmd: "README"
+qmd: "README bmad sixteen hub decision-log auth login oauth filament blueprint"
 title: "BMAD UI/UX Sixteen — boundary FixCity"
 type: workflow-boundary
 status: active
 created: 2026-09-26
-updated: 2026-09-27
+updated: 2026-10-20
 tags: [bmad, ui, ux, sixteen, fixcity]
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
@@ -14,6 +14,8 @@ discussions:
 
 # Ownership BMAD del tema Sixteen
 
+Indice hub di `docs/bmad/`: decisioni in [decision-log.md](./decision-log.md), vestito FO qui, dominio Auth/Socialite in User. Mai `bmad-output/`.
+
 ## Kit BMAD owner (canonico)
 
 - [BMAD Planning](../bmad-planning.md)
@@ -22,6 +24,23 @@ discussions:
 - [Project context](./project-context.md)
 - [Decision log](./decision-log.md)
 - [Shell Folio `container0.index`](./container0-index-shell-contract.md) (D20)
+
+## Auth / Login / OAuth (FO)
+
+Scopo: il cittadino entra da `/it/auth/login` con vestito Design Comuni; OAuth resta localizzato (`{lang}/auth/login/{provider}`). Il tema veste; User possiede Socialite e lo schema Filament.
+
+| Cosa | Dove |
+|------|------|
+| Decisioni D24–D27 (card vs accesso-servizio, occhio password, ricordami, Google locale) | [decision-log.md](./decision-log.md) |
+| Architettura login | [auth-login-architettura.md](./auth-login-architettura.md) |
+| Plan OAuth locale | [plans/oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
+| Plan checkbox/occhiello | [plans/login-checkbox-visibility-fix.md](./plans/login-checkbox-visibility-fix.md) |
+| Remediation Design Comuni | [plans/auth-login-design-comuni-remediation.md](./plans/auth-login-design-comuni-remediation.md) |
+| Story JSON login + Blueprint | [auth-login-json-bmad.story.md](./auth-login-json-bmad.story.md) |
+| Story checkbox/occhiello in `data-dc` | [stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md) |
+| Audit login | [audit/audit-login-design-comuni.md](./audit/audit-login-design-comuni.md) |
+| Filosofia Folio login | [folio-login-philosophy.md](./folio-login-philosophy.md) |
+| Dominio User (Google auth) | [../../../../Modules/User/docs/bmad/google-auth-login.md](../../../../Modules/User/docs/bmad/google-auth-login.md) |
 
 **Inbound FO Novità/Eventi:** [inbound-fo-index.md](./inbound-fo-index.md).
 

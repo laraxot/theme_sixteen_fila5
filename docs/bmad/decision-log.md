@@ -15,6 +15,56 @@ qmd: "decision log   redesign design comuni sixteen"
 
 # Decision Log — Redesign Design Comuni
 
+
+## D30: `graphify-out/` ignorato nel tema (no LFS)
+
+**Contesto:** graphify scrive `Themes/Sixteen/graphify-out/` in locale; non e' asset FO Design Comuni.
+**Decisione:** `graphify-out/` nel `.gitignore` del tema; se tracciato → `git rm --cached -rf graphify-out`. Mai Git LFS.
+**Rationale:** artefatto generato; il tema veste Filament/FO, non versiona il grafo. Canon: [graphify-out-gitignore](../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md).
+**Stato:** attivo 2026-10-20.
+
+
+Indice rapido Auth/Login (dettaglio sotto; hub link in [README.md](./README.md)):
+
+| ID | Tema | Stato |
+|----|------|-------|
+| D27 | Google OAuth FO con prefisso lingua | fix working tree — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
+| D26 | Checkbox «Ricordami» visibile sotto `data-dc` | working tree + build — [dcp-268](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md) |
+| D25 | Occhio password = `revealable()` Filament | live |
+| D24 | Login = accesso-servizio, non card | censito |
+
+## D29: Gate PHPStan Modules — rieseguito OK (2026-10-20, audit docs tema)
+
+**Contesto:** standing order Modules a zero; turno docs su tema Sixteen + moduli random (User, Comment, Notify, Activity).
+**Decisione:** registrare verifica `phpstan analyse` sui moduli owner del FO (batch quattro moduli → exit 0); docs `bmad/` conformi a `md-filenames.py check` (0 date/suffissi); sotto `docs/bmad/` restano ~79 legacy con maiuscole (story `STORY-DEFECT-*`, `DC-027.*`) — segnalazione senza rinomina finche' il tool non propone target sicuri.
+**Track:** memoria [phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
+**Stato:** OK al 2026-10-20.
+
+## D28: PHPStan swarm — docs tema in parallelo al codice
+
+**Contesto:** wave PHPStan multi-agente sul monorepo; agenti doc-updater migliorano `Themes/Sixteen/docs/` mentre altre lane fixano sorgente.
+**Decisione:** registrare qui le decisioni FO (login, FAQ, shell) e aggiornare [filament-blueprint.md](./filament-blueprint.md) quando cambia il contratto di mount widget; non creare `.neon` ne' documentazione in `bmad-output/`.
+**Rationale:** il tema veste moduli owner; la memoria operativa del gate vive in Xot ([phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md)) e nei prompt [00-start](../../../../bashscripts/docs/prompts/00-start.md) / [11-phpstan](../../../../bashscripts/docs/prompts/11-phpstan.md).
+**Stato:** attivo per ogni turn non banale con qualita' in scope.
+
+## D27: Google login FO = URL con prefisso lingua (`/it/auth/login/google`)
+**Contesto**: su `fixcity.eu/it/auth/login` il bottone «Accedi con Google» puntava
+a `/auth/login/google` (senza `it`). La callback console è
+`/it/auth/login/google/callback`. Un Folio stub usava `segment(3)` e faceva 404
+sul callback localizzato.
+**Decisione**: SSoT `oauth.redirect` / `oauth.callback` in
+`Modules/User/routes/socialite.php` (`{lang}/auth/login/{provider}`). Il bottone
+Sixteen genera `route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])`.
+I controller dichiarano `string $lang, string $provider` con `Illuminate\Http\Request`
+(non la Facade). Le pagine Folio sotto `pages/auth/login/[provider]/` delegano
+ai controller e non reclamano i nomi di rotta.
+**Rationale**: FO sempre localizzato; entry e callback devono condividere la lingua
+e l’URI registrato su Google. Senza `$lang` nel `__invoke`, Laravel lega `it` a
+`$provider` → `ProviderNotConfigured("it")`. Filament Blueprint: dominio User,
+tema solo vestito + href.
+**Stato**: fix nel working tree NAS — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md).
+Prod `fixcity.eu` (46.225.90.178) è copia separata: serve sync + `view:clear`.
+
 ## D24: Login — la pagina di riferimento è accesso-servizio, non una card
 **Contesto**: `/it/auth/login` è una card bianca da 36rem con form Filament e uno `<style>` privato. Il riferimento [accesso-servizio.hbs](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs) è `cmp-heading` (h1 40px), poi blocchi `cmp-text-button` (SPID, CIE, Altre utenze), poi `cmp-contacts`. Due documenti (User e second brain) prescrivevano card, blu `#0066CC` o gradient e bottoni SPID.
 **Decisione**: il vestito segue quella pagina. L'email è il blocco «Altre utenze». SPID e CIE non si disegnano finché un modulo non li possiede. `LoginWidget` resta il dominio. Niente `<style>` di pagina e niente `main[data-page]`.

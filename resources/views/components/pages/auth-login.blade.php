@@ -28,6 +28,11 @@
     .auth-login-card .auth-login-account,
     .auth-login-card .auth-login-links { margin: 0.75rem 0 0; font-size: 0.9375rem; color: #1a1a1a; }
     .auth-login-card .auth-login-widget { margin-top: 1.75rem; }
+    /* Esito negativo del login, stampato dal widget (filament/widgets/auth/login.blade.php): password errata oppure
+       Google annullato/rifiutato (RedirectToLoginAction lo mette nel gruppo errori `email`). Colore #a50021 su #fdf2f4: 7,2:1. */
+    .auth-login-card .auth-login-alert { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0 0 1.25rem; padding: 0.75rem 1rem; border: 1px solid #d9364f; border-left-width: 4px; background: #fdf2f4; color: #a50021; font-size: 0.9375rem; line-height: 1.5; }
+    .auth-login-card .auth-login-alert__icon { flex: 0 0 auto; width: 1.25rem; height: 1.25rem; margin-top: 0.125rem; }
+    .auth-login-card .auth-login-alert__text { margin: 0 !important; min-width: 0; }
     .auth-login-card .auth-login-google { margin-top: 1rem; }
     .auth-login-card form input[type="email"],
     .auth-login-card form input[type="password"],
