@@ -36,15 +36,16 @@ new class extends Component {
     $bodyPage = '';
     $cmsForParity = \Modules\Cms\Models\Page::findUniqueBySlug($container0.'.index');
     $parityPage = data_get($cmsForParity?->content_blocks, '0.data.parity_page', '');
-    if (is_string($parityPage) && $parityPage !== '') {
+    if (is_string($parityPage)) {
         $bodyPage = $parityPage;
-    } elseif ($container0 === 'blog') {
-        $bodyPage = 'lista-risorse';
-    } elseif ($container0 === 'events') {
-        $bodyPage = 'eventi';
     }
+    $heading = $cmsForParity?->getTranslation('title', app()->getLocale(), false);
+    $summary = \Themes\Sixteen\Support\PageDescription::resolve(
+        $cmsForParity?->getAttribute('description'),
+        app()->getLocale(),
+    );
 @endphp
-<x-layouts.app :body-page="$bodyPage">
+<x-layouts.app :body-page="$bodyPage" :title="is_string($heading) ? $heading : ''" :meta-description="$summary">
     @volt('container0.index')
         <div class="page-content content" data-dc data-slug="{{ $this->pageSlug }}" data-side="content">
             <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />

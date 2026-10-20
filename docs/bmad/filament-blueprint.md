@@ -4,7 +4,7 @@ type: filament-blueprint
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-19
 tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page]
 qmd: "filament blueprint theme sixteen widget mount no resource folio shell"
 related:
@@ -25,8 +25,21 @@ montare widget Filament **dei moduli owner** con props canoniche.
 Nessuna Resource, nessun `match` dominio, nessun layout dinamico nel tema.
 Contratto: [container0-index-shell-contract.md](./container0-index-shell-contract.md) (D20).
 
+Le pagine CMS di primo livello, inclusa `domande-frequenti.index`, non hanno
+una propria view Folio in `pages/{container0}/index.blade.php`: il routing è
+unico e il contenuto è scelto dai blocchi JSON. Il blueprint Filament del tema
+resta quindi **N/A per Resource**, ma il contratto di mount viene verificato da
+`FolioPageMountContractTest` (niente file dedicato, niente `if` sul nome del contenitore) e `NoSemanticFolioPageDirectoriesTest` (niente cartelle fuori da `auth`, `[container0]`, `tests`). Il caso FAQ: [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+
 I widget Filament FO (commenti, wizard ticket, ecc.) entrano **solo** se un blocco
 JSON CMS li monta — il tema non decide il dominio.
+
+L'accesso pubblico segue la stessa regola: `pages/auth/login.blade.php` chiede lo slug `auth.login` e il blocco monta `LoginWidget` (modulo User: email, password rivelabile di Filament, «Ricordami», submit). L'occhio sulla password è la suffix action del campo, non un bottone del tema. Il vestito non è una card del tema: è la grammatica di [accesso-servizio](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs), e il form è il blocco «Altre utenze». SPID e CIE non si montano finché un modulo owner non esiste. Piano: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md).
+
+La registrazione pubblica segue la stessa regola: `pages/auth/register.blade.php`
+chiede lo slug `auth.register` e il blocco include
+`components/pages/auth-register.blade.php`, che monta il widget GDPR. Titolo e
+intro stanno nelle traduzioni del modulo Fixcity, non duplicati nel JSON.
 
 ## Consentito
 
@@ -34,12 +47,19 @@ JSON CMS li monta — il tema non decide il dominio.
 - View Blade del tema che passano solo dati gia autorizzati dal modulo
 - Stack FO: Tailwind + DaisyUI + Flowbite + Lit + Alpine (no Bootstrap target)
 
+## Asset statici del tema
+
+`public/` e' l'`outDir` di `vite build`, non un posto dove lasciare file. Lo sprite delle icone FO (`resources/static/.../sprites.svg`) lo emette Vite con `publicDir`, URL stabile per i `<use href="...#it-…">`. Non e' un `FilamentAsset`: il blueprint del tema non possiede Resource, e gli asset del pannello restano nel modulo owner (Xot pubblica `header-actions-wrap.css` in `public_html/assets/xot/`).
+
 ## Vietato
 
 - `Themes/Sixteen/app/Filament/Resources/*`
+- Depositare SVG o CSS a mano in `public/` fuori da `vite build`
 - Duplicare policy/Actions nel tema
 - Nascondere sezioni FO quando il contratto owner dice "sempre montato"
 - Logica lista/utility hardcoded nella Folio page al posto del JSON `{slug}.index`
+- Cartella `pages/<nome-pagina>/` nel tema (`pages/domande-frequenti/` ruba `/it/domande-frequenti` a `[container0]`)
+- CSS `main[data-page="…"]`: il vestito è del componente (`.cmp-*` dentro `.page-content[data-dc]`), non del nome della pagina
 
 ## Widget tipici consumati
 

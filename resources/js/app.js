@@ -27,9 +27,6 @@ import { initHeaderMobileNav, isDesignComuniPage } from './theme/header-mobile-n
 import { dcCarousel, dcFormValidate, dcNavscroll, dcRating, mountDesignComuniComponents } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
 import './components/camera-upload.js';
-// DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
-// Now using blade template directly with Alpine.js for accordion
-// import { domandeFrequentiParity } from './domande-frequenti-parity';
 
 /**
  * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.

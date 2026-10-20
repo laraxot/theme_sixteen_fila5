@@ -2,7 +2,7 @@
 title: "Second Brain — Sixteen Theme Knowledge Base"
 type: note
 status: draft
-updated: 2026-10-11
+updated: 2026-10-20
 tags: [docs, sixteen, second-brain]
 qmd: "second brain   sixteen theme knowledge base sixteen"
 ---
@@ -16,6 +16,10 @@ qmd: "second brain   sixteen theme knowledge base sixteen"
 - **Data**: header/footer leggono i blocchi localizzati da `config/local/fixcity/database/content/sections/*.json`; il renderer non possiede contenuti tenant.
 - **Fallback**: quando un renderer viene testato senza blocchi, usa identità FixCity e link localizzati validi, mai `#` o placeholder del comune.
 - **Regola**: Un solo header, un solo footer, CMS-driven, `layout: "test"` per pagina
+- **Prompt 04**: orchestratore FO (shell, inbound blog/eventi, auth, ticket, a11y) in
+  `docs/prompts/04.md` — JSON=contenuto, Blade=vestito; eventi FO = `Article.content_type=event`.
+- **Tipografia hero (D18)**: H1 home = Lora Regular 400 + `font-serif`; sans UI = Titillium ≤ 600.
+  Guardia: `FontsCssGuardTest`.
 
 ## Regole (canonicali)
 | ID | Regola | Descrizione |
