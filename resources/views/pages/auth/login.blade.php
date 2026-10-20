@@ -25,10 +25,18 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app >
+<x-layouts.app
+    :title="__('fixcity::auth.login.title.text')"
+    :meta-description="__('fixcity::auth.login.intro.text')"
+>
+    {{--
+      Nome @volt unico di questa pagina. Il fragment è md5 del nome, globale:
+      counter/prova non devono riusare auth.login (vedi User docs/volt-errors.md).
+      data-dc + .auth-login-card attivano lo scope Design Comuni e 14-auth-login.css.
+    --}}
     @volt('auth.login')
-    <div class="fc-home">
-    <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
-    </div>
+        <div class="page-content content" data-dc data-slug="{{ $this->pageSlug }}" data-side="content">
+            <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
+        </div>
     @endvolt
 </x-layouts.app>

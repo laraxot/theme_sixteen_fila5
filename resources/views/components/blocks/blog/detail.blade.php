@@ -1,7 +1,20 @@
-@props(['post', 'container0' => 'blog'])
+@props(['post' => null, 'item' => null, 'container0' => 'blog', 'slug0' => null, 'slug' => null])
 
-{{-- Callers: Folio [container0]/[slug0] (Article) + Blog pages/blog/[slug]. Schema: content_blocks image alt/caption/credit + nestedComments. --}}
+{{-- Callers: CMS pages/blog/view.json (slug view → blog.view) e Folio blog/[slug]. Il corpo è l'Article, non il JSON. --}}
 {{-- Layout: lead+body PRIMA dell'immagine così il testo non resta sotto la cookiebar fissa (y~749). --}}
+@php
+    if (! $post instanceof \Modules\Blog\Models\Article && $item instanceof \Modules\Blog\Models\Article) {
+        $post = $item;
+    }
+    if (! $post instanceof \Modules\Blog\Models\Article) {
+        $lookup = is_string($slug0) && $slug0 !== '' ? $slug0 : (is_string($slug) ? $slug : '');
+        $found = $lookup === ''
+            ? null
+            : app(\Modules\Blog\View\Composers\ThemeComposer::class)->findPublishedPostBySlug($lookup);
+        $post = $found instanceof \Modules\Blog\Models\Article ? $found : null;
+    }
+@endphp
+@if ($post instanceof \Modules\Blog\Models\Article)
 @php
     $title = (string) $post->getAttribute('title');
     $image = (string) $post->getAttribute('main_image_url');
@@ -142,3 +155,4 @@
         </div>
     </div>
 </article>
+@endif

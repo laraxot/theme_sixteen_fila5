@@ -3,12 +3,49 @@ title: "log"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-16
+updated: 2026-10-20
 qmd: "log"
 issues: []
 discussions: []
 status: draft
 ---
+
+## [2026-10-20] ux | /it/auth/register merge 500 + parity DC
+
+- Supersede: estende entry shell+CTA sotto e [register-ux-audit](../auth/register-ux-audit.md).
+- Link: [register-ux-audit](../auth/register-ux-audit.md), [prompts/04.md](../prompts/04.md).
+- User: «migliora https://fixcity.eu/it/auth/register».
+- Causa: marker merge in `auth-register.blade.php` → HTTP 500; breadcrumb DC con `span.separator` → `/ /`.
+- Fix: shell ripulita (max 36rem); form colonna unica + * required; copy IT «Dati personali»/«Consensi»/«Indirizzo email».
+- Smoke: 200; Playwright card 343/576, CTA 52px, crumb `Home / Crea…`.
+
+## [2026-10-20] ux | /it/auth/register shell + CTA sotto data-dc
+
+- Supersede: estende [register-ux-audit](../auth/register-ux-audit.md); non tocca login.
+- Link: [register-ux-audit](../auth/register-ux-audit.md), [prompts/04.md](../prompts/04.md).
+- User: «migliora https://fixcity.eu/it/auth/register».
+- Causa: isolamento Tailwind/`14-auth-login.css` con `data-dc` → card full-bleed, CTA corta, i18n grezze, breadcrumb `Home / /`.
+- Fix: shell inline max 32rem + CTA widget 44px full-width; chiavi `user::*` corrette; un solo link Accedi; padding cookiebar.
+- Smoke Playwright: 375/1440 card 343/512, submit h=52, 0 raw keys.
+
+## [2026-10-20] a11y | events feedback vuoto + misure parity prompt 04
+
+- Supersede: solo aggiunge evidenze pomeridiane; non sostituisce la entry DCP-221 sotto.
+- Link: [prompts/04.md](../prompts/04.md), [events-public-index](../bmad/events-public-index.md).
+- User: «esegui poi migliora il prompt …/prompts/04.md».
+- Fix: h2 rating vuoti su `/it/events` → feedback/contacts in JSON + default blade.
+- Misure `:8000`: hero Lora 400; mobile gap 0; blog main 74%/80%; events main 54%.
+- Decisione: non copiare «Luoghi» DC fake (castelli/Colosseo) nel FO FixCity.
+
+## [2026-10-20] a11y | regressione DCP-221 hero Titillium→Lora + prompt 04
+
+- Sintomo: `.fc-home-hero h1` tornato a Titillium `font-weight:700` (testo «ciccione»).
+- Fix: ripristino contratto D18/DCP-221 — Lora Regular 400 + `class="font-serif"` su
+  `blocks/home/hero` e `blocks/hero/split`; rebuild Sixteen.
+- Prompt: riscrittura strutturata di `docs/prompts/04.md` (filosofia civica, matrice
+  stato, decisione Event=Article content_type, gate, DoD).
+- Doc: [accessibility](../accessibility.md), [decision-log D18](../bmad/decision-log.md),
+  [dcp-221](../bmad/stories/dcp-221-homepage-tipografia-leggibilita-wcag.story.md).
 
 ## [2026-10-16] bugfix | /it/blog getAttribute on null
 

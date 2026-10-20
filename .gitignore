@@ -9,6 +9,17 @@ yarn.lock
 # Build outputs
 build/
 dist/
+# The stable Design Comuni sprite is a source input for Vite, not build output.
+!resources/static/
+!resources/static/design-comuni/
+!resources/static/design-comuni/assets/
+!resources/static/design-comuni/assets/bootstrap-italia/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/svg/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg
+!resources/scripts/
+!resources/scripts/prepare-static-assets.mjs
+public/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg
 test-results/
 
 # Cache / temp
@@ -66,6 +77,8 @@ Main_files/
 _docs/
 scripts/
 bashscripts/
+!resources/scripts/
+!resources/scripts/prepare-static-assets.mjs
 docs/archive/
 docs/archived/
 docs/legacy/

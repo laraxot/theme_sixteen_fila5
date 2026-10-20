@@ -2200,11 +2200,6 @@ section.py-4 {
   @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200;
   font-family: 'Titillium Web';
 }
-/* FAQ Parity Styles */
-.dc-faq-hero-section {
-    @apply bg-white;
-}
-
 .it-rating-section {
     @apply py-12;
 }

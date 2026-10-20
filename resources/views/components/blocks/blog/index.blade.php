@@ -1,5 +1,5 @@
 {{--
-  Callers: config/local/fixcity/database/content/pages/blog.index.json
+  Callers: config/local/fixcity/database/content/pages/blog/index.json
   → content_blocks[*].data.view = pub_theme::components.blocks.blog.index
   Ref Design Comuni: sito/lista-risorse.html (HTML ≥90% / visual ≥95%, no header/footer).
   Schema: CMS $data + ThemeComposer Article(post). No writes.
@@ -9,8 +9,6 @@
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
     $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
-    $sprite = $assets.'/bootstrap-italia/dist/svg/sprites.svg';
     $search = trim((string) request()->query('q', ''));
     $categorySlug = trim((string) request()->query('categoria', ''));
     $featured = $composer->featuredBlogPosts(3);
@@ -33,7 +31,10 @@
         if (! $post instanceof \Modules\Blog\Models\Article) {
             return null;
         }
-        $title = (string) $post->getAttribute('title');
+        $title = $post->getTitle();
+        if ($title === '') {
+            return null;
+        }
         $excerpt = (string) ($post->getAttribute('excerpt') ?: $post->getAttribute('description') ?: '');
         $image = (string) $post->getAttribute('main_image_url');
         $category = $post->category?->getAttribute('name') ?: $post->category?->getAttribute('title');
@@ -86,6 +87,28 @@
         );
     }
 @endphp
+
+<style>
+    main[data-page="lista-risorse"] .row.g-4 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    main[data-page="lista-risorse"] .row.g-4 > [class*="col-"] { width: auto; max-width: none; padding: 0; }
+    main[data-page="lista-risorse"] .img-responsive-panoramic img { width: 100% !important; height: 12rem !important; object-fit: cover !important; display: block !important; }
+    main[data-page="lista-risorse"] .cmp-input-search .input-group { position: relative; display: flex; align-items: stretch; }
+    main[data-page="lista-risorse"] .cmp-input-search .form-control { padding-left: 2.5rem !important; }
+    main[data-page="lista-risorse"] .cmp-input-search .autocomplete-icon { position: absolute; left: 0.65rem; top: 50%; width: 1.25rem; height: 1.25rem; transform: translateY(-50%); pointer-events: none; z-index: 1; overflow: hidden; }
+    main[data-page="lista-risorse"] .cmp-input-search .autocomplete-icon svg { width: 1.25rem; height: 1.25rem; display: block; }
+    main[data-page="lista-risorse"] .card-wrapper { background: #fff; height: 100%; }
+    main[data-page="lista-risorse"] .card-title,
+    main[data-page="lista-risorse"] .card-title a,
+    main[data-page="lista-risorse"] .category { color: #007a52; text-decoration: none; }
+    main[data-page="lista-risorse"] .card-title { font-size: 1.25rem; line-height: 1.3; margin: 0 0 0.5rem; }
+    main[data-page="lista-risorse"] .card-text { color: #5c6f82; }
+    main[data-page="lista-risorse"] .bg-grey-card { background: #eceff1; }
+    main[data-page="lista-risorse"] .pagination { display: flex; gap: 0.5rem; list-style: none; padding: 0; justify-content: center; }
+    main[data-page="lista-risorse"] .page-link { color: #007a52; }
+    @media (max-width: 768px) {
+        main[data-page="lista-risorse"] .row.g-4 { grid-template-columns: 1fr; }
+    }
+</style>
 
 {{-- Breadcrumb: id main-container resta su <main> (skiplink); niente id duplicato. --}}
 <div class="container">
@@ -191,7 +214,7 @@
                             </button>
                         </div>
                         <span class="autocomplete-icon" aria-hidden="true">
-                            <svg class="icon icon-sm icon-primary"><use href="{{ $sprite }}#it-search"></use></svg>
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5c6f82" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
                         </span>
                     </div>
                     <p id="autocomplete-label" class="u-grey-light text-paragraph-card mt-2 mb-30 mt-lg-3 mb-lg-40">{{ $statusLabel }}</p>
@@ -245,7 +268,7 @@
                 <ul class="pagination">
                     <li class="page-item{{ $currentPage <= 1 ? ' disabled' : '' }}">
                         <a class="page-link" href="{{ $currentPage > 1 ? $pageUrl($currentPage - 1) : '#' }}" tabindex="{{ $currentPage <= 1 ? '-1' : '0' }}" @if ($currentPage <= 1) aria-hidden="true" @endif>
-                            <svg class="icon icon-primary"><use href="{{ $sprite }}#it-chevron-left"></use></svg>
+                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
                             <span class="visually-hidden">Pagina precedente</span>
                         </a>
                     </li>
@@ -263,7 +286,7 @@
                     <li class="page-item{{ $currentPage >= $lastPage ? ' disabled' : '' }}">
                         <a class="page-link" href="{{ $currentPage < $lastPage ? $pageUrl($currentPage + 1) : '#' }}" @if ($currentPage >= $lastPage) aria-hidden="true" @endif>
                             <span class="visually-hidden">Pagina successiva</span>
-                            <svg class="icon icon-primary"><use href="{{ $sprite }}#it-chevron-right"></use></svg>
+                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
                         </a>
                     </li>
                 </ul>

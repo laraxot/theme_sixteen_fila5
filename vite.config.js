@@ -1,12 +1,69 @@
-
+import { createRequire } from 'node:module';
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
-import { google } from 'laravel-vite-plugin/fonts';
 import { resolve } from 'path';
+
+const require = createRequire(import.meta.url);
+
+// L'export esiste da laravel-vite-plugin 3 (Vite 8). Il tema installato e' il 2.1:
+// un import statico ferma `vite build` prima di copiare publicDir. DCP-183 tiene i font in fonts.css.
+function googleFontProvider() {
+    try {
+        return require('laravel-vite-plugin/fonts').google;
+    } catch {
+        return null;
+    }
+}
+
+function fontOptions() {
+    const google = googleFontProvider();
+    if (!google) {
+        return {};
+    }
+
+    return {
+        fonts: [
+            google('Titillium Web', {
+                alias: 'sans',
+                weights: [300, 400, 600, 700],
+                styles: ['normal', 'italic'],
+                subsets: ['latin', 'latin-ext'],
+                display: 'swap',
+                preload: [
+                    { weight: 400 },
+                    { weight: 700 },
+                ],
+                fallbacks: ['system-ui', 'sans-serif'],
+            }),
+            google('Lora', {
+                alias: 'serif',
+                weights: [400, 700],
+                styles: ['normal', 'italic'],
+                subsets: ['latin', 'latin-ext'],
+                display: 'swap',
+                fallbacks: ['Georgia', 'serif'],
+            }),
+            google('Roboto Mono', {
+                alias: 'mono',
+                weights: [400, 700],
+                styles: ['normal', 'italic'],
+                subsets: ['latin', 'latin-ext'],
+                display: 'swap',
+                fallbacks: ['ui-monospace', 'monospace'],
+            }),
+        ],
+    };
+}
 
 export default defineConfig({
     base: '/themes/Sixteen/',
+
+    // outDir e' public: non e' una cartella in cui depositare file a mano.
+    // publicDir e' la sorgente che `vite build` copia cosi' com'e' dentro outDir.
+    // Lo sprite tiene l'URL stabile dei template (`.../sprites.svg#it-expand`):
+    // un import nel bundle lo hasherebbe e romperebbe ogni <use>.
+    publicDir: resolve(import.meta.dirname, 'resources/static'),
 
     build: {
         outDir: './public',
@@ -26,9 +83,9 @@ export default defineConfig({
             publicDirectory: '../../../public_html/',
 
             input: [
-                resolve(__dirname, 'resources/css/app.css'),
-                resolve(__dirname, 'resources/css/app-test.css'),
-                resolve(__dirname, 'resources/js/app.js'),
+                resolve(import.meta.dirname, 'resources/css/app.css'),
+                resolve(import.meta.dirname, 'resources/css/app-test.css'),
+                resolve(import.meta.dirname, 'resources/js/app.js'),
             ],
 
             refresh: [
@@ -37,38 +94,7 @@ export default defineConfig({
                 'resources/views/**/*.blade.php',
             ],
 
-            fonts: [
-                google('Titillium Web', {
-                    alias: 'sans',
-                    weights: [300, 400, 600, 700],
-                    styles: ['normal', 'italic'],
-                    subsets: ['latin', 'latin-ext'],
-                    display: 'swap',
-                    preload: [
-                        { weight: 400 },
-                        { weight: 700 },
-                    ],
-                    fallbacks: ['system-ui', 'sans-serif'],
-                }),
-
-                google('Lora', {
-                    alias: 'serif',
-                    weights: [400, 700],
-                    styles: ['normal', 'italic'],
-                    subsets: ['latin', 'latin-ext'],
-                    display: 'swap',
-                    fallbacks: ['Georgia', 'serif'],
-                }),
-
-                google('Roboto Mono', {
-                    alias: 'mono',
-                    weights: [400, 700],
-                    styles: ['normal', 'italic'],
-                    subsets: ['latin', 'latin-ext'],
-                    display: 'swap',
-                    fallbacks: ['ui-monospace', 'monospace'],
-                }),
-            ],
+            ...fontOptions(),
         }),
 
         tailwindcss(),
@@ -76,10 +102,10 @@ export default defineConfig({
 
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'resources'),
-            '@modules': resolve(__dirname, '../../Modules'),
+            '@': resolve(import.meta.dirname, 'resources'),
+            '@modules': resolve(import.meta.dirname, '../../Modules'),
             '@theme-leaflet-css': resolve(
-                __dirname,
+                import.meta.dirname,
                 'resources/css/thematic/leaflet.css',
             ),
         },

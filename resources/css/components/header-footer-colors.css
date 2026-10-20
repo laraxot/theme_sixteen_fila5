@@ -31,6 +31,16 @@
   color: #FFFFFF !important;
 }
 
+/* Logo SVG: nero → bianco su sfondo verde header (D7: logo nero → bianco per contrasto) */
+.it-header-center-wrapper .it-brand-wrapper > a > svg,
+.it-header-slim-wrapper .it-brand-wrapper > a > svg,
+.it-header-navbar-wrapper .logo-hamburger .it-brand-wrapper > a > svg,
+.it-brand-wrapper .icon,
+.it-brand-wrapper .icon image,
+.it-brand-wrapper svg image {
+  filter: brightness(0) invert(1) !important;
+}
+
 /* Header Center - Verde (#007A52) per parità con sfondo Logo */
 .it-header-center-wrapper {
   background-color: var(--color-italia) !important;
