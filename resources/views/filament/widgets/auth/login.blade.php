@@ -4,27 +4,14 @@
         $loginError = $errors->first('data.email') ?: $errors->first('email');
     @endphp
 
+    {{-- Esito negativo: password errata (data.email) o ritorno da Google rifiutato (email). Il vestito sta in
+         components/pages/auth-login.blade.php: le utility Tailwind sono spente dentro data-dc (icona a tutta larghezza). --}}
     @if ($loginError)
-        <div
-            class="rounded-xl border-2 border-red-300 bg-red-50 px-4 py-4 shadow-sm"
-            role="alert"
-            aria-live="assertive"
-        >
-            <div class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-700" aria-hidden="true">
-                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10A8 8 0 114.293 4.293 8 8 0 0118 10zm-8.75-3.25a.75.75 0 011.5 0v3.5a.75.75 0 01-1.5 0v-3.5zm.75 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                    </svg>
-                </span>
-                <div class="min-w-0">
-                    <p class="text-sm font-semibold text-red-800">
-                        {{ __('user::login.actions.login.error') }}
-                    </p>
-                    <p class="mt-1 text-sm text-red-700">
-                        {{ $loginError }}
-                    </p>
-                </div>
-            </div>
+        <div class="auth-login-alert" role="alert" aria-live="assertive">
+            <svg class="auth-login-alert__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+                <path fill-rule="evenodd" d="M18 10A8 8 0 114.293 4.293 8 8 0 0118 10zm-8.75-3.25a.75.75 0 011.5 0v3.5a.75.75 0 01-1.5 0v-3.5zm.75 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            <p class="auth-login-alert__text">{{ $loginError }}</p>
         </div>
     @endif
 

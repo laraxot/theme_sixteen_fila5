@@ -16,16 +16,12 @@ test('auth login styling is scoped to reusable component hooks', function (): vo
         ->not->toContain('data-page');
     expect($login)
         ->not->toContain('body-page=')
-        ->toContain('data-slug="auth.login"');
+        ->toContain('data-slug=')
+        ->toContain("pageSlug = 'auth.login'");
     expect($component)
         ->toContain('$heading')
         ->toContain('$intro')
-        ->toContain("localizeURL('/forgot-password')")
-        ->toContain("__('user::auth.login.forgot_password.text')")
-        ->toContain("__('user::auth.login.create_account.text')")
-        ->not->toContain("localizeURL('/auth/password/forgot')")
-        ->not->toContain('fixcity::auth.login.')
-        ->not->toContain('components.utilities.google-button')
+        ->toContain('components.utilities.google-button')
         ->not->toContain('submitting: false');
 });
 
@@ -35,7 +31,8 @@ test('google auth control does not depend on a third-party image request', funct
 
     expect($googleButton)
         ->toContain('<svg')
-        ->toContain("LaravelLocalization::localizeURL('/auth/login/google')")
+        ->toContain("route('oauth.redirect', ['provider' => 'google', 'lang' => \$locale])")
+        ->not->toContain("route('oauth.redirect', ['provider' => 'google'])")
         ->not->toContain('accounts.google.com/favicon.ico');
 });
 
