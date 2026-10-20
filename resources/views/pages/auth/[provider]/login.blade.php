@@ -1,23 +1,30 @@
-@php
+<?php
+
+declare(strict_types=1);
+
 /**
- * BMAD + Second Brain + EEC + Filament Blueprint
- * Google OAuth2 Login — Folio route: auth.google.index
- * Stack: Folio + Volt + Filament — NO web.php / api.php / controllers
- * URL: https://laravel.com/framework/docs/13.x/folio → Folio path → route name convention
- * 
- * Route name: auth.google.index (con Folio, la pagina index generate automaticamente)
- * Pagina: /it/auth/google
- * Redirect a Google Socialite via Laravel Socialite (stateless/redirect)
+ * Legacy Folio path /auth/{provider}/login — delege al redirect OAuth localizzato.
+ * Canonico: /{lang}/auth/login/{provider} via oauth.redirect (socialite.php).
  */
 
-use Modules\Xot\Datas\XotData;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\User\Http\Controllers\Socialite\RedirectToProviderController;
 
-return redirect()->away(
-    \Laravel\Socialite\Facades\Socialite::driver('google')->stateless()->redirect()->getTargetUrl()
-);
-@endphp
+/** @var string $provider */
+$provider = is_string($provider ?? null) ? $provider : 'google';
 
-<div class="p-6 text-center">
-    <p class="text-red-600">Google OAuth non configurato.</p>
-    <p class="text-sm text-gray-500 mt-2">Aggiungi GOOGLE_CLIENT_ID e GOOGLE_CLIENT_SECRET in .env.</p>
-</div>
+if (! in_array($provider, ['google', 'microsoft', 'github'], true)) {
+    abort(404, __('user::auth.login.invalid_provider'));
+}
+
+$locale = trim((string) app()->getLocale(), '/');
+$supported = LaravelLocalization::getSupportedLanguagesKeys();
+if (! in_array($locale, $supported, true)) {
+    $locale = (string) config('app.locale', 'it');
+}
+
+if (Route::has('oauth.redirect')) {
+    return redirect()->to(route('oauth.redirect', ['provider' => $provider, 'lang' => $locale]));
+}
+
+return app(RedirectToProviderController::class)(request(), $provider);
