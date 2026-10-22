@@ -67,10 +67,11 @@ intro stanno nelle traduzioni del modulo Fixcity, non duplicati nel JSON.
 
 ## PHPStan (tema)
 
-Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto `Themes/Sixteen`. Durante le wave swarm, aggiornare `docs/bmad/` in parallelo al codice (decision-log, blueprint) senza toccare `phpstan.neon`. Ordine permanente monorepo: [phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md).
+Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto `Themes/Sixteen`. Durante le wave swarm, aggiornare `docs/bmad/` in parallelo al codice (decision-log, blueprint) senza toccare `phpstan.neon`. Ordine permanente monorepo: [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md). `graphify-out/` del tema: [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) (D30).
 
 ## Related
 
 - Planning: [bmad-planning.md](../bmad-planning.md)
 - Brainstorming: [bmad-brainstorming.md](../bmad-brainstorming.md)
+- Decision log: [decision-log.md](./decision-log.md)
 - Shell contract: [container0-index-shell-contract.md](./container0-index-shell-contract.md)
