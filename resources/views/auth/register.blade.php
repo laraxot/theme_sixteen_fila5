@@ -89,7 +89,7 @@ name('register');
             <div class="text-center text-xs text-white/80 mt-8 p-4 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm fade-in-up">
                 <p class="mb-2">
                     <strong>{{ __('Accessibilità') }}:</strong> {{ __('Conforme a WCAG 2.1 AA') }} •
-                    <a href="{{ url('/pages/'accessibility'') }}" class="text-white underline hover:text-blue-100 transition-colors">{{ __('Dichiarazione di accessibilità') }}</a>
+                    <a href="{{ url('/pages/accessibility') }}" class="text-white underline hover:text-blue-100 transition-colors">{{ __('Dichiarazione di accessibilità') }}</a>
                 </p>
                 <p><strong>{{ __('Navigazione') }}:</strong> {{ __('Tab per spostarsi • Invio per confermare') }}</p>
             </div>

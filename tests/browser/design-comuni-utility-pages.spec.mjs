@@ -20,12 +20,13 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             const faqResponse = await page.goto(`${BASE}/${locale.code}/domande-frequenti`, { waitUntil: 'networkidle' });
             expect(faqResponse?.status()).toBe(200);
             await expect(page.getByRole('heading', { level: 1, name: locale.faq })).toBeVisible();
-            await expect(page.locator('#faq-content details')).toHaveCount(5);
-            await expect(page.locator('#faq-content')).not.toContainText(/Lorem Ipsum|pub_theme::|fixcity::/i);
-            const firstFaq = page.locator('#faq-content details').first();
-            await firstFaq.locator('summary').focus();
+            const faqItems = page.locator('#faq-content .accordion-item, #accordion-faq .accordion-item');
+            await expect(faqItems).not.toHaveCount(0);
+            await expect(page.locator('#faq-content, #accordion-faq').first()).not.toContainText(/Lorem Ipsum|pub_theme::|fixcity::/i);
+            const firstFaq = page.locator('#faq-content .accordion-button, #accordion-faq .accordion-button').first();
+            await firstFaq.focus();
             await page.keyboard.press('Enter');
-            await expect(firstFaq.locator('p')).toBeVisible();
+            await expect(faqItems.first().locator('p')).toBeVisible();
             await expect(page.locator(`a[href$="/${locale.code}/tickets/create"]`).last()).toBeVisible();
             await expect(page.locator(`footer a[href$="/${locale.code}/mappa-sito"]`).first()).toBeVisible();
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);

@@ -21,7 +21,7 @@
                     @php($itemId = $item['id'] ?? 'faq-'.$loop->iteration)
                     <div class="accordion-item"@if ($live) data-text="{{ \Illuminate\Support\Str::lower(($item['question'] ?? '').' '.($item['answer'] ?? '')) }}" x-show="q === '' ? {{ $loop->index }} < shown : $el.dataset.text.includes(q)"@endif>
                         <div class="accordion-header" id="heading{{ $itemId }}">
-                            <button class="accordion-button collapsed title-snall-semi-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $itemId }}" aria-expanded="true" aria-controls="collapse{{ $itemId }}">
+                            <button class="accordion-button collapsed title-snall-semi-bold py-3" style="color:#17324d !important;background-color:#fff !important" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $itemId }}" aria-expanded="true" aria-controls="collapse{{ $itemId }}">
                                 <div class="button-wrapper">{{ $item['question'] ?? '' }}
                                     <div class="icon-wrapper">
                                         <svg class="icon icon-xs me-1 icon-primary"><use href="{{ $icon('') }}" xlink:href="{{ $icon('') }}"></use><span class=""></span></svg>
@@ -42,7 +42,7 @@
     </div>
     @if (filled($section['more']['label'] ?? null))
         <div class="{{ $section['more']['col_class'] ?? 'col-12' }}"@if ($visible > 0) x-show="q === '' && shown < total" x-on:click="shown = total"@endif>
-            <button type="button" class="btn btn-outline-primary w-100 mt-40 mb-40 title-medium-bold"><span class="">{{ $section['more']['label'] }}</span></button>
+            <button type="button" class="btn btn-outline-primary w-100 mt-40 mb-40 title-medium-bold" style="color:#17324d !important;background-color:#fff !important"><span class="">{{ $section['more']['label'] }}</span></button>
         </div>
     @endif
 </div>

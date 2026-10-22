@@ -11,8 +11,7 @@
     use Modules\Fixcity\Actions\ListPublicTicketsAction;
     use Modules\Fixcity\Datas\PublicTicketListFilters;
 
-    $locale = app()->getLocale();
-    $base = '/'.$locale.'/tickets';
+    $base = route('container0.index', ['container0' => 'tickets']);
     $filters = PublicTicketListFilters::fromRequest(request());
     $list = app(ListPublicTicketsAction::class)->execute($filters);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_list.'.$key, $replace);
@@ -26,12 +25,12 @@
     $listUrl = $withQuery($base, array_merge($filters->toQuery(['page']), ['view' => 'list']));
     // dati per i partial condivisi (breadcrumb, valutazione, contatti): stessa forma del JSON delle pagine di prova, ma dalla lingua attiva
     $partialData = [
-        'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => '/'.$locale]], 'current' => $t('breadcrumb.current')],
+        'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => route('home')]], 'current' => $t('breadcrumb.current')],
         'feedback' => array_merge((array) __('fixcity::ticket_list.feedback'), ['col_class' => 'col-12 col-lg-6 p-lg-0 px-3']),
         'contacts' => ['layout' => 'narrow', 'main' => ['title' => $t('contacts.title'), 'items' => [
-            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => '/'.$locale.'/domande-frequenti'],
-            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => $base.'/track'],
-            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => '/'.$locale.'/area-personale/pratiche'],
+            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => route('container0.index', ['container0' => 'domande-frequenti'])],
+            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => route('container0.view', ['container0' => 'tickets', 'slug0' => 'track'])],
+            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche'])],
             ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'url' => 'tel:050505'],
         ]]],
     ];

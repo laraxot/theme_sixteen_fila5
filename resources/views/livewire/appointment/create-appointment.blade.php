@@ -402,8 +402,8 @@ f7ac8eda (.)
 
                         <div class="text-center">
                             <p class="text-sm text-gray-600 mb-4">
-                                Confermando, accetti i <a href="#" class="text-blue-600 hover:text-blue-800">termini di servizio</a>
-                                e l'<a href="#" class="text-blue-600 hover:text-blue-800">informativa privacy</a>.
+                                Confermando, accetti i <a href="{{ route('terms.show') }}" class="text-blue-600 hover:text-blue-800">termini di servizio</a>
+                                e l'<a href="{{ route('policy.show') }}" class="text-blue-600 hover:text-blue-800">informativa privacy</a>.
                             </p>
                         </div>
                     </div>

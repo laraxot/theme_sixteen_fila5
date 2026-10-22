@@ -1,17 +1,18 @@
 @props(['links' => []])
 
 @php
-    $searchCreateUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create');
-    $searchListUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/segnalazioni');
-    $searchTrackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
+    // Religione FO: solo container0.* — mai tickets.create|track / segnalazioni named.
+    $searchCreateUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
+    $searchListUrl = route('container0.index', ['container0' => 'tickets']);
+    $searchTrackUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'track']);
 
     $defaultLinks = [
-        ['label' => 'Rilascio Carta Identità Elettronica (CIE)', 'url' => '#'],
-        ['label' => 'Cambio di residenza', 'url' => '#'],
-        ['label' => 'Tributi online', 'url' => '#'],
-        ['label' => 'Prenotazione appuntamenti', 'url' => '#'],
-        ['label' => 'Rilascio tessera elettorale', 'url' => '#'],
-        ['label' => 'Voucher connettività', 'url' => '#'],
+        ['label' => __('pub_theme::navigation.homepage.report_issue'), 'url' => $searchCreateUrl],
+        ['label' => __('fixcity::ticket_list.heading.title'), 'url' => $searchListUrl],
+        ['label' => __('fixcity::ticket_list.contacts.track'), 'url' => $searchTrackUrl],
+        ['label' => __('pub_theme::navigation.homepage.faq'), 'url' => route('container0.index', ['container0' => 'domande-frequenti'])],
+        ['label' => __('pub_theme::navigation.homepage.news'), 'url' => route('container0.index', ['container0' => 'blog'])],
+        ['label' => __('pub_theme::navigation.homepage.events'), 'url' => route('container0.index', ['container0' => 'events'])],
     ];
 
     $displayLinks = !empty($links) ? $links : $defaultLinks;

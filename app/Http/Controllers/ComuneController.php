@@ -54,7 +54,7 @@ class ComuneController extends Controller
             [
                 'nome' => 'Segnalazioni',
                 'descrizione' => 'Segnala problemi e disservizi',
-                'url' => route('fixcity.tickets.create'),
+                'url' => route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']),
                 'icona' => 'exclamation-triangle',
             ],
             [

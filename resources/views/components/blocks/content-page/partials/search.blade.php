@@ -8,7 +8,7 @@
         <div class="input-group">
             <label for="{{ $search['id'] ?? '' }}" class="visually-hidden">{{ $search['label'] ?? '' }}</label>
             <input type="search" class="autocomplete form-control" placeholder="{{ $search['placeholder'] ?? '' }}" id="{{ $search['id'] ?? '' }}" name="{{ $search['name'] ?? '' }}" data-bs-autocomplete="[]">
-            <div class="input-group-append"><button class="btn btn-primary" type="button" id="{{ $search['button_id'] ?? '' }}">{{ $search['button'] ?? '' }}</button></div>
+            <div class="input-group-append"><button class="btn btn-primary" style="background-color:#007a52 !important;color:#fff !important;border-color:#007a52 !important" type="button" id="{{ $search['button_id'] ?? '' }}">{{ $search['button'] ?? '' }}</button></div>
             <span class="autocomplete-icon" aria-hidden="true"><svg class="icon icon-sm icon-primary"><use href="{{ $icon('it-search') }}"></use></svg></span>
         </div>
         @if (filled($search['result'] ?? null))

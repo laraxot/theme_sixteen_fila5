@@ -6,7 +6,6 @@
 @php
     $t = static fn (string $key, array $replace = []): string => (string) __('fixcity::personal_area_settings.notifications.'.$key, $replace);
     $items = $notifications['items'];
-    $localize = static fn (string $path): string => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeUrl($path);
 @endphp
 <div class="it-page-sections-container">
     <section class="it-page-section pt-0" aria-labelledby="personal-area-notifications-title">
@@ -31,7 +30,7 @@
                 <div class="card shadow-sm px-4 pt-4 pb-4">
                     <h3 class="title-small-semi-bold m-0 mb-2">{{ $t('empty_title') }}</h3>
                     <p class="text-paragraph">{{ $t('empty_text') }}</p>
-                    <div><a class="btn btn-primary" href="{{ $localize('/area-personale/pratiche') }}">{{ $t('my_reports') }}</a></div>
+                    <div><a class="btn btn-primary" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche']) }}">{{ $t('my_reports') }}</a></div>
                 </div>
             </div>
         @else

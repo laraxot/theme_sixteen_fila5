@@ -58,9 +58,9 @@ status: draft
 ## Uso CTA blocchi (mappa homepage)
 
 ```blade
-{{-- components/blocks/cta/ticket.blade.php — NO FrontofficeUrl --}}
+{{-- components/blocks/cta/ticket.blade.php — rotta Folio canonica --}}
 @php
-    $buttonUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tests/ticket-crea');
+    $buttonUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
 @endphp
 <a href="{{ $buttonUrl }}">…</a>
 ```
@@ -68,10 +68,11 @@ status: draft
 ## Uso in partial header
 
 ```blade
-<a href="{{ route('services.categories') }}">
+<a href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}">
 ```
 
 Le label usano chiavi strutturate, es. `pub_theme::header.user.dropdown.notifications.label`.
+Breadcrumb listing: `pub_theme::navigation.home` / `homepage.news` / `homepage.events`.
 
 ## Perché (zen)
 

@@ -32,12 +32,12 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('dashboard') }}">
+                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche']) }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('notifications') }}">
+                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
                             </a>
                         </li>
@@ -45,12 +45,12 @@
                             <span class="divider"></span>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('profile.edit') }}">
+                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'impostazioni']) }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.settings.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <form method="POST" action="{{ url('/'.app()->getLocale().'/auth/logout') }}">
+                            <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="list-item left-icon">
                                     <svg class="icon icon-primary icon-sm left" aria-hidden="true">

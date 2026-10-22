@@ -24,7 +24,7 @@
                         </div>
                         <h5 class="card-title">Segnalazioni</h5>
                         <p class="card-text">Segnala problemi e disservizi nel territorio comunale</p>
-                        <a href="{{ route('fixcity.tickets.create') }}" class="btn btn-primary">Segnala</a>
+                        <a href="{{ route('segnalazioni') }}" class="btn btn-primary">Segnala</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         </div>
                         <h5 class="card-title">Servizi</h5>
                         <p class="card-text">Accedi ai servizi online del comune</p>
-                        <a href="{{ route('comune.servizi') }}" class="btn btn-primary">Vai ai Servizi</a>
+                        <a href="{{ route('services.categories') }}" class="btn btn-primary">Vai ai Servizi</a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                         </div>
                         <h5 class="card-title">Novità</h5>
                         <p class="card-text">Scopri le ultime notizie e comunicati</p>
-                        <a href="{{ route('comune.novita') }}" class="btn btn-primary">Leggi le Novità</a>
+                        <a href="{{ route('news') }}" class="btn btn-primary">Leggi le Novità</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                                         <span class="badge badge-{{ $ticket->priority }}">{{ $ticket->priority_label }}</span>
                                         <span class="badge badge-{{ $ticket->status }}">{{ $ticket->status_label }}</span>
                                     </div>
-                                    <a href="{{ route('fixcity.tickets.show', $ticket) }}" class="btn btn-outline-primary btn-sm">Dettagli</a>
+                                    <a href="{{ route('container0.view', ['container0' => 'tickets', 'slug0' => $ticket->getKey()]) }}" class="btn btn-outline-primary btn-sm">Dettagli</a>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                     <div class="card-meta">
                                         <small class="text-muted">{{ $news->created_at->format('d/m/Y') }}</small>
                                     </div>
-                                    <a href="{{ route('comune.novita.show', $news) }}" class="btn btn-outline-primary btn-sm">Leggi</a>
+                                    <a href="{{ route('events.show', $news) }}" class="btn btn-outline-primary btn-sm">Leggi</a>
                                 </div>
                             </div>
                         </div>
