@@ -16,4 +16,5 @@ return [
     'personal_area' => 'Acceder al área personal',
     'search_site_aria' => 'Buscar en el sitio',
     'logo' => 'FixCity',
+    'events_title' => 'Eventos',
 ];

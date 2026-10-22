@@ -1,6 +1,13 @@
 @props(['blocks' => []])
 {{-- Modale di ricerca Design Comuni: markup del riferimento, dati da sections/search-modal.json. Apertura/chiusura: resources/js/app.js. --}}
 @php
+    $localizeSuggestionUrl = static function (mixed $url): string {
+        if (! is_string($url) || $url === '' || str_starts_with($url, '#') || str_contains($url, '://')) {
+            return is_string($url) && $url !== '' ? $url : '#';
+        }
+
+        return \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($url);
+    };
     $data = [];
     foreach ($blocks as $block) {
         $blockData = is_array($block) ? ($block['data'] ?? []) : ($block->data ?? []);
@@ -38,7 +45,7 @@
                                     <div class="other-link-title">{{ $d('suggestions_title') }}</div>
                                     <ul class="searches-list">
                                         @foreach ($d('suggestions', []) as $suggestion)
-                                            <li><a href="{{ $suggestion['url'] ?? '#' }}">{{ $suggestion['label'] ?? '' }}</a></li>
+                                            <li><a href="{{ $localizeSuggestionUrl($suggestion['url'] ?? null) }}">{{ $suggestion['label'] ?? '' }}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>

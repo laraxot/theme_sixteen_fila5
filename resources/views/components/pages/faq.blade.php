@@ -11,7 +11,7 @@
     $faqIntro = is_string($intro ?? null) && $intro !== ''
         ? $intro
         : 'Risposte alle domande più frequenti su come segnalare un problema e seguire la pratica.';
-    $homeUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/');
+    $homeUrl = route('home');
     $visibleCount = is_numeric($visible ?? null) ? max(1, (int) $visible) : 5;
 
     $rawItems = is_array($items ?? null) && $items !== []
@@ -30,9 +30,10 @@
         $faqItems[] = ['question' => $question, 'answer' => $answer];
     }
 
-    $reportUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create');
-    $trackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
-    $loginUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/auth/login');
+    // Canon Folio: container0.view / login — mai localizeUrl né tickets.*.
+    $reportUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
+    $trackUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'track']);
+    $loginUrl = route('login');
     $defaultContacts = [
         ['group' => 'comune', 'label' => __('pub_theme::faq.contacts.report'), 'href' => $reportUrl, 'icon' => 'pin'],
         ['group' => 'comune', 'label' => __('pub_theme::faq.contacts.track'), 'href' => $trackUrl, 'icon' => 'search'],

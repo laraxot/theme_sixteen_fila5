@@ -8,7 +8,7 @@
 
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
-    $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
+    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($path);
     $search = trim((string) request()->query('q', ''));
     $categorySlug = trim((string) request()->query('categoria', ''));
     $featured = $composer->featuredBlogPosts(3);
@@ -25,9 +25,9 @@
                 ->values()
         );
     }
-    $blogIndexUrl = $localize('/blog');
+    $blogIndexUrl = route('container0.index', ['container0' => 'blog']);
 
-    $renderCard = static function ($post) use ($localize): ?array {
+    $renderCard = static function ($post) use ($blogIndexUrl): ?array {
         if (! $post instanceof \Modules\Blog\Models\Article) {
             return null;
         }
@@ -39,7 +39,7 @@
         $image = (string) $post->getAttribute('main_image_url');
         $category = $post->category?->getAttribute('name') ?: $post->category?->getAttribute('title');
         $slug = (string) $post->getAttribute('slug');
-        $url = $localize('/blog/'.$slug);
+        $url = route('container0.view', ['container0' => 'blog', 'slug0' => $slug]);
         // Ref lista-risorse: "28 FEB 2023" (giorno senza zero, mese abbr. maiuscolo)
         $date = $post->published_at?->translatedFormat('j M Y');
         $date = is_string($date) ? strtoupper($date) : '';
@@ -48,7 +48,7 @@
             : 'NOTIZIE';
         $categorySlugAttr = $post->category?->getAttribute('slug');
         $categoryUrl = $categorySlugAttr
-            ? $localize('/blog').'?categoria='.urlencode((string) $categorySlugAttr)
+            ? $blogIndexUrl.'?categoria='.urlencode((string) $categorySlugAttr)
             : $url;
 
         return compact('title', 'excerpt', 'image', 'url', 'date', 'categoryLabel', 'categoryUrl');
@@ -77,9 +77,9 @@
     );
     foreach (['main', 'problems'] as $group) {
         $parityData['contacts'][$group]['items'] = array_map(
-            static function (array $contact) use ($localize): array {
+            static function (array $contact) use ($cmsUrl): array {
                 $url = (string) ($contact['url'] ?? '#');
-                $contact['url'] = $url === '#' || str_starts_with($url, '#') || str_starts_with($url, 'http') ? $url : $localize($url);
+                $contact['url'] = $url === '#' || str_starts_with($url, '#') || str_starts_with($url, 'http') || str_starts_with($url, 'tel:') ? $url : $cmsUrl($url);
 
                 return $contact;
             },
@@ -118,10 +118,10 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb p-0" data-element="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{ $localize('/') }}">{{ $data['home_label'] ?? 'Home' }}</a>
+                            <a href="{{ route('home') }}">{{ $data['home_label'] ?? __('pub_theme::navigation.home') }}</a>
                             <span class="separator">/</span>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $data['title'] ?? 'Novità' }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $data['title'] ?? __('pub_theme::navigation.homepage.news') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -135,7 +135,7 @@
             <div class="cmp-hero">
                 <section class="it-hero-wrapper bg-white align-items-start">
                     <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
-                        <h1 class="text-black" data-element="page-name">{{ $data['title'] ?? 'Novità' }}</h1>
+                        <h1 class="text-black" data-element="page-name">{{ $data['title'] ?? __('pub_theme::navigation.homepage.news') }}</h1>
                         <div class="hero-text">
                             <p>{{ $data['intro'] ?? '' }}</p>
                         </div>
@@ -267,10 +267,14 @@
             <nav class="pagination-wrapper justify-content-center" aria-label="{{ $data['pagination_label'] ?? 'Paginazione delle novità' }}">
                 <ul class="pagination">
                     <li class="page-item{{ $currentPage <= 1 ? ' disabled' : '' }}">
-                        <a class="page-link" href="{{ $currentPage > 1 ? $pageUrl($currentPage - 1) : '#' }}" tabindex="{{ $currentPage <= 1 ? '-1' : '0' }}" @if ($currentPage <= 1) aria-hidden="true" @endif>
+                        @if ($currentPage > 1)
+                        <a class="page-link" href="{{ $pageUrl($currentPage - 1) }}" rel="prev">
+                        @else
+                        <span class="page-link" aria-disabled="true">
+                        @endif
                             <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
                             <span class="visually-hidden">Pagina precedente</span>
-                        </a>
+                        @if ($currentPage > 1)</a>@else</span>@endif
                     </li>
                     @foreach (range(1, min($lastPage, 3)) as $page)
                         <li class="page-item">
@@ -284,10 +288,14 @@
                         </li>
                     @endforeach
                     <li class="page-item{{ $currentPage >= $lastPage ? ' disabled' : '' }}">
-                        <a class="page-link" href="{{ $currentPage < $lastPage ? $pageUrl($currentPage + 1) : '#' }}" @if ($currentPage >= $lastPage) aria-hidden="true" @endif>
+                        @if ($currentPage < $lastPage)
+                        <a class="page-link" href="{{ $pageUrl($currentPage + 1) }}" rel="next">
+                        @else
+                        <span class="page-link" aria-disabled="true">
+                        @endif
                             <span class="visually-hidden">Pagina successiva</span>
                             <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                        </a>
+                        @if ($currentPage < $lastPage)</a>@else</span>@endif
                     </li>
                 </ul>
             </nav>

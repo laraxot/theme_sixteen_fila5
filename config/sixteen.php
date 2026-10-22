@@ -33,9 +33,9 @@ return [
             'contacts' => [
                 'main' => ['title' => 'Contatta il comune', 'items' => [
                     ['icon' => 'it-help-circle', 'label' => 'Leggi le domande frequenti', 'url' => '/domande-frequenti'],
-                    ['icon' => 'it-mail', 'label' => 'Richiedi assistenza', 'url' => '#', 'element' => 'contacts'],
-                    ['icon' => 'it-hearing', 'label' => 'Chiama il numero verde 05 0505', 'url' => '#'],
-                    ['icon' => 'it-calendar', 'label' => 'Prenota appuntamento', 'url' => '#', 'element' => 'appointment-booking'],
+                    ['icon' => 'it-mail', 'label' => 'Richiedi assistenza', 'url' => '/contatti', 'element' => 'contacts'],
+                    ['icon' => 'it-hearing', 'label' => 'Chiama il numero verde 05 0505', 'url' => 'tel:050505'],
+                    ['icon' => 'it-calendar', 'label' => 'Prenota appuntamento', 'url' => '/servizi', 'element' => 'appointment-booking'],
                 ]],
                 'problems' => ['title' => 'Problemi in città', 'items' => [['icon' => 'it-map-marker-circle', 'label' => 'Segnala disservizio', 'url' => '/tickets/create']]],
             ],

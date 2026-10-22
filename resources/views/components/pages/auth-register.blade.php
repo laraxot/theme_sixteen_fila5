@@ -138,7 +138,7 @@
             </div>
 
             <p class="auth-register-links">
-                <a href="{{ $localize('/auth/password/forgot') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
+                <a href="{{ route('password.request') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
             </p>
             <p class="auth-register-links">
                 <a href="{{ $localize('/accessibilita') }}">{{ __('pub_theme::accessibility.page.title.text') }}</a>

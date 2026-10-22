@@ -17,7 +17,7 @@
                                 <ul class="contact-list p-0">
                                     @foreach ($group['items'] ?? [] as $contact)
                                         <li>
-                                            <a class="list-item" href="{{ $contact['url'] ?? '#' }}"@if (filled($contact['element'] ?? null)) data-element="{{ $contact['element'] }}"@endif>
+                                            <a class="list-item" style="color:#17324d !important" href="{{ $contact['url'] ?? '#' }}"@if (filled($contact['element'] ?? null)) data-element="{{ $contact['element'] }}"@endif>
                                                 <svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon($contact['icon'] ?? 'it-help-circle') }}"></use></svg>
                                                 <span>{{ $contact['label'] ?? '' }}</span>
                                             </a>
