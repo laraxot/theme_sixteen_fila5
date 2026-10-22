@@ -9,7 +9,7 @@
 
 <div class="row row-title pt-5 pt-lg-60 pb-3">
     <div class="col-12 d-lg-flex justify-content-between">
-        <h2>Eventi</h2>
+        <h2>{{ __('pub_theme::ui.events_title') }}</h2>
     </div>
 </div>
 <div class="row row-calendar">

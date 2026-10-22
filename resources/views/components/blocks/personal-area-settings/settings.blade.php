@@ -8,7 +8,6 @@
 --}}
 @php
     $t = static fn (string $key, array $replace = []): string => (string) __('fixcity::personal_area_settings.settings.'.$key, $replace);
-    $localize = static fn (string $path): string => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeUrl($path);
     $citizen = auth()->user();
     $settings = $citizen instanceof \Modules\Xot\Contracts\UserContract
         ? app(\Modules\Fixcity\Actions\BuildPersonalAreaSettingsDataAction::class)->execute($citizen)
@@ -43,7 +42,7 @@
                 <section class="it-page-section mb-5" id="notification-preferences" aria-labelledby="ticket-notification-preferences-title">
                     @livewire(\Modules\Fixcity\Livewire\TicketNotificationPreferencesWidget::class)
                     <p class="text-paragraph-small mt-3 mb-2">{{ $settings['email_verified'] ? $t('email_verified') : $t('email_unverified') }}</p>
-                    <a class="btn btn-outline-primary" href="{{ $localize('/area-personale/notifiche') }}">{{ $t('notifications_link') }}</a>
+                    <a class="btn btn-outline-primary" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}">{{ $t('notifications_link') }}</a>
                 </section>
 
                 <section class="it-page-section mb-5" id="account-data" aria-labelledby="account-data-title">

@@ -29,7 +29,6 @@
     if ($image === '' && is_array($imageBlock)) {
         $image = (string) data_get($imageBlock, 'data.url', '');
     }
-    $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
     $category = $event->category?->getAttribute('name');
     $start = filled($event->event_start_date)
         ? \Illuminate\Support\Carbon::parse($event->event_start_date)
@@ -47,11 +46,11 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb p-0" data-element="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{ $localize('/') }}">Home</a>
+                            <a href="{{ route('home') }}">{{ __('pub_theme::navigation.home') }}</a>
                             <span class="separator">/</span>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ $localize('/events') }}">Eventi</a>
+                            <a href="{{ route('container0.index', ['container0' => 'events']) }}">{{ __('pub_theme::navigation.homepage.events') }}</a>
                             <span class="separator">/</span>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
@@ -135,7 +134,7 @@
                         'noReactions' => true,
                     ], key('event-comments-ro-'.$event->getKey()))
                     <p class="mt-3 text-sm text-muted">
-                        <a class="underline" href="{{ $localize('/auth/login') }}">
+                        <a class="underline" href="{{ route('login') }}">
                             {{ __('comment::txt.log-in-for-comment') }}
                         </a>
                     </p>
@@ -143,7 +142,7 @@
             </section>
 
             <p class="mt-5">
-                <a class="read-more" href="{{ $localize('/events') }}">
+                <a class="read-more" href="{{ route('container0.index', ['container0' => 'events']) }}">
                     <span class="text">Torna agli eventi</span>
                 </a>
             </p>

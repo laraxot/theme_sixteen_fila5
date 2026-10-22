@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="it-brand-wrapper">
-                        <a href="{{ route('comune.homepage') }}">
+                        <a href="{{ route('home') }}">
                             <img src="{{ theme_asset('images/logo-comune.png') }}" alt="Logo Comune" class="icon">
                             <div class="it-brand-text">
                                 <h3>{{ config('comune.nome', 'Nome Comune') }}</h3>
@@ -28,12 +28,12 @@
                 <div class="col-lg-4">
                     <h4>Link Utili</h4>
                     <ul class="it-footer-list">
-                        <li><a href="{{ route('comune.servizi') }}">Servizi</a></li>
-                        <li><a href="{{ route('comune.novita') }}">Novità</a></li>
-                        <li><a href="{{ route('comune.contatti') }}">Contatti</a></li>
-                        <li><a href="{{ route('comune.documenti') }}">Documenti</a></li>
-                        <li><a href="{{ route('comune.eventi') }}">Eventi</a></li>
-                        <li><a href="{{ route('fixcity.tickets.index') }}">Segnalazioni</a></li>
+                        <li><a href="{{ route('services.categories') }}">Servizi</a></li>
+                        <li><a href="{{ route('news') }}">Novità</a></li>
+                        <li><a href="{{ route('contact') }}">Contatti</a></li>
+                        <li><a href="{{ route('documenti') }}">Documenti</a></li>
+                        <li><a href="{{ route('events.index') }}">Eventi</a></li>
+                        <li><a href="{{ route('segnalazioni') }}">Segnalazioni</a></li>
                     </ul>
                 </div>
             </div>

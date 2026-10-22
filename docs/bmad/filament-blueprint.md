@@ -41,6 +41,16 @@ chiede lo slug `auth.register` e il blocco include
 `components/pages/auth-register.blade.php`, che monta il widget GDPR. Titolo e
 intro stanno nelle traduzioni del modulo Fixcity, non duplicati nel JSON.
 
+## i18n FO (obbligatorio)
+
+Locali: `it|en|de|es`. Chrome del tema solo via `pub_theme::` (pattern
+`context.collection.element.type`, es. `header.user.dropdown.logout.label`,
+`navigation.homepage.news`). Dominio prodotto nel modulo owner. Vietato
+stringhe UI nel Blade e `->label()` Filament. URL: `route('container0…')`
+non `localizeUrl`. Canon:
+[frontoffice-link-conventions.md](../../../Modules/Fixcity/docs/frontoffice-link-conventions.md) ·
+[translation-key-governance.md](../../../Modules/Lang/docs/wiki/rules/translation-key-governance.md).
+
 ## Consentito
 
 - Mount `@livewire` / widget Filament modulo con props tipizzate (dai blocchi)

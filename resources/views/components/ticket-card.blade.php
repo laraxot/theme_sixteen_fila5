@@ -24,7 +24,7 @@
 
             {{-- Title --}}
             <h5 class="card-title big-heading">
-                <a href="{{ route('tickets.show', $ticket) }}">
+                <a href="{{ route('container0.view', ['container0' => 'tickets', 'slug0' => $ticket->getKey()]) }}">
                     {{ $ticket->name }}
                 </a>
             </h5>
@@ -57,7 +57,7 @@
 
             {{-- Actions --}}
             @if($showActions)
-            <a class="read-more" href="{{ route('tickets.show', $ticket) }}">
+            <a class="read-more" href="{{ route('container0.view', ['container0' => 'tickets', 'slug0' => $ticket->getKey()]) }}">
                 <span class="text">Leggi di più</span>
                 <svg class="icon">
                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>

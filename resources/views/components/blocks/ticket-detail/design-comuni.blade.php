@@ -9,7 +9,9 @@
 --}}
 @php
     $locale = app()->getLocale();
-    $base = '/'.$locale.'/tickets';
+    $localizeRoute = static fn (string $url): string => parse_url(\Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($url), PHP_URL_PATH) ?: $url;
+    $base = $localizeRoute(route('container0.index', ['container0' => 'tickets'], false));
+    $home = $localizeRoute(route('home', [], false));
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_detail.'.$key, $replace);
     $parts = 'pub_theme::components.blocks.report-partials';
     $created = $detail['created_date'] !== '' ? \Illuminate\Support\Carbon::parse($detail['created_date'])->locale($locale) : null;
@@ -22,7 +24,9 @@
     $mapLabels = json_encode(['zoom_in' => __('geo::coordinate-picker.zoom_in'), 'zoom_out' => __('geo::coordinate-picker.zoom_out')], JSON_UNESCAPED_UNICODE);
     $followMessage = session('ticket_follow');
     $followMessage = in_array($followMessage, ['followed', 'unfollowed'], true) ? $followMessage : null;
-    $followUrl = $base.'/'.$detail['id'].'/follow';
+    $followUrl = $localizeRoute(route('tickets.follow', ['lang' => $locale, 'ticket' => $detail['id']], false));
+    $loginUrl = $localizeRoute(route('login', [], false));
+    $createUrl = $localizeRoute(route('container0.view', ['container0' => 'tickets', 'slug0' => 'create'], false));
     $isLogged = auth()->check();
     // CommentsWidget canonico (Comment filament-blueprint): mount per chi può vieware
     // il ticket; guest non vede thread privati (lifecycle blueprint).
@@ -41,7 +45,7 @@
         : null;
     // dati per il partial condiviso del breadcrumb: voci localizzate, mai '#'
     $partialData = ['breadcrumb' => ['items' => [
-        ['label' => $t('breadcrumb.home'), 'url' => '/'.$locale],
+        ['label' => $t('breadcrumb.home'), 'url' => $home],
         ['label' => $t('breadcrumb.list'), 'url' => $base],
     ], 'current' => $detail['title']]];
     $d = static fn (string $key, mixed $default = '') => data_get($partialData, $key, $default);
@@ -54,7 +58,7 @@
                 <div class="alert alert-success" role="status">
                     {{ $t('follow.'.$followMessage) }}
                     @if ($followMessage === 'followed')
-                        <a href="/{{ $locale }}/area-personale/seguite">{{ $t('follow.list_link') }}</a>
+                        <a href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'seguite'], false) }}">{{ $t('follow.list_link') }}</a>
                     @endif
                 </div>
             @endif
@@ -109,9 +113,9 @@
                 </section>
             @endif
             @auth
-                @if ($canAccessComments)
+                @if ($canWriteComments)
                     <section aria-labelledby="td-comments-title" class="mt-40">
-                        <h2 class="title-xxlarge mb-3" id="td-comments-title">Commenti e aggiornamenti</h2>
+                        <h2 class="title-xxlarge mb-3" id="td-comments-title">{{ $t('comments.heading') }}</h2>
                         @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
                             'commentableType' => $ticketCommentable::class,
                             'commentableKey' => (string) $ticketCommentable->getKey(),
@@ -133,10 +137,10 @@
                             <button type="submit" @class(['btn py-3', 'btn-outline-primary' => $detail['is_following'], 'btn-primary' => ! $detail['is_following']])>{{ $t($detail['is_following'] ? 'actions.unfollow' : 'actions.follow') }}</button>
                         </form>
                     @else
-                        <a href="/{{ $locale }}/auth/login" class="btn btn-primary py-3">{{ $t('actions.login') }}</a>
+                        <a href="{{ $loginUrl }}" class="btn btn-primary py-3">{{ $t('actions.login') }}</a>
                     @endif
                     <a href="{{ $base }}" class="btn btn-outline-primary py-3">{{ $t('actions.back') }}</a>
-                    <a href="{{ $base }}/create" class="btn btn-outline-primary py-3">{{ $t('actions.new') }}</a>
+                    <a href="{{ $createUrl }}" class="btn btn-outline-primary py-3">{{ $t('actions.new') }}</a>
                 </div>
                 <p class="subtitle-small mt-3 mb-0">{{ $t($isLogged ? 'actions.follow_help' : 'actions.guest_help') }}</p>
             </section>
