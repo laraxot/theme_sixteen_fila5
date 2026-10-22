@@ -15,19 +15,28 @@ qmd: "decision log   redesign design comuni sixteen"
 
 # Decision Log — Redesign Design Comuni
 
+## D31: conflitti merge docs FAQ + prompt 04 risolti a mano
+
+**Contesto:** lane parallele avevano lasciato marker `<<<<<<<` in
+[faq-route-ownership.md](./faq-route-ownership.md) e [prompts/04.md](../prompts/04.md).
+**Decisione:** unire entrambe le versioni (composizione `content-page` + knowledge
+why-blade; regola CMS FAQ + «Errori già pagati»; matrice stato e registro unificati).
+**Rationale:** no auto-merge cieco; contratto FAQ e runbook FO devono restare KISS/DRY.
+**Stato:** risolto 2026-10-20 sera.
 
 ## D30: `graphify-out/` ignorato nel tema (no LFS)
 
 **Contesto:** graphify scrive `Themes/Sixteen/graphify-out/` in locale; non e' asset FO Design Comuni.
 **Decisione:** `graphify-out/` nel `.gitignore` del tema; se tracciato → `git rm --cached -rf graphify-out`. Mai Git LFS.
-**Rationale:** artefatto generato; il tema veste Filament/FO, non versiona il grafo. Canon: [graphify-out-gitignore](../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md).
-**Stato:** attivo 2026-10-20.
+**Rationale:** artefatto generato; il tema veste Filament/FO, non versiona il grafo. Canon: [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md).
+**Stato:** attivo 2026-10-20. Hub Auth: [README.md](./README.md#auth--login--oauth-fo).
 
-
-Indice rapido Auth/Login (dettaglio sotto; hub link in [README.md](./README.md)):
+Indice rapido Auth/Login + igiene tooling (dettaglio sotto; hub in [README.md](./README.md)):
 
 | ID | Tema | Stato |
 |----|------|-------|
+| D31 | Conflitti merge FAQ + prompt 04 risolti a mano | risolto 2026-10-20 sera |
+| D30 | `graphify-out/` in `.gitignore` tema (no LFS) | attivo — [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) |
 | D27 | Google OAuth FO con prefisso lingua | fix working tree — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
 | D26 | Checkbox «Ricordami» visibile sotto `data-dc` | working tree + build — [dcp-268](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md) |
 | D25 | Occhio password = `revealable()` Filament | live |
@@ -37,14 +46,14 @@ Indice rapido Auth/Login (dettaglio sotto; hub link in [README.md](./README.md))
 
 **Contesto:** standing order Modules a zero; turno docs su tema Sixteen + moduli random (User, Comment, Notify, Activity).
 **Decisione:** registrare verifica `phpstan analyse` sui moduli owner del FO (batch quattro moduli → exit 0); docs `bmad/` conformi a `md-filenames.py check` (0 date/suffissi); sotto `docs/bmad/` restano ~79 legacy con maiuscole (story `STORY-DEFECT-*`, `DC-027.*`) — segnalazione senza rinomina finche' il tool non propone target sicuri.
-**Track:** memoria [phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
+**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
 **Stato:** OK al 2026-10-20.
 
 ## D28: PHPStan swarm — docs tema in parallelo al codice
 
 **Contesto:** wave PHPStan multi-agente sul monorepo; agenti doc-updater migliorano `Themes/Sixteen/docs/` mentre altre lane fixano sorgente.
 **Decisione:** registrare qui le decisioni FO (login, FAQ, shell) e aggiornare [filament-blueprint.md](./filament-blueprint.md) quando cambia il contratto di mount widget; non creare `.neon` ne' documentazione in `bmad-output/`.
-**Rationale:** il tema veste moduli owner; la memoria operativa del gate vive in Xot ([phpstan-modules-zero-standing-order](../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md)) e nei prompt [00-start](../../../../bashscripts/docs/prompts/00-start.md) / [11-phpstan](../../../../bashscripts/docs/prompts/11-phpstan.md).
+**Rationale:** il tema veste moduli owner; la memoria operativa del gate vive in Xot ([phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md)) e nei prompt [00-start](../../../../../bashscripts/docs/prompts/00-start.md) / [11-phpstan](../../../../../bashscripts/docs/prompts/11-phpstan.md).
 **Stato:** attivo per ogni turn non banale con qualita' in scope.
 
 ## D27: Google login FO = URL con prefisso lingua (`/it/auth/login/google`)

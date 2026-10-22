@@ -1,5 +1,5 @@
 ---
-qmd: "README bmad sixteen hub decision-log auth login oauth filament blueprint"
+qmd: "README bmad sixteen hub decision-log auth login oauth filament blueprint graphify-out gitignore d30"
 title: "BMAD UI/UX Sixteen — boundary FixCity"
 type: workflow-boundary
 status: active
@@ -31,7 +31,8 @@ Scopo: il cittadino entra da `/it/auth/login` con vestito Design Comuni; OAuth r
 
 | Cosa | Dove |
 |------|------|
-| Decisioni D24–D27 (card vs accesso-servizio, occhio password, ricordami, Google locale) | [decision-log.md](./decision-log.md) |
+| Decisioni D24–D27 (card vs accesso-servizio, occhio password, ricordami, Google locale) | [decision-log.md](./decision-log.md) (indice Auth in cima) |
+| D30 `graphify-out/` nel `.gitignore` del tema (no LFS) | [decision-log.md](./decision-log.md#d30-graphify-out-ignorato-nel-tema-no-lfs) · canon [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) |
 | Architettura login | [auth-login-architettura.md](./auth-login-architettura.md) |
 | Plan OAuth locale | [plans/oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
 | Plan checkbox/occhiello | [plans/login-checkbox-visibility-fix.md](./plans/login-checkbox-visibility-fix.md) |

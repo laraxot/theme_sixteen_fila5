@@ -8,6 +8,7 @@ tags: [bmad, folio, cms, faq, filament-blueprint]
 related:
   - ./container0-index-shell-contract.md
   - ./filament-blueprint.md
+  - ./knowledge/why-domande-frequenti-blade-php-must-not-exist.md
   - ../../../../Modules/Cms/docs/wiki/concepts/container0-index-json-driven-pages.md
   - ../../../../Modules/Fixcity/docs/faq-catalog-ownership.md
 ---
@@ -21,7 +22,6 @@ essere servito dallo shell generico:
 Folio [container0]/index
   → pageSlug = domande-frequenti.index
   → CMS JSON pages/domande-frequenti/index.json
-<<<<<<< .merge_file_mSIHbA
   → block content-page (design-comuni)
       sections: search → accordion (source: faq → ListPublishedFaqsAction)
       feedback → partial dc-rating · contacts → partial dc-contacts
@@ -41,16 +41,9 @@ segmento `MatchLiteralDirectories` prima di `MatchWildcardDirectories`, e
   contro `[container0]` (misurato il 2026-10-20: la shell ha continuato a servire
   `domande-frequenti.index`), ma è una seconda sorgente morta che fa credere di
   possedere la pagina.
-=======
-  → blocco content-page
-  → accordion source "faq" → ListPublishedFaqsAction
-```
 
-Una view dedicata in `resources/views/pages/domande-frequenti/index.blade.php`
-è quindi vietata. Folio prova la cartella col nome vero prima del jolly
-`[container0]`: l’URL esce dallo slug e da `<x-page>`. Il perché misurato sta
-in [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
->>>>>>> .merge_file_kyoeIW
+Il perché misurato sta in
+[why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
 
 ## Perché il 200 non basta
 
@@ -73,24 +66,19 @@ il componente condiviso, il JSON o l'Action owner, a seconda della causa.
 
 ## Guardrail obbligatori
 
-<<<<<<< .merge_file_mSIHbA
 - `NoSemanticFolioPageDirectoriesTest` verifica che né la cartella né il file
-  omonimo esistano; `FaqPageCompositionContractTest` verifica che il JSON compone
-  `content-page` (it/en/de/es), senza `parity_page`, e che nessun CSS/JS del tema
-  nomini la pagina;
+  omonimo esistano; rifiuta directory fuori da `auth`, `[container0]` e `tests`;
+- `FolioPageMountContractTest` verifica che il file dedicato non esista e che la
+  shell non nomini il contenitore;
+- `FaqPageCompositionContractTest` verifica che il JSON compone `content-page`
+  (it/en/de/es), senza `parity_page`, e che nessun CSS/JS del tema nomini la pagina;
 - il JSON canonico è `config/local/fixcity/database/content/pages/domande-frequenti/index.json`;
 - ogni modifica visiva va fatta nel componente condiviso (`content-page/sections/*`,
   `dc-rating`, `dc-contacts`) con un flag opzionale nel JSON, mai con CSS di pagina
   né utility Tailwind (spente su `data-dc`); verificata a 375, 768 e 1440 px con
   `getComputedStyle`, non con il grep della classe (vedi
   [shared-block-composition-no-page-css](../wiki/concepts/shared-block-composition-no-page-css.md));
-=======
-- `FolioPageMountContractTest` verifica che il file dedicato non esista e che la shell non nomini il contenitore;
-- `NoSemanticFolioPageDirectoriesTest` rifiuta qualunque directory fuori da `auth`, `[container0]` e `tests`;
-- il JSON canonico è `config/local/fixcity/database/content/pages/domande-frequenti/index.json`;
-- il vestito da modificare è `components/blocks/content-page/`, verificato a 375, 768 e 1440 px;
 - `components/pages/faq.blade.php` non è montato dal JSON del tenant;
->>>>>>> .merge_file_kyoeIW
 - documentazione nuova di questo contratto resta in `Themes/Sixteen/docs/`;
   il dettaglio CMS va in `Modules/Cms/docs/` e il dettaglio dati in
   `Modules/Fixcity/docs/`.
