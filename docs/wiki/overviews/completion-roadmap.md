@@ -39,6 +39,7 @@ Sixteen è il tema **owner** del front office Fixcity: Folio, Design Comuni, wiz
 
 ### P0 — Shell pagina Folio
 
+- [x] Skip-link FO su `layouts/app.blade.php` via `pub_theme::ui.skip_to_*` + `main tabindex="-1"` (WCAG 2.4.1)
 - [ ] Audit `bashscripts/tools/audit-folio-page-shell.sh Sixteen`
 - [ ] `<x-page :data="$data">` opaque bag su tutte le route ticket/segnalazioni
 - [ ] No `route()` nel FO — solo URL localizzati
