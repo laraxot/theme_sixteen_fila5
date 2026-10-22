@@ -4,7 +4,7 @@
     details[] {label, value}, link, chips[], attachments[] {label, aria (assente = nessun aria-label), class}, button}.
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <section class="{{ trim('it-page-section '.($section['class'] ?? '')) }}" id="{{ $section['id'] ?? '' }}">

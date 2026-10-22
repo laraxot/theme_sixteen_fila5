@@ -13,7 +13,8 @@
         }
     }
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
+    $brandLogo = trim((string) $d('brand.logo', 'assets/fixcity/svg/logo.svg'));
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $lines = static fn (string $text): string => implode('<br>', array_map('e', preg_split('/\R/', $text) ?: []));
 
@@ -25,7 +26,7 @@
             return $isReplica ? '#' : '';
         }
 
-        return \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($raw);
+        return \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($raw);
     };
     $attr = static function (mixed $url) use ($href): string {
         $target = $href($url);
@@ -65,11 +66,11 @@
             <div class="row">
                 <div class="col-12 footer-items-wrapper logo-wrapper">
                     @if ($euSrc !== '')
-                        <img class="ue-logo" src="{{ \Themes\Sixteen\Support\DesignComuniAssets::url($euSrc) }}" alt="{{ $d('eu_logo.alt') }}">
+                        <img class="ue-logo" src="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($euSrc) }}" alt="{{ $d('eu_logo.alt') }}">
                     @endif
                     <div class="it-brand-wrapper">
-                        <a href="{{ \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl('/') }}">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="{{ $icon('it-pa') }}"></use></svg>
+                        <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/') }}">
+                            <img class="icon" src="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($brandLogo) }}" alt="" aria-hidden="true">
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ $d('brand.name') }}</h2>
                                 @if (filled($d('brand.description')))

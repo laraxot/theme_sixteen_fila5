@@ -30,7 +30,7 @@
                 <div class="card shadow-sm px-4 pt-4 pb-4">
                     <h3 class="title-small-semi-bold m-0 mb-2">{{ $t('empty_title') }}</h3>
                     <p class="text-paragraph">{{ $t('empty_text') }}</p>
-                    <div><a class="btn btn-primary" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche']) }}">{{ $t('my_reports') }}</a></div>
+                    <div><a class="btn btn-primary" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaPratiche() }}">{{ $t('my_reports') }}</a></div>
                 </div>
             </div>
         @else

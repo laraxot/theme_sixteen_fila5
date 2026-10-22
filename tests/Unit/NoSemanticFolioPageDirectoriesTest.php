@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 /**
  * Il tema veste. Il dominio sta nel JSON CMS, non in una cartella Folio.
- * pages/domande-frequenti/index.blade.php è sbagliato: Folio darebbe a quella
- * cartella la precedenza su [container0] e /it/domande-frequenti uscirebbe
- * dalla shell x-page (slug domande-frequenti.index).
+ * pages/domande-frequenti/ e pages/profile/ sono sbagliati: Folio darebbe a
+ * quelle cartelle la precedenza su [container0] (FAQ) o creerebbe un alias
+ * morto/competitivo col modulo User (profile/edit — creato ≥3 volte).
  *
  * @see laravel/Themes/Sixteen/docs/page-directory-structure.md
+ * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-profile-edit-blade-must-not-exist.md
+ * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md
  */
 test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
@@ -33,5 +35,12 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     // omonima intercetta l'URL, un file `domande-frequenti.blade.php` perde contro [container0] (misurato) ma resta una
     // seconda sorgente morta che finge di possedere la pagina. Nessuna delle due forme.
     expect(glob($pagesRoot.'/domande-frequenti*') ?: [])->toBe([]);
+
+    // Caso reale ripetuto: pages/profile/edit.blade.php (alias «fix 404»). FO usa
+    // FrontofficeRoutes::personalAreaImpostazioni() → container0 area-personale/impostazioni.
+    expect(is_dir($pagesRoot.'/profile'))->toBeFalse();
+    expect(is_file($pagesRoot.'/profile/edit.blade.php'))->toBeFalse();
+    expect(glob($pagesRoot.'/profile*') ?: [])->toBe([]);
+
     expect(is_dir($pagesRoot.'/[container0]'))->toBeTrue();
 });

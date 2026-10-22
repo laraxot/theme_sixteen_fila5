@@ -58,6 +58,8 @@
   z-index: 1;
 }
 
+/* The Design Comuni `.container` is the single horizontal rhythm for the home. */
+
 .fc-home-hero .fc-eyebrow,
 .fc-home-hero__signal .fc-eyebrow {
   color: var(--fc-sun) !important;
@@ -340,6 +342,18 @@
   width: 2.5rem;
 }
 
+/* The shared icon component can receive utility classes at runtime; keep the
+ * civic block's icon geometry deterministic even when Tailwind purges them. */
+.fc-how-card__icon {
+  color: var(--fc-green);
+}
+
+.fc-how-card__icon > svg {
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 .fc-how-card h3 {
   color: var(--fc-ink);
   font-size: 1.3rem;
@@ -355,6 +369,22 @@
   max-width: 30rem;
 }
 
+/* The shared SVG safeguard makes unbounded inline icons fluid by default.
+ * These decorative step icons are content markers, so they must keep a
+ * stable size to preserve the three-step hierarchy at every breakpoint. */
+.fc-how-card__icon {
+  align-items: center;
+  display: flex;
+  min-height: 3.5rem;
+}
+
+.fc-how-card__icon svg {
+  flex: 0 0 3.5rem;
+  height: 3.5rem;
+  max-width: none;
+  width: 3.5rem;
+}
+
 .fc-track-section {
   background: var(--fc-green-dark);
   color: #fff;
@@ -366,6 +396,33 @@
   display: flex;
   gap: 2rem;
   justify-content: space-between;
+}
+
+.fc-track-section__copy,
+.fc-track-section__actions {
+  min-width: 0;
+}
+
+.fc-home .fc-track-section__actions > div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.fc-home .quick-action-btn {
+  align-items: center;
+  flex: 0 1 auto;
+  min-height: 2.75rem;
+  max-width: 100%;
+}
+
+/* The icon partial renders a bare SVG; keep it within the WCAG touch target
+ * without allowing the global SVG fluid rule to stretch the action itself. */
+.fc-home .quick-action-btn > svg {
+  flex: 0 0 1.25rem;
+  height: 1.25rem;
+  max-width: 1.25rem;
+  width: 1.25rem;
 }
 
 .fc-track-section .fc-eyebrow {
@@ -494,8 +551,36 @@ body:has(.fc-home) .fc-track-section p:not(.fc-eyebrow) {
     padding-right: 0;
   }
 
+  .fc-how-card__icon svg {
+    flex-basis: 3rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
   .fc-button {
     min-height: 2.875rem;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .fc-track-section__inner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .fc-track-section__copy,
+  .fc-track-section__actions {
+    width: 100%;
+  }
+
+  .fc-home .fc-track-section__actions > div {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .fc-home .quick-action-btn {
+    white-space: normal;
   }
 }
 

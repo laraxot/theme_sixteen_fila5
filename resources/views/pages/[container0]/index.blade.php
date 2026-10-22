@@ -3,11 +3,10 @@
 declare(strict_types=1);
 
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
-use Modules\Cms\Models\Page;
+use Themes\Sixteen\Actions\Folio\ResolveContainer0IndexAction;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
@@ -17,38 +16,13 @@ name('container0.index');
 middleware(PageSlugMiddleware::class);
 
 /**
- * Alias Design Comuni (path IT) → container FixCity canonici.
- * Shell senza CMS = 404 (mai pagina bianca con solo header/footer).
- *
- * @return array<string, string>
+ * Shell sottile: alias / area-personale / 404 vivono in ResolveContainer0IndexAction
+ * (riutilizzabile, testabile). Qui solo trasporto View|Redirect.
  */
-$foIndexAliases = static fn (): array => [
-    'servizi' => 'services',
-    'eventi' => 'events',
-    'novita' => 'blog',
-    'faq' => 'domande-frequenti',
-    'segnalazioni' => 'tickets',
-];
-
-render(function (View $view, string $container0) use ($foIndexAliases): View|RedirectResponse {
-    $aliases = $foIndexAliases();
-    if (isset($aliases[$container0])) {
-        return redirect()->to(
-            route('container0.index', ['container0' => $aliases[$container0]]),
-            301,
-        );
-    }
-
-    if ($container0 === 'area-personale') {
-        return redirect()->to(
-            Auth::check()
-                ? route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche'])
-                : route('login'),
-        );
-    }
-
-    if (Page::findUniqueBySlug($container0.'.index') === null) {
-        abort(404);
+render(function (View $view, string $container0): View|RedirectResponse {
+    $redirect = app(ResolveContainer0IndexAction::class)->execute($container0);
+    if ($redirect instanceof RedirectResponse) {
+        return $redirect;
     }
 
     return $view;
@@ -84,7 +58,7 @@ new class extends Component {
         $bodyPage = $parityPage;
     }
     $heading = $cmsForParity?->getTranslation('title', app()->getLocale(), false);
-    $summary = \Themes\Sixteen\Support\PageDescription::resolve(
+    $summary = \Themes\Sixteen\Presentation\Metadata\PageDescription::resolve(
         $cmsForParity?->getAttribute('description'),
         app()->getLocale(),
     );

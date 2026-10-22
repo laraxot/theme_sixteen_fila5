@@ -4,7 +4,7 @@
     (1) preferenze di notifica = componente Livewire TicketNotificationPreferencesWidget (id campo `email-ticket-updates`, Action
     Get/SetFixcityEmailNotificationPreference); (2) dati dell'account in sola lettura (BuildPersonalAreaSettingsDataAction, solo
     l'utente autenticato); (3) diritti GDPR con i soli canali che esistono davvero (contatti dell'ente nel footer, Garante).
-    Nessun testo qui: tutto da fixcity::personal_area_settings.*. Classi Design Comuni (cmp-heading, cmp-navscroll, cmp-info-summary).
+    Nessun testo qui: tutto da fixcity::personal_area_settings.*. Chrome tab = personal-area/heading (stesso di pratiche/seguite/notifiche). Classi Design Comuni (cmp-heading, cmp-navscroll, cmp-info-summary).
 --}}
 @php
     $t = static fn (string $key, array $replace = []): string => (string) __('fixcity::personal_area_settings.settings.'.$key, $replace);
@@ -12,7 +12,7 @@
     $settings = $citizen instanceof \Modules\Xot\Contracts\UserContract
         ? app(\Modules\Fixcity\Actions\BuildPersonalAreaSettingsDataAction::class)->execute($citizen)
         : ['account_rows' => [], 'email_verified' => false];
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $nav = [
         'suffix' => 'settings',
         'title' => $t('nav_title'),
@@ -24,15 +24,11 @@
     ];
 @endphp
 <div class="container" id="main-container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-            @include('pub_theme::components.blocks.personal-area-settings.breadcrumb', ['current' => $t('title')])
-            <div class="cmp-heading pb-3 pb-lg-4">
-                <h1 class="title-xxxlarge">{{ $t('title') }}</h1>
-                <p class="subtitle-small">{{ $t('subtitle') }}</p>
-            </div>
-        </div>
-    </div>
+    @include('pub_theme::components.blocks.personal-area.heading', [
+        'active' => 'settings',
+        'title' => $t('title'),
+        'subtitle' => $t('subtitle'),
+    ])
     <div class="it-page-sections-container">
         <div class="row">
             <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
@@ -42,7 +38,7 @@
                 <section class="it-page-section mb-5" id="notification-preferences" aria-labelledby="ticket-notification-preferences-title">
                     @livewire(\Modules\Fixcity\Livewire\TicketNotificationPreferencesWidget::class)
                     <p class="text-paragraph-small mt-3 mb-2">{{ $settings['email_verified'] ? $t('email_verified') : $t('email_unverified') }}</p>
-                    <a class="btn btn-outline-primary" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}">{{ $t('notifications_link') }}</a>
+                    <a class="btn btn-outline-primary" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaNotifiche() }}">{{ $t('notifications_link') }}</a>
                 </section>
 
                 <section class="it-page-section mb-5" id="account-data" aria-labelledby="account-data-title">

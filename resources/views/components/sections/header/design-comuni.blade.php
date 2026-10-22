@@ -15,7 +15,7 @@
         }
     }
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $locale = app()->getLocale();
     $locales = array_column($d('languages.items', []), 'locale');
@@ -43,7 +43,7 @@
             return null;
         }
 
-        $resolved = \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($raw);
+        $resolved = \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($raw);
 
         return $resolved !== '' && $resolved !== '#' ? $resolved : null;
     };
@@ -58,7 +58,7 @@
     $userInitial = mb_strtoupper(mb_substr($displayName, 0, 1));
     $localizedUrl = static fn (string $path): string => url(trim('/'.app()->getLocale().'/'.ltrim($path, '/'), '/'));
     $regionBlock = is_array($data['region'] ?? null) ? $data['region'] : [];
-    $regionLink = \Themes\Sixteen\Support\RegionPortalLinkLabels::resolve($regionBlock);
+    $regionLink = \Themes\Sixteen\Presentation\Accessibility\RegionPortalLinkLabels::resolve($regionBlock);
     $regionDisplayName = $regionLink['name'] !== '' ? $regionLink['name'] : (string) $d('region.name');
 @endphp
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
@@ -150,7 +150,7 @@
                             <div class="it-brand-wrapper">
                                 <a href="{{ $localizedUrl((string) $d('brand.url')) }}"{!! ! $isSignedIn && filled($d('brand.link_title')) ? ' title="'.e($d('brand.link_title')).'"' : '' !!}>
                                     {{-- Sulla barra verde il marchio è bianco. Il filtro nello sheet è !important e isolate-legacy lo toglie dalle pagine con data-dc, quindi il logo restava nero. --}}
-                                    <svg width="82" height="82" class="icon" aria-hidden="true" style="filter: brightness(0) invert(1)"><image xlink:href="{{ \Themes\Sixteen\Support\DesignComuniAssets::url($d('brand.logo')) }}" style="filter: brightness(0) invert(1)"/></svg>
+                                    <svg width="82" height="82" class="icon" aria-hidden="true" style="filter: brightness(0) invert(1)"><image xlink:href="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($d('brand.logo')) }}" style="filter: brightness(0) invert(1)"/></svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ $d('brand.header_title') ?: $d('brand.name') }}</div>
                                         <div class="it-brand-tagline d-none d-md-block">{{ $d('brand.tagline') }}</div>

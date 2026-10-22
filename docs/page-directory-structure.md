@@ -3,7 +3,7 @@ title: "page directory structure"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-20
+updated: 2026-10-22
 qmd: "page directory structure"
 issues: []
 discussions: []
@@ -99,13 +99,27 @@ Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli el
 
 ## Enforcement (agenti + CI)
 
-- Rule Cursor: `.cursor/rules/no-semantic-folio-page-dirs.mdc`
+- Pest (l'unico controllo che gira, 0,2 s, senza DB): `cd laravel && vendor/bin/pest Themes/Sixteen/tests/Unit/NoSemanticFolioPageDirectoriesTest.php`.
+  **Nessuna CI lo esegue** (misurato 2026-10-22: `ci.yml` costruisce solo il tema, `module-quality-check.yml` lancia solo i test di Notify):
+  rilanciarlo prima di ogni commit che tocca `pages/`.
+- Hook agenti: `bashscripts/ai/.agents/hooks/theme-pages-guard.sh` rifiuta la creazione di un file in una cartella nuova di `pages/`.
 - Wiki: [sixteen-pages-folder-religion.md](wiki/rules/sixteen-pages-folder-religion.md)
-- Script: `bash bashscripts/tools/verify-no-semantic-folio-pages.sh`
-- Pest: `NoSemanticFolioPageDirectoriesTest.php`
+
+## Un URL di modulo risponde 404: cosa fare (e cosa NO)
+
+Il jolly `[container0]/[slug0]` oscura le pagine Folio dei moduli: `/it/profile/edit` da' 404 anche se
+`Modules/User/resources/views/pages/profile/edit.blade.php` esiste (misurato 2026-10-22).
+
+| Situazione | Azione |
+|---|---|
+| Nessuna pagina del FO linka quell'URL | lasciare il 404; correggere i link che lo emettono |
+| Serve davvero una pagina | JSON CMS `config/local/fixcity/database/content/pages/<container>/<slug>.json` + widget nel **modulo owner** |
+| Serve proprio la pagina del modulo | decisione di prodotto, non un workaround |
+| **MAI** | `pages/<dominio>/...` nel tema, nemmeno come alias o redirect (caso reale: `profile/edit`, tre volte) — [why-profile-edit-blade-must-not-exist.md](./bmad/knowledge/why-profile-edit-blade-must-not-exist.md) (D34) |
 
 ## Collegamenti
 
+- [why-profile-edit-blade-must-not-exist.md](./bmad/knowledge/why-profile-edit-blade-must-not-exist.md) — perché non ricreare `pages/profile/`
 - [folio-no-semantic-pages-tickets.md](./wiki/concepts/folio-no-semantic-pages-tickets.md) — post-mortem STORY-285 (`sixteen::` / `pages/tickets`)
 - [README.md](./README.md)
 - [layout-runtime-contract.md](./layout-runtime-contract.md)

@@ -8,10 +8,12 @@
     Segui: form POST con CSRF (FollowTicketAction) per il cittadino loggato; per l'ospite un link al login. Testi: lang fixcity::ticket_detail.
 --}}
 @php
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
+
     $locale = app()->getLocale();
-    $localizeRoute = static fn (string $url): string => parse_url(\Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($url), PHP_URL_PATH) ?: $url;
-    $base = $localizeRoute(route('container0.index', ['container0' => 'tickets'], false));
-    $home = $localizeRoute(route('home', [], false));
+    // Canon FO: FrontofficeRoutes (path relativo absolute=false) — niente localizeUrl su container0.
+    $base = FrontofficeRoutes::ticketsIndex(false);
+    $home = route('home', [], false);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_detail.'.$key, $replace);
     $parts = 'pub_theme::components.blocks.report-partials';
     $created = $detail['created_date'] !== '' ? \Illuminate\Support\Carbon::parse($detail['created_date'])->locale($locale) : null;
@@ -24,9 +26,9 @@
     $mapLabels = json_encode(['zoom_in' => __('geo::coordinate-picker.zoom_in'), 'zoom_out' => __('geo::coordinate-picker.zoom_out')], JSON_UNESCAPED_UNICODE);
     $followMessage = session('ticket_follow');
     $followMessage = in_array($followMessage, ['followed', 'unfollowed'], true) ? $followMessage : null;
-    $followUrl = $localizeRoute(route('tickets.follow', ['lang' => $locale, 'ticket' => $detail['id']], false));
-    $loginUrl = $localizeRoute(route('login', [], false));
-    $createUrl = $localizeRoute(route('container0.view', ['container0' => 'tickets', 'slug0' => 'create'], false));
+    $followUrl = route('tickets.follow', ['lang' => $locale, 'ticket' => $detail['id']], false);
+    $loginUrl = route('login', [], false);
+    $createUrl = FrontofficeRoutes::ticketsCreate(false);
     $isLogged = auth()->check();
     // CommentsWidget canonico (Comment filament-blueprint): mount per chi può vieware
     // il ticket; guest non vede thread privati (lifecycle blueprint).
@@ -58,7 +60,8 @@
                 <div class="alert alert-success" role="status">
                     {{ $t('follow.'.$followMessage) }}
                     @if ($followMessage === 'followed')
-                        <a href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'seguite'], false) }}">{{ $t('follow.list_link') }}</a>
+                        {{-- Caller: alert follow in questo blocco; SSoT URL: FrontofficeRoutes::personalAreaSeguite. User: «procedi» riusabile. --}}
+                        <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaSeguite(false) }}">{{ $t('follow.list_link') }}</a>
                     @endif
                 </div>
             @endif

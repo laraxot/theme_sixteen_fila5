@@ -1,4 +1,4 @@
-@props(['title' => null, 'description' => null])
+@props(['title' => null, 'description' => null, 'bodyPage' => ''])
 
 @php
     $layoutAppName = trim((string) config('app.name', ''));
@@ -14,6 +14,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ $title ?: $layoutAppName }}</title>
         <meta name="description" content="{{ $description ?: $layoutAppName }}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{ $layoutAppName }}">
+        <meta property="og:title" content="{{ $title ?: $layoutAppName }}">
+        <meta property="og:description" content="{{ $description ?: $layoutAppName }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="{{ $title ?: $layoutAppName }}">
+        <meta name="twitter:description" content="{{ $description ?: $layoutAppName }}">
+        @if ($bodyPage === 'homepage')
+            <script type="application/ld+json">
+                {!! json_encode([
+                    chr(64).'context' => 'https://schema.org',
+                    '@type' => 'WebSite',
+                    'name' => $layoutAppName,
+                    'url' => url('/'.app()->getLocale()),
+                    'inLanguage' => app()->getLocale(),
+                    'description' => $description ?: $layoutAppName,
+                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+            </script>
+        @endif
         <x-layouts.seo-links />
 
         {{-- PHILOSOPHY: TailwindCSS + Alpine.js ONLY. NO Bootstrap Italia JS/CSS. --}}
@@ -67,13 +88,17 @@
         <style id="sixteen-critical-fouc">
             #head-section.bg-primary { background-color: #007a52 !important; }
             #head-section #welcome-heading,
+            #head-section #fc-home-hero-heading,
             #head-section .lead,
-            #head-section .title-xsmall-semi-bold { color: #ffffff !important; }
+            #head-section .title-xsmall-semi-bold,
+            #head-section .title-xxxlarge { color: #ffffff !important; }
+            #head-section .btn-hero-primary { background:#fff !important; color:#007a52 !important; border:0 !important; }
+            #head-section .btn-hero-secondary { background:rgb(255 255 255 / 14%) !important; color:#fff !important; border:2px solid #fff !important; }
             [x-cloak] { display: none !important; }
         </style>
         @stack('styles')
     </head>
-    <body @if(!empty($bodyPage)) data-page="{{ $bodyPage }}" @endif>
+    <body @if($bodyPage !== '') data-page="{{ $bodyPage }}" @endif>
 
         {{ $slot }}
         @livewireScripts

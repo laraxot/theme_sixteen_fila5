@@ -24,7 +24,7 @@
 
             {{-- Title --}}
             <h5 class="card-title big-heading">
-                <a href="{{ route('container0.view', ['container0' => 'tickets', 'slug0' => $ticket->getKey()]) }}">
+                <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsShow($ticket->getKey()) }}">
                     {{ $ticket->name }}
                 </a>
             </h5>
@@ -57,8 +57,8 @@
 
             {{-- Actions --}}
             @if($showActions)
-            <a class="read-more" href="{{ route('container0.view', ['container0' => 'tickets', 'slug0' => $ticket->getKey()]) }}">
-                <span class="text">Leggi di più</span>
+            <a class="read-more" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsShow($ticket->getKey()) }}">
+                <span class="text">{{ __('pub_theme::news.read_more') }}</span>
                 <svg class="icon">
                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
                 </svg>

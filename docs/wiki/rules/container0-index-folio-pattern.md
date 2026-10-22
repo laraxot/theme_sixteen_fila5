@@ -3,8 +3,8 @@ title: "container0 index folio pattern"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-16
-qmd: "container0 index folio pattern"
+updated: 2026-10-22
+qmd: "container0 index folio pattern resolve action aliases"
 issues: []
 discussions: []
 status: draft
@@ -19,6 +19,7 @@ Quando si definisce una pagina Folio per `pages/[container0]/index.blade.php`:
 | Elemento | Corretto | Errato |
 |----------|----------|--------|
 | `name()` | `name('container0.index')` | `name('container0.list')` |
+| `render()` | `ResolveContainer0IndexAction` | alias / `Auth::check` / `abort` inline |
 | Proprietà Component | Solo `container0`, `pageSlug`, `data` | Aggiungere `pageTitle`, `metaDescription`, logica complessa |
 | `mount()` | Semplice: `$this->pageSlug = $container0.'.index'` | `match()` con locale, CMS, fallback |
 

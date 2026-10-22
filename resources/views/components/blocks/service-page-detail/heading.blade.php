@@ -6,7 +6,7 @@
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $sprite = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $sprite = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="container">
     <div class="row justify-content-center">

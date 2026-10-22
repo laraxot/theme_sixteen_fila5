@@ -240,7 +240,7 @@
                 <input type="checkbox" wire:model="privacy_accepted" required aria-required="true" />
                 <span>
                     {{ __('gdpr::register.consents.privacy_policy_label') }}
-                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/privacy') }}" target="_blank" rel="noopener">
+                    <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/privacy') }}" target="_blank" rel="noopener">
                         {{ __('gdpr::register.consents.privacy_policy_link') }}
                         <span class="sr-only"> ({{ __('gdpr::register.consents.opens_new_tab') }})</span>
                     </a>
@@ -250,7 +250,7 @@
                 <input type="checkbox" wire:model="terms_accepted" required aria-required="true" />
                 <span>
                     {{ __('gdpr::register.consents.terms_label') }}
-                    <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/terms') }}" target="_blank" rel="noopener">
+                    <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/terms') }}" target="_blank" rel="noopener">
                         {{ __('gdpr::register.consents.terms_link') }}
                         <span class="sr-only"> ({{ __('gdpr::register.consents.opens_new_tab') }})</span>
                     </a>

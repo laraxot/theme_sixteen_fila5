@@ -52,6 +52,8 @@ Scheda per pagina: [`03-front-office-scheda-per-pagina.md`](../../compliance/03-
 
 **Coordinamento:** `[container0]/index.blade.php` (modificato dalla sessione che sistema `/it/segnalazioni`, 21:29) contiene ora `pageTitle` e fa fallire `FolioPageMountContractTest > container0 index usa mount lineare...`: contratto e file vanno riallineati da chi lo sta modificando.
 
+**Aggiornamento 2026-10-22:** audit UI/UX con Playwright (chrome comune, accesso, contenuti, ticket pubblici: 73 finding) in [`../../compliance/04-audit-ui-ux-design-comuni.md`](../../compliance/04-audit-ui-ux-design-comuni.md). Corretto: chip categoria con `Str::upper`. Aperto, in ordine di peso: gravatar nei commenti, pagine `services`/`categories`/`sitemap` senza stile, skip-link e modale della home, selettore lingua senza focus.
+
 ## Dati misurati dalla sessione DCP-179/181/182 (2026-10-14, 19:45), da usare nelle schede
 Non e' un secondo audit: e' un crawl da ospite, senza JavaScript, di `/it` a profondita' 2 (29 pagine, 89 altri link interni controllati con GET). Script riusabile: `crawl.py` nello scratchpad di quella sessione; i numeri sono ripetibili con `curl`.
 - **Menu comune, 29 pagine su 29:** 7 link senza prefisso lingua danno 404: `/amministrazione` («Amministrazione»), `/argomenti` («Tutti gli argomenti»), `/argomenti/iscrizioni`, `/argomenti/estate-in-citta`, `/argomenti/polizia-locale`, `/eventi` («Vivere il Comune»), `/novita`, `/regione` («Nome della Regione»), `/servizi`. I testi sono quelli del template Design Comuni («Nome del Comune», «Il mio Comune. Un comune da vivere»). Visibilita' a schermo non misurata (serve browser): gruppo A.

@@ -4,7 +4,7 @@ title: "Decision Log — Redesign Design Comuni Tema Sixteen"
 type: decision-log
 status: active
 created: 2026-10-11
-updated: 2026-10-20
+updated: 2026-10-22
 owner: "@team-fixcity"
 links:
   github_issue: "#150"
@@ -14,6 +14,50 @@ qmd: "decision log   redesign design comuni sixteen"
 ---
 
 # Decision Log — Redesign Design Comuni
+
+## D34: Mai `pages/profile/edit.blade.php` nel tema Sixteen
+
+<!-- GateGuard: supersede = fo-folio-links che diceva «linka profile.edit»; linked from why-profile-edit + filament-blueprint + NoSemanticFolioPageDirectoriesTest; user: «creare …/pages/profile/edit.blade.php e' sbagliato! … non commettere mai piu'… bmad + second brain + filament blueprint» -->
+
+**Contesto:** l’alias Folio `Themes/Sixteen/.../pages/profile/edit.blade.php` è stato
+ricreato almeno tre volte per «riparare» un 404; Folio letterale compete col
+modulo User e col CMS `area-personale.impostazioni`.
+**Decisione:** vietato nel tema. FO Design Comuni «Impostazioni» =
+`FrontofficeRoutes::personalAreaImpostazioni()` → `container0.view`
+area-personale/impostazioni. Owner account: `Modules/User/...` se serve, mai
+copia nel tema. Enforcement: Pest esplicito su `profile*`, hook
+`theme-pages-guard.sh`, knowledge [why-profile-edit-blade-must-not-exist.md](./knowledge/why-profile-edit-blade-must-not-exist.md).
+**Rationale:** religione `pages/` (solo auth/container0/tests) + Filament way
+(tema veste, JSON+widget owner) + DRY (un solo percorso impostazioni FO).
+**Stato:** attivo 2026-10-22.
+
+## D33: Audit UI/UX FO vs Design Comuni — fix `data-dc` + no Gravatar
+
+<!-- GateGuard: supersede = findings aperti in compliance/04-audit; linked from 04-audit + filament-blueprint; user: «devi analizzare tutta la ui/ux di tutto il front office… DesignComuni… bmad + second brain + filament blueprint» -->
+
+**Contesto:** riverifica sera su `fixcity.eu`: home e `/tickets/track` senza `data-dc`;
+commenti con Gravatar (terzi); breadcrumb aria hardcoded; CTA `/contatti`.
+**Decisione:** home + track nel telaio DC; avatar iniziali locali; breadcrumb i18n nel
+partial condiviso; assistenza → `/tickets/create`. Canon audit:
+[04-audit-ui-ux-design-comuni.md](../compliance/04-audit-ui-ux-design-comuni.md).
+**Rationale:** coerenza Design Comuni = scope CSS + privacy + riuso (Filament way).
+**Stato:** attivo 2026-10-22 sera. Aperti restanti: D-01 services Tailwind, A-02 search
+modal home, C-* auth, B mappa.
+
+## D32: FO riusabile — Infrastructure/Presentation + Action fuori dalla shell Folio
+
+<!-- GateGuard: supersede = D32 bozza “Support + Action” (stesso giorno); linked from reusable-components.md, filament-blueprint.md, wiki/log.md; user: “devi sempre cercare di creare componenti riutilizzabili questa e' una regola che devi sempre seguire, fa tutto con bmad + second brain + filament blueprint” -->
+
+**Contesto:** alias Design Comuni, redirect `area-personale` e default search-modal
+vivevano inline nei Blade (`foIndexAliases`, `route('container0…')` ripetuti).
+**Decisione:** estrarre pezzi riusabili fuori dalla shell:
+`Infrastructure\Url\FrontofficeContainerAliases` + `FrontofficeRoutes`,
+`Presentation\Search\FrontofficeSearchSuggestions`,
+`Actions\Folio\ResolveContainer0IndexAction`. La Folio page chiama solo l'Action.
+Standing rule: [reusable-components.md](../rules/reusable-components.md).
+**Rationale:** DRY/KISS + Filament way (shell sottile) + allineamento layer
+Presentation/Infrastructure (ex `Support/`).
+**Stato:** attivo 2026-10-22. Blueprint: [filament-blueprint.md](./filament-blueprint.md).
 
 ## D31: conflitti merge docs FAQ + prompt 04 risolti a mano
 
@@ -35,6 +79,7 @@ Indice rapido Auth/Login + igiene tooling (dettaglio sotto; hub in [README.md](.
 
 | ID | Tema | Stato |
 |----|------|-------|
+| D34 | Mai `pages/profile/` nel tema — FO impostazioni = area-personale | attivo 2026-10-22 — [why-profile-edit](./knowledge/why-profile-edit-blade-must-not-exist.md) |
 | D31 | Conflitti merge FAQ + prompt 04 risolti a mano | risolto 2026-10-20 sera |
 | D30 | `graphify-out/` in `.gitignore` tema (no LFS) | attivo — [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) |
 | D27 | Google OAuth FO con prefisso lingua | fix working tree — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |

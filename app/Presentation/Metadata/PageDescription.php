@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Themes\Sixteen\Support;
+namespace Themes\Sixteen\Presentation\Metadata;
 
 use Safe\Exceptions\JsonException;
 

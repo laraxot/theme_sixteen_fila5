@@ -6,6 +6,7 @@
     use Modules\Fixcity\Enums\TicketStatusEnum;
     use Modules\Fixcity\Models\Ticket;
     use Modules\Xot\Contracts\UserContract;
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
 
     $code = request()->query('code');
     $codeString = is_string($code) ? trim($code) : '';
@@ -27,21 +28,29 @@
     $payload = $ticket instanceof Ticket ? app(BuildTicketPublicDetailsPayloadAction::class)->execute($ticket) : null;
     $timeline = $ticket instanceof Ticket ? app(BuildTicketTimelineAction::class)->execute($ticket) : [];
     $notFound = $codeString !== '' && ! $ticket instanceof Ticket;
+    $partialData = [
+        'breadcrumb' => [
+            'items' => [['label' => __('pub_theme::navigation.home'), 'url' => route('home', [], false)]],
+            'current' => __('fixcity::ticket.track.title'),
+        ],
+    ];
+    $d = static fn (string $key, mixed $default = ''): mixed => data_get($partialData, $key, $default);
 @endphp
 
-<div class="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl">
-        <header class="mb-8">
+<div class="dc-ticket-track">
+    <div class="dc-ticket-track__container">
+        @include('pub_theme::components.blocks.report-partials.breadcrumb')
+        <div class="dc-ticket-track__intro">
             <h1 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{{ __('fixcity::ticket.track.title') }}</h1>
             <p class="mt-3 text-lg leading-8 text-slate-700">{{ $authenticatedLookup ? __('fixcity::ticket.track.account_subtitle') : __('fixcity::ticket.track.subtitle') }}</p>
-        </header>
+        </div>
 
         @unless ($authenticatedLookup)
-            <form method="get" action="{{ url()->current() }}" class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <form method="get" action="{{ FrontofficeRoutes::ticketsTrack(false) }}" class="dc-ticket-track__form">
                 <label class="block text-base font-semibold text-slate-950" for="ticket-track-code">{{ __('fixcity::ticket.fields.code.label') }}</label>
-                <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-                    <input id="ticket-track-code" name="code" type="text" class="min-h-12 w-full rounded-lg border-2 border-slate-300 bg-white px-4 text-base text-slate-950 shadow-sm outline-none transition focus:border-sky-800 focus:ring-4 focus:ring-sky-800/20" value="{{ $codeString }}" required autocomplete="off" aria-invalid="{{ $notFound ? 'true' : 'false' }}" aria-describedby="ticket-track-help{{ $notFound ? ' ticket-track-error' : '' }}">
-                    <button type="submit" class="min-h-12 rounded-lg bg-sky-800 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-sky-900 focus:outline-none focus:ring-4 focus:ring-sky-800/30">{{ __('fixcity::ticket.track.submit') }}</button>
+                <div class="dc-ticket-track__controls">
+                    <input id="ticket-track-code" name="code" type="text" class="dc-ticket-track__input" value="{{ $codeString }}" required autocomplete="off" aria-invalid="{{ $notFound ? 'true' : 'false' }}" aria-describedby="ticket-track-help{{ $notFound ? ' ticket-track-error' : '' }}">
+                    <button type="submit" class="dc-ticket-track__submit">{{ __('fixcity::ticket.track.submit') }}</button>
                 </div>
                 <p id="ticket-track-help" class="mt-2 text-sm text-slate-700">{{ __('fixcity::ticket.track.help') }}</p>
             </form>

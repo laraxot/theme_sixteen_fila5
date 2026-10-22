@@ -4,14 +4,15 @@ type: contract
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-20
-tags: [bmad, folio, volt, x-page, cms, dry, kiss]
-qmd: "container0 index shell folio x-page layouts.app no native match"
+updated: 2026-10-22
+tags: [bmad, folio, volt, x-page, cms, dry, kiss, reusable]
+qmd: "container0 index shell folio x-page layouts.app no native match resolve action"
 related:
   - ./filament-blueprint.md
   - ./decision-log.md
   - ../wiki/rules/container0-index-folio-pattern.md
   - ../wiki/concepts/folio-page-shell-pattern.md
+  - ../rules/reusable-components.md
   - ../folio-page-pattern.md
   - ../../../../Modules/Cms/docs/wiki/concepts/folio-page-shell-pattern.md
 ---
@@ -33,6 +34,8 @@ Una Folio page con `match`/`@include`/`x-dynamic-component` sul layout:
 
 | Layer | Responsabilità |
 |-------|----------------|
+| Folio `render` | Chiama `ResolveContainer0IndexAction` → Redirect 301/login o View |
+| Action + Support | Alias IT→canonici, `area-personale`, abort 404 se manca CMS |
 | Folio + Volt | `name('container0.index')`, `PageSlugMiddleware`, `mount` → `$pageSlug` + `$data` |
 | `<x-layouts.app>` | Chrome FO unico (header/footer via `<x-section>`); `body-page` solo da segmento Folio (es. blog→`lista-risorse`), **mai** `$this` fuori `@volt` |
 | `.page-content` | Sempre `data-dc` (Sixteen = Design Comuni CSS scope) |
@@ -50,6 +53,7 @@ Mai lasciare `</x-dynamic-component>` dopo un refactor.
 ## Vietato nella shell
 
 - `nativePage` / `utilityPage` / `match ($container0)`
+- mappa alias / `Auth::check` / `abort(404)` inline (usare Action + Support)
 - creare una view Folio esplicita `pages/{container0}/index.blade.php` per una
   pagina già coperta da `[container0]/index.blade.php` (es. FAQ): sarebbe una
   route concorrente e bypasserebbe il contratto CMS

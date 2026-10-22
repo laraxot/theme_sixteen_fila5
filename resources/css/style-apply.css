@@ -76,7 +76,7 @@ html, body {
 .it-header-slim-wrapper {
   background-color: var(--bs-primary-dark);
   @apply py-0 text-base flex;
-  color: #191919;
+  color: #ffffff !important;
 }
 
 .it-header-slim-wrapper-content {
