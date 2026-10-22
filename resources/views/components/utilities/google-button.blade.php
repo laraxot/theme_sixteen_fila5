@@ -19,7 +19,7 @@
 
     $googleUrl = Route::has('oauth.redirect')
         ? route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])
-        : \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/auth/login/google', $locale);
+        : \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/auth/login/google');
 @endphp
 
 @if (Route::has('oauth.redirect') || filled($googleUrl))

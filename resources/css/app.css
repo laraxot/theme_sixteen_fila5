@@ -54,6 +54,33 @@
   --color-primary-900: #00361e;
 }
 
+/* Design Comuni header rhythm: the utility/language band is intentionally
+   darker than the brand and navigation bands. */
+:root {
+    --dc-green: #007a52;
+    --dc-green-dark: #00402b;
+}
+
+.it-header-slim-wrapper {
+    background: var(--dc-green-dark) !important;
+}
+
+/* Story 8-105: preserve the Design Comuni utility/brand contrast and the
+   readable desktop search treatment in the shared header skin. */
+@media (min-width: 992px) {
+    .it-header-center-content-wrapper .it-search-wrapper {
+        flex-direction: column;
+    }
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after {
+    transform: translateX(-50%);
+}
+
+.it-header-center-wrapper .btn-primary {
+    background: var(--dc-green) !important;
+}
+
 /* ========================================
    IMPORT STYLE-APPLY (Bootstrap Italia converted to Tailwind)
 ======================================== */
@@ -141,6 +168,7 @@
 @import './app/18-real-pages-footer-mobile.css'; /* footer delle pagine reali fuori scope sotto 768 px (DCP-129) */
 @import './app/19-ticket-detail.css'; /* dettaglio pubblico di una segnalazione /{lang}/tickets/{id} (DCP-148) */
 @import './app/20-dc-components.css'; /* .cmp-* una volta, dentro data-dc: niente main[data-page] */
+@import './app/21-ticket-track.css';
 
 /* Motion Reveal — scroll-triggered animations */
 @import './components/motion-reveal.css';
@@ -188,6 +216,7 @@
 /* Design Comuni: blocco homepage (stili generati, scope .dc-page) */
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
+@import './app/22-header-shell.css';
 
 /* Leggibilità: gerarchia più sobria su /it senza ridurre il testo di base.
    I controlli mantengono almeno 16px e le aree di attivazione WCAG. */

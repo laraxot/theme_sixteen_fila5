@@ -67,7 +67,7 @@
             <header class="mb-4">
                 @if (is_string($category) && $category !== '')
                     <p class="category-top mb-2">
-                        <span class="category">{{ strtoupper($category) }}</span>
+                        <span class="category">{{ \Illuminate\Support\Str::upper($category) }}</span>
                     </p>
                 @endif
                 <h1 id="event-title" class="text-black" data-element="page-name">{{ $title }}</h1>

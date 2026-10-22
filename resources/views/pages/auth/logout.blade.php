@@ -41,7 +41,8 @@ render(function (View $view): View|RedirectResponse {
             <button type="submit" class="inline-flex min-h-11 items-center rounded-lg bg-sky-900 px-5 py-3 font-semibold text-white hover:bg-sky-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800">
                 {{ __('pub_theme::auth.logout.confirm_button') }}
             </button>
-            <a href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'impostazioni']) }}" class="inline-flex min-h-11 items-center rounded-lg border border-slate-300 px-5 py-3 font-semibold text-slate-800 hover:bg-slate-50">
+            {{-- Caller: form logout in questa pagina Folio auth/logout; SSoT: FrontofficeRoutes::personalAreaImpostazioni. User: «procedi» riusabile. --}}
+            <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaImpostazioni() }}" class="inline-flex min-h-11 items-center rounded-lg border border-slate-300 px-5 py-3 font-semibold text-slate-800 hover:bg-slate-50">
                 {{ __('pub_theme::auth.logout.cancel_button') }}
             </a>
         </form>

@@ -12,7 +12,7 @@
     $loginIntro = is_string($intro ?? null) && trim($intro) !== ''
         ? trim($intro)
         : __('fixcity::auth.login.intro.text');
-    $localize = static fn (string $path): string => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL($path);
+    $localize = static fn (string $path): string => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
 @endphp
 
 <style>

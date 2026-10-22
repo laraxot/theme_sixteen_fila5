@@ -8,7 +8,7 @@
 
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
-    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($path);
+    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
     $search = trim((string) request()->query('q', ''));
     $categorySlug = trim((string) request()->query('categoria', ''));
     $featured = $composer->featuredBlogPosts(3);

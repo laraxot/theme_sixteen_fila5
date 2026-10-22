@@ -3,7 +3,7 @@
     // i partial di blocks/report-partials ereditano $d, $icon e $parts (stesso contratto di report-step/design-comuni)
     $data = $blockData ?? [];
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $parts = 'pub_theme::components.blocks.report-partials';
 @endphp

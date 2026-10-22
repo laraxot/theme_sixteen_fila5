@@ -19,7 +19,7 @@
 
         return is_string($value) ? $value : $default;
     };
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $childSchema = $getChildSchema()->gap(false)->extraAttributes(['class' => 'd-block']); // niente gap (24px) ne' display:grid (margini che non collassano): vedi dc-section-card
     $nav = [
         'suffix' => 'one',

@@ -13,7 +13,7 @@
 @php
     $heading = trim((string) ($data['heading'] ?? '')) ?: __('fixcity::auth.register.title.text');
     $intro = trim((string) ($data['intro'] ?? '')) ?: __('fixcity::auth.register.intro.text');
-    $localize = static fn (string $path): string => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL($path);
+    $localize = static fn (string $path): string => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
 @endphp
 
 <style>

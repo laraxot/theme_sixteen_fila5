@@ -49,12 +49,12 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche']) }}" role="menuitem">
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaPratiche() }}" role="menuitem">
                                 <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}" role="menuitem">
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaNotifiche() }}" role="menuitem">
                                 <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
                                 @if (($unreadNotificationsCount ?? 0) > 0)
                                     <span class="badge badge-primary ml-2">{{ $unreadNotificationsCount }}</span>
@@ -63,8 +63,8 @@
                         </li>
                         <li><span class="divider"></span></li>
                         <li>
-                            {{-- Caller: header-comune.blade.php; canon: container0.view (mai localizeUrl / tickets.*). --}}
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'impostazioni']) }}" role="menuitem">
+                            {{-- Canon: FrontofficeRoutes (mai localizeUrl / tickets.*). --}}
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaImpostazioni() }}" role="menuitem">
                                 <span>{{ __('pub_theme::header.user.dropdown.settings.label') }}</span>
                             </a>
                         </li>

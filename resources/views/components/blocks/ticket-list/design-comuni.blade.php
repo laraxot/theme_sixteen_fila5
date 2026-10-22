@@ -10,12 +10,13 @@
 @php
     use Modules\Fixcity\Actions\ListPublicTicketsAction;
     use Modules\Fixcity\Datas\PublicTicketListFilters;
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
 
-    $base = route('container0.index', ['container0' => 'tickets']);
+    $base = FrontofficeRoutes::ticketsIndex();
     $filters = PublicTicketListFilters::fromRequest(request());
     $list = app(ListPublicTicketsAction::class)->execute($filters);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_list.'.$key, $replace);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $parts = 'pub_theme::components.blocks.report-partials';
     $listActive = $filters->view === 'list';
@@ -28,9 +29,9 @@
         'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => route('home')]], 'current' => $t('breadcrumb.current')],
         'feedback' => array_merge((array) __('fixcity::ticket_list.feedback'), ['col_class' => 'col-12 col-lg-6 p-lg-0 px-3']),
         'contacts' => ['layout' => 'narrow', 'main' => ['title' => $t('contacts.title'), 'items' => [
-            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => route('container0.index', ['container0' => 'domande-frequenti'])],
-            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => route('container0.view', ['container0' => 'tickets', 'slug0' => 'track'])],
-            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche'])],
+            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => FrontofficeRoutes::faqIndex()],
+            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => FrontofficeRoutes::ticketsTrack()],
+            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => FrontofficeRoutes::personalAreaPratiche()],
             ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'url' => 'tel:050505'],
         ]]],
     ];

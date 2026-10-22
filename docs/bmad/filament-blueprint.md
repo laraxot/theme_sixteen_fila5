@@ -4,14 +4,16 @@ type: filament-blueprint
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-20
-tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page]
-qmd: "filament blueprint theme sixteen widget mount no resource folio shell"
+updated: 2026-10-22
+tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page, reusable]
+qmd: "filament blueprint theme sixteen widget mount no resource folio shell reusable support"
 related:
   - ../bmad-planning.md
   - ../bmad-brainstorming.md
   - ./container0-index-shell-contract.md
   - ./decision-log.md
+  - ../rules/reusable-components.md
+  - ../wiki/concepts/design-comuni-reusable-components.md
 ---
 
 # Scopo
@@ -23,13 +25,20 @@ montare widget Filament **dei moduli owner** con props canoniche.
 
 `pages/[container0]/index.blade.php` è solo trasporto: Volt + `<x-page>`.
 Nessuna Resource, nessun `match` dominio, nessun layout dinamico nel tema.
+Alias Design Comuni / `area-personale` / 404 CMS vivono in
+`Actions\Folio\ResolveContainer0IndexAction` +
+`Infrastructure\Url\FrontofficeContainerAliases` (riutilizzabili),
+non in `@php` inline nella Folio page.
+URL FO ricorrenti: `Infrastructure\Url\FrontofficeRoutes` /
+`Presentation\Search\FrontofficeSearchSuggestions`.
 Contratto: [container0-index-shell-contract.md](./container0-index-shell-contract.md) (D20).
+Regola: [reusable-components.md](../rules/reusable-components.md) (D32).
 
 Le pagine CMS di primo livello, inclusa `domande-frequenti.index`, non hanno
 una propria view Folio in `pages/{container0}/index.blade.php`: il routing è
 unico e il contenuto è scelto dai blocchi JSON. Il blueprint Filament del tema
 resta quindi **N/A per Resource**, ma il contratto di mount viene verificato da
-`FolioPageMountContractTest` (niente file dedicato, niente `if` sul nome del contenitore) e `NoSemanticFolioPageDirectoriesTest` (niente cartelle fuori da `auth`, `[container0]`, `tests`). Il caso FAQ: [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+`FolioPageMountContractTest` (niente file dedicato, niente `if` sul nome del contenitore) e `NoSemanticFolioPageDirectoriesTest` (niente cartelle fuori da `auth`, `[container0]`, `tests`). Il caso FAQ: [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md). Il caso profilo (D34): **mai** `pages/profile/edit.blade.php` nel tema — FO «Impostazioni» = `FrontofficeRoutes::personalAreaImpostazioni()` → JSON `area-personale.impostazioni` ([why-profile-edit-blade-must-not-exist.md](./knowledge/why-profile-edit-blade-must-not-exist.md)).
 
 I widget Filament FO (commenti, wizard ticket, ecc.) entrano **solo** se un blocco
 JSON CMS li monta — il tema non decide il dominio.
@@ -68,7 +77,7 @@ non `localizeUrl`. Canon:
 - Duplicare policy/Actions nel tema
 - Nascondere sezioni FO quando il contratto owner dice "sempre montato"
 - Logica lista/utility hardcoded nella Folio page al posto del JSON `{slug}.index`
-- Cartella `pages/<nome-pagina>/` nel tema (`pages/domande-frequenti/` ruba `/it/domande-frequenti` a `[container0]`)
+- Cartella `pages/<nome-pagina>/` nel tema (`pages/domande-frequenti/` ruba `/it/domande-frequenti` a `[container0]`; `pages/profile/` è alias morto creato ≥3 volte — vietato)
 - CSS `main[data-page="…"]`: il vestito è del componente (`.cmp-*` dentro `.page-content[data-dc]`), non del nome della pagina
 
 ## Widget tipici consumati
@@ -85,3 +94,16 @@ Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto
 - Brainstorming: [bmad-brainstorming.md](../bmad-brainstorming.md)
 - Decision log: [decision-log.md](./decision-log.md)
 - Shell contract: [container0-index-shell-contract.md](./container0-index-shell-contract.md)
+
+## No Support
+
+Tema e moduli: zero `app/Support/`. Layer FO = Infrastructure/Presentation/Actions. Canon: [second-brain process](../../../../docs/second-brain/process/no-app-support-queueable-actions.md) · [support-deep-audit](../../../../Modules/Xot/docs/bmad/support-deep-audit.md).
+
+## Area personale FO (chrome condiviso)
+
+Le quattro pagine CMS `area-personale.{pratiche,seguite,notifiche,impostazioni}` montano blocchi tema
+che **devono** passare da `components/blocks/personal-area/heading.blade.php` (include della nav
+`cmp-nav-tab`). Vietato reincludere la nav nelle settings. Contratto:
+[personal-area-shared-nav-tabs-contract.md](../wiki/concepts/personal-area-shared-nav-tabs-contract.md) ·
+[why-personal-area-tabs-must-be-identical.md](./knowledge/why-personal-area-tabs-must-be-identical.md).
+

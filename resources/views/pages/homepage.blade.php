@@ -18,13 +18,13 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         <x-bootstrap-italia.button
                             variant="outline-primary"
-                            href="/servizi"
+                            href="{{ route('services.categories') }}"
                             class="bg-white text-primary-600 hover:bg-primary-50">
                             Esplora i servizi
                         </x-bootstrap-italia.button>
                         <x-bootstrap-italia.button
                             variant="secondary"
-                            href="/contatti"
+                            href="{{ route('contact') }}"
                             class="bg-primary-700 hover:bg-primary-800 border-primary-700">
                             Contatta l'ufficio
                         </x-bootstrap-italia.button>
@@ -58,7 +58,7 @@
                     subtitle="Richiedi online"
                     hover
                     clickable
-                    href="/servizi/certificati">
+                    href="{{ route('container0.view', ['container0' => 'servizi', 'slug0' => 'certificati']) }}">
                     <p class="text-italia-gray-600 mb-4">
                         Richiedi e scarica certificati di nascita, residenza e stato di famiglia direttamente online.
                     </p>
@@ -76,7 +76,7 @@
                     subtitle="PagoPA"
                     hover
                     clickable
-                    href="/servizi/pagamenti">
+                    href="{{ route('container0.view', ['container0' => 'servizi', 'slug0' => 'pagamenti']) }}">
                     <p class="text-italia-gray-600 mb-4">
                         Paga tasse, multe e tributi comunali in modo sicuro con il sistema PagoPA.
                     </p>
@@ -94,7 +94,7 @@
                     subtitle="SUAP Online"
                     hover
                     clickable
-                    href="/servizi/edilizia">
+                    href="{{ route('container0.view', ['container0' => 'servizi', 'slug0' => 'edilizia']) }}">
                     <p class="text-italia-gray-600 mb-4">
                         Presenta pratiche edilizie, richieste di permessi e consulta lo stato delle procedure.
                     </p>
@@ -108,7 +108,7 @@
             </div>
             
             <div class="text-center mt-10">
-                <x-bootstrap-italia.button variant="outline-primary" href="/servizi">
+                <x-bootstrap-italia.button variant="outline-primary" href="{{ route('services.categories') }}">
                     Tutti i servizi
                 </x-bootstrap-italia.button>
             </div>
@@ -127,7 +127,7 @@
                         Resta aggiornato su eventi e iniziative del territorio
                     </p>
                 </div>
-                <x-bootstrap-italia.button variant="outline-primary" href="/notizie">
+                <x-bootstrap-italia.button variant="outline-primary" href="{{ route('events.index') }}">
                     Tutte le notizie
                 </x-bootstrap-italia.button>
             </div>
@@ -140,7 +140,7 @@
                     imageAlt="Uffici comunali"
                     hover
                     clickable
-                    href="/notizie/nuovi-orari-uffici">
+                    href="{{ route('events.show', 'nuovi-orari-uffici') }}">
                     <p class="text-sm text-italia-gray-500 mb-2">15 Gennaio 2024</p>
                     <p class="text-italia-gray-600">
                         A partire da lunedì 22 gennaio entreranno in vigore i nuovi orari di apertura al pubblico degli uffici comunali.
@@ -154,7 +154,7 @@
                     imageAlt="Raccolta differenziata"
                     hover
                     clickable
-                    href="/notizie/raccolta-differenziata">
+                    href="{{ route('events.show', 'raccolta-differenziata') }}">
                     <p class="text-sm text-italia-gray-500 mb-2">12 Gennaio 2024</p>
                     <p class="text-italia-gray-600">
                         Implementate nuove modalità di raccolta differenziata per migliorare la qualità del servizio e l'ambiente.
@@ -168,7 +168,7 @@
                     imageAlt="Contributi famiglie"
                     hover
                     clickable
-                    href="/notizie/bando-contributi">
+                    href="{{ route('events.show', 'bando-contributi') }}">
                     <p class="text-sm text-italia-gray-500 mb-2">10 Gennaio 2024</p>
                     <p class="text-italia-gray-600">
                         Pubblicato il bando per l'erogazione di contributi economici a sostegno delle famiglie in difficoltà.
@@ -191,7 +191,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <x-bootstrap-italia.button
                         variant="outline-primary"
-                        href="/contatti"
+                        href="{{ route('contact') }}"
                         class="bg-white text-primary-600 hover:bg-primary-50">
                         Contatta gli uffici
                     </x-bootstrap-italia.button>
