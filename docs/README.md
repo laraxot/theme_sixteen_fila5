@@ -3,7 +3,7 @@ title: "Sixteen: ingresso alla documentazione"
 type: readme
 tags: [documentation, sixteen]
 created: 2026-09-26
-updated: 2026-10-19
+updated: 2026-10-20
 qmd: "sixteen theme readme stato pub_theme vivo contenuti conteggi build npm limiti rotte dormienti layout design-comuni"
 issues: []
 discussions: []
@@ -11,6 +11,8 @@ status: active
 ---
 
 # Sixteen
+
+**Scopo:** Sixteen e' il vestito Design Comuni del FO Fixcity: compone Folio/Volt e monta widget dei moduli owner (User, Cms, Comment, …) senza possedere Resource Filament ne' Actions di dominio. Hub BMAD: [bmad/decision-log.md](./bmad/decision-log.md), [bmad/filament-blueprint.md](./bmad/filament-blueprint.md).
 
 ## Operational guides
 
