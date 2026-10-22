@@ -107,6 +107,21 @@
   color: var(--bs-gray-secondary, #5d7083) !important;
 }
 
+/* The brand tagline sits on the green institutional header, not on the page canvas. */
+.it-header-center-wrapper .it-brand-tagline {
+  color: #ffffff !important;
+}
+
+.it-header-wrapper .it-socials > span {
+  color: #ffffff !important;
+}
+
+.cmp-accordion.faq .accordion-button,
+.cmp-accordion.faq .accordion-button .button-wrapper {
+  color: #17324d !important;
+  background-color: #ffffff !important;
+}
+
 /* Language selector - reference uses 14px */
 .dropdown .nav-link,
 .it-header-slim-wrapper .nav-link {

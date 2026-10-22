@@ -105,7 +105,7 @@
             </div>
 
             <p class="auth-login-links">
-                <a href="{{ $localize('/auth/password/forgot') }}">{{ __('fixcity::auth.login.forgot_password.text') }}</a>
+                <a href="{{ route('password.request') }}">{{ __('fixcity::auth.login.forgot_password.text') }}</a>
             </p>
             <p class="auth-login-links">
                 <a href="{{ $localize('/accessibilita') }}">{{ __('pub_theme::accessibility.page.title.text') }}</a>

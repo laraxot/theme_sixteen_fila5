@@ -224,7 +224,6 @@ f7ac8eda (.)
                 
                 <div class="flex justify-center space-x-4">
                     <x-button 
-                    <x-button 
                         href="#"
                         variant="primary"
                         @click="$dispatch('open-modal', { id: 'feedback-modal' })">

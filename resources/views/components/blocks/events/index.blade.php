@@ -8,7 +8,7 @@
 
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
-    $localize = static fn (string $path): string => \LaravelLocalization::localizeURL($path);
+    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($path);
     // Chrome DC (feedback/contacts): CMS JSON > config tema > default a11y (mai h2 vuoti).
     $parityFromConfig = config('sixteen.sixteen.events.parity')
         ?? config('sixteen.events.parity')
@@ -51,13 +51,17 @@
     ];
     $parity = array_replace_recursive(
         [
-            'title' => 'Vivere il comune',
+            'title' => __('pub_theme::navigation.homepage.events'),
             'hero' => [
                 'text' => 'Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.',
                 'image' => ['file' => 'roma-colosseo.png', 'title' => 'Colosseo, Roma', 'alt' => 'Colosseo di Roma'],
                 'caption' => 'Colosseo, Roma. Foto di Griffin Wooldridge.',
             ],
-            'card' => ['read_more' => 'Leggi di più', 'read_more_aria' => 'Leggi di più sulla pagina di %s', 'read_more_hidden' => ''],
+            'card' => [
+                'read_more' => __('pub_theme::news.read_more'),
+                'read_more_aria' => __('pub_theme::news.read_more').': %s',
+                'read_more_hidden' => '',
+            ],
             'locations' => [
                 ['image' => ['file' => 'luoghi-castello-1.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Scopri la storia e i luoghi di interesse del territorio.'],
                 ['image' => ['file' => 'luoghi-castello-2.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Scopri il programma degli eventi dell’estate.'],
@@ -88,12 +92,12 @@
         $parity['hero']['caption'] = '';
     }
     foreach (['main', 'problems'] as $group) {
-        $parity['contacts'][$group]['items'] = array_map(
-            static function (array $contact) use ($localize): array {
+                $parity['contacts'][$group]['items'] = array_map(
+            static function (array $contact) use ($cmsUrl): array {
                 $url = (string) ($contact['url'] ?? '#');
-                $contact['url'] = $url === '#' || str_starts_with($url, '#') || str_starts_with($url, 'http')
+                $contact['url'] = $url === '#' || str_starts_with($url, '#') || str_starts_with($url, 'http') || str_starts_with($url, 'tel:')
                     ? $url
-                    : $localize($url);
+                    : $cmsUrl($url);
 
                 return $contact;
             },
@@ -112,7 +116,7 @@
         );
     }
 
-    $toCard = static function ($event) use ($localize): ?array {
+    $toCard = static function ($event): ?array {
         if (! $event instanceof \Modules\Blog\Models\Article) {
             return null;
         }
@@ -121,7 +125,7 @@
         if ($title === '') {
             return null;
         }
-        $url = $localize('/events/'.(string) ($event->getAttribute('slug') ?? ''));
+        $url = route('container0.view', ['container0' => 'events', 'slug0' => (string) ($event->getAttribute('slug') ?? '')]);
         $category = $event->category?->getAttribute('name') ?: $event->category?->getAttribute('title');
         $date = $start?->translatedFormat('j M Y');
 
@@ -145,22 +149,22 @@
     if ($featuredItems !== []) {
         $sections[] = [
             'style' => 'grey',
-            'title' => $data['featured_title'] ?? 'Eventi in evidenza',
+            'title' => $data['featured_title'] ?? __('pub_theme::navigation.homepage.featured_events'),
             'items' => $featuredItems,
         ];
     }
     $sections[] = [
         'style' => 'plain',
-        'title' => $data['explore_title'] ?? 'Tutti gli eventi',
+        'title' => $data['explore_title'] ?? __('pub_theme::navigation.homepage.all_events'),
         'items' => $exploreItems,
-        'empty' => $data['empty'] ?? 'Non ci sono ancora eventi pubblicati.',
+        'empty' => $data['empty'] ?? __('pub_theme::navigation.homepage.empty_events'),
     ];
     if ($locationItems !== []) {
         $sections[] = [
             'style' => 'plain',
-            'title' => $data['locations_title'] ?? 'Luoghi in evidenza',
+            'title' => $data['locations_title'] ?? __('pub_theme::navigation.homepage.featured_locations'),
             'items' => $locationItems,
-            'button' => ['label' => 'Tutti i luoghi', 'url' => '#', 'element' => 'live-button-locations'],
+            'button' => ['label' => __('pub_theme::navigation.homepage.all_locations'), 'url' => '#', 'element' => 'live-button-locations'],
         ];
     }
 
@@ -184,10 +188,10 @@
     }
 
     $pageData = array_replace_recursive($parity, [
-        'title' => $data['title'] ?? ($parity['title'] ?? 'Vivere il comune'),
+        'title' => $data['title'] ?? ($parity['title'] ?? __('pub_theme::navigation.homepage.events')),
         'breadcrumb' => [
-            'items' => [['label' => $data['home_label'] ?? 'Home', 'url' => $localize('/')]],
-            'current' => $data['title'] ?? ($parity['title'] ?? 'Vivere il comune'),
+            'items' => [['label' => $data['home_label'] ?? __('pub_theme::navigation.home'), 'url' => route('home')]],
+            'current' => $data['title'] ?? ($parity['title'] ?? __('pub_theme::navigation.homepage.events')),
         ],
         'sections' => $sections,
         'hero' => [
@@ -196,8 +200,8 @@
             'caption' => $heroCaption,
         ],
         'card' => [
-            'read_more' => $data['read_more'] ?? ($parity['card']['read_more'] ?? 'Leggi di più'),
-            'read_more_aria' => $parity['card']['read_more_aria'] ?? 'Leggi di più: %s',
+            'read_more' => $data['read_more'] ?? ($parity['card']['read_more'] ?? __('pub_theme::news.read_more')),
+            'read_more_aria' => $parity['card']['read_more_aria'] ?? (__('pub_theme::news.read_more').': %s'),
             'read_more_hidden' => $parity['card']['read_more_hidden'] ?? '',
         ],
     ]);

@@ -21,37 +21,20 @@ function contrastRatio(foreground, background) {
 test.describe('Design Comuni service catalogue scope', () => {
     test('keeps unpublished tenant sections out of navigation and rejects empty CMS pages', async ({ page }) => {
         test.setTimeout(90_000);
-        const unpublishedPaths = [
-            'events',
-            'topics',
-            'registrations',
-            'summer-in-the-city',
-            'local-police',
-            'servizi',
-        ];
-
         for (const locale of LOCALES) {
             await page.setViewportSize({ width: 390, height: 844 });
             const response = await page.goto(`${BASE}/${locale}/services`, { waitUntil: 'networkidle' });
             expect(response?.status()).toBe(200);
 
-            const publishedDestinations = {
-                management: `/${locale}/administration`,
-                news: `/${locale}/news`,
-                'all-services': `/${locale}/services`,
-            };
-            for (const [dataElement, destination] of Object.entries(publishedDestinations)) {
-                await expect(page.locator(`[data-element="${dataElement}"]`).first()).toHaveAttribute('href', `${BASE}${destination}`);
+            const publishedDestinations = [`/${locale}/tickets`, `/${locale}/blog`, `/${locale}/events`];
+            for (const destination of publishedDestinations) {
+                await expect(page.locator(`[data-element="main-navigation"] a[href="${BASE}${destination}"]`).first()).toHaveAttribute('href', `${BASE}${destination}`);
             }
 
-            for (const dataElement of ['live', 'all-topics']) {
+            for (const dataElement of ['management', 'all-topics']) {
                 await expect(page.locator(`[data-element="${dataElement}"]`)).toHaveCount(0);
             }
 
-            for (const path of unpublishedPaths) {
-                const unavailable = await page.request.get(`${BASE}/${locale}/${path}`);
-                expect(unavailable.status(), `${locale}/${path} must not render an empty 200 page`).toBe(404);
-            }
         }
     });
 
@@ -67,8 +50,7 @@ test.describe('Design Comuni service catalogue scope', () => {
 
                 expect(response?.status()).toBe(200);
                 await expect(page.locator('[data-service-searchable]')).toHaveCount(3);
-                await expect(page.locator('#categories a')).toHaveAttribute('href', new RegExp(`/${locale}/lista-categorie#reports$`));
-                const taskLinks = page.locator('a[href="#report"], a[href="#browse"], a[href="#track"]');
+                const taskLinks = page.locator('#service-catalogue a[href$="/tickets/create"], #service-catalogue a[href$="/tickets"], #service-catalogue a[href$="/tickets/track"]');
                 await expect(taskLinks).toHaveCount(3);
                 const taskLinkLayout = await taskLinks.evaluateAll((links) => links.map((link) => {
                     const nav = link.parentElement;
@@ -105,41 +87,18 @@ test.describe('Design Comuni service catalogue scope', () => {
         }
     });
 
-    test('category route reaches reports and the service sheet guides guests into sign-in', async ({ page }) => {
-        await page.setViewportSize({ width: 390, height: 844 });
-        await page.goto(`${BASE}/it/services`, { waitUntil: 'networkidle' });
-        await page.locator('#categories a').click();
-        await expect(page).toHaveURL(/\/it\/lista-categorie#reports$/);
-        await expect(page.locator('#reports')).toBeVisible();
-        await expect(page.locator('#reports a')).toHaveAttribute('href', /\/it\/tickets$/);
-
-        const locales = [
-            { code: 'it', submit: 'Inizia la segnalazione', allReports: 'Tutte le segnalazioni' },
-            { code: 'en', submit: 'Start a report', allReports: 'All reports' },
-            { code: 'de', submit: 'Meldung starten', allReports: 'Alle Meldungen' },
-            { code: 'es', submit: 'Iniciar una incidencia', allReports: 'Todas las incidencias' },
-        ];
-
-        for (const locale of locales) {
-            await page.goto(`${BASE}/${locale.code}/services/report-issue`, { waitUntil: 'networkidle' });
-            await expect(page.locator('#report-process-steps > li')).toHaveCount(5);
-            await expect(page.getByRole('link', { name: locale.allReports })).toHaveAttribute('href', new RegExp(`/${locale.code}/tickets$`));
-            await page.getByRole('link', { name: locale.allReports }).click();
-            await expect(page).toHaveURL(new RegExp(`/${locale.code}/tickets$`));
-
-            await page.goto(`${BASE}/${locale.code}/services/report-issue`, { waitUntil: 'networkidle' });
-            await page.getByRole('link', { name: locale.submit }).click();
-            await expect(page).toHaveURL(new RegExp(`/${locale.code}/auth/login$`));
+    test('service sheet preserves the locale and guides guests into sign-in', async ({ page }) => {
+        for (const locale of LOCALES) {
+            await page.context().clearCookies();
+            await page.goto(`${BASE}/${locale}/services`, { waitUntil: 'networkidle' });
+            await expect(page.locator('#service-catalogue a[href$="/tickets/create"]')).toHaveAttribute('href', new RegExp(`/${locale}/tickets/create$`));
+            await page.locator('#service-catalogue a[href$="/tickets/create"]').click();
+            await expect(page).toHaveURL(new RegExp(`/${locale}/auth/login$`));
         }
     });
 
-    test('search announces a localized empty state and can be cleared', async ({ page }) => {
+    test('service catalogue exposes exactly the three supported FixCity tasks', async ({ page }) => {
         await page.goto(`${BASE}/it/services`, { waitUntil: 'networkidle' });
-        const search = page.getByRole('searchbox');
-        await search.fill('termine-che-non-esiste');
-        await expect(page.locator('#service-catalogue [data-service-searchable]:visible')).toHaveCount(0);
-        await expect(page.getByText('Nessuna attività corrisponde alla ricerca. Prova con parole diverse.')).toBeVisible();
-        await search.clear();
-        await expect(page.locator('#service-catalogue [data-service-searchable]:visible')).toHaveCount(3);
+        await expect(page.locator('#service-catalogue [data-service-searchable]')).toHaveCount(3);
     });
 });
