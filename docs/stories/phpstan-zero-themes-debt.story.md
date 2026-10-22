@@ -145,3 +145,17 @@ Story ancora in-progress: nessun cluster pianificato rimasto aperto tra quelli e
   (documentato sopra). Nessun altro errore theme-wide. Tutti i cluster pianificati chiusi
   (1297→22, tutti i 22 residui della stessa categoria infra-gap unica, non applicativa).
   Status → done.
+
+## Boy scout 2026-10-22 (ordine permanente, Modules gia a zero)
+
+**Scopo:** `composer.json` autoload PSR-4 punta solo a `app/`. L'albero `src/` era un mirror
+stale dello stesso namespace `Themes\Sixteen\...` (20 PHP, tutti con twin piu recente in `app/`).
+PHPStan analizzando `Themes/Sixteen` contava errori su file **morti** (non caricati a runtime):
+~994 errori solo su `src/Models/Municipal` mentre `app/Models/Municipal` era gia a 0.
+
+**Fix forward-only:**
+- rimosso `Themes/Sixteen/src/` (non in autoload, zero file unici)
+- rimosso `Themes/Sixteen/Http/` (dead-path `ComuneController` duplicato; live = `app/Http/Controllers`)
+
+**Misura:** `analyse Themes/Sixteen` ~1563 → ~222 (residuo: test + 10 view-string su ComuneController).
+Gate canonico `analyse Modules` resta `[OK] No errors`.
