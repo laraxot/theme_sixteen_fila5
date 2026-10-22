@@ -8,7 +8,7 @@
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $declaration = array_filter((array) $d('declaration', []), static fn (mixed $value, mixed $key): bool => is_string($key), ARRAY_FILTER_USE_BOTH);
     $issues = app(\Modules\Fixcity\Actions\AssessAccessibilityStatementAction::class)->execute($declaration);

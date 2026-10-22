@@ -19,14 +19,14 @@
         if ($raw === '' || $raw === '#') {
             return null;
         }
-        $resolved = \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($raw);
+        $resolved = \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($raw);
 
         return ($resolved !== '' && $resolved !== '#') ? $resolved : null;
     };
 
     $brand = is_array($d('brand', [])) ? $d('brand', []) : [];
     $region = is_array($d('region', [])) ? $d('region', []) : [];
-    $regionLink = \Themes\Sixteen\Support\RegionPortalLinkLabels::resolve($region);
+    $regionLink = \Themes\Sixteen\Presentation\Accessibility\RegionPortalLinkLabels::resolve($region);
     $regionHref = $href((string) ($region['url'] ?? ''));
     $utilityLinks = is_array($d('utility_links', [])) ? $d('utility_links', []) : [];
     $account = is_array($d('account', [])) ? $d('account', []) : [];

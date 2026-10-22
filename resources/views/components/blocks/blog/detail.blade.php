@@ -63,7 +63,7 @@
             <header class="mb-3">
                 @if (is_string($category) && $category !== '')
                     <p class="category-top mb-2">
-                        <span class="category">{{ strtoupper($category) }}</span>
+                        <span class="category">{{ \Illuminate\Support\Str::upper($category) }}</span>
                     </p>
                 @endif
                 <h1 id="post-title" class="text-black h2 mb-2" data-element="page-name">{{ $title }}</h1>

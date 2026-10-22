@@ -43,7 +43,7 @@
             return '';
         }
 
-        return \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($path);
+        return \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
     };
     $hasUrl = static function (mixed $item): bool {
         if (! is_array($item)) {

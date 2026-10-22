@@ -439,25 +439,28 @@ html body {
   min-width: 7rem !important;
   padding: 0.25rem 0 !important;
   margin-top: 0 !important;
+  background: #00402B !important;
+  border-color: rgba(255,255,255,0.15) !important;
 }
 
 .it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item {
   padding: 0.5rem 1.25rem !important;
   font-size: 0.875rem !important;
   font-weight: 400 !important;
-  color: #007a52 !important;
+  color: #fff !important;
   white-space: nowrap !important;
 }
 
 .it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item[aria-current="true"] {
   font-weight: 700 !important;
-  color: #17324d !important;
+  color: #ffbf47 !important;
+  background: rgba(255,191,71,0.15) !important;
 }
 
 .it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item:hover,
 .it-header-slim-wrapper .it-language-switcher .dropdown-menu .dropdown-item:focus-visible {
-  background: rgba(0, 122, 82, 0.08) !important;
-  color: #005c40 !important;
+  background: #005c40 !important;
+  color: #fff !important;
 }
 
 /* STORY-147: dropdown utente compatto (annulla space-y/p-4 da style-apply) */

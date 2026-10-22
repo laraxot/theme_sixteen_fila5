@@ -3,12 +3,37 @@ title: "log"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-20
+updated: 2026-10-22
 qmd: "log"
 issues: []
 discussions: []
 status: draft
 ---
+
+## [2026-10-22] fo | anti-pattern lock — mai pages/profile/edit (D34)
+- knowledge [why-profile-edit-blade-must-not-exist.md](../bmad/knowledge/why-profile-edit-blade-must-not-exist.md); FO = `FrontofficeRoutes::personalAreaImpostazioni()`
+- Pest `NoSemanticFolioPageDirectoriesTest` + header forbid `route('profile.edit')`; hook `theme-pages-guard.sh`; blueprint + fo-folio-links aggiornati
+- hindsight: initiative kp-2414279f6153450582f67e36216631c2 + correction FO impostazioni
+
+## [2026-10-22] fo | audit UI/UX Design Comuni — data-dc home/track + no gravatar (D33)
+
+- Link: [04-audit-ui-ux-design-comuni.md](../compliance/04-audit-ui-ux-design-comuni.md), [decision-log.md](../bmad/decision-log.md), [filament-blueprint.md](../bmad/filament-blueprint.md).
+- User: «analizzare tutta la ui/ux… DesignComuni… bmad + second brain + filament blueprint».
+- Smoke `fixcity.eu`: home/track `data-dc=0` → fix; D-03 Gravatar → iniziali; A-14 breadcrumb i18n; D-12 assistenza → tickets/create.
+
+## [2026-10-22] fo | FrontofficeRoutes wave 2 — ticket + area personale
+
+- Supersede: estende D32 (stesso giorno).
+- Link: [reusable-components.md](../rules/reusable-components.md), [filament-blueprint.md](../bmad/filament-blueprint.md).
+- User: «procedi».
+- `FrontofficeRoutes` + helpers `personalArea*`, `faqIndex`, `ticketsShow`; wire ticket-list/detail, header dropdowns, segnalazioni, settings, logout.
+
+## [2026-10-22] fo | reusable Infrastructure/Presentation + Action (D32)
+
+- Link: [reusable-components.md](../rules/reusable-components.md), [filament-blueprint.md](../bmad/filament-blueprint.md), [decision-log.md](../bmad/decision-log.md).
+- User: «devi sempre cercare di creare componenti riutilizzabili… bmad + second brain + filament blueprint».
+- Estratti: `Infrastructure\Url\FrontofficeContainerAliases` + `FrontofficeRoutes`, `Presentation\Search\FrontofficeSearchSuggestions`, `Actions\Folio\ResolveContainer0IndexAction`.
+- Folio `[container0]/index` e search-modal / services / faq consumano i pezzi riusabili; niente alias inline.
 
 ## [2026-10-20] ux | /it/auth/register merge 500 + parity DC
 

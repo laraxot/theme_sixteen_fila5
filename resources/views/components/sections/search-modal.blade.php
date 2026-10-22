@@ -1,21 +1,12 @@
 @props(['links' => []])
 
 @php
-    // Religione FO: solo container0.* — mai tickets.create|track / segnalazioni named.
-    $searchCreateUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
-    $searchListUrl = route('container0.index', ['container0' => 'tickets']);
-    $searchTrackUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'track']);
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
+    use Themes\Sixteen\Presentation\Search\FrontofficeSearchSuggestions;
 
-    $defaultLinks = [
-        ['label' => __('pub_theme::navigation.homepage.report_issue'), 'url' => $searchCreateUrl],
-        ['label' => __('fixcity::ticket_list.heading.title'), 'url' => $searchListUrl],
-        ['label' => __('fixcity::ticket_list.contacts.track'), 'url' => $searchTrackUrl],
-        ['label' => __('pub_theme::navigation.homepage.faq'), 'url' => route('container0.index', ['container0' => 'domande-frequenti'])],
-        ['label' => __('pub_theme::navigation.homepage.news'), 'url' => route('container0.index', ['container0' => 'blog'])],
-        ['label' => __('pub_theme::navigation.homepage.events'), 'url' => route('container0.index', ['container0' => 'events'])],
-    ];
-
-    $displayLinks = !empty($links) ? $links : $defaultLinks;
+    // Regola FO: solo container0.* via FrontofficeRoutes; niente URL costruiti a mano.
+    $searchListUrl = FrontofficeRoutes::ticketsIndex();
+    $displayLinks = ! empty($links) ? $links : FrontofficeSearchSuggestions::defaults();
 @endphp
 
 <div id="search-modal" x-data="{ open: false }" x-cloak x-show="open" x-trap.noscroll="open" x-on:open-search.window="open = true; $nextTick(() => $refs.searchInput.focus())" x-on:keydown.escape.window="open = false" class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">

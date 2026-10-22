@@ -88,7 +88,7 @@ new class extends Component {
         'auth-register' => __('fixcity::auth.register.meta_description.text'),
         default => $blogPost instanceof \Modules\Blog\Models\Article
             ? (string) ($blogPost->getAttribute('excerpt') ?: $blogPost->getAttribute('description') ?: '')
-            : \Themes\Sixteen\Support\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
+            : \Themes\Sixteen\Presentation\Metadata\PageDescription::resolve($cmsPage?->getAttribute('description'), app()->getLocale()),
     };
     // pagine con chrome Design Comuni: asset con percorso relativo come il riferimento (DesignComuniAssets) e voce di menu attiva dal JSON
     $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
@@ -111,6 +111,13 @@ new class extends Component {
         $headerActive = 'all-services';
         $layoutComponent = 'layouts.design-comuni';
     }
+    // track: stesso telaio DC dell'elenco (B-11 audit UI/UX) — data-dc + layout design-comuni
+    if ($specialPage === 'ticket-track') {
+        $isDesignComuni = true;
+        view()->share('dcRelativeAssets', true);
+        $headerActive = 'all-services';
+        $layoutComponent = 'layouts.design-comuni';
+    }
     // dettaglio Novità/Eventi (Article): layout DC + data-dc.
     // Il corpo lo monta il JSON `pages/{blog|events}/view.json` (slug `view` → `blog.view` / `events.view`).
     if ($blogPost instanceof \Modules\Blog\Models\Article) {
@@ -122,7 +129,7 @@ new class extends Component {
 @endphp
 <x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription" :header-active="$headerActive">
     @if ($specialPage !== null)
-        <div class="page-content content"{!! $ticketDetail !== null ? ' data-dc' : '' !!} data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
+        <div class="page-content content"@if(in_array($specialPage, ['ticket-detail', 'ticket-track', 'auth-login', 'auth-register'], true)) data-dc @endif data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
             @if ($specialPage === 'auth-login')
                 @include('pub_theme::components.pages.auth-login')
             @elseif ($specialPage === 'auth-register')

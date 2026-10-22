@@ -20,7 +20,7 @@
             'label' => $t($item['label'] ?? ''),
             // i link nel JSON sono senza lingua ("/"): si prefissano qui; schemi e ancore restano intatti
             'url' => isset($item['url']) && str_starts_with((string) $item['url'], '/')
-                ? \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL((string) $item['url'])
+                ? \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl((string) $item['url'])
                 : ($item['url'] ?? null),
             'active' => $item['active'] ?? false,
         ];

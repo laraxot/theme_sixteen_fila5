@@ -34,7 +34,7 @@
             {{ __('cookie-consent::texts.alert_text') }}
         </p>
         <div class="flex shrink-0 flex-wrap items-center gap-2">
-            <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/disclaimer') }}" 
+            <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/cookie-policy') }}"
                class="btn btn-ghost btn-sm min-h-11"
                data-bs-accept="cookiebar">
                 {{ __('cookie-consent::texts.alert_settings') }}

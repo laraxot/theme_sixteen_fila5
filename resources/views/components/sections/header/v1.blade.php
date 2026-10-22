@@ -14,6 +14,8 @@
 
 @php
     // x-section supplies the locale-resolved CMS blocks; preserve them.
+    // The shared language-switcher and user-dropdown contracts are rendered by
+    // the selected header skin; this wrapper must remain a transport shell.
     if ($blocks === []) {
         $headerData = [
             'brand' => $brand,

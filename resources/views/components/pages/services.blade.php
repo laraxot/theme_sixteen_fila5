@@ -1,15 +1,17 @@
 @php
-    // Folio owns these public page contracts; route() preserves the active locale.
-    $serviceUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
-    $reportsUrl = route('container0.index', ['container0' => 'tickets']);
-    $trackUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'track']);
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
+
+    // Canon FO: solo container0.* via Infrastructure riusabile — mai tickets.* / localizeUrl.
+    $serviceUrl = FrontofficeRoutes::ticketsCreate();
+    $reportsUrl = FrontofficeRoutes::ticketsIndex();
+    $trackUrl = FrontofficeRoutes::ticketsTrack();
 @endphp
 
 <div class="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div class="mx-auto max-w-5xl">
         <nav aria-label="{{ __('fixcity::global.breadcrumb') }}">
             <ol class="flex flex-wrap gap-2 text-sm text-slate-700">
-                <li><a class="underline underline-offset-4 hover:text-sky-800" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">{{ __('pub_theme::navigation.home') }}</a></li>
+                <li><a class="underline underline-offset-4 hover:text-sky-800" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/') }}">{{ __('pub_theme::navigation.home') }}</a></li>
                 <li aria-hidden="true">/</li>
                 <li aria-current="page">{{ __('pub_theme::services.meta.breadcrumb') }}</li>
             </ol>

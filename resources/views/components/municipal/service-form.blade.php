@@ -322,7 +322,7 @@
                                    required>
                             <span class="text-sm text-gray-700">
                                 Acconsento al trattamento dei dati personali ai sensi del GDPR e della normativa privacy.
-                                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/privacy') }}" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener">
+                                <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/privacy') }}" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener">
                                     Leggi l'informativa privacy
                                 </a>
                             </span>

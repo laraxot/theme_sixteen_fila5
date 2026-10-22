@@ -7,10 +7,12 @@
   Stack: Tailwind + Alpine. Icone inline, niente sprite Bootstrap Italia.
 --}}
 @php
-    $faqTitle = is_string($title ?? null) && $title !== '' ? $title : 'Domande frequenti';
+    $faqTitle = is_string($title ?? null) && $title !== ''
+        ? $title
+        : (string) __('pub_theme::faq.meta.title');
     $faqIntro = is_string($intro ?? null) && $intro !== ''
         ? $intro
-        : 'Risposte alle domande più frequenti su come segnalare un problema e seguire la pratica.';
+        : (string) __('pub_theme::faq.meta.description');
     $homeUrl = route('home');
     $visibleCount = is_numeric($visible ?? null) ? max(1, (int) $visible) : 5;
 
@@ -30,9 +32,9 @@
         $faqItems[] = ['question' => $question, 'answer' => $answer];
     }
 
-    // Canon Folio: container0.view / login — mai localizeUrl né tickets.*.
-    $reportUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'create']);
-    $trackUrl = route('container0.view', ['container0' => 'tickets', 'slug0' => 'track']);
+    // Canon Folio: FrontofficeRoutes (container0.*) — mai localizeUrl né tickets.*.
+    $reportUrl = \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsCreate();
+    $trackUrl = \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsTrack();
     $loginUrl = route('login');
     $defaultContacts = [
         ['group' => 'comune', 'label' => __('pub_theme::faq.contacts.report'), 'href' => $reportUrl, 'icon' => 'pin'],

@@ -4,7 +4,7 @@
     accordion {id, label, groups[] (parts/info-summary)}}. Ordine nella scheda: lines, toggle, info, payment_rows, accordion.
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $cc = 'pub_theme::components.blocks.service-flow.card-content.';
 @endphp

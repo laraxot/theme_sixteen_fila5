@@ -6,7 +6,7 @@
     senza `tone` vale `alert` se la riga non ha `value`, `success` altrimenti.
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $inline = (bool) ($group['inline'] ?? false);
 @endphp
