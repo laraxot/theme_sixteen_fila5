@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Themes\Sixteen\Support;
+namespace Themes\Sixteen\Infrastructure\Url;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 

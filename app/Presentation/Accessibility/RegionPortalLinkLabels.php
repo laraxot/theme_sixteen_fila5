@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Themes\Sixteen\Support;
+namespace Themes\Sixteen\Presentation\Accessibility;
 
 use function Safe\preg_match;
 use function Safe\preg_replace;

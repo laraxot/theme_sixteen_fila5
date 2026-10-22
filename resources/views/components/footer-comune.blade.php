@@ -16,12 +16,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-brand-wrapper py-4">
-                        <a href="/">
+                        <a href="{{ url('/'.app()->getLocale()) }}" title="Vai alla homepage">
                             <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-footer.svg') }}"/>
+                                <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                             </svg>
                             <div class="it-brand-text">
-                                <div class="it-brand-title">Nome del Comune</div>
+                                <div class="it-brand-title">{{ config('app.name', 'Il mio Comune') }}</div>
                             </div>
                         </a>
                     </div>

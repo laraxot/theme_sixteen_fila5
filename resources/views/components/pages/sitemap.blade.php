@@ -11,7 +11,7 @@
                 <ul class="space-y-3">
                     @foreach ($group['links'] as $link)
                         <li>
-                            <a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL($link['path']) }}">
+                            <a class="inline-flex min-h-11 items-center font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl((string) $link['path']) }}">
                                 {{ $link['label'] }}
                             </a>
                         </li>

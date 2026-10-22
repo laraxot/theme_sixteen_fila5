@@ -20,21 +20,24 @@
     class="fc-how-section"
     aria-labelledby="how-it-works-heading"
     data-section="how-it-works"
-    x-data="howItWorks()"
 >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-5" data-reveal="fade-up" data-delay="0">
-            <h2 id="how-it-works-heading" class="mb-3 text-3xl font-bold md:text-4xl">{{ $heading }}</h2>
-            <p class="mb-0 text-slate-600">{{ $intro }}</p>
+    <div class="container">
+        <div class="fc-section-heading" data-reveal="fade-up" data-delay="0">
+            <h2 id="how-it-works-heading">{{ $heading }}</h2>
+            <p>{{ $intro }}</p>
         </div>
 
         <ol class="fc-how-grid" aria-label="{{ $steps_label }}">
             @foreach ($steps as $index => $step)
                 @php
                     $number = $step['number'] ?? ($loop->iteration);
-                    $title  = (string) __($step['title'] ?? '');
-                    $body   = (string) __($step['body'] ?? '');
-                    $icon   = $step['icon'] ?? null;
+                    // JSON may ship human copy OR lang keys — translate only keys.
+                    $rawTitle = (string) ($step['title'] ?? '');
+                    $rawBody = (string) ($step['body'] ?? '');
+                    $isKey = static fn (string $v): bool => $v !== '' && (str_contains($v, '::') || str_starts_with($v, 'home.') || str_starts_with($v, 'pub_theme::'));
+                    $title = $isKey($rawTitle) ? (string) __($rawTitle) : $rawTitle;
+                    $body = $isKey($rawBody) ? (string) __($rawBody) : $rawBody;
+                    $icon = $step['icon'] ?? null;
                 @endphp
                 <li
                     class="fc-how-card"
@@ -53,8 +56,8 @@
                         </div>
                     @endif
 
-                    <h3 class="mb-2 text-lg font-semibold">{{ $title }}</h3>
-                    <p class="mb-0 text-slate-600">{{ $body }}</p>
+                    <h3>{{ $title }}</h3>
+                    <p>{{ $body }}</p>
                 </li>
             @endforeach
         </ol>

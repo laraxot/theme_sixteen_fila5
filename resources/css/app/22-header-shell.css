@@ -1,0 +1,65 @@
+/* Shared Design Comuni chrome contract.
+   The slim bar owns the language and account controls; it must never become
+   transparent or let its controls escape above the viewport. */
+body:has(.page-content[data-dc]) .it-header-wrapper {
+    position: relative !important;
+    z-index: 1000 !important;
+    --dc-header-slim: #00402b;
+    --dc-header-primary: #007a52;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-wrapper {
+    display: flex !important;
+    min-height: 48px !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--dc-header-slim) !important;
+    background-color: var(--dc-header-slim) !important;
+    color: #fff !important;
+}
+
+/* Keep the final declaration specific enough to beat the legacy mobile reset. */
+html body:has(.page-content[data-dc]) .it-header-wrapper > .it-header-slim-wrapper {
+    background-color: var(--dc-header-slim) !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-wrapper-content {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    overflow: visible !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-right-zone {
+    align-self: center !important;
+    display: flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-right-zone > * {
+    align-self: center !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .nav-link.dropdown-toggle {
+    min-height: 48px !important;
+    align-items: center !important;
+    background-color: var(--dc-header-slim) !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .nav-link.dropdown-toggle:hover,
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .nav-link.dropdown-toggle:focus-visible {
+    background-color: #005238 !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full {
+    min-height: 48px !important;
+    margin: 0 !important;
+}
+
+body:has(.page-content[data-dc]) .it-header-center-wrapper,
+body:has(.page-content[data-dc]) .it-header-navbar-wrapper {
+    background: var(--dc-header-primary) !important;
+}

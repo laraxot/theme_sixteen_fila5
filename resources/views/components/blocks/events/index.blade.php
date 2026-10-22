@@ -8,7 +8,7 @@
 
 @php
     $composer = app(\Modules\Blog\View\Composers\ThemeComposer::class);
-    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Support\FrontofficeUrl::fromStoredUrl($path);
+    $cmsUrl = static fn (string $path): string => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
     // Chrome DC (feedback/contacts): CMS JSON > config tema > default a11y (mai h2 vuoti).
     $parityFromConfig = config('sixteen.sixteen.events.parity')
         ?? config('sixteen.events.parity')

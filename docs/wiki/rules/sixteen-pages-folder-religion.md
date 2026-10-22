@@ -47,7 +47,8 @@ Themes/Sixteen/resources/views/pages/
 |-------------|--------------|
 | `administration/`, `articles/`, `categories/`, `news/`, `services/` | CMS `[container0]/` + JSON `config/local/.../content/pages/` |
 | `tickets/`, `segnalazioni/` | `Modules/Fixcity/resources/views/pages/` o `container0.index` |
-| `area-personale/`, `profile/`, `dashboard` | `Modules/User/resources/views/pages/` |
+| `area-personale/`, `dashboard` | CMS `container0` / `Modules/User/...` — non cartelle nel tema |
+| `profile/` (anche `edit.blade.php` alias) | **Mai nel tema.** FO → `FrontofficeRoutes::personalAreaImpostazioni()`. [Perché](../../bmad/knowledge/why-profile-edit-blade-must-not-exist.md) (D34) |
 | `genesis/`, `learn/`, `pages/` | `Modules/User/resources/views/pages/` |
 | `lista-categorie.blade.php` | `Modules/Fixcity/.../lista-categorie.blade.php` |
 | `domande-frequenti/`, `blog/`, `eventi/` | JSON `{nome}.index` + `[container0]/index`. Folio prova la cartella letterale prima del jolly. [Perché, sul caso FAQ](../../bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md) |

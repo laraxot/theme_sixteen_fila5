@@ -1,6 +1,6 @@
 {{-- Ultime attivita'. `content`: icon, more, title_class (classi dell'h3, default `t-primary mb-2 title-small-semi-bold`; il riferimento di alcune famiglie ha anche `underline`), items[] {date, title}. --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 @foreach ($content['items'] ?? [] as $item)

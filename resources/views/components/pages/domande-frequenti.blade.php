@@ -10,7 +10,7 @@
     <nav class="cmp-breadcrumbs" aria-label="{{ __('fixcity::global.breadcrumb') }}">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">{{ __('pub_theme::navigation.home') }}</a>
+                <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/') }}">{{ __('pub_theme::navigation.home') }}</a>
                 <span class="separator">/</span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">{{ $heading }}</li>

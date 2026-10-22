@@ -66,6 +66,10 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
     expect($html)->not->toContain("=== 'domande-frequenti'");
     expect($html)->not->toContain("=== 'blog'");
     expect($html)->not->toContain("=== 'events'");
+    // Logica alias/404/area-personale fuori dalla shell (Support + Action riusabili).
+    expect($html)->toContain('ResolveContainer0IndexAction');
+    expect($html)->not->toContain('foIndexAliases');
+    expect($html)->not->toContain('Auth::check');
 });
 
 test('le pagine CMS container0 non hanno route Folio esplicite concorrenti', function (): void {

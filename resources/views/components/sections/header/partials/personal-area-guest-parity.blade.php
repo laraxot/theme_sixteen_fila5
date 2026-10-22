@@ -32,12 +32,12 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'pratiche']) }}">
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaPratiche() }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.my_practices.label') }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'notifiche']) }}">
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaNotifiche() }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.notifications.label') }}</span>
                             </a>
                         </li>
@@ -45,7 +45,7 @@
                             <span class="divider"></span>
                         </li>
                         <li>
-                            <a class="dropdown-item list-item" href="{{ route('container0.view', ['container0' => 'area-personale', 'slug0' => 'impostazioni']) }}">
+                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaImpostazioni() }}">
                                 <span>{{ __('pub_theme::header.user.dropdown.settings.label') }}</span>
                             </a>
                         </li>

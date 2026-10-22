@@ -8,7 +8,7 @@
     $user = auth()->user();
     abort_unless($user instanceof \Modules\Xot\Contracts\UserContract, 403);
     $locale = app()->getLocale();
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $localize = static fn (string $path): string => (string) \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($locale, $path);
     $followed = app(\Modules\Fixcity\Actions\BuildPersonalAreaFollowedDataAction::class)->execute($user, $locale);

@@ -3,7 +3,7 @@
     `$sideNav`: title, aria_label, items[] {label, anchor}, class (classi della colonna), suffix (id dell'accordion, default "one").
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $suffix = $sideNav['suffix'] ?? 'one';
 @endphp
