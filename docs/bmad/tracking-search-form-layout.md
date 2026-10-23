@@ -4,8 +4,8 @@ type: ux-comparison-and-correction-plan
 status: verified
 owner: Sixteen
 created: 2026-09-27
-updated: 2026-09-27
-tags: [bmad, ui-ux, tracking, responsive, accessibility]
+updated: 2026-10-22
+tags: [bmad, ui-ux, tracking, responsive, accessibility, design-comuni]
 qmd: "tracking ticket code search form responsive mobile full width button"
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues/383"
@@ -58,3 +58,12 @@ focus order, page overflow and JavaScript errors. At 320 px the field and button
 each measure 240 px; at widths from 576 px they remain on one row. Screenshot:
 `/tmp/fixcity-tracking-mobile-it-fixed.png`. Vite production build passes; its
 existing unresolved `/themes/Sixteen/images/logo.svg` warning remains separate.
+
+## Vestito Design Comuni (2026-10-22)
+
+La pagina FO `components/pages/ticket-track.blade.php` usa lo stesso schema delle
+utility DC (FAQ/liste): breadcrumb + `it-hero-wrapper` + form underline
+(`form-control` + `btn-primary`), hint empty-state, alert not-found con CTA
+«Nuova ricerca» / «Segnala un problema», risultato con badge stato e timeline.
+Stili in `resources/css/app/21-ticket-track.css`. Contratto filament:
+[filament-blueprint.md](./filament-blueprint.md).
