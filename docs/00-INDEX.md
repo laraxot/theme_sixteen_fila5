@@ -56,7 +56,7 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 
 1. [README](README.md) — identità, ownership e stack;
 2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
-3. [docs governance](../../../../docs/project/docs-governance.md) — regole cross-project;
+3. [docs governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md) — regole cross-project;
 4. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
 5. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
 6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
