@@ -35,7 +35,7 @@
         </p>
         <div class="flex shrink-0 flex-wrap items-center gap-2">
             <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/cookie-policy') }}"
-               class="btn btn-ghost btn-sm min-h-11"
+               class="btn btn-outline-primary btn-sm min-h-11"
                data-bs-accept="cookiebar">
                 {{ __('cookie-consent::texts.alert_settings') }}
             </a>

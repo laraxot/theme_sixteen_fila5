@@ -57,6 +57,19 @@ path relativi sono localizzati dal renderer; gli URL assoluti restano esterni.
 Logo e testo sono un unico link istituzionale, mentre il logo è decorativo
 quando il nome dell'ente è già adiacente (alt vuoto intenzionale).
 
+## Marchio header = footer (obbligatorio)
+
+`brand.logo` deve essere **identico** in `header.json` e `footer.json` (guard
+Pest). Il rendering è un solo partial
+`components/sections/partials/brand-mark.blade.php` (SVG + `xlink:href` +
+invert bianco su fondo scuro/verde). Vietato:
+
+- `<img class="icon">` solo nel footer (size/filtro diversi dall'header)
+- sprite `it-pa` al posto del marchio (hamburger / footer)
+- `logo-comune.svg` generico se il tenant ha `assets/fixcity/svg/logo.svg`
+
+Size canoniche: header/footer **82×82**, hamburger **48×48**.
+
 La view normalizza i path interni con LaravelLocalization. I link esterni
 restano assoluti. Il menu mobile è gestito da Alpine.js, ha target minimi
 accessibili e mantiene `aria-expanded`, `aria-controls` e focus visibile.

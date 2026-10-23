@@ -1,5 +1,3 @@
-import heic2any from 'heic2any';
-
 /**
  * Browser-side normalisation for photos coming from mobile cameras.
  *
@@ -9,6 +7,9 @@ import heic2any from 'heic2any';
  */
 window.FixcityCameraUpload = {
     async toJpeg(file) {
+        // HEIC support is only needed after a user selects a HEIC/HEIF file;
+        // keep the large converter out of the first-load bundle.
+        const { default: heic2any } = await import('heic2any');
         const converted = await heic2any({
             blob: file,
             toType: 'image/jpeg',

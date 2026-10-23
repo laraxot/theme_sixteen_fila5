@@ -1,15 +1,15 @@
 {
     "id": "home",
     "title": {
-        "it": "FixCity — Segnala un problema, segui la soluzione",
-        "en": "FixCity — Report a problem, follow the solution",
-        "de": "FixCity — Problem melden, Lösung verfolgen",
-        "es": "FixCity — Comunica un problema, sigue la solución"
+        "it": "FixCity \u2014 Segnala un problema, segui la soluzione",
+        "en": "FixCity \u2014 Report a problem, follow the solution",
+        "de": "FixCity \u2014 Problem melden, L\u00f6sung verfolgen",
+        "es": "FixCity \u2014 Comunica un problema, sigue la soluci\u00f3n"
     },
     "slug": "home",
     "middleware": null,
     "content": null,
-    "description": "{\n    \"it\": \"Segnala un disservizio al Comune, consulta la mappa pubblica e traccia la tua pratica in un solo servizio.\",\n    \"en\": \"Report a local issue to the city, explore the public map and track your request in one civic service.\",\n    \"de\": \"Melden Sie ein lokales Problem, sehen Sie die öffentliche Karte und verfolgen Sie Ihren Vorgang in einem Dienst.\",\n    \"es\": \"Comunica una incidencia local, consulta el mapa público y sigue tu trámite en un solo servicio.\"\n}",
+    "description": "{\n    \"it\": \"Segnala un disservizio al Comune, consulta la mappa pubblica e traccia la tua pratica in un solo servizio.\",\n    \"en\": \"Report a local issue to the city, explore the public map and track your request in one civic service.\",\n    \"de\": \"Melden Sie ein lokales Problem, sehen Sie die \u00f6ffentliche Karte und verfolgen Sie Ihren Vorgang in einem Dienst.\",\n    \"es\": \"Comunica una incidencia local, consulta el mapa p\u00fablico y sigue tu tr\u00e1mite en un solo servicio.\"\n}",
     "layout": null,
     "blocks": null,
     "content_blocks": {
@@ -18,19 +18,33 @@
                 "type": "home.hero",
                 "data": {
                     "view": "pub_theme::components.blocks.home.hero",
-                    "eyebrow": "SERVIZIO DEL COMUNE",
-                    "heading": "Segnala un problema. Segui la soluzione.",
-                    "intro": "Buca, lampione spento, rifiuto abbandonato: segnalalo in pochi passi, vedi dove sono gli interventi e traccia la tua pratica.",
-                    "primary_label": "Segnala un problema",
+                    "eyebrow": "SERVIZI DIGITALI DEL COMUNE",
+                    "heading": "Segnalazioni e servizi per la tua comunit\u00e0",
+                    "intro": "Racconta cosa non funziona, indica dove e segui gli aggiornamenti in modo semplice e trasparente.",
+                    "primary_label": "Invia una segnalazione",
                     "primary_url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}",
                     "secondary_label": "Vedi le segnalazioni",
                     "secondary_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
-                    "map_data_url": "/api/tickets/geojson",
-                    "map_height": "clamp(260px, 38vh, 380px)",
-                    "map_aria_label": "",
-                    "map_caption": "",
-                    "map_cta_label": "",
-                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}"
+                    "map_data_url": "\/api\/tickets\/geojson",
+                    "map_height": "clamp(300px, 44vh, 440px)",
+                    "map_aria_label": "Mappa delle segnalazioni pubbliche",
+                    "map_caption": "Segnalazioni pubbliche sul territorio",
+                    "map_cta_label": "Vai all\u2019elenco",
+                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
+                    "trust": "Gratis \u00b7 Codice pratica \u00b7 Mappa pubblica",
+                    "signal_eyebrow": "IMPEGNO CIVICO",
+                    "signal_heading": "La tua voce conta",
+                    "signal_body": "Ogni segnalazione aiuta il Comune a capire le priorità e a rendere visibili gli interventi."
+                }
+            },
+            {
+                "type": "ticket.map-preview",
+                "data": {
+                    "view": "pub_theme::components.blocks.ticket.map-preview",
+                    "height": "420px",
+                    "data_url": "/api/tickets/geojson",
+                    "heading": "Segnalazioni pubbliche sul territorio",
+                    "intro": "Consulta la mappa per conoscere i problemi già segnalati e gli interventi in corso."
                 }
             },
             {
@@ -38,26 +52,23 @@
                 "data": {
                     "view": "pub_theme::components.blocks.how-it-works",
                     "heading": "Come funziona",
-                    "intro": "Tre passaggi: descrivi, indica dove, segui lo stato. Nessun gergo, solo l’azione.",
+                    "intro": "Invia una segnalazione in tre passaggi: descrivi il problema, indica dove si trova e segui gli aggiornamenti.",
                     "steps_label": "I tre passaggi per inviare una segnalazione",
                     "steps": [
                         {
                             "number": 1,
                             "title": "Descrivi il problema",
-                            "body": "Spiega cosa è successo e scegli la categoria più adatta.",
-                            "icon": "it-exclamation-triangle"
+                            "body": "Racconta che cosa \u00e8 successo e scegli la categoria pi\u00f9 adatta."
                         },
                         {
                             "number": 2,
                             "title": "Indica il luogo",
-                            "body": "Aggiungi la posizione e le informazioni utili per intervenire.",
-                            "icon": "it-map-pin"
+                            "body": "Indica il punto sulla mappa e aggiungi le informazioni utili."
                         },
                         {
                             "number": 3,
                             "title": "Segui gli aggiornamenti",
-                            "body": "Consulta lo stato della tua segnalazione dopo l’invio.",
-                            "icon": "it-check-circle"
+                            "body": "Controlla lo stato della segnalazione dalla tua area personale."
                         }
                     ]
                 }
@@ -66,16 +77,17 @@
                 "type": "quick-actions",
                 "data": {
                     "view": "pub_theme::components.blocks.quick-actions",
-                    "heading": "Hai già il codice di tracciamento?",
-                    "body": "Inseriscilo per vedere subito lo stato della pratica, senza cercare tra le email.",
+                    "heading": "Segui la tua segnalazione",
+                    "body": "Inserisci il codice ricevuto per conoscere lo stato della pratica.",
                     "button": {
-                        "label": "Traccia la segnalazione",
+                        "label": "Traccia una segnalazione",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'track']) }}"
                     },
                     "secondary_button": {
-                        "label": "Segnala un problema",
+                        "label": "Invia una segnalazione",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}"
-                    }
+                    },
+                    "eyebrow": "Hai gi\u00e0 inviato una segnalazione?"
                 }
             }
         ],
@@ -85,18 +97,19 @@
                 "data": {
                     "view": "pub_theme::components.blocks.home.hero",
                     "eyebrow": "CITY DIGITAL SERVICE",
-                    "heading": "Report a problem. Follow the fix.",
-                    "intro": "Pothole, broken light, dumped waste: report it in a few steps, see open issues on the map, and track your request.",
+                    "heading": "Seen a problem in your city?",
+                    "intro": "Pothole, broken light, dumped waste: report it in a few steps. The public map shows open work and your case code tracks the fix.",
                     "primary_label": "Report a problem",
                     "primary_url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}",
                     "secondary_label": "Browse reports",
                     "secondary_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
-                    "map_data_url": "/api/tickets/geojson",
-                    "map_height": "clamp(260px, 38vh, 380px)",
-                    "map_aria_label": "",
-                    "map_caption": "",
-                    "map_cta_label": "",
-                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}"
+                    "map_data_url": "\/api\/tickets\/geojson",
+                    "map_height": "clamp(300px, 44vh, 440px)",
+                    "map_aria_label": "Map of public reports",
+                    "map_caption": "Public reports on the map",
+                    "map_cta_label": "Go to the list",
+                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
+                    "trust": "Free \u00b7 Case code \u00b7 Public map"
                 }
             },
             {
@@ -104,26 +117,23 @@
                 "data": {
                     "view": "pub_theme::components.blocks.how-it-works",
                     "heading": "How it works",
-                    "intro": "Three steps: describe it, pin the place, follow status updates. Plain language, clear action.",
+                    "intro": "Three clear steps: describe it, mark the place, follow updates from your personal area.",
                     "steps_label": "Three steps to submit a report",
                     "steps": [
                         {
                             "number": 1,
-                            "title": "Describe the problem",
-                            "body": "Explain what happened and choose the most suitable category.",
-                            "icon": "it-exclamation-triangle"
+                            "title": "Describe the issue",
+                            "body": "Explain what happened and choose the most suitable category."
                         },
                         {
                             "number": 2,
-                            "title": "Show the location",
-                            "body": "Add the location and the useful information for the intervention.",
-                            "icon": "it-map-pin"
+                            "title": "Set the location",
+                            "body": "Add the location and useful details for the intervention."
                         },
                         {
                             "number": 3,
                             "title": "Follow updates",
-                            "body": "Check the status of your report after submitting it.",
-                            "icon": "it-check-circle"
+                            "body": "Check the status of your report after submitting it."
                         }
                     ],
                     "step_numbers": {
@@ -137,16 +147,17 @@
                 "type": "quick-actions",
                 "data": {
                     "view": "pub_theme::components.blocks.quick-actions",
-                    "heading": "Already have a tracking code?",
-                    "body": "Enter it to check the status of your request without digging through email.",
+                    "heading": "Follow your report",
+                    "body": "Enter the code you received to check the status of your case.",
                     "button": {
                         "label": "Track a report",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'track']) }}"
                     },
                     "secondary_button": {
-                        "label": "Report a problem",
+                        "label": "Submit a report",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}"
-                    }
+                    },
+                    "eyebrow": "Already reported a problem?"
                 }
             }
         ],
@@ -155,46 +166,44 @@
                 "type": "home.hero",
                 "data": {
                     "view": "pub_theme::components.blocks.home.hero",
-                    "eyebrow": "DIGITALER DIENST DER STADT",
-                    "heading": "Problem melden. Lösung verfolgen.",
-                    "intro": "Schlagloch, defekte Lampe, illegaler Müll: in wenigen Schritten melden, offene Fälle auf der Karte sehen und den Vorgang verfolgen.",
+                    "eyebrow": "DIGITALE STADTDIENSTE",
+                    "heading": "Ein Problem in der Stadt gesehen?",
+                    "intro": "Schlagloch, defekte Lampe, illegaler M\u00fcll: in wenigen Schritten melden. Die \u00f6ffentliche Karte zeigt laufende Arbeiten; der Vorgangscode verfolgt die L\u00f6sung.",
                     "primary_label": "Problem melden",
                     "primary_url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}",
                     "secondary_label": "Meldungen ansehen",
                     "secondary_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
-                    "map_data_url": "/api/tickets/geojson",
-                    "map_height": "clamp(260px, 38vh, 380px)",
-                    "map_aria_label": "",
-                    "map_caption": "",
-                    "map_cta_label": "",
-                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}"
+                    "map_data_url": "\/api\/tickets\/geojson",
+                    "map_height": "clamp(300px, 44vh, 440px)",
+                    "map_aria_label": "Karte \u00f6ffentlicher Meldungen",
+                    "map_caption": "\u00d6ffentliche Meldungen auf der Karte",
+                    "map_cta_label": "Zur Liste",
+                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
+                    "trust": "Kostenlos \u00b7 Vorgangscode \u00b7 \u00d6ffentliche Karte"
                 }
             },
             {
                 "type": "how-it-works",
                 "data": {
                     "view": "pub_theme::components.blocks.how-it-works",
-                    "heading": "In drei Schritten melden",
-                    "intro": "Drei Schritte: beschreiben, Ort angeben, Status verfolgen. Klare Sprache, klare Handlung.",
+                    "heading": "So funktioniert es",
+                    "intro": "Drei klare Schritte: beschreiben, Ort angeben, Updates im pers\u00f6nlichen Bereich verfolgen.",
                     "steps_label": "Drei Schritte zum Senden einer Meldung",
                     "steps": [
                         {
                             "number": 1,
                             "title": "Problem beschreiben",
-                            "body": "Beschreiben Sie, was passiert ist, und wählen Sie den zuständigen Dienst.",
-                            "icon": "it-exclamation-triangle"
+                            "body": "Erkl\u00e4ren Sie, was passiert ist, und w\u00e4hlen Sie eine Kategorie."
                         },
                         {
                             "number": 2,
-                            "title": "Ort des Problems angeben",
-                            "body": "Markieren Sie das Problem auf der Karte und ergänzen Sie wichtige Details.",
-                            "icon": "it-map-pin"
+                            "title": "Ort angeben",
+                            "body": "F\u00fcgen Sie den Ort und wichtige Details hinzu."
                         },
                         {
                             "number": 3,
-                            "title": "Lösung verfolgen",
-                            "body": "Prüfen Sie den Status Ihrer Meldung im persönlichen Bereich.",
-                            "icon": "it-check-circle"
+                            "title": "Updates verfolgen",
+                            "body": "Pr\u00fcfen Sie den Status Ihrer Meldung nach dem Absenden."
                         }
                     ]
                 }
@@ -203,16 +212,17 @@
                 "type": "quick-actions",
                 "data": {
                     "view": "pub_theme::components.blocks.quick-actions",
-                    "heading": "Haben Sie schon einen Tracking-Code?",
-                    "body": "Geben Sie ihn ein, um den Status Ihres Vorgangs sofort zu prüfen.",
+                    "heading": "Verfolgen Sie Ihre Meldung",
+                    "body": "Geben Sie den erhaltenen Code ein, um den Status zu pr\u00fcfen.",
                     "button": {
                         "label": "Meldung verfolgen",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'track']) }}"
                     },
                     "secondary_button": {
-                        "label": "Problem melden",
+                        "label": "Meldung senden",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}"
-                    }
+                    },
+                    "eyebrow": "Haben Sie bereits ein Problem gemeldet?"
                 }
             }
         ],
@@ -221,46 +231,44 @@
                 "type": "home.hero",
                 "data": {
                     "view": "pub_theme::components.blocks.home.hero",
-                    "eyebrow": "SERVICIO DIGITAL DEL AYUNTAMIENTO",
-                    "heading": "Comunica un problema. Sigue la solución.",
-                    "intro": "Bache, farola apagada, basura abandonada: comunícalo en pocos pasos, mira el mapa y sigue tu trámite.",
+                    "eyebrow": "SERVICIOS DIGITALES DEL AYUNTAMIENTO",
+                    "heading": "\u00bfHas visto un problema en la ciudad?",
+                    "intro": "Bache, farola apagada, residuos: comun\u00edcalo en pocos pasos. El mapa p\u00fablico muestra las intervenciones; el c\u00f3digo de tr\u00e1mite te permite seguir la soluci\u00f3n.",
                     "primary_label": "Comunicar un problema",
                     "primary_url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}",
                     "secondary_label": "Ver incidencias",
                     "secondary_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
-                    "map_data_url": "/api/tickets/geojson",
-                    "map_height": "clamp(260px, 38vh, 380px)",
-                    "map_aria_label": "",
-                    "map_caption": "",
-                    "map_cta_label": "",
-                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}"
+                    "map_data_url": "\/api\/tickets\/geojson",
+                    "map_height": "clamp(300px, 44vh, 440px)",
+                    "map_aria_label": "Mapa de incidencias p\u00fablicas",
+                    "map_caption": "Incidencias p\u00fablicas en el mapa",
+                    "map_cta_label": "Ir al listado",
+                    "map_cta_url": "{{ route('container0.index',['container0'=>'tickets']) }}",
+                    "trust": "Gratis \u00b7 C\u00f3digo de tr\u00e1mite \u00b7 Mapa p\u00fablico"
                 }
             },
             {
                 "type": "how-it-works",
                 "data": {
                     "view": "pub_theme::components.blocks.how-it-works",
-                    "heading": "Comunica en tres pasos",
-                    "intro": "Tres pasos: describe, indica el lugar, sigue el estado. Lenguaje claro, acción clara.",
+                    "heading": "C\u00f3mo funciona",
+                    "intro": "Tres pasos claros: descr\u00edbelo, indica el lugar y sigue las novedades desde el \u00e1rea personal.",
                     "steps_label": "Tres pasos para enviar una incidencia",
                     "steps": [
                         {
                             "number": 1,
                             "title": "Describe el problema",
-                            "body": "Cuenta qué ha ocurrido y elige el servicio correspondiente.",
-                            "icon": "it-exclamation-triangle"
+                            "body": "Explica lo ocurrido y elige la categor\u00eda adecuada."
                         },
                         {
                             "number": 2,
-                            "title": "Indica dónde actuar",
-                            "body": "Marca el problema en el mapa y añade los detalles necesarios.",
-                            "icon": "it-map-pin"
+                            "title": "Indica el lugar",
+                            "body": "A\u00f1ade la ubicaci\u00f3n y los datos \u00fatiles."
                         },
                         {
                             "number": 3,
-                            "title": "Sigue la solución",
-                            "body": "Consulta el estado de tu incidencia desde tu área personal.",
-                            "icon": "it-check-circle"
+                            "title": "Sigue las novedades",
+                            "body": "Consulta el estado de tu incidencia despu\u00e9s de enviarla."
                         }
                     ]
                 }
@@ -269,16 +277,17 @@
                 "type": "quick-actions",
                 "data": {
                     "view": "pub_theme::components.blocks.quick-actions",
-                    "heading": "¿Ya tienes el código de seguimiento?",
-                    "body": "Introdúcelo para ver el estado de tu trámite sin buscar en el correo.",
+                    "heading": "Sigue tu incidencia",
+                    "body": "Introduce el c\u00f3digo recibido para consultar el estado del tr\u00e1mite.",
                     "button": {
-                        "label": "Seguir la incidencia",
+                        "label": "Seguir una incidencia",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'track']) }}"
                     },
                     "secondary_button": {
-                        "label": "Comunicar un problema",
+                        "label": "Enviar una incidencia",
                         "url": "{{ route('container0.view',['container0'=>'tickets','slug0'=>'create']) }}"
-                    }
+                    },
+                    "eyebrow": "\u00bfYa has comunicado un problema?"
                 }
             }
         ]
@@ -291,7 +300,7 @@
     },
     "footer_blocks": null,
     "created_at": null,
-    "updated_at": "2026-10-22T19:28:28.000000Z",
+    "updated_at": "2026-10-23T06:32:14.000000Z",
     "created_by": null,
     "updated_by": null
 }

@@ -2,6 +2,10 @@
   Componenti Design Comuni, una volta, per ogni pagina con data-dc.
   Il nome della pagina non è uno scope: .cmp-input-search è lo stesso
   campo su FAQ, novità e servizi. Bootstrap Italia non è caricato.
+
+  Colore primario: `--bs-primary` (#007a52, Design Comuni). MAI `--color-primary-500`: nel CSS compilato vale
+  `var(--primary-500)`, la tonalita' 500 della palette che Filament inietta inline (oklch 0.683 0.170 161.8,
+  circa #00b877): su bianco non passa il contrasto AA (axe color-contrast su .cmp-contacts e «Invio», 2026-10-23).
 */
 
 .page-content[data-dc] .cmp-input-search .input-group {
@@ -34,7 +38,7 @@
   margin: 0 !important;
   padding: 0 !important;
   background: transparent !important;
-  color: var(--color-primary-500, #007a52);
+  color: var(--bs-primary, #007a52);
   transform: translateY(-50%) !important;
 }
 
@@ -54,7 +58,7 @@
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: var(--color-primary-500, #007a52) !important;
+  background: var(--bs-primary, #007a52) !important;
   color: #fff !important;
   font-weight: 600;
 }
@@ -67,7 +71,7 @@
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
-  color: var(--color-primary-500, #007a52) !important;
+  color: var(--bs-primary, #007a52) !important;
   text-align: left;
   font-size: 1.125rem;
   font-weight: 600;
@@ -110,9 +114,9 @@
   margin: 2rem 0 2.5rem;
   padding: 0.75rem 1rem;
   box-sizing: border-box;
-  border: 2px solid var(--color-primary-500, #007a52) !important;
+  border: 2px solid var(--bs-primary, #007a52) !important;
   background: #fff !important;
-  color: var(--color-primary-500, #007a52) !important;
+  color: var(--bs-primary, #007a52) !important;
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -128,7 +132,7 @@
 }
 
 .page-content[data-dc] .bg-primary:has(.cmp-rating) {
-  background: var(--color-primary-500, #007a52) !important;
+  background: var(--bs-primary, #007a52) !important;
   padding: 3rem 1rem;
 }
 
@@ -188,7 +192,7 @@
 .page-content[data-dc] .cmp-rating fieldset.rating label:hover svg,
 .page-content[data-dc] .cmp-rating fieldset.rating label:hover ~ label svg,
 .page-content[data-dc] .cmp-rating fieldset.rating input:checked ~ label svg {
-  fill: var(--color-primary-500, #007a52);
+  fill: var(--bs-primary, #007a52);
 }
 
 .page-content[data-dc] .cmp-contacts .contact-list {
@@ -206,7 +210,7 @@
   align-items: center;
   gap: 0.75rem;
   min-height: 2.75rem;
-  color: var(--color-primary-500, #007a52) !important;
+  color: var(--bs-primary, #007a52) !important;
   text-decoration: none;
 }
 
@@ -240,6 +244,6 @@
   width: 1.25rem !important;
   height: 1.25rem !important;
   margin: 0 !important;
-  accent-color: var(--color-primary-500, #007a52);
+  accent-color: var(--bs-primary, #007a52);
   cursor: pointer;
 }

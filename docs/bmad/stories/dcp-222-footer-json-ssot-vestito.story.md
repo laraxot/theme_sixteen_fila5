@@ -43,8 +43,10 @@ layouts/app → <x-section slug="footer" tpl="design-comuni|full">
 ## Verifica live `/it`
 
 - Brand FixCity + slogan «Segnala e segui…»
+- Marchio footer = header (partial `brand-mark`, 82×82, stesso `brand.logo`)
 - 0 bare `<a>` senza href; 0 social fake; 0 logo UE
 - Link solo a path FixCity / legale
+- Hamburger: stesso `brand.logo`, non sprite `it-pa`
 
 ## Criteri
 

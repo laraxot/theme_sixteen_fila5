@@ -70,7 +70,12 @@
                     @endif
                     <div class="it-brand-wrapper">
                         <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/') }}">
-                            <img class="icon" src="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($brandLogo) }}" alt="" aria-hidden="true">
+                            {{-- Callers: footer design-comuni; stesso partial dell'header. Schema brand.logo. Istruzione: logo footer = header. --}}
+                            @include('pub_theme::components.sections.partials.brand-mark', [
+                                'src' => $brandLogo,
+                                'size' => 82,
+                                'invert' => true,
+                            ])
                             <div class="it-brand-text">
                                 <h2 class="no_toc">{{ $d('brand.name') }}</h2>
                                 @if (filled($d('brand.description')))
