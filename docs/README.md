@@ -17,7 +17,7 @@ status: active
 ## Operational guides
 
 - [Documentation index](./INDEX.md)
-- [Documentation governance](../../../../docs/project/docs-governance.md)
+- [Documentation governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md)
 - [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
 - [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
 - [FAQ route ownership](./bmad/faq-route-ownership.md)
@@ -74,6 +74,16 @@ mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 Sixteen è già il tema Design Comuni: non si crea un secondo tema, layout o
 namespace `design-comuni`. Il rendering usa TailwindCSS (`@apply`), Alpine.js,
 Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
+
+Sixteen non possiede `app/Jobs/`, `app/Services/` o `app/Servces/`: i flussi
+asincroni restano nelle Queueable Actions del modulo owner. Il tema si limita a
+comporre viste e a invocare il contratto dell'Action.
+
+I data object appartengono invece al modulo owner: quando il tema consuma un
+contratto dati, importa il namespace canonico `Modules\\<Module>\\Datas` e non
+crea copie in `Themes/Sixteen/app/Data(s)`. La cartella `Datas` distingue il
+catalogo di oggetti di trasferimento dal codice visuale del tema e impedisce
+che una view diventi proprietaria della logica di dominio.
 
 - contenuti: JSON CMS, con view block riusabili;
 - shell pubblica: `x-layouts.app` e, quando dichiarato dal contratto pagina,
