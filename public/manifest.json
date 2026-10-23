@@ -1,10 +1,4 @@
 {
-  "../../../node_modules/leaflet.heat/dist/leaflet-heat.js": {
-    "file": "assets/leaflet-heat-CYyaQpLZ.js",
-    "name": "leaflet-heat",
-    "src": "../../../node_modules/leaflet.heat/dist/leaflet-heat.js",
-    "isDynamicEntry": true
-  },
   "../../node_modules/leaflet/dist/images/layers-2x.png": {
     "file": "assets/layers-2x-Bpkbi35X.png",
     "src": "../../node_modules/leaflet/dist/images/layers-2x.png"
@@ -52,6 +46,47 @@
   "_roboto-mono-variable-normal-QAYlOegK.woff2": {
     "file": "assets/roboto-mono-variable-normal-QAYlOegK.woff2",
     "src": "_roboto-mono-variable-normal-QAYlOegK.woff2"
+  },
+  "_rolldown-runtime-XKyaHtl9.js": {
+    "file": "assets/rolldown-runtime-XKyaHtl9.js",
+    "name": "rolldown-runtime"
+  },
+  "_theme-behavior-CQvpvXBS.js": {
+    "file": "assets/theme-behavior-CQvpvXBS.js",
+    "name": "theme-behavior"
+  },
+  "_theme-components-Czogz9ss.js": {
+    "file": "assets/theme-components-Czogz9ss.js",
+    "name": "theme-components",
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js"
+    ],
+    "dynamicImports": [
+      "_vendor-image-conversion-pnbSR1iD.js"
+    ]
+  },
+  "_theme-map-B9-kcXpo.css": {
+    "file": "assets/theme-map-B9-kcXpo.css",
+    "src": "_theme-map-B9-kcXpo.css"
+  },
+  "_theme-map-C2GBZ8X-.js": {
+    "file": "assets/theme-map-C2GBZ8X-.js",
+    "name": "theme-map",
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js",
+      "_theme-components-Czogz9ss.js"
+    ],
+    "dynamicImports": [
+      "_vendor-map-DkEVPSNL.js"
+    ],
+    "css": [
+      "assets/theme-map-B9-kcXpo.css"
+    ],
+    "assets": [
+      "assets/layers-BWBAp2CZ.png",
+      "assets/layers-2x-Bpkbi35X.png",
+      "assets/marker-icon-hN30_KVU.png"
+    ]
   },
   "_titillium-web-300-italic--Ko5t23R.woff2": {
     "file": "assets/titillium-web-300-italic--Ko5t23R.woff2",
@@ -117,6 +152,35 @@
     "file": "assets/titillium-web-700-normal-YDdGQjzo.woff2",
     "src": "_titillium-web-700-normal-YDdGQjzo.woff2"
   },
+  "_vendor-alpine-BN77jLGP.js": {
+    "file": "assets/vendor-alpine-BN77jLGP.js",
+    "name": "vendor-alpine"
+  },
+  "_vendor-image-conversion-pnbSR1iD.js": {
+    "file": "assets/vendor-image-conversion-pnbSR1iD.js",
+    "name": "vendor-image-conversion",
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js"
+    ]
+  },
+  "_vendor-map-DkEVPSNL.js": {
+    "file": "assets/vendor-map-DkEVPSNL.js",
+    "name": "vendor-map",
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js"
+    ]
+  },
+  "_vendor-ui-C9HBecdQ.css": {
+    "file": "assets/vendor-ui-C9HBecdQ.css",
+    "src": "_vendor-ui-C9HBecdQ.css"
+  },
+  "_vendor-ui-cwXvR_Ft.js": {
+    "file": "assets/vendor-ui-cwXvR_Ft.js",
+    "name": "vendor-ui",
+    "css": [
+      "assets/vendor-ui-C9HBecdQ.css"
+    ]
+  },
   "node_modules/leaflet/dist/images/layers-2x.png": {
     "file": "assets/layers-2x-Bpkbi35X.png",
     "src": "../../node_modules/leaflet/dist/images/layers-2x.png"
@@ -129,8 +193,12 @@
     "file": "assets/marker-icon-hN30_KVU.png",
     "src": "../../node_modules/leaflet/dist/images/marker-icon.png"
   },
+  "public/images/logo.svg": {
+    "file": "assets/logo-D3fj5u6Q.svg",
+    "src": "public/images/logo.svg"
+  },
   "resources/css/app-test.css": {
-    "file": "assets/app-test-CKfvsQGw.css",
+    "file": "assets/app-test-Idn7ahTr.css",
     "name": "app-test",
     "names": [
       "app-test.css"
@@ -155,11 +223,12 @@
       "assets/roboto-mono-v13-latin-ext_latin-700-BRL5H2gg.woff2",
       "assets/roboto-mono-v13-latin-ext_latin-700italic-C_TjhsIC.woff2",
       "assets/titillium-web-v19-latin-ext-900-DbUGIJDR.woff2",
-      "assets/titillium-web-v19-latin-900-CE5cGYJA.woff2"
+      "assets/titillium-web-v19-latin-900-CE5cGYJA.woff2",
+      "assets/logo-D3fj5u6Q.svg"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-DohH6pfn.css",
+    "file": "assets/app-oju-fezL.css",
     "name": "app",
     "names": [
       "app.css"
@@ -263,15 +332,22 @@
     "src": "resources/fonts/titillium-web/titillium-web-v19-latin-ext-900.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-6gc02iPv.js",
+    "file": "assets/app-CF5BdshJ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "imports": [
+      "_theme-map-C2GBZ8X-.js",
+      "_theme-components-Czogz9ss.js",
+      "_vendor-ui-cwXvR_Ft.js",
+      "_theme-behavior-CQvpvXBS.js",
+      "_vendor-alpine-BN77jLGP.js"
+    ],
     "dynamicImports": [
-      "../../../node_modules/leaflet.heat/dist/leaflet-heat.js"
+      "_theme-components-Czogz9ss.js"
     ],
     "css": [
-      "assets/app-vtzOqxpz.css"
+      "assets/app-0WC0F7U1.css"
     ],
     "assets": [
       "assets/layers-BWBAp2CZ.png",

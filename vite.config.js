@@ -69,11 +69,63 @@ export default defineConfig({
         outDir: './public',
         emptyOutDir: false,
         manifest: 'manifest.json',
+        // The optional HEIC converter is a separate lazy chunk; it is not part
+        // of the homepage request and is intentionally measured at its own size.
+        chunkSizeWarningLimit: 1400,
         rollupOptions: {
             output: {
                 entryFileNames: 'assets/[name]-[hash].js',
                 chunkFileNames: 'assets/[name]-[hash].js',
                 assetFileNames: 'assets/[name]-[hash].[ext]',
+                manualChunks(id) {
+                    // Keep the entrypoint small: maps and optional theme behaviours
+                    // are shared by several pages but are not part of every first paint.
+                    if (id.includes('/Modules/Geo/')) {
+                        return 'theme-map';
+                    }
+
+                    if (id.includes('/resources/js/components/')) {
+                        return 'theme-components';
+                    }
+
+                    if (id.includes('/resources/js/theme/')) {
+                        return 'theme-behavior';
+                    }
+
+                    if (!id.includes('node_modules')) {
+                        return undefined;
+                    }
+
+                    if (id.includes('leaflet')) {
+                        return 'vendor-map';
+                    }
+
+                    if (id.includes('chart.js')) {
+                        return 'vendor-charts';
+                    }
+
+                    if (id.includes('heic2any')) {
+                        return 'vendor-image-conversion';
+                    }
+
+                    if (id.includes('alpinejs') || id.includes('@alpinejs')) {
+                        return 'vendor-alpine';
+                    }
+
+                    if (id.includes('lit')) {
+                        return 'vendor-lit';
+                    }
+
+                    if (id.includes('axios') || id.includes('lodash') || id.includes('moment')) {
+                        return 'vendor-data';
+                    }
+
+                    if (id.includes('@splidejs') || id.includes('flowbite') || id.includes('@popperjs')) {
+                        return 'vendor-ui';
+                    }
+
+                    return 'vendor-core';
+                },
             },
         },
     },

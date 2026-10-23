@@ -26,6 +26,11 @@ resources/views/pages/
 └── tests/
 ```
 
+In radice di `pages/` l'**unico file** ammesso e' `index.blade.php` (serve `/{lingua}` montando `home.json`).
+`home.blade.php`, `homepage.blade.php` o qualunque altra pagina in radice sono vietati: seconda homepage, `name('home')`
+duplicato, file morti che perdono contro `[container0]`. Perche', con le misure:
+[why-home-blade-must-not-exist.md](bmad/knowledge/why-home-blade-must-not-exist.md).
+
 ## Directory ammesse
 
 - `resources/views/pages/[container0]`

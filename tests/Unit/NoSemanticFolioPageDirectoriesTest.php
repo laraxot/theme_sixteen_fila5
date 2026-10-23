@@ -44,3 +44,24 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
 
     expect(is_dir($pagesRoot.'/[container0]'))->toBeTrue();
 });
+
+/*
+ * Anche i FILE in radice di pages/ sono pagine: l'unico ammesso e' index.blade.php (`/{lingua}`, monta home.json).
+ * home.blade.php e homepage.blade.php (creati 2026-10-07, tolti 10-11, ricreati 10-18 dal merge di laraxot/dev) erano
+ * una seconda homepage scritta a mano accanto a home.json, e home.blade.php ridichiarava name('home') di index.blade.php.
+ * Gli altri file in radice non servivano la loro URL (misurato 2026-10-23: privacy e cookie-policy le serve [container0]
+ * dal JSON, counter/prova01/show/bootstrap-italia-showcase 404): sorgenti morte che fingono di possedere una pagina.
+ * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-home-blade-must-not-exist.md
+ */
+test('in radice di pages ammette solo index.blade.php', function (): void {
+    $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
+
+    $files = [];
+    foreach (scandir($pagesRoot) ?: [] as $entry) {
+        if (is_file($pagesRoot.'/'.$entry) && $entry !== '.gitkeep') {
+            $files[] = $entry;
+        }
+    }
+
+    expect(array_values(array_diff($files, ['index.blade.php'])))->toBe([]);
+});

@@ -4,9 +4,9 @@ type: filament-blueprint
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-22
-tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page, reusable]
-qmd: "filament blueprint theme sixteen widget mount no resource folio shell reusable support"
+updated: 2026-10-23
+tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page, reusable, brand-mark, header-chrome]
+qmd: "filament blueprint theme sixteen widget mount no resource folio shell reusable brand-mark header footer"
 related:
   - ../bmad-planning.md
   - ../bmad-brainstorming.md
@@ -21,7 +21,24 @@ related:
 Il tema **Sixteen** non possiede Resource Filament. Compone pagine Folio/Volt e puo
 montare widget Filament **dei moduli owner** con props canoniche.
 
+
+## Homepage FO (JSON, non page Blade)
+
+SSOT contenuto tenant: `laravel/config/local/fixcity/database/content/pages/home.json`.
+Entry Folio: `resources/views/pages/index.blade.php` → `<x-page slug="home" />`.
+Presentazione: solo `components/blocks/*` citati dal JSON.
+**Vietato** creare `pages/home.blade.php` o `pages/homepage.blade.php`
+([why-home-blade-must-not-exist.md](./knowledge/why-home-blade-must-not-exist.md),
+[homepage-content-contract.md](../../../Modules/Fixcity/docs/homepage-content-contract.md)).
+Verifica misurata axe/pixel/vite: [homepage-a11y-pixel-verification.md](./homepage-a11y-pixel-verification.md).
+
+
 ## FO shell (lista container)
+
+Homepage guest desiderabile: blocco `home.hero` → `#head-section.fc-home-head` +
+`map-lit` (studio pages_old, non restore). Contratto BMAD + playbook marketing.
+
+
 
 `pages/[container0]/index.blade.php` è solo trasporto: Volt + `<x-page>`.
 Nessuna Resource, nessun `match` dominio, nessun layout dinamico nel tema.
@@ -57,8 +74,8 @@ Locali: `it|en|de|es`. Chrome del tema solo via `pub_theme::` (pattern
 `navigation.homepage.news`). Dominio prodotto nel modulo owner. Vietato
 stringhe UI nel Blade e `->label()` Filament. URL: `route('container0…')`
 non `localizeUrl`. Canon:
-[frontoffice-link-conventions.md](../../../Modules/Fixcity/docs/frontoffice-link-conventions.md) ·
-[translation-key-governance.md](../../../Modules/Lang/docs/wiki/rules/translation-key-governance.md).
+[frontoffice-link-conventions.md](../../../../Modules/Fixcity/docs/frontoffice-link-conventions.md) ·
+[translation-key-governance.md](../../../../Modules/Lang/docs/wiki/rules/translation-key-governance.md).
 
 ## Consentito
 
@@ -97,7 +114,7 @@ Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto
 
 ## No Support
 
-Tema e moduli: zero `app/Support/`. Layer FO = Infrastructure/Presentation/Actions. Canon: [second-brain process](../../../../docs/second-brain/process/no-app-support-queueable-actions.md) · [support-deep-audit](../../../../Modules/Xot/docs/bmad/support-deep-audit.md).
+Tema e moduli: zero `app/Support/`. Layer FO = Infrastructure/Presentation/Actions. Canon: [second-brain process](../../../../../docs/second-brain/process/no-app-support-queueable-actions.md) · [support-deep-audit](../../../../Modules/Xot/docs/bmad/support-deep-audit.md).
 
 ## Area personale FO (chrome condiviso)
 
@@ -106,4 +123,33 @@ che **devono** passare da `components/blocks/personal-area/heading.blade.php` (i
 `cmp-nav-tab`). Vietato reincludere la nav nelle settings. Contratto:
 [personal-area-shared-nav-tabs-contract.md](../wiki/concepts/personal-area-shared-nav-tabs-contract.md) ·
 [why-personal-area-tabs-must-be-identical.md](./knowledge/why-personal-area-tabs-must-be-identical.md).
+
+## Chrome brand (header = footer)
+
+Il tema veste `brand.logo` con un solo partial
+`components/sections/partials/brand-mark.blade.php` (header, footer, hamburger).
+JSON SSoT + guard Pest: [header-footer-sections-contract.md](./header-footer-sections-contract.md).
+Colori slim `#00402b` + Accedi primary `#007a52`/testo bianco (parity fixcity.eu) / center `#007a52` + niente fascia bianca breadcrumb + slim senza overlay
+hamburger (lingua/Accedi sempre visibili, WCAG):
+[header-color-contract.md](./header-color-contract.md) ·
+[fo-header-white-band.md](../../../../../docs/second-brain/fo-header-white-band.md).
+
+## Homepage desiderabilità (civic-first)
+
+Studio `pages_old/index` (ritmo, mappa, task CTA) senza restore: atmosfera verde ente,
+Lora H1, trust line, map card elevata. Contratto:
+[homepage-guest-visual-contract.md](./homepage-guest-visual-contract.md) ·
+[civic-homepage-conversion-playbook.md](../marketing/civic-homepage-conversion-playbook.md).
+
+## Homepage track CTA (WCAG)
+
+Le due CTA della banda `.fc-track-section` usano `.fc-track-section__btns`
+(stack + gap 1rem, min-height 44px). Non affidarsi a `d-flex`/`gap-*` sotto
+`data-dc`. Contratto: [homepage-guest-visual-contract.md](./homepage-guest-visual-contract.md).
+
+## Pagina FO `/tickets/track`
+
+Vestito tema: `components/pages/ticket-track.blade.php` + `21-ticket-track.css`.
+Niente Resource Filament. Domini/Actions in Fixcity. Layout DC:
+[tracking-search-form-layout.md](./tracking-search-form-layout.md).
 

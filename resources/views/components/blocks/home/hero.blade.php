@@ -1,82 +1,56 @@
 {{--
-    Hero guest FO — Design Comuni `#head-section.bg-primary` + map-lit (homepage-guest-visual-contract).
-    Marketing civico: trust istituzionale (verde ente) + task above-the-fold (segnala / elenco / accedi).
-    Vietato charcoal `fc-home-hero`: rompe chrome DC e riduce conversione residenti.
-    Schema JSON: eyebrow, heading, intro, primary_*, secondary_*, map_*.
+    Hero homepage civic-first, data-driven.
+    La mappa è un blocco successivo: la hero deve rispondere subito a “cosa posso fare?”.
+    Il CMS fornisce il copy e gli URL; questo componente definisce solo la presentazione.
 --}}
 @props([
     'eyebrow' => '',
     'heading' => '',
     'intro' => '',
+    'trust' => '',
     'primary_label' => '',
     'primary_url' => '#',
     'secondary_label' => '',
     'secondary_url' => '#',
-    'map_data_url' => '/api/tickets/geojson',
-    'map_height' => 'clamp(260px, 38vh, 380px)',
-    'map_aria_label' => '',
-    'map_caption' => '',
-    'map_cta_label' => '',
-    'map_cta_url' => '#',
+    'signal_eyebrow' => '',
+    'signal_heading' => '',
+    'signal_body' => '',
 ])
 
 @php
-    $eyebrow = $eyebrow !== '' ? $eyebrow : (string) __('pub_theme::navigation.site_title');
+    $eyebrow = $eyebrow !== '' ? $eyebrow : (string) __('pub_theme::home.hero.eyebrow');
     $heading = $heading !== '' ? $heading : (string) __('pub_theme::home.hero.title');
     $intro = $intro !== '' ? $intro : (string) __('pub_theme::home.hero.subtitle');
     $primary_label = $primary_label !== '' ? $primary_label : (string) __('pub_theme::home.hero.cta_create');
-    $mapAria = $map_aria_label !== '' ? $map_aria_label : (string) __('pub_theme::home.list.map_aria');
-    $mapCaption = $map_caption !== '' ? $map_caption : (string) __('pub_theme::home.map.caption');
-    $mapCta = $map_cta_label !== '' ? $map_cta_label : (string) __('pub_theme::home.map.cta_list');
-    $sprites = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg';
-    $localize = static fn (string $path): string => (string) \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL($path);
-    $listUrl = $map_cta_url !== '#' && $map_cta_url !== '' ? $map_cta_url : $localize('/tickets');
+    $secondary_label = $secondary_label !== '' ? $secondary_label : (string) __('pub_theme::home.map.cta_list');
+    $signal_eyebrow = $signal_eyebrow !== '' ? $signal_eyebrow : (string) __('pub_theme::home.hero.signal_eyebrow');
+    $signal_heading = $signal_heading !== '' ? $signal_heading : (string) __('pub_theme::home.hero.signal_heading');
+    $signal_body = $signal_body !== '' ? $signal_body : (string) __('pub_theme::home.hero.signal_body');
 @endphp
 
-<section id="head-section" class="bg-primary py-4 py-lg-5" aria-labelledby="fc-home-hero-heading">
-    <div class="container">
-        <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-                <p class="title-xsmall-semi-bold text-uppercase mb-2 opacity-75">{{ $eyebrow }}</p>
-                <h1 id="fc-home-hero-heading" class="title-xxxlarge mb-3">{{ $heading }}</h1>
-                <p class="lead mb-4">{{ $intro }}</p>
-                <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 align-items-stretch align-items-sm-center">
-                    <a class="btn btn-lg fw-semibold btn-hero-primary" href="{{ $primary_url }}">
-                        {{ $primary_label }}
-                    </a>
-                    <a class="btn btn-lg btn-hero-secondary" href="{{ $listUrl }}">
-                        {{ $secondary_label !== '' ? $secondary_label : __('pub_theme::home.map.cta_list') }}
-                    </a>
-                    @auth
-                        <a class="btn btn-lg btn-hero-link px-sm-3" href="{{ $localize('/area-personale/pratiche') }}">
-                            {{ __('pub_theme::home.hero.cta_practices') }}
-                        </a>
-                    @else
-                        <a class="btn btn-lg btn-hero-link px-sm-3" href="{{ $localize('/auth/login') }}" data-element="personal-area-login">
-                            {{ __('pub_theme::home.hero.cta_login') }}
-                        </a>
-                    @endauth
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="card border-0 shadow-sm overflow-hidden">
-                    <div class="card-body p-0">
-                        <map-lit
-                            id="home-ticket-map"
-                            data-url="{{ $map_data_url }}"
-                            height="{{ $map_height }}"
-                            aria-label="{{ $mapAria }}"
-                        ></map-lit>
-                    </div>
-                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center flex-wrap gap-2 py-3">
-                        <span class="text-secondary small mb-0">{{ $mapCaption }}</span>
-                        <a class="read-more" href="{{ $listUrl }}">
-                            <span class="text">{{ $mapCta }}</span>
-                            <svg class="icon" aria-hidden="true"><use href="{{ $sprites }}#it-arrow-right"></use></svg>
-                        </a>
-                    </div>
-                </div>
+<section class="fc-home-hero" aria-labelledby="fc-home-hero-heading" data-section="home-hero">
+    <div class="fc-home-hero__inner container">
+        <div class="fc-home-hero__copy">
+            <p class="fc-eyebrow">{{ $eyebrow }}</p>
+            <h1 id="fc-home-hero-heading" class="font-serif">{{ $heading }}</h1>
+            <p class="fc-home-hero__intro">{{ $intro }}</p>
+            @if (filled($trust))
+                <p class="fc-home-hero__trust">{{ $trust }}</p>
+            @endif
+            <div class="fc-home-hero__actions">
+                <a class="fc-button fc-button--primary" href="{{ $primary_url }}">{{ $primary_label }}</a>
+                @if (filled($secondary_label))
+                    <a class="fc-button fc-button--quiet" href="{{ $secondary_url }}">{{ $secondary_label }}</a>
+                @endif
             </div>
         </div>
+
+        <aside class="fc-home-hero__signal" aria-label="{{ $signal_eyebrow }}">
+            <span class="fc-home-hero__signal-mark" aria-hidden="true"></span>
+            <p class="fc-eyebrow">{{ $signal_eyebrow }}</p>
+            <p class="fc-home-hero__signal-value">{{ $signal_heading }}</p>
+            <p class="fc-home-hero__signal-body">{{ $signal_body }}</p>
+            <div class="fc-home-hero__signal-line" aria-hidden="true"></div>
+        </aside>
     </div>
 </section>

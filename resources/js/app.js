@@ -26,7 +26,22 @@ import { governanceCarousel } from './components/carousel';
 import { initHeaderMobileNav, isDesignComuniPage } from './theme/header-mobile-nav.js';
 import { dcCarousel, dcFormValidate, dcNavscroll, dcRating, mountDesignComuniComponents } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
-import './components/camera-upload.js';
+
+let cameraUploadPromise;
+
+function ensureCameraUpload() {
+    if (!cameraUploadPromise) {
+        cameraUploadPromise = import('./components/camera-upload.js');
+    }
+
+    return cameraUploadPromise;
+}
+
+function preloadCameraUploadWhenNeeded() {
+    if (document.querySelector('input[type="file"]')) {
+        void ensureCameraUpload();
+    }
+}
 
 /**
  * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.
@@ -254,6 +269,8 @@ function initHeaderDropdowns() {
 document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
 document.addEventListener('livewire:navigated', initHeaderDropdowns);
 document.addEventListener('livewire:update', initHeaderDropdowns);
+document.addEventListener('DOMContentLoaded', preloadCameraUploadWhenNeeded);
+document.addEventListener('livewire:navigated', preloadCameraUploadWhenNeeded);
 if (document.readyState !== 'loading') {
     initHeaderDropdowns();
 }

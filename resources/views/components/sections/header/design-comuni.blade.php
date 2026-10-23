@@ -74,12 +74,12 @@
                         @endif
                         <div class="it-header-slim-right-zone" role="navigation">
                             <div class="nav-item dropdown">
-                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
+                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                                     <span class="visually-hidden">{{ $languageLabel }}</span>
                                     <span>{{ collect($d('languages.items', []))->firstWhere('locale', $locale)['label'] ?? '' }}</span>
                                     <svg class="icon"><use href="{{ $icon('it-expand') }}"></use></svg>
                                 </button>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu" id="languages" role="menu">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="link-list-wrapper">
@@ -149,8 +149,12 @@
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
                                 <a href="{{ $localizedUrl((string) $d('brand.url')) }}"{!! ! $isSignedIn && filled($d('brand.link_title')) ? ' title="'.e($d('brand.link_title')).'"' : '' !!}>
-                                    {{-- Sulla barra verde il marchio è bianco. Il filtro nello sheet è !important e isolate-legacy lo toglie dalle pagine con data-dc, quindi il logo restava nero. --}}
-                                    <svg width="82" height="82" class="icon" aria-hidden="true" style="filter: brightness(0) invert(1)"><image xlink:href="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($d('brand.logo')) }}" style="filter: brightness(0) invert(1)"/></svg>
+                                    {{-- SSoT marchio: partial condiviso col footer (brand.logo JSON). --}}
+                                    @include('pub_theme::components.sections.partials.brand-mark', [
+                                        'src' => $d('brand.logo'),
+                                        'size' => 82,
+                                        'invert' => true,
+                                    ])
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ $d('brand.header_title') ?: $d('brand.name') }}</div>
                                         <div class="it-brand-tagline d-none d-md-block">{{ $d('brand.tagline') }}</div>
@@ -189,7 +193,11 @@
                                 </div>
                                 <div class="menu-wrapper">
                                     <a href="{{ $localizedUrl((string) $d('brand.url')) }}" class="logo-hamburger">
-                                        <svg class="icon" aria-hidden="true"><use href="{{ $icon('it-pa') }}"></use></svg>
+                                        @include('pub_theme::components.sections.partials.brand-mark', [
+                                            'src' => $d('brand.logo'),
+                                            'size' => 48,
+                                            'invert' => true,
+                                        ])
                                         <div class="it-brand-text"><div class="it-brand-title">{{ $d('brand.menu_title') ?: $d('brand.name') }}</div></div>
                                     </a>
                                     <nav aria-label="{{ $d('menu.main_label') }}">
