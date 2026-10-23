@@ -38,7 +38,11 @@ va in Action / layer semantici (`Infrastructure`, `Presentation`, `Adapters`) o 
 5. Search modal: suggerimenti da `FrontofficeSearchSuggestions` (override via `@props links`).
 6. Label UI solo via chiavi i18n (`pub_theme::` / modulo owner) — mai stringhe hardcoded.
 7. Parità visiva: 90% HTML / 95% visual rispetto a `design-comuni-pagine-statiche`.
-8. Header e footer consumano lo stesso `brand.logo` dal JSON; il footer non sostituisce il marchio con un'icona sprite.
+8. Header e footer consumano lo stesso `brand.logo` dal JSON e lo stesso partial
+   `sections/partials/brand-mark` (SVG 82×82). Vietato `<img>` solo nel footer o
+   sprite `it-pa` al posto del marchio.
+   <!-- Harness: agenti FO Sixteen / BMAD. Cambia: vestito chrome brand. Già coperto
+        da header-footer-sections-contract; raffina regola 8. Istruzione: logo footer = header. -->
 9. Aggiorna `docs/stories/` o `docs/bmad/` quando nasce un pezzo riusabile nuovo.
 
 ## Layer FO riusabili (tema — ex Support → Infrastructure/Presentation/Actions)

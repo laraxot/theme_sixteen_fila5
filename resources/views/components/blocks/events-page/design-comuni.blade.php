@@ -98,6 +98,12 @@
                     $ariaLabel = str_contains($ariaTpl, '%')
                         ? sprintf($ariaTpl, (string) ($item['title'] ?? ''))
                         : $ariaTpl.' '.(string) ($item['title'] ?? '');
+                    // WCAG 2.5.3 (etichetta nel nome): il nome accessibile deve contenere il testo visibile. In de il testo
+                    // era «Weiterlesen» e l'aria «Mehr lesen: …» (due chiavi diverse): chi usa la voce non poteva attivarlo.
+                    $readMoreVisible = trim((string) $d('card.read_more'));
+                    if ($readMoreVisible !== '' && ! str_starts_with(mb_strtolower($ariaLabel), mb_strtolower($readMoreVisible))) {
+                        $ariaLabel = $readMoreVisible.': '.(string) ($item['title'] ?? '');
+                    }
                 @endphp
                 <div class="col-lg-6 col-xl-4">
                     <div class="card-wrapper border border-light rounded shadow-sm">

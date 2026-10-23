@@ -1,43 +1,49 @@
 {{--
-    Banda CTA finale guest — contratto Design Comuni (bg-light, btn-primary).
-    Niente cerchi decorativi / fc-button--sun: SVG fluidi + radius 999px
-    diventavano bottoni circolari da ~200px (incoerenza FO).
-
-    Callers: content_blocks type quick-actions via pub_theme::components.blocks.quick-actions
-    in laravel/config/local/fixcity/database/content/pages/home.json.
-    Same purpose as pages_old/index.blade.php final bg-light band.
-    Schema: heading, body, button{label,url}, secondary_button{label,url} from block data.
-    User: "la homepage http://192.168.1.40:8000/it non e' coerente"
+    Banda track guest — senso di fixcity.eu: verde scuro + CTA sun (testo inchiostro)
+    e quiet outline in riga. Niente btn BI stackati (overlap/contrasto rotti sotto data-dc).
+    Schema: eyebrow, heading, body, button{label,url,icon?}, secondary_button{…}.
 --}}
 @php
+    $eyebrow = filled($eyebrow ?? null) ? (string) $eyebrow : (string) __('pub_theme::home.list.track_eyebrow');
     $heading = $heading ?? __('pub_theme::home.list.track_heading');
     $body = $body ?? __('pub_theme::home.list.track_body');
     $button = is_array($button ?? null) ? $button : [
         'label' => __('pub_theme::home.list.track_button'),
         'url' => '#',
+        'icon' => 'it-search',
     ];
     $secondary_button = is_array($secondary_button ?? null) ? $secondary_button : null;
+    $primaryIcon = $button['icon'] ?? 'it-search';
+    $secondaryIcon = is_array($secondary_button) ? ($secondary_button['icon'] ?? 'it-plus') : 'it-plus';
 @endphp
 
 <section class="fc-track-section" aria-labelledby="quick-actions-heading" data-section="quick-actions">
-    <div class="fc-track-section__inner container">
-        <div class="fc-track-section__copy">
-            <p class="fc-eyebrow">{{ __('pub_theme::home.list.track') }}</p>
-            <h2 id="quick-actions-heading">{{ $heading }}</h2>
-            <p>{{ $body }}</p>
-        </div>
-        <div class="fc-track-section__actions">
-            <div>
+    <div class="container">
+        <div class="fc-track-section__inner">
+            <div class="fc-track-section__copy" data-reveal="fade-up" data-delay="0">
+                @if (filled($eyebrow))
+                    <p class="fc-eyebrow">{{ $eyebrow }}</p>
+                @endif
+                <h2 id="quick-actions-heading">{{ $heading }}</h2>
+                @if (filled($body))
+                    <p>{{ $body }}</p>
+                @endif
+            </div>
+            <div class="fc-track-section__actions" data-reveal="fade-up" data-delay="100">
+              <div class="fc-track-section__btns" role="group" aria-label="{{ $heading }}">
                 @if ($button)
-                    <a class="fc-button fc-button--primary quick-action-btn" href="{{ $button['url'] ?? '#' }}">
+                    <a class="fc-button fc-button--sun quick-action-btn" href="{{ $button['url'] ?? '#' }}" data-action="primary">
+                        @include('pub_theme::components.ui.icon', ['name' => $primaryIcon, 'class' => 'h-5 w-5'])
                         {{ $button['label'] ?? '' }}
                     </a>
                 @endif
                 @if (is_array($secondary_button) && filled($secondary_button['label'] ?? null))
-                    <a class="fc-button fc-button--quiet quick-action-btn" href="{{ $secondary_button['url'] ?? '#' }}">
+                    <a class="fc-button fc-button--quiet quick-action-btn" href="{{ $secondary_button['url'] ?? '#' }}" data-action="secondary">
+                        @include('pub_theme::components.ui.icon', ['name' => $secondaryIcon, 'class' => 'h-5 w-5'])
                         {{ $secondary_button['label'] }}
                     </a>
                 @endif
+              </div>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ const BASE = process.env.FIXCITY_BASE_URL || 'http://127.0.0.1:8000';
 const STATE = process.env.FIXCITY_STORAGE_STATE || '';
 const STRICT = process.env.A11Y_STRICT === '1';
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
-const WIDTHS = [375, 1440];
+const WIDTHS = [375, 768, 1440];
 const WIZARD2 = '/it/tickets/create?step=form.dati-di-segnalazione%3A%3Adata%3A%3Awizard-step';
 const exe = [process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH, ...[1248, 1247, 1243].map((n) => `${process.env.HOME}/.cache/ms-playwright/chromium-${n}/chrome-linux64/chrome`)].filter(Boolean).find(existsSync);
 test.use({ launchOptions: { executablePath: exe, args: ['--no-sandbox', '--disable-dev-shm-usage'] } });
@@ -49,9 +49,24 @@ async function goToReview(page) {
 }
 
 /** axe puo' scontrarsi con una navigazione o un morph Livewire ancora in corso ("Execution context was destroyed"): si riprova, un errore vero resta un errore. */
+/** Esclude tooling locale (debugbar / boost) — non fa parte del contratto FO WCAG. */
+async function dismissNoise(page) {
+  try { await page.locator('.gdpr-btn, button:has-text("Ho capito")').first().click({ timeout: 2000 }); } catch { /* no banner */ }
+  await page.addStyleTag({ content: '.phpdebugbar,.phpdebugbar-open,#phpdebugbar,[class*="phpdebugbar"],.sf-minitoolbar,#sfwdt{display:none!important}' });
+}
+
 async function analyze(page) {
+  await dismissNoise(page);
   for (let attempt = 1; ; attempt += 1) {
-    try { return await new AxeBuilder({ page }).withTags(TAGS).exclude('.phpdebugbar').analyze(); } catch (error) {
+    try {
+      return await new AxeBuilder({ page })
+        .withTags(TAGS)
+        .exclude('.phpdebugbar')
+        .exclude('#phpdebugbar')
+        .exclude('[class*="phpdebugbar"]')
+        .exclude('.sf-minitoolbar')
+        .analyze();
+    } catch (error) {
       if (attempt >= 3 || !/context was destroyed|navigation|detached/i.test(String(error))) throw error;
       await page.waitForTimeout(1500);
     }

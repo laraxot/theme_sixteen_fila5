@@ -507,13 +507,14 @@ footer a:hover {
    Reference: <main> → <section> → <div.container>
    Local: <main> → <div.container#main-container> → <section> → <div.container>
    ============================================================================ */
-#main-container > section > .container {
+/* Non azzerare i gutter di #head-section: il copy deve restare sull’asse Design Comuni. */
+#main-container > section:not(#head-section) > .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
 @media (min-width: 992px) {
-  #main-container > section > .container {
+  #main-container > section:not(#head-section) > .container {
     max-width: 100% !important;
   }
 }
