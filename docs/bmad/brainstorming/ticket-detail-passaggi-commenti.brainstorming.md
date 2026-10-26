@@ -4,6 +4,9 @@ type: brainstorming
 status: active
 github_issue: "#ticket-commenti"
 links: { design_comuni: "https://italia.github.io/design-comuni-pagine-statiche/" }
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "ticket detail passaggi commenti.brainstorming sixteen"
 ---
 
 ## Scopo del sistema (compreso a pieno)

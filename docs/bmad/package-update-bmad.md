@@ -14,7 +14,7 @@ sources:
 related:
   - ./filament-blueprint.md
   - ./typography-comunidesign-remediation-bmad.md
-  - ../docs/bmad/second-brain-disclaimer-integration.md
+  - second-brain-disclaimer-integration.md
 ---
 
 # BMAD — Sixteen Theme Package Updates

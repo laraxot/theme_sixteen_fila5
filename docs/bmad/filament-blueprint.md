@@ -29,7 +29,7 @@ Entry Folio: `resources/views/pages/index.blade.php` → `<x-page slug="home" />
 Presentazione: solo `components/blocks/*` citati dal JSON.
 **Vietato** creare `pages/home.blade.php` o `pages/homepage.blade.php`
 ([why-home-blade-must-not-exist.md](./knowledge/why-home-blade-must-not-exist.md),
-[homepage-content-contract.md](../../../Modules/Fixcity/docs/homepage-content-contract.md)).
+[homepage-content-contract.md](../../../../Modules/Fixcity/docs/homepage-content-contract.md)).
 Verifica misurata axe/pixel/vite: [homepage-a11y-pixel-verification.md](./homepage-a11y-pixel-verification.md).
 
 

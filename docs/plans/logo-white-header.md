@@ -4,6 +4,7 @@ status: active
 updated: "2026-10-20"
 tags: [header, logo, wcag, bmad, design-comuni]
 qmd: "fixcity header logo bianco"
+type: note
 ---
 
 # BMAD Plan — Logo Bianco nell'Header

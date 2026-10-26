@@ -24,16 +24,25 @@
     $withQuery = static fn (string $url, array $query): string => $url.($query === [] ? '' : '?'.http_build_query($query));
     $mapUrl = $withQuery('/api/tickets/geojson', $filters->toQuery(['sort', 'page']));
     $listUrl = $withQuery($base, array_merge($filters->toQuery(['page']), ['view' => 'list']));
+    // telefono del tenant dal footer (sections/footer.json, contact.phone), come il footer; senza telefono niente link
+    $phone = app(\Modules\Fixcity\Actions\ResolveFooterContactPhoneAction::class)->execute();
+    $phoneItems = $phone === '' ? [] : [
+        ['icon' => 'it-telephone', 'label' => $t('contacts.phone', ['phone' => $phone]), 'url' => 'tel:'.preg_replace('/[^0-9+]/', '', $phone)],
+    ];
     // dati per i partial condivisi (breadcrumb, valutazione, contatti): stessa forma del JSON delle pagine di prova, ma dalla lingua attiva
     $partialData = [
         'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => route('home')]], 'current' => $t('breadcrumb.current')],
         'feedback' => array_merge((array) __('fixcity::ticket_list.feedback'), ['col_class' => 'col-12 col-lg-6 p-lg-0 px-3']),
-        'contacts' => ['layout' => 'narrow', 'main' => ['title' => $t('contacts.title'), 'items' => [
+        'contacts' => ['layout' => 'narrow', 'main' => ['title' => $t('contacts.title'), 'items' => array_merge([
             ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => FrontofficeRoutes::faqIndex()],
             ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => FrontofficeRoutes::ticketsTrack()],
             ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => FrontofficeRoutes::personalAreaPratiche()],
-            ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'url' => 'tel:050505'],
+<<<<<<< .merge_file_R6boz5
+            ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'ente' => 'toll_free'],
         ]]],
+=======
+        ], $phoneItems)]],
+>>>>>>> .merge_file_wsnQV4
     ];
     $d = static fn (string $key, mixed $default = '') => data_get($partialData, $key, $default);
 @endphp

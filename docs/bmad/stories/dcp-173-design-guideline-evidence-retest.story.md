@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "linee guida design cap 4 retest audit cookiebar disclaimer evidence release"
 related: [dcp-163, dcp-170, dcp-171, dcp-172, 8.18]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-173: retest delle evidenze Linee guida di design

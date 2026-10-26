@@ -30,10 +30,9 @@
 
         return url(implode('/', $segments));
     };
-    $socials = array_values(array_filter(
-        $d('social_links', []),
-        static fn (mixed $social): bool => is_array($social) && filled(trim((string) ($social['url'] ?? ''))) && trim((string) ($social['url'] ?? '')) !== '#'
-    ));
+    // DCP-289: nome e URL della regione, social: UNICA sorgente config('ente') (GetEnteDataAction); un dato mancante nasconde il blocco.
+    $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
+    $socials = $ente->social;
     $socialLabels = $d('social_labels', []);
     $languageLabel = (string) $d('languages.active_label');
     $accountLabel = (string) ($d('account.login_label') ?: $d('account.label'));
@@ -47,19 +46,27 @@
 
         return $resolved !== '' && $resolved !== '#' ? $resolved : null;
     };
-    $regionPortalHref = $storedNavHref((string) $d('region.url', ''));
+    // URL esterno gia' validato (http/https) da GetEnteDataAction: non passa da FrontofficeUrl, che lo riscriverebbe sul prefisso locale
+    $regionPortalHref = $ente->region_url !== '' ? $ente->region_url : null;
     // `dcSignedIn` serve solo alle preview delle pagine area-personale; il front office usa la sessione reale.
     $realUser = auth()->user();
     $isSignedIn = (bool) (($dcSignedIn ?? false) || $realUser !== null);
     $displayName = $realUser !== null
         ? (trim((string) ($realUser->name ?? '')) ?: (string) $realUser->email)
         : __('pub_theme::header.user.personal_area');
-    $avatarUrl = $realUser !== null ? (string) data_get($realUser, 'profile_photo_url', '') : '';
+    // CMT-022: stessa fonte dei commenti: avatar del profilo, altrimenti Gravatar (d=mp).
+    $avatarUrl = $realUser instanceof \Modules\Comment\Models\Contracts\CanComment
+        ? (string) $realUser->commentatorProperties()->avatar
+        : '';
     $userInitial = mb_strtoupper(mb_substr($displayName, 0, 1));
+    // Notifiche di stato non lette del cittadino: badge sulla voce "Notifiche" del menu utente.
+    $unreadNotificationsCount = $realUser instanceof \Modules\Xot\Contracts\UserContract
+        ? app(\Modules\Fixcity\Actions\BuildAuthenticatedUserTicketNotificationsQueryAction::class)->execute($realUser)->whereNull('read_at')->count()
+        : 0;
     $localizedUrl = static fn (string $path): string => url(trim('/'.app()->getLocale().'/'.ltrim($path, '/'), '/'));
-    $regionBlock = is_array($data['region'] ?? null) ? $data['region'] : [];
+    $regionBlock = [...(is_array($data['region'] ?? null) ? $data['region'] : []), 'name' => $ente->region_name];
     $regionLink = \Themes\Sixteen\Presentation\Accessibility\RegionPortalLinkLabels::resolve($regionBlock);
-    $regionDisplayName = $regionLink['name'] !== '' ? $regionLink['name'] : (string) $d('region.name');
+    $regionDisplayName = $regionLink['name'];
 @endphp
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
     <div class="it-header-slim-wrapper">
@@ -67,12 +74,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
-                        @if ($regionPortalHref !== null)
-                            <a class="d-lg-block navbar-brand" target="_blank" rel="noopener noreferrer" href="{{ $regionPortalHref }}" @if ($regionLink['aria_label']) aria-label="{{ $regionLink['aria_label'] }}" @endif @if ($regionLink['title']) title="{{ $regionLink['title'] }}" @endif>{{ $regionDisplayName }}</a>
-                        @else
-                            <span class="d-lg-block navbar-brand">{{ $regionDisplayName }}</span>
+                        @if ($regionDisplayName !== '')
+                            @if ($regionPortalHref !== null)
+                                <a class="d-lg-block navbar-brand" target="_blank" rel="noopener noreferrer" href="{{ $regionPortalHref }}" @if ($regionLink['aria_label']) aria-label="{{ $regionLink['aria_label'] }}" @endif @if ($regionLink['title']) title="{{ $regionLink['title'] }}" @endif>{{ $regionDisplayName }}</a>
+                            @else
+                                <span class="d-lg-block navbar-brand">{{ $regionDisplayName }}</span>
+                            @endif
                         @endif
-                        <div class="it-header-slim-right-zone" role="navigation">
+                        <div class="it-header-slim-right-zone ms-auto" role="navigation">
                             <div class="nav-item dropdown">
                                 <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-controls="languages">
                                     <span class="visually-hidden">{{ $languageLabel }}</span>
@@ -100,7 +109,7 @@
                                     <button type="button" class="btn btn-primary btn-icon btn-full" id="header-user-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="header-user-menu" aria-haspopup="true">
                                         <span class="rounded-icon" aria-hidden="true">
                                             @if ($avatarUrl !== '')
-                                                <img src="{{ $avatarUrl }}" class="border rounded-circle icon-white" alt="" width="20" height="20" loading="lazy">
+                                                <img src="{{ $avatarUrl }}" class="border rounded-circle icon-white" alt="" width="20" height="20" loading="lazy" referrerpolicy="no-referrer">
                                             @else
                                                 <strong class="user-initial-fallback fw-bold text-uppercase">{{ $userInitial !== '' ? $userInitial : mb_strtoupper(mb_substr((string) $d('account.signed_in.name'), 0, 1)) }}</strong>
                                             @endif
@@ -119,7 +128,7 @@
                                                             @elseif (($menuItem['icon'] ?? '') === 'it-external-link' && $realUser !== null)
                                                                 <li><form method="POST" action="{{ route('logout') }}">@csrf<button type="submit" class="dropdown-item list-item" role="menuitem"><span>{{ $menuItem['label'] }}</span></button></form></li>
                                                             @elseif (filled($menuItem['label'] ?? null) && ($storedNavHref((string) ($menuItem['url'] ?? '')) !== null))
-                                                                <li><a class="dropdown-item list-item" href="{{ $storedNavHref((string) $menuItem['url']) }}" role="menuitem"><span>{{ $menuItem['label'] }}</span></a></li>
+                                                                <li><a class="dropdown-item list-item" href="{{ $storedNavHref((string) $menuItem['url']) }}" role="menuitem"><span>{{ $menuItem['label'] }}</span>@if ($unreadNotificationsCount > 0 && str_ends_with((string) $menuItem['url'], '/notifiche'))<span class="badge bg-primary ms-2" data-element="unread-notifications">{{ $unreadNotificationsCount }}<span class="visually-hidden"> {{ __('pub_theme::header.user.unread_notifications') }}</span></span>@endif</a></li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
@@ -162,14 +171,28 @@
                                 </a>
                             </div>
                             <div class="it-right-zone">
+<<<<<<< .merge_file_n1b8lA
+                                @if ($socials !== [])
+                                    <div class="it-socials d-none d-lg-flex">
+                                        <span>{{ $d('follow_us') }}</span>
+                                        <ul>
+                                            @foreach ($socials as $social)
+                                                <li><a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon']) }}"></use></svg><span class="visually-hidden">{{ $social['label'] }}</span></a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+=======
+                                @if (! empty($socials))
                                 <div class="it-socials d-none d-lg-flex">
                                     <span>{{ $d('follow_us') }}</span>
                                     <ul>
                                         @foreach ($socials as $social)
-                                            <li><a href="{{ $social['url'] ?? '#' }}" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon']) }}"></use></svg><span class="visually-hidden">{{ $social['label'] }}</span></a></li>
+                                            <li><a href="{{ $social['url'] ?? '#' }}" target="_blank" rel="noopener noreferrer"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon']) }}"></use></svg><span class="visually-hidden">{{ $social['label'] }}</span></a></li>
                                         @endforeach
                                     </ul>
                                 </div>
+>>>>>>> .merge_file_aYuCHR
+                                @endif
                                 <div class="it-search-wrapper">
                                     <span class="d-none d-md-block">{{ $d('search.label') }}</span>
                                     <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ $d('search.aria_label') }}"><svg class="icon"><use href="{{ $icon('it-search') }}"></use></svg></button>
@@ -210,11 +233,12 @@
                                             @endforeach
                                         </ul>
                                     </nav>
-                                    <nav aria-label="{{ $d('menu.secondary_label') }}">
-                                        <ul class="navbar-nav navbar-secondary">
-                                            @foreach ($d('secondary_navigation', []) as $item)
-                                                @php($secondaryHref = $storedNavHref((string) ($item['url'] ?? '')))
-                                                @if ($secondaryHref !== null)
+                                    @php($secondaryItems = array_values(array_filter((array) $d('secondary_navigation', []), static fn (mixed $item): bool => is_array($item) && $storedNavHref((string) ($item['url'] ?? '')) !== null)))
+                                    @if ($secondaryItems !== [])
+                                        <nav aria-label="{{ $d('menu.secondary_label') }}">
+                                            <ul class="navbar-nav navbar-secondary">
+                                                @foreach ($secondaryItems as $item)
+                                                    @php($secondaryHref = $storedNavHref((string) ($item['url'] ?? '')))
                                                     <li class="nav-item">
                                                         @if (filled($item['element'] ?? null))
                                                             <a class="nav-link" href="{{ $secondaryHref }}" data-element="{{ $item['element'] }}"><span>{{ $item['label'] ?? '' }} @if ($item['chevron'] ?? false)<svg class="icon icon-sm"><use xlink:href="{{ $icon('it-chevron-right') }}"></use></svg>@endif</span></a>
@@ -222,18 +246,20 @@
                                                             <a class="nav-link" href="{{ $secondaryHref }}">{{ $item['label'] ?? '' }}</a>
                                                         @endif
                                                     </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </nav>
-                                    <div class="it-socials">
-                                        <span>{{ $d('follow_us') }}</span>
-                                        <ul>
-                                            @foreach ($socials as $social)
-                                                <li><a href="{{ $social['url'] ?? '#' }}" target="_blank"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon']) }}"></use></svg><span class="visually-hidden">{{ $social['label'] }}</span></a></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                                @endforeach
+                                            </ul>
+                                        </nav>
+                                    @endif
+                                    @if ($socials !== [])
+                                        <div class="it-socials">
+                                            <span>{{ $d('follow_us') }}</span>
+                                            <ul>
+                                                @foreach ($socials as $social)
+                                                    <li><a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon']) }}"></use></svg><span class="visually-hidden">{{ $social['label'] }}</span></a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ theme: Sixteen
 status: decision-input
 updated: 2026-10-15
 tags: [sustainability, sixteen, fo, wcag, bmad]
+qmd: "front office (ownership sixteen) sixteen"
 ---
 
 # Front office (ownership Sixteen)

@@ -11,6 +11,7 @@ return array_replace_recursive($base, [
     'language' => ['active_prefix' => ['label' => 'Idioma actual:'], 'code_it' => ['label' => 'ITA'], 'code_en' => ['label' => 'ENG'], 'selected_suffix' => ['label' => 'seleccionado']],
     // DCP-106: menu utente dell'header (area personale): senza questa sezione le lingue de/es ricadevano sull'inglese.
     'user' => [
+        'unread_notifications' => 'notificaciones no leídas',
         'personal_area' => 'Área personal',
         'aria' => ['toggle_menu' => ['label' => 'Abrir menú de usuario']],
         'dropdown' => [

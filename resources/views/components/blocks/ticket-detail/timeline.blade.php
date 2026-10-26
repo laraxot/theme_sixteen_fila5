@@ -3,7 +3,9 @@
     Parametri ereditati da design-comuni: $detail, $t. Senza cambi di stato dice lo stato attuale invece di lasciare una sezione vuota.
 --}}
 @if ($detail['timeline'] === [])
-    <p class="text-paragraph mb-0">{{ $t('status.empty', ['status' => $detail['status_label']]) }}</p>
+    {{-- DCP-287 (FO-2-16): su un caso concluso "per ora non ci sono aggiornamenti" e' falso, dice che si aspetta qualcosa --}}
+    @php($concluded = in_array($detail['status'], [\Modules\Fixcity\Enums\TicketStatusEnum::RESOLVED->value, \Modules\Fixcity\Enums\TicketStatusEnum::CLOSED->value], true))
+    <p class="text-paragraph mb-0">{{ $t($concluded ? 'status.empty_concluded' : 'status.empty', ['status' => $detail['status_label']]) }}</p>
 @else
     <ol class="td-timeline" aria-label="{{ $t('status.history') }}">
         @foreach ($detail['timeline'] as $step)

@@ -23,7 +23,7 @@
                             <div class="rating mb-3" role="group" aria-label="{{ $title }}">
                                 @for($i = 5; $i >= 1; $i--)
                                     <input type="radio" id="rating-star-{{ $i }}" name="rating" value="{{ $i }}" class="visually-hidden">
-                                    <label for="rating-star-{{ $i }}" aria-label="Valuta {{ $i }} stelle su 5">Valuta {{ $i }} stelle su 5</label>
+                                    <label for="rating-star-{{ $i }}" aria-label="{{ __('pub_theme::navigation.homepage.rate_'.$i) }}">{{ __('pub_theme::navigation.homepage.rate_'.$i) }}</label>
                                 @endfor
                             </div>
                         </div>

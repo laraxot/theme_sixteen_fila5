@@ -7,7 +7,8 @@ discussions: []
 title: Segnalazione Crea Step Dati Screenshot Audit 2026-04-28
 type: comparison
 updated: 2026-04-28
-status: active
+status: superseded
+superseded_by: ticket-crea-step-dati-screenshot-audit.md
 ---
 
 # Segnalazione Crea Step Dati Screenshot Audit 2026-04-28

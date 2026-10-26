@@ -7,6 +7,9 @@ tags: [phpstan, code-quality, zero-errors, pa, gdpr, sixtee]
 github_issue: "#57"
 discussion: "https://github.com/italia/design-comuni"
 related_to: ["STORY-cookiebar-gdpr-compliance", "STORY-adozione-linee-guida-design-pa"]
+title: "PHPStan Zero — Piano per 51 errori → 0"
+updated: 2026-10-15
+qmd: "phpstan zero   piano per 51 errori → 0 sixteen"
 ---
 
 # PHPStan Zero — Piano per 51 errori → 0

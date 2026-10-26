@@ -54,4 +54,4 @@ Nav JSON già punta a `/events`. Stesso modello `Article` del blog, discriminato
 ## Blueprint
 
 [inbound-fo-events.md](../blueprints/inbound-fo-events.md) · Blog authoring:
-[inbound-blog-events.md](../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md).
+[inbound-blog-events.md](../../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md).

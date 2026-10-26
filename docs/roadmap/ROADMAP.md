@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "2025 Q4 ROADMAP"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: roadmap.md
 ---
 
 # Theme Sixteen Roadmap (2025 Q4)

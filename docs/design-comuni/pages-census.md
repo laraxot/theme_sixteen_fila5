@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "pages census"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni - Pages Census
@@ -21,15 +22,6 @@ discussions: []
 **Data:** 2026-04-01
 
 ---
-
-title: "pages census"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "pages census"
-issues: []
-discussions: []
 ## 🗂️ Sezione 1: Pagine Generali (9 pagine)
 
 ### 1.1 Homepage

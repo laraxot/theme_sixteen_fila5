@@ -9,6 +9,8 @@ related:
   - ./ticket-detail-brainstorming.md
   - ./content-detail-planning.md
   - ../../../Modules/Fixcity/docs/bmad/ticket-lifecycle-planning.md
+updated: 2026-10-17
+qmd: "ownership sixteen"
 ---
 
 # Ownership

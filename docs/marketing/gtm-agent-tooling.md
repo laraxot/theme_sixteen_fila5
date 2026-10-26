@@ -9,6 +9,7 @@ related:
   - ./homepage-conversion-contract.md
   - ./civic-homepage-conversion-playbook.md
   - ../bmad/homepage-guest-visual-contract.md
+status: draft
 ---
 
 # Tooling GTM per agenti (Explorium + verifica FO)

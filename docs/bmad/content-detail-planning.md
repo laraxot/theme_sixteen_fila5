@@ -6,6 +6,8 @@ module: Sixteen
 created: 2026-10-16
 tags: [bmad, planning, blog, events, design-comuni]
 related: [./ticket-detail-planning.md, ../../../Modules/Blog/docs/bmad/blog-detail-planning.md]
+updated: 2026-10-17
+qmd: "contratto tema sixteen"
 ---
 
 # Contratto tema

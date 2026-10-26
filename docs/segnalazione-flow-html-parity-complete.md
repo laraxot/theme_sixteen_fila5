@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione flow html parity complete"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-flow-html-parity-complete.md
 ---
 
 # Segnalazione Flow — HTML Parity Complete Report

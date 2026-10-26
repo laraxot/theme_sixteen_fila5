@@ -3,6 +3,10 @@ title: "Migrazione Fixcity users — convenzione XotBaseMigration"
 status: completed
 decision: D33
 related_initiative: kp-174d15a58ff94901b2b0df0d86b8907a
+type: story
+updated: 2026-10-18
+tags: [docs, sixteen, bmad]
+qmd: "perché la migrazione non rispettava le convenzioni sixteen"
 ---
 
 # Perché la migrazione non rispettava le convenzioni

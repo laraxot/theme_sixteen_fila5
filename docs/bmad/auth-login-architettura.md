@@ -1,3 +1,11 @@
+---
+title: "BMAD — Architettura /it/auth/login (Folio + Filament + Volt)"
+type: note
+status: draft
+updated: 2026-10-20
+tags: [docs, sixteen, bmad]
+qmd: "bmad   architettura /it/auth/login (folio + filament + volt) sixteen"
+---
 # BMAD — Architettura /it/auth/login (Folio + Filament + Volt)
 
 Stato 2026-10-20: il vestito descritto sotto (layout guest, SocialLoginWidget, `bmad-output/`) non è la pagina live e non è il riferimento. Il piano è [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md). Resta valido il nome di rotta `oauth.redirect`.

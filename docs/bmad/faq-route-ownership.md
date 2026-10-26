@@ -11,6 +11,7 @@ related:
   - ./knowledge/why-domande-frequenti-blade-php-must-not-exist.md
   - ../../../../Modules/Cms/docs/wiki/concepts/container0-index-json-driven-pages.md
   - ../../../../Modules/Fixcity/docs/faq-catalog-ownership.md
+qmd: "`domande-frequenti/index.blade.php` non deve esistere sixteen"
 ---
 
 # `domande-frequenti/index.blade.php` non deve esistere

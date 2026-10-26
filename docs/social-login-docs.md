@@ -1,3 +1,11 @@
+---
+title: "Social Login — Folio + Volt + Filament Blueprint"
+type: note
+status: draft
+updated: 2026-10-20
+tags: [docs, sixteen]
+qmd: "social login   folio + volt + filament blueprint sixteen"
+---
 # Social Login — Folio + Volt + Filament Blueprint
 
 ## Architettura (SSoT rotte modulo User)

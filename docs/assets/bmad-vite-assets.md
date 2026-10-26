@@ -4,6 +4,8 @@ type: note
 tags: [design-comuni, vite, assets, bmadd, second-brain]
 created: 2026-10-18
 updated: 2026-10-18
+status: draft
+qmd: "vite + theme assets   design comuni stack sixteen"
 ---
 
 # Vite + Theme Assets — Design Comuni Stack

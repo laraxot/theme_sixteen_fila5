@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "UI COMPONENTS REORGANIZATION"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ui-components-reorganization.md
 ---
 
 # 🎨 UI Components Reorganization Plan

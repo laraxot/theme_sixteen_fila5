@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "vite audit report 2025"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: vite-audit-report.md
 ---
 
 # Audit Report: Configurazione @vite nel Tema Sixteen

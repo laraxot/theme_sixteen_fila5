@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Dom\HTMLDocument;
+use Illuminate\Contracts\View\View;
 use Tests\TestCase;
 
 uses(TestCase::class);
@@ -12,13 +13,14 @@ uses(TestCase::class);
  * 992 px in su (`d-none d-lg-block`); sotto resta un'icona `aria-hidden` e il link non ha nome accessibile. Il nome deve esserci
  * a ogni larghezza, quindi non puo' dipendere dallo span responsive.
  */
-it('gives the guest login call to action an accessible name at every width', function (string $partial): void {
-    /** @var view-string $viewName */
-    $viewName = 'pub_theme::components.sections.header.partials.'.$partial;
-    $html = view($viewName)->render();
+it('gives the guest login call to action an accessible name at every width', function (View $partial): void {
+    $html = $partial->render();
     $link = HTMLDocument::createFromString('<body>'.$html.'</body>', LIBXML_NOERROR)->querySelector('a[data-element="personal-area-login"]');
 
     expect($link)->not->toBeNull();
     $name = trim((string) $link?->getAttribute('aria-label'));
     expect($name)->not->toBe('')->and($name)->not->toContain('pub_theme::');
-})->with(['personal-area-guest-cta', 'personal-area-login-cta']);
+})->with([
+    'personal-area-guest-cta' => fn (): View => view('pub_theme::components.sections.header.partials.personal-area-guest-cta'),
+    'personal-area-login-cta' => fn (): View => view('pub_theme::components.sections.header.partials.personal-area-login-cta'),
+]);

@@ -9,6 +9,8 @@ tags: [bmad, sixteen, theme, stories, remaining-work, design-comuni]
 related:
   - ../../docs/second-brain/project/bmad-architecture.md
   - ../../docs/second-brain/project/bmad-stories.md
+status: draft
+qmd: "sixteen theme   bmad stories & remaining work sixteen"
 ---
 
 # Sixteen Theme — BMAD Stories & Remaining Work

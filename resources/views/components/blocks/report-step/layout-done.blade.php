@@ -38,6 +38,8 @@
             @endif
         </div>
     </div>
+    {{-- senza servizi correlati (nessun dato dell'ente da mostrare) la sezione non c'e': niente titolo sopra una lista vuota --}}
+    @if (! empty($d('related.items', [])))
     <hr class="d-none d-lg-block mt-40 mb-0">
     <div class="row justify-content-center mb-3 mb-md-5">
         <div class="col-12 col-lg-10">
@@ -60,4 +62,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>

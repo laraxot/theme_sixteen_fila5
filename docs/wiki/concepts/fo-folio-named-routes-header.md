@@ -11,7 +11,7 @@ issues:
 related:
   - fo-folio-routing-zen.md
   - fo-folio-links-multilingua.md
-  - ../../../../Modules/Fixcity/docs/frontoffice-link-conventions.md
+  - ../../../../../Modules/Fixcity/docs/frontoffice-link-conventions.md
   - ../../../../../Modules/Cms/docs/wiki/concepts/folio-filesystem-routing-no-web-php.md
 status: active
 ---
@@ -26,7 +26,7 @@ User: localizeUrl sbagliato; tickets.show sbagliato; corretta container0.view; n
 
 ## Religione (2026-10-22)
 
-SSoT: [frontoffice-link-conventions.md](../../../../Modules/Fixcity/docs/frontoffice-link-conventions.md).
+SSoT: [frontoffice-link-conventions.md](../../../../../Modules/Fixcity/docs/frontoffice-link-conventions.md).
 
 - Obbligatorio: `route('container0.view'|'container0.index', …)`
 - Vietato Blade: `LaravelLocalization::localizeUrl` / `localizeURL`

@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione disservizio html comparison"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-disservizio-html-comparison.md
 ---
 
 # HTML Structure Comparison: segnalazione-disservizio

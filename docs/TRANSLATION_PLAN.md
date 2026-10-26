@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "TRANSLATION PLAN"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: translation-plan.md
 ---
 
 # 🌐 Translation Plan - Italian to English Documentation

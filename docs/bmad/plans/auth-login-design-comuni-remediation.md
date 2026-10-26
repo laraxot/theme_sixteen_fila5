@@ -3,6 +3,8 @@ title: "Auth login — Design Comuni remediation"
 type: plan
 status: in-progress
 updated: 2026-10-20
+tags: [docs, sixteen, bmad]
+qmd: "`/it/auth/login`   census and correction plan sixteen"
 ---
 
 # `/it/auth/login` — census and correction plan

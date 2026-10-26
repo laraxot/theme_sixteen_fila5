@@ -51,3 +51,7 @@ La distanza tra heading `Disservizio` e primo campo `Tipo di disservizio` deve e
 - Prova a pixel: `Themes/Sixteen/tests/browser/wizard-step2-map-center.spec.mjs` (pulsanti opachi) e `Themes/Sixteen/tests/browser/ticket-detail-marker.spec.mjs` (marker del dettaglio).
 - Uso in sola lettura (`readonly`, `marker-icon-url`, `marker-color`, `marker-label`) nel blocco `ticket-detail/design-comuni`: tabella degli attributi in [coordinate-picker](../coordinate-picker.md). Story: [DCP-152 (Geo)](../../../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md).
 - La regola sopra ("controlli visibili ... con fondo bianco") resta valida; il GPS su HTTP non e' una regola CSS: `requestGeolocation` non chiede la posizione se `window.isSecureContext` e' falso e resta sulla zona di partenza (`map/controls/geolocation.js`).
+
+## Vedi anche
+
+- [CSS di terzi sulle pagine data-dc](vendor-css-on-data-dc-pages-needs-guard-exemption.md): la stessa esenzione del guard PostCSS vale per l'editor Markdown dei commenti (CMT-022).

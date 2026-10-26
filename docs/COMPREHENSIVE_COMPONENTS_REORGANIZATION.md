@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "COMPREHENSIVE COMPONENTS REORGANIZATION"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: comprehensive-components-reorganization.md
 ---
 
 # 🗂️ Comprehensive Components Reorganization Plan

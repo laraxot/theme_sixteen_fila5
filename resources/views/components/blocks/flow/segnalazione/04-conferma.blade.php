@@ -118,7 +118,7 @@
                                                                 <path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/>
                                                                 <path fill="none" d="M0 0h24v24H0z"/>
                                                             </svg>
-                                                            <span class="visually-hidden" :id="'star' + star + '-label'" x-text="'Valuta ' + star + ' stelle su 5'"></span>
+                                                            <span class="visually-hidden" :id="'star' + star + '-label'" x-text="{{ \Illuminate\Support\Js::from(collect(range(1, 5))->mapWithKeys(fn (int $n): array => [$n => __('pub_theme::navigation.homepage.rate_'.$n)])) }}[star]"></span>
                                                         </label>
                                                     </div>
                                                 </template>

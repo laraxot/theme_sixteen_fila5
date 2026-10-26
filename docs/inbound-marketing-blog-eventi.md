@@ -5,6 +5,7 @@ theme: Sixteen
 status: decision-input
 updated: 2026-10-15
 tags: [inbound, blog, eventi, design-comuni, bmad]
+qmd: "blog ed eventi nel front office sixteen"
 ---
 
 # Blog ed eventi nel front office

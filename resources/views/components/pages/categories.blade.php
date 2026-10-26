@@ -1,11 +1,10 @@
 <div id="categories-content" class="container-italia mx-auto px-4 py-10" aria-labelledby="categories-title">
-    <nav class="mb-8 text-sm" aria-label="{{ __('pub_theme::service_report.breadcrumb.aria') }}">
-        <ol class="flex flex-wrap items-center gap-2 text-gray-700">
-            <li><a class="underline" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/') }}">{{ __('pub_theme::service_report.breadcrumb.home') }}</a></li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">{{ __('pub_theme::services.categories.title') }}</li>
-        </ol>
-    </nav>
+    {{-- Briciole di pane del riferimento (le classi flex di prima non arrivavano al CSS compilato e impilavano le voci: DCP-288, FO-1-28). --}}
+    @include('pub_theme::components.blocks.content-page.partials.breadcrumb', ['breadcrumb' => [
+        'items' => [['label' => __('pub_theme::service_report.breadcrumb.home'), 'url' => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/')]],
+        'current' => __('pub_theme::services.categories.title'),
+        'class' => 'mb-8',
+    ]])
 
     <div class="mb-8 max-w-3xl">
         <h1 id="categories-title" class="mb-3 text-4xl font-bold text-gray-900">{{ __('pub_theme::services.categories.title') }}</h1>

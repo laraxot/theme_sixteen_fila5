@@ -1,3 +1,11 @@
+---
+title: "BMAD + Second Brain + Filament Blueprint Hyperlink Guide"
+type: note
+status: draft
+updated: 2026-10-23
+tags: [docs, sixteen]
+qmd: "bmad + second brain + filament blueprint hyperlink guide sixteen"
+---
 # BMAD + Second Brain + Filament Blueprint Hyperlink Guide
 
 ## Overview
