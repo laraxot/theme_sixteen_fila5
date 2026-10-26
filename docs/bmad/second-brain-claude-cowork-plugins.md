@@ -1,3 +1,11 @@
+---
+title: "Second Brain: Claude Code Cowork Plugins Integration (m01274)"
+type: note
+status: draft
+updated: 2026-10-15
+tags: [docs, sixteen, bmad]
+qmd: "second brain: claude code cowork plugins integration (m01274) sixteen"
+---
 # Second Brain: Claude Code Cowork Plugins Integration (m01274)
 
 ## Decisione

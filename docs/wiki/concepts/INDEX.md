@@ -48,4 +48,5 @@ Concetti specifici del tema Sixteen. Carica on-demand via `qmd search` o consult
 - Cms audit: [folio-list-vs-route-list](../../../../../Modules/Cms/docs/wiki/concepts/folio-list-vs-route-list.md)
 
 - [Metodo di parity Design Comuni](design-comuni-parity-method.md): gate, JSON, blocchi, CSS estratto, cascata (2026-10-13)
+- [CSS di terzi sulle pagine data-dc](vendor-css-on-data-dc-pages-needs-guard-exemption.md): il guard PostCSS spegne anche il vendor; esenzione per nome, trappole misurate (2026-10-26)
 - [Audit di accessibilita (DCP-143)](accessibility-audit-dcp.md): axe, tastiera, regole ARIA dei blocchi, limiti (2026-10-13)

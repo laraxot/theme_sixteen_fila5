@@ -25,4 +25,4 @@ con `type=post|event|article`.
 Liste tipizzate: filtrare `content_type` prima di date e pubblicazione.
 Legacy `content_type` nullo o `article` esclusi senza fallback documentato.
 
-SSoT Blog: [content-type-contract.md](../../../Modules/Blog/docs/bmad/content-type-contract.md).
+SSoT Blog: [content-type-contract.md](../../../../Modules/Blog/docs/bmad/content-type-contract.md).

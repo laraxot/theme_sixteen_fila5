@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "DAISYUI"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: daisyui.md
 ---
 
 # daisyUI — Documentazione Progetto Sixteen

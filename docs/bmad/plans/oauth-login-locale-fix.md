@@ -9,6 +9,8 @@ related:
   - ../filament-blueprint.md
   - ../../social-login-docs.md
   - ../../../../Modules/User/docs/bmad/google-auth-login.md
+tags: [docs, sixteen, bmad]
+qmd: "bmad / filament blueprint   localized oauth entry point sixteen"
 ---
 
 # BMAD / Filament Blueprint — Localized OAuth entry point

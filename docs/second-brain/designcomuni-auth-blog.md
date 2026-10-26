@@ -5,6 +5,8 @@ status: open
 created: 2026-10-17
 updated: 2026-10-17
 initiative_id: kp-designcomuni-auth-blog
+title: "Second Brain: DesignComuni Auth + Blog/Eventi"
+qmd: "second brain: designcomuni auth + blog/eventi sixteen"
 ---
 # Second Brain: DesignComuni Auth + Blog/Eventi
 

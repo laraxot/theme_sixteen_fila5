@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "AGID COMPONENTS REORGANIZATION"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: agid-components-reorganization.md
 ---
 
 # 🏛️ AGID Components Reorganization Plan

@@ -14,7 +14,7 @@ related:
   - ../../wiki/rules/sixteen-pages-folder-religion.md
   - ../../wiki/concepts/fo-folio-links-multilingua.md
   - ./why-domande-frequenti-blade-php-must-not-exist.md
-  - ../../../../Modules/User/resources/views/pages/profile/edit.blade.php
+  - ../../../../../Modules/User/resources/views/pages/profile/edit.blade.php
 ---
 
 # Perché `Themes/Sixteen/.../pages/profile/edit.blade.php` non deve esistere

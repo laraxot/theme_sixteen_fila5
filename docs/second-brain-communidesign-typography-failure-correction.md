@@ -1,3 +1,11 @@
+---
+title: "second brain communidesign typography failure correction"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen]
+qmd: "second brain communidesign typography failure correction sixteen"
+---
 ## Second Brain entry: comunidesign-typography-failure-correction.md
 
 **Created**: 2026-10-19  

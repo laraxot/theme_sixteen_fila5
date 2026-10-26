@@ -4,7 +4,7 @@
     (sezioni con tpl design-comuni, dati da sections/*.json). `<body>` resta plain e non si inventano classi o wrapper (policy:
     docs/html-parity-body-policy.md): lo stile generato (resources/css/design-comuni/components.css) vale sotto
     `body:has(.page-content[data-dc])`, cioe' dove il wrapper porta `data-dc` (pagine /tests e pagine reali con JSON `layout` design-comuni*); lo stesso ambito isola le
-    regole legacy (postcss/isolate-legacy-important.cjs). `<main>` senza attributi, come nel riferimento.
+    regole legacy (postcss/isolate-legacy-important.cjs). `<main>` senza attributi, come nel riferimento, quando il contenuto porta gia' `#main-container` (vedi layouts/main-landmark).
     NON e' `layouts/test`: quello serve anche pagine del front office reale (es. /it/tickets) e resta su header v1 e footer full.
     Non aggiungere `class="dc-page"` o simili: non serve a nessuno stile. Non cambiare senza rimisurare: docs/prompts/homepage/00-COORDINATION.md.
 --}}
@@ -16,7 +16,7 @@
     </div>
 
     <x-section slug="header" tpl="design-comuni" />
-    <main>{{ $slot }}</main>
+    <x-layouts.main-landmark>{{ $slot }}</x-layouts.main-landmark>
     <x-section slug="search-modal" tpl="design-comuni" />
     <x-section slug="footer" tpl="design-comuni" />
 </x-layouts.main>

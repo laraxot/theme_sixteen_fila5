@@ -3,6 +3,8 @@ title: "Header Design Comuni color contract"
 type: ux-contract
 status: active
 tags: [sixteen, design-comuni, header, accessibility]
+updated: 2026-10-23
+qmd: "header design comuni color contract sixteen"
 ---
 
 # Header Design Comuni color contract

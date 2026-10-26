@@ -10,6 +10,7 @@ related:
   - ../stories/dcp-111-area-personale-notifiche-e-impostazioni.story.md
   - ../../wiki/concepts/personal-area-shared-nav-tabs-contract.md
   - ../filament-blueprint.md
+status: draft
 ---
 
 # Perché i tab dell'area personale devono essere identici (e perché l'agente non ci arrivò da solo)

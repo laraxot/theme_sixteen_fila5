@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione area personale html comparison"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-area-personale-html-comparison.md
 ---
 
 # HTML Structure Comparison: segnalazione-area-personale

@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "valutazione pagina feedback soddisfazione quanto sono chiare le informazioni design comuni rating cad articolo 7 linee guida design 4.4.4 4.4.5"
 related: [dcp-157, dcp-163, 8.8]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-169: valutazione della pagina («Quanto sono chiare le informazioni?») e analisi periodica dei feedback

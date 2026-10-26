@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "FAQ REPLICATION STATUS"
 issues: []
 discussions: []
+status: draft
 ---
 
 # FAQ Replication Status (domande-frequenti)
@@ -18,15 +19,6 @@ discussions: []
 **Goal**: Replicate https://italia.github.io/design-comuni-pagine-statiche/sito/domande-frequenti.html locally (http://127.0.0.1:8000/it/tests/domande-frequenti) using **Tailwind CSS + Alpine.js** (NO Bootstrap Italia).
 
 ---
-
-title: "FAQ REPLICATION STATUS"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "FAQ REPLICATION STATUS"
-issues: []
-discussions: []
 ## Index
 - [Current Implementation](#current-implementation)
 - [Reference Structure](#reference-structure)

@@ -10,6 +10,9 @@ scope: [laravel/Themes/Sixteen/docs/wiki/concepts]
 related:
   - ../rules/no-domain-css-classes.md
   - ../entities/design-comuni-class-mapping.md
+type: note
+updated: 2026-10-15
+tags: [docs, sixteen, wiki]
 ---
 
 # Privacy Policy Concept

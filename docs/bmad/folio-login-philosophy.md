@@ -1,3 +1,11 @@
+---
+title: "FOLIO + VOLT LOGIN PHILOSOPY (BMAD / Second Brain / Blueprint)"
+type: note
+status: draft
+updated: 2026-10-18
+tags: [docs, sixteen, bmad]
+qmd: "folio + volt login philosopy (bmad / second brain / blueprint) sixteen"
+---
 # FOLIO + VOLT LOGIN PHILOSOPY (BMAD / Second Brain / Blueprint)
 
 ## Filosofia index.blade.php

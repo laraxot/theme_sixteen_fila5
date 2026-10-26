@@ -3,6 +3,8 @@ title: "Header Sixteen: contratto contenuti JSON"
 type: architecture-contract
 status: active
 tags: [bmad, second-brain, ponytail, header, json, accessibility]
+updated: 2026-10-17
+qmd: "scopo sixteen"
 ---
 
 # Scopo

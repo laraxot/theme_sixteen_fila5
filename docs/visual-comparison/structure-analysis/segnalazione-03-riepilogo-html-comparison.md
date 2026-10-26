@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione 03 riepilogo html comparison"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-03-riepilogo-html-comparison.md
 ---
 
 # HTML Structure Comparison: segnalazione-03-riepilogo

@@ -1,3 +1,11 @@
+---
+title: "Homepage locale: contratto di esperienza"
+type: note
+status: draft
+updated: 2026-10-23
+tags: [docs, sixteen, bmad]
+qmd: "homepage locale: contratto di esperienza sixteen"
+---
 # Homepage locale: contratto di esperienza
 
 ## Scopo

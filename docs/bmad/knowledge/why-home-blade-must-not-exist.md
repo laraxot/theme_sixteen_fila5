@@ -12,7 +12,7 @@ related:
   - ../../page-directory-structure.md
   - ../homepage-local-parity.md
   - ../../../../../config/local/fixcity/database/content/pages/home.json
-  - ../../../../Modules/Fixcity/docs/homepage-content-contract.md
+  - ../../../../../Modules/Fixcity/docs/homepage-content-contract.md
   - ../../../../../../docs/second-brain/process/sixteen-pages-folder-religion.md
 ---
 
@@ -25,7 +25,7 @@ related:
 
 **SSOT contenuto tenant:** `laravel/config/local/fixcity/database/content/pages/home.json`
 (`content_blocks` per lingua). Contratto owner:
-[homepage-content-contract.md](../../../../Modules/Fixcity/docs/homepage-content-contract.md).
+[homepage-content-contract.md](../../../../../Modules/Fixcity/docs/homepage-content-contract.md).
 
 Cambiare la home = aggiornare quel JSON (+ sync CMS) **oppure** i blocchi
 riutilizzabili citati dal JSON (`components/blocks/...`). Mai una page Blade dedicata.

@@ -4,6 +4,10 @@ status: "completed"
 created: "2026-10-14"
 updated: "2026-10-14"
 github_issue: "https://github.com/your-org/your-repo/issues/XXX"
+title: "quality audit cookiebar disclaimer"
+type: note
+tags: [docs, sixteen, bmad]
+qmd: "quality audit cookiebar disclaimer sixteen"
 ---
 
 ## Audit Results (BMAD + second brain)

@@ -18,11 +18,8 @@ final class RegionPortalLinkLabels
      */
     public static function resolve(array $region): array
     {
+        // DCP-289: il nome arriva dall'ente (config('ente.region_name')); nessun ripiego su `comune.regione`, il cui default `Regione` e' un segnaposto.
         $name = self::stringOrEmpty($region['name'] ?? null);
-        if ($name === '') {
-            $configured = config('comune.regione', '');
-            $name = is_string($configured) ? trim($configured) : '';
-        }
 
         return [
             'name' => $name,

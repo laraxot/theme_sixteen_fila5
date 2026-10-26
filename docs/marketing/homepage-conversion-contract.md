@@ -1,3 +1,11 @@
+---
+title: "Homepage marketing contract"
+type: note
+status: draft
+updated: 2026-10-23
+tags: [docs, sixteen, marketing]
+qmd: "homepage marketing contract sixteen"
+---
 # Homepage marketing contract
 
 ## Purpose

@@ -1,3 +1,11 @@
+---
+title: "Convenzione 5 elementi aggiornata BMAD"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen]
+qmd: "convenzione 5 elementi aggiornata bmad sixteen"
+---
 ## Translation Convention (5 Elements) — BMAD + Second Brain
 
 Conforme a `AGENTS.md` + `MEMORY.md`, tutte le chiavi di traduzione devono avere 5 elementi:

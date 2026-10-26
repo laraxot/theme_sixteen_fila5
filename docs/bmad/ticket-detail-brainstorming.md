@@ -6,6 +6,8 @@ module: Sixteen
 created: 2026-10-16
 tags: [bmad, brainstorming, design-comuni, ux, timeline, accessibility]
 related: [./ticket-detail-planning.md, ./second-brain-claude-cowork-plugins.md]
+updated: 2026-10-17
+qmd: "esplorazione ux sixteen"
 ---
 
 # Esplorazione UX

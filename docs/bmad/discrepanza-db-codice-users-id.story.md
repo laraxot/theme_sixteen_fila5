@@ -6,6 +6,8 @@ updated: 2026-10-18
 tags: [bmad, second-brain, dati-sacri, users, uuid, filament-user]
 related:
   - ../../../../Modules/Fixcity/docs/bmad/filament-user-uuid-connection-audit.md
+type: story
+qmd: "superseded   ownership su connessione `user` sixteen"
 ---
 
 # Superseded — ownership su connessione `user`

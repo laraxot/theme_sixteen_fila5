@@ -1,19 +1,15 @@
 {{-- LoginWidget — vestito Sixteen; logica in Modules\User\Filament\Widgets\Auth\LoginWidget --}}
 <div class="space-y-6">
-    @php
-        $loginError = $errors->first('data.email') ?: $errors->first('email');
-    @endphp
+    {{-- Esito neutro o positivo (es. "Password cambiata") e riepilogo degli errori: password errata (data.email), campi vuoti, ritorno
+         da Google rifiutato (email). Una sola regione role="status" sempre presente, un solo avviso role="alert" (DCP-290).
+         Il vestito sta in components/auth/assets.blade.php: le utility Tailwind sono spente dentro data-dc. --}}
+    <div role="status" aria-live="polite">
+        @if (session('status'))
+            <p class="auth-status">{{ session('status') }}</p>
+        @endif
+    </div>
 
-    {{-- Esito negativo: password errata (data.email) o ritorno da Google rifiutato (email). Il vestito sta in
-         components/pages/auth-login.blade.php: le utility Tailwind sono spente dentro data-dc (icona a tutta larghezza). --}}
-    @if ($loginError)
-        <div class="auth-login-alert" role="alert" aria-live="assertive">
-            <svg class="auth-login-alert__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
-                <path fill-rule="evenodd" d="M18 10A8 8 0 114.293 4.293 8 8 0 0118 10zm-8.75-3.25a.75.75 0 011.5 0v3.5a.75.75 0 01-1.5 0v-3.5zm.75 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-            </svg>
-            <p class="auth-login-alert__text">{{ $loginError }}</p>
-        </div>
-    @endif
+    <x-auth.error-summary />
 
     <form
         wire:submit="login"
@@ -21,12 +17,9 @@
         aria-labelledby="auth-login-heading"
         novalidate
     >
-        <div
-            @class([
-                'fo-filament-form-shell rounded-xl border border-slate-200 p-4 transition-colors',
-                'border-red-300 bg-red-50/40' => (bool) $loginError,
-            ])
-        >
+        {{-- Niente riquadro annidato (le utility border/p-4 erano dipinte anche dentro data-dc): i campi hanno la colonna e l'aspetto
+             della registrazione (DCP-290). L'errore sta nel riepilogo e sul campo, non sul colore del contenitore. --}}
+        <div class="fo-filament-form-shell">
             {{ $this->form }}
         </div>
 

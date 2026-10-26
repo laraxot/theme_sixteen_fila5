@@ -7,6 +7,9 @@ github_issue: "#55"
 discussion: "https://github.com/italia/designers-italia/discussions"
 rights_owner: "laravel/Themes/Sixteen"
 related_to: ["STORY-ADOZIONE-LINEE-GUIDA-DESIGN-PA"]
+title: "BMAD Story — Adozione Linee guida di design per i siti internet e i servizi digitali della PA"
+updated: 2026-10-15
+qmd: "bmad story   adozione linee guida di design per i siti internet e i servizi digitali della pa sixteen"
 ---
 
 # BMAD Story — Adozione Linee guida di design per i siti internet e i servizi digitali della PA

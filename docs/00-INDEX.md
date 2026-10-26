@@ -28,7 +28,7 @@ BMAD/QMD più vecchio e `MASTER_DOCUMENTATION.md` è un resoconto del 2026-04-01
 entrambi senza suffisso `.old`; restano anche `00-INDEX.md.tmp` (residuo del
 2026-09-24), `00-HOMEPAGE-REPLICATION-INDEX.md`, `DESIGN_COMUNI_REPLICATION_INDEX.md`,
 `REPLIKATE-MASTER-INDEX.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
-nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
+nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 
 ## Riorganizzazione docs 2026-10-13
 
@@ -50,7 +50,7 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 | Evidence (immutabili o storiche) | `screenshots/` (260), `visual-parity/` (280), `visual-comparison/` (224), `body-structure-comparison/` (156), `analysis/` (142), `comparisons/` (83), `visual-analysis/` (53), `html-parity-reports/` (29), `html-structure-comparison/` (21), `html-compare/` (12), `Main_files/` (47), `raw/` (16), `design-comuni/*/raw` |
 | Generate | `graphify-out/` (1.556 file: `cache/`, `graph.json`, `manifest.json`), `qmd-index/` |
 | Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `BATCH_PAGES_ANALYSIS.md`: 98) |
-| Mappa viva | [INDEX.md](INDEX.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
+| Mappa viva | [INDEX.md](index.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
 
 ## Percorsi di lettura
 

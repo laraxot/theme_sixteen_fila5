@@ -9,6 +9,8 @@ links:
   dossier: ../../../../../../bmad-output/footer-sponsorship/README.md
   recommendation: ../../../../../../bmad-output/footer-sponsorship/recommendation.md
   github_issue: null
+tags: [docs, sixteen, bmad]
+qmd: "studio marketing footer: partner vs banner sponsor sixteen"
 ---
 
 # Studio marketing footer: partner vs banner sponsor
