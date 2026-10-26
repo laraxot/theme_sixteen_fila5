@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Themes\Sixteen\Enums\MunicipalNewsGeographicScopeEnum;
 use Themes\Sixteen\Enums\MunicipalNewsPriorityEnum;
 use Themes\Sixteen\Enums\MunicipalNewsStatusEnum;
 use Themes\Sixteen\Enums\MunicipalNewsTypeEnum;

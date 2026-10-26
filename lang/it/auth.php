@@ -9,8 +9,6 @@ return [
         'forgot_password' => ['text' => 'Password dimenticata?', 'action' => ['text' => 'Richiedi reset password']],
         'email' => ['text' => 'Email', 'label' => 'Indirizzo email', 'placeholder' => 'nome@esempio.it'],
         'password' => ['text' => 'Password', 'label' => 'Password', 'placeholder' => 'Inserisci la tua password'],
-        'forgot_password' => ['text' => 'Password dimenticata?', 'action' => 'Richiedi reset password'],
-        'register' => ['text' => 'Registrati', 'action' => 'Crea account'],
         'heading' => ['text' => 'Accedi al tuo account', 'label' => 'Titolo pagina accesso'],
         'subtitle' => ['text' => 'Portale digitale del Comune di Fixcity', 'label' => 'Sottotitolo'],
         'main_label' => ['text' => 'Moduli accesso', 'label' => 'Etichetta sezione principale'],

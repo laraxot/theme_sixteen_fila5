@@ -29,6 +29,7 @@ async function goToReview(page) {
   // Nominatim finto (come nella sonda della mappa): l'indirizzo obbligatorio arriva sempre, senza dipendere dal servizio pubblico e dai suoi limiti.
   await page.route(/nominatim\.openstreetmap\.org/, (route) => route.fulfill({ status: 200, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify({ display_name: 'Via di prova 1, Citta di prova' }) }));
   await page.goto(BASE + WIZARD2, { waitUntil: 'load', timeout: 60000 });
+  await dismissNoise(page);
   await page.waitForFunction(() => document.querySelector('coordinate-picker-lit:not([readonly])')?._map, null, { timeout: 30000 });
   await page.waitForTimeout(2500);
   const pane = await page.$('coordinate-picker-lit:not([readonly]) .map-picker-leaflet-pane');
@@ -90,7 +91,15 @@ for (const width of WIDTHS) {
         ...(check.auth ? { storageState: STATE } : {}),
       });
       const page = await context.newPage();
+      const failedDocuments = [];
+      page.on('response', (response) => {
+        if (response.request().isNavigationRequest() && response.frame() === page.mainFrame() && response.status() >= 400) {
+          failedDocuments.push(`${response.status()} ${new URL(response.url()).pathname}`);
+        }
+      });
       await check.open(page);
+      expect(failedDocuments, 'le pagine verificate devono rispondere senza errori HTTP').toEqual([]);
+      if (check.auth) expect(new URL(page.url()).pathname).not.toContain('/auth/login');
       await page.waitForTimeout(1200);
       const { violations } = await analyze(page);
       await context.close();

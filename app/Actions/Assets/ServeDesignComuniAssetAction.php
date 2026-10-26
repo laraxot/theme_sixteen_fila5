@@ -14,6 +14,6 @@ final class ServeDesignComuniAssetAction
 {
     public function __invoke(string $lang, string $path): BinaryFileResponse
     {
-        return (new ServeThemeAssetAction())->execute('design-comuni/assets/'.$path);
+        return (new ServeThemeAssetAction)->execute('design-comuni/assets/'.$path);
     }
 }

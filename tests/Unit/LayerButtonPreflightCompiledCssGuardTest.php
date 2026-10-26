@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\Assert;
+use Symfony\Component\Process\Process;
 
 use function Safe\file_get_contents;
-use function Safe\glob;
 
 /*
  * DCP-195: il reset button/submit trasparente deve restare in @layer base nel CSS compilato,
@@ -23,11 +23,22 @@ it('wraps unlayered button submit transparent reset in @layer base in compiled a
 
     $cssPath = $themeRoot.'/public/'.$entry;
     Assert::assertFileExists($cssPath, 'CSS del manifest non trovato: '.$cssPath);
-    $css = file_get_contents($cssPath);
 
-    Assert::assertTrue(
-        str_contains($css, '@layer base{button')
-        && preg_match('/@layer base\{button[\s\S]{0,800}background-color:#0000/', $css) === 1,
-        'Manca il reset button in @layer base nel bundle '.$entry,
-    );
+    $script = <<<'JS'
+import fs from 'node:fs';
+import postcss from 'postcss';
+const unsafe = [];
+postcss.parse(fs.readFileSync(process.argv[1], 'utf8')).walkRules(rule => {
+    const positiveSelector = rule.selector.replace(/:not\(\[type=[^\]]+\]\)/g, '');
+    if (!positiveSelector.includes('[type=submit]') || !positiveSelector.includes('[type=reset]')) return;
+    if (!rule.nodes.some(node => node.prop === 'background-color' && ['#0000', '#00000000', 'transparent'].includes(node.value))) return;
+    let parent = rule.parent;
+    while (parent && !(parent.type === 'atrule' && parent.name === 'layer')) parent = parent.parent;
+    if (!parent) unsafe.push(rule.selector);
+});
+console.log(JSON.stringify(unsafe));
+JS;
+    $process = new Process(['node', '--input-type=module', '-e', $script, $cssPath], $themeRoot);
+    $process->mustRun();
+    Assert::assertSame([], json_decode($process->getOutput(), true, 512, JSON_THROW_ON_ERROR), 'Unlayered transparent button reset in '.$entry);
 });

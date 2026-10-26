@@ -113,7 +113,7 @@ class SpidAuthAction
             throw new Exception('SAMLResponse non decodificabile');
         }
 
-        $responseDoc = new DOMDocument();
+        $responseDoc = new DOMDocument;
         $responseDoc->loadXML($decodedResponse);
 
         $this->validateSamlResponse($responseDoc);

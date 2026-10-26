@@ -20,7 +20,6 @@ use Themes\Sixteen\Enums\PublicDocumentPrivacyLevelEnum;
 use Themes\Sixteen\Enums\PublicDocumentPublicationStatusEnum;
 use Themes\Sixteen\Enums\PublicDocumentStatusEnum;
 use Themes\Sixteen\Enums\PublicDocumentTypeEnum;
-use Themes\Sixteen\Enums\TransparencySectionEnum;
 
 use function Safe\filesize;
 use function Safe\hash_file;
