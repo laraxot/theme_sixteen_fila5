@@ -55,4 +55,4 @@ Nav JSON già punta a `/blog`. Senza Folio la voce era 404. Il dominio è **post
 ## Blueprint
 
 [inbound-fo-blog.md](../blueprints/inbound-fo-blog.md) · Blog authoring:
-[inbound-blog-events.md](../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md).
+[inbound-blog-events.md](../../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md).

@@ -20,7 +20,7 @@
                 @foreach ($items as $item)
                     @php($itemId = $item['id'] ?? 'faq-'.$loop->iteration)
                     <div class="accordion-item"@if ($live) data-text="{{ \Illuminate\Support\Str::lower(($item['question'] ?? '').' '.($item['answer'] ?? '')) }}" x-show="q === '' ? {{ $loop->index }} < shown : $el.dataset.text.includes(q)"@endif>
-                        <div class="accordion-header" id="heading{{ $itemId }}">
+                        <h2 class="accordion-header" id="heading{{ $itemId }}">
                             <button class="accordion-button collapsed title-snall-semi-bold py-3" style="color:#17324d !important;background-color:#fff !important" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $itemId }}" aria-expanded="true" aria-controls="collapse{{ $itemId }}">
                                 <div class="button-wrapper">{{ $item['question'] ?? '' }}
                                     <div class="icon-wrapper">
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </button>
-                        </div>
+                        </h2>
                         <div id="collapse{{ $itemId }}" class="accordion-collapse collapse p-0" data-bs-parent="#accordionExample{{ $itemId }}" role="region" aria-labelledby="heading{{ $itemId }}">
                             <div class="accordion-body"><p class="mb-3">{{ $item['answer'] ?? '' }}</p></div>
                         </div>
@@ -37,6 +37,10 @@
             </div>
             @if ($live && filled($section['empty'] ?? null))
                 <p class="text-paragraph mt-3" x-show="hits === 0" x-cloak>{{ $section['empty'] }}</p>
+            @endif
+            @if ($live)
+                {{-- Regione di stato SEMPRE nel DOM (una che compare con x-show non viene annunciata): vuota finche' non si digita, poi "Domande trovate: N" o il testo `empty`. --}}
+                <div class="visually-hidden" role="status" x-text="q === '' ? '' : (hits === 0 ? {{ \Illuminate\Support\Js::from((string) ($section['empty'] ?? '')) }} : {{ \Illuminate\Support\Js::from(__('pub_theme::faq.search.results')) }}.replace(':count', hits))"></div>
             @endif
         </div>
     </div>

@@ -11,6 +11,8 @@
         : array_map(static fn (int $i): string => (string) __($ns."fields.{$tone}_options.options.$i.label"), range(1, 5));
     $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $thanks = $tx('feedback.thanks', 'messages.thank_you.text');
+    $thanksStep = 3;
 @endphp
 <div class="bg-primary">
     <div class="container">
@@ -21,20 +23,16 @@
                         <div class="cmp-rating__card-first">
                             <div class="card-header border-0"><h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $tx('feedback.title', 'fields.title.label') }}</h2></div>
                             <div class="card-body">
-                                <fieldset class="rating">
-                                    <legend class="visually-hidden">{{ $tx('feedback.legend', 'fields.star.legend.label') }}</legend>
-                                    @foreach ([5 => 'first-star', 4 => 'second-star', 3 => 'third-star', 2 => 'fourth-star', 1 => 'fifth-star'] as $star => $labelId)
-                                        <input type="radio" id="star{{ $star }}a" name="ratingA" value="{{ $star }}">
-                                        <label class="full rating-star active" for="star{{ $star }}a" data-element="feedback-rate-{{ $star }}">
-                                            <svg class="icon icon-sm" role="img" aria-labelledby="{{ $labelId }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
-                                            <span class="visually-hidden" id="{{ $labelId }}">{{ filled($d('feedback.star_label')) ? sprintf($d('feedback.star_label'), $star) : __($ns.'fields.star.labels.'.$star.'.label') }}</span>
-                                        </label>
-                                    @endforeach
-                                </fieldset>
+                                @include('pub_theme::components.blocks.partials.dc-rating-stars', [
+                                    'legend' => $tx('feedback.legend', 'fields.star.legend.label'),
+                                    'starLabels' => collect(range(1, 5))->mapWithKeys(fn (int $star): array => [
+                                        $star => filled($d('feedback.star_label')) ? sprintf($d('feedback.star_label'), $star) : __($ns.'fields.star.labels.'.$star.'.label'),
+                                    ])->all(),
+                                ])
                             </div>
                         </div>
-                        <div class="cmp-rating__card-second d-none" data-step="3">
-                            <div class="card-header border-0 mb-0"><h2 class="title-medium-2-bold mb-0" id="rating-feedback">{{ $tx('feedback.thanks', 'messages.thank_you.text') }}</h2></div>
+                        <div class="cmp-rating__card-second d-none" data-step="{{ $thanksStep }}">
+                            <div class="card-header border-0 mb-0"><h2 class="title-medium-2-bold mb-0" id="rating-feedback">{{ $thanks }}</h2></div>
                         </div>
                         <div class="form-rating d-none">
                             <div class="d-none" data-step="1">
@@ -91,6 +89,9 @@
                                 <button class="btn btn-primary fw-bold btn-next" type="submit" form="rating">{{ $tx('feedback.next', 'actions.next.label') }}</button>
                             </div>
                         </div>
+                        {{-- DCP-291 (FO-5-17): regione di stato che resta nel DOM (fuori dalle card che si nascondono con `d-none`) e si riempie quando
+                             `dcRating` arriva al passo del ringraziamento (`data-step="{{ $thanksStep }}"`); una card che compare da sola non viene annunciata. --}}
+                        <div class="visually-hidden" role="status" x-text="step === {{ $thanksStep }} ? {{ Js::from($thanks) }} : ''"></div>
                     </div>
                 </div>
             </div>

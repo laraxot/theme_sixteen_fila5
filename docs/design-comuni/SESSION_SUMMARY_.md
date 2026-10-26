@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "SESSION SUMMARY "
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: SESSION_SUMMARY.md
 ---
 
 # Design Comuni Italia - Session Summary 2026-04-01

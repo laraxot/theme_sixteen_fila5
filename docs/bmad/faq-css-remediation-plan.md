@@ -10,6 +10,8 @@ links:
   design_reference: https://github.com/italia/design-comuni-pagine-statiche
   shell_contract: ./container0-index-shell-contract.md
   filament_blueprint: ./filament-blueprint.md
+updated: 2026-10-20
+qmd: "obiettivo sixteen"
 ---
 
 > **Esito (2026-10-20, [DCP-260](./stories/dcp-260-faq-composizione-blocchi-condivisi.story.md), D23).** La diagnosi di questo

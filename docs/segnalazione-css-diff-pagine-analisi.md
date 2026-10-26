@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione css diff 2026 04 07"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-css-diff-pagine-segnalazione.md
 ---
 
 # Analisi Differenze CSS/JS - Pagine Segnalazione

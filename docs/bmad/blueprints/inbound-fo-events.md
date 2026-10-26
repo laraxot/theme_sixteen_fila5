@@ -12,7 +12,7 @@ related:
   - ./inbound-fo-blog.md
   - ../content-type-contract.md
   - ../stories/inbound-fo-events-listing.story.md
-  - ../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md
+  - ../../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md
 ---
 
 # Blueprint — FO `/events`
@@ -41,7 +41,7 @@ Nessun Controller, nessun modulo `Event`.
 - Mostra `event_start_date` / `event_end_date`; Parental `type` ignorato
 - Commenti: sempre montare `CommentsWidget` (anche thread vuoto); guest
   `readOnly` + CTA login. Canon:
-  [fo-comments filament-blueprint](../../../../Modules/Comment/docs/bmad/fo-comments/filament-blueprint.md)
+  [fo-comments filament-blueprint](../../../../../Modules/Comment/docs/bmad/fo-comments/filament-blueprint.md)
 - Immagine dettaglio: `main_image_url` + blocco `image` (alt/caption/credit)
 
 ## UI (must)

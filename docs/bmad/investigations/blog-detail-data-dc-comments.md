@@ -11,7 +11,7 @@ qmd: "blog detail data-dc CommentsWidget layout app body missing"
 related:
   - ../blueprints/inbound-fo-blog.md
   - ../stories/inbound-fo-blog-listing.story.md
-  - ../../../../Modules/Comment/docs/bmad/fo-comments/decision-log.md
+  - ../../../../../Modules/Comment/docs/bmad/fo-comments/decision-log.md
 issues: []
 discussions: []
 ---

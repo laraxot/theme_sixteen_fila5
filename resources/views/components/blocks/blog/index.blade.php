@@ -12,19 +12,13 @@
     $search = trim((string) request()->query('q', ''));
     $categorySlug = trim((string) request()->query('categoria', ''));
     $featured = $composer->featuredBlogPosts(3);
-    $featuredIds = $featured->pluck('id')->filter()->values()->all();
-    // Ref lista-risorse: 3 evidenza + 6 explore. Fetch ampio, poi reject featured e take(6).
-    $posts = $composer->paginatedBlogPosts(12, $search !== '' ? $search : null, $categorySlug !== '' ? $categorySlug : null);
-    // Escludi featured dalla lista (Design Comuni). Mai transform→null senza setCollection.
-    if ($featuredIds !== [] && $search === '' && $categorySlug === '') {
-        $posts->setCollection(
-            $posts->getCollection()
-                ->reject(static fn ($item): bool => $item instanceof \Modules\Blog\Models\Article
-                    && in_array($item->getKey(), $featuredIds, true))
-                ->take(6)
-                ->values()
-        );
-    }
+    $isFiltered = $search !== '' || $categorySlug !== '';
+    // Ref lista-risorse: 3 in evidenza + elenco "Esplora". Le evidenza sono escluse nella query (non dopo la pagina),
+    // cosi' ogni pagina e' piena e il pager raggiunge tutte le notizie.
+    $featuredIds = $isFiltered ? [] : array_values(array_filter(
+        $featured->map(static fn ($item): int|string|null => $item instanceof \Modules\Blog\Models\Article && (is_int($item->getKey()) || is_string($item->getKey())) ? $item->getKey() : null)->all()
+    ));
+    $posts = $composer->paginatedBlogPosts(12, $search !== '' ? $search : null, $categorySlug !== '' ? $categorySlug : null, $featuredIds);
     $blogIndexUrl = route('container0.index', ['container0' => 'blog']);
 
     $renderCard = static function ($post) use ($blogIndexUrl): ?array {
@@ -54,10 +48,8 @@
         return compact('title', 'excerpt', 'image', 'url', 'date', 'categoryLabel', 'categoryUrl');
     };
 
-    $resultCount = method_exists($posts, 'total') ? (int) $posts->total() : $posts->count();
-    $currentPage = method_exists($posts, 'currentPage') ? (int) $posts->currentPage() : 1;
-    $lastPage = method_exists($posts, 'lastPage') ? max(1, (int) $posts->lastPage()) : 1;
-    $pageUrl = static fn (int $page): string => $posts->url($page);
+    // Il conteggio include le notizie in evidenza mostrate sopra (stessa ricerca, nessun filtro attivo).
+    $resultCount = $posts->total() + count($featuredIds);
     // Ref: "62 notizie trovate in ordine alfabetico"
     $statusLabel = $resultCount === 1
         ? '1 notizia trovata'
@@ -115,7 +107,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                     <ol class="breadcrumb p-0" data-element="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}">{{ $data['home_label'] ?? __('pub_theme::navigation.home') }}</a>
@@ -262,43 +254,12 @@
             @endforelse
         </div>
 
-        {{-- Ref lista-risorse: pagination sempre presente nella sezione explore --}}
+        {{-- Ref lista-risorse: pager Design Comuni condiviso, link a ogni pagina (LengthAwarePaginator) --}}
         <div class="row my-4">
-            <nav class="pagination-wrapper justify-content-center" aria-label="{{ $data['pagination_label'] ?? 'Paginazione delle novità' }}">
-                <ul class="pagination">
-                    <li class="page-item{{ $currentPage <= 1 ? ' disabled' : '' }}">
-                        @if ($currentPage > 1)
-                        <a class="page-link" href="{{ $pageUrl($currentPage - 1) }}" rel="prev">
-                        @else
-                        <span class="page-link" aria-disabled="true">
-                        @endif
-                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
-                            <span class="visually-hidden">Pagina precedente</span>
-                        @if ($currentPage > 1)</a>@else</span>@endif
-                    </li>
-                    @foreach (range(1, min($lastPage, 3)) as $page)
-                        <li class="page-item">
-                            @if ($page === $currentPage)
-                                <a class="page-link" href="{{ $pageUrl($page) }}" aria-current="page">
-                                    <span class="d-inline-block d-sm-none">Pagina </span>{{ $page }}
-                                </a>
-                            @else
-                                <a class="page-link" href="{{ $pageUrl($page) }}">{{ $page }}</a>
-                            @endif
-                        </li>
-                    @endforeach
-                    <li class="page-item{{ $currentPage >= $lastPage ? ' disabled' : '' }}">
-                        @if ($currentPage < $lastPage)
-                        <a class="page-link" href="{{ $pageUrl($currentPage + 1) }}" rel="next">
-                        @else
-                        <span class="page-link" aria-disabled="true">
-                        @endif
-                            <span class="visually-hidden">Pagina successiva</span>
-                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                        @if ($currentPage < $lastPage)</a>@else</span>@endif
-                    </li>
-                </ul>
-            </nav>
+            @include('pub_theme::components.blocks.partials.dc-pagination', [
+                'paginator' => $posts,
+                'label' => $data['pagination_label'] ?? 'Paginazione delle novità',
+            ])
         </div>
     </div>
 </div>

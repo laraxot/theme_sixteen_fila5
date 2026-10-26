@@ -9,6 +9,8 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "affidabilità trasparenza sicurezza dati personali GDPR cookie consenso DCP-161 DCP-153"
 related: [dcp-161, dcp-153, dcp-158]
+title: "DCP-162: affidabilità, trasparenza e sicurezza (Linee guida PA 4.2)"
+tags: [docs, sixteen, bmad]
 ---
 # DCP-162: affidabilità, trasparenza e sicurezza (Linee guida PA 4.2)
 

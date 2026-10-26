@@ -7,6 +7,8 @@ tags: [bmad, second-brain, vite, build-output, public-directory, css]
 related:
   - ../docs/second-brain-vite-public-output.md
   - ./typography-comunidesign-remediation-bmad.md
+updated: 2026-10-20
+qmd: "bmad   `laravel/themes/sixteen/public/`   build output only sixteen"
 ---
 
 # BMAD — `laravel/Themes/Sixteen/public/` — Build Output Only

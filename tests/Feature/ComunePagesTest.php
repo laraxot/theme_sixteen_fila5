@@ -33,8 +33,7 @@ test('homepage displays recent tickets', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory $ticketFactory */
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory $ticketFactory */
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Fixcity\Models\Ticket> $ticketFactory */
     $ticketFactory = Ticket::factory();
     $ticketFactory->create([
         'name' => 'Buca Stradale',
@@ -54,14 +53,12 @@ test('homepage displays recent news', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    $title = 'Notizia Test';
-    $excerpt = 'Estratto notizia test';
-
     $newsFactory = News::factory();
     $newsFactory->create([
         'title' => 'Nuovo Servizio Online',
         'excerpt' => 'Il comune lancia un nuovo servizio digitale',
     ]);
+
     $response = $this->get(route('comune.homepage'));
 
     $response->assertSee('Ultime Novità');
@@ -146,11 +143,11 @@ test('novita page displays news articles', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Fixcity\App\Models\News> $newsFactory */
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory $newsFactory */
     $newsFactory = News::factory();
     $newsFactory->count(3)->create();
 
-    $response = $this->get(route('comune.novita'));
+    $this->get(route('comune.novita'));
 });
 
 test('contatti page loads successfully', function () {

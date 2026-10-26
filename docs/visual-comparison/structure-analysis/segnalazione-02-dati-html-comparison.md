@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione 02 dati html comparison"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-02-dati-html-comparison.md
 ---
 
 # HTML Structure Comparison: segnalazione-02-dati

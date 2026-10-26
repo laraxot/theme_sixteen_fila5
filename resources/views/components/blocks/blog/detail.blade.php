@@ -17,19 +17,12 @@
 @if ($post instanceof \Modules\Blog\Models\Article)
 @php
     $title = (string) $post->getAttribute('title');
+<<<<<<< .merge_file_zL0Vz6
     $image = (string) $post->getAttribute('main_image_url');
     $blocks = $post->getAttribute('content_blocks');
     $blockCollection = is_array($blocks) ? collect($blocks) : collect();
-    $paragraphs = $blockCollection->where('type', 'paragraph')->pluck('data.text')->filter();
-    $imageBlock = $blockCollection->firstWhere('type', 'image');
-    $imageAlt = is_array($imageBlock)
-        ? (string) data_get($imageBlock, 'data.alt', $title)
-        : $title;
-    $imageCaption = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.caption', '') : '';
-    $imageCredit = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.credit', '') : '';
-    if ($image === '' && is_array($imageBlock)) {
-        $image = (string) data_get($imageBlock, 'data.url', '');
-    }
+=======
+>>>>>>> .merge_file_Jc3Ke1
     $isEvent = $container0 === 'events';
         $category = $post->category?->getAttribute('name');
     $description = (string) ($post->getAttribute('description') ?? '');
@@ -90,17 +83,64 @@
                 <p class="lead mb-3">{{ $description }}</p>
             @endif
 
+<<<<<<< .merge_file_zL0Vz6
             <div class="post-content richtext-wrapper lora mb-4">
-                @forelse ($paragraphs as $paragraph)
-                    {!! $paragraph !!}
-                @empty
+                @php($renderedContent = false)
+                @foreach ($blockCollection as $block)
+                    @continue(! is_array($block))
+                    @php
+                        $blockType = (string) data_get($block, 'type', '');
+                        $blockText = (string) data_get($block, 'data.text', '');
+                    @endphp
+                    @switch($blockType)
+                        @case('title')
+                            @php
+                                $headingLevel = (string) data_get($block, 'data.level', 'h2');
+                                $headingLevel = in_array($headingLevel, ['h2', 'h3', 'h4'], true) ? $headingLevel : 'h2';
+                                $renderedContent = $blockText !== '';
+                            @endphp
+                            @if ($blockText !== '')
+                                <{{ $headingLevel }} class="h3 mt-4 mb-3">{{ $blockText }}</{{ $headingLevel }}>
+                            @endif
+                            @break
+                        @case('paragraph')
+                            @if ($blockText !== '')
+                                @php($renderedContent = true)
+                                {!! app('Symfony\\Component\\HtmlSanitizer\\HtmlSanitizer')->sanitize($blockText) !!}
+                            @endif
+                            @break
+                        @case('image')
+                            @php
+                                $blockImage = (string) data_get($block, 'data.url', '');
+                                $blockAlt = (string) data_get($block, 'data.alt', $title);
+                                $blockCaption = (string) data_get($block, 'data.caption', '');
+                                $blockCredit = (string) data_get($block, 'data.credit', '');
+                            @endphp
+                            @if ($blockImage !== '')
+                                @php($renderedContent = true)
+                                <figure class="mb-4 blog-article-detail__media">
+                                    <img src="{{ $blockImage }}" alt="{{ $blockAlt }}" class="img-fluid w-100 rounded" width="1200" height="675" loading="lazy">
+                                    @if ($blockCaption !== '' || $blockCredit !== '')
+                                        <figcaption class="figure-caption text-center pt-3">
+                                            {{ $blockCaption }}
+                                            @if ($blockCredit !== '')
+                                                <span class="d-block text-muted small">{{ $blockCredit }}</span>
+                                            @endif
+                                        </figcaption>
+                                    @endif
+                                </figure>
+                            @endif
+                            @break
+                    @endswitch
+                @endforeach
+                @if (! $renderedContent)
                     @if ($description === '')
                         <p class="text-secondary" role="status">Contenuto non ancora disponibile.</p>
                     @endif
-                @endforelse
+                @endif
             </div>
 
-            @if ($image !== '')
+            @if ($image !== '' && ! $blockCollection->contains(fn (mixed $block): bool => is_array($block) && $block['type'] === 'image'))
                 <figure class="mb-4 blog-article-detail__media">
                     <img src="{{ $image }}" alt="{{ $imageAlt }}" class="img-fluid w-100 rounded" width="1200" height="675" fetchpriority="high">
                     @if ($imageCaption !== '' || $imageCredit !== '')
@@ -115,6 +155,13 @@
                     @endif
                 </figure>
             @endif
+=======
+            {{-- Corpo: tutti i blocchi dell'editor + figura principale (partial condiviso con events/detail). --}}
+            @include('pub_theme::components.blocks.partials.article-body', [
+                'article' => $post,
+                'emptyMessage' => $description === '' ? __('blog::front_office.body.empty') : '',
+            ])
+>>>>>>> .merge_file_Jc3Ke1
 
             <section class="mt-5 pt-4 border-top" aria-labelledby="comments-title">
                 <h2 id="comments-title" class="h3 mb-4">Commenti</h2>
@@ -124,7 +171,7 @@
                         'commentableKey' => (string) $post->getKey(),
                         'readOnly' => false,
                         'hideNotifications' => true,
-                        'noReplies' => true,
+                        'noReplies' => false,
                         'noReactions' => true,
                     ], key('blog-comments-'.$post->getKey()))
                 @endauth
@@ -134,13 +181,11 @@
                         'commentableKey' => (string) $post->getKey(),
                         'readOnly' => true,
                         'hideNotifications' => true,
-                        'noReplies' => true,
+                        'noReplies' => false,
                         'noReactions' => true,
                     ], key('blog-comments-ro-'.$post->getKey()))
                     <p class="mt-3 text-sm text-muted">
-                        <a class="underline" href="{{ route('login') }}">
-                            {{ __('comment::txt.log-in-for-comment') }}
-                        </a>
+                        <x-comment::login-link class="underline" />
                     </p>
                 @endguest
             </section>

@@ -1,3 +1,11 @@
+---
+title: "Translation key convention (five elements)"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen, bmad]
+qmd: "translation key convention (five elements) sixteen"
+---
 # Translation key convention (five elements)
 
 Every new translation key has exactly five elements:

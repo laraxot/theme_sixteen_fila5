@@ -3,6 +3,9 @@ title: "Design Comuni complete page parity catalogue"
 type: bmad-page-catalog
 status: in-progress
 source: https://italia.github.io/design-comuni-pagine-statiche/
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "purpose sixteen"
 ---
 
 # Purpose

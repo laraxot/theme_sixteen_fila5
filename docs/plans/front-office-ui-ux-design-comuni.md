@@ -1,3 +1,11 @@
+---
+title: "Front office UI/UX Design Comuni"
+type: note
+status: draft
+updated: 2026-10-22
+tags: [docs, sixteen, plans]
+qmd: "front office ui/ux design comuni sixteen"
+---
 # Front office UI/UX Design Comuni
 
 ## Objective

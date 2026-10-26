@@ -16,19 +16,6 @@
 @if ($event instanceof \Modules\Blog\Models\Article)
 @php
     $title = (string) $event->getAttribute('title');
-    $image = (string) $event->getAttribute('main_image_url');
-    $blocks = $event->getAttribute('content_blocks');
-    $blockCollection = is_array($blocks) ? collect($blocks) : collect();
-    $paragraphs = $blockCollection->where('type', 'paragraph')->pluck('data.text')->filter();
-    $imageBlock = $blockCollection->firstWhere('type', 'image');
-    $imageAlt = is_array($imageBlock)
-        ? (string) data_get($imageBlock, 'data.alt', $title)
-        : $title;
-    $imageCaption = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.caption', '') : '';
-    $imageCredit = is_array($imageBlock) ? (string) data_get($imageBlock, 'data.credit', '') : '';
-    if ($image === '' && is_array($imageBlock)) {
-        $image = (string) data_get($imageBlock, 'data.url', '');
-    }
     $category = $event->category?->getAttribute('name');
     $start = filled($event->event_start_date)
         ? \Illuminate\Support\Carbon::parse($event->event_start_date)
@@ -90,27 +77,8 @@
                 <p class="lead mb-3">{{ $event->getAttribute('description') }}</p>
             @endif
 
-            <div class="event-content post-content richtext-wrapper lora mb-4">
-                @foreach ($paragraphs as $paragraph)
-                    {!! $paragraph !!}
-                @endforeach
-            </div>
-
-            @if ($image !== '')
-                <figure class="mb-4 blog-article-detail__media">
-                    <img src="{{ $image }}" alt="{{ $imageAlt }}" class="img-fluid w-100 rounded" width="1200" height="675" fetchpriority="high">
-                    @if ($imageCaption !== '' || $imageCredit !== '')
-                        <figcaption class="figure-caption text-center pt-3">
-                            @if ($imageCaption !== '')
-                                {{ $imageCaption }}
-                            @endif
-                            @if ($imageCredit !== '')
-                                <span class="d-block text-muted small">{{ $imageCredit }}</span>
-                            @endif
-                        </figcaption>
-                    @endif
-                </figure>
-            @endif
+            {{-- Corpo: tutti i blocchi dell'editor + figura principale (partial condiviso con blog/detail). --}}
+            @include('pub_theme::components.blocks.partials.article-body', ['article' => $event])
 
             <section class="mt-5 pt-4 border-top" aria-labelledby="comments-title">
                 <h2 id="comments-title" class="h3 mb-4">Commenti</h2>
@@ -120,7 +88,7 @@
                         'commentableKey' => (string) $event->getKey(),
                         'readOnly' => false,
                         'hideNotifications' => true,
-                        'noReplies' => true,
+                        'noReplies' => false,
                         'noReactions' => true,
                     ], key('event-comments-'.$event->getKey()))
                 @endauth
@@ -130,13 +98,11 @@
                         'commentableKey' => (string) $event->getKey(),
                         'readOnly' => true,
                         'hideNotifications' => true,
-                        'noReplies' => true,
+                        'noReplies' => false,
                         'noReactions' => true,
                     ], key('event-comments-ro-'.$event->getKey()))
                     <p class="mt-3 text-sm text-muted">
-                        <a class="underline" href="{{ route('login') }}">
-                            {{ __('comment::txt.log-in-for-comment') }}
-                        </a>
+                        <x-comment::login-link class="underline" />
                     </p>
                 @endguest
             </section>

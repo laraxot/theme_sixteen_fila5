@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "accessibilita obiettivi annuali 31 marzo contratti nullita linee guida design siti pa agid l 4 2004 dl 179 2012 articolo 9"
 related: [dcp-112, dcp-132, dcp-143]
+tags: [docs, sixteen, bmad]
 ---
 # DCP-158: accessibilita': obiettivi annuali, clausole contrattuali e linee guida di design AgID
 

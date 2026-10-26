@@ -2,6 +2,10 @@
 id: inbound-plan
 type: plan
 status: draft
+title: "Piano inbound marketing (studio AFC + AFerrari)"
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "piano inbound marketing (studio afc + aferrari) sixteen"
 ---
 # Piano inbound marketing (studio AFC + AFerrari)
 ## Blog (AFC: leadership, comunicazione; AFerrari: strategia, AI, governance)

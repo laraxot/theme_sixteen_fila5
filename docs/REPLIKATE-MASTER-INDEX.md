@@ -32,7 +32,7 @@ status: draft
    - Actionable fixes with priority levels
    - ⬅️ **START HERE for Phase 2**
 
-3. **[Design Comuni Navigation Hub](./design-comuni/00-INDEX.md)**
+3. **[Design Comuni Navigation Hub](./design-comuni/00-index.md)**
    - Status dashboard
    - Quick links
    - Related documentation
@@ -223,7 +223,7 @@ npm run build && npm run copy && php artisan optimize:clear
 - [bashscripts/design-analysis](./../../bashscripts/design-analysis/README.md)
 
 **Navigating the Project**:
-- [Design Comuni Index](./design-comuni/00-INDEX.md)
+- [Design Comuni Index](./design-comuni/00-index.md)
 
 ### By Phase
 

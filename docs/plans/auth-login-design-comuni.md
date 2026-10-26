@@ -10,6 +10,7 @@ related:
   - ../second-brain/designcomuni-auth-blog.md
   - ../auth/login-ux-fixes.md
   - ../../../../Modules/User/docs/wiki/concepts/login-page-design-comuni.md
+type: note
 ---
 
 # Login — perché non è Design Comuni

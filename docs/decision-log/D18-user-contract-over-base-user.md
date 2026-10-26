@@ -4,6 +4,7 @@ type: decision
 status: active
 updated: 2026-10-18
 tags: [bmad, second-brain, user, theme, contracts]
+qmd: "d18   usercontract over baseuser in theme boundaries sixteen"
 ---
 
 # D18 — UserContract over BaseUser in theme boundaries

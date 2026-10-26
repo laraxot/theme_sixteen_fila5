@@ -1,3 +1,11 @@
+---
+title: "Verification recovery"
+type: note
+status: draft
+updated: 2026-10-26
+tags: [docs, sixteen, bmad]
+qmd: "verification recovery sixteen"
+---
 # Verification recovery
 
 Purpose: make project verification reproducible and preserve observed defects and corrections.

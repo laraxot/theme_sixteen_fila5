@@ -2,7 +2,8 @@
 {{--
     Pagina "Vivere il comune" Design Comuni (riferimento sito/eventi.html): breadcrumb, hero con immagine, due sezioni di card
     (eventi con data a calendario, luoghi) e i partial condivisi rating e contatti. Testi, immagini, card e pulsanti arrivano dal JSON
-    (tests.eventi.json); `sections[].style` sceglie lo sfondo (grey = fascia grigia, plain). Le immagini stanno in
+    (tests.eventi.json); `sections[].style` sceglie lo sfondo (grey = fascia grigia, plain); `sections[].pagination`
+    (LengthAwarePaginator, opzionale) aggiunge il pager condiviso partials/dc-pagination. Le immagini stanno in
     public/design-comuni/assets/images. Stili: resources/css/design-comuni/ (scope body:has(page-content tests.*)).
 --}}
 @php
@@ -46,7 +47,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
-                <nav class="breadcrumb-container" aria-label="breadcrumb"><ol class="breadcrumb p-0" data-element="breadcrumb">
+                <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}"><ol class="breadcrumb p-0" data-element="breadcrumb">
                     @foreach ($d('breadcrumb.items', []) as $crumb)
                         <li class="breadcrumb-item"><a href="{{ $crumb['url'] ?? '#' }}">{{ $crumb['label'] ?? '' }}</a><span class="separator">/</span></li>
                     @endforeach
@@ -148,6 +149,14 @@
             </div>
             @endif
         </div>
+        @if (($section['pagination'] ?? null) instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator)
+            <div class="row my-4">
+                @include('pub_theme::components.blocks.partials.dc-pagination', [
+                    'paginator' => $section['pagination'],
+                    'label' => $section['pagination_label'] ?? $section['title'] ?? '',
+                ])
+            </div>
+        @endif
     </div>
     @if (($section['style'] ?? '') === 'grey')</div> @endif
 @endforeach

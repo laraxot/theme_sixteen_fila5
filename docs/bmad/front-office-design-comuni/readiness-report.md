@@ -3,6 +3,9 @@ title: "BMAD readiness gate — FixCity front office DesignComuni"
 type: readiness-report
 status: pass-with-follow-ups
 date: 2026-10-11
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "verdict sixteen"
 ---
 
 # Verdict

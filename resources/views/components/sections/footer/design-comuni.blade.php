@@ -1,7 +1,9 @@
 @props(['blocks' => []])
 {{--
     Footer Design Comuni — vestito.
-    SSoT: <x-section slug="footer"> → sections/footer.json (brand, groups, contact, legal, social).
+    SSoT: <x-section slug="footer"> → sections/footer.json (brand, groups, contact.title/labels/links, legal).
+    Recapiti e social dell'ente: UNICA sorgente config('ente') via GetEnteDataAction (DCP-289). Un dato mancante nasconde la sua riga; senza
+    nessun recapito sparisce anche il titolo "Contatti"; senza social sparisce la colonna "Seguici su".
     Qui solo markup + FrontofficeUrl; niente copy istituzionale hardcodato (D11 / DCP-198 A5).
 --}}
 @php
@@ -56,7 +58,22 @@
     $contactLinks = $activeLinks($d('contact.links', []));
     $legalLinks = $activeLinks($d('legal_links', []));
     $bottomLinks = $activeLinks($d('footer_bottom_links', []));
-    $socialLinks = $activeLinks($d('social', []));
+    $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
+    $socialLinks = $ente->social;
+    // righe dei recapiti dell'ente, solo quelle con il dato; tel: e mailto: li costruisce EnteData::link() (cifre / indirizzo validato)
+    $contactRows = [];
+    foreach (['address', 'hours', 'phone', 'toll_free', 'email', 'pec', 'tax_code', 'vat', 'dpo_email'] as $field) {
+        $link = $ente->link($field);
+        $text = $link['label'] ?? (string) data_get($ente, $field, '');
+        if ($text !== '') {
+            $label = $field === 'address' ? '' : (string) $d('contact.labels.'.$field);
+            $contactRows[] = [
+                'label' => $field === 'dpo_email' && $ente->dpo_name !== '' ? $label.' ('.$ente->dpo_name.')' : $label,
+                'text' => $text,
+                'href' => $link['href'] ?? null,
+            ];
+        }
+    }
     $euSrc = trim((string) $d('eu_logo.src', ''));
     $half = max(1, (int) ceil(count($serviceLinks) / 2));
 @endphp
@@ -135,25 +152,20 @@
                         @endif
                     </div>
                 @endif
-                @if ($contactLinks !== [] || $legalLinks !== [] || filled($d('contact.address')) || filled($d('contact.office')))
+                @if ($contactRows !== [] || $contactLinks !== [] || $legalLinks !== [])
                     <div class="col-md-9 mt-md-4 footer-items-wrapper">
-                        <h4 class="footer-heading-title">{{ $d('contact.title') }}</h4>
+                        @if ($contactRows !== [])
+                            <h4 class="footer-heading-title">{{ $d('contact.title') }}</h4>
+                        @endif
                         <div class="row">
-                            @if (filled($d('contact.address')) || filled($d('contact.office')) || $d('contact.details', []) !== [])
+                            @if ($contactRows !== [])
                                 <div class="col-md-4">
                                     <p class="footer-info">
-                                        @if (filled($d('contact.address')))
-                                            {!! $lines((string) $d('contact.address')) !!}<br><br>
-                                        @endif
-                                        @if (filled($d('contact.office')))
-                                            @php $officeHref = $attr($d('contact.office_url')); @endphp
-                                            @if ($officeHref !== '')
-                                                <a{!! $officeHref !!}>{{ $d('contact.office') }}</a>
-                                            @else
-                                                <span>{{ $d('contact.office') }}</span>
-                                            @endif
-                                        @endif
-                                        @foreach ($d('contact.details', []) as $detail)<br>{{ $detail }}@endforeach
+                                        @foreach ($contactRows as $row)
+                                            @if (! $loop->first)<br>@endif
+                                            @if ($row['label'] !== ''){{ $row['label'] }}: @endif
+                                            @if ($row['href'] !== null)<a href="{{ $row['href'] }}">{{ $row['text'] }}</a>@else{!! $lines($row['text']) !!}@endif
+                                        @endforeach
                                     </p>
                                 </div>
                             @endif
@@ -176,7 +188,7 @@
                         <h4 class="footer-heading-title">{{ $d('social_title') }}</h4>
                         <ul class="list-inline text-start social">
                             @foreach ($socialLinks as $social)
-                                <li class="list-inline-item"><a class="p-1 text-white"{!! $attr($social['url'] ?? '') !!} target="_blank" rel="noopener noreferrer"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon'] ?? 'it-rss') }}"></use></svg><span class="visually-hidden">{{ $social['label'] ?? '' }}</span></a></li>
+                                <li class="list-inline-item"><a class="p-1 text-white" href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer"><svg class="icon icon-sm icon-white align-top"><use xlink:href="{{ $icon($social['icon'] ?? 'it-rss') }}"></use></svg><span class="visually-hidden">{{ $social['label'] ?? '' }}</span></a></li>
                             @endforeach
                         </ul>
                     </div>

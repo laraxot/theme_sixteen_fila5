@@ -1,3 +1,11 @@
+---
+title: "BMAD — Convenzione Chiavi Traduzione (5-elementi)"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen, bmad]
+qmd: "bmad   convenzione chiavi traduzione (5-elementi) sixteen"
+---
 # BMAD — Convenzione Chiavi Traduzione (5-elementi)
 
 ## Regola rigida

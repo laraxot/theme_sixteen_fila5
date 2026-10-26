@@ -1,3 +1,11 @@
+---
+title: "Brainstorming — Blog, Eventi, Commenti (demo realistica)"
+type: note
+status: draft
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "brainstorming   blog, eventi, commenti (demo realistica) sixteen"
+---
 # Brainstorming — Blog, Eventi, Commenti (demo realistica)
 
 ## Contesto

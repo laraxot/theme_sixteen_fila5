@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione privacy parity audit"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-privacy-parity-audit.md
 ---
 
 # segnalazione privacy parity audit

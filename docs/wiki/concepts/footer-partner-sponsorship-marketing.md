@@ -4,6 +4,7 @@ type: concept
 status: decision-input
 updated: 2026-10-15
 tags: [footer, marketing, sponsorship, bmad, sixteen]
+qmd: "footer: partner sì, banner no sixteen"
 ---
 
 # Footer: partner sì, banner no

@@ -10,6 +10,7 @@ related:
   - ./gtm-agent-tooling.md
   - ../bmad/homepage-guest-visual-contract.md
   - ../../../../Modules/Fixcity/docs/bmad/homepage-guest-expected-visual.md
+status: draft
 ---
 
 # Playbook: homepage civica che converte (tutti i temi)

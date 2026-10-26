@@ -19,6 +19,9 @@
 
         return is_string($value) ? $value : $default;
     };
+    // Dopo un "Avanti" respinto (campi mancanti) il focus va al primo campo non valido visibile: ha `aria-invalid` e `aria-describedby` verso il suo errore, cosi'
+    // tastiera e screen reader sentono cosa correggere (DCP-286, FO-3-17/FO-3-23). Il contratto `x-on:click` resta `requestNextStep()` come prima della coda `await`.
+    $focusFirstInvalid = "await requestNextStep(); await \$nextTick(); [...\$root.querySelectorAll('[aria-invalid=true]')].find((field) => field.offsetParent !== null)?.focus();";
     $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $childSchema = $getChildSchema()->gap(false)->extraAttributes(['class' => 'd-block']); // niente gap (24px) ne' display:grid (margini che non collassano): vedi dc-section-card
     $nav = [
@@ -48,7 +51,7 @@
                         <svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon('it-chevron-left') }}"></use></svg>
                         <span class="text-button-sm t-primary">{{ $t('fixcity::ticket_form.nav.back', 'Indietro') }}</span>
                     </button>
-                    <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm" x-on:click="requestNextStep()">
+                    <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm" x-on:click="{{ $focusFirstInvalid }}">
                         <span class="text-button-sm">{{ $t('fixcity::ticket_form.nav.next', 'Avanti') }}</span>
                         <svg class="icon icon-white icon-sm" aria-hidden="true"><use href="{{ $icon('it-chevron-right') }}"></use></svg>
                     </button>

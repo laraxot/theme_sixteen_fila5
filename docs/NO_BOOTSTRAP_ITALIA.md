@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "NO BOOTSTRAP ITALIA"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: no-bootstrap-italia.md
 ---
 
 # 🚫 NO Bootstrap Italia - Tailwind + Alpine ONLY

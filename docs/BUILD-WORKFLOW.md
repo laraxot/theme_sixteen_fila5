@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "BUILD WORKFLOW"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: build-workflow.md
 ---
 
 # Sixteen Theme Build Workflow

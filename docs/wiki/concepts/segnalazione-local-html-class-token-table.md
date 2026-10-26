@@ -20,7 +20,8 @@ related:
   - "./segnalazione-html-samples-class-token-extraction.md"
   - "../entities/bootstrap-italia-class-inventory.md"
   - "../../../../../../_bmad-output/implementation-artifacts/7-105-design-comuni-segnalazione-static-pages-bootstrap-to-tailwind-class-map.md"
-status: draft
+status: superseded
+superseded_by: ticket-local-html-class-token-table.md
 ---
 
 # Tabella token `class=` (rigenerabile)

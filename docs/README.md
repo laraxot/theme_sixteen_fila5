@@ -18,7 +18,7 @@ status: active
 
 - [Verified recovery, accessibility corrections and evidence](./bmad/verification-recovery.md)
 
-- [Documentation index](./INDEX.md)
+- [Documentation index](./index.md)
 - [Documentation governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md)
 - [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
 - [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)

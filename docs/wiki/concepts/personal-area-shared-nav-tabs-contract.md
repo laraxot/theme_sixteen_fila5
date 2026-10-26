@@ -11,6 +11,7 @@ related:
   - ../../bmad/stories/dcp-111-area-personale-notifiche-e-impostazioni.story.md
   - ../../bmad/filament-blueprint.md
   - ../../rules/reusable-components.md
+status: draft
 ---
 
 # Contratto: tab area personale identici su tutte le pagine

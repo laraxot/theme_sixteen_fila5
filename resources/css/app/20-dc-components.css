@@ -78,6 +78,12 @@
   cursor: pointer;
 }
 
+/* Il `box-shadow: none !important` qui sopra (0,5,0) batteva l'anello di Bootstrap Italia `:focus:not(.focus--mouse)` (0,4,1): focus invisibile
+   (FO-5-04). Stesso anello nero 3px del resto del sito, con `!important` perche' deve battere quello di sopra. */
+.page-content[data-dc] .cmp-accordion.faq .accordion-button:focus:not(.focus--mouse) {
+  box-shadow: 0 0 0 3px #000 !important;
+}
+
 .page-content[data-dc] .cmp-accordion.faq .accordion-button::after,
 .page-content[data-dc] .cmp-accordion.faq .accordion-button::-webkit-details-marker {
   display: none !important;
@@ -193,6 +199,49 @@
 .page-content[data-dc] .cmp-rating fieldset.rating label:hover ~ label svg,
 .page-content[data-dc] .cmp-rating fieldset.rating input:checked ~ label svg {
   fill: var(--bs-primary, #007a52);
+}
+
+/*
+  Stelle con il DOM da 1 a 5 (partials/dc-rating-stars, DCP-291 FO-5-17): il riferimento le mette da 5 a 1 e le inverte con row-reverse,
+  cosi' frecce e lettore di schermo vanno al contrario di come si vedono. Ogni radio sta con la sua label in un `.dc-rating-stars__item`:
+  le regole compilate di Bootstrap Italia (`.rating > label`, `.rating > input:checked ~ label`, `label:hover ~ label`) assumono l'ordine
+  inverso e con il DOM 1..5 colorerebbero le stelle SOPRA quella scelta; con il contenitore per stella non si applicano piu'.
+  Il riempimento "fino alla stella" e' a ritroso: `:has()` sugli item successivi. Prefisso a 5 classi per battere `fieldset.rating label svg` sopra.
+*/
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item label {
+  display: block;
+  margin: 0;
+  padding-right: 2px;
+}
+
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item svg {
+  display: block;
+  /* #7d97b0 su bianco = 3.03:1, il minimo di 1.4.11 per l'oggetto grafico (stesso colore del riferimento) */
+  fill: #7d97b0;
+  transform-origin: 50%;
+  transition: transform 0.1s;
+}
+
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item label:hover svg {
+  transform: scale(1.1);
+}
+
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item:hover svg,
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item:has(~ .dc-rating-stars__item:hover) svg,
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item:has(input:checked) svg,
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item:has(~ .dc-rating-stars__item input:checked) svg {
+  fill: var(--bs-primary, #007a52);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item svg {
+    transition: none;
+  }
 }
 
 .page-content[data-dc] .cmp-contacts .contact-list {

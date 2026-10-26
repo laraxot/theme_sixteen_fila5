@@ -3,6 +3,10 @@ title: "Prevenzione — convenzioni migrazione XotBaseMigration"
 status: active
 decision: D34
 related_initiative: kp-174d15a58ff94901b2b0df0d86b8907a
+type: story
+updated: 2026-10-18
+tags: [docs, sixteen, bmad]
+qmd: "come non commettere più errori nelle migrazioni fixcity sixteen"
 ---
 
 # Come non commettere più errori nelle migrazioni Fixcity

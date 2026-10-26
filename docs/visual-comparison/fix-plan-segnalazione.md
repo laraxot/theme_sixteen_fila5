@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "fix plan segnalazione"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: fix-plan-ticket.md
 ---
 
 # Visual Parity Fix Plan - Segnalazione Pages

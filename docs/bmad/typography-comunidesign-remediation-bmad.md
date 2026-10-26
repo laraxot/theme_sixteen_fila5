@@ -14,7 +14,7 @@ sources:
 related:
   - ./filament-blueprint.md
   - ./front-office-design-comuni/DESIGN.md
-  - ../docs/bmad/second-brain-disclaimer-integration.md
+  - second-brain-disclaimer-integration.md
 ---
 
 # BMAD — Sixteen Typography Remediation (Comunidesign + Design Comuni)

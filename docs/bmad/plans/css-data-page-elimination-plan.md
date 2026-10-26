@@ -267,12 +267,12 @@ If critical regression:
 
 ## References
 
-- [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md)
-- [BODY_CLASS_RULE.md](../BODY_CLASS_RULE.md)
-- [JSON_DRIVEN_PHILOSOPHY.md](../design-comuni/JSON_DRIVEN_PHILOSOPHY.md)
-- [TAILWIND_ALPINE_RULES.md](../design-comuni/TAILWIND-ALPINE-RULES.md)
+- [CSS-SCOPING-RULE.md](../../architecture/CSS-SCOPING-RULE.md)
+- [BODY_CLASS_RULE.md](../../BODY_CLASS_RULE.md)
+- [JSON_DRIVEN_PHILOSOPHY.md](../../design-comuni/JSON_DRIVEN_PHILOSOPHY.md)
+- [TAILWIND_ALPINE_RULES.md](../../design-comuni/TAILWIND-ALPINE-RULES.md)
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/)
-- [Decision Log: D16/DCP-32](../bmad/decisions/parity-root-cause-and-guardrails.md)
+- [Decision Log: D16/DCP-32](../decisions/parity-root-cause-and-guardrails.md)
 
 ---
 
