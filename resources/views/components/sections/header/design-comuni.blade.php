@@ -74,7 +74,7 @@
                         @endif
                         <div class="it-header-slim-right-zone" role="navigation">
                             <div class="nav-item dropdown">
-                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-controls="languages">
                                     <span class="visually-hidden">{{ $languageLabel }}</span>
                                     <span>{{ collect($d('languages.items', []))->firstWhere('locale', $locale)['label'] ?? '' }}</span>
                                     <svg class="icon"><use href="{{ $icon('it-expand') }}"></use></svg>
@@ -97,7 +97,7 @@
                             </div>
                             @if ($isSignedIn)
                                 <div class="it-user-wrapper nav-item dropdown">
-                                    <button type="button" class="btn btn-primary btn-icon btn-full" id="header-user-toggle" data-bs-toggle="dropdown" aria-label="{{ $d('account.signed_in.name') }}" aria-expanded="false" aria-controls="header-user-menu" aria-haspopup="true">
+                                    <button type="button" class="btn btn-primary btn-icon btn-full" id="header-user-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="header-user-menu" aria-haspopup="true">
                                         <span class="rounded-icon" aria-hidden="true">
                                             @if ($avatarUrl !== '')
                                                 <img src="{{ $avatarUrl }}" class="border rounded-circle icon-white" alt="" width="20" height="20" loading="lazy">
@@ -105,7 +105,7 @@
                                                 <strong class="user-initial-fallback fw-bold text-uppercase">{{ $userInitial !== '' ? $userInitial : mb_strtoupper(mb_substr((string) $d('account.signed_in.name'), 0, 1)) }}</strong>
                                             @endif
                                         </span>
-                                        <span class="d-none d-lg-block">{{ $displayName }}</span>
+                                        <span class="dc-header-user-name">{{ $displayName }}</span>
                                         <svg class="icon icon-white d-none d-lg-block" aria-hidden="true"><use href="{{ $icon('it-expand') }}"></use></svg>
                                     </button>
                                     <div class="dropdown-menu" id="header-user-menu" role="menu" aria-labelledby="header-user-toggle">

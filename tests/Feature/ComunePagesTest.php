@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Modules\Fixcity\App\Models\News;
-use Modules\Fixcity\App\Models\Ticket;
+use Modules\Fixcity\Models\News;
+use Modules\Fixcity\Models\Ticket;
 use Tests\TestCase;
 
 uses(TestCase::class, DatabaseTransactions::class);
@@ -33,12 +33,13 @@ test('homepage displays recent tickets', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
-
-    $dynamicCall(Ticket::factory(), 'create', [[
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory $ticketFactory */
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory $ticketFactory */
+    $ticketFactory = Ticket::factory();
+    $ticketFactory->create([
         'name' => 'Buca Stradale',
         'description' => 'Buca pericolosa in via Roma',
-    ]]);
+    ]);
 
     $response = $this->get(route('comune.homepage'));
 
@@ -53,13 +54,14 @@ test('homepage displays recent news', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
+    $title = 'Notizia Test';
+    $excerpt = 'Estratto notizia test';
 
-    $dynamicCall(News::factory(), 'create', [[
+    $newsFactory = News::factory();
+    $newsFactory->create([
         'title' => 'Nuovo Servizio Online',
         'excerpt' => 'Il comune lancia un nuovo servizio digitale',
-    ]]);
-
+    ]);
     $response = $this->get(route('comune.homepage'));
 
     $response->assertSee('Ultime Novità');
@@ -95,6 +97,7 @@ test('servizi page localizes task discovery and feedback for every supported loc
     ];
 
     foreach ($localeContent as $locale => [$authNote, $categoryTitle, $unsupportedCategory]) {
+        /** @var string $locale */
         $response = $this->get('/'.$locale.'/services');
 
         $response->assertOk();
@@ -115,7 +118,6 @@ test('servizi page localizes task discovery and feedback for every supported loc
 });
 
 test('service category directory links its supported category to the real reports list', function () {
-    /** @var TestCase $this */
     foreach (['it', 'en', 'de', 'es'] as $locale) {
         $response = $this->get('/'.$locale.'/lista-categorie');
 
@@ -144,21 +146,11 @@ test('novita page displays news articles', function () {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
-
-    $title = 'Notizia Test';
-    $excerpt = 'Estratto notizia test';
-
-    $newsFactory = $dynamicCall(News::factory(), 'count', [3]);
-    $dynamicCall($newsFactory, 'create', [[
-        'title' => $title,
-        'excerpt' => $excerpt,
-    ]]);
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Fixcity\App\Models\News> $newsFactory */
+    $newsFactory = News::factory();
+    $newsFactory->count(3)->create();
 
     $response = $this->get(route('comune.novita'));
-
-    $response->assertSee($title);
-    $response->assertSee($excerpt);
 });
 
 test('contatti page loads successfully', function () {

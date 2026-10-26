@@ -116,7 +116,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerMenuSystem(): void
     {
         // Singleton per il Menu Builder
-        $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction());
+        $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction);
 
         // Alias per backward compatibility
         $this->app->alias(MenuBuilderAction::class, 'sixteen.menu');
@@ -129,7 +129,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Theme Service con dependency injection del MenuBuilder
         $this->app->singleton('sixteen.theme', function ($app) {
-            return new ThemeAdapter();
+            return new ThemeAdapter;
         });
 
         // Alias per il ThemeService
@@ -164,12 +164,12 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Register SPID Auth Service
         $this->app->singleton(SpidAuthAction::class, function ($app) {
-            return new SpidAuthAction();
+            return new SpidAuthAction;
         });
 
         // Register CIE Auth Service
         $this->app->singleton(CieAuthAction::class, function ($app) {
-            return new CieAuthAction();
+            return new CieAuthAction;
         });
 
         // Aliases for easier access

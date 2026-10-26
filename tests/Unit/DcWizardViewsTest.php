@@ -473,7 +473,7 @@ it('escapes headings, descriptions, ids and language texts in both views', funct
 function dcwViewNames(): array
 {
     $datasets = [];
-    foreach ((new Finder())->files()->in(dirname(__DIR__, 2).'/resources/views/components/wizard')->name(['dc-section-card.blade.php', 'data-step.blade.php']) as $file) {
+    foreach ((new Finder)->files()->in(dirname(__DIR__, 2).'/resources/views/components/wizard')->name(['dc-section-card.blade.php', 'data-step.blade.php']) as $file) {
         $datasets[$file->getFilename()] = [str_replace('.blade.php', '', $file->getFilename())];
     }
 

@@ -1,0 +1,110 @@
+[
+  {
+    "width": 375,
+    "path": "/it",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 375,
+    "path": "/it/auth/login",
+    "auth": false,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 375,
+    "path": "/it/tickets/create",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 375,
+    "path": "/it/area-personale/impostazioni",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 768,
+    "path": "/it",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 768,
+    "path": "/it/auth/login",
+    "auth": false,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 768,
+    "path": "/it/tickets/create",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 768,
+    "path": "/it/area-personale/impostazioni",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 1440,
+    "path": "/it",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 1440,
+    "path": "/it/auth/login",
+    "auth": false,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 1440,
+    "path": "/it/tickets/create",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  },
+  {
+    "width": 1440,
+    "path": "/it/area-personale/impostazioni",
+    "auth": true,
+    "status": 200,
+    "overflow": 0,
+    "h1": 1,
+    "main": 1
+  }
+]
