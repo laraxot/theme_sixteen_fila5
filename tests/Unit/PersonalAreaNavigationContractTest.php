@@ -9,7 +9,7 @@ test('all personal area pages share the same localized navigation tabs via share
 
     $heading = file_get_contents($root.'/personal-area/heading.blade.php');
     expect($heading)
-        ->toContain("components.blocks.personal-area.navigation")
+        ->toContain('components.blocks.personal-area.navigation')
         ->toContain('col-12 p-0');
 
     $navigation = file_get_contents($root.'/personal-area/navigation.blade.php');
@@ -18,7 +18,7 @@ test('all personal area pages share the same localized navigation tabs via share
         ->toContain('personalAreaSeguite')
         ->toContain('personalAreaNotifiche')
         ->toContain('personalAreaImpostazioni')
-        ->toContain("personal_area.nav.");
+        ->toContain('personal_area.nav.');
 
     foreach ([
         'personal-area-practices/heading.blade.php' => 'personal-area.heading',

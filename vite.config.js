@@ -153,6 +153,7 @@ export default defineConfig({
     ],
 
     resolve: {
+        dedupe: ['lit', 'leaflet', 'leaflet.heat', 'leaflet.markercluster'],
         alias: {
             '@': resolve(import.meta.dirname, 'resources'),
             '@modules': resolve(import.meta.dirname, '../../Modules'),
