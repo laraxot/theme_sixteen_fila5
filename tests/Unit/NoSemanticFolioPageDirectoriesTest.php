@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use function Safe\glob;
+use function Safe\scandir;
+
 /**
  * Il tema veste. Il dominio sta nel JSON CMS, non in una cartella Folio.
  * pages/domande-frequenti/ e pages/profile/ sono sbagliati: Folio darebbe a
@@ -16,8 +19,10 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
     $allowed = ['[container0]', 'auth', 'tests'];
 
+    /** @var array<int, string> */
+    $scanned = scandir($pagesRoot) ?: [];
     $found = [];
-    foreach (scandir($pagesRoot) ?: [] as $entry) {
+    foreach ($scanned as $entry) {
         if ($entry === '.' || $entry === '..') {
             continue;
         }
@@ -56,8 +61,10 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
 test('in radice di pages ammette solo index.blade.php', function (): void {
     $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
 
+    /** @var array<int, string> */
+    $scanned = scandir($pagesRoot) ?: [];
     $files = [];
-    foreach (scandir($pagesRoot) ?: [] as $entry) {
+    foreach ($scanned as $entry) {
         if (is_file($pagesRoot.'/'.$entry) && $entry !== '.gitkeep') {
             $files[] = $entry;
         }

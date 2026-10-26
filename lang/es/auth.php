@@ -9,7 +9,10 @@ declare(strict_types=1);
  * User: «ricordati che il sito e' in multilingua e le chiavi delle
  * traduzioni seguono delle convenzioni».
  */
-return array_replace_recursive(require __DIR__.'/../en/auth.php', [
+/** @var array<string, mixed> $base */
+$base = require __DIR__.'/../en/auth.php';
+
+return array_replace_recursive($base, [
     'logout' => [
         'title' => 'Cerrar sesión',
         'confirm_message' => '¿Seguro que quieres cerrar la sesión?',

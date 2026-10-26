@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\Assert;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
@@ -396,7 +397,9 @@ test('component prop defaults', function (): void {
 
 test('complete form integration', function (): void {
     /** @var TestCase $this */
-    $view = $this->view('tests.bootstrap-italia-form-integration');
+    /** @var view-string $viewName */
+    $viewName = 'tests.bootstrap-italia-form-integration';
+    $view = $this->view($viewName);
 
     // Should contain multiple Bootstrap Italia components
     $view->assertSee('form-select'); // Select component

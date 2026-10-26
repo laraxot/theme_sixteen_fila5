@@ -13,7 +13,9 @@ uses(TestCase::class);
  * a ogni larghezza, quindi non puo' dipendere dallo span responsive.
  */
 it('gives the guest login call to action an accessible name at every width', function (string $partial): void {
-    $html = view('pub_theme::components.sections.header.partials.'.$partial)->render();
+    /** @var view-string $viewName */
+    $viewName = 'pub_theme::components.sections.header.partials.'.$partial;
+    $html = view($viewName)->render();
     $link = HTMLDocument::createFromString('<body>'.$html.'</body>', LIBXML_NOERROR)->querySelector('a[data-element="personal-area-login"]');
 
     expect($link)->not->toBeNull();

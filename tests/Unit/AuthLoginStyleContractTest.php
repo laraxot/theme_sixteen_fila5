@@ -56,7 +56,7 @@ test('login paints the Filament password reveal and remember checkbox inside the
 
     // Stesso contratto nel foglio DC (regole già scoped, non isolate dal PostCSS legacy).
     expect($dcComponents)
-        ->toContain(".page-content[data-dc] .auth-login-card input.fi-checkbox-input")
+        ->toContain('.page-content[data-dc] .auth-login-card input.fi-checkbox-input')
         ->toMatch('/appearance:\s*auto\s*!important/')
         ->toMatch('/-webkit-appearance:\s*checkbox\s*!important/');
 });

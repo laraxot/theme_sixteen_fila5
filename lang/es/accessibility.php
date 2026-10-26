@@ -8,9 +8,6 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Inicio',
-    'page' => [
-        'title' => ['text' => 'Declaración de accesibilidad'],
-    ],
     'page' => ['title' => ['text' => 'Declaración de accesibilidad']],
     'title' => [
         'text' => 'Declaración de accesibilidad',

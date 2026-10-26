@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Themes\Sixteen\Enums\MunicipalLocationCategoryEnum;
-use Themes\Sixteen\Enums\MunicipalLocationServiceEnum;
 use Themes\Sixteen\Enums\MunicipalLocationTypeEnum;
 
 /**
