@@ -1,3 +1,11 @@
+---
+title: "BMAD / Blueprint — indice pubblico eventi"
+type: note
+status: draft
+updated: 2026-10-16
+tags: [docs, sixteen, bmad]
+qmd: "bmad / blueprint   indice pubblico eventi sixteen"
+---
 # BMAD / Blueprint — indice pubblico eventi
 
 ## Intento

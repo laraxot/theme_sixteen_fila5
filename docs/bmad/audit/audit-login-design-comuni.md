@@ -99,7 +99,7 @@ File blade: `laravel/Themes/Sixteen/resources/views/pages/auth/login.blade.php`
 
 ## 🔗 Riferimenti Second Brain
 
-- [knowledge: why-domaine-frequenti-blade-php-must-not-exist.md](../bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md)
+- [knowledge: why-domaine-frequenti-blade-php-must-not-exist.md](../knowledge/why-domande-frequenti-blade-php-must-not-exist.md)
 - [plan: css-data-page-elimination-plan.md](../plans/css-data-page-elimination-plan.md)
 - [story: s-parity-domande-frequenti.story.md](../stories/s-parity-domande-frequenti.story.md)
-- [doc: design-comuni/DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md](../design-comuni/DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md)
+- [doc: design-comuni/DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md](../../design-comuni/DOMANDE_FREQUENTI_IMPLEMENTAZIONE.md)

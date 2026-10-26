@@ -95,6 +95,28 @@ Il pattern generico resta:
 - `resources/views/pages/[container0]/index.blade.php`
 - `resources/views/pages/[container0]/[slug0]/index.blade.php`
 
+### Pagine di dettaglio: chi serve cosa (misurato 2026-10-26, DCP-273)
+
+Il dettaglio di un articolo, di un evento e di una segnalazione non ha una pagina propria: lo serve **la sola** pagina
+`[container0]/[slug0]/index.blade.php` (route name `container0.view`). Per sapere chi serve un URL si risolve la rotta
+(`php artisan route:list`, o una richiesta HTTP), non si leggono le cartelle `pages` dei moduli.
+
+| URL | Chi decide | Quando risponde 404 |
+|---|---|---|
+| `/{lang}/blog/{slug}` | `Cms\ResolvePageAction` -> `Blog\ThemeComposer::findPublishedPostBySlug` (`content_type='post'`, pubblicato, `published_at` non nel futuro) | mai: ripiega sul template CMS `blog.view` (vedi sotto) |
+| `/{lang}/events/{slug}` | `Cms\ResolvePageAction` -> `Blog\ThemeComposer::findPublishedEventBySlug` (`content_type='event'`, pubblicato) | mai: ripiega su `events.view` |
+| `/{lang}/tickets/{id}` | `$specialPage = 'ticket-detail'` se `ctype_digit($slug0)`; dati da `Fixcity\BuildPublicTicketDetailAction` | `abort_if(null, 404)` se la segnalazione non e' visibile a un anonimo |
+
+- Le pagine `Modules/Blog/resources/views/pages/blog/[slug].blade.php` e `events/[slug].blade.php` (route name `blog.show`,
+  `events.show`) sono oscurate da questo jolly. **Non si cancellano**: `route('events.show', ...)` e' usata da
+  `pages/comune/homepage.blade.php` e da `templates/home.blade.php`.
+- Ogni URL di dettaglio pubblico entra nella sitemap tramite `Seo\Contracts\SitemapPathsContract`, dichiarato dal modulo proprietario
+  (vedi [DCP-273](../../../Modules/Seo/docs/stories/dcp-273-sitemap-con-le-pagine-di-dettaglio-di-blog-ed-eventi.story.md)).
+  Un test confronta i link di `/it/blog` e `/it/events` con la sitemap.
+- **Difetto noto (soft-404, non corretto):** un articolo che non esiste (`/it/blog/slug-che-non-esiste`) risponde 200 con il titolo
+  «Novita'», perche' la pagina ripiega su `Page::findUniqueBySlug($container0.'.view')`. Per un motore di ricerca e' una pagina vuota con codice
+  200. La correzione tocca `Cms\ResolvePageAction` e questa pagina (file condivisi): va decisa con una story, non con un workaround nel tema.
+
 ## Layout contract
 
 Le pagine Folio non devono contenere header, footer o skiplink inline. Quegli elementi vivono nel layout:

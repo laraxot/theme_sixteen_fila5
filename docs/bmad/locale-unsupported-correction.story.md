@@ -7,6 +7,8 @@ tags: [bmad, second-brain, mcamara, localization, login]
 related:
   - ../../../../Modules/User/docs/bmad/decision-log.md
   - ../../../../Modules/User/docs/bmad-second-brain.md
+type: story
+qmd: "errore: `locale '/it' is not in the list of supported locales` sixteen"
 ---
 
 # Errore: `Locale '/it' is not in the list of supported locales`

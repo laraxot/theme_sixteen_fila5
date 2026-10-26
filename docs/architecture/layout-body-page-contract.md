@@ -3,6 +3,8 @@ title: Layout body page contract
 type: architecture
 status: active
 tags: [layout, css, design-comuni, folio]
+updated: 2026-10-22
+qmd: "layout body page contract sixteen"
 ---
 
 # Layout body page contract

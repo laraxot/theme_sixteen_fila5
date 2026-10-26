@@ -13,6 +13,8 @@ tags: [sixteen, legal, consent, accessibility, localization, design-comuni]
 related:
   - "../../../../../Modules/Gdpr/docs/wiki/concepts/registration-account-lifecycle.md"
   - "../../../../../Modules/User/docs/wiki/concepts/auth-registration-verification-lifecycle.md"
+status: draft
+qmd: "legal consent ui boundary sixteen"
 ---
 
 # Legal consent UI boundary

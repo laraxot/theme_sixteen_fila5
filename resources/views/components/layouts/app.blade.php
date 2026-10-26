@@ -16,7 +16,7 @@
     </div>
 
     <x-section slug="header" tpl="design-comuni" />
-    <main id="main-container" tabindex="-1" @if($bodyPage !== '') data-page="{{ $bodyPage }}" @endif>{{ $slot }}</main>
+    <x-layouts.main-landmark :body-page="$bodyPage">{{ $slot }}</x-layouts.main-landmark>
     <x-section slug="search-modal" tpl="design-comuni" />
     <x-section slug="footer" tpl="design-comuni" />
 </x-layouts.main>

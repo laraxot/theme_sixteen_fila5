@@ -1,3 +1,11 @@
+---
+title: "Logo Fixcity — Heroicons Outline"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen, logo]
+qmd: "logo fixcity   heroicons outline sixteen"
+---
 # Logo Fixcity — Heroicons Outline
 - Ottimizzato con SVGO
 - Stile heroicons outline: linee 2px, geometria pulita

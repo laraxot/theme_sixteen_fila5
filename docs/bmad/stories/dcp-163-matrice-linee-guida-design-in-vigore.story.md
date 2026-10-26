@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "linee guida design pa superate in vigore capitolo 4 requisiti matrice baseline designers italia docs italia 8.1 lg-design-servizi-web scansione"
 related: [dcp-112, dcp-158, 8.1, 8.8]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-163: matrice delle Linee guida di design in vigore (cap. 4) e baseline di riferimento

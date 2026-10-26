@@ -15,7 +15,8 @@ related:
   - ../../laravel/Modules/Fixcity/docs/wiki/concepts/segnalazione-design-comuni-comparison.md
   - concepts/segnalazione-visual-parity-correction-plan.md
   - ../../docs/wiki/concepts/segnalazione-visual-parity-mastery.md
-status: draft
+status: superseded
+superseded_by: ticket-01-privacy-design-comuni-vs-local.md
 ---
 
 # Segnalazione-01-Privacy: Design Comuni vs Local Wizard

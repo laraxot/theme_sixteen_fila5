@@ -9,6 +9,8 @@ links:
   how_to_sustain: ../../../../../../bmad-output/footer-sponsorship/how-to-sustain.md
   dossier: ../../../../../../bmad-output/footer-sponsorship/README.md
   github_issue: null
+tags: [docs, sixteen, bmad]
+qmd: "come sostenere il progetto (studio sixteen) sixteen"
 ---
 
 <!--

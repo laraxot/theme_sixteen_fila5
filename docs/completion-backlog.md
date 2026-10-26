@@ -1,3 +1,11 @@
+---
+title: "Theme Sixteen — completion backlog"
+type: note
+status: draft
+updated: 2026-10-26
+tags: [docs, sixteen]
+qmd: "theme sixteen   completion backlog sixteen"
+---
 # Theme Sixteen — completion backlog
 
 Status: support level must be verified; this file is the canonical theme-local list.

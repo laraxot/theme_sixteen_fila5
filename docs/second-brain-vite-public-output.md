@@ -1,3 +1,11 @@
+---
+title: "second brain vite public output"
+type: note
+status: draft
+updated: 2026-10-20
+tags: [docs, sixteen]
+qmd: "second brain vite public output sixteen"
+---
 ## Second Brain — Vite Public Output Convention
 
 **Concept:** `vite-public-output`

@@ -38,7 +38,8 @@ test('google auth control does not depend on a third-party image request', funct
 
 test('login paints the Filament password reveal and remember checkbox inside the data-dc scope', function (): void {
     $themeRoot = dirname(__DIR__, 2);
-    $component = file_get_contents($themeRoot.'/resources/views/components/pages/auth-login.blade.php');
+    // DCP-290: la resa condivisa di login, registrazione e recupero sta in components/auth/assets.blade.php.
+    $component = file_get_contents($themeRoot.'/resources/views/components/auth/assets.blade.php');
     $dcComponents = file_get_contents($themeRoot.'/resources/css/app/20-dc-components.css');
 
     // Lo sheet compilato non dipinge `.fi-input-wrp` dentro data-dc: senza queste regole l'occhio di

@@ -3,6 +3,8 @@ title: "Route catalog — DesignComuni front office"
 type: bmad-route-catalog
 status: in-progress
 tags: [bmad, design-comuni, routes, visual-regression]
+updated: 2026-10-17
+qmd: "scope sixteen"
 ---
 
 # Scope

@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "components update 2025 10"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: components-update.md
 ---
 
 # Sixteen Theme - Components Update Ottobre 2025

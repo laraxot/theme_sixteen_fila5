@@ -1,3 +1,11 @@
+---
+title: "BMAD / Filament Blueprint — Login checkbox visibility"
+type: note
+status: draft
+updated: 2026-10-20
+tags: [docs, sixteen, bmad]
+qmd: "bmad / filament blueprint   login checkbox visibility sixteen"
+---
 # BMAD / Filament Blueprint — Login checkbox visibility
 
 ## Symptom

@@ -11,7 +11,7 @@ related:
   - ./filament-blueprint.md
   - ./knowledge/why-home-blade-must-not-exist.md
   - ./stories/dcp-143-accessibilita-difetti-aria-e-audit-manuale-wcag-21-aa.story.md
-  - ../../../../docs/second-brain/process/civic-homepage-marketing.md
+  - ../../../../../docs/second-brain/process/civic-homepage-marketing.md
 ---
 
 # Verifica misurata homepage FO (`/it`)

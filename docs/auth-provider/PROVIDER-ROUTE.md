@@ -4,6 +4,8 @@ type: note
 tags: [design-comuni, folio, volt, filament, auth, bmadd, second-brain]
 created: 2026-10-18
 updated: 2026-10-18
+status: draft
+qmd: "auth login   `pages/auth/login.blade.php` sixteen"
 ---
 
 # Auth Login — `pages/auth/login.blade.php`

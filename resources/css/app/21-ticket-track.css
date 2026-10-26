@@ -167,6 +167,11 @@ body:has(.page-content[data-dc]) .dc-ticket-track__result-title {
   line-height: 1.3;
 }
 
+/* Testo ereditato #17324d su bg-primary #007a52 = 2.44:1; bianco = 5.38:1 (stato-indipendente: il markup applica sempre bg-primary). */
+body:has(.page-content[data-dc]) .dc-ticket-track__status.badge {
+  color: #fff;
+}
+
 body:has(.page-content[data-dc]) .dc-ticket-track__meta {
   margin: 0;
   padding: 1.25rem 0;
@@ -298,6 +303,11 @@ body:has(.page-content[data-dc]) .dc-ticket-track__actions .btn {
   body:has(.page-content[data-dc]) .dc-ticket-track__input.form-control {
     border-bottom: 1px solid #5c6f82 !important;
     padding-left: 0 !important;
+  }
+
+  /* Bootstrap Italia: `.input-group > .form-control { width: 1% }` (0,4,1). In colonna lo stretch non agisce: il campo restava largo 16 px. */
+  body:has(.page-content[data-dc]) .dc-ticket-track__controls > .dc-ticket-track__input.form-control {
+    width: 100%;
   }
 
   body:has(.page-content[data-dc]) .dc-ticket-track__controls:focus-within .dc-ticket-track__input.form-control {

@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "homepage"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage Replication
@@ -46,15 +47,6 @@ discussions: []
 **Documentazione:** [Header Component](../../prompts/header.md)
 
 ---
-
-title: "homepage"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "homepage"
-issues: []
-discussions: []
 ### Main Content
 
 #### 1. Hero Newscard

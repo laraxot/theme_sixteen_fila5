@@ -72,8 +72,20 @@
                     </ul>
                     <p class="text-paragraph-small">{{ $t('rights.limits') }}</p>
                     <h3 class="title-large-semi-bold mt-4 mb-2">{{ $t('rights.how_title') }}</h3>
-                    <p class="text-paragraph">{{ $t('rights.how_text') }}</p>
-                    <p><a class="btn btn-primary" href="#footer">{{ $t('rights.how_link') }}</a></p>
+                    {{-- DCP-289: a chi scrivere viene dall'ente (DPO, poi PEC, poi email); senza, il link al footer solo se il footer elenca recapiti; altrimenti un testo onesto --}}
+                    @php
+                        $enteData = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
+                        $rightsContact = $enteData->rightsContact();
+                    @endphp
+                    @if ($rightsContact !== null)
+                        <p class="text-paragraph">{{ $t('rights.how_text') }}</p>
+                        <p><a class="btn btn-primary" href="{{ $rightsContact['href'] }}">{{ __('fixcity::ente.rights.write', ['address' => $rightsContact['label']]) }}</a></p>
+                    @elseif ($enteData->hasContacts())
+                        <p class="text-paragraph">{{ $t('rights.how_text') }}</p>
+                        <p><a class="btn btn-primary" href="#footer">{{ $t('rights.how_link') }}</a></p>
+                    @else
+                        <p class="text-paragraph">{{ __('fixcity::ente.rights.missing') }}</p>
+                    @endif
                     <p class="text-paragraph-small">{{ $t('rights.how_today') }}</p>
                     <p class="text-paragraph">{{ $t('rights.complaint_text') }} <a class="t-primary fw-semibold" href="{{ $t('rights.complaint_url') }}" rel="noopener">{{ $t('rights.complaint_link') }}</a></p>
                 </section>

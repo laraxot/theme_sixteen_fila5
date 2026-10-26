@@ -11,7 +11,7 @@ qmd: "FO blog Novità Folio ThemeComposer content_type post Design Comuni"
 related:
   - ../content-type-contract.md
   - ../stories/inbound-fo-blog-listing.story.md
-  - ../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md
+  - ../../../../../Modules/Blog/docs/blueprints/inbound-blog-events.md
 ---
 
 # Blueprint — FO `/blog`
@@ -39,7 +39,7 @@ Esporre al cittadino i **post** editoriali (`content_type=post`) come
 - Parental `type` ignorato
 - Commenti: sempre montare `CommentsWidget` (anche thread vuoto); guest
   `readOnly` + CTA login; auth `readOnly=false`. Canon:
-  [fo-comments filament-blueprint](../../../../Modules/Comment/docs/bmad/fo-comments/filament-blueprint.md)
+  [fo-comments filament-blueprint](../../../../../Modules/Comment/docs/bmad/fo-comments/filament-blueprint.md)
 - Immagine dettaglio: `main_image_url` + blocco `image` (alt/caption/credit)
 
 ## UI (must)

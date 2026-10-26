@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "DEEP ANALYSIS "
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: DEEP_ANALYSIS.md
 ---
 
 # Homepage Visual Comparison - Deep Analysis 2026-04-02

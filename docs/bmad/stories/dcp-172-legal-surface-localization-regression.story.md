@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "legal links footer disclaimer cookie privacy terms localized regression it en de es"
 related: [dcp-131, dcp-157, dcp-171, 6.10, 6.16, 6.17, 8.11]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-172: regressione superfici legali e localizzazione

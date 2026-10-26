@@ -4,6 +4,7 @@
  * Verifica: scripts/homepage-parity-defects.sh (clic + confronto pixel).
  */
 import Splide from '@splidejs/splide';
+import { initModalFocus } from './modal-focus.js';
 
 /**
  * Opzioni dei caroselli, misurate dal riferimento (le sceglie la classe dell'elemento, come fa il bundle del riferimento):
@@ -355,6 +356,8 @@ export const initTabs = () => {
  * i componenti sugli elementi che hanno quegli hook. Chiamata da app.js su `alpine:init`, prima che Alpine scansioni il DOM.
  */
 export const mountDesignComuniComponents = () => {
+    // DCP-288 (FO-1-07): focus, trap e ritorno del focus delle modali (ricerca dell'intestazione); vedi theme/modal-focus.js
+    initModalFocus();
     if (document.querySelector('.page-content[data-dc]')) {
         initFocusMouse();
         initProcedureSteps();

@@ -5,6 +5,9 @@ title: "Inbound marketing — blog + eventi (AFC studio)"
 links:
   source_url: https://www.afcformazione.it/
 status: open
+updated: 2026-10-17
+tags: [docs, sixteen, bmad]
+qmd: "studio afc formazione → inbound per fixcity sixteen"
 ---
 # Studio AFC Formazione → inbound per FixCity
 - Blog: contenuti strategici (leadership, formazione, comunicazione)

@@ -1,3 +1,11 @@
+---
+title: "D19 — Feedback immediato sul submit del login"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen, decision-log]
+qmd: "d19   feedback immediato sul submit del login sixteen"
+---
 # D19 — Feedback immediato sul submit del login
 
 ## Decisione

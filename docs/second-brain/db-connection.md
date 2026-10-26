@@ -5,6 +5,8 @@ status: open
 created: 2026-10-17
 updated: 2026-10-17
 initiative_id: kp-db-connection-fix
+title: "Second Brain: DB Connection Fix"
+qmd: "second brain: db connection fix sixteen"
 ---
 # Second Brain: DB Connection Fix
 

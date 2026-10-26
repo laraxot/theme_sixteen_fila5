@@ -128,7 +128,35 @@
                 @if (($payload['description'] ?? '') !== '')
                     <p class="dc-ticket-track__description">{{ $payload['description'] }}</p>
                 @endif
+                @if ($payload['images'] !== [])
+                    <section class="dc-ticket-track__photos" data-element="ticket-track-photos" aria-labelledby="ticket-track-photos-heading">
+                        <h3 id="ticket-track-photos-heading" class="title-small-semi-bold">{{ __('fixcity::ticket.track.photos_title') }}</h3>
+                        <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+                            @foreach ($payload['images'] as $imageUrl)
+                                <li>
+                                    <a href="{{ $imageUrl }}" target="_blank" rel="noopener" class="d-inline-block">
+                                        <img
+                                            src="{{ $imageUrl }}"
+                                            alt="{{ __('fixcity::ticket.track.photo_alt', ['number' => $loop->iteration, 'title' => $payload['title']]) }}"
+                                            width="160"
+                                            height="120"
+                                            loading="lazy"
+                                            class="img-fluid rounded border"
+                                            style="width: 10rem; height: 7.5rem; object-fit: cover;"
+                                        >
+                                        <span class="visually-hidden">{{ __('fixcity::ticket.track.photo_opens_new_window') }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endif
             </article>
+
+            @if ($ticket instanceof Ticket && $ticket->needsCitizenRatingPrompt())
+                {{-- valutazione 1-5 (STORY-043): il widget decide da solo (proprietario autenticato, segnalazione risolta o chiusa, non ancora valutata) --}}
+                @livewire(\Modules\Fixcity\Filament\Widgets\TicketCitizenRatingPromptWidget::class, ['ticketId' => (int) $ticket->getKey()], key('ticket-track-rating-'.$ticket->getKey()))
+            @endif
 
             <section class="dc-ticket-track__timeline" aria-labelledby="ticket-track-timeline-heading">
                 <h2 id="ticket-track-timeline-heading">{{ __('fixcity::ticket.track.timeline_title') }}</h2>

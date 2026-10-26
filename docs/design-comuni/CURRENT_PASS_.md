@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "CURRENT PASS "
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: CURRENT_PASS.md
 ---
 
 # Current Pass 2026-04-04

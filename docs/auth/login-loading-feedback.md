@@ -1,3 +1,11 @@
+---
+title: "Login loading feedback"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen, auth]
+qmd: "login loading feedback sixteen"
+---
 # Login loading feedback
 
 ## Intent

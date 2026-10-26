@@ -105,16 +105,11 @@
         );
     }
     $featured = $composer->featuredEvents(6);
-    $featuredIds = $featured->pluck('id')->filter()->values()->all();
-    $events = $composer->paginatedEvents(9);
-    if ($featuredIds !== []) {
-        $events->setCollection(
-            $events->getCollection()
-                ->reject(static fn ($item): bool => $item instanceof \Modules\Blog\Models\Article
-                    && in_array($item->getKey(), $featuredIds, true))
-                ->values()
-        );
-    }
+    // Le evidenza sono escluse nella query: pagine piene e pager coerente. Ordine: prossimi eventi, poi passati.
+    $featuredIds = array_values(array_filter(
+        $featured->map(static fn ($item): int|string|null => $item instanceof \Modules\Blog\Models\Article && (is_int($item->getKey()) || is_string($item->getKey())) ? $item->getKey() : null)->all()
+    ));
+    $events = $composer->paginatedEvents(9, $featuredIds);
 
     $toCard = static function ($event): ?array {
         if (! $event instanceof \Modules\Blog\Models\Article) {
@@ -158,6 +153,8 @@
         'title' => $data['explore_title'] ?? __('pub_theme::navigation.homepage.all_events'),
         'items' => $exploreItems,
         'empty' => $data['empty'] ?? __('pub_theme::navigation.homepage.empty_events'),
+        'pagination' => $events,
+        'pagination_label' => $data['pagination_label'] ?? 'Paginazione degli eventi',
     ];
     if ($locationItems !== []) {
         $sections[] = [

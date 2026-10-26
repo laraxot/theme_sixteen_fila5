@@ -5,6 +5,8 @@ status: completed
 created: 2026-10-17
 updated: 2026-10-17
 initiative_id: kp-designcomuni-deep-study
+title: "Second Brain — Studio DesignComuni profondo"
+qmd: "second brain   studio designcomuni profondo sixteen"
 ---
 # Second Brain — Studio DesignComuni profondo
 

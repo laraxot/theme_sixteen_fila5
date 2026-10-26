@@ -1,3 +1,11 @@
+---
+title: "Mobile/Tablet Improvements — BMAD + Second Brain + Filament Blueprint"
+type: note
+status: draft
+updated: 2026-10-19
+tags: [docs, sixteen]
+qmd: "mobile/tablet improvements   bmad + second brain + filament blueprint sixteen"
+---
 # Mobile/Tablet Improvements — BMAD + Second Brain + Filament Blueprint
 
 type: feature

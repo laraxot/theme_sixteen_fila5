@@ -1,3 +1,11 @@
+---
+title: "BMAD + Second Brain: Folio Architecture Analysis (index vs auth/login)"
+type: note
+status: draft
+updated: 2026-10-18
+tags: [docs, sixteen]
+qmd: "bmad + second brain: folio architecture analysis (index vs auth/login) sixteen"
+---
 # BMAD + Second Brain: Folio Architecture Analysis (index vs auth/login)
 
 ## Benchmark / Root Cause
