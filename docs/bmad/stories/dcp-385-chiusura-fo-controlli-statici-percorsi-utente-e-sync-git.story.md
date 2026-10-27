@@ -47,15 +47,89 @@ dei due lati regge, si scrive una terza via. Ogni scelta va nel registro sotto c
 
 ## Registro delle scelte e delle lezioni
 
+<<<<<<< .merge_file_j2CukM
+<<<<<<< .merge_file_Sjaolo
 (da compilare durante il lavoro)
+=======
+Giro del 2026-10-27, misurato con `git rev-list --left-right --count HEAD...FETCH_HEAD` dopo `git fetch laraxot dev`: tutti i 22 repo e la
+radice erano a 0 indietro. Nessun `pull` ha trovato qualcosa da unire (`Already up to date` su 13 repo), quindi in questo giro non c'e' stata una
+collisione fra due lati da risolvere. Le scelte vere sono state su cosa committare e come.
+
+| Caso | Cosa c'era | Scelta | Perche' |
+|---|---|---|---|
+| `blocks/blog/detail.blade.php` (Sixteen) | `HEAD` conteneva marker `<<<<<<< .merge_file_*` committati da una sync precedente; l'albero di lavoro aveva la versione ripulita (-80 righe) | committata la versione ripulita | il lato di `HEAD` non era una scelta ma un residuo del merge; la pagina rispondeva 200 con il blocco ripulito |
+| `bashscripts/ai/IFLOW.md` | marker `<<<<<<< HEAD` / `>>>>>>> laraxot/dev` committati | tenuto il testo lungo di `laraxot/dev` | il lato `HEAD` era un'introduzione di 4 righe gia' presente nel testo lungo |
+| `Modules/Blog/app/Models/*` (18 file) | 9 file con sola differenza di allineamento nei docblock (stesso millisecondo: formattatore), 9 con modifiche vere | commit separato per i 9 solo formato, poi il commit del comportamento | `git diff -w` prova che sono solo spazi; misti al comportamento renderebbero illeggibile `blame` (Pint non va lanciato sui moduli) |
+| `Modules/Rating/package-lock.json` | 1016 pacchetti a `HEAD`, 816 nell'albero, `package.json` invariato, rigenerato il 26/10 17:24 | **non committato** | perde 200 dipendenze senza una ragione dichiarata; non e' front office |
+| `.lock` tracciati cancellati (31 in Fixcity, 6 in Sixteen) | cancellati dai proprietari a fine lavoro | committate le sole cancellazioni | un lock cancellato e' un lock rilasciato |
+| `.lock` ancora presenti (DCP-286, 288, 289, 291) | tutti del 26/10 fra 17:14 e 17:25, quindi vecchi di piu' di 14 ore | lasciati, non cancellati e non committati | l'eta' (non il PID) dice che sono abbandonati, ma toglierli spetta ai proprietari |
+| `Modules/Tenant` test | cancellavano `config/com` e `config/test` interi, che contengono configurazioni tenant vere | committata la correzione (ora solo le cartelle create dal test) | rischio di perdita di dati |
+| Ordine di push | `Gdpr::DeleteAccountAction` chiama `deleteOwnAccount`, definita solo in `User`; il listener Fixcity usa un'Action di `Media` | User prima di Gdpr, Media prima di Fixcity | un push in ordine inverso lascia sul remoto codice che chiama metodi che non esistono |
+| File tracciati da due repo | radice e repo annidato tracciano lo stesso file | commit in entrambi, radice per ultima | altrimenti uno dei due resta indietro |
+| Nome `.md` con data | `legal-content-completion-2026-10-26.md` | `git mv` dalla radice (traccia il file), riferimenti corretti | regola utente 2026-10-15 |
+
+Lezioni:
+
+1. **Un test che passa per caso nasconde un difetto.** `DemoContentSeederTest` cercava uno slug che non esisteva piu': il caso «il seeder salta fuori
+   dagli ambienti ammessi» passava perche' non c'era niente da trovare. Con lo slug vero ha scoperto che `DemoContentSeeder` non ha nessuna guardia di
+   ambiente e `DatabaseSeeder` lo chiama ovunque. Decisione aperta, non nascosta.
+2. **Il lock git non basta se non lo legge chi committa.** La sessione DCP-400 ha committato nella radice alle 07:15 mentre `/tmp/fixcity-git-sync.lock.d`
+   era mio. Nessun danno (contenuti diversi e compatibili), ma il protocollo deve stare dove tutte le sessioni lo leggono, non in due story.
+3. **Rilanciare il censimento dopo ogni commit.** Fra il primo e il secondo giro un'altra sessione ha modificato `Seo/BuildSitemapAction.php`; un
+   solo giro avrebbe lasciato il repo sporco.
+4. **Controllare gli `uses`/classi non tracciati prima del push.** `StripImageMetadataAction` (Media) e il suo listener (Fixcity) erano entrambi non
+   tracciati: pushare un solo lato avrebbe rotto l'upload delle foto sul remoto.
+>>>>>>> .merge_file_ivRTXz
 
 ## Criteri di accettazione
 
-- [ ] PHPStan: esito completo riportato con il numero di errori.
-- [ ] PHPMD e PHPInsights: esito per modulo, con prova che PHPMD non e' morto (output non vuoto su un modulo noto).
-- [ ] Percorsi ospite e loggato verificati con browser, con i difetti trovati e quelli corretti.
+- [x] PHPStan: esito completo riportato con il numero di errori.
+- [x] PHPMD e PHPInsights: esito per modulo, con prova che PHPMD non e' morto (output non vuoto su un modulo noto).
+- [x] Percorsi ospite e loggato verificati con browser, con i difetti trovati e quelli corretti.
 - [ ] Ogni repo: commit, pull, push eseguiti, o motivo dichiarato per cui no.
+<<<<<<< .merge_file_j2CukM
 - [ ] Nessun segreto e nessun marker nei commit.
+=======
+Giro del 2026-10-27, misurato con `git rev-list --left-right --count HEAD...FETCH_HEAD` dopo `git fetch laraxot dev`: tutti i 22 repo e la
+radice erano a 0 indietro. Nessun `pull` ha trovato qualcosa da unire (`Already up to date` su 13 repo), quindi in questo giro non c'e' stata una
+collisione fra due lati da risolvere. Le scelte vere sono state su cosa committare e come.
+
+| Caso | Cosa c'era | Scelta | Perche' |
+|---|---|---|---|
+| `blocks/blog/detail.blade.php` (Sixteen) | `HEAD` conteneva marker `<<<<<<< .merge_file_*` committati da una sync precedente; l'albero di lavoro aveva la versione ripulita (-80 righe) | committata la versione ripulita | il lato di `HEAD` non era una scelta ma un residuo del merge; la pagina rispondeva 200 con il blocco ripulito |
+| `bashscripts/ai/IFLOW.md` | marker `<<<<<<< HEAD` / `>>>>>>> laraxot/dev` committati | tenuto il testo lungo di `laraxot/dev` | il lato `HEAD` era un'introduzione di 4 righe gia' presente nel testo lungo |
+| `Modules/Blog/app/Models/*` (18 file) | 9 file con sola differenza di allineamento nei docblock (stesso millisecondo: formattatore), 9 con modifiche vere | commit separato per i 9 solo formato, poi il commit del comportamento | `git diff -w` prova che sono solo spazi; misti al comportamento renderebbero illeggibile `blame` (Pint non va lanciato sui moduli) |
+| `Modules/Rating/package-lock.json` | 1016 pacchetti a `HEAD`, 816 nell'albero, `package.json` invariato, rigenerato il 26/10 17:24 | **non committato** | perde 200 dipendenze senza una ragione dichiarata; non e' front office |
+| `.lock` tracciati cancellati (31 in Fixcity, 6 in Sixteen) | cancellati dai proprietari a fine lavoro | committate le sole cancellazioni | un lock cancellato e' un lock rilasciato |
+| `.lock` ancora presenti (DCP-286, 288, 289, 291) | tutti del 26/10 fra 17:14 e 17:25, quindi vecchi di piu' di 14 ore | lasciati, non cancellati e non committati | l'eta' (non il PID) dice che sono abbandonati, ma toglierli spetta ai proprietari |
+| `Modules/Tenant` test | cancellavano `config/com` e `config/test` interi, che contengono configurazioni tenant vere | committata la correzione (ora solo le cartelle create dal test) | rischio di perdita di dati |
+| Ordine di push | `Gdpr::DeleteAccountAction` chiama `deleteOwnAccount`, definita solo in `User`; il listener Fixcity usa un'Action di `Media` | User prima di Gdpr, Media prima di Fixcity | un push in ordine inverso lascia sul remoto codice che chiama metodi che non esistono |
+| File tracciati da due repo | radice e repo annidato tracciano lo stesso file | commit in entrambi, radice per ultima | altrimenti uno dei due resta indietro |
+| Nome `.md` con data | `legal-content-completion-2026-10-26.md` | `git mv` dalla radice (traccia il file), riferimenti corretti | regola utente 2026-10-15 |
+
+Lezioni:
+
+1. **Un test che passa per caso nasconde un difetto.** `DemoContentSeederTest` cercava uno slug che non esisteva piu': il caso «il seeder salta fuori
+   dagli ambienti ammessi» passava perche' non c'era niente da trovare. Con lo slug vero ha scoperto che `DemoContentSeeder` non ha nessuna guardia di
+   ambiente e `DatabaseSeeder` lo chiama ovunque. Decisione aperta, non nascosta.
+2. **Il lock git non basta se non lo legge chi committa.** La sessione DCP-400 ha committato nella radice alle 07:15 mentre `/tmp/fixcity-git-sync.lock.d`
+   era mio. Nessun danno (contenuti diversi e compatibili), ma il protocollo deve stare dove tutte le sessioni lo leggono, non in due story.
+3. **Rilanciare il censimento dopo ogni commit.** Fra il primo e il secondo giro un'altra sessione ha modificato `Seo/BuildSitemapAction.php`; un
+   solo giro avrebbe lasciato il repo sporco.
+4. **Controllare gli `uses`/classi non tracciati prima del push.** `StripImageMetadataAction` (Media) e il suo listener (Fixcity) erano entrambi non
+   tracciati: pushare un solo lato avrebbe rotto l'upload delle foto sul remoto.
+
+## Criteri di accettazione
+
+- [x] PHPStan: esito completo riportato con il numero di errori.
+- [x] PHPMD e PHPInsights: esito per modulo, con prova che PHPMD non e' morto (output non vuoto su un modulo noto).
+- [x] Percorsi ospite e loggato verificati con browser, con i difetti trovati e quelli corretti.
+- [ ] Ogni repo: commit, pull, push eseguiti, o motivo dichiarato per cui no.
+- [x] Nessun segreto e nessun marker nei commit.
+>>>>>>> .merge_file_9uowPZ
+=======
+- [x] Nessun segreto e nessun marker nei commit.
+>>>>>>> .merge_file_ivRTXz
 - [ ] Docs aggiornati e memoria scritta.
 
 ## Coordinamento fra DCP-377 e DCP-385 (scritto da DCP-385, 2026-10-27 07:00)
@@ -92,3 +166,25 @@ pagine statiche ufficiali Design Comuni, mai a siti sconosciuti. Playwright MCP 
 Lettura: PHPStan a zero e' il vincolo duro ed e' rispettato. PHPMD e Insights sono debito di stile e di struttura gia' presente (la meta' sono import
 mancanti e parametri non usati), non regressioni di questa sessione. Nota: `exit=2` di PHPMD significa "violazioni trovate", non errore. Due ruleset in uso
 (`phpmd.xml` e `phpmd.ruleset.xml`) danno conteggi diversi: la sessione DCP-377 ha misurato 1302 con il primo.
+<<<<<<< .merge_file_j2CukM
+<<<<<<< .merge_file_Sjaolo
+=======
+=======
+>>>>>>> .merge_file_ivRTXz
+
+## Esito dei percorsi ospite e loggato (2026-10-27)
+
+Rapporti completi: `docs/bmad/audit/fo-giro-ospite.md` (Playwright, 11 percorsi, 1280 e 375 px) e `docs/bmad/audit/fo-giro-loggato.md` (Puppeteer, 34 difetti FO-01..FO-34).
+
+**Causa radice trovata e corretta.** Volt nomina il file temporaneo di `@volt('nome')` con l'md5 del solo nome. `pages_old/` dichiarava `container0.index`, `container0.view` e `container1.index`, gli stessi di `pages/`, e una compilazione completa delle viste li sovrascriveva con la versione vecchia, senza `data-dc`. Effetto: area personale, wizard e dettaglio blog/eventi fuori dallo scope Design Comuni (accordion con `visibility: collapse`, indice vuoto, etichette dei pulsanti scure, H1 a 24 px, header diverso). Dopo la correzione, con `view:clear` e `view:cache` completo, tutte quelle pagine hanno `data-dc` e le misure nel browser sono quelle del riferimento. Guardia: `Themes/Sixteen/tests/Unit/VoltFragmentNamesAreUniqueTest.php` (prova inversa: con il nome vecchio il test fallisce).
+
+**Altri difetti corretti.** FO-05 (link alla cookie policy relativo, 404 nel wizard: ora assoluto con lingua in `policy.md`, 4 lingue, test in `LegalDocumentsCompletenessTest`). FO-06 e D-LINE non sono piu riproducibili: erano copie compilate stale dopo un errore. FO-14 era gia chiuso.
+
+**Lezioni.** (1) Un difetto che compare su molte pagine con sintomi diversi va cercato nella causa comune prima di toccare i sintomi: otto difetti dell'audit erano uno solo. (2) Il percorso del file non entra nel nome del frammento Volt: due `@volt('x')` nello stesso tema si sovrascrivono. (3) Per misurare le pagine loggate quando la password di prova non vale piu, si crea una sessione dal codice dell'app (`session.driver`, cookie cifrato con l'encrypter), in un file 0600, senza toccare l'utente.
+
+**Aperti (decisione o lavoro).** Dati dell'ente mancanti (D-PLACEHOLDER, D-ACCESS, FO-04: titolare, DPO, PEC, indirizzo; non si inventano); FO-07, FO-09, FO-10, FO-13 (Gravatar, terza parte), FO-15; D-COOKIETABLE (tabella a 375 px), D-SPINNER, D-HOMEGRID, D-CALENDAR, D-FOOTER, D-LOGINREDIRECT; blocchi Dettagli e Argomenti del dettaglio blog.
+
+<<<<<<< .merge_file_j2CukM
+>>>>>>> .merge_file_9uowPZ
+=======
+>>>>>>> .merge_file_ivRTXz

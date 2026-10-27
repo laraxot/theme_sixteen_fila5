@@ -49,7 +49,7 @@ new class extends Component {
     };
 @endphp
 <x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
-    @volt('container0.index')
+    @volt('pages-old.container0.index')
     <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         @if ($container0 === 'lista-categorie')
             @include('pub_theme::pages.services.categories-content')
