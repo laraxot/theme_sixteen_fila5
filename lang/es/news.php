@@ -9,6 +9,15 @@ return [
     'latest' => ['title' => 'Últimas noticias', 'subtitle' => 'Mantente al día de las novedades municipales.'],
     'search' => ['label' => 'Buscar noticias', 'placeholder' => 'Buscar noticias'],
     'read_more' => 'Leer más',
+    'index' => [
+        'default_category' => 'Noticias',
+        'default_event_category' => 'Eventos',
+        'search_label' => 'Buscar',
+        'search_placeholder' => 'Buscar por palabra clave',
+        'search_submit' => 'Enviar',
+        'result_one' => '1 noticia encontrada',
+        'result_many' => ':count noticias encontradas',
+    ],
     'items' => [
         'one' => ['category' => 'Comunicado', 'date_iso' => '2026-09-01', 'date' => '1 de septiembre de 2026', 'title' => 'Nuevos servicios digitales para la ciudadanía', 'body' => 'Ya están disponibles nuevos trámites digitales municipales.'],
         'two' => ['category' => 'Aviso', 'date_iso' => '2026-08-20', 'date' => '20 de agosto de 2026', 'title' => 'Actualización de los servicios de la ciudad', 'body' => 'Consulta las novedades operativas para la comunidad.'],

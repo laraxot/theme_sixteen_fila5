@@ -9,6 +9,15 @@ return [
     'latest' => ['title' => 'Latest news', 'subtitle' => 'Keep up with municipal updates.'],
     'search' => ['label' => 'Search news', 'placeholder' => 'Search news'],
     'read_more' => 'Read more',
+    'index' => [
+        'default_category' => 'News',
+        'default_event_category' => 'Events',
+        'search_label' => 'Search',
+        'search_placeholder' => 'Search by keyword',
+        'search_submit' => 'Submit',
+        'result_one' => '1 news item found',
+        'result_many' => ':count news items found',
+    ],
     'items' => [
         'one' => ['category' => 'Press release', 'date_iso' => '2026-09-01', 'date' => '1 September 2026', 'title' => 'New digital services for citizens', 'body' => 'New online journeys are available for municipal services.'],
         'two' => ['category' => 'Notice', 'date_iso' => '2026-08-20', 'date' => '20 August 2026', 'title' => 'Service updates across the city', 'body' => 'Read operational updates and useful community information.'],
