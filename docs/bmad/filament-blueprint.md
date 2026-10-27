@@ -4,7 +4,7 @@ type: filament-blueprint
 status: active
 theme: Sixteen
 created: 2026-10-16
-updated: 2026-10-23
+updated: 2026-10-27
 tags: [bmad, filament, blueprint, theme, sixteen, folio, x-page, reusable, brand-mark, header-chrome]
 qmd: "filament blueprint theme sixteen widget mount no resource folio shell reusable brand-mark header footer"
 related:
@@ -121,6 +121,13 @@ Il tema non lancia gate Filament propri: PHPStan colpisce Blade/Volt/ test sotto
 ## No Support
 
 Tema e moduli: zero `app/Support/`. Layer FO = Infrastructure/Presentation/Actions. Canon: [second-brain process](../../../../../docs/second-brain/process/no-app-support-queueable-actions.md) · [support-deep-audit](../../../../Modules/Xot/docs/bmad/support-deep-audit.md).
+
+## Governance della documentazione
+
+`docs/archive/` non e' input per il rendering, widget o Resource: ogni root di
+modulo/tema lo ignora per applicare la regola Second Brain. Il blueprint del tema
+documenta solo l'impatto nullo sul panel; contenuti attivi e storia wiki seguono
+la [regola canonica no-docs-archive](../../../../../bashscripts/ai/wiki/concepts/no-docs-archive-rule.md).
 
 ## Area personale FO (chrome condiviso)
 
