@@ -3,7 +3,7 @@ title: "Sixteen: ingresso alla documentazione"
 type: readme
 tags: [documentation, sixteen]
 created: 2026-09-26
-updated: 2026-10-20
+updated: 2026-10-27
 qmd: "sixteen theme readme stato pub_theme vivo contenuti conteggi build npm limiti rotte dormienti layout design-comuni"
 issues: []
 discussions: []
@@ -95,6 +95,10 @@ che una view diventi proprietaria della logica di dominio.
 - build: Vite, con asset generati nella public del tema.
 
 ## Documentazione
+
+Nessun nuovo contenuto va in `docs/archive/`; le storie non sono da duplicare
+fuori da BMAD e la memoria wiki storica resta in `docs/wiki/_archive/`. Regola
+Second Brain: [no-docs-archive](../../../../bashscripts/ai/wiki/concepts/no-docs-archive-rule.md).
 
 | Lingua | Link |
 |--------|------|
