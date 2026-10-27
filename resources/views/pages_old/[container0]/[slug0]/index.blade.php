@@ -46,7 +46,7 @@ new class extends Component {
     $pageDescription = $cmsPage?->getAttribute('description') ?? '';
 @endphp
 <x-layouts.app :title="$pageTitle" :meta-description="$pageDescription">
-    @volt('container0.view')
+    @volt('pages-old.container0.view')
     <div class="page-content content" data-slug="{{ $this->pageSlug }}" data-side="content">
         <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
     </div>

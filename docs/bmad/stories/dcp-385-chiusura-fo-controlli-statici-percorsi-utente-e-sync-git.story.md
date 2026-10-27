@@ -78,11 +78,11 @@ Lezioni:
 
 ## Criteri di accettazione
 
-- [ ] PHPStan: esito completo riportato con il numero di errori.
-- [ ] PHPMD e PHPInsights: esito per modulo, con prova che PHPMD non e' morto (output non vuoto su un modulo noto).
-- [ ] Percorsi ospite e loggato verificati con browser, con i difetti trovati e quelli corretti.
+- [x] PHPStan: esito completo riportato con il numero di errori.
+- [x] PHPMD e PHPInsights: esito per modulo, con prova che PHPMD non e' morto (output non vuoto su un modulo noto).
+- [x] Percorsi ospite e loggato verificati con browser, con i difetti trovati e quelli corretti.
 - [ ] Ogni repo: commit, pull, push eseguiti, o motivo dichiarato per cui no.
-- [ ] Nessun segreto e nessun marker nei commit.
+- [x] Nessun segreto e nessun marker nei commit.
 - [ ] Docs aggiornati e memoria scritta.
 
 ## Coordinamento fra DCP-377 e DCP-385 (scritto da DCP-385, 2026-10-27 07:00)
@@ -119,3 +119,16 @@ pagine statiche ufficiali Design Comuni, mai a siti sconosciuti. Playwright MCP 
 Lettura: PHPStan a zero e' il vincolo duro ed e' rispettato. PHPMD e Insights sono debito di stile e di struttura gia' presente (la meta' sono import
 mancanti e parametri non usati), non regressioni di questa sessione. Nota: `exit=2` di PHPMD significa "violazioni trovate", non errore. Due ruleset in uso
 (`phpmd.xml` e `phpmd.ruleset.xml`) danno conteggi diversi: la sessione DCP-377 ha misurato 1302 con il primo.
+
+## Esito dei percorsi ospite e loggato (2026-10-27)
+
+Rapporti completi: `docs/bmad/audit/fo-giro-ospite.md` (Playwright, 11 percorsi, 1280 e 375 px) e `docs/bmad/audit/fo-giro-loggato.md` (Puppeteer, 34 difetti FO-01..FO-34).
+
+**Causa radice trovata e corretta.** Volt nomina il file temporaneo di `@volt('nome')` con l'md5 del solo nome. `pages_old/` dichiarava `container0.index`, `container0.view` e `container1.index`, gli stessi di `pages/`, e una compilazione completa delle viste li sovrascriveva con la versione vecchia, senza `data-dc`. Effetto: area personale, wizard e dettaglio blog/eventi fuori dallo scope Design Comuni (accordion con `visibility: collapse`, indice vuoto, etichette dei pulsanti scure, H1 a 24 px, header diverso). Dopo la correzione, con `view:clear` e `view:cache` completo, tutte quelle pagine hanno `data-dc` e le misure nel browser sono quelle del riferimento. Guardia: `Themes/Sixteen/tests/Unit/VoltFragmentNamesAreUniqueTest.php` (prova inversa: con il nome vecchio il test fallisce).
+
+**Altri difetti corretti.** FO-05 (link alla cookie policy relativo, 404 nel wizard: ora assoluto con lingua in `policy.md`, 4 lingue, test in `LegalDocumentsCompletenessTest`). FO-06 e D-LINE non sono piu riproducibili: erano copie compilate stale dopo un errore. FO-14 era gia chiuso.
+
+**Lezioni.** (1) Un difetto che compare su molte pagine con sintomi diversi va cercato nella causa comune prima di toccare i sintomi: otto difetti dell'audit erano uno solo. (2) Il percorso del file non entra nel nome del frammento Volt: due `@volt('x')` nello stesso tema si sovrascrivono. (3) Per misurare le pagine loggate quando la password di prova non vale piu, si crea una sessione dal codice dell'app (`session.driver`, cookie cifrato con l'encrypter), in un file 0600, senza toccare l'utente.
+
+**Aperti (decisione o lavoro).** Dati dell'ente mancanti (D-PLACEHOLDER, D-ACCESS, FO-04: titolare, DPO, PEC, indirizzo; non si inventano); FO-07, FO-09, FO-10, FO-13 (Gravatar, terza parte), FO-15; D-COOKIETABLE (tabella a 375 px), D-SPINNER, D-HOMEGRID, D-CALENDAR, D-FOOTER, D-LOGINREDIRECT; blocchi Dettagli e Argomenti del dettaglio blog.
+
