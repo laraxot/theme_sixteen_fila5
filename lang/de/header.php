@@ -15,6 +15,11 @@ return array_replace_recursive($base, [
         'personal_area' => 'Persönlicher Bereich',
         'aria' => ['toggle_menu' => ['label' => 'Benutzermenü öffnen']],
         'dropdown' => [
+            // chiavi lette da partials/user-dropdown.blade.php: senza di loro il menu ricade sull'inglese
+            'my_services' => ['label' => 'Meine Dienste'],
+            'my_practices' => ['label' => 'Meine Vorgänge'],
+            'notifications' => ['label' => 'Benachrichtigungen'],
+            'settings' => ['label' => 'Einstellungen'],
             'my_reports' => ['label' => 'Meine Meldungen'],
             'followed_reports' => ['label' => 'Meldungen, denen ich folge'],
             'notification_center' => ['label' => 'Benachrichtigungen'],
