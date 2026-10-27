@@ -7,15 +7,19 @@
  * Le modali che gestiscono gia' il focus da sole (#modal-categories in app.js) non sono toccate: il focus e' gia' dentro all'apertura,
  * il loro tasto Tab ha gia' chiamato preventDefault e il loro pulsante non ha `data-bs-toggle` (nessun opener registrato).
  */
-const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
-const TEXT_ENTRY = 'input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]), textarea, select';
+const FOCUSABLE =
+    'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+const TEXT_ENTRY =
+    'input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]), textarea, select';
 
 /** Pulsante che ha aperto ogni modale: serve per riportargli il focus alla chiusura. */
 const openers = new WeakMap();
 /** Modali gia' osservate: `initModalFocus` puo' essere richiamata (livewire:navigated) senza duplicare gli osservatori. */
 const observed = new WeakSet();
 
-const isVisible = (element) => element.getClientRects().length > 0 && getComputedStyle(element).visibility !== 'hidden';
+const isVisible = element =>
+    element.getClientRects().length > 0 &&
+    getComputedStyle(element).visibility !== 'hidden';
 
 /**
  * @param {Element} root
@@ -23,7 +27,10 @@ const isVisible = (element) => element.getClientRects().length > 0 && getCompute
  */
 function focusableIn(root) {
     return Array.from(root.querySelectorAll(FOCUSABLE)).filter(
-        (element) => !element.disabled && element.getAttribute('aria-hidden') !== 'true' && isVisible(element),
+        element =>
+            !element.disabled &&
+            element.getAttribute('aria-hidden') !== 'true' &&
+            isVisible(element)
     );
 }
 
@@ -33,7 +40,10 @@ function moveFocusInto(modal) {
         return;
     }
 
-    const target = Array.from(modal.querySelectorAll(TEXT_ENTRY)).find(isVisible) ?? focusableIn(modal)[0] ?? modal;
+    const target =
+        Array.from(modal.querySelectorAll(TEXT_ENTRY)).find(isVisible) ??
+        focusableIn(modal)[0] ??
+        modal;
     target.focus({ preventScroll: true });
 }
 
@@ -85,9 +95,13 @@ function keepTabInsideOpenModal(event) {
  * @param {MouseEvent} event
  */
 function rememberOpener(event) {
-    const trigger = event.target instanceof Element ? event.target.closest('[data-bs-toggle="modal"]') : null;
+    const trigger =
+        event.target instanceof Element
+            ? event.target.closest('[data-bs-toggle="modal"]')
+            : null;
     const selector = trigger?.getAttribute('data-bs-target');
-    const modal = selector && selector !== '#' ? document.querySelector(selector) : null;
+    const modal =
+        selector && selector !== '#' ? document.querySelector(selector) : null;
 
     if (trigger && modal && !modal.classList.contains('show')) {
         openers.set(modal, trigger);

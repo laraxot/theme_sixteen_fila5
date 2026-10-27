@@ -4,4 +4,4 @@
 --}}
 @props(['blocks' => [], 'data' => []])
 
-@include('pub_theme::components.sections.header.tailwind', ['blocks' => $blocks])
+@include('pub_theme::components.sections.header.v1', ['blocks' => $blocks])

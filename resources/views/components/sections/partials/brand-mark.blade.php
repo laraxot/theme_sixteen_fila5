@@ -1,8 +1,8 @@
 {{--
     Marchio FO Design Comuni — un solo rendering per header, footer, hamburger.
     Callers:
-      - sections/header/design-comuni.blade.php (barra brand + logo-hamburger)
-      - sections/footer/design-comuni.blade.php (logo vicino a FixCity)
+      - sections/header/v1.blade.php (barra brand + logo-hamburger)
+      - sections/footer/v1.blade.php (logo vicino a FixCity)
     Nessun altro file serve lo stesso scopo (prima header SVG inline vs footer <img>).
     Schema: prop src = brand.logo da header.json/footer.json (path asset relativo).
     Istruzione utente: «nel footer il logo vicino alla scritta fixcity deve essere lo stesso dell'header».

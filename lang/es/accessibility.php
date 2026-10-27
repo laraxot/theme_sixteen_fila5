@@ -18,12 +18,18 @@ return [
         'title' => 'Declaración aún incompleta',
         'intro' => 'El Ayuntamiento debe aportar todavía los datos siguientes antes de la puesta en producción. Hasta entonces esta declaración no es válida.',
     ],
+    'scope' => [
+        'title' => 'Ámbito de la declaración',
+        'commitment' => ':entity se compromete a hacer accesible este sitio web, de conformidad con la ley italiana n.º 4 de 9 de enero de 2004, que transpone la Directiva (UE) 2016/2102.',
+        'text' => 'Esta declaración se aplica al sitio web :url (páginas públicas y área personal de la ciudadanía).',
+    ],
     'status' => [
         'title' => 'Estado de conformidad',
         'compliant' => 'Este sitio web es conforme con los requisitos de accesibilidad de la ley italiana n.º 4 de 9 de enero de 2004.',
-        'partially_compliant' => 'Este sitio web es parcialmente conforme con los requisitos de accesibilidad de la ley italiana n.º 4 de 9 de enero de 2004.',
-        'non_compliant' => 'Este sitio web no es conforme con los requisitos de accesibilidad de la ley italiana n.º 4 de 9 de enero de 2004.',
+        'partially_compliant' => 'Este sitio web es parcialmente conforme con los requisitos de accesibilidad de la ley italiana n.º 4 de 9 de enero de 2004, debido a los casos de incumplimiento que se enumeran a continuación.',
+        'non_compliant' => 'Este sitio web no es conforme con los requisitos de accesibilidad de la ley italiana n.º 4 de 9 de enero de 2004. Los casos de incumplimiento se enumeran a continuación.',
         'pending' => 'Aún no determinado: el Ayuntamiento indicará el estado tras la evaluación de accesibilidad.',
+        'reference' => 'Referencia técnica: norma UNI CEI EN 301 549 V3.2.1 (apartado 9), que exige el nivel AA de las WCAG 2.1, según las directrices de la AgID sobre la accesibilidad de los instrumentos informáticos.',
     ],
     'content' => [
         'title' => 'Contenidos no accesibles',
@@ -43,6 +49,8 @@ return [
         'updated_at' => 'Última actualización',
         'pending' => 'Aún no indicado',
         'agid' => 'Declaración elaborada en la plataforma de la AgID',
+        'verified' => 'Qué se ha comprobado',
+        'not_verified' => 'Qué no se ha comprobado',
     ],
     'feedback' => [
         'title' => 'Comentarios y contacto',
@@ -50,6 +58,7 @@ return [
         'jump' => 'Comunica un problema de accesibilidad',
         'email' => 'También puedes escribir a',
         'pending' => 'El Ayuntamiento indicará la dirección para las comunicaciones.',
+        'officer' => 'Responsable de accesibilidad',
     ],
     'procedure' => [
         'title' => 'Procedimiento de aplicación',

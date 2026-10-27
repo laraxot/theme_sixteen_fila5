@@ -65,8 +65,28 @@ body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full {
     color: #fff !important;
 }
 
+/* D35: l'avatar e' quello del riferimento Design Comuni: cerchio bianco 24px (`.rounded-icon`) con l'icona primaria (`icon-primary`, 18px)
+   sul verde del pulsante. L'evidenza viene dal contrasto bianco su verde, non da misure inventate (niente bordo, niente 28px). */
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon {
-    background-color: transparent !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    border-radius: 50% !important;
+    background-color: #fff !important;
+}
+
+/* Lo spazio tra cerchio ed etichetta e' il `margin-left: .5em` di Bootstrap Italia (8px, come nel riferimento): niente `gap` in piu'. */
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full.personal-area-login-cta {
+    gap: 0 !important;
+}
+
+/* L'icona sta nel cerchio bianco: primaria come nel riferimento Design Comuni (`icon-primary`). Con il fill bianco della
+   regola qui sotto spariva (bianco su bianco). Piu' specifica di quella, quindi vince. */
+body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full .rounded-icon .icon {
+    width: 1.125rem !important;
+    height: 1.125rem !important;
+    color: var(--dc-header-primary) !important;
+    fill: var(--dc-header-primary) !important;
 }
 
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full .icon,
@@ -78,12 +98,14 @@ body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full .ico
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full > span:not(.rounded-icon),
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full > span.d-none.d-lg-block {
     color: #fff !important;
+    font-size: 1rem !important;
 }
 
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full:hover,
 body:has(.page-content[data-dc]) .it-header-slim-wrapper .btn-icon.btn-full:focus-visible {
-    background-color: #00966a !important;
-    border-color: #00966a !important;
+    /* #006342 = hover del riferimento (misurato) e di design-comuni/overrides.css: testo bianco 7,3:1. Il vecchio #00966a dava 3,8:1 (< 4,5). */
+    background-color: #006342 !important;
+    border-color: #006342 !important;
     color: #fff !important;
 }
 
@@ -233,13 +255,14 @@ body:has(.page-content[data-dc]) .skiplink a.visually-hidden-focusable:focus,
     top: 8px;
     left: 8px;
     z-index: 3100;
-    padding: 8px 16px;
     border: 2px solid #007a52;
     border-radius: 4px;
-    background: #fff;
-    color: #005a3c;
     font-weight: 600;
-    /* !important: la regola del riferimento `:focus:not(.focus--mouse)` mette un contorno bianco 3px con !important, invisibile su fondo bianco. */
+    /* !important: nel riferimento `:focus:not(.focus--mouse)` mette un contorno bianco 3px con !important (invisibile su fondo bianco) e fuori dal
+       riferimento (pagina 429) le regole legacy di `a` e di `.visually-hidden-focusable` azzerano padding e sfondo e colorano il testo, tutte con !important. */
+    padding: 8px 16px !important;
+    background: #fff !important;
+    color: #005a3c !important;
     outline: 3px solid #ffbf47 !important;
     outline-offset: 2px;
 }
