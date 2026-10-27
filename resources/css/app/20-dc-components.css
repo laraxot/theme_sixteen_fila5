@@ -298,6 +298,73 @@
 }
 
 /*
+  Pulsante pericolo e valutazione a stelle, DCP-377 (A-02, D-16, T-03). Il CSS servito non aveva `.btn-danger` («Elimina il mio account» era
+  trasparente con testo blu) ne' le regole `.rating` di Bootstrap Italia: le uniche erano daisyUI, spente dentro `data-dc`, e le label delle
+  stelle misuravano 2x0 px. Valori copiati dal CSS ufficiale bootstrap-italia 2.13.0; le stelle piene usano il primario del tema (`--bs-primary`).
+*/
+body:has(.page-content[data-dc]) .btn.btn-danger {
+  color: #fff;
+  background-color: #cc334d;
+  border-color: #cc334d;
+}
+
+body:has(.page-content[data-dc]) .btn.btn-danger:hover,
+body:has(.page-content[data-dc]) .btn.btn-danger:focus-visible,
+body:has(.page-content[data-dc]) .btn.btn-danger:active {
+  color: #fff;
+  background-color: hsl(350 60% 40.5%);
+  border-color: hsl(350 60% 37.5%);
+}
+
+body:has(.page-content[data-dc]) .btn.btn-danger:disabled,
+body:has(.page-content[data-dc]) .btn.btn-danger.disabled {
+  color: #fff;
+  background-color: #cc334d;
+  border-color: #cc334d;
+  pointer-events: none;
+}
+
+.page-content[data-dc] .rating {
+  border: 0;
+  float: left;
+}
+
+.page-content[data-dc] .rating > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.page-content[data-dc] .rating > label {
+  float: right;
+  margin: 0;
+  padding-right: 2px;
+  cursor: pointer;
+}
+
+.page-content[data-dc] .rating > label svg {
+  fill: #c3cfdb;
+  position: relative;
+  transform-origin: center center;
+  transition: transform 0.1s;
+}
+
+.page-content[data-dc] .rating > label:hover svg {
+  transform: scale(1.1);
+}
+
+.page-content[data-dc] .rating > input:checked ~ label svg,
+.page-content[data-dc] .rating > label:hover svg,
+.page-content[data-dc] .rating > label:hover ~ label svg {
+  fill: var(--bs-primary, #007a52);
+}
+
+.page-content[data-dc] .rating > input:focus-visible + label svg {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 5px #000;
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+}
+
+/*
   Colori forzati (alto contrasto di Windows), DCP-291 FO-5-20. Il browser sostituisce sfondi e bordi con i colori di sistema:
   `.btn-primary` ha bordo 0 e sfondo pieno, quindi diventava testo semplice (misurato: bordo 0px, sfondo Canvas); nello stepper
   del wizard i tre passi avevano lo stesso peso e nessun bordo, il passo attivo non si distingueva (`aria-current="step"` c'e' gia').
