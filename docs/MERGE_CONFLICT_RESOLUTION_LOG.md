@@ -154,6 +154,27 @@ grep -rl "<<<<<< HEAD\|<<<<<<< HEAD" . --include="*.md" | grep -v "node_modules\
 
 ---
 
-**Stato**: ✅ 7 categorie risolte, in progress per docs rimanenti
+## Audit 2026-10-26 — marker semantici nel frontoffice
+
+`git status --short --unmerged` è vuoto: questi non erano conflitti Git aperti,
+ma marker di merge già committati nel contenuto runtime. Sono stati studiati
+entrambi i lati e risolti così:
+
+| File | Lato scelto | Motivo |
+|---|---|---|
+| `config/local/fixcity/database/content/pages/blog/index.json` | terza soluzione: mantenere `ente: toll_free` | il numero verde deve arrivare dal tenant, non da un numero demo; il blocco calendario resta intatto |
+| `config/local/fixcity/database/content/pages/events/index.json` | terza soluzione: mantenere `ente: toll_free` | stessa regola del blog, con contenuto JSON valido |
+| `config/local/fixcity/database/content/sections/header.json` | current semantico: rimuovere `name`/`url` vuoti | evita placeholder che producono link/etichette regionali falsi; titolo e aria-label restano |
+| `resources/views/components/blocks/ticket-list/design-comuni.blade.php` | terza soluzione: rimuovere entrambe le alternative | `$phoneItems` era inutilizzato e duplicava la voce `ente: toll_free` già passata ai partial condivisi |
+| `resources/views/components/sections/footer/v1.blade.php` | **terza via**: struttura incoming + etichette current | l’incoming è l’unico ramo che chiude correttamente il blocco Design Comuni e definisce `columnsWithLinks`, `legalLinks` e `socialLinks` (il ramo Tailwind lasciava variabili e struttura incompatibili), ma leggeva le etichette da `pub_theme::footer.*`, che esiste solo in italiano: nel footer tedesco compariva «Telefono:» e orari e numero verde restavano senza etichetta. Le etichette tornano da `footer.json` → `contact.labels` (4 lingue), dal current, e il DPO diventa «Ruolo (Nome)». Provato da `FooterV1DesignComuniStructureTest` (rosso, poi verde: 58 test, 729 asserzioni con `EnteDataFrontOfficeTest`) |
+
+**Criterio di scelta** (imparato su questi 5 file): non si sceglie il lato, si sceglie in base al codice **condiviso fuori dai marker**. Se le righe subito dopo il marker appartengono a un lato (qui `return $link; }, $activeLinks($legal_links));` era la coda del ramo incoming), prendere l’altro lascia un file rotto. Poi si confrontano i due lati funzione per funzione: ciò che l’uno ha e l’altro ha perso (qui le etichette in 4 lingue) va riportato, e va dimostrato con un test rosso prima di dirlo risolto. Un hunk con un lato vuoto non è per forza «niente da fare»: di solito è una rimozione deliberata (qui DCP-289 ha tolto `$phoneItems`), da verificare che nulla lo usi più.
+
+Decisioni operative: Sixteen possiede markup, Blade e parity; Fixcity/Tenant
+possiedono dati, Actions e contratti. La validazione minima è assenza di marker,
+JSON valido e compilazione Blade; la parity visuale va verificata a 375, 768 e
+1440 px prima della release.
+
+**Stato**: ✅ marker runtime auditati e risolti; docs storiche precedenti restano archivio
 **Build**: ✅ CSS/JS funzionano
 **Prossimo**: Risolvere file docs rimanenti in batch

@@ -100,7 +100,8 @@ for (const [lang, t] of Object.entries(LANGS)) {
 test('la tabella della cookie policy elenca esattamente i cookie impostati dal server', async ({ page, context }) => {
   await page.goto(`${BASE}/it/cookie-policy`, { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1, name: 'Cookie policy' })).toBeVisible();
-  const listed = (await page.locator('[data-element="cookie-inventory"] tbody th code').allTextContents()).sort();
+  // `remember_web_<hash>` ("Ricordami" del login) e' elencato ma si imposta solo al login con la casella spuntata: non e' nel giro dell'ospite
+  const listed = (await page.locator('[data-element="cookie-inventory"] tbody th code').allTextContents()).filter((n) => !n.startsWith('remember_')).sort();
   await page.locator('.gdpr-cookiebar').getByRole('button', { name: 'Ho capito' }).click();
   // cookie impostati dal server su una pagina qualsiasi, piu' quello scritto dal banner; il debugbar e' solo locale e non e' un cookie del sito
   await page.goto(`${BASE}/it`, { waitUntil: 'networkidle' });

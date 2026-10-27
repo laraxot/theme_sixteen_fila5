@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "data ultimo aggiornamento pagina design comuni last update linee guida design 4.3.10 verifica contenuti"
 related: [dcp-163, dcp-162]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-167: data dell'ultimo aggiornamento su ogni pagina

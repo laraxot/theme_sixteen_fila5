@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "disclaimer terms verifica route contenuto titolare dpo multilingua safe incomplete legal"
 related: [6.12, 6.13, 6.15, 6.16]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-171: verifica contenuto, route e stato incompleto del disclaimer

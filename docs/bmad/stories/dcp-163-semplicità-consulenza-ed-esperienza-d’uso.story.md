@@ -9,6 +9,8 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "WCAG 2.1 AA copertura 95% cp652 voletluce miglioramenti colloquio interattivo"
 related: [dcp-04, dcp-13, dcp-158]
+title: "DCP-163: semplicità di consultazione ed esperienza d’uso (Linee guida PA 4.3)"
+tags: [docs, sixteen, bmad]
 ---
 # DCP-163: semplicità di consultazione ed esperienza d’uso (Linee guida PA 4.3)
 

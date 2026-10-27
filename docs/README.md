@@ -3,7 +3,7 @@ title: "Sixteen: ingresso alla documentazione"
 type: readme
 tags: [documentation, sixteen]
 created: 2026-09-26
-updated: 2026-10-15
+updated: 2026-10-20
 qmd: "sixteen theme readme stato pub_theme vivo contenuti conteggi build npm limiti rotte dormienti layout design-comuni"
 issues: []
 discussions: []
@@ -12,7 +12,34 @@ status: active
 
 # Sixteen
 
+**Scopo:** Sixteen e' il vestito Design Comuni del FO Fixcity: compone Folio/Volt e monta widget dei moduli owner (User, Cms, Comment, …) senza possedere Resource Filament ne' Actions di dominio. Hub BMAD: [bmad/decision-log.md](./bmad/decision-log.md), [bmad/filament-blueprint.md](./bmad/filament-blueprint.md).
+
+## Operational guides
+
+- [Verified recovery, accessibility corrections and evidence](./bmad/verification-recovery.md)
+
+- [Documentation index](./index.md)
+- [Documentation governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md)
+- [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
+- [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
+- [FAQ route ownership](./bmad/faq-route-ownership.md)
+- [FAQ CSS remediation plan](./bmad/plans/css-data-page-elimination-plan.md)
+- [Login UX and reusable CSS contract](./auth/login-ux-fixes.md)
+- [Testing boundary](./testing-convention.md)
+
+### Regola prima di modificare una pagina pubblica
+
+La risoluzione canonica è `URL → Folio shell → slug CMS → JSON tenant → block
+view → action del modulo`. Non aggiungere una Blade in `pages/<slug>/` per
+correggere una pagina già coperta dallo shell dinamico: per FAQ ciò significa
+che `resources/views/pages/domande-frequenti/index.blade.php` deve restare
+assente. Il test di contratto lo verifica; il dettaglio è in
+[faq-route-ownership.md](./bmad/faq-route-ownership.md).
+
 Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8.4, Filament 5. Biglietto da visita: [IT](../README.md), [EN](./readme-en.md). L'indice operativo e' [00-INDEX.md](00-INDEX.md).
+
+`README.md` è l'ingresso canonico del tema. `00-INDEX.md` e `INDEX.md` sono
+mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 
 ## Stato verificato (2026-10-14)
 
@@ -42,13 +69,23 @@ Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8
 
 - Il tema contiene controller e rotte (`app/Http/Controllers/`, `routes/web.php`, `routes/auth.php`) che a runtime non risultano registrati: `php artisan route:list` (461 rotte, senza route cache) non ha ne' `comune/*` ne' `auth/spid` ne' `auth/cie`. Sono codice dormiente, non la via con cui il tema serve le pagine.
 - Restano viste legacy non usate dal CSS principale: `resources/views/bootstrap-italia/` (16 Blade), `layouts/bootstrap-italia*.blade.php` (4), `pages_old/` (45); gli `@import` di Bootstrap Italia in `app.css` sono commentati.
-- Esistono `components/layouts/design-comuni.blade.php`, `design-comuni-authenticated.blade.php` e `design-comuni-bare.blade.php` (usato da `pages/tests/index.blade.php`), in contrasto con la regola [no-parallel-design-comuni-layout](wiki/rules/no-parallel-design-comuni-layout.md): vedi la story del 2026-10-14 per la decisione aperta.
+- Il layout pubblico canonico è `components/layouts/app.blade.php`: Sixteen è già Design Comuni. `design-comuni-authenticated.blade.php` e `design-comuni-bare.blade.php` restano solo template specializzati per le pagine di test che li dichiarano esplicitamente.
 
 ## Ownership e stack canonico
 
 Sixteen è già il tema Design Comuni: non si crea un secondo tema, layout o
 namespace `design-comuni`. Il rendering usa TailwindCSS (`@apply`), Alpine.js,
 Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
+
+Sixteen non possiede `app/Jobs/`, `app/Services/` o `app/Servces/`: i flussi
+asincroni restano nelle Queueable Actions del modulo owner. Il tema si limita a
+comporre viste e a invocare il contratto dell'Action.
+
+I data object appartengono invece al modulo owner: quando il tema consuma un
+contratto dati, importa il namespace canonico `Modules\\<Module>\\Datas` e non
+crea copie in `Themes/Sixteen/app/Data(s)`. La cartella `Datas` distingue il
+catalogo di oggetti di trasferimento dal codice visuale del tema e impedisce
+che una view diventi proprietaria della logica di dominio.
 
 - contenuti: JSON CMS, con view block riusabili;
 - shell pubblica: `x-layouts.app` e, quando dichiarato dal contratto pagina,
@@ -57,27 +94,6 @@ Lit, DaisyUI e Flowbite; Bootstrap Italia non è una dipendenza runtime.
 - accessibilità: WCAG 2.1 AA come requisito minimo, con verifica manuale e automatizzata;
 - build: Vite, con asset generati nella public del tema.
 
-
-## Moduli correlati (contratti, non duplicare)
-
-Sixteen rende la UI pubblica; la logica di dominio e i contenuti restano nei moduli.
-
-| Modulo | Perché | Docs |
-|---|---|---|
-| `Cms` | JSON pagine/blocchi, Folio mount, `ResolvePageAction`, sezioni header/footer | [Cms README](../../../Modules/Cms/docs/README.md) |
-| `UI` | vocabolario Blade/Filament condiviso (colonne, campi, blocchi admin) | [UI README](../../../Modules/UI/docs/README.md) |
-| `Fixcity` | journeys cittadino, ownership BMAD dei flussi | [Fixcity docs](../../../Modules/Fixcity/docs/README.md) |
-
-Header/footer: contratto in [bmad/header-footer-sections-contract.md](bmad/header-footer-sections-contract.md); dati da blocchi CMS → fallback `config('comune.*')` → URL localizzati.
-
-## Qualità (standing order)
-
-Applicare sempre, senza conferma: PHPStan a zero (causa, non silenziatori), qualità DRY+KISS, docs tema ordinate via BMAD + second brain. Canonico: [phpstan-quality-docs-bmad-standing-order](../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
-
-- Test del tema solo in `Themes/Sixteen/tests/` (minuscolo). Vietato `Tests/` PascalCase (FS case-sensitive, PSR-4, Pest).
-- Nomi `.md`: kebab-case minuscolo, no date/timestamp nel filename (solo `README.md` può avere maiuscole).
-- Stack runtime: Tailwind + Alpine + Lit + DaisyUI + Flowbite; **no Bootstrap** come dipendenza ([no-bootstrap-italia.md](no-bootstrap-italia.md), [daisyui.md](daisyui.md)).
-
 ## Documentazione
 
 | Lingua | Link |
@@ -85,6 +101,19 @@ Applicare sempre, senza conferma: PHPStan a zero (causa, non silenziatori), qual
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
 | 🇬🇧 Business card | [docs/readme-en.md](./readme-en.md) |
 | 📚 Wiki tecnica | [./wiki/](./wiki/) |
+| 💶 Sostenibilità FO | [project-sustainability-front-office.md](./project-sustainability-front-office.md) |
+| 📣 Inbound blog/eventi | [inbound-marketing-blog-eventi.md](./inbound-marketing-blog-eventi.md) |
+| 🧭 Dipendenze e font | [Sixteen dependency maintenance](./bmad/dependency-refresh-and-verification.md) |
+| 🧠 Regole hub temi | [Laravel themes documentation hub](../../docs/README.md) |
+
+## Verifica 2026-10-19
+
+Il pipeline font canonico usa `laravel-vite-plugin/fonts` (`google(...)`) in
+`vite.config.js` per Titillium Web, Lora e Roboto Mono. Vite emette il
+`fonts-manifest.json` e gli asset hashati sotto `public/assets/`; il build
+obbligatorio è passato con `npm run build`. La pagina di riferimento per la
+tipografia è il Design Comuni, mentre Bootstrap Italia resta solo riferimento
+normativo/stilistico e non dipendenza runtime.
 
 ---
 **Tema** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan `level: max` (`laravel/phpstan.neon`) · Filament 5

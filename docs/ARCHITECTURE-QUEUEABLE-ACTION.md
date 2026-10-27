@@ -7,7 +7,7 @@ updated: 2026-09-26
 qmd: "ARCHITECTURE QUEUEABLE ACTION"
 issues: []
 discussions: []
-status: draft
+status: active
 ---
 
 # Architecture: QueueableAction Pattern (Theme Sixteen)
@@ -20,7 +20,7 @@ status: draft
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  ❌ BANNED in Theme: Services                                 │
+│  ❌ BANNED in Theme: Services and Jobs                         │
 │  ✅ REQUIRED in Theme: QueueableAction (when needed)        │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -77,7 +77,7 @@ use Spatie\QueueableAction\QueueableAction;
 class OptimizeHeroImagesAction {
     use QueueableAction;
     
-    public function handle(): void {
+    public function execute(): void {
         // Optimize images in public_html/assets
     }
 }
@@ -131,7 +131,7 @@ class TicketPageViewModel {
 
 ## Summary
 
-1. **Never** create Services (anywhere)
+1. **Never** create Services or Jobs (anywhere)
 2. **Always** use QueueableAction (from spatie)
 3. **Theme Sixteen** calls **Module Actions** for business logic
 4. **Theme Sixteen** handles presentation only

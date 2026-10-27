@@ -1,11 +1,10 @@
 <div id="categories-content" class="container-italia mx-auto px-4 py-10" aria-labelledby="categories-title">
-    <nav class="mb-8 text-sm" aria-label="{{ __('pub_theme::service_report.breadcrumb.aria') }}">
-        <ol class="flex flex-wrap items-center gap-2 text-gray-700">
-            <li><a class="underline" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/') }}">{{ __('pub_theme::service_report.breadcrumb.home') }}</a></li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">{{ __('pub_theme::services.categories.title') }}</li>
-        </ol>
-    </nav>
+    {{-- Briciole di pane del riferimento (le classi flex di prima non arrivavano al CSS compilato e impilavano le voci: DCP-288, FO-1-28). --}}
+    @include('pub_theme::components.blocks.content-page.partials.breadcrumb', ['breadcrumb' => [
+        'items' => [['label' => __('pub_theme::service_report.breadcrumb.home'), 'url' => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/')]],
+        'current' => __('pub_theme::services.categories.title'),
+        'class' => 'mb-8',
+    ]])
 
     <div class="mb-8 max-w-3xl">
         <h1 id="categories-title" class="mb-3 text-4xl font-bold text-gray-900">{{ __('pub_theme::services.categories.title') }}</h1>
@@ -16,7 +15,7 @@
         <article id="reports" class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <h2 class="mb-2 text-xl font-semibold text-gray-900">{{ __('pub_theme::services.categories.items.reports.title') }}</h2>
             <p class="mb-5 text-gray-700">{{ __('pub_theme::services.categories.items.reports.description') }}</p>
-            <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets') }}" class="font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700">
+            <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsIndex() }}" class="font-semibold text-primary-700 underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-primary-700">
                 {{ __('pub_theme::services.tasks.browse_action') }} <span aria-hidden="true">→</span>
             </a>
         </article>

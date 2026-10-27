@@ -63,7 +63,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            @if ($row[$trackKey] === null)
+                            @if ($row['is_owner'] && $row[$trackKey] === null)
                                 <p class="mt-3 mb-0 text-paragraph-small">{{ __('fixcity::personal_area.ticket.tracking_unavailable') }}</p>
                             @endif
                         </div>

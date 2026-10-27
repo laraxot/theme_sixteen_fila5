@@ -14,6 +14,9 @@ status: draft
 
 Concetti specifici del tema Sixteen. Carica on-demand via `qmd search` o consulta il [trigger map root](../../../../../../docs/wiki/rules/00-TRIGGER_MAP.md).
 
+- [footer-partner-sponsorship-marketing.md](./footer-partner-sponsorship-marketing.md) — partner/sostenitori sì, banner commerciali no (BMAD discovery).
+- Sostenibilità FO: [project-sustainability-front-office.md](../../project-sustainability-front-office.md) — vestito CTA/partner; modello economico nel dossier BMAD.
+- Inbound blog/eventi: [inbound-marketing-blog-eventi.md](../../inbound-marketing-blog-eventi.md) — pattern AFC → Design Comuni FO.
 - [folio-route-params-mount.md](./folio-route-params-mount.md) — params Folio in `mount()`, mai `request()->route()` in `@php`.
 - Folio page shell (no `@props`/`@extends`) — canon root: [architecture-folio-page-shell.md](../../../../../../docs/wiki/bmad/architecture-folio-page-shell.md) · guida: [folio-page-pattern.md](../../folio-page-pattern.md)
 - [fo-folio-named-routes-header.md](./fo-folio-named-routes-header.md) — dropdown: `route('services.categories')` ecc., verificato con `folio:list`.
@@ -45,4 +48,5 @@ Concetti specifici del tema Sixteen. Carica on-demand via `qmd search` o consult
 - Cms audit: [folio-list-vs-route-list](../../../../../Modules/Cms/docs/wiki/concepts/folio-list-vs-route-list.md)
 
 - [Metodo di parity Design Comuni](design-comuni-parity-method.md): gate, JSON, blocchi, CSS estratto, cascata (2026-10-13)
+- [CSS di terzi sulle pagine data-dc](vendor-css-on-data-dc-pages-needs-guard-exemption.md): il guard PostCSS spegne anche il vendor; esenzione per nome, trappole misurate (2026-10-26)
 - [Audit di accessibilita (DCP-143)](accessibility-audit-dcp.md): axe, tastiera, regole ARIA dei blocchi, limiti (2026-10-13)

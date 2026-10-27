@@ -5,7 +5,6 @@ document_type: bmad-story
 category: defect
 epic: homepage-visual-parity
 document_version: 1.0
-status: open (to continue tomorrow)
 links:
   github_issue: "#14"
   discussion: "https://github.com/org/repo/discussions/14"
@@ -15,6 +14,8 @@ title: "Defect $IDX — Fix Story"
 updated: 2026-10-13
 tags: [docs, sixteen, bmad]
 qmd: "defect $idx   fix story sixteen"
+status: superseded
+superseded_by: STORY-DEFECT-01.md
 ---
 
 # Defect $IDX — Fix Story

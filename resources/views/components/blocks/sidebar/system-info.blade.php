@@ -32,12 +32,8 @@
                     {{-- Value --}}
                     @if(isset($item['value']))
                         <dd class="text-sm text-gray-900 font-mono bg-white px-2 py-1 rounded">
-                            @if(str_contains($item['value'], '{{') && str_contains($item['value'], '}}'))
-                                {{-- Renderizza espressioni Blade --}}
-                                {!! \Illuminate\Support\Facades\Blade::render($item['value']) !!}
-                            @else
-                                {{ $item['value'] }}
-                            @endif
+                            {{-- Solo testo: le espressioni ammesse le ha gia' risolte HasBlocks::compile() --}}
+                            {{ $item['value'] }}
                         </dd>
                     @endif
                 </div>

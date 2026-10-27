@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione map and section spacing parity"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-map-and-section-spacing-parity.md
 ---
 
 # Segnalazione Map And Section Spacing Parity

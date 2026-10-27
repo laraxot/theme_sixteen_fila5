@@ -5,6 +5,8 @@
     perdeva il percorso. Niente query nel canonical: `?code=` e' il codice di tracciamento di una segnalazione (dato personale) e non
     deve finire negli indici dei motori di ricerca. Senza prefisso di lingua nel percorso, o se la localizzazione non e' disponibile, il
     layout resta valido, senza questi link.
+    L'unica query che resta e' `page` (dalla 2 in su): ogni pagina di un elenco e' una pagina a se' (FO-6-25, DCP-288); i filtri (`q`, ...)
+    tornano alla pagina base.
 --}}
 @php
     $seoUrls = [];
@@ -15,8 +17,10 @@
         $seoDefault = (string) $seoLocalization->getDefaultLocale();
         [$seoFirst, $seoRest] = array_pad(explode('/', trim(request()->path(), '/'), 2), 2, '');
         if (in_array($seoFirst, $seoLocales, true)) {
+            $seoPage = filter_var(request()->query('page'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 2]]);
+            $seoQuery = $seoPage === false ? '' : '?page='.$seoPage;
             foreach ($seoLocales as $seoLocale) {
-                $seoUrls[$seoLocale] = url('/'.$seoLocale.($seoRest !== '' ? '/'.$seoRest : ''));
+                $seoUrls[$seoLocale] = url('/'.$seoLocale.($seoRest !== '' ? '/'.$seoRest : '')).$seoQuery;
             }
         }
     } catch (\Throwable) {

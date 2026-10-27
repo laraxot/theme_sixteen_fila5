@@ -10,6 +10,7 @@ tags: [skills, index, on-demand]
 related:
   - ../rules/00-TRIGGER_MAP.md
   - ../../ON-DEMAND-PATTERN.md
+status: draft
 ---
 
 # Skills Index

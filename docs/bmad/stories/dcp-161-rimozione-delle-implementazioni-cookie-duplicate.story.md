@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "cookiebar duplicate rimozione codice morto partials cookie-bar feedback cookiebar bootstrap-italia cookie-consent.js vanilla-cookieconsent categorie preattivate agid footer cookie-consent.css doppio"
 related: [dcp-136, dcp-153]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-161: una sola cookiebar

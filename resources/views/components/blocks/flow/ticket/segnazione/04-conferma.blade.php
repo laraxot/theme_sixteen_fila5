@@ -2,7 +2,7 @@
 
 @php
     $blockData = is_array($data) ? $data : [];
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 
     $hasConfirmationCode = (string) ($blockData['code'] ?? '') !== '';

@@ -24,6 +24,20 @@ Questa separazione evita che una pagina CMS ridefinisca header, footer o skiplin
 
 ## Contratto
 
+### Identità del layout pubblico
+
+`Sixteen` è già la resa Design Comuni. Per questo il componente pubblico
+canonico è `components/layouts/app.blade.php` (`x-layouts.app`): il valore CMS
+storico `layout: design-comuni` viene interpretato dal resolver come la stessa
+shell e non come un nome di view. `components/layouts/design-comuni.blade.php`
+non deve esistere, nemmeno come alias, perché reintrodurrebbe il secondo
+entrypoint che questa regola elimina.
+
+`design-comuni-authenticated` e `design-comuni-bare` restano solo per i template
+di test che dichiarano esplicitamente quei contratti: il primo modifica lo
+stato del menu account, il secondo omette intenzionalmente il chrome globale.
+Non sono sostituti del layout pubblico.
+
 ### `pub_theme::layouts.app`
 
 Deve contenere solo struttura pubblica condivisa:
@@ -59,11 +73,11 @@ Deve contenere solo:
 
 Non deve importare `File`, consultare `tests.catalog.json`, eseguire fallback
 per slug speciali o includere blocchi direttamente. Il JSON canonico è
-`database/content/pages/tests.<slug>.json`; la risoluzione e il rendering dei
+`database/content/pages/tests/<slug>.json` (lo slug nel file è l'ultimo pezzo, la cartella `tests` lo prefissa); la risoluzione e il rendering dei
 blocchi restano responsabilità del CMS e del tema.
 
 Se il componente viene montato senza parametro, il valore canonico è
-`tests.index`, mai `tests`: l'indice CMS è `tests.index.json`.
+`tests.index`, mai `tests`: il file è `pages/tests/` con slug `index`.
 
 ## Perche
 

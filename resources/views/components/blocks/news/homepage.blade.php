@@ -31,7 +31,7 @@
                 @endforeach
             </div>
             <div class="text-center mt-4">
-                <a class="btn btn-outline-primary" href="/it/tests/novita">
+                <a class="btn btn-outline-primary" :href="route('news') ?? route('events.index')">
                     Tutte le novità
                     <svg class="icon icon-sm">
                         <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>

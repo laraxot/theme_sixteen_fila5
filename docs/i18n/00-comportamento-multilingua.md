@@ -40,7 +40,7 @@ Stato dopo DCP-120: header, footer, modale di ricerca e home hanno i blocchi `de
 
 ## Selettore lingua
 
-Nell'header, `config/local/fixcity/database/content/sections/header.json` chiave `languages.items`, resa da `Themes/Sixteen/resources/views/components/sections/header/design-comuni.blade.php` righe 51-66.
+Nell'header, `config/local/fixcity/database/content/sections/header.json` chiave `languages.items`, resa da `Themes/Sixteen/resources/views/components/sections/header/v1.blade.php` → `tailwind.blade.php`.
 
 - Prima di DCP-120 elencava solo `it` ed `en`. Dal codice (riga 53, `firstWhere('locale', $locale)['label'] ?? ''`) un `/de` aveva il pulsante senza etichetta. Non osservato, dedotto dal codice.
 - Ora elenca `ITA`, `ENG`, `DEU`, `SPA` in tutti e quattro i blocchi (guardia: il test controlla che l'elenco coincida con le lingue servite).

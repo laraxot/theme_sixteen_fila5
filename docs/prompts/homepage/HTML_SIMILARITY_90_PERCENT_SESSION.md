@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "HTML SIMILARITY 90 PERCENT SESSION"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Homepage HTML Similarity Improvement Session - 90% Target
@@ -17,15 +18,6 @@ discussions: []
 > **Local**: http://127.0.0.1:8000/it/tests/homepage
 
 ---
-
-title: "HTML SIMILARITY 90 PERCENT SESSION"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML SIMILARITY 90 PERCENT SESSION"
-issues: []
-discussions: []
 ## Executive Summary
 
 ### Work Completed

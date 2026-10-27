@@ -8,18 +8,28 @@ declare(strict_types=1);
  */
 return [
     'home' => 'Home',
-    'title' => 'Accessibility statement',
+    'page' => ['title' => ['text' => 'Accessibility statement']],
+    'title' => [
+        'text' => 'Accessibility statement',
+        'label' => 'Accessibility statement',
+    ],
     'lead' => 'Statement made under art. 3-quater of Italian Law no. 4 of 9 January 2004.',
     'incomplete' => [
         'title' => 'Statement not complete yet',
         'intro' => 'The municipality still has to provide the following information before the service goes live. Until then this statement is not valid.',
     ],
+    'scope' => [
+        'title' => 'Scope of the statement',
+        'commitment' => ':entity is committed to making this website accessible, in accordance with Italian Law no. 4 of 9 January 2004, which transposes Directive (EU) 2016/2102.',
+        'text' => 'This statement applies to the website :url (public pages and the citizen’s personal area).',
+    ],
     'status' => [
         'title' => 'Compliance status',
         'compliant' => 'This website is compliant with the accessibility requirements of Italian Law no. 4 of 9 January 2004.',
-        'partially_compliant' => 'This website is partially compliant with the accessibility requirements of Italian Law no. 4 of 9 January 2004.',
-        'non_compliant' => 'This website is not compliant with the accessibility requirements of Italian Law no. 4 of 9 January 2004.',
+        'partially_compliant' => 'This website is partially compliant with the accessibility requirements of Italian Law no. 4 of 9 January 2004, due to the cases of non-compliance listed below.',
+        'non_compliant' => 'This website is not compliant with the accessibility requirements of Italian Law no. 4 of 9 January 2004. The cases of non-compliance are listed below.',
         'pending' => 'Not determined yet: the municipality will indicate the status after the accessibility evaluation.',
+        'reference' => 'Technical reference: standard UNI CEI EN 301 549 V3.2.1 (clause 9), which requires level AA of WCAG 2.1, as provided by the AgID guidelines on the accessibility of IT tools.',
     ],
     'content' => [
         'title' => 'Inaccessible content',
@@ -39,6 +49,8 @@ return [
         'updated_at' => 'Last update',
         'pending' => 'Not provided yet',
         'agid' => 'Statement completed on the AgID platform',
+        'verified' => 'What has been verified',
+        'not_verified' => 'What has not been verified',
     ],
     'feedback' => [
         'title' => 'Feedback and contacts',
@@ -46,6 +58,7 @@ return [
         'jump' => 'Report an accessibility problem',
         'email' => 'You can also write to',
         'pending' => 'The address for reports will be provided by the municipality.',
+        'officer' => 'Accessibility officer',
     ],
     'procedure' => [
         'title' => 'Enforcement procedure',

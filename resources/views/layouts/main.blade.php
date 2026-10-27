@@ -28,9 +28,8 @@ use Laravel\Folio\{title, middleware, name};
         @vite(['resources/js/app.js'], 'themes/Sixteen')
         @stack('scripts')
 
-        <script>
-            // Flash messages (Laravel session `status`) → toast. Multilingua: la chiave e' nel namespace
-            // del modulo che l'ha generata (es. account.delete.flash.account_deleted).
+        {{-- Flash messages (Laravel session `status`) -> toast. Multilingua: la chiave e' nel namespace del modulo che l'ha
+             generata (es. gdpr::account.flash.account_deleted). Un solo <script>: prima era annidato in un altro <script> e non partiva. --}}
             @php
                 $flash = session('status');
                 $flashMessage = null;
@@ -48,7 +47,6 @@ use Laravel\Folio\{title, middleware, name};
                 }
             </script>
             @endif
-        </script>
 
         {{-- Banner cookie: lo inietta CookieConsentMiddleware (vista Modules/Gdpr/resources/views/cookie-consent, DCP-153); nessun include qui. --}}
     </body>

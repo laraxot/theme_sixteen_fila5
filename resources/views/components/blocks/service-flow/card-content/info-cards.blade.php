@@ -4,7 +4,7 @@
     cards[] {id, title, info {label, value}, toggle_label, collapse_id, collapse_class, header_id, button_class, expanded (true = aria-expanded="true"), groups[] (parts/info-summary)}.
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $radio = filled($content['radio_name'] ?? null);
 @endphp

@@ -7,7 +7,7 @@
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
 @endphp
 <div class="container" id="main-container">
     <div class="row">

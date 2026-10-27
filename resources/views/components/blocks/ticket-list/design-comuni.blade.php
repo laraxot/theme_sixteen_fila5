@@ -10,13 +10,13 @@
 @php
     use Modules\Fixcity\Actions\ListPublicTicketsAction;
     use Modules\Fixcity\Datas\PublicTicketListFilters;
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
 
-    $locale = app()->getLocale();
-    $base = '/'.$locale.'/tickets';
+    $base = FrontofficeRoutes::ticketsIndex();
     $filters = PublicTicketListFilters::fromRequest(request());
     $list = app(ListPublicTicketsAction::class)->execute($filters);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_list.'.$key, $replace);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $parts = 'pub_theme::components.blocks.report-partials';
     $listActive = $filters->view === 'list';
@@ -26,13 +26,14 @@
     $listUrl = $withQuery($base, array_merge($filters->toQuery(['page']), ['view' => 'list']));
     // dati per i partial condivisi (breadcrumb, valutazione, contatti): stessa forma del JSON delle pagine di prova, ma dalla lingua attiva
     $partialData = [
-        'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => '/'.$locale]], 'current' => $t('breadcrumb.current')],
+        'breadcrumb' => ['items' => [['label' => $t('breadcrumb.home'), 'url' => route('home')]], 'current' => $t('breadcrumb.current')],
         'feedback' => array_merge((array) __('fixcity::ticket_list.feedback'), ['col_class' => 'col-12 col-lg-6 p-lg-0 px-3']),
         'contacts' => ['layout' => 'narrow', 'main' => ['title' => $t('contacts.title'), 'items' => [
-            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => '/'.$locale.'/domande-frequenti'],
-            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => $base.'/track'],
-            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => '/'.$locale.'/area-personale/pratiche'],
-            ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'url' => 'tel:050505'],
+            ['icon' => 'it-help-circle', 'label' => $t('contacts.faq'), 'url' => FrontofficeRoutes::faqIndex()],
+            ['icon' => 'it-search', 'label' => $t('contacts.track'), 'url' => FrontofficeRoutes::ticketsTrack()],
+            ['icon' => 'it-user', 'label' => $t('contacts.account'), 'url' => FrontofficeRoutes::personalAreaPratiche()],
+            // DCP-289: il numero verde viene dall'ente (config('ente.toll_free')); senza numero la voce sparisce
+            ['icon' => 'it-telephone', 'label' => $t('contacts.phone'), 'ente' => 'toll_free'],
         ]]],
     ];
     $d = static fn (string $key, mixed $default = '') => data_get($partialData, $key, $default);
