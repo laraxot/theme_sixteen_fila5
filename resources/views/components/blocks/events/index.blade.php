@@ -126,7 +126,7 @@
 
         return [
             'image' => ['url' => (string) ($event->getAttribute('main_image_url') ?? ''), 'title' => $title, 'alt' => $title],
-            'category' => ['label' => is_string($category) && $category !== '' ? strtoupper($category) : 'EVENTI', 'url' => $url],
+            'category' => ['label' => is_string($category) && $category !== '' ? strtoupper($category) : mb_strtoupper(__('pub_theme::news.index.default_event_category')), 'url' => $url],
             'title' => $title,
             'url' => $url,
             'text' => (string) ($event->getAttribute('excerpt') ?: $event->getAttribute('description') ?: ''),

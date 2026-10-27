@@ -67,6 +67,41 @@ Dettagli e perche':
 - Il token password a quattro segmenti e' una pagina Folio+Volt dedicata (`pages/auth/password/reset/[token].blade.php`); il middleware CMS non deve intervenire e il widget riceve token/email dal percorso.
 - Il 404 verifica il landmark `<main>` senza imporre che `id="main-container"` sia sul tag `main`: l'architettura Sixteen puo' porre il bersaglio skip-link nel contenuto Design Comuni.
 
+## Front office: giro da ospite e da loggato
+
+Metodo: tre audit in sola lettura (flussi di accesso, percorsi da ospite, percorsi da loggato) su `http://192.168.1.40:8000` con un account `@example.test`
+del DB di sviluppo. Ogni difetto pesante e' stato riverificato prima di intervenire: un agente aveva dato la colpa a un'altra sessione per un login
+fallito, ma la causa era la mia doppia cifratura della password di prova (`BaseUser::setPasswordAttribute` cifra gia' da solo).
+
+### Corretto e provato
+
+| Difetto | Causa | Correzione | Prova |
+|---|---|---|---|
+| Il logout riporta sempre a `/it` | `POST /logout` non ha il prefisso lingua | `LogoutAction::localeFromReferer()`, accetta solo lingue supportate | `LogoutActionLocaleTest`: rosso, poi 7 casi verdi |
+| Menu utente in de/es: 4 voci su 6 in inglese | chiavi `my_services`, `my_practices`, `notifications`, `settings` assenti | chiavi in `lang/de` e `lang/es` di `header.php` | HTML |
+| Avatar dell'header: richiesta a gravatar.com con l'hash della stringa vuota, uguale per tutti | `BaseProfile::getAvatarUrl()` cifrava anche l'email vuota | senza email restituisce `''`; resta il ripiego MD5 sull'email dell'utente voluto da CMT-022 | `ProfileAvatarUrlTest`: rosso (riproduce `e3b0c442...b855`), poi 4 casi verdi; sonda browser |
+| Blog ed eventi in en/de/es con «Cerca», «Invio», «18 notizie trovate», «NOTIZIE», «EVENTI» | ripieghi italiani scritti nei template | chiavi `news.index.*` nei 4 `news.php`, template con `__()` | `NewsIndexLabelsAreTranslatedTest`: rosso (25), poi verde; HTML di 8 URL, 0 stringhe italiane in en/de/es; compilazione Blade 670 test verdi |
+| Registrazione in tedesco: pulsante «Registrati», azioni e messaggi in italiano | `User/lang/de/registration.php` copiato dall'italiano | blocchi `actions` e `messages` tradotti | HTML di `/de/auth/register`: «Registrieren» |
+| Registrazione (Gdpr): etichetta marketing e messaggio di successo con «pizza» e il segnaposto `<nome progetto>` | testo di un template | testi civici in en/de/es | lettura del lang, `php -l` |
+
+### Aperto, con il motivo
+
+- **Decisione dell'utente, testi legali.** `[[ente.*]]` e «TESTO NON ANCORA COMPLETO» restano in privacy, note legali, accessibilita' e nel passo 1 del wizard:
+  servono i dati reali del Comune oppure dati dichiaratamente fittizi solo per lo sviluppo. Non li invento.
+- **Decisione dell'utente, Gravatar nell'header.** L'informativa dice «accanto ai tuoi commenti», ma l'header fa la stessa richiesta a ogni pagina per l'utente
+  connesso (lo vuole CMT-022). O si allarga il testo, o l'header mostra solo foto caricata o iniziale.
+- **Quattro URL in 404 anche da loggato** (`/it/dashboard`, `/it/profile/edit`, `/it/notifications`, `/it/area-personale/servizi`): le oscura il catch-all
+  `[container0]` del tema e nessun link li raggiunge. Non si risolve con un file nel tema (regola del progetto): serve il link giusto o un JSON CMS.
+- **Layout e CSS, non toccati** per non scontrarsi con le sessioni che lavorano su Sixteen: le pagine senza `data-dc` (dettaglio blog e evento, area personale,
+  wizard, conferma) hanno header e footer diversi dal resto; allineamenti a sinistra incoerenti; footer piu' povero del modello; blocco «Indice della pagina»
+  rotto in pratiche e impostazioni; nel passo 2 del wizard il clic sulla mappa non crea il marker (ipotesi non verificata); contrasti tra 3,2 e 4,4 a 1 su
+  avatar, paginazione e «Carica file»; focus invisibile sul selettore lingua.
+- **Latenti:** la pagina `verify` del modulo User e' uno stub in inglese fuori dal tema (raggiunta solo con `AUTH_MUST_VERIFY_EMAIL=true`, oggi `false`);
+  la password chiede «minimo 8» in registrazione e «minimo 12» al reset; il redirect dell'ospite al login non porta il parametro di ritorno;
+  il lang Gdpr ha ancora chiavi di template (Pizza Journey, `monthly_meetups`) non usate dal front office.
+- **Test di altre sessioni.** Cinque file di test non tracciati (07:50) provano classi inesistenti (`XotPanelController`, `LocationDTO`, `Tests\Modules\Xot\TestCase`) e
+  danno 107 errori PHPStan. Non li ho committati e non li ho corretti: non so che API volevano.
+
 ## Esito corrente
 
 I controlli mirati su autenticazione/sitemap/PHPStan passano dopo le correzioni. La suite FO larga resta non completamente verde per asserzioni legacy su titoli non brandizzati, markup di paginazione/404 e alcune pagine ancora da riallineare a Design Comuni; non vengono mascherate modificando il codice solo per soddisfare fixture obsolete.

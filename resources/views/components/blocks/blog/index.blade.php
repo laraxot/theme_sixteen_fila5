@@ -39,7 +39,7 @@
         $date = is_string($date) ? strtoupper($date) : '';
         $categoryLabel = is_string($category) && $category !== ''
             ? strtoupper($category)
-            : 'NOTIZIE';
+            : mb_strtoupper(__('pub_theme::news.index.default_category'));
         $categorySlugAttr = $post->category?->getAttribute('slug');
         $categoryUrl = $categorySlugAttr
             ? $blogIndexUrl.'?categoria='.urlencode((string) $categorySlugAttr)
@@ -52,8 +52,8 @@
     $resultCount = $posts->total() + count($featuredIds);
     // Ref: "62 notizie trovate in ordine alfabetico"
     $statusLabel = $resultCount === 1
-        ? '1 notizia trovata'
-        : $resultCount.' notizie trovate';
+        ? __('pub_theme::news.index.result_one')
+        : __('pub_theme::news.index.result_many', ['count' => $resultCount]);
 
     // CMS JSON (feedback/contacts) > parity nest > config tema (se caricata).
     $parityFromConfig = config('sixteen.sixteen.blog.parity')
@@ -190,11 +190,11 @@
                 @endif
                 <div class="form-group autocomplete-wrapper mb-0">
                     <div class="input-group">
-                        <label for="autocomplete-autocomplete-three" class="visually-hidden">{{ $data['search_label'] ?? 'Cerca' }}</label>
+                        <label for="autocomplete-autocomplete-three" class="visually-hidden">{{ $data['search_label'] ?? __('pub_theme::news.index.search_label') }}</label>
                         <input
                             type="search"
                             class="autocomplete form-control"
-                            placeholder="{{ $data['search_placeholder'] ?? 'Cerca per parola chiave' }}"
+                            placeholder="{{ $data['search_placeholder'] ?? __('pub_theme::news.index.search_placeholder') }}"
                             id="autocomplete-autocomplete-three"
                             name="q"
                             value="{{ $search }}"
@@ -202,7 +202,7 @@
                         >
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit" id="button-3">
-                                {{ $data['search_submit'] ?? 'Invio' }}
+                                {{ $data['search_submit'] ?? __('pub_theme::news.index.search_submit') }}
                             </button>
                         </div>
                         <span class="autocomplete-icon" aria-hidden="true">
