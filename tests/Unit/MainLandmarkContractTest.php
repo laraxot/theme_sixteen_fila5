@@ -53,11 +53,12 @@ test('l\'id su una riga a parte e un tabindex gia presente non vengono duplicati
     expect(substr_count((string) $document->body?->innerHTML, 'tabindex'))->toBe(1);
 });
 
-test('i layout del tema usano il componente e non emettono piu un main con id a mano', function (string $layout): void {
+test('il layout pubblico canonico usa il componente e non emette piu un main con id a mano', function (): void {
+    $layout = 'app';
     $source = file_get_contents(dirname(__DIR__, 2).'/resources/views/components/layouts/'.$layout.'.blade.php');
 
     expect($source)->toContain('<x-layouts.main-landmark')->not->toMatch('/<main[^>]*id="main-container"/');
-})->with(['app', 'design-comuni']);
+});
 
 test('le pagine d\'errore a tema non annidano un secondo main dentro quello del layout', function (string $view): void {
     $source = file_get_contents(dirname(__DIR__, 4).'/Modules/Fixcity/resources/views/errors/'.$view.'.blade.php');

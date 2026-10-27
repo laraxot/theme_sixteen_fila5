@@ -3,9 +3,6 @@
 declare(strict_types=1);
 
 use Dom\HTMLDocument;
-use Modules\Fixcity\Database\Factories\TicketFactory;
-use Modules\Fixcity\Enums\TicketStatusEnum;
-use Modules\Fixcity\Enums\TicketTypeEnum;
 use Modules\Fixcity\Tests\TestCase;
 use PHPUnit\Framework\Assert;
 
@@ -14,7 +11,8 @@ use function Pest\Laravel\get;
 uses(TestCase::class);
 
 /**
- * DCP-288 (FO-1-01): la modale "Cerca" dell'intestazione non cercava. Il campo si chiamava `autocomplete-two`, l'elenco legge `q`;
+ * DCP-288 (FO-1-01): la modale "Cerca" dell'intestazione non cercava. Dal 2026-10-26 invia `q` alla ricerca globale /{lang}/ricerca
+ * (Modules/Fixcity/docs/stories/site-wide-front-office-search.story.md), non piu' al solo elenco segnalazioni. Il campo si chiamava `autocomplete-two`, l'elenco legge `q`;
  * il form non aveva `action` (dalla home restava sulla home) e il pulsante "Cerca" era `type="button"`.
  *
  * @return array{action: string, method: string, role: string, input: ?string, hasSubmit: bool, placeholder: string, label: string}
@@ -39,31 +37,24 @@ function searchModalForm(string $locale): array
     ];
 }
 
-it('submits the query as q with a GET to the localized report list', function (string $locale): void {
+it('submits the query as q with a GET to the localized site search page', function (string $locale): void {
     $form = searchModalForm($locale);
 
     expect($form['method'])->toBe('get')
         ->and($form['role'])->toBe('search')
         ->and($form['input'])->toBe('q')
         ->and($form['hasSubmit'])->toBeTrue()
-        ->and($form['action'])->toEndWith('/'.$locale.'/tickets');
+        ->and($form['action'])->toEndWith('/'.$locale.'/ricerca');
 })->with(['it', 'en', 'de', 'es']);
 
-it('filters the public list with what the modal form sends', function (): void {
-    TicketFactory::new()->createOne(['name' => 'Buca in via Solferino', 'status' => TicketStatusEnum::IN_PROGRESS, 'type' => TicketTypeEnum::ROAD_MAINTENANCE, 'location' => ['lat' => 43.7696, 'lng' => 11.2558, 'address' => 'Via Solferino - 50100 Firenze']]);
-    TicketFactory::new()->createOne(['name' => 'Cestino rotto', 'status' => TicketStatusEnum::IN_PROGRESS, 'type' => TicketTypeEnum::ROAD_MAINTENANCE, 'location' => ['lat' => 43.7696, 'lng' => 11.2558, 'address' => 'Via Dalmazia - 50100 Firenze']]);
+// Il giro completo modale -> /{lang}/ricerca -> segnalazione trovata sta in SiteSearchPageTest: la pagina interroga anche gli
+// articoli e lo schema scratch va prima allineato (articles.type), cosa che un file Pest con uses() non puo' fare.
 
-    $form = searchModalForm('it');
-    $url = $form['action'].'?'.http_build_query([$form['input'] => 'cestino']);
-
-    get($url)->assertOk()->assertSee('Cestino rotto')->assertDontSee('Buca in via Solferino')->assertSee('1 Risultato');
-});
-
-it('does not promise a whole-site search while it only searches reports', function (string $locale, string $wholeSiteWording): void {
+it('promises a whole-site search now that the results page searches the whole site', function (string $locale, string $wholeSiteWording): void {
     $form = searchModalForm($locale);
 
-    expect($form['placeholder'])->not->toContain($wholeSiteWording)->not->toBe('')
-        ->and($form['label'])->not->toContain($wholeSiteWording)->not->toBe('');
+    expect($form['placeholder'])->toContain($wholeSiteWording)
+        ->and($form['label'])->toContain($wholeSiteWording);
 })->with([
     'it' => ['it', 'nel sito'],
     'en' => ['en', 'the site'],

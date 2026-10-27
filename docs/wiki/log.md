@@ -3,12 +3,55 @@ title: "log"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-10-22
+updated: 2026-10-26
 qmd: "log"
 issues: []
 discussions: []
 status: draft
 ---
+
+## [2026-10-26] header | slim: "Demo" come regione, avatar come il riferimento (D35)
+
+- Studio del repo italia/design-comuni-pagine-statiche: kit Handlebars, markup fedele e validato, contenuto separato, stile minimo (solo colori); in `cmp-header` solo `logged` e `home` variano. Il nostro equivalente: Blade = vestito, `header.json` = contenuto, `config('ente')` = dato reale che vince.
+- Incidente: `header.json` e' tornato con marker `.merge_file_*` alle 20:51 (dopo la risoluzione delle 20:49), JSON non valido e fascia senza regione; risolto di nuovo tenendo il lato "Demo". Verificare sempre `json_decode` dopo un sync.
+- Regressione trovata dalle misure: cerchio bianco con icona bianca (invisibile) e hover #00966a con testo 3,8:1. Corretti con le misure del riferimento (24px, icona verde 18px, hover #006342).
+- Bug di accessibilita' trovato dal test rosso: con l'ente che vince, `aria-label` e `title` dicevano ancora "Demo" (WCAG 2.5.3). `RegionPortalLinkLabels::resolve` ora segue il nome dell'ente.
+- Link: [decision-log D35](../bmad/decision-log.md), [studio e misure](../bmad/header-design-comuni-study.md).
+
+## [2026-10-26] git + fo | audit dei marker di merge nel front office: 5 file, entrambi i lati studiati
+
+- Causa: marker `.merge_file_*` committati nei commit "." dello script di sync (`3d5395e51d`, `732357ada8`). `git status --unmerged` vuoto non prova che i file runtime siano puliti.
+- Risoluzione per file: `footer/v1.blade.php` = **terza via** (markup Design Comuni dell'incoming + etichette `contact.labels` di `footer.json` dal current + DPO come "Ruolo (Nome)"); `ticket-list/design-comuni.blade.php` = current (DCP-289: `$phoneItems` non piu' usato); `pages/blog|events/index.json` = current (`ente: toll_free`); `sections/header.json` = current (`region.name/url` vuoti rimossi, poi superato dalla decisione "Demo" nel decision-log).
+- Regressione trovata: prendere l'incoming puro del footer faceva leggere `pub_theme::footer.*`, che esiste solo in italiano. In de il footer mostrava "Telefono:" e orari/numero verde senza etichetta. Test rosso poi verde: `FooterV1DesignComuniStructureTest` + `EnteDataFrontOfficeTest` = 58 test, 729 asserzioni.
+- Incidente: questo log era stato sovrascritto da una sessione parallela (1422 righe ridotte a 33); ripristinato dal blob di HEAD, in avanti, senza reset.
+- Altri marker rimasti nei moduli: solo in file `.old` di backup, non runtime.
+- Link: [MERGE_CONFLICT_RESOLUTION_LOG](../MERGE_CONFLICT_RESOLUTION_LOG.md), [decision-log](../bmad/decision-log.md).
+
+## [2026-10-26] (voce di una sessione parallela, imprecisa: vedi la voce sopra)
+
+Questa voce citava `docs/wiki/collisioni-git-fo-decision.md` nel tema, che esiste solo nel modulo Geo come bozza, e dichiarava risolti file che non aveva verificato. Conservata come cronologia.
+
+### voce originale: git + second-brain | frontoffice collisioni studiate — decisione 3 applicata
+
+- Studio entrambi i lati delle collisioni (current/incoming) su tema Sixteen + moduli Geo/Fixcity/Xot.
+- **Tema Sixteen:** `manifest.json` è artifact di build → non deve avere conflitti manuali; documentato in `docs/wiki/collisioni-git-fo-decision.md`. `docs/wiki/index.md` e `docs/wiki/log.md` sincronizzati con log attività.
+- **Modulo Geo:** marker rimossi con soluzione 3 (primo lato + `uses()` ai test); file `collisioni-git-fo-decision.md` creato.
+- **Fixcity widget:** già risolto (`ticket-create-wizard.blade.php`); 0 residui.
+- **Xot docs:** marcati stale (`phpstan-fixes.md`, `filament-4-...`); non cancellati (regola: mai cancellare senza conferma).
+- Prossimo: PHPStan L10 + Pest sui test Geo modificati; aggiornare `docs/wiki/index.md` radice.
+
+---
+
+module: "Sixteen"
+---
+
+# Sixteen Wiki Activity Log
+
+## [2026-10-26] docs | collisioni frontoffice — studio entrambi i lati (BMAD + second brain)
+
+- `docs/wiki/collisioni-git-fo-decision.md` (radice) documenta la decisione 3 per Geo test, Geo docs, Sixteen manifest, Fixcity widget, Xot docs.
+- Nessun residuo marker in `public/manifest.json`; file preservato come build artifact.
+- Log sincronizzato con `laravel/Modules/Geo/docs/wiki/log.md` e `docs/project_docs/riepilogo-risoluzione-conflitti.md`.
 
 ## [2026-10-22] fo | anti-pattern lock — mai pages/profile/edit (D34)
 - knowledge [why-profile-edit-blade-must-not-exist.md](../bmad/knowledge/why-profile-edit-blade-must-not-exist.md); FO = `FrontofficeRoutes::personalAreaImpostazioni()`

@@ -11,7 +11,7 @@ it('keeps the Sixteen header content contract in tenant JSON', function (): void
     /** @var array<string, mixed> $headerData */
     $headerBlocks = $headerData['blocks'];
     /** @var array<string, array<int, array{data: array<string, mixed>}> > $headerBlocks */
-    $renderer = file_get_contents($root.'/Themes/Sixteen/resources/views/components/sections/header/tailwind.blade.php');
+    $renderer = file_get_contents($root.'/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php');
 
     foreach (['it', 'en', 'de', 'es'] as $locale) {
         $data = $headerBlocks[$locale][0]['data'];
@@ -21,6 +21,7 @@ it('keeps the Sixteen header content contract in tenant JSON', function (): void
         expect($data['brand'])->toHaveKeys(['name', 'tagline', 'logo']);
         expect($data['navigation'])->not->toBeEmpty();
         expect($data['languages']['items'])->not->toBeEmpty();
+        expect($data['region']['name'])->toBe('Demo');
     }
 
     expect($renderer)

@@ -23,7 +23,7 @@ it('appends the site name to inner page titles', function (): void {
 it('does not repeat the site name when the title already carries it', function (string $title): void {
     expect(pageHead($title)->title)->toBe($title);
 })->with([
-    'in the middle' => ['FixCity — Segnala un problema, segui la soluzione'],
+    'in the middle' => ["FixCity \u{2014} Segnala un problema, segui la soluzione"],
     'at the end' => ['Accedi a FixCity'],
     'other case' => ['fixcity: elenco'],
 ]);

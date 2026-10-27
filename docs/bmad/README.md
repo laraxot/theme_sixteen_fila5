@@ -119,6 +119,19 @@ accessibilità completa né staging.
 
 - [FreeLLMAPI theme boundary](./freellmapi-theme-boundary.md) — nessuna dipendenza dal runtime visuale
 
+## Runtime smoke 2026-10-26
+
+Le route `/it/blog`, `/it/events` e `/it/tickets` sono state aperte con
+Playwright sull’ambiente `192.168.1.40:8000`: titoli e heading localizzati
+presenti, shell condivisa con skip-link/header/main/footer e nessun errore
+console. A 375, 768 e 1440 px `scrollWidth` coincide con la viewport per tutte
+le pagine; `/it/tickets` carica `/api/tickets/geojson` con `200`.
+
+Le screenshot runtime non hanno un baseline committato con cui misurare la
+parità; quindi la verifica visuale è **inconclusive**, non un PASS. Restano da
+fare axe/keyboard e il controllo completo dei link. Evidenza dettagliata:
+`Hindsight frontoffice-runtime-smoke-2026-10-26`.
+
 ## Inbound marketing
 
 - [Contratto Blog/Eventi (`content_type`)](content-type-contract.md)

@@ -24,3 +24,11 @@ it('gives the guest login call to action an accessible name at every width', fun
     'personal-area-guest-cta' => fn (): View => view('pub_theme::components.sections.header.partials.personal-area-guest-cta'),
     'personal-area-login-cta' => fn (): View => view('pub_theme::components.sections.header.partials.personal-area-login-cta'),
 ]);
+
+it('keeps the guest CTA label in the reusable partial instead of hardcoding page copy', function (): void {
+    $path = dirname(__DIR__, 2).'/resources/views/components/sections/header/partials/personal-area-login-cta.blade.php';
+    $html = file_get_contents($path);
+
+    expect($html)->toContain('$label');
+    expect($html)->toContain('personal-area-login-cta');
+});

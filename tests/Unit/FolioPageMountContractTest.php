@@ -26,6 +26,17 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
     }
 });
 
+test('Sixteen usa app come unica shell pubblica e non mantiene il layout design-comuni', function (): void {
+    $themeRoot = dirname(__DIR__, 2);
+    $layoutsRoot = $themeRoot.'/resources/views/components/layouts';
+    $dynamicPage = file_get_contents($themeRoot.'/resources/views/pages/[container0]/[slug0]/index.blade.php');
+
+    expect(file_exists($layoutsRoot.'/app.blade.php'))->toBeTrue();
+    expect(file_exists($layoutsRoot.'/design-comuni.blade.php'))->toBeFalse();
+    expect($dynamicPage)->toContain("'layouts.app'");
+    expect($dynamicPage)->not->toContain("'layouts.design-comuni'");
+});
+
 test('folio pages con Component richiedono @volt statico uguale a name()', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     $expectations = [

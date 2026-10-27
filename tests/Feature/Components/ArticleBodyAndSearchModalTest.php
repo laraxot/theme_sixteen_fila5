@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Modules\Blog\Models\Article;
 use PHPUnit\Framework\Assert;
 use Tests\TestCase;
+use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
 
 use function Safe\file_get_contents;
 
@@ -63,8 +64,9 @@ test('design comuni search modal is a GET form with a labelled q field and a sub
         ['data' => ['title' => 'Cerca', 'label' => 'Cerca nel sito', 'placeholder' => 'Cerca nel sito', 'button' => 'Cerca', 'suggestions' => []]],
     ]])->render();
 
-    $ticketsUrl = route('container0.index', ['container0' => 'tickets']);
-    Assert::assertMatchesRegularExpression('/<form[^>]*method="get"[^>]*action="'.preg_quote($ticketsUrl, '/').'"[^>]*role="search"/', $html);
+    // The modal searches the whole site (site-wide-front-office-search story), not only the tickets list.
+    $searchUrl = FrontofficeRoutes::searchIndex();
+    Assert::assertMatchesRegularExpression('/<form[^>]*method="get"[^>]*action="'.preg_quote($searchUrl, '/').'"[^>]*role="search"/', $html);
     Assert::assertMatchesRegularExpression('/<input[^>]*type="search"[^>]*id="autocomplete-two"[^>]*name="q"/', $html);
     Assert::assertStringContainsString('<label for="autocomplete-two"', $html);
     Assert::assertMatchesRegularExpression('/<button type="submit" class="btn btn-primary"/', $html);
