@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "pagamenti pagopa linee guida design 4.6.3 piattaforme abilitanti cad art 5 art 62 servizi pagamento"
 related: [dcp-21, dcp-163, dcp-173]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-174: pagamenti tramite PagoPA e piattaforme abilitanti (Linee guida design 4.6.3)

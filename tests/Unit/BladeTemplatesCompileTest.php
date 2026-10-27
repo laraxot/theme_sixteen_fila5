@@ -27,7 +27,7 @@ function sixteenTemplatesToCompile(): array
     $datasets = [];
     // Finder e non facciate: il dataset si calcola al caricamento del file, prima dell'avvio dell'app.
     // `components/blocks` incluso (story 1.4): un `<x-...>` con alias non risolto fa fallire `view:cache` e la release.
-    foreach ((new Finder())->files()->name('*.blade.php')->in([$root.'/pages', $root.'/components/layouts', $root.'/components/blocks']) as $file) {
+    foreach ((new Finder)->files()->name('*.blade.php')->in([$root.'/pages', $root.'/components/layouts', $root.'/components/blocks']) as $file) {
         $relative = substr($file->getPathname(), strlen($root) + 1);
         if (! in_array($relative, $knownBrokenUnused, true)) {
             $datasets[$relative] = [$file->getPathname()];

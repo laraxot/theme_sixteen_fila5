@@ -16,7 +16,7 @@ const BASE = process.env.FIXCITY_BASE_URL || 'http://127.0.0.1:8000';
 const STATE = process.env.FIXCITY_STORAGE_STATE || '';
 const STRICT = process.env.A11Y_STRICT === '1';
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
-const WIDTHS = [375, 1440];
+const WIDTHS = [375, 768, 1440];
 const WIZARD2 = '/it/tickets/create?step=form.dati-di-segnalazione%3A%3Adata%3A%3Awizard-step';
 const exe = [process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH, ...[1248, 1247, 1243].map((n) => `${process.env.HOME}/.cache/ms-playwright/chromium-${n}/chrome-linux64/chrome`)].filter(Boolean).find(existsSync);
 test.use({ launchOptions: { executablePath: exe, args: ['--no-sandbox', '--disable-dev-shm-usage'] } });
@@ -29,6 +29,7 @@ async function goToReview(page) {
   // Nominatim finto (come nella sonda della mappa): l'indirizzo obbligatorio arriva sempre, senza dipendere dal servizio pubblico e dai suoi limiti.
   await page.route(/nominatim\.openstreetmap\.org/, (route) => route.fulfill({ status: 200, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify({ display_name: 'Via di prova 1, Citta di prova' }) }));
   await page.goto(BASE + WIZARD2, { waitUntil: 'load', timeout: 60000 });
+  await dismissNoise(page);
   await page.waitForFunction(() => document.querySelector('coordinate-picker-lit:not([readonly])')?._map, null, { timeout: 30000 });
   await page.waitForTimeout(2500);
   const pane = await page.$('coordinate-picker-lit:not([readonly]) .map-picker-leaflet-pane');
@@ -49,9 +50,24 @@ async function goToReview(page) {
 }
 
 /** axe puo' scontrarsi con una navigazione o un morph Livewire ancora in corso ("Execution context was destroyed"): si riprova, un errore vero resta un errore. */
+/** Esclude tooling locale (debugbar / boost) — non fa parte del contratto FO WCAG. */
+async function dismissNoise(page) {
+  try { await page.locator('.gdpr-btn, button:has-text("Ho capito")').first().click({ timeout: 2000 }); } catch { /* no banner */ }
+  await page.addStyleTag({ content: '.phpdebugbar,.phpdebugbar-open,#phpdebugbar,[class*="phpdebugbar"],.sf-minitoolbar,#sfwdt{display:none!important}' });
+}
+
 async function analyze(page) {
+  await dismissNoise(page);
   for (let attempt = 1; ; attempt += 1) {
-    try { return await new AxeBuilder({ page }).withTags(TAGS).exclude('.phpdebugbar').analyze(); } catch (error) {
+    try {
+      return await new AxeBuilder({ page })
+        .withTags(TAGS)
+        .exclude('.phpdebugbar')
+        .exclude('#phpdebugbar')
+        .exclude('[class*="phpdebugbar"]')
+        .exclude('.sf-minitoolbar')
+        .analyze();
+    } catch (error) {
       if (attempt >= 3 || !/context was destroyed|navigation|detached/i.test(String(error))) throw error;
       await page.waitForTimeout(1500);
     }
@@ -75,7 +91,15 @@ for (const width of WIDTHS) {
         ...(check.auth ? { storageState: STATE } : {}),
       });
       const page = await context.newPage();
+      const failedDocuments = [];
+      page.on('response', (response) => {
+        if (response.request().isNavigationRequest() && response.frame() === page.mainFrame() && response.status() >= 400) {
+          failedDocuments.push(`${response.status()} ${new URL(response.url()).pathname}`);
+        }
+      });
       await check.open(page);
+      expect(failedDocuments, 'le pagine verificate devono rispondere senza errori HTTP').toEqual([]);
+      if (check.auth) expect(new URL(page.url()).pathname).not.toContain('/auth/login');
       await page.waitForTimeout(1200);
       const { violations } = await analyze(page);
       await context.close();
@@ -87,3 +111,36 @@ for (const width of WIDTHS) {
     });
   }
 }
+
+async function dismissCookiebarIfVisible(page) {
+  const accept = page.locator('.gdpr-cookiebar button').first();
+  if (await accept.isVisible().catch(() => false)) {
+    await accept.click();
+    await page.locator('.gdpr-cookiebar').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+  }
+}
+
+test('mobile ticket filters modal receives focus and closes with Escape (DCP-195 B18)', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 800 });
+  await page.goto(`${BASE}/it/tickets`, { waitUntil: 'networkidle', timeout: 60000 });
+  await dismissCookiebarIfVisible(page);
+
+  const openFilters = page.locator('[data-filter-open]').first();
+  test.skip(await openFilters.count() === 0, 'questa lista non espone filtri mobili');
+  await expect(openFilters).toBeVisible();
+  await openFilters.click();
+
+  const modal = page.locator('#modal-categories');
+  await expect(modal).toHaveAttribute('aria-modal', 'true');
+  await expect(modal).toHaveAttribute('role', 'dialog');
+
+  const focusInside = await page.evaluate(() => {
+    const root = document.getElementById('modal-categories');
+    return Boolean(root && root.contains(document.activeElement));
+  });
+  expect(focusInside, 'il focus deve entrare nella modale all\'apertura').toBe(true);
+
+  await page.keyboard.press('Escape');
+  await expect(modal).toHaveAttribute('aria-hidden', 'true');
+  await expect(openFilters).toBeFocused();
+});

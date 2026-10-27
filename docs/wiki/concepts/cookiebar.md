@@ -11,6 +11,9 @@ related:
   - ../rules/no-bootstrap-runtime-assets-rule.md
   - ../entities/bootstrap-italia-class-inventory.md
   - ../design/auth-login-ux-design-wcag.md
+type: note
+updated: 2026-10-15
+tags: [docs, sixteen, wiki]
 ---
 
 # Cookie Bar Concept

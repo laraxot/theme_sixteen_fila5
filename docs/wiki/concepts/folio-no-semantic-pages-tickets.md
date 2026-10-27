@@ -23,7 +23,7 @@ status: draft
 
 **Causa:** file spurio `resources/views/pages/tickets/index.blade.php` con `@extends('sixteen::layouts.app')` — pattern MVC legacy inventato da agente, **non** architettura Laraxot.
 
-Folio preferisce path statico `pages/tickets/index` rispetto a `[container0]/index` → bypass del router CMS.
+Folio preferisce path statico `pages/tickets/index` rispetto a `[container0]/index` → bypass del router CMS. Stesso meccanismo di `pages/domande-frequenti/index.blade.php`: [perché non deve esistere](../../bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
 
 ## Regola
 

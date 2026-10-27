@@ -7,6 +7,7 @@ updated: 2026-09-26
 qmd: "00 index"
 issues: []
 discussions: []
+status: draft
 ---
 
 # Design Comuni Replication Documentation
@@ -87,7 +88,7 @@ Il lavoro visivo resta limitato a:
 - [bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md](../../../bashscripts/docs/DESIGN_COMUNI_VISUAL_COMPARE.md) - Scripts documentation
 
 ### Modulo Cms
-- [Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md) - Index completo modulo Cms
+- [Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../../Modules/Cms/docs/design-comuni-index.md) - Index completo modulo Cms
 - [Modules/Cms/docs/00-index.md](../../../../Modules/Cms/docs/00-index.md) - Indice modulo Cms
 
 ### Modulo UI

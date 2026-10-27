@@ -8,7 +8,7 @@
     $title = $cta['title'] ?? 'fixcity::ticket.map.cta.title.label';
     $text = $cta['text'] ?? 'fixcity::ticket.map.cta.text.label';
     $buttonText = $cta['button_text'] ?? 'fixcity::ticket.map.cta.button.label';
-    $buttonUrl = $cta['button_url'] ?? '/it/tests/ticket-crea';
+    $buttonUrl = $cta['button_url'] ?? \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsCreate(false);
 @endphp
 
 @if (!empty($cta))

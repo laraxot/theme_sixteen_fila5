@@ -51,7 +51,7 @@
                     <h3 class="h5 font-semibold mb-3">Difficoltà riscontrate</h3>
                     <div class="d-flex flex-wrap gap-2 justify-content-center">
                         <button class="btn btn-outline-primary btn-sm">Istruzioni poco chiare</button>
-                        <button class="btn btn-outline-primary btn-sm">Incompleto</button>
+                        <button class="btn btn-outline-primary btn-sm">Informazioni incomplete</button>
                         <button class="btn btn-outline-primary btn-sm">Confusione avanzamento</button>
                         <button class="btn btn-outline-primary btn-sm">Problemi tecnici</button>
                         <button class="btn btn-outline-primary btn-sm">Altro</button>

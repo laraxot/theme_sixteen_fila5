@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione visual parity"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-visual-parity.md
 ---
 
 # Visual parity check — Segnalazione (create)

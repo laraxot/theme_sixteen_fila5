@@ -3,7 +3,7 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-updated: 2026-10-15
+updated: 2026-10-14
 qmd: "sixteen theme design comuni folio volt accessibility documentation index classificazione cartelle indici storici INDEX.md index.md"
 status: active
 tags: [docs, sixteen]
@@ -28,7 +28,7 @@ BMAD/QMD più vecchio e `MASTER_DOCUMENTATION.md` è un resoconto del 2026-04-01
 entrambi senza suffisso `.old`; restano anche `00-INDEX.md.tmp` (residuo del
 2026-09-24), `00-HOMEPAGE-REPLICATION-INDEX.md`, `DESIGN_COMUNI_REPLICATION_INDEX.md`,
 `REPLIKATE-MASTER-INDEX.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
-nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
+nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 
 ## Riorganizzazione docs 2026-10-13
 
@@ -50,13 +50,13 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 | Evidence (immutabili o storiche) | `screenshots/` (260), `visual-parity/` (280), `visual-comparison/` (224), `body-structure-comparison/` (156), `analysis/` (142), `comparisons/` (83), `visual-analysis/` (53), `html-parity-reports/` (29), `html-structure-comparison/` (21), `html-compare/` (12), `Main_files/` (47), `raw/` (16), `design-comuni/*/raw` |
 | Generate | `graphify-out/` (1.556 file: `cache/`, `graph.json`, `manifest.json`), `qmd-index/` |
 | Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `BATCH_PAGES_ANALYSIS.md`: 98) |
-| Mappa viva | [INDEX.md](INDEX.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
+| Mappa viva | [INDEX.md](index.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
 
 ## Percorsi di lettura
 
 1. [README](README.md) — identità, ownership e stack;
 2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
-3. [docs architecture](../../../../bmad-output/docs-architecture/README.md) — regole cross-project;
+3. [docs governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md) — regole cross-project;
 4. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
 5. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
 6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
@@ -70,11 +70,17 @@ nuova struttura; per le cartelle vedi [INDEX.md](INDEX.md).
 14. [visual-parity](visual-parity/) — verifiche, screenshot per pagina e report;
 15. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
 
+Per le pagine CMS di primo livello, leggere anche il contratto
+[FAQ route ownership](bmad/faq-route-ownership.md): una pagina come
+`domande-frequenti` usa lo shell Folio generico e il JSON del tenant; non si
+crea `resources/views/pages/domande-frequenti/index.blade.php`.
+Il perché: [why-domande-frequenti-blade-php-must-not-exist.md](bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+
 ## SSoT per area
 
 | Area | Canonico | Non usare come SSoT |
 |---|---|---|
-| Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` (contraddizione aperta: `components/layouts/design-comuni.blade.php`, `-authenticated` e `-bare` esistono dal 2026-10-13 e `pages/tests/index.blade.php` usa `-bare`; vedi la story del 2026-10-14) |
+| Layout/Folio | `layout-runtime-contract.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | `design-comuni` come nome di layout runtime; i valori CMS storici vengono risolti da `x-layouts.app`, mentre `-authenticated` e `-bare` restano template specializzati di test |
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
 | Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
@@ -92,14 +98,6 @@ nel log Second Brain.
 I nuovi `.md` usano nomi lowercase senza date/timestamp e senza suffissi numerici
 sequenziali (`-1`, `-2`, `-3`). I file storici restano tali finché una mappa di rinomina
 verificata non garantisce tutti i riferimenti.
-
-
-## Standing order e moduli
-
-- Qualità/PHPStan/BMAD: [standing order](../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md) — azzerare PHPStan, docs ordinate, forward-only.
-- Cms (contenuti/Folio): [Modules/Cms/docs](../../../Modules/Cms/docs/README.md)
-- UI (componenti condivisi): [Modules/UI/docs](../../../Modules/UI/docs/README.md)
-- Scaffold root rinominati in kebab-case (2026-10-15): `qmd-setup.md`, `on-demand-pattern.md`, `project-structure.md`, `performance-optimization.md`, `redundancy-analysis.md`, `no-bootstrap-italia.md`, `daisyui.md`, `build-workflow.md`. Debito UPPERCASE residuo in root: non creare nuovi file UPPERCASE; consolidare verso i canonici in `wiki/`, `bmad/`, `build/`.
 
 ## Definition of done visuale
 

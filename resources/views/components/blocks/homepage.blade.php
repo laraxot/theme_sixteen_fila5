@@ -7,12 +7,12 @@
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $hero = $d('hero', []);
 @endphp
 
-<h1 class="visually-hidden" id="main-container">{{ $d('hero.title') }}</h1>
+<h1 class="visually-hidden" id="home-page-title">{{ $d('hero.title') }}</h1>
 
 <section id="head-section">
     <h2 class="visually-hidden">{{ $d('hero.eyebrow') }}</h2>

@@ -8,6 +8,9 @@
 /* Font: Titillium Web, Lora e Roboto Mono sono serviti dai file locali dichiarati in css/design-comuni/fonts.css (DCP-137).
    Niente @import verso fonts.googleapis.com: ogni visita manderebbe l'indirizzo IP del visitatore a un terzo non dichiarato nell'informativa. */
 
+/* Must be before all CSS rules so Vite bundles the local font assets reliably. */
+@import './design-comuni/fonts.css';
+
 /* Leaflet + cluster (mappa segnalazioni /it/) */
 @import 'leaflet/dist/leaflet.css';
 @import 'leaflet.markercluster/dist/MarkerCluster.css';
@@ -28,13 +31,15 @@
 @plugin "daisyui";
 
 /* ========================================
-   OVERRIDE TAILWIND DEFAULT FONTS
-   Force Titillium Web ONLY - no fallbacks
+   FONT TOKENS — Bootstrap Italia / Designers Italia
+   Titillium Web (sans), Lora (serif), Roboto Mono (mono).
+   Self-hosted via design-comuni/fonts.css + Vite relative url (DCP-183 /
+   https://laravel.com/docs/vite#working-with-fonts — Local Fonts / native Vite).
 ======================================== */
 @theme {
-  --font-sans: "Titillium Web";
-  --font-serif: "Titillium Web";
-  --font-mono: "Titillium Web";
+  --font-sans: "Titillium Web", system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
 
   /* Verde PA — allineato a tailwind.config.js e PaDesignColors (#007A52) */
   --color-primary-50: #e6f7f0;
@@ -47,6 +52,33 @@
   --color-primary-700: #005838;
   --color-primary-800: #00472b;
   --color-primary-900: #00361e;
+}
+
+/* Design Comuni header rhythm: the utility/language band is intentionally
+   darker than the brand and navigation bands. */
+:root {
+    --dc-green: #007a52;
+    --dc-green-dark: #00402b;
+}
+
+.it-header-slim-wrapper {
+    background: var(--dc-green-dark) !important;
+}
+
+/* Story 8-105: preserve the Design Comuni utility/brand contrast and the
+   readable desktop search treatment in the shared header skin. */
+@media (min-width: 992px) {
+    .it-header-center-content-wrapper .it-search-wrapper {
+        flex-direction: column;
+    }
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after {
+    transform: translateX(-50%);
+}
+
+.it-header-center-wrapper .btn-primary {
+    background: var(--dc-green) !important;
 }
 
 /* ========================================
@@ -103,7 +135,6 @@
 @import './components/civic-design-components.css';
 @import './civic-design-visual-fix.css';
 @import './civic-design-global.css';
-@import './faq-parity.css';
 @import './topics-parity.css';
 @import './homepage-visual-fix.css';
 @import './listing-parity.css';
@@ -136,6 +167,8 @@
 @import './app/17-dc-chrome-mobile-nav.css'; /* generato: menu mobile dell'header Design Comuni sulle pagine reali (DCP-121) */
 @import './app/18-real-pages-footer-mobile.css'; /* footer delle pagine reali fuori scope sotto 768 px (DCP-129) */
 @import './app/19-ticket-detail.css'; /* dettaglio pubblico di una segnalazione /{lang}/tickets/{id} (DCP-148) */
+@import './app/20-dc-components.css'; /* .cmp-* una volta, dentro data-dc: niente main[data-page] */
+@import './app/21-ticket-track.css';
 
 /* Motion Reveal — scroll-triggered animations */
 @import './components/motion-reveal.css';
@@ -148,6 +181,7 @@
 @import './components/design-comuni-shell-a11y.css';
 
 @import './homepage-tailwind-parity.css';
+@import './design-comuni/typography.css';
 
 /* Homepage-only Tailwind parity overrides must remain last: generic civic rules
    intentionally keep legacy front-office carousels horizontal elsewhere. */
@@ -180,9 +214,29 @@
 }
 
 /* Design Comuni: blocco homepage (stili generati, scope .dc-page) */
-@import './design-comuni/fonts.css';
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
+@import './app/22-header-shell.css';
+
+/* Leggibilità: gerarchia più sobria su /it senza ridurre il testo di base.
+   I controlli mantengono almeno 16px e le aree di attivazione WCAG. */
+.design-comuni-header .text-2xl,
+.design-comuni-header .sm\:text-3xl {
+    font-size: clamp(1.25rem, 2vw, 2rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+.design-comuni-header nav a.text-lg {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+/* DCP-221: un solo contratto tipografico home in 16-homepage-civic-reframe.css.
+   Qui niente peso/famiglia rivali (Lora/700) che ripristinano il "ciccione". */
+.fc-home-hero__intro {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+}
 
 /* Search results parity: keep the query control on one line at every viewport. */
 .search-results-page .dc-search-form {

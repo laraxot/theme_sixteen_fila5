@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "DESIGN COMUNI ITALIA INTEGRATION"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: design-comuni-italia-integration.md
 ---
 
 # 🇮🇹 Design Comuni Italia - Integration Analysis

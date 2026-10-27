@@ -52,6 +52,17 @@ test('header v1 slim wrapper non forza background hex inline (token CSS)', funct
     expect($html)->not->toContain("style='background-color: #0066CC'");
 });
 
+test('Design Comuni header keeps the center and navigation bands green', function (): void {
+    $cssPath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/css/civic-design-global.css';
+    $css = file_get_contents($cssPath);
+
+    expect($css)
+        ->toContain('.it-header-center-wrapper')
+        ->toContain('.it-header-navbar-wrapper')
+        ->toContain('background: #007a52 !important;')
+        ->toContain('color: #fff !important;');
+});
+
 test('story 8-105: app.css slim usa token --dc-green-dark e nav attivo centrato', function (): void {
     $cssPath = dirname(__DIR__, 2).'/resources/css/app.css';
     expect(file_exists($cssPath))->toBeTrue('app.css tema mancante: '.$cssPath);

@@ -432,6 +432,11 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
 .it-brand-wrapper svg image {
   width: 100% !important;
   height: 100% !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.it-brand-wrapper > a > svg {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Hamburger: mobile-header-fix.css usa grid con navbar-wrapper a z-index:1 sotto il center (z-index:20).
@@ -522,4 +527,29 @@ body[data-page="ticket-list"] .categoy-list .checkbox-body input[type="checkbox"
     flex: 0 0 auto;
     border-radius: 0.25rem;
   }
+}
+
+/* DCP-221: tipografia FO leggibile (WCAG / ipovedenti).
+   Vince su ticket-parity !important 700: Titillium semibold 600, niente Black fallback. */
+.it-brand-title,
+.it-header-center-content-wrapper .it-brand-title,
+.it-header-center-wrapper .it-brand-title,
+.navbar-collapsable .logo-hamburger .it-brand-title {
+  font-weight: 600 !important;
+}
+
+/* DCP-228: the homepage hero must touch the mobile/tablet header.
+   ticket-parity.css reserves 18px above #main-container to protect inner
+   page titles; that rule also matched /it and rendered as a white strip.
+   Keep the spacing for ticket/detail pages, but remove it only for the
+   homepage shell where the hero owns the first visual block. */
+@media (max-width: 991.98px) {
+  body:has(.fc-home) #main-container {
+    padding-top: 0 !important;
+  }
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link,
+.it-header-navbar-wrapper .navbar-secondary .nav-link {
+  font-weight: 600 !important;
 }

@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: " audit wcag seo snippet parity"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: audit-wcag-seo-snippet-parity.md
 ---
 
 # Audit `/it` — WCAG, SEO, Rich Snippet, Visual Parity (2026-05-29)

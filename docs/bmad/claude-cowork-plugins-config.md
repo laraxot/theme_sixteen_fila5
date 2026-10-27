@@ -1,3 +1,11 @@
+---
+title: "Configurazione Plugin Claude Code Cowork"
+type: note
+status: draft
+updated: 2026-10-15
+tags: [docs, sixteen, bmad]
+qmd: "configurazione plugin claude code cowork sixteen"
+---
 # Configurazione Plugin Claude Code Cowork
 
 ## Installazione (concettuale - per implementazione futura)

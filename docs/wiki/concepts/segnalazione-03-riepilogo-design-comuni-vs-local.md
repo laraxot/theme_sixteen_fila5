@@ -16,7 +16,8 @@ related:
   - segnalazione-visual-parity-correction-plan.md
   - segnalazione-01-privacy-design-comuni-vs-local.md
   - segnalazione-02-dati-design-comuni-vs-local.md
-status: draft
+status: superseded
+superseded_by: ticket-03-riepilogo-design-comuni-vs-local.md
 ---
 
 # Segnalazione-03-Riepilogo: Design Comuni vs Local Wizard

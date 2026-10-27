@@ -40,17 +40,6 @@ render(function (View $view): View {
                     <p class="mt-2 text-lg text-slate-700">{{ __('fixcity::ticket.subscription.followed_description') }}</p>
                 </header>
 
-                <nav class="mb-6 flex flex-wrap gap-3" aria-label="{{ __('fixcity::ticket.subscription.personal_area_navigation') }}">
-                    <a class="inline-flex min-h-11 items-center rounded-lg border border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-800" href="{{ url('/'.request()->segment(1).'/area-personale/pratiche') }}">
-                        {{ __('fixcity::ticket.subscription.my_tickets') }}
-                    </a>
-                    <span class="inline-flex min-h-11 items-center rounded-lg bg-sky-900 px-4 py-2 font-semibold text-white" aria-current="page">
-                        {{ __('fixcity::ticket.subscription.followed_title') }}
-                    </span>
-                    <a class="inline-flex min-h-11 items-center rounded-lg border border-sky-800 px-4 py-2 font-semibold text-sky-900 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus:ring-sky-800" href="{{ url('/'.request()->segment(1).'/area-personale/impostazioni') }}">
-                        {{ __('fixcity::ticket_notification_preferences.page_title') }}
-                    </a>
-                </nav>
 
                 <p class="mb-5 text-slate-700" role="status">
                     {{ trans_choice('fixcity::ticket.subscription.followed_count', $tickets->count(), ['count' => $tickets->count()]) }}

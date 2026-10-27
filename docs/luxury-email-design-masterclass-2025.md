@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "luxury email design masterclass 2025"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: luxury-email-design-masterclass.md
 ---
 
 # Luxury Email Design Masterclass 2025: Christmas Edition

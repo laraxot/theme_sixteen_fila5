@@ -27,6 +27,7 @@ return [
     ],
 
     'user' => [
+        'unread_notifications' => 'notifiche non lette',
         'personal_area' => 'Area personale',
         'welcome' => [
             'label' => 'Ciao, :name',

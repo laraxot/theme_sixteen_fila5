@@ -5,6 +5,10 @@
     'style' => 'pills'
 ])
 
+@php
+    $blogIndexUrl = route('container0.index', ['container0' => 'blog']);
+@endphp
+
 <section class="py-8 bg-gray-50 border-b border-gray-200">
     <div class="container mx-auto px-4">
         @if($title)
@@ -17,7 +21,7 @@
         @endif
 
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="#" class="px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition-colors">Tutti</a>
+            <a href="{{ $blogIndexUrl }}" class="px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition-colors">Tutti</a>
             @foreach($categories as $category)
                 @php
                     $color = $category['color'] ?? 'blue';
@@ -31,7 +35,7 @@
                         default => 'hover:border-blue-500 hover:text-blue-500',
                     };
                 @endphp
-                <a href="#" class="px-5 py-2 rounded-full bg-white border border-gray-200 text-gray-700 {{ $hoverClass }} transition-all font-medium shadow-sm flex items-center gap-2 group">
+                <a href="{{ $blogIndexUrl.'?categoria='.urlencode((string) ($category['slug'] ?? $category['name'] ?? '')) }}" class="px-5 py-2 rounded-full bg-white border border-gray-200 text-gray-700 {{ $hoverClass }} transition-all font-medium shadow-sm flex items-center gap-2 group">
                     {{ $category['name'] }}
                     @if(isset($category['count']))
                         <span class="bg-gray-100 text-gray-500 text-xs px-2 py-0.5 rounded-full group-hover:bg-gray-200 transition-colors min-w-[1.5rem] text-center">{{ $category['count'] }}</span>

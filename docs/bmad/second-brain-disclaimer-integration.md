@@ -3,6 +3,10 @@ name: "BMAD + Second Brain — Disclaimer & Design Italia Integration"
 status: "completed"
 created: "2026-10-14"
 updated: "2026-10-14"
+title: "second brain disclaimer integration"
+type: note
+tags: [docs, sixteen, bmad]
+qmd: "second brain disclaimer integration sixteen"
 ---
 
 ## Iniziativa

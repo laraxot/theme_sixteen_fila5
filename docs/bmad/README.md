@@ -1,10 +1,10 @@
 ---
-qmd: "README"
+qmd: "README bmad sixteen hub decision-log auth login oauth filament blueprint graphify-out gitignore d30"
 title: "BMAD UI/UX Sixteen — boundary FixCity"
 type: workflow-boundary
 status: active
 created: 2026-09-26
-updated: 2026-10-15
+updated: 2026-10-20
 tags: [bmad, ui, ux, sixteen, fixcity]
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues"
@@ -14,10 +14,44 @@ discussions:
 
 # Ownership BMAD del tema Sixteen
 
+Indice hub di `docs/bmad/`: decisioni in [decision-log.md](./decision-log.md), vestito FO qui, dominio Auth/Socialite in User. Mai `bmad-output/`.
+
+## Kit BMAD owner (canonico)
+
+- [BMAD Planning](../bmad-planning.md)
+- [BMAD Brainstorming](../bmad-brainstorming.md)
+- [Filament blueprint](./filament-blueprint.md)
+- [Project context](./project-context.md)
+- [Decision log](./decision-log.md)
+- [Shell Folio `container0.index`](./container0-index-shell-contract.md) (D20)
+
+## Auth / Login / OAuth (FO)
+
+Scopo: il cittadino entra da `/it/auth/login` con vestito Design Comuni; OAuth resta localizzato (`{lang}/auth/login/{provider}`). Il tema veste; User possiede Socialite e lo schema Filament.
+
+| Cosa | Dove |
+|------|------|
+| Decisioni D24–D27 (card vs accesso-servizio, occhio password, ricordami, Google locale) | [decision-log.md](./decision-log.md) (indice Auth in cima) |
+| D30 `graphify-out/` nel `.gitignore` del tema (no LFS) | [decision-log.md](./decision-log.md#d30-graphify-out-ignorato-nel-tema-no-lfs) · canon [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) |
+| Architettura login | [auth-login-architettura.md](./auth-login-architettura.md) |
+| Plan OAuth locale | [plans/oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
+| Plan checkbox/occhiello | [plans/login-checkbox-visibility-fix.md](./plans/login-checkbox-visibility-fix.md) |
+| Remediation Design Comuni | [plans/auth-login-design-comuni-remediation.md](./plans/auth-login-design-comuni-remediation.md) |
+| Story JSON login + Blueprint | [auth-login-json-bmad.story.md](./auth-login-json-bmad.story.md) |
+| Story checkbox/occhiello in `data-dc` | [stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md) |
+| Audit login | [audit/audit-login-design-comuni.md](./audit/audit-login-design-comuni.md) |
+| Filosofia Folio login | [folio-login-philosophy.md](./folio-login-philosophy.md) |
+| Dominio User (Google auth) | [../../../../Modules/User/docs/bmad/google-auth-login.md](../../../../Modules/User/docs/bmad/google-auth-login.md) |
+
+**Inbound FO Novità/Eventi:** [inbound-fo-index.md](./inbound-fo-index.md).
+
 Sixteen partecipa ai workflow FixCity `07-ui-ux`, `08-security` (privacy visuale) e
 `09-release` (smoke browser), più al percorso [actor-citizen](../../../../Modules/Fixcity/docs/bmad/workflows/actor-citizen.md).
 Non replica Actions, policy, schema o persistenza di FixCity.
 Indice: [FixCity workflows](../../../../Modules/Fixcity/docs/bmad/workflows/README.md).
+
+**Design Comuni BMAD (ex `bmad-output/`):** [front-office-design-comuni/](front-office-design-comuni/README.md).
+Documenti FO solo qui — mai in `bmad-output/`.
 
 ## Homepage guest (2026-09-27)
 
@@ -85,13 +119,26 @@ accessibilità completa né staging.
 
 - [FreeLLMAPI theme boundary](./freellmapi-theme-boundary.md) — nessuna dipendenza dal runtime visuale
 
+## Runtime smoke 2026-10-26
+
+Le route `/it/blog`, `/it/events` e `/it/tickets` sono state aperte con
+Playwright sull’ambiente `192.168.1.40:8000`: titoli e heading localizzati
+presenti, shell condivisa con skip-link/header/main/footer e nessun errore
+console. A 375, 768 e 1440 px `scrollWidth` coincide con la viewport per tutte
+le pagine; `/it/tickets` carica `/api/tickets/geojson` con `200`.
+
+Le screenshot runtime non hanno un baseline committato con cui misurare la
+parità; quindi la verifica visuale è **inconclusive**, non un PASS. Restano da
+fare axe/keyboard e il controllo completo dei link. Evidenza dettagliata:
+`Hindsight frontoffice-runtime-smoke-2026-10-26`.
+
+## Inbound marketing
+
+- [Contratto Blog/Eventi (`content_type`)](content-type-contract.md)
+- [Liste blog/eventi](../stories/inbound-blog-event-listing.story.md)
+- [Dossier coordinatore](../../../../Modules/Fixcity/docs/bmad/inbound-marketing/README.md)
+
 ## DesignComuni
 
 - [Information architecture presentation](./design-comuni-information-architecture.md) — contratto di resa ODS
 - [Theme identity decision](./design-comuni-theme-identity-decision.md) — nessun layout DesignComuni parallelo
-
-## Standing order (tema)
-
-PHPStan a zero, qualità continua, docs BMAD aggiornate: [standing order wiki](../../../../../docs/wiki/memories/phpstan-quality-docs-bmad-standing-order.md).
-Contratti header/footer: [header-footer-sections-contract.md](header-footer-sections-contract.md).
-Moduli: [Cms](../../../../Modules/Cms/docs/README.md), [UI](../../../../Modules/UI/docs/README.md).

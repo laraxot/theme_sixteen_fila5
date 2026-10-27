@@ -248,7 +248,7 @@
                                             <svg class="icon icon-sm" role="img" aria-hidden="true" viewBox="0 0 24 24">
                                                 <path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/>
                                             </svg>
-                                            <span class="visually-hidden">Valuta {{ $i }} stelle su 5</span>
+                                            <span class="visually-hidden">{{ __('pub_theme::navigation.homepage.rate_'.$i) }}</span>
                                         </label>
                                     @endfor
                                 </fieldset>

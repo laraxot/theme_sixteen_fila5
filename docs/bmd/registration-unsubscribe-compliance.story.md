@@ -1,3 +1,11 @@
+---
+title: "Final Compliance Verification: GDPR + PA Registration & Unsubscribe"
+type: story
+status: draft
+updated: 2026-10-15
+tags: [docs, sixteen, bmd]
+qmd: "final compliance verification: gdpr + pa registration & unsubscribe sixteen"
+---
 # Final Compliance Verification: GDPR + PA Registration & Unsubscribe
 
 ## ✅ CONFIRMED COMPLIANCE (BMAD + Second Brain)
