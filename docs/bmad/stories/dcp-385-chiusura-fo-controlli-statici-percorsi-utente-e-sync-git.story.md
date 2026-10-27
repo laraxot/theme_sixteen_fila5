@@ -47,7 +47,34 @@ dei due lati regge, si scrive una terza via. Ogni scelta va nel registro sotto c
 
 ## Registro delle scelte e delle lezioni
 
-(da compilare durante il lavoro)
+Giro del 2026-10-27, misurato con `git rev-list --left-right --count HEAD...FETCH_HEAD` dopo `git fetch laraxot dev`: tutti i 22 repo e la
+radice erano a 0 indietro. Nessun `pull` ha trovato qualcosa da unire (`Already up to date` su 13 repo), quindi in questo giro non c'e' stata una
+collisione fra due lati da risolvere. Le scelte vere sono state su cosa committare e come.
+
+| Caso | Cosa c'era | Scelta | Perche' |
+|---|---|---|---|
+| `blocks/blog/detail.blade.php` (Sixteen) | `HEAD` conteneva marker `<<<<<<< .merge_file_*` committati da una sync precedente; l'albero di lavoro aveva la versione ripulita (-80 righe) | committata la versione ripulita | il lato di `HEAD` non era una scelta ma un residuo del merge; la pagina rispondeva 200 con il blocco ripulito |
+| `bashscripts/ai/IFLOW.md` | marker `<<<<<<< HEAD` / `>>>>>>> laraxot/dev` committati | tenuto il testo lungo di `laraxot/dev` | il lato `HEAD` era un'introduzione di 4 righe gia' presente nel testo lungo |
+| `Modules/Blog/app/Models/*` (18 file) | 9 file con sola differenza di allineamento nei docblock (stesso millisecondo: formattatore), 9 con modifiche vere | commit separato per i 9 solo formato, poi il commit del comportamento | `git diff -w` prova che sono solo spazi; misti al comportamento renderebbero illeggibile `blame` (Pint non va lanciato sui moduli) |
+| `Modules/Rating/package-lock.json` | 1016 pacchetti a `HEAD`, 816 nell'albero, `package.json` invariato, rigenerato il 26/10 17:24 | **non committato** | perde 200 dipendenze senza una ragione dichiarata; non e' front office |
+| `.lock` tracciati cancellati (31 in Fixcity, 6 in Sixteen) | cancellati dai proprietari a fine lavoro | committate le sole cancellazioni | un lock cancellato e' un lock rilasciato |
+| `.lock` ancora presenti (DCP-286, 288, 289, 291) | tutti del 26/10 fra 17:14 e 17:25, quindi vecchi di piu' di 14 ore | lasciati, non cancellati e non committati | l'eta' (non il PID) dice che sono abbandonati, ma toglierli spetta ai proprietari |
+| `Modules/Tenant` test | cancellavano `config/com` e `config/test` interi, che contengono configurazioni tenant vere | committata la correzione (ora solo le cartelle create dal test) | rischio di perdita di dati |
+| Ordine di push | `Gdpr::DeleteAccountAction` chiama `deleteOwnAccount`, definita solo in `User`; il listener Fixcity usa un'Action di `Media` | User prima di Gdpr, Media prima di Fixcity | un push in ordine inverso lascia sul remoto codice che chiama metodi che non esistono |
+| File tracciati da due repo | radice e repo annidato tracciano lo stesso file | commit in entrambi, radice per ultima | altrimenti uno dei due resta indietro |
+| Nome `.md` con data | `legal-content-completion-2026-10-26.md` | `git mv` dalla radice (traccia il file), riferimenti corretti | regola utente 2026-10-15 |
+
+Lezioni:
+
+1. **Un test che passa per caso nasconde un difetto.** `DemoContentSeederTest` cercava uno slug che non esisteva piu': il caso «il seeder salta fuori
+   dagli ambienti ammessi» passava perche' non c'era niente da trovare. Con lo slug vero ha scoperto che `DemoContentSeeder` non ha nessuna guardia di
+   ambiente e `DatabaseSeeder` lo chiama ovunque. Decisione aperta, non nascosta.
+2. **Il lock git non basta se non lo legge chi committa.** La sessione DCP-400 ha committato nella radice alle 07:15 mentre `/tmp/fixcity-git-sync.lock.d`
+   era mio. Nessun danno (contenuti diversi e compatibili), ma il protocollo deve stare dove tutte le sessioni lo leggono, non in due story.
+3. **Rilanciare il censimento dopo ogni commit.** Fra il primo e il secondo giro un'altra sessione ha modificato `Seo/BuildSitemapAction.php`; un
+   solo giro avrebbe lasciato il repo sporco.
+4. **Controllare gli `uses`/classi non tracciati prima del push.** `StripImageMetadataAction` (Media) e il suo listener (Fixcity) erano entrambi non
+   tracciati: pushare un solo lato avrebbe rotto l'upload delle foto sul remoto.
 
 ## Criteri di accettazione
 
