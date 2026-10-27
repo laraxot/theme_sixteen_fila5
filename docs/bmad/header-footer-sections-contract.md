@@ -11,14 +11,20 @@ updated: 2026-10-15
 
 ## Composizione
 
+La shell canonica delle pagine reali è `components/layouts/app.blade.php`.
+`components/layouts/design-comuni.blade.php` non esiste: il valore CMS storico
+`design-comuni` viene risolto in `app`, senza trasformarsi in un nome di view.
+Le shell di `/tests/*` sono un'eccezione di
+parità e non definiscono il runtime del front office.
+
 I layout FO Design Comuni chiamano:
 
 ```blade
-<x-section slug="header" tpl="design-comuni" />
-<x-section slug="footer" tpl="design-comuni" />
+<x-section slug="header" tpl="v1" />
+<x-section slug="footer" tpl="v1" />
 ```
 
-(`layouts/app.blade.php` legacy puo' usare footer `tpl="full"` → `footer/v1`.)
+(`layouts/app.blade.php` puo' usare footer `tpl="full"` → `footer/v1`.)
 
 `Modules/Cms/View/Components/Section` carica i blocchi localizzati dalla
 section CMS e risolve rispettivamente:
@@ -27,6 +33,14 @@ section CMS e risolve rispettivamente:
 pub_theme::components.sections.header.{tpl}
 pub_theme::components.sections.footer.{tpl}
 ```
+
+`v1` è l'entrypoint canonico del tema Sixteen per l'header Design Comuni e
+delega al renderer Tailwind. `header/design-comuni.blade.php` non è un
+entrypoint runtime e non va ricreato.
+
+Lo stesso principio vale per il footer: `footer/v1.blade.php` è l'unico
+renderer canonico. Un vecchio `tpl="design-comuni"` va migrato a `v1`, non
+supportato con una seconda view.
 
 Le view ricevono `blocks`; il primo blocco attivo contiene `data` e il campo
 `view` resta un riferimento verificabile al renderer del tema. `header.v1` e

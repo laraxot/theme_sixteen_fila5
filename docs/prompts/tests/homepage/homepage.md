@@ -356,8 +356,8 @@ laravel/Themes/Sixteen/resources/views/
 laravel/Themes/Sixteen/resources/css/
 └── homepage-parity-v2.css ✅
 
-laravel/Themes/Sixteen/resources/views/
-└── layouts/design-comuni.blade.php ✅
+laravel/Themes/Sixteen/resources/views/components/layouts/
+└── app.blade.php ✅
 
 laravel/Themes/Sixteen/resources/views/
 └── components/sections/header/v1.blade.php ✅

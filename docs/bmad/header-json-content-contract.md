@@ -21,7 +21,7 @@ Non deve inventare testi, destinazioni o fallback visibili.
 ## Flusso canonico
 
 ```text
-header.json locale → Section → blocks → header/v1 o header/design-comuni
+header.json locale → Section → blocks → header/v1
                               └──────→ renderer tipografico/accessibile
 ```
 

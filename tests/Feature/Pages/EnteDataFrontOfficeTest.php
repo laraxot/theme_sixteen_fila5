@@ -7,14 +7,14 @@ use Dom\HTMLDocument;
 use PHPUnit\Framework\Assert;
 use Tests\TestCase;
 
-use function Safe\preg_match;
+use function Safe\preg_match_all;
 use function Safe\preg_replace;
 
 uses(TestCase::class);
 
 /*
  * DCP-289 (FO-1-02/03/04/23/27, FO-4-05/07/23/27, FO-6-02, FO-2-29): i dati dell'ente hanno una sola sorgente (`config('ente')`) e un blocco
- * che non ha il suo dato SPARISCE: niente "Demo", niente nome di regione di prova, niente numero verde finto, niente "Seguici su" vuoto,
+ * che non ha il suo dato SPARISCE: niente nome di regione di prova (unica eccezione D35: "Demo" nella fascia slim), niente numero verde finto, niente "Seguici su" vuoto,
  * niente riquadro contatti vuoto, niente `href="#"`. Con i dati compilati (valori sintetici: domini `.test`, numeri `000`) i campi compaiono,
  * i telefoni diventano `tel:` validi e nessun valore finisce nella pagina senza escape.
  */
@@ -42,6 +42,9 @@ const DCP289_FILLED = [
 
 /** Intestazioni che il footer mostra sopra i recapiti dell'ente, nelle quattro lingue. */
 const DCP289_CONTACT_HEADINGS = ['Contatti', 'Contacts', 'Kontakt', 'Contacto'];
+
+/** Testo che introduce i social nell'intestazione, nelle quattro lingue (header.json, `follow_us`). */
+const DCP289_FOLLOW_US = ['Seguici su', 'Follow us on', 'Folgen Sie uns auf', 'Síguenos en'];
 
 /**
  * @param  array<string, mixed>  $ente
@@ -74,6 +77,19 @@ function dcp289Hrefs(HTMLDocument $document, string $selector): array
     return $hrefs;
 }
 
+/**
+ * @return list<string>
+ */
+function dcp289FooterHeadings(HTMLDocument $document): array
+{
+    $headings = [];
+    foreach ($document->querySelectorAll('footer h2, footer h3, footer h4') as $heading) {
+        $headings[] = dcp289Text($heading);
+    }
+
+    return $headings;
+}
+
 dataset('dcp289 pages', ['', '/tickets', '/blog', '/events', '/tickets/confirmation', '/privacy']);
 dataset('dcp289 locales', DCP289_LOCALES);
 
@@ -84,22 +100,24 @@ it('shows no placeholder and no empty block when the ente gave no data', functio
     foreach (['05 0505', '050505', 'Name of the Region', 'Name der Region', 'Nombre de la Región', 'Nome della Regione'] as $placeholder) {
         expect($html)->not->toContain($placeholder);
     }
-    expect(preg_match('/\bDemo\b/u', $html))->toBe(0);
+    // D35: unico valore dimostrativo ammesso: "Demo" (header.json `region.name`), una sola volta, come testo (non link) nella fascia slim.
+    expect(preg_match_all('/\bDemo\b/u', $html))->toBe(1)
+        ->and(dcp289Text($document->querySelector('header .it-header-slim-wrapper-content > span.navbar-brand')))->toBe('Demo');
     expect(dcp289Hrefs($document, 'a[href="#"]'))->toBe([]);
 
-    expect($document->querySelectorAll('.it-header-slim-wrapper .navbar-brand')->length)->toBe(0);
-    expect($document->querySelectorAll('.it-socials')->length)->toBe(0);
-    foreach ($document->querySelectorAll('ul.navbar-secondary') as $secondary) {
-        expect($secondary->querySelectorAll('li')->length)->toBeGreaterThan(0);
+    // senza dato non resta nessun "Seguici su", nessun link di regione, nessuna navigazione vuota
+    $header = dcp289Text($document->querySelector('header'));
+    foreach (DCP289_FOLLOW_US as $followUs) {
+        expect($header)->not->toContain($followUs);
+    }
+    expect(dcp289Hrefs($document, 'header a[target="_blank"]'))->toBe([]);
+    foreach ($document->querySelectorAll('header nav') as $navigation) {
+        expect($navigation->querySelectorAll('a')->length)->toBeGreaterThan(0);
     }
     foreach ($document->querySelectorAll('.cmp-contacts') as $box) {
-        expect($box->querySelectorAll('.card-body li a')->length)->toBeGreaterThan(0);
+        expect($box->querySelectorAll('li a')->length)->toBeGreaterThan(0);
     }
-    $footerHeadings = [];
-    foreach ($document->querySelectorAll('footer h4.footer-heading-title') as $heading) {
-        $footerHeadings[] = dcp289Text($heading);
-    }
-    expect(array_intersect($footerHeadings, DCP289_CONTACT_HEADINGS))->toBe([]);
+    expect(array_intersect(dcp289FooterHeadings($document), DCP289_CONTACT_HEADINGS))->toBe([]);
 })->with('dcp289 locales')->with('dcp289 pages');
 
 it('hides the toll-free number and the contact tel link on the help boxes without data', function (string $locale, string $path): void {
@@ -113,15 +131,13 @@ it('shows the ente data from the single source: region, social, footer contacts'
     /** @var TestCase $this */
     [, $document] = dcp289Page($this, $locale, '', DCP289_FILLED);
 
-    $region = $document->querySelector('.it-header-slim-wrapper a.navbar-brand');
+    $region = $document->querySelector('header a[href="https://regione.example.test/portale"]');
     expect($region)->not->toBeNull()
-        ->and(dcp289Text($region))->toBe('Regione di Prova')
-        ->and($region?->getAttribute('href'))->toBe('https://regione.example.test/portale');
+        ->and(dcp289Text($region))->toBe('Regione di Prova');
 
     $expectedSocial = ['https://social.example.test/ente', 'https://social.example.test/video'];
-    expect(dcp289Hrefs($document, '.it-header-center-wrapper .it-socials li a'))->toBe($expectedSocial)
-        ->and(dcp289Hrefs($document, '.menu-wrapper .it-socials li a'))->toBe($expectedSocial)
-        ->and(dcp289Hrefs($document, 'footer ul.social li a'))->toBe($expectedSocial);
+    expect(array_values(array_unique(dcp289Hrefs($document, 'header a[href^="https://social.example.test/"]'))))->toBe($expectedSocial)
+        ->and(array_values(array_unique(dcp289Hrefs($document, 'footer a[href^="https://social.example.test/"]'))))->toBe($expectedSocial);
 
     $footer = dcp289Text($document->querySelector('footer'));
     expect($footer)->toContain('Via di Prova 1')
@@ -138,11 +154,7 @@ it('shows the ente data from the single source: region, social, footer contacts'
         ->toContain('mailto:ente@pec.example.test')
         ->toContain('mailto:dpo@ente.example.test');
 
-    $footerHeadings = [];
-    foreach ($document->querySelectorAll('footer h4.footer-heading-title') as $heading) {
-        $footerHeadings[] = dcp289Text($heading);
-    }
-    expect(array_intersect($footerHeadings, DCP289_CONTACT_HEADINGS))->not->toBe([]);
+    expect(array_intersect(dcp289FooterHeadings($document), DCP289_CONTACT_HEADINGS))->not->toBe([]);
 })->with('dcp289 locales');
 
 it('turns the toll-free number into a valid tel link on the help boxes', function (string $locale, string $path): void {
@@ -188,6 +200,8 @@ it('escapes every value of the ente and discards a url that is not http or https
         ->and(dcp289Hrefs($document, 'a[href^="tel:"]'))->toBe([])
         ->and($document->querySelectorAll('img[src="x"]')->length)->toBe(0);
     // la regione senza url valido resta un testo, non un link
-    expect($document->querySelectorAll('.it-header-slim-wrapper a.navbar-brand')->length)->toBe(0);
-    expect(dcp289Text($document->querySelector('.it-header-slim-wrapper span.navbar-brand')))->toBe($script);
+    expect(dcp289Text($document->querySelector('header')))->toContain($script);
+    foreach ($document->querySelectorAll('header a') as $anchor) {
+        expect(dcp289Text($anchor))->not->toBe($script);
+    }
 })->with('dcp289 locales');

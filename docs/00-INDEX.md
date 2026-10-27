@@ -80,7 +80,7 @@ Il perché: [why-domande-frequenti-blade-php-must-not-exist.md](bmad/knowledge/w
 
 | Area | Canonico | Non usare come SSoT |
 |---|---|---|
-| Layout/Folio | `layout-architecture.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | layout paralleli `design-comuni` (contraddizione aperta: `components/layouts/design-comuni.blade.php`, `-authenticated` e `-bare` esistono dal 2026-10-13 e `pages/tests/index.blade.php` usa `-bare`; vedi la story del 2026-10-14) |
+| Layout/Folio | `layout-runtime-contract.md` + `docs/wiki/rules/no-parallel-design-comuni-layout.md` | `design-comuni` come nome di layout runtime; i valori CMS storici vengono risolti da `x-layouts.app`, mentre `-authenticated` e `-bare` restano template specializzati di test |
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
 | Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |

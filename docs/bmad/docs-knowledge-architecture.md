@@ -20,8 +20,9 @@ romperebbero ownership e riuso.
 
 1. **Knowledge map**: `00-INDEX.md` e `knowledge-map.md`.
 2. **Norme**: `wiki/rules/`, con trigger map e regole on-demand.
-3. **Piano BMAD**: `bmad-output/` e `docs/bmad/`, con traceability verso il
-   codice e le acceptance criteria.
+3. **Piano BMAD**: `docs/bmad/`, con traceability verso il codice e le
+   acceptance criteria. `bmad-output/` è storico/read-only per i nuovi
+   documenti, secondo la regola del repository.
 4. **Contratti visuali**: `design-comuni/`, `design-system/`, `pages/`.
 5. **Evidence**: parity, screenshot e investigation; non diventano norme senza
    una decisione consolidata.

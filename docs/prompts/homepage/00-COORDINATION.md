@@ -36,11 +36,11 @@ Un altro agente ha riportato nel JSON del tenant `tests.risultati-ricerca.json` 
 - `design-comuni.blade.php` (da JSON, CSS generato, `postcss/isolate-legacy-important.cjs`): **99,86%**, altezze identiche, 99,6% a 375 px.
 - `default.blade.php`: al momento 500 (`Undefined variable $contactLinks`); prima delle modifiche era 83-93% sulla pagina intera.
 La chiave `view` e' una sola per pagina: **non cambiarla senza rimisurare con `bashscripts/tools/visual/compare-screenshots.mjs --selector main`** e scrivere qui i numeri.
-Il layout `layouts/test.blade.php` ora usa header/footer/modale Design Comuni (sezioni con `tpl="design-comuni"`); `layouts/app.blade.php` (sito reale) e' invariato.
+Il layout `components/layouts/app.blade.php` è la shell pubblica unica: usa header/footer/modale Design Comuni tramite sezioni con `tpl="design-comuni"`. Il valore CMS `layout: design-comuni` non autorizza un layout Blade omonimo.
 
 ## Layout e scope (2026-10-13 sera) — non cambiare senza rimisurare
-- `layouts/design-comuni.blade.php`: usato SOLO da `pages/tests/[slug]` e `pages/tests/index`. Header/footer/modale/skiplink Design Comuni, `<main>` bare, `<body>` plain.
-- `layouts/test.blade.php`: usato anche da pagine del front office reale (`/it/tickets` ecc.): NON modificarlo per le pagine di prova.
+- `components/layouts/app.blade.php`: shell canonica del front office e delle pagine reali; header/footer/modale/skiplink Design Comuni, `<body>` plain.
+- `components/layouts/test.blade.php`: shell eventuale per le pagine di prova che la dichiarano esplicitamente; non è la shell pubblica.
 - Scope CSS: `body:has(.page-content[data-dc])` (stesso valore in `postcss/isolate-legacy-important.cjs` e in `extract-used-css.mjs --scope`). Niente `class="dc-page"`, niente wrapper: non servono a nessuno stile.
 - Misure: con scope solo su `<main>` header 95,5% e footer 76,6%; con scope sul body header 100% e footer 100%.
 
