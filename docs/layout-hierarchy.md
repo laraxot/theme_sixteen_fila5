@@ -125,12 +125,6 @@ The Sixteen theme uses a **layered layout architecture** following **DRY (Don't 
 **Purpose**: Navigation-specific layouts  
 **Extends**: `x-layouts.main`
 
-#### x-layouts.design-comuni
-**File**: `components/layouts/design-comuni.blade.php`  
-**Purpose**: Design Comuni template (DEPRECATED - use app.blade.php)  
-**Extends**: `x-layouts.main`  
-**Note**: Should be replaced with `<x-layouts.app>` + sections
-
 ---
 
 ## 📁 File Locations
@@ -143,7 +137,8 @@ laravel/Themes/Sixteen/resources/views/components/layouts/
 ├── auth.blade.php             → Protected pages
 ├── guest.blade.php            → Authentication pages
 ├── navigation.blade.php       → Navigation layouts
-└── design-comuni.blade.php    → Design Comuni (legacy)
+├── design-comuni-authenticated.blade.php → Test pages with signed-in chrome
+└── design-comuni-bare.blade.php → Test catalog without shared chrome
 ```
 
 ### Layouts Directory (Traditional Laravel)
@@ -154,7 +149,6 @@ laravel/Themes/Sixteen/resources/views/layouts/
 ├── auth.blade.php             → Auth pages
 ├── guest.blade.php            → Guest pages
 ├── navigation.blade.php       → Navigation
-├── design-comuni.blade.php    → Design Comuni
 ├── bootstrap-italia-1to1.blade.php → Exact Bootstrap replica
 └── bootstrap-italia-exact.blade.php → Bootstrap exact
 ```

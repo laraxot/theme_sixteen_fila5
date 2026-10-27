@@ -5,7 +5,7 @@
     in un riquadro grigio. Un nuovo tipo di blocco = un nuovo `@case`.
 --}}
 @php
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $padding = $section['box']['padding'] ?? null;
 @endphp
 <section @class(['it-page-section mb-30', 'has-bg-grey' => filled($padding), 'p-3' => $padding === 3, 'p-4' => $padding === 4]) id="{{ $section['id'] ?? '' }}">

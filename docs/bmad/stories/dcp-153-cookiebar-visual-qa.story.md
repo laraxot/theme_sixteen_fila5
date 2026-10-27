@@ -13,6 +13,9 @@ github:
   discussion: "https://github.com/your-org/your-repo/discussions/XXX"
 links:
   github_issue: "https://github.com/your-org/your-repo/issues/XXX"
+type: story
+tags: [docs, sixteen, bmad]
+qmd: "dcp 153 cookiebar visual qa.story sixteen"
 ---
 
 ## Obiettivo

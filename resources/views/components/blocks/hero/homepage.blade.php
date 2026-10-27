@@ -1,6 +1,8 @@
 {{--
     Hero Homepage Block
-    Reference: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs #head-section
+    DesignComuni civic tokens: fc-home-hero, fc-button, fc-eyebrow, font-serif
+    Tailwind utilities: mx-auto, max-w-7xl, px-4, sm:px-6, lg:px-8, flex, etc.
+    References: design-comuni-pagine-statiche/src/pages/sito/homepage.hbs #head-section
 --}}
 @php
     // Support both @include (direct vars) and @component (via $data)
@@ -25,41 +27,24 @@
 @endphp
 
 <h1 class="visually-hidden">{{ $title }}</h1>
-<section id="head-section" class="section">
-    <h2 class="visually-hidden">Contenuti in evidenza</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1">
-                <div class="card mb-5">
-                    <div class="card-body pb-5 px-0">
-                        <div class="category-top mb-2">
-                            <svg class="icon icon-sm" aria-hidden="true">
-                                <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
-                            </svg>
-                            <span class="title-xsmall-semi-bold fw-semibold">{{ $news['category'] ?? 'Notizie' }}</span>
-                            <span class="data fw-normal">{{ $news['date'] ?? '' }}</span>
-                        </div>
-                        <a href="{{ $news['url'] ?? '#' }}" class="text-decoration-none">
-                            <h3 class="card-title">{{ $news['title'] ?? '' }}</h3>
-                        </a>
-                        <p class="mb-4 pt-3 lora"><strong>{{ $excerptLead }}</strong>@if($excerptTail !== '') {{ $excerptTail }}@endif</p>
-                        <a class="chip chip-simple" href="{{ $news['url'] ?? '#' }}">
-                            <span class="chip-label">{{ $news['tag'] ?? 'Estate in città' }}</span>
-                        </a>
-                        <div class="d-block">
-                            <a class="read-more pb-3" href="{{ $allNewsUrl }}">
-                                <span class="text">{{ $allNewsLabel }}</span>
-                                <svg class="icon icon-sm ms-1">
-                                    <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 px-0 px-lg-3">
-                <img src="{{ $image }}" title="titolo immagine" alt="descrizione immagine" class="img-fluid">
+<section class="fc-home-hero" aria-labelledby="fc-home-hero-heading">
+    <div class="fc-home-hero__inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="fc-home-hero__copy">
+            <p class="fc-eyebrow">SERVIZI DIGITALI DEL COMUNE</p>
+            <h1 id="fc-home-hero-heading" class="font-serif">Segnalazioni e servizi per la tua comunità</h1>
+            <p class="fc-home-hero__intro">Racconta cosa non funziona, indica dove e segui gli aggiornamenti in modo semplice e trasparente.</p>
+            <div class="fc-home-hero__actions">
+                <a class="fc-button fc-button--primary" href="https://fixcity.eu/it/tickets/create">Invia una segnalazione</a>
+                <a class="fc-button fc-button--quiet" href="https://fixcity.eu/it/tickets">Vedi le segnalazioni</a>
             </div>
         </div>
+
+        <aside class="fc-home-hero__signal" aria-label="IMPEGNO CIVICO">
+            <span class="fc-home-hero__signal-mark" aria-hidden="true"></span>
+            <p class="fc-eyebrow">IMPEGNO CIVICO</p>
+            <p class="fc-home-hero__signal-value">La tua voce conta</p>
+            <p class="fc-home-hero__signal-body">Ogni segnalazione aiuta il Comune a capire le priorità e a rendere visibili gli interventi.</p>
+            <div class="fc-home-hero__signal-line" aria-hidden="true"></div>
+        </aside>
     </div>
 </section>

@@ -1,7 +1,6 @@
 ---
 id: operazioni-orario-visual-parity-97
 type: bmad-story
-status: open
 links:
   github_issue: #999
   discussion: #design-comuni
@@ -9,6 +8,8 @@ title: "Operazioni Orario — Visual Parity 97% Target"
 updated: 2026-10-13
 tags: [docs, sixteen, bmad]
 qmd: "operazioni orario   visual parity 97% target sixteen"
+status: superseded
+superseded_by: servizi-utente-visual-parity.story.md
 ---
 # Operazioni Orario — Visual Parity 97% Target
 

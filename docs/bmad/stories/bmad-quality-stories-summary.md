@@ -3,6 +3,10 @@ name: "BMAD Quality Stories — DCP-158 to DCP-173"
 status: "completed"
 created: "2026-10-14"
 updated: "2026-10-14"
+title: "bmad quality stories summary"
+type: note
+tags: [docs, sixteen, bmad]
+qmd: "bmad quality stories summary sixteen"
 ---
 
 ## Elenco storie BMAD qualità create

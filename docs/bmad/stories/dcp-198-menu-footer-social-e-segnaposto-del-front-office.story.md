@@ -8,6 +8,8 @@ priority: P1
 owner: theme:Sixteen
 created: 2026-10-15
 updated: 2026-10-15
+implemented_a10: 2026-10-15
+implemented_a1_a2: 2026-10-15
 qmd: "menu header 404 prefisso lingua footer voci senza href social href # servizi home segnaposto mappa del sito numero verde telefoni nome del servizio aria-label graffe header.json dati morti"
 related: [dcp-186, dcp-131, dcp-133, dcp-154, dcp-130]
 tags: [docs, sixteen, bmad, menu, footer, contenuti-ente, front-office]
@@ -25,14 +27,14 @@ Il chrome (barra, header, menu, footer) e' la prima cosa che il cittadino usa pe
 Home: 92 link = 21 reali + 4 verso il login + **9 che danno 404** + **18 `#`** + **32 senza href** + 6 esterni + 2 ancore. `/tickets`: 108 link = 34 + 4 + 9 + 18 + 32 + 7 + 4. Voci di menu con una pagina vera dietro: **0 su 8**.
 
 ## Cose da fare (per l'ordine di lavoro vedi anche la tabella delle decisioni)
-- [ ] **A1 / E5 menu header:** 9 URL senza prefisso lingua danno 404 (`/amministrazione`, `/argomenti`, `/argomenti/iscrizioni`, `/argomenti/estate-in-citta`, `/argomenti/polizia-locale`, `/eventi`, `/novita`, `/regione`, `/servizi`). Esiste gia' `/{lang}/services` per «Servizi». Sorgente: `config/*/fixcity/database/content/sections/header.json:27, 82-116`. Test: `FooterLinksResolveTest` ha gia' un `todo` per l'header; trasformarlo in test vero (stesso metodo del footer).
-- [ ] **A2 social header:** 12 icone con `href="#"` e `target="_blank"` (il clic apre una nuova scheda sulla stessa pagina). **A6:** 0 account reali su 18 icone; il footer punta alle radici delle piattaforme (twitter.com, facebook.com, youtube.com, telegram.org, wa.me) e l'RSS non ha `href`.
-- [ ] **A5 footer:** 32 voci `<a>` senza `href` per lingua (128 su 4), con la stessa sottolineatura e lo stesso colore dei link veri (cambia solo il cursore): un utente da tastiera o da lettore di schermo le percepisce come link. Per le 20 di «Categorie di servizio», «Novita'» e «Vivere il comune» non c'e' motivo di restare. Rendere il testo non attivo davvero distinguibile (non sottolineato) oppure toglierlo.
-- [ ] **A7 «Mappa del sito»:** 3 link su 11 morti in 4 lingue (`/services/report-issue`, `/administration`, `/news`, in `Themes/Sixteen/lang/*/sitemap.php:9-10`); non elenca Cookie policy, Note legali, Accessibilita'.
+- [x] **A1 / E5 menu header:** **Fix 2026-10-15:** `header.json` (3 copie) sostituisce la nav demo Design Comuni con percorsi FixCity (`/tickets`, `/tickets/create`, `/tickets/track`, `/domande-frequenti`); `design-comuni.blade.php` localizza con `FrontofficeUrl::fromStoredUrl()` e salta voci con URL vuoto/`#`. Guard: `HeaderNavigationLocalizedUrlsTest`.
+- [x] **A2 social header:** **Fix 2026-10-15:** `social_links: []` in ogni lingua (D198-5); il Blade filtra URL vuoti/`#` e non emette `<a href="#">`. Guard: `HeaderNavigationLocalizedUrlsTest` (zero hash nei social renderizzati).
+- [x] **A5 footer:** **Fix 2026-10-15 (DCP-222):** `footer.json` ridotto a voci FixCity reali; vestito `design-comuni`/`v1` non emette `<a>` senza URL; social `[]`; logo UE nascosto. Guard `FooterJsonBrandAndLinksSsotTest`.
+- [x] **A7 «Mappa del sito»:** path demo morti sostituiti con percorsi FixCity reali (`/tickets/create`, `/tickets`, legale, accessibilita'); guard `Themes/Sixteen/tests/Unit/SitemapPathsGuardTest.php` (2026-10-15).
 - [ ] **Home, servizi con `href="#"`** (DCP-186 e verifica di un'altra sessione): 8 servizi che il progetto non eroga («Cambio di residenza», «Prenotazione appuntamenti», «Rilascio CIE», «Rilascio tessera elettorale», «Tributi online», «Voucher connettivita'»). Decisione D198-3.
-- [ ] **A10:** `aria-label` e `title` della barra «Nome della Regione» contengono graffe letterali, tipo `{Nome della Regione}`, in 4 lingue (`header.json:27-30`): un lettore di schermo le legge.
+- [x] **A10:** `aria-label` e `title` della barra «Nome della Regione» contengono graffe letterali, tipo `{Nome della Regione}`, in 4 lingue (`header.json:27-30`): un lettore di schermo le legge. **Fix 2026-10-15:** `RegionPortalLinkLabels` sostituisce i segnaposto `{…}` con `region.name` o `config('comune.regione')`; se il nome manca, gli attributi non vengono emessi. Guard: `HeaderRegionAccessibleLabelsTest`.
 - [ ] **A11 / C9 recapiti:** quattro numeri diversi su `/tickets` (`tel:050505` scritto nel Blade, «800 016 123», «+39 320 1234567», «012 3456» nel footer) piu' «05 0505» nel wizard (`tickets.create.json:60`). Il box «Contatta il comune» non esiste in home ne' su `/tickets`; c'e' «Hai bisogno di aiuto?». Un solo recapito, da dati dell'ente (D198-1), mai nel Blade.
-- [ ] **A14 nome del servizio:** «FixCity» compare 0 volte in header, footer, modale e cookiebar; compaiono 4 nomi d'ente segnaposto («Il mio Comune», «Nome della Regione», «Nome del Comune», «Un comune da vivere»). Mostrare chi eroga il servizio e chi lo gestisce (D198-2).
+- [x] **A14 nome del servizio (header):** `brand.name` / `header_title` / `tagline` = FixCity + slogan prodotto in `header.json` (3 copie). Restano segnaposto regione/ente finche' D198-2 non da' il nome del Comune; footer/cookiebar fuori da questo giro.
 - [ ] **A12 logo NextGenerationEU nel footer:** nessuna prova di finanziamento PNRR nel repository. Togliere finche' non c'e' una prova (D198-4).
 - [ ] **A15:** le 4 CTA «invia segnalazione» portano al login da ospite senza avviso (contro il principio di D17 «dirlo all'ingresso»); il blocco «Segui la tua segnalazione» promette «Inserisci il codice» ma non ha un campo. Aggiungere l'avviso («per segnalare serve accedere») e il campo del codice, che porta a `/tickets/track`.
 - [ ] **A16 dati morti:** `header.json` ha `account.signed_in.menu`, `account.url`, `utility_links` e `social` che il Blade non legge. Togliere o collegare.

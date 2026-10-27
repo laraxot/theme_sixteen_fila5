@@ -12,7 +12,7 @@
     $author = $review['author'] ?? null;
     $contacts = $review['contacts'] ?? null;
     $email = $email ?? '';
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $info = $author['rows'][0] ?? ['label' => __('fixcity::ticket_review.contacts.fields.email'), 'value' => $email];
     $card = [

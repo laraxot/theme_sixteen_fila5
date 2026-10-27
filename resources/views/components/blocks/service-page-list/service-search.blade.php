@@ -7,7 +7,7 @@
     (label, element) e sidebar (title, items[] con kind = cta per il link finale con icona).
 --}}
 @php
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $catalog = ($section['variant'] ?? 'catalog') === 'catalog';
     $search = $section['search'] ?? [];
     $items = $section['items'] ?? [];

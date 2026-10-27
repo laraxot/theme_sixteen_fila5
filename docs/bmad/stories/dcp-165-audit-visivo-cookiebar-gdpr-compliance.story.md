@@ -7,6 +7,9 @@ github_issue: "#55"
 discussion: "https://github.com/italia/design-comuni"
 rights_owner: "laravel/Themes/Sixteen"
 related_to: ["STORY-ADOZIONE-LINEE-GUIDA-DESIGN-PA", "STORY-COOKIEBAR-GDPR-COMPLIANCE"]
+title: "BMAD Story — Audit Visivo Cookie Bar (Design Comuni)"
+updated: 2026-10-15
+qmd: "bmad story   audit visivo cookie bar (design comuni) sixteen"
 ---
 
 # BMAD Story — Audit Visivo Cookie Bar (Design Comuni)

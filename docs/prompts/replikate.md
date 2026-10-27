@@ -536,7 +536,7 @@ Per ogni pagina:
 - [Bashscripts Docs](../../../../../bashscripts/docs/design-comuni)
 
 ### Moduli Correlati
-- [Cms Module](../../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md)
+- [Cms Module](../../../../Modules/Cms/docs/design-comuni-index.md)
 - [UI Module](../../../../Modules/UI/docs/00-INDEX.md)
 
 ### Esterni

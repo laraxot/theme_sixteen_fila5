@@ -27,17 +27,34 @@ const GUARD = `:not(:where(${SCOPE}, ${SCOPE} *))`;
 // (provato: esentarlo sempre faceva sparire o sbiadire il menu principale a 1440 px).
 const FC_GUARD = ':not(:where(.fc-home *, body.nav-open .it-header-wrapper .navbar-collapsable, body.nav-open .it-header-wrapper .navbar-collapsable *))';
 const hasImportant = (rule) => rule.some((node) => node.type === 'decl' && node.important);
-// Regole dei plugin della mappa (leaflet.css: `.leaflet-container .leaflet-tile{max-width:none!important}`): sono vendor, non legacy, e senza di esse le tile hanno larghezza 0.
-const isOwnFcRule = (rule) => rule.selector.includes('.fc-')
-    || rule.selector.includes('.cmp-wizard-widget')
-    || rule.selector.includes('.wizard-dc-form-shell')
-    || /\.(?:leaflet|marker-cluster)[-\w]*/.test(rule.selector);
-const isWizardContractRule = (rule) => rule.selector.includes('.cmp-wizard-widget')
-    || rule.selector.includes('.wizard-dc-form-shell');
+// Per-SELECTOR contract checks. A selector list like ".leaflet-popup a, .x a" must be
+// evaluated selector-by-selector: using the combined rule.selector string made
+// isOwnFcRule true for the whole rule whenever one selector matched, leaving the
+// non-vendor selectors unguarded (DCP-146 regression, PostcssMapVendorRulesTest).
+const isOwnFcSelector = (selector) => selector.includes('.fc-')
+    || selector.includes('.cmp-wizard-widget')
+    || selector.includes('.wizard-dc-form-shell')
+    || isMapVendorSelector(selector)
+    || isEditorVendorSelector(selector);
+// Chrome Design Comuni (header-footer-colors.css): verde Laraxot + testo bianco con `!important`.
+// Senza esenzione il GUARD li spegne sotto `data-dc` e restano testo scuro (#191919) su verde scuro —
+// header illeggibile su home/tickets/login (misurato: slim color rgb(25,25,25) con data-dc, bianco senza).
+// Non esentare regole non-important generiche: restano isolate come il resto del legacy.
+const isDcChromeContractSelector = (selector, rule) => hasImportant(rule)
+    && /\.it-(?:header|footer|brand)-/.test(selector);
+// Hero guest FO (#head-section + btn-hero-*): contratto homepage. Sotto data-dc il GUARD
+// spegneva i bottoni → link blu su verde (incoerenza misurata 2026-10-22).
+const isHomeHeroContractSelector = (selector) => /#head-section|\.btn-hero-/.test(selector);
 // Plugin della mappa (leaflet.css, MarkerCluster): CSS vendor che non puo' essere "legacy". Il guard lo spegneva dentro l'ambito Design Comuni, anche senza
 // `!important`: `.leaflet-pane` e i tile restavano `position: static`, i tile si impilavano in colonna fuori dal riquadro e la mappa del wizard sembrava rotta
 // (DCP-146). Le sue regole valgono quindi anche dentro l'ambito; i nomi non coincidono con quelli del legacy (`.leaflet-*`, `.marker-cluster*`).
 const isMapVendorSelector = (selector) => /\.(?:leaflet|marker-cluster)[-\w]*/.test(selector);
+// Editor Markdown di Filament (EasyMDE + CodeMirror 5) nei commenti di blog, eventi e ticket (CMT-022): stesso caso della mappa. Con il guard
+// attivo su una pagina `data-dc` la barra degli strumenti aveva pulsanti larghi 0 px, `.CodeMirror-measure` restava visibile (una riga di
+// «xxxxxxxxxx» sotto il campo) e l'area di testo non era un riquadro. Sono nomi del vendor (`.CodeMirror*`, `.EasyMDEContainer`, `.editor-*`,
+// `.cm-*`) e la sola classe Filament che li avvolge (`.fi-fo-markdown-editor`): non coincidono con nessuna regola legacy e compaiono solo
+// dove l'editor e' montato. NON esentare gli altri `.fi-*`: i campi del wizard sono tarati con il guard acceso (reset dei campi data-dc).
+const isEditorVendorSelector = (selector) => /\.(?:CodeMirror[-\w]*|EasyMDEContainer|editor-(?:toolbar|preview|preview-side|preview-active|preview-full|statusbar|sidebyside)|cm-[\w-]+|fi-fo-markdown-editor)(?![\w-])/.test(selector);
 // il guard va prima di un eventuale pseudo-elemento finale (`a::before` -> `a:not(...)::before`)
 const TRAILING_PSEUDO = /((?:::[\w-]+(?:\([^)]*\))?|:(?:before|after|first-line|first-letter))+)$/;
 
@@ -51,13 +68,12 @@ module.exports = () => ({
             // regole che colpiscono solo la radice non possono toccare un discendente dell'ambito
             if (rule.selectors.every((selector) => /^(?:html|body|:root)(?:\s*,)?$/.test(selector.trim()))) return;
 
-            // The wizard is a Design Comuni contract rendered inside the
-            // data-dc scope; guarding it would disable its own layout rules.
-            const guard = isWizardContractRule(rule)
-                ? ''
-                : hasImportant(rule) && !isOwnFcRule(rule) ? `${GUARD}${FC_GUARD}` : GUARD;
             rule.selectors = rule.selectors.map((selector) => {
-                if (isMapVendorSelector(selector)) return selector;
+                if (isMapVendorSelector(selector) || isEditorVendorSelector(selector)) return selector;
+                const isContract = isOwnFcSelector(selector)
+                    || isDcChromeContractSelector(selector, rule)
+                    || isHomeHeroContractSelector(selector);
+                const guard = isContract ? '' : hasImportant(rule) ? `${GUARD}${FC_GUARD}` : GUARD;
                 const trailing = selector.match(TRAILING_PSEUDO);
                 return trailing ? `${selector.slice(0, trailing.index)}${guard}${trailing[1]}` : `${selector}${guard}`;
             });

@@ -4,7 +4,7 @@ title: "Decision Log — Redesign Design Comuni Tema Sixteen"
 type: decision-log
 status: active
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-22
 owner: "@team-fixcity"
 links:
   github_issue: "#150"
@@ -14,6 +14,231 @@ qmd: "decision log   redesign design comuni sixteen"
 ---
 
 # Decision Log — Redesign Design Comuni
+
+## D35: Header slim, "Demo" come regione e avatar come il riferimento (2026-10-26)
+
+- **Decisione:** nella fascia slim, dove il riferimento Design Comuni scrive "Nome della Regione", il tenant dimostrativo mostra "Demo". E' un testo, non un link: senza URL la Blade emette `<span class="navbar-brand">` senza `href`, `aria-label` o `title`.
+- **Contenuto:** `config/local/fixcity/database/content/sections/header.json`: `region.name` per lingua (it, en, de, es), `region.title` e `region.aria_label` scritti attorno a "Demo" (nessun segnaposto `{Nome della Regione}`), `account.label` per il pulsante. La Blade e' il vestito: nessun testo.
+- **Precedenza:** se l'ente fornisce `region_name` / `region_url` via `config('ente')` (GetEnteDataAction, DCP-289) vince l'ente. `RegionPortalLinkLabels::resolve($region, $ente->region_name)` fa seguire il nome al titolo e all'aria-label del link (WCAG 2.5.3, nome visibile contenuto nel nome accessibile). I tenant reali non vedono mai "Demo".
+- **Eccezione al divieto DCP-289:** `NoFakeEnteDataInFrontOfficeContentTest` ammette SOLO `region.name = Demo` in header.json (nessun altro valore e nessun `region.url`). In `EnteDataFrontOfficeTest` cambia solo l'asserzione sul "Demo": senza dati dell'ente compare una sola volta, come testo nella fascia slim; restano invariati gli altri controlli (`href="#"`, numeri finti, segnaposto).
+- **Avatar:** le misure sono quelle del riferimento, non inventate. Cerchio bianco 24px (`.rounded-icon`), icona `icon-primary` 18px verde #007a52 (5,38:1 sul bianco), etichetta 16px/600 da lg, pulsante 251x48 a 1440 (come il riferimento), 48x48 sotto lg (target >= 44). Hover e focus #006342, come il riferimento (testo bianco 7,3:1): il vecchio #00966a dava 3,8:1. Annullato il tentativo del disco 28px con bordo bianco, in cui l'icona era bianca su bianco.
+- **Come tornare indietro:** togliere `region.name` da header.json (la fascia mostra allora solo i dati dell'ente) e ripristinare nel test NoFake il vecchio divieto `region.(name|url) = .`. L'avatar e' solo CSS in `resources/css/app/22-header-shell.css`.
+- **Verifica:** `HeaderSlimBarContractTest` e i test header di Sixteen e Fixcity; pixel a 375, 768 e 1440 px, in quattro lingue, ospite e loggato. Studio e misure in `header-design-comuni-study.md`.
+
+## D34: Mai `pages/profile/edit.blade.php` nel tema Sixteen
+
+<!-- GateGuard: supersede = fo-folio-links che diceva «linka profile.edit»; linked from why-profile-edit + filament-blueprint + NoSemanticFolioPageDirectoriesTest; user: «creare …/pages/profile/edit.blade.php e' sbagliato! … non commettere mai piu'… bmad + second brain + filament blueprint» -->
+
+**Contesto:** l’alias Folio `Themes/Sixteen/.../pages/profile/edit.blade.php` è stato
+ricreato almeno tre volte per «riparare» un 404; Folio letterale compete col
+modulo User e col CMS `area-personale.impostazioni`.
+**Decisione:** vietato nel tema. FO Design Comuni «Impostazioni» =
+`FrontofficeRoutes::personalAreaImpostazioni()` → `container0.view`
+area-personale/impostazioni. Owner account: `Modules/User/...` se serve, mai
+copia nel tema. Enforcement: Pest esplicito su `profile*`, hook
+`theme-pages-guard.sh`, knowledge [why-profile-edit-blade-must-not-exist.md](./knowledge/why-profile-edit-blade-must-not-exist.md).
+**Rationale:** religione `pages/` (solo auth/container0/tests) + Filament way
+(tema veste, JSON+widget owner) + DRY (un solo percorso impostazioni FO).
+**Stato:** attivo 2026-10-22.
+
+## D33: Audit UI/UX FO vs Design Comuni — fix `data-dc` + no Gravatar
+
+<!-- GateGuard: supersede = findings aperti in compliance/04-audit; linked from 04-audit + filament-blueprint; user: «devi analizzare tutta la ui/ux di tutto il front office… DesignComuni… bmad + second brain + filament blueprint» -->
+
+**Contesto:** riverifica sera su `fixcity.eu`: home e `/tickets/track` senza `data-dc`;
+commenti con Gravatar (terzi); breadcrumb aria hardcoded; CTA `/contatti`.
+**Decisione:** home + track nel telaio DC; avatar iniziali locali; breadcrumb i18n nel
+partial condiviso; assistenza → `/tickets/create`. Canon audit:
+[04-audit-ui-ux-design-comuni.md](../compliance/04-audit-ui-ux-design-comuni.md).
+**Rationale:** coerenza Design Comuni = scope CSS + privacy + riuso (Filament way).
+**Stato:** attivo 2026-10-22 sera. Aperti restanti: D-01 services Tailwind, A-02 search
+modal home, C-* auth, B mappa.
+
+## D32: FO riusabile — Infrastructure/Presentation + Action fuori dalla shell Folio
+
+<!-- GateGuard: supersede = D32 bozza “Support + Action” (stesso giorno); linked from reusable-components.md, filament-blueprint.md, wiki/log.md; user: “devi sempre cercare di creare componenti riutilizzabili questa e' una regola che devi sempre seguire, fa tutto con bmad + second brain + filament blueprint” -->
+
+**Contesto:** alias Design Comuni, redirect `area-personale` e default search-modal
+vivevano inline nei Blade (`foIndexAliases`, `route('container0…')` ripetuti).
+**Decisione:** estrarre pezzi riusabili fuori dalla shell:
+`Infrastructure\Url\FrontofficeContainerAliases` + `FrontofficeRoutes`,
+`Presentation\Search\FrontofficeSearchSuggestions`,
+`Actions\Folio\ResolveContainer0IndexAction`. La Folio page chiama solo l'Action.
+Standing rule: [reusable-components.md](../rules/reusable-components.md).
+**Rationale:** DRY/KISS + Filament way (shell sottile) + allineamento layer
+Presentation/Infrastructure (ex `Support/`).
+**Stato:** attivo 2026-10-22. Blueprint: [filament-blueprint.md](./filament-blueprint.md).
+
+## D31: conflitti merge docs FAQ + prompt 04 risolti a mano
+
+**Contesto:** lane parallele avevano lasciato marker `<<<<<<<` in
+[faq-route-ownership.md](./faq-route-ownership.md) e [prompts/04.md](../prompts/04.md).
+**Decisione:** unire entrambe le versioni (composizione `content-page` + knowledge
+why-blade; regola CMS FAQ + «Errori già pagati»; matrice stato e registro unificati).
+**Rationale:** no auto-merge cieco; contratto FAQ e runbook FO devono restare KISS/DRY.
+**Stato:** risolto 2026-10-20 sera.
+
+## D30: `graphify-out/` ignorato nel tema (no LFS)
+
+**Contesto:** graphify scrive `Themes/Sixteen/graphify-out/` in locale; non e' asset FO Design Comuni.
+**Decisione:** `graphify-out/` nel `.gitignore` del tema; se tracciato → `git rm --cached -rf graphify-out`. Mai Git LFS.
+**Rationale:** artefatto generato; il tema veste Filament/FO, non versiona il grafo. Canon: [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md).
+**Stato:** attivo 2026-10-20. Hub Auth: [README.md](./README.md#auth--login--oauth-fo).
+
+Indice rapido Auth/Login + igiene tooling (dettaglio sotto; hub in [README.md](./README.md)):
+
+| ID | Tema | Stato |
+|----|------|-------|
+| D34 | Mai `pages/profile/` nel tema — FO impostazioni = area-personale | attivo 2026-10-22 — [why-profile-edit](./knowledge/why-profile-edit-blade-must-not-exist.md) |
+| D31 | Conflitti merge FAQ + prompt 04 risolti a mano | risolto 2026-10-20 sera |
+| D30 | `graphify-out/` in `.gitignore` tema (no LFS) | attivo — [graphify-out-gitignore](../../../../Modules/Xot/docs/bmad/graphify-out-gitignore.md) |
+| D27 | Google OAuth FO con prefisso lingua | fix working tree — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md) |
+| D26 | Checkbox «Ricordami» visibile sotto `data-dc` | working tree + build — [dcp-268](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md) |
+| D25 | Occhio password = `revealable()` Filament | live |
+| D24 | Login = accesso-servizio, non card | censito |
+
+## D29: Gate PHPStan Modules — rieseguito OK (2026-10-20, audit docs tema)
+
+**Contesto:** standing order Modules a zero; turno docs su tema Sixteen + moduli random (User, Comment, Notify, Activity).
+**Decisione:** registrare verifica `phpstan analyse` sui moduli owner del FO (batch quattro moduli → exit 0); docs `bmad/` conformi a `md-filenames.py check` (0 date/suffissi); sotto `docs/bmad/` restano ~79 legacy con maiuscole (story `STORY-DEFECT-*`, `DC-027.*`) — segnalazione senza rinomina finche' il tool non propone target sicuri.
+**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
+**Stato:** OK al 2026-10-20.
+
+## D28: PHPStan swarm — docs tema in parallelo al codice
+
+**Contesto:** wave PHPStan multi-agente sul monorepo; agenti doc-updater migliorano `Themes/Sixteen/docs/` mentre altre lane fixano sorgente.
+**Decisione:** registrare qui le decisioni FO (login, FAQ, shell) e aggiornare [filament-blueprint.md](./filament-blueprint.md) quando cambia il contratto di mount widget; non creare `.neon` ne' documentazione in `bmad-output/`.
+**Rationale:** il tema veste moduli owner; la memoria operativa del gate vive in Xot ([phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md)) e nei prompt [00-start](../../../../../bashscripts/docs/prompts/00-start.md) / [11-phpstan](../../../../../bashscripts/docs/prompts/11-phpstan.md).
+**Stato:** attivo per ogni turn non banale con qualita' in scope.
+
+## D27: Google login FO = URL con prefisso lingua (`/it/auth/login/google`)
+**Contesto**: su `fixcity.eu/it/auth/login` il bottone «Accedi con Google» puntava
+a `/auth/login/google` (senza `it`). La callback console è
+`/it/auth/login/google/callback`. Un Folio stub usava `segment(3)` e faceva 404
+sul callback localizzato.
+**Decisione**: SSoT `oauth.redirect` / `oauth.callback` in
+`Modules/User/routes/socialite.php` (`{lang}/auth/login/{provider}`). Il bottone
+Sixteen genera `route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])`.
+I controller dichiarano `string $lang, string $provider` con `Illuminate\Http\Request`
+(non la Facade). Le pagine Folio sotto `pages/auth/login/[provider]/` delegano
+ai controller e non reclamano i nomi di rotta.
+**Rationale**: FO sempre localizzato; entry e callback devono condividere la lingua
+e l’URI registrato su Google. Senza `$lang` nel `__invoke`, Laravel lega `it` a
+`$provider` → `ProviderNotConfigured("it")`. Filament Blueprint: dominio User,
+tema solo vestito + href.
+**Stato**: fix nel working tree NAS — [oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md).
+Prod `fixcity.eu` (46.225.90.178) è copia separata: serve sync + `view:clear`.
+
+## D24: Login — la pagina di riferimento è accesso-servizio, non una card
+**Contesto**: `/it/auth/login` è una card bianca da 36rem con form Filament e uno `<style>` privato. Il riferimento [accesso-servizio.hbs](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs) è `cmp-heading` (h1 40px), poi blocchi `cmp-text-button` (SPID, CIE, Altre utenze), poi `cmp-contacts`. Due documenti (User e second brain) prescrivevano card, blu `#0066CC` o gradient e bottoni SPID.
+**Decisione**: il vestito segue quella pagina. L'email è il blocco «Altre utenze». SPID e CIE non si disegnano finché un modulo non li possiede. `LoginWidget` resta il dominio. Niente `<style>` di pagina e niente `main[data-page]`.
+**Rationale**: il comune riconosce l'accesso dai componenti, non da una scheda. Un bottone SPID senza provider è una bugia.
+**Stato**: censito — [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md). Il vestito live è ancora la colonna del 2026-10-20.
+
+## D25: Occhio password = suffix Filament `revealable()`, non del tema
+**Contesto**: richiesta di password rivelabile su `/it/auth/login` alla Filament way
+([revealable password inputs](https://filamentphp.com/docs/5.x/forms/text-input#revealable-password-inputs)).
+Già in `UserForm::getLoginFormSchema()`; lo sheet FO non dipinge `.fi-input-wrp`
+sotto `data-dc`, quindi l'occhio finiva sotto il campo.
+**Decisione**: dominio = `->password()->revealable()` nel modulo User. Sixteen
+sistema solo il flex della suffix action in `.auth-login-card`. Niente toggle
+Alpine del tema. Non duplica [login-ux-fixes.md](../auth/login-ux-fixes.md) né
+[filament-blueprint.md](./filament-blueprint.md): qui resta la decisione.
+**Rationale**: Filament Blueprint — il tema veste, User possiede il campo.
+**Stato**: live su fixcity.eu; guardrail `LoginPasswordRevealableTest`.
+
+## D26: Checkbox «Ricordami» = Filament `Checkbox`, visibile sotto data-dc
+**Contesto**: su `/it/auth/login` il `Checkbox::make('remember')` è nel DOM ma
+invisibile. DC applica `appearance: none !important` a ogni `input` sotto
+`data-dc`; le utility Filament del checkbox non dipingono.
+**Decisione**: dominio invariato (`UserForm::getLoginFormSchema()`). Vestito:
+`appearance: auto !important` + `-webkit-appearance: checkbox !important` nello
+`<style>` di `components/pages/auth-login.blade.php` **e** in
+`resources/css/app/20-dc-components.css` (regole già scoped a
+`.page-content[data-dc]`, quindi non isolate dal PostCSS legacy). Niente
+toggle HTML custom. Story: [dcp-268](./stories/dcp-268-login-checkbox-e-occhio-password-dentro-data-dc.story.md).
+**Rationale**: Filament Blueprint — User possiede il campo; Sixteen solo lo
+rende leggibile nel perimetro Design Comuni.
+**Stato**: fix nel working tree NAS + `npm run build`. Prod `fixcity.eu`
+(`46.225.90.178`) ha copia asset/Blade separata: serve sync tema +
+`php artisan view:clear` sul server. Guardrail: `AuthLoginStyleContractTest`.
+
+## D23: FAQ = JSON che compone blocchi condivisi, nessun CSS di pagina
+**Contesto**: dopo D22 la FAQ restava un blocco monolitico `faq-page`
+(`components/pages/faq.blade.php`) con utility Tailwind, `<style>` inline e CSS
+`main[data-page="domande-frequenti"]`. Misurato il 2026-10-20: HTML 11,59% vs
+`domande-frequenti.html` (la replica composta `/it/tests/domande-frequenti`:
+99,31%); su `data-dc` le utility sono spente da
+`postcss/isolate-legacy-important.cjs` (titolo rating 40px, contenitore 1280px,
+stelle 0×0); `faq-parity.css` = 700 righe mai applicabili.
+**Decisione**: la pagina compone il blocco `content-page/design-comuni`
+(sezioni `search` + `accordion` con `source: faq`, `feedback`, `contacts`) con
+copy per lingua nel JSON; niente `parity_page`, niente CSS/JS di pagina, niente
+utility Tailwind su pagine `data-dc`; filtro e «carica altre» sono flag
+opzionali dei componenti condivisi. **Supera la clausola «blocco `faq-page`» di
+D22**; resta valida la rimozione della Folio concorrente, estesa al file omonimo.
+**Rationale**: il riferimento assembla componenti `cmp-*` con SCSS per
+componente e nessuna regola di pagina; il riuso sta nel componente; il CSS non
+cresce. Vedi [shared-block-composition-no-page-css](../wiki/concepts/shared-block-composition-no-page-css.md).
+**Stato**: ✅ locale e verificato — [DCP-260](./stories/dcp-260-faq-composizione-blocchi-condivisi.story.md);
+⏳ build, rilascio e rimozione del monolite (T1–T3).
+
+## D22: FAQ senza route Folio esplicita concorrente
+**Contesto**: `domande-frequenti.index` è una pagina CMS di primo livello,
+quindi `/it/domande-frequenti` è già servita dalla shell generica
+`pages/[container0]/index.blade.php`. Una view aggiuntiva in
+`pages/domande-frequenti/index.blade.php` duplicava il routing e poteva
+selezionare una sorgente diversa dal JSON tenant.
+**Decisione**: la view speciale resta assente. La FAQ è il blocco
+`content-page` del JSON `domande-frequenti/index.json` (accordion
+`source: faq`). I test `FolioPageMountContractTest` e
+`NoSemanticFolioPageDirectoriesTest` impediscono il ritorno della cartella.
+Perché: [why-domande-frequenti-blade-php-must-not-exist.md](./knowledge/why-domande-frequenti-blade-php-must-not-exist.md).
+**Rationale**: Folio trasporta, CMS risolve lo slug, il blocco renderizza il
+dominio. È il contratto `container0.index` e la regola Filament Blueprint del
+tema; nessun dominio va duplicato nella pagina Folio.
+**Stato**: ✅ Corretto e verificato con test di contratto + browser smoke.
+
+## D21: `/it/blog` parity `lista-risorse.html` (body only)
+**Contesto**: lista Novità “si vedeva male”: CSS DC spento (`data-dc` assente),
+`listing-parity` stilizzava il breadcrumb come card, markup featured spezzato.
+**Decisione**: shell con `data-dc` + `body-page=lista-risorse`; blocco allineato
+a lista-risorse.html (HTML≥90%/visual≥95% tranne header/footer); CSS lista-risorse
+riscritto su `cmp-hero`/`card-wrapper`/`bg-grey-card`.
+**Rationale**: Sixteen è Design Comuni; parity sul body, chrome da JSON sections.
+**Stato**: ✅ Confirmato — [blog-public-index.md](./blog-public-index.md)
+
+## D20: Folio `container0.index` = shell JSON-only
+**Contesto**: `[container0]/index.blade.php` accumulava `match` native/utility,
+`@include` di `components/pages/*`, `x-dynamic-component` sul layout e fetch CMS
+in `@php` — seconda verità rispetto ai JSON tenant.
+**Decisione**: shell Volt minimale (`name` + `PageSlugMiddleware` + `mount` +
+`<x-layouts.app>` + `<x-page>`). Contenuto solo da slug `{container0}.index`.
+Chiusura tag = `</x-layouts.app>` (mai residuo `</x-dynamic-component>`).
+`.page-content` porta sempre `data-dc`. Fuori `@volt` niente `$this` (usa
+parametri Folio tipo `$container0` per `body-page`).
+Utility FO hanno JSON `{container}.index` dedicati.
+**Rationale**: DRY + KISS + religione pages/ (tema = vestito, Cms = contenuto);
+allinea Filament way e parallelismo BMAD.
+**Stato**: ✅ Confirmato — [container0-index-shell-contract.md](./container0-index-shell-contract.md)
+
+## D19: Footer JSON SSoT (DCP-222 / DCP-198 A5)
+**Contesto**: Footer mostrava «Nome del Comune» e voci morte come link.
+**Decisione**: Come header — contenuto in `footer.json`; Blade solo vestito;
+URL vuoti non emessi; FixCity brand+slogan; social/UE vuoti.
+**Rationale**: D11 + Ponytail; accessibilita' (niente `<a>` nudi).
+**Stato**: ✅ Confirmato — `dcp-222-footer-json-ssot-vestito.story.md`
+
+## D18: Tipografia FO — Lora hero + Titillium 600 (DCP-221)
+**Contesto**: H1 poco leggibile; BI impone Titillium / Lora / Roboto Mono.
+**Decisione**: H1 home = **Lora Regular 400** (`.font-serif`), scale BI h1,
+lh 1.2; sans UI = Titillium 600. Font via Vite local (`fonts.css` relative url,
+DCP-183). Token `--font-serif` / `--dc-font-serif` = Lora.
+**Rationale**: Bootstrap Italia tipografia + WCAG; Lora nato per lettura display;
+niente peso 600 su Lora (non self-hosted).
+**Stato**: ✅ Confirmato — story `dcp-221-homepage-tipografia-leggibilita-wcag.story.md`
+**Nota 2026-10-20**: regressione a Titillium 700 nel civic-reframe CSS; ripristinata
+Lora 400 + rebuild. Guardia: `FontsCssGuardTest`. Prompt operativo: `docs/prompts/04.md`.
 
 ## D1: Script non in laravel/scripts/ ma in bashscripts/
 **Contesto**: Richiesta esplicita dell'utente.
@@ -213,3 +438,17 @@ misurate a 375, 768 e 1440px con body comparator e screenshot.
 - All `docs/bmad/` stories must include: `github_issue`, `discussion`, `type`, `tags`, `qmd`, `links`, `status`, `module`.
 - All `docs/second-brain/` must reference specific stories via `links` and `tags`.
 - All `docs/bmad/` stories must follow the Design Comuni documentation standards (no Bootstrap, proper token usage, accessibility).
+
+## D39: Ownership and semantic resolution of frontoffice markers (2026-10-26)
+
+> Numero corretto il 2026-10-26: in origine D18, ma D18 era gia' preso quattro volte (tipografia DCP-221, contratto UserContract, ritorno post-login e questa voce). Prossimo libero verificato: D39 (il piu' alto in uso era D38).
+
+- **Decisione:** Sixteen owns frontoffice markup, Blade, CSS and responsive parity; Fixcity/Tenant own Actions, domain data and data contracts.
+- **Decisione:** committed merge markers are audited separately from `git status` unmerged entries. A clean index does not prove marker-free runtime files.
+- **Risoluzione:** keep tenant-driven `ente: toll_free` content, remove empty regional placeholders, drop unused `$phoneItems`, and resolve the footer as a third way: the Design Comuni structure (incoming, the only branch that closes the block and defines every variable it renders) with the localized contact labels from `footer.json` `contact.labels` (current), because the incoming branch read `pub_theme::footer.*`, which exists only in Italian.
+- **Verifica:** marker scan, JSON validation and Blade compile/lint; visual parity remains required at 375, 768 and 1440 px.
+## 2026-10-26 — Google CTA nel login Sixteen
+
+- Login e registrazione usano lo stesso componente `components.utilities.google-button`.
+- La visibilità dipende dalla configurazione reale del provider, non dalla sola esistenza della route.
+- Il tema non conosce né conserva credenziali: espone solo il link localizzato verso il contratto OAuth del modulo User.

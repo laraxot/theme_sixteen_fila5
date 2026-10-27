@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "cookiebar audit visuale semantica bootstrap italia tailwind alpine gdpr statikbe accessibilita"
 related: [dcp-153, dcp-158, 6.3, 6.5, 6.7, 8.13]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-170: audit visuale e semantico della Cookiebar

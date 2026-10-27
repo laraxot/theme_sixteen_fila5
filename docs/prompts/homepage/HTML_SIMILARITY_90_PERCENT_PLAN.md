@@ -483,7 +483,7 @@ Note: The first 6 slides in reference DO have `h-100` on both wrappers. Only the
 - [HTML Body Comparison Report](../../design-comuni/HTML_BODY_COMPARISON_REPORT.md) — Raw comparison data
 - [CSS/JS Alignment Plan](../../design-comuni/css-js-alignment-plan.md) — CSS and JS parity strategy
 - [ARCHITECTURAL_DECISIONS.md](../../design-comuni/ARCHITECTURAL_DECISIONS.md) — Design Comuni architecture decisions
-- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) — CMS page component structure
+- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../../Modules/Cms/docs/page-component-architecture.md) — CMS page component structure
 
 ### Master Index
 - ← Torna all'[indice principale Design Comuni](../../design-comuni/00-index.md)

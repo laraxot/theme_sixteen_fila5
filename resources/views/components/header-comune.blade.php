@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
-                        <a class="d-lg-block navbar-brand" target="_blank" rel="noopener noreferrer" href="#" aria-label="Vai al portale {{ config('comune.regione', 'Nome della Regione') }} - link esterno - apertura nuova scheda" title="Vai al portale {{ config('comune.regione', 'Nome della Regione') }}">{{ config('comune.regione', 'Nome della Regione') }}</a>
+                        <a class="d-lg-block navbar-brand" target="_blank" rel="noopener noreferrer" href="{{ url('/'.app()->getLocale()) }}" aria-label="Vai alla homepage - apertura nuova scheda" title="Vai alla homepage">{{ config('app.name', 'Il mio Comune') }}</a>
 
                         <div class="it-header-slim-right-zone" role="navigation">
                             @include('pub_theme::components.sections.header.partials.language-switcher')
@@ -101,7 +101,7 @@
                             <div class="it-brand-wrapper">
                                 <a href="{{ url('/'.app()->getLocale()) }}" title="Vai alla homepage">
                                     <svg width="82" height="82" class="icon" aria-hidden="true">
-                                        <image xlink:href="/themes/Sixteen/design-comuni/assets/images/logo-comune.svg"/>
+                                        <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                                     </svg>
                                     <div class="it-brand-text">
                                         <div class="it-brand-title">{{ config('app.name', 'Il mio Comune') }}</div>

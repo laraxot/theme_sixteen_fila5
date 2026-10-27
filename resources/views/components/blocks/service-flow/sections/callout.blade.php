@@ -1,6 +1,6 @@
 {{-- Nota evidenziata. `section`: class (default `callout callout-highlight ps-3 warning`), icon, title, text, text_block (seconda frase), text_block_class (classi dello span della seconda frase, default `d-md-block`: su una riga propria da md; il riferimento di alcune famiglie usa `d-lg-block`). --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="{{ $section['class'] ?? 'callout callout-highlight ps-3 warning' }}">

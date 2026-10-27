@@ -7,6 +7,9 @@ github_issue: "#54"
 discussion: "https://github.com/spatie/laravel-cookie-consent"
 rights_owner: "laravel/Themes/Sixteen"
 related_to: ["STORY-cookiebar-gdpr-compliance"]
+title: "BMAD Story — Cookie Banner Multilingua (GDPR + Gdpr Module)"
+updated: 2026-10-15
+qmd: "bmad story   cookie banner multilingua (gdpr + gdpr module) sixteen"
 ---
 
 # BMAD Story — Cookie Banner Multilingua (GDPR + Gdpr Module)

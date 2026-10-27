@@ -13,5 +13,5 @@ $variantClass = match($variant ?? 'primary') {
 @endphp
 
 <span class="badge badge-italia {{ $variantClass }} {{ ($pill ?? false) ? 'rounded-pill' : '' }}">
-    {{ $text ?? $slot }}
+    {{ $text ?? $slot ?? '' }}
 </span>

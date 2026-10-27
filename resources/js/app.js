@@ -26,9 +26,22 @@ import { governanceCarousel } from './components/carousel';
 import { initHeaderMobileNav, isDesignComuniPage } from './theme/header-mobile-nav.js';
 import { dcCarousel, dcFormValidate, dcNavscroll, dcRating, mountDesignComuniComponents } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
-// DISABLED: domande-frequenti-parity.js was overriding blade template HTML with JS-generated structure
-// Now using blade template directly with Alpine.js for accordion
-// import { domandeFrequentiParity } from './domande-frequenti-parity';
+
+let cameraUploadPromise;
+
+function ensureCameraUpload() {
+    if (!cameraUploadPromise) {
+        cameraUploadPromise = import('./components/camera-upload.js');
+    }
+
+    return cameraUploadPromise;
+}
+
+function preloadCameraUploadWhenNeeded() {
+    if (document.querySelector('input[type="file"]')) {
+        void ensureCameraUpload();
+    }
+}
 
 /**
  * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.
@@ -256,6 +269,8 @@ function initHeaderDropdowns() {
 document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
 document.addEventListener('livewire:navigated', initHeaderDropdowns);
 document.addEventListener('livewire:update', initHeaderDropdowns);
+document.addEventListener('DOMContentLoaded', preloadCameraUploadWhenNeeded);
+document.addEventListener('livewire:navigated', preloadCameraUploadWhenNeeded);
 if (document.readyState !== 'loading') {
     initHeaderDropdowns();
 }
@@ -275,6 +290,44 @@ function initFilterModal() {
 
     document.body.appendChild(modal);
 
+    var filterTrigger = null;
+
+    function focusableIn(root) {
+        return Array.prototype.filter.call(
+            root.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),
+            function (el) {
+                return !el.disabled && el.getAttribute('aria-hidden') !== 'true' && el.offsetParent !== null;
+            },
+        );
+    }
+
+    function onFilterModalKeydown(event) {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeFilterModal();
+            return;
+        }
+
+        if (event.key !== 'Tab') {
+            return;
+        }
+
+        var items = focusableIn(modal);
+        if (items.length === 0) {
+            return;
+        }
+
+        var first = items[0];
+        var last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
+
     function openFilterModal() {
         var mapEl = document.getElementById('ticket-map');
         if (mapEl && mapEl._map) { mapEl._map.closePopup(); }
@@ -289,11 +342,19 @@ function initFilterModal() {
         bd.id = '_mfix_bd';
         document.body.appendChild(bd);
         bd.addEventListener('click', closeFilterModal);
+        modal.addEventListener('keydown', onFilterModalKeydown);
+        var items = focusableIn(modal);
+        if (items.length > 0) {
+            items[0].focus();
+        } else {
+            modal.focus();
+        }
     }
 
     function closeFilterModal() {
+        modal.removeEventListener('keydown', onFilterModalKeydown);
         // Sposta focus prima di aria-hidden per evitare warning accessibilità
-        var trigger = document.querySelector('[data-bs-target="#modal-categories"]');
+        var trigger = filterTrigger || document.querySelector('[data-bs-target="#modal-categories"]');
         if (trigger) { trigger.focus(); }
         modal.style.removeProperty('display');
         modal.style.removeProperty('visibility');
@@ -309,6 +370,7 @@ function initFilterModal() {
         btn.removeAttribute('data-bs-toggle'); // disabilita Bootstrap delegation
         btn.addEventListener('click', function (e) {
             e.preventDefault();
+            filterTrigger = btn;
             openFilterModal();
         });
     });

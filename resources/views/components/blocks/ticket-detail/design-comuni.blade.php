@@ -8,8 +8,12 @@
     Segui: form POST con CSRF (FollowTicketAction) per il cittadino loggato; per l'ospite un link al login. Testi: lang fixcity::ticket_detail.
 --}}
 @php
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
+
     $locale = app()->getLocale();
-    $base = '/'.$locale.'/tickets';
+    // Canon FO: FrontofficeRoutes (path relativo absolute=false) — niente localizeUrl su container0.
+    $base = FrontofficeRoutes::ticketsIndex(false);
+    $home = route('home', [], false);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_detail.'.$key, $replace);
     $parts = 'pub_theme::components.blocks.report-partials';
     $created = $detail['created_date'] !== '' ? \Illuminate\Support\Carbon::parse($detail['created_date'])->locale($locale) : null;
@@ -22,11 +26,26 @@
     $mapLabels = json_encode(['zoom_in' => __('geo::coordinate-picker.zoom_in'), 'zoom_out' => __('geo::coordinate-picker.zoom_out')], JSON_UNESCAPED_UNICODE);
     $followMessage = session('ticket_follow');
     $followMessage = in_array($followMessage, ['followed', 'unfollowed'], true) ? $followMessage : null;
-    $followUrl = $base.'/'.$detail['id'].'/follow';
+    $followUrl = route('tickets.follow', ['lang' => $locale, 'ticket' => $detail['id']], false);
+    // DCP-287 (FO-2-12): dopo il login si torna a questo dettaglio; `redirect` e' validato da User\StoreIntendedUrlAction (solo percorsi interni)
+    $loginUrl = route('login', ['redirect' => FrontofficeRoutes::view('tickets', (string) $detail['id'], false)], false);
+    $createUrl = FrontofficeRoutes::ticketsCreate(false);
     $isLogged = auth()->check();
+    // The public thread is readable by guests; only its write controls require login/update permission.
+    $ticketCommentable = \Modules\Fixcity\Models\Ticket::query()->find($detail['id']);
+    $canAccessComments = $ticketCommentable instanceof \Modules\Fixcity\Models\Ticket
+        && \Illuminate\Support\Facades\Gate::forUser(auth()->user())->allows('view', $ticketCommentable);
+    $canWriteComments = $canAccessComments && $isLogged
+        && \Illuminate\Support\Facades\Gate::forUser(auth()->user())->allows('update', $ticketCommentable);
+    $ticketForNextSteps = $ticketCommentable instanceof \Modules\Fixcity\Models\Ticket
+        ? $ticketCommentable
+        : \Modules\Fixcity\Models\Ticket::query()->find($detail['id']);
+    $nextSteps = $ticketForNextSteps instanceof \Modules\Fixcity\Models\Ticket
+        ? app(\Modules\Fixcity\Actions\BuildTicketNextStepsAction::class)->execute($ticketForNextSteps)
+        : null;
     // dati per il partial condiviso del breadcrumb: voci localizzate, mai '#'
     $partialData = ['breadcrumb' => ['items' => [
-        ['label' => $t('breadcrumb.home'), 'url' => '/'.$locale],
+        ['label' => $t('breadcrumb.home'), 'url' => $home],
         ['label' => $t('breadcrumb.list'), 'url' => $base],
     ], 'current' => $detail['title']]];
     $d = static fn (string $key, mixed $default = '') => data_get($partialData, $key, $default);
@@ -39,7 +58,8 @@
                 <div class="alert alert-success" role="status">
                     {{ $t('follow.'.$followMessage) }}
                     @if ($followMessage === 'followed')
-                        <a href="/{{ $locale }}/area-personale/seguite">{{ $t('follow.list_link') }}</a>
+                        {{-- Caller: alert follow in questo blocco; SSoT URL: FrontofficeRoutes::personalAreaSeguite. User: «procedi» riusabile. --}}
+                        <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::personalAreaSeguite(false) }}">{{ $t('follow.list_link') }}</a>
                     @endif
                 </div>
             @endif
@@ -61,6 +81,22 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
+            @if ($detail['is_owner'] && (! $detail['is_public'] || $detail['tracking_code'] !== null))
+                {{-- DCP-287: solo il proprietario. Il codice e' una capability: l'Action lo da' a lui e a nessun altro (follower compresi). --}}
+                <section aria-labelledby="td-owner-title" class="mb-40">
+                    <h2 class="title-xxlarge mb-3" id="td-owner-title">{{ $t('owner.title') }}</h2>
+                    <div class="cmp-card p-4">
+                        @if (! $detail['is_public'])
+                            <p class="text-paragraph mb-2">{{ $t('owner.private') }}</p>
+                        @endif
+                        @if ($detail['tracking_code'] !== null)
+                            <p class="text-paragraph mb-1">{{ $t('owner.code') }}</p>
+                            <p class="title-small-semi-bold mb-2"><code>{{ $detail['tracking_code'] }}</code></p>
+                            <p class="text-paragraph-small mb-0">{{ $t('owner.code_help') }}</p>
+                        @endif
+                    </div>
+                </section>
+            @endif
             <section aria-labelledby="td-where">
                 <h2 class="title-xxlarge mb-3" id="td-where">{{ $t('where.title') }}</h2>
                 <p class="text-paragraph-small mb-1">{{ $t('where.address') }}</p>
@@ -83,22 +119,53 @@
                 <h2 class="title-xxlarge mb-3" id="td-status-title">{{ $t('status.title') }}</h2>
                 @include('pub_theme::components.blocks.ticket-detail.timeline')
             </section>
+            @if ($nextSteps !== null)
+                <section aria-labelledby="td-next-steps-title" class="mt-40">
+                    <h2 class="title-xxlarge mb-3" id="td-next-steps-title">{{ $t('next_steps.title') }}</h2>
+                    <div class="cmp-card p-4">
+                        <h3 class="title-medium mb-2">{{ $nextSteps['title'] }}</h3>
+                        <p class="text-paragraph mb-2">{{ $nextSteps['description'] }}</p>
+                        <p class="text-paragraph-small mb-0">{{ $t('next_steps.deadline_not_configured') }}</p>
+                    </div>
+                </section>
+            @endif
+            @if ($canAccessComments && $ticketCommentable instanceof \Modules\Fixcity\Models\Ticket)
+                    <section aria-labelledby="td-comments-title" class="mt-40">
+                        <h2 class="title-xxlarge mb-3" id="td-comments-title">{{ $t('comments.heading') }}</h2>
+                        @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
+                            'commentableType' => $ticketCommentable::class,
+                            'commentableKey' => (string) $ticketCommentable->getKey(),
+                            'readOnly' => ! $canWriteComments,
+                            'hideNotifications' => true,
+                            'noReplies' => false,
+                            'noReactions' => true,
+                        ], key('ticket-comments-'.$ticketCommentable->getKey()))
+                        @guest
+                            <p class="mt-3 text-sm text-muted">
+                                <x-comment::login-link class="underline" />
+                            </p>
+                        @endguest
+                    </section>
+            @endif
             <section aria-labelledby="td-actions-title" class="mt-40 mb-4">
                 <h2 class="title-xxlarge mb-3" id="td-actions-title">{{ $t('actions.title') }}</h2>
                 <div class="td-actions">
-                    @if ($isLogged)
+                    {{-- seguire la propria segnalazione non ha senso (FO-2-17): al proprietario resta solo la navigazione --}}
+                    @if ($isLogged && ! $detail['is_owner'])
                         <form method="post" action="{{ $followUrl }}">
                             @csrf
                             <input type="hidden" name="following" value="{{ $detail['is_following'] ? '0' : '1' }}">
                             <button type="submit" @class(['btn py-3', 'btn-outline-primary' => $detail['is_following'], 'btn-primary' => ! $detail['is_following']])>{{ $t($detail['is_following'] ? 'actions.unfollow' : 'actions.follow') }}</button>
                         </form>
-                    @else
-                        <a href="/{{ $locale }}/auth/login" class="btn btn-primary py-3">{{ $t('actions.login') }}</a>
+                    @elseif (! $isLogged)
+                        <a href="{{ $loginUrl }}" class="btn btn-primary py-3">{{ $t('actions.login') }}</a>
                     @endif
                     <a href="{{ $base }}" class="btn btn-outline-primary py-3">{{ $t('actions.back') }}</a>
-                    <a href="{{ $base }}/create" class="btn btn-outline-primary py-3">{{ $t('actions.new') }}</a>
+                    <a href="{{ $createUrl }}" class="btn btn-outline-primary py-3">{{ $t('actions.new') }}</a>
                 </div>
-                <p class="subtitle-small mt-3 mb-0">{{ $t($isLogged ? 'actions.follow_help' : 'actions.guest_help') }}</p>
+                @unless ($detail['is_owner'])
+                    <p class="subtitle-small mt-3 mb-0">{{ $t($isLogged ? 'actions.follow_help' : 'actions.guest_help') }}</p>
+                @endunless
             </section>
         </div>
     </div>

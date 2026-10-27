@@ -14,4 +14,7 @@ return [
     ],
     'links' => ['service' => 'Open the reporting service', 'reports' => 'Browse reports', 'tracking' => 'Open tracking', 'privacy' => 'Read the privacy notice'],
     'navigation' => ['label' => 'Related pages', 'home' => 'Back to home'],
+    'search' => ['label' => 'Search questions', 'placeholder' => 'Search', 'submit' => 'Search', 'empty' => 'No questions match your search.', 'results' => 'Questions found: :count', 'load_more' => 'Load more questions'],
+    'feedback' => ['title' => 'How clear is the information on this page?', 'rating_label' => 'Rate the clarity of this page from one to five stars', 'rate' => 'Rate', 'out_of' => 'stars out of 5', 'next' => 'Next', 'back' => 'Back', 'positive_title' => 'Which aspects did you find most useful?', 'negative_title' => 'Where did you experience the most difficulty?', 'positive_options' => ['The instructions were clear', 'The instructions were complete', 'I always knew what to do next', 'Other'], 'negative_options' => ['The instructions were unclear', 'The instructions were incomplete', 'I did not always know what to do next', 'Other'], 'details_title' => 'Would you like to add more details?', 'details_label' => 'Details', 'thanks' => 'Thank you. Your feedback will help us improve the service.'],
+    'contacts' => ['aria_label' => 'Contact options', 'title' => 'Contact the municipality', 'city_title' => 'Problems in the city', 'report' => 'Submit a report', 'track' => 'Track a report', 'login' => 'Sign in to your personal area', 'city_report' => 'Report a problem'],
 ];

@@ -19,7 +19,6 @@ use Illuminate\Support\Str;
 use Themes\Sixteen\Enums\MunicipalEventLocationTypeEnum;
 use Themes\Sixteen\Enums\MunicipalEventStatusEnum;
 use Themes\Sixteen\Enums\MunicipalEventTypeEnum;
-use Themes\Sixteen\Enums\MunicipalEventVisibilityEnum;
 
 /**
  * Modello per gli eventi municipali (Municipal Event)

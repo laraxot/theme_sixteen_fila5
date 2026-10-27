@@ -14,7 +14,7 @@ final class ServeThemeAssetAction
         $relativePath = ltrim(str_replace('\\', '/', $path), '/');
 
         if ($relativePath === '' || str_contains($relativePath, '..')) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException;
         }
 
         $assetPath = base_path('Themes/Sixteen/public/'.$relativePath);
@@ -26,7 +26,7 @@ final class ServeThemeAssetAction
         }
 
         if (! is_file($assetPath)) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException;
         }
 
         return response()->file($assetPath, [

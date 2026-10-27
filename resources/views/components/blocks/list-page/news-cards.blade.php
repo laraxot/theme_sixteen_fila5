@@ -5,7 +5,7 @@
     grigia) o plain; `heading` = xxlarge o secondary. Le immagini sono file di public/design-comuni/assets/images.
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $grey = ($section['style'] ?? 'plain') === 'grey';
     $headings = ['xxlarge' => 'title-xxlarge mb-4', 'secondary' => 'text-secondary mb-4'];

@@ -11,6 +11,9 @@ tags:
   - second-brain
   - claude-code
   - automation
+type: story
+status: draft
+qmd: "claude cowork plugins integration.story sixteen"
 ---
 
 ## Obiettivo
