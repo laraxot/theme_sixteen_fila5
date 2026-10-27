@@ -35,6 +35,8 @@ new class extends Component {
         $cmsPage = \Modules\Cms\Models\Page::findUniqueBySlug($this->pageSlug);
         // ne' un modello ne' una pagina CMS: 404 vero, non un 200 con <main> vuoto (soft-404: i motori di ricerca lo indicizzano)
         abort_if($item === null && $cmsPage === null, 404);
+        // `{container0}.view` senza record (blog/events/services: slug sconosciuto o la parola `view`) e' solo il modello del dettaglio: 404, non soft-404.
+        abort_if($item === null && $this->pageSlug === $container0.'.view', 404);
         $this->isDesignComuni = str_starts_with((string) $cmsPage?->layout, 'design-comuni');
         // Callers: Folio /it/blog/{slug} e /it/events/{slug} (ThemeComposer Article).
         // Nessun altro file setta data-dc sul dettaglio Article: senza questo flag il
@@ -94,11 +96,11 @@ new class extends Component {
     $isDesignComuni = str_starts_with((string) ($cmsPage?->getAttribute('layout') ?? ''), 'design-comuni');
     $isDesignComuni && view()->share('dcRelativeAssets', true);
     $headerActive = $isDesignComuni ? (string) data_get($cmsPage?->content_blocks, '0.data.header_active', '') : '';
-    // `layout` del JSON: `test` (chrome v1), `design-comuni*` (chrome Design Comuni, vedi layouts/design-comuni*), altrimenti `app`
+    // `layout` del JSON: `test` usa la shell di parità; ogni pagina reale usa la shell canonica app.
     $jsonLayout = $cmsPage?->getAttribute('layout') ?? 'app';
     $layoutComponent = $jsonLayout === 'test'
         ? 'layouts.test'
-        : (str_starts_with($jsonLayout, 'design-comuni') ? 'layouts.'.$jsonLayout : 'layouts.app');
+        : 'layouts.app';
     // dettaglio pubblico di una segnalazione (DCP-148): dati dall'Action (404 se non esiste o non e' pubblica), chrome Design Comuni come /it/tickets
     $ticketDetail = null;
     if ($specialPage === 'ticket-detail') {
@@ -109,22 +111,22 @@ new class extends Component {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
         $headerActive = 'all-services';
-        $layoutComponent = 'layouts.design-comuni';
+        $layoutComponent = 'layouts.app';
     }
-    // track: stesso telaio DC dell'elenco (B-11 audit UI/UX) — data-dc + layout design-comuni
+    // track: stesso telaio DC dell'elenco (B-11 audit UI/UX) — data-dc + shell app
     if ($specialPage === 'ticket-track') {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
         $headerActive = 'all-services';
-        $layoutComponent = 'layouts.design-comuni';
+        $layoutComponent = 'layouts.app';
     }
-    // dettaglio Novità/Eventi (Article): layout DC + data-dc.
+    // dettaglio Novità/Eventi (Article): shell app + data-dc.
     // Il corpo lo monta il JSON `pages/{blog|events}/view.json` (slug `view` → `blog.view` / `events.view`).
     if ($blogPost instanceof \Modules\Blog\Models\Article) {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
         $headerActive = $container0 === 'events' ? 'live' : 'news';
-        $layoutComponent = 'layouts.design-comuni';
+        $layoutComponent = 'layouts.app';
     }
 @endphp
 <x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription" :header-active="$headerActive">

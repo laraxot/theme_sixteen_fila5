@@ -6,12 +6,18 @@
     'contact' => null,
     'legal_links' => [],
     'social' => [],
+    'social_title' => null,
     'copyright' => null,
     'footer_bottom_links' => [],
+    'eu_logo' => null,
 ])
 {{--
-    Footer full/v1 — vestito Tailwind.
-    SSoT: footer.json via <x-section slug="footer">. Solo markup + FrontofficeUrl.
+    Footer Design Comuni (it-footer > it-footer-main > it-footer-small-prints), runtime owner unico (docs/bmad/header-template-naming.md).
+    Riferimento: design-comuni-pagine-statiche/sito/homepage.html. Story: docs/stories/header-footer-design-comuni-markup.story.md.
+    Dati: sections/footer.json via <x-section slug="footer" tpl="v1"> (brand, columns, contact.title/links, legal_links,
+    footer_bottom_links, social_title, copyright, eu_logo). Recapiti e social dell'ente: UNICA sorgente GetEnteDataAction (DCP-289).
+    Regole: solo markup + FrontofficeUrl; una voce senza URL sparisce (mai href="#"); un recapito vuoto sparisce, senza recapiti
+    sparisce il titolo "Contatti", senza social sparisce "Seguici su". Niente copy istituzionale qui.
 --}}
 @php
     $configuredBlock = collect($blocks)->first();
@@ -25,8 +31,10 @@
         $contact = $configuredData['contact'] ?? $contact;
         $legal_links = $configuredData['legal_links'] ?? $legal_links;
         $social = $configuredData['social'] ?? $social;
+        $social_title = $configuredData['social_title'] ?? $social_title;
         $copyright = $configuredData['copyright'] ?? $copyright;
         $footer_bottom_links = $configuredData['footer_bottom_links'] ?? $footer_bottom_links;
+        $eu_logo = $configuredData['eu_logo'] ?? $eu_logo;
     }
 
     $locale = app()->getLocale();
@@ -37,14 +45,8 @@
 
         return trim((string) $value) !== '' ? (string) $value : $fallback;
     };
-    $localize = static function (string $path): string {
-        $path = trim($path);
-        if ($path === '' || $path === '#') {
-            return '';
-        }
-
-        return \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($path);
-    };
+    // path JSON senza lingua -> URL FO localizzato; esterni, tel: e mailto: passano invariati
+    $localize = static fn (mixed $url): string => \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl(trim((string) $url));
     $hasUrl = static function (mixed $item): bool {
         if (! is_array($item)) {
             return false;
@@ -53,103 +55,162 @@
 
         return $url !== '' && $url !== '#';
     };
+    $activeLinks = static fn (mixed $links): array => array_values(array_filter(is_array($links) ? $links : [], $hasUrl));
+    $isExternal = static fn (string $url): bool => str_starts_with($url, 'http://') || str_starts_with($url, 'https://');
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
+    $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $lines = static fn (string $text): string => implode('<br>', array_map('e', preg_split('/\R/', $text) ?: []));
 
     $brand = is_array($brand) ? $brand : [];
-    $columns = is_array($columns) ? $columns : [];
+    $brandLogo = trim((string) ($brand['logo'] ?? '')) !== '' ? (string) $brand['logo'] : 'assets/fixcity/svg/logo.svg';
+    $eu_logo = is_array($eu_logo) ? $eu_logo : [];
+    $euSrc = trim((string) ($eu_logo['src'] ?? ''));
     $contact = is_array($contact) ? $contact : [];
-    $legal = array_values(array_filter(is_array($legal_links) ? $legal_links : [], $hasUrl));
-    $social = array_values(array_filter(is_array($social) ? $social : [], $hasUrl));
-    $footer_bottom_links = array_values(array_filter(is_array($footer_bottom_links) ? $footer_bottom_links : [], $hasUrl));
-    $contactLinks = array_values(array_filter(is_array($contact['links'] ?? null) ? $contact['links'] : [], $hasUrl));
-@endphp
+    $columnsWithLinks = [];
+    foreach (is_array($columns) ? $columns : [] as $column) {
+        $columnLinks = $activeLinks(is_array($column) ? ($column['links'] ?? []) : []);
+        if ($columnLinks !== []) {
+            $columnsWithLinks[] = ['title' => $value($column['title'] ?? null), 'links' => $columnLinks];
+        }
+    }
+    $contactLinks = $activeLinks($contact['links'] ?? []);
+    // data-element del riferimento Design Comuni sulle pagine legali, quando il JSON non lo dichiara
+    $legalElements = ['/privacy' => 'privacy-policy-link', '/note-legali' => 'legal-notes', '/accessibilita' => 'accessibility-link'];
+    $legalLinks = array_map(static function (array $link) use ($legalElements): array {
+        $link['data_element'] = filled($link['data_element'] ?? null) ? $link['data_element'] : ($legalElements[rtrim((string) $link['url'], '/')] ?? null);
 
-<footer id="footer" class="border-t border-slate-700 bg-slate-950 !text-slate-100" role="contentinfo">
-    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:min-h-[714px] lg:px-8">
-        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-                <a class="inline-flex items-start gap-3 rounded-lg !text-white no-underline focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60" href="{{ $localize('/') }}">
-                    @if (filled($brand['logo'] ?? null))
-                        <img class="h-12 w-12 object-contain" src="{{ asset((string) $brand['logo']) }}" alt="">
+        return $link;
+    }, $activeLinks($legal_links));
+    $bottomLinks = $activeLinks($footer_bottom_links);
+
+    // DCP-289: recapiti e social dell'ente, gia' validati; ogni campo vuoto non produce la sua riga
+    $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
+    // etichette da footer.json (contact.labels), gia' nella lingua della pagina: pub_theme::footer.* esiste solo in italiano
+    $contactLabels = is_array($contact['labels'] ?? null) ? $contact['labels'] : [];
+    $contactRows = [];
+    foreach (['address', 'hours', 'phone', 'toll_free', 'email', 'pec', 'tax_code', 'vat', 'dpo_email'] as $field) {
+        $link = $ente->link($field);
+        $text = $link['label'] ?? (string) data_get($ente, $field, '');
+        if ($text === '') {
+            continue;
+        }
+        $label = $value($contactLabels[$field.'_label'] ?? null);
+        if ($field === 'dpo_email' && $ente->dpo_name !== '') {
+            $label = trim($label.' ('.$ente->dpo_name.')');
+        }
+        $contactRows[] = ['label' => $label, 'text' => $text, 'href' => $link['href'] ?? null];
+    }
+    // social: prima l'ente, poi eventuali voci del JSON con URL; nessun doppione
+    $socialLinks = [];
+    foreach ([...$ente->social, ...$activeLinks($social)] as $item) {
+        $url = trim((string) ($item['url'] ?? ''));
+        if ($url !== '' && ! isset($socialLinks[$url])) {
+            $socialLinks[$url] = ['url' => $localize($url), 'label' => $value($item['label'] ?? null, $url), 'icon' => (string) ($item['icon'] ?? 'it-link')];
+        }
+    }
+@endphp
+<footer class="it-footer" id="footer">
+    <div class="it-footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 footer-items-wrapper logo-wrapper">
+                    @if ($euSrc !== '')
+                        <img class="ue-logo" src="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($euSrc) }}" alt="{{ $value($eu_logo['alt'] ?? null) }}">
                     @endif
-                    <span>
-                        <span class="block text-xl font-bold !text-white">{{ $value($brand['name'] ?? null) }}</span>
-                        @if (filled($brand['description'] ?? null))
-                            <span class="mt-2 block max-w-xs text-sm leading-6 !text-slate-200">{{ $value($brand['description'] ?? null) }}</span>
-                        @endif
-                    </span>
-                </a>
+                    <div class="it-brand-wrapper">
+                        <a href="{{ $localize('/') }}">
+                            {{-- stesso marchio dell'header (schema brand.logo) --}}
+                            @include('pub_theme::components.sections.partials.brand-mark', ['src' => $brandLogo, 'size' => 82, 'invert' => true])
+                            <div class="it-brand-text">
+                                <h2 class="no_toc">{{ $value($brand['name'] ?? null) }}</h2>
+                                @if (filled($brand['description'] ?? null))
+                                    <p class="h3">{{ $value($brand['description'] ?? null) }}</p>
+                                @endif
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            @foreach ($columns as $column)
-                @php
-                    $colLinks = array_values(array_filter(is_array($column['links'] ?? null) ? $column['links'] : [], $hasUrl));
-                @endphp
-                @if ($colLinks !== [])
-                    <div>
-                        <h2 class="!text-white text-lg font-bold">{{ $value($column['title'] ?? null) }}</h2>
-                        <ul class="mt-4 space-y-3">
-                            @foreach ($colLinks as $link)
-                                <li>
-                                    <a class="!text-slate-100 underline decoration-slate-400 underline-offset-4 hover:!text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '')) }}">{{ $value($link['label'] ?? null) }}</a>
+            <div class="row">
+                @foreach ($columnsWithLinks as $column)
+                    <div class="col-md-3 footer-items-wrapper">
+                        @if ($column['title'] !== '')
+                            <h4 class="footer-heading-title">{{ $column['title'] }}</h4>
+                        @endif
+                        <ul class="footer-list">
+                            @foreach ($column['links'] as $link)
+                                <li><a href="{{ $localize($link['url']) }}"@if (filled($link['data_element'] ?? null)) data-element="{{ $link['data_element'] }}"@endif>{{ $value($link['label'] ?? null) }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endforeach
+                @if ($contactRows !== [] || $contactLinks !== [] || $legalLinks !== [])
+                    <div class="col-md-9 mt-md-4 footer-items-wrapper">
+                        @if ($contactRows !== [] && filled($contact['title'] ?? null))
+                            <h4 class="footer-heading-title">{{ $value($contact['title'] ?? null) }}</h4>
+                        @endif
+                        <div class="row">
+                            @if ($contactRows !== [])
+                                <div class="col-md-4">
+                                    <p class="footer-info">
+                                        @foreach ($contactRows as $row)
+                                            @if (! $loop->first)<br>@endif
+                                            @if ($row['label'] !== ''){{ $row['label'] }}: @endif
+                                            @if ($row['href'] !== null)<a href="{{ $row['href'] }}">{{ $row['text'] }}</a>@else{!! $lines($row['text']) !!}@endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                            @endif
+                            @foreach ([$contactLinks, $legalLinks] as $list)
+                                @if ($list !== [])
+                                    <div class="col-md-4">
+                                        <ul class="footer-list">
+                                            @foreach ($list as $link)
+                                                <li><a href="{{ $localize($link['url']) }}"@if (filled($link['data_element'] ?? null)) data-element="{{ $link['data_element'] }}"@endif>{{ $value($link['label'] ?? null) }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+                @if ($socialLinks !== [])
+                    <div class="col-md-3 mt-md-4 footer-items-wrapper">
+                        <h4 class="footer-heading-title">{{ $value($social_title, (string) __('pub_theme::footer.follow_us')) }}</h4>
+                        <ul class="list-inline text-start social">
+                            @foreach ($socialLinks as $item)
+                                <li class="list-inline-item">
+                                    <a class="p-1 text-white" href="{{ $item['url'] }}"@if ($isExternal($item['url'])) target="_blank" rel="noopener noreferrer"@endif>
+                                        <svg class="icon icon-sm icon-white align-top" aria-hidden="true"><use xlink:href="{{ $icon($item['icon']) }}"></use></svg>
+                                        <span class="visually-hidden">{{ $item['label'] }}</span>
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 @endif
-            @endforeach
-        </div>
-        @if ($contact !== [] && (filled($contact['title'] ?? null) || $contactLinks !== [] || filled($contact['address'] ?? null)))
-            <div class="mt-10 grid gap-6 border-t border-white/20 pt-8 md:grid-cols-2">
-                <div>
-                    @if (filled($contact['title'] ?? null))
-                        <h2 class="!text-white text-lg font-bold">{{ $value($contact['title'] ?? null) }}</h2>
-                    @endif
-                    @if (filled($contact['address'] ?? null) || filled($contact['email'] ?? null) || filled($contact['phone'] ?? null))
-                        <address class="mt-3 text-sm not-italic leading-6 text-slate-300">
-                            {{ $value($contact['address'] ?? null) }}
-                            @if (filled($contact['email'] ?? null))
-                                <br><a class="underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a>
-                            @endif
-                            @if (filled($contact['phone'] ?? null))
-                                <br><a class="underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="tel:{{ preg_replace('/[^0-9+]/', '', (string) $contact['phone']) }}">{{ $contact['phone'] }}</a>
-                            @endif
-                        </address>
-                    @endif
-                </div>
-                <div>
-                    @if (filled($contact['office'] ?? null))
-                        <h3 class="!text-white text-sm font-bold">{{ $value($contact['office'] ?? null) }}</h3>
-                    @endif
-                    @if ($contactLinks !== [])
-                        <ul class="mt-3 space-y-2">
-                            @foreach ($contactLinks as $link)
-                                <li>
-                                    <a class="underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '')) }}" @if (! empty($link['data_element'])) data-element="{{ $link['data_element'] }}" @endif>{{ $value($link['label'] ?? null) }}</a>
-                                </li>
+            </div>
+            @if ($bottomLinks !== [])
+                <div class="row">
+                    <div class="col-12 footer-items-wrapper">
+                        <div class="footer-bottom">
+                            @foreach ($bottomLinks as $link)
+                                <a href="{{ $localize($link['url']) }}"@if (! empty($link['preferences'])) data-cookie-preferences data-element="cookie-preferences"@elseif (filled($link['data_element'] ?? null)) data-element="{{ $link['data_element'] }}"@endif>{{ $value($link['label'] ?? null) }}</a>
                             @endforeach
-                        </ul>
-                    @endif
+                        </div>
+                    </div>
                 </div>
-            </div>
-        @endif
-        @if ($social !== [])
-            <div class="mt-8 flex flex-wrap gap-4 border-t border-white/20 pt-6">
-                @foreach ($social as $item)
-                    <a class="text-slate-300 underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) $item['url']) }}" @if (str_starts_with((string) $item['url'], 'http')) target="_blank" rel="noopener noreferrer" @endif aria-label="{{ $value($item['label'] ?? null) }}">{{ $value($item['label'] ?? null) }}</a>
-                @endforeach
-            </div>
-        @endif
-    </div>
-    <div class="border-t border-white/20">
-        <div class="mx-auto flex max-w-7xl flex-wrap gap-x-6 gap-y-2 px-4 py-5 text-sm !text-slate-200 sm:px-6 lg:px-8">
-            @foreach ($legal as $link)
-                <a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '')) }}">{{ $value($link['label'] ?? null) }}</a>
-            @endforeach
-            @foreach ($footer_bottom_links as $link)
-                <a class="underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" href="{{ $localize((string) ($link['url'] ?? '')) }}" @if (! empty($link['preferences'])) data-cookie-preferences data-element="cookie-preferences" @endif>{{ $value($link['label'] ?? null) }}</a>
-            @endforeach
-            @if (filled($copyright))
-                <span class="ml-auto">{{ $value($copyright) }}</span>
             @endif
         </div>
     </div>
+    @if (filled($copyright))
+        <div class="it-footer-small-prints clearfix">
+            <div class="container">
+                <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+                    <li class="list-inline-item">{{ $value($copyright) }}</li>
+                </ul>
+            </div>
+        </div>
+    @endif
 </footer>

@@ -1,9 +1,13 @@
 @props(['data' => []])
 {{--
-    Pagina dei risultati di ricerca Design Comuni: testi, filtri, risultati e link arrivano dal JSON della pagina
-    (tests.risultati-ricerca.json); la struttura segue la pagina di riferimento. Stili: resources/css/design-comuni/.
-    Rating e contatti sono i partial condivisi con la homepage.
+    Pagina dei risultati di ricerca Design Comuni, due modalita':
+    - `source: site_search` (pagina reale /{lang}/ricerca, ricerca.index.json): risultati veri da SearchFrontOfficeAction, partial live.blade.php;
+    - altrimenti la pagina di riferimento statica: testi, filtri, risultati e link arrivano dal JSON della pagina (tests.risultati-ricerca.json).
+    Stili: resources/css/design-comuni/. Rating e contatti sono i partial condivisi con la homepage.
 --}}
+@if (data_get($data, 'source') === 'site_search')
+    @include('pub_theme::components.blocks.search-results.live')
+@else
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
     $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
@@ -126,4 +130,5 @@
             </div>
         </div>
     </div>
+@endif
 @endif

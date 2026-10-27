@@ -48,6 +48,12 @@ final class FrontofficeRoutes
         return self::view('tickets', (string) $ticketId, $absolute);
     }
 
+    /** Ricerca globale del sito (`/{lang}/ricerca?q=`, CMS ricerca.index.json, SearchFrontOfficeAction). */
+    public static function searchIndex(bool $absolute = true): string
+    {
+        return self::index('ricerca', $absolute);
+    }
+
     public static function faqIndex(bool $absolute = true): string
     {
         return self::index('domande-frequenti', $absolute);

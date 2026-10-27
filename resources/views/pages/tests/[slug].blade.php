@@ -29,13 +29,13 @@ new class extends Component
 };
 ?>
 
-{{-- Layout dal JSON (`layout`): `design-comuni-bare` (cataloghi senza header/footer: servizi/index.html), `design-comuni-authenticated` (header con utente), altrimenti il chrome completo. --}}
+{{-- Layout dal JSON (`layout`): `design-comuni-bare` (cataloghi senza header/footer: servizi/index.html), `design-comuni-authenticated` (header con utente), altrimenti la shell canonica `layouts.app` (docs/bmad/decisions/canonical-front-office-shell.md: `layouts/design-comuni` non esiste). --}}
 @php
     $jsonPage = \Modules\Cms\Models\Page::findUniqueBySlug('tests.'.$slug);
     $jsonLayout = $jsonPage?->layout;
     $headerActive = (string) data_get($jsonPage?->content_blocks, '0.data.header_active', '');
     view()->share('dcRelativeAssets', true);
-    $chrome = in_array($jsonLayout, ['design-comuni-bare', 'design-comuni-authenticated'], true) ? $jsonLayout : 'design-comuni';
+    $chrome = in_array($jsonLayout, ['design-comuni-bare', 'design-comuni-authenticated'], true) ? $jsonLayout : 'app';
 @endphp
 <x-dynamic-component :component="'layouts.'.$chrome" :header-active="$headerActive">
     @volt('tests.view')
