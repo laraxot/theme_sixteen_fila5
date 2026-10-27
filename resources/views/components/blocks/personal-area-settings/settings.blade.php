@@ -3,7 +3,7 @@
     Pagina "Impostazioni e privacy" dell'area personale (DCP-111), JSON `area-personale.impostazioni`. Tre sezioni con indice laterale:
     (1) preferenze di notifica = componente Livewire TicketNotificationPreferencesWidget (id campo `email-ticket-updates`, Action
     Get/SetFixcityEmailNotificationPreference); (2) dati dell'account in sola lettura (BuildPersonalAreaSettingsDataAction, solo
-    l'utente autenticato); (3) diritti GDPR con i soli canali che esistono davvero (contatti dell'ente nel footer, Garante).
+    l'utente autenticato); (3) diritti GDPR con i soli canali che esistono davvero (contatti dell'ente nel footer, Garante); (4) eliminazione dell'account (form POST verso Gdpr DeleteAccountAction).
     Nessun testo qui: tutto da fixcity::personal_area_settings.*. Chrome tab = personal-area/heading (stesso di pratiche/seguite/notifiche). Classi Design Comuni (cmp-heading, cmp-navscroll, cmp-info-summary).
 --}}
 @php
@@ -20,6 +20,7 @@
             ['anchor' => 'notification-preferences', 'label' => $t('sections.preferences')],
             ['anchor' => 'account-data', 'label' => $t('sections.account')],
             ['anchor' => 'data-rights', 'label' => $t('sections.rights')],
+            ['anchor' => 'account-deletion', 'label' => $t('sections.deletion')],
         ],
     ];
 @endphp
@@ -88,6 +89,30 @@
                     @endif
                     <p class="text-paragraph-small">{{ $t('rights.how_today') }}</p>
                     <p class="text-paragraph">{{ $t('rights.complaint_text') }} <a class="t-primary fw-semibold" href="{{ $t('rights.complaint_url') }}" rel="noopener">{{ $t('rights.complaint_link') }}</a></p>
+                </section>
+
+                {{-- GDPR art. 17 self-service: POST /{lang}/account/delete (Gdpr DeleteAccountAction, ability deleteOwnAccount). The required
+                     checkbox is the confirmation; the Action validates it again (`confirm` = `cancella`) and redirects back with the error. --}}
+                <section class="it-page-section mb-5" id="account-deletion" aria-labelledby="account-deletion-title">
+                    <h2 class="title-xxlarge mb-3" id="account-deletion-title">{{ $t('sections.deletion') }}</h2>
+                    <p class="text-paragraph">{{ $t('deletion.intro') }}</p>
+                    <p class="text-paragraph-small" id="account-deletion-keep">{{ $t('deletion.keep') }}</p>
+                    <form method="POST" action="{{ url('/'.app()->getLocale().'/account/delete') }}" aria-describedby="account-deletion-keep">
+                        @csrf
+                        <div class="form-group mb-4">
+                            <label for="account-deletion-reason" class="active">{{ $t('deletion.reason_label') }}</label>
+                            <textarea class="form-control" id="account-deletion-reason" name="reason" rows="3" maxlength="1000">{{ old('reason') }}</textarea>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="account-deletion-confirm" name="confirm" value="cancella" required
+                                @error('confirm') aria-invalid="true" aria-describedby="account-deletion-confirm-error" @enderror>
+                            <label class="form-check-label" for="account-deletion-confirm">{{ $t('deletion.confirm_label') }}</label>
+                            @error('confirm')
+                                <p class="text-danger text-paragraph-small mt-2" id="account-deletion-confirm-error" role="alert">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-danger">{{ $t('deletion.submit') }}</button>
+                    </form>
                 </section>
             </div>
         </div>

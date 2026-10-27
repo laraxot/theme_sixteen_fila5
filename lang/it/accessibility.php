@@ -18,12 +18,18 @@ return [
         'title' => 'Dichiarazione non ancora completa',
         'intro' => 'L’ente deve ancora fornire i dati seguenti prima della messa in produzione. Finché mancano, questa dichiarazione non è valida.',
     ],
+    'scope' => [
+        'title' => 'Ambito della dichiarazione',
+        'commitment' => ':entity si impegna a rendere accessibile questo sito web, conformemente alla legge 9 gennaio 2004, n. 4, che recepisce la direttiva (UE) 2016/2102.',
+        'text' => 'La presente dichiarazione si applica al sito web :url (pagine pubbliche e area personale del cittadino).',
+    ],
     'status' => [
         'title' => 'Stato di conformità',
         'compliant' => 'Questo sito web è conforme ai requisiti di accessibilità della legge 9 gennaio 2004, n. 4.',
-        'partially_compliant' => 'Questo sito web è parzialmente conforme ai requisiti di accessibilità della legge 9 gennaio 2004, n. 4.',
-        'non_compliant' => 'Questo sito web non è conforme ai requisiti di accessibilità della legge 9 gennaio 2004, n. 4.',
+        'partially_compliant' => 'Questo sito web è parzialmente conforme ai requisiti di accessibilità della legge 9 gennaio 2004, n. 4, a causa dei casi di non conformità elencati di seguito.',
+        'non_compliant' => 'Questo sito web non è conforme ai requisiti di accessibilità della legge 9 gennaio 2004, n. 4. I casi di non conformità sono elencati di seguito.',
         'pending' => 'Non ancora determinato: l’ente indicherà lo stato dopo la valutazione di accessibilità.',
+        'reference' => 'Riferimento tecnico: norma UNI CEI EN 301 549 V3.2.1 (punto 9), che richiede il livello AA delle WCAG 2.1, come previsto dalle linee guida AgID sull’accessibilità degli strumenti informatici.',
     ],
     'content' => [
         'title' => 'Contenuti non accessibili',
@@ -43,6 +49,8 @@ return [
         'updated_at' => 'Ultimo aggiornamento',
         'pending' => 'Non ancora indicato',
         'agid' => 'Dichiarazione compilata sulla piattaforma AgID',
+        'verified' => 'Che cosa è stato verificato',
+        'not_verified' => 'Che cosa non è stato verificato',
     ],
     'feedback' => [
         'title' => 'Feedback e contatti',
@@ -50,6 +58,7 @@ return [
         'jump' => 'Segnala un problema di accessibilità',
         'email' => 'Puoi anche scrivere a',
         'pending' => 'L’indirizzo per le segnalazioni sarà indicato dall’ente.',
+        'officer' => 'Responsabile dell’accessibilità',
     ],
     'procedure' => [
         'title' => 'Procedura di attuazione',

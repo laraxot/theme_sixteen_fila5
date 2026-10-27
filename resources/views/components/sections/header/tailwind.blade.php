@@ -26,26 +26,16 @@
 
     $brand = is_array($d('brand', [])) ? $d('brand', []) : [];
     $region = is_array($d('region', [])) ? $d('region', []) : [];
-    $regionLink = \Themes\Sixteen\Presentation\Accessibility\RegionPortalLinkLabels::resolve($region);
-    $regionHref = $href((string) ($region['url'] ?? ''));
+    // DCP-289: regione e social arrivano solo dall'ente (config('ente')); se il dato manca la voce sparisce.
+    $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
+    $regionLink = \Themes\Sixteen\Presentation\Accessibility\RegionPortalLinkLabels::resolve([...$region, 'name' => $ente->region_name]);
+    $regionHref = $ente->region_url !== '' ? $ente->region_url : null;
     $utilityLinks = is_array($d('utility_links', [])) ? $d('utility_links', []) : [];
     $account = is_array($d('account', [])) ? $d('account', []) : [];
     $accountHref = $href((string) ($account['url'] ?? ''));
     $navigation = is_array($d('navigation', [])) ? $d('navigation', []) : [];
     $secondaryNavigation = is_array($d('secondary_navigation', [])) ? $d('secondary_navigation', []) : [];
-    $socialLinks = array_values(array_filter(
-        is_array($d('social_links', [])) ? $d('social_links', []) : [],
-        static fn (mixed $s): bool => is_array($s) && filled(trim((string) ($s['url'] ?? ''))) && trim((string) ($s['url'] ?? '')) !== '#'
-    ));
-    // Compat: oggetto `social` legacy {twitter: url} se social_links e' vuoto
-    if ($socialLinks === []) {
-        foreach ((array) $d('social', []) as $key => $url) {
-            $u = $href(is_string($url) ? $url : null);
-            if ($u !== null) {
-                $socialLinks[] = ['label' => (string) $d('social_labels.'.$key, $key), 'url' => $u, 'icon' => 'it-'.$key];
-            }
-        }
-    }
+    $socialLinks = $ente->social;
     $languages = is_array($d('languages.items', [])) ? $d('languages.items', []) : [];
     $locale = app()->getLocale();
     $currentLocaleLabel = collect($languages)->firstWhere('locale', $locale)['label'] ?? strtoupper($locale);
@@ -72,12 +62,14 @@
 <header class="design-comuni-header" x-data="{ open: false }">
     <div class="bg-[#004d3a] text-white">
         <div class="mx-auto flex min-h-12 max-w-[1296px] items-center justify-between px-4 text-sm lg:px-6">
-            @if ($regionHref)
-                <a href="{{ $regionHref }}" class="!text-white no-underline hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white" @if ($regionLink['aria_label']) aria-label="{{ $regionLink['aria_label'] }}" @endif @if ($regionLink['title']) title="{{ $regionLink['title'] }}" @endif>{{ $regionLink['name'] !== '' ? $regionLink['name'] : ($region['name'] ?? '') }}</a>
+            @if ($regionLink['name'] === '')
+                {{-- DCP-289: senza il nome della regione dall'ente la voce sparisce; la barra resta per lingua e accesso. --}}
+            @elseif ($regionHref)
+                <a href="{{ $regionHref }}" class="!text-white no-underline hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white" @if ($regionLink['aria_label']) aria-label="{{ $regionLink['aria_label'] }}" @endif @if ($regionLink['title']) title="{{ $regionLink['title'] }}" @endif>{{ $regionLink['name'] }}</a>
             @else
-                <span class="!text-white">{{ $regionLink['name'] !== '' ? $regionLink['name'] : ($region['name'] ?? '') }}</span>
+                <span class="!text-white">{{ $regionLink['name'] }}</span>
             @endif
-            <div class="flex items-center gap-4">
+            <div class="ml-auto flex items-center gap-4">
                 @if ($languages !== [])
                     <div class="relative inline-block" x-data="{ open: false }" @keydown.escape.window="open = false">
                         <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded px-2 text-white no-underline hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" @click="open = !open" :aria-expanded="open" aria-haspopup="true" aria-controls="site-language-menu" aria-label="{{ $d('languages.active_label') }}">
@@ -125,7 +117,7 @@
                     @if ($socialLinks !== [])
                         <span class="!text-white text-sm">{{ $d('follow_us') }}</span>
                         @foreach ($socialLinks as $social)
-                            @php $socialHref = $href((string) ($social['url'] ?? '')); @endphp
+                            @php $socialHref = $social['url']; @endphp
                             @if ($socialHref)
                                 <a href="{{ $socialHref }}" target="_blank" rel="noopener noreferrer" class="inline-flex h-11 w-11 items-center justify-center rounded-full !text-white no-underline transition-colors hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="{{ $social['label'] ?? '' }}">
                                     <span class="sr-only">{{ $social['label'] ?? '' }}</span>
