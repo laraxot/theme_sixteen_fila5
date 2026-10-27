@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use function Safe\file_get_contents;
+use function Safe\preg_match_all;
+
 /**
  * Volt scrive il frammento di `@volt('nome')` in `storage/framework/views/<md5 del nome>.blade.php`: il percorso del file NON
  * entra nel nome. Due pagine con lo stesso `@volt('container0.view')` si sovrascrivono a vicenda, e una compilazione completa delle
