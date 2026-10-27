@@ -59,11 +59,27 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
                 </svg>
+<<<<<<< .merge_file_0umlV7
+<<<<<<< .merge_file_MNqiyN
                 {{ __('fixcity::auth.login.loading.text') }}
             </span>
         </x-filament::button>
         <span id="auth-register-submit-status" class="sr-only" wire:loading wire:target="submit" role="status" aria-live="polite">
             {{ __('fixcity::auth.login.loading.text') }}
+=======
+                {{ __('fixcity::auth.register.loading.text') }}
+            </span>
+        </x-filament::button>
+        <span id="auth-register-submit-status" class="sr-only" wire:loading wire:target="submit" role="status" aria-live="polite">
+            {{ __('fixcity::auth.register.loading.text') }}
+>>>>>>> .merge_file_kIgp3m
+=======
+                {{ __('fixcity::auth.register.loading.text') }}
+            </span>
+        </x-filament::button>
+        <span id="auth-register-submit-status" class="sr-only" wire:loading wire:target="submit" role="status" aria-live="polite">
+            {{ __('fixcity::auth.register.loading.text') }}
+>>>>>>> .merge_file_GJ7bsj
         </span>
     </form>
 </div>
