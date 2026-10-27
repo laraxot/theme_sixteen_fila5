@@ -36,7 +36,7 @@ new class extends Component {
 ?>
 
 <x-layouts.app>
-    @volt('container1.index')
+    @volt('pages-old.container1.index')
     <div class="page-content content" data-slug="{{ $pageSlug }}" data-side="content">
         <x-page side="content" :slug="$pageSlug" :data="$data" />
     </div>
