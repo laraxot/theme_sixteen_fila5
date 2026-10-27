@@ -5,6 +5,9 @@
     accessibili e casella delle segnalazioni vengono dal JSON `accessibilita.index` (chiave `declaration` del blocco). Senza questi dati,
     o con dati incoerenti, la pagina risponde 200 e un avviso elenca che cosa deve ancora fornire l'ente (AssessAccessibilityStatementAction).
     Il feedback e' il componente Livewire AccessibilityFeedbackForm (email alla casella dell'ente). Markup: breadcrumb e hero del sito.
+    Modello della Decisione (UE) 2018/1523: denominazione dell'ente (config ente, GetEnteDataAction), ambito, stato di conformita' con la norma
+    di riferimento, contenuti non accessibili, redazione (metodo, date, che cosa e' stato e NON e' stato verificato), recapiti del
+    responsabile, procedura di attuazione. Gli elenchi `verified` e `not_verified` sono testo dell'ente nel JSON, mai del codice.
 --}}
 @php
     $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
@@ -21,6 +24,9 @@
     $procedureUrl = ! isset($issues['procedure_url']) ? (string) ($declaration['procedure_url'] ?? '') : '';
     $agidUrl = filter_var($declaration['agid_declaration_url'] ?? null, FILTER_VALIDATE_URL) !== false ? (string) $declaration['agid_declaration_url'] : '';
     $partLists = ['non_accessible', 'disproportionate_burden', 'out_of_scope'];
+    $entity = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute()->name;
+    $officer = ! isset($issues['officer']) && ! str_contains((string) ($declaration['officer'] ?? ''), '[[') ? (string) ($declaration['officer'] ?? '') : '';
+    $evidence = static fn (string $key): array => array_values(array_filter((array) ($declaration[$key] ?? []), static fn (mixed $line): bool => is_string($line) && trim($line) !== ''));
 @endphp
 <div class="container" id="main-container">
     <div class="row justify-content-center">
@@ -62,9 +68,19 @@
                     </ul>
                 </div>
             @endif
+            <section class="mb-5" aria-labelledby="a11y-scope" data-element="accessibility-scope">
+                <h2 class="h4" id="a11y-scope">{{ __('pub_theme::accessibility.scope.title') }}</h2>
+                @if ($entity !== '')
+                    <p>{{ __('pub_theme::accessibility.scope.commitment', ['entity' => $entity]) }}</p>
+                @endif
+                <p>{{ __('pub_theme::accessibility.scope.text', ['url' => request()->getSchemeAndHttpHost()]) }}</p>
+            </section>
             <section class="mb-5" aria-labelledby="a11y-status" data-element="accessibility-status">
                 <h2 class="h4" id="a11y-status">{{ __('pub_theme::accessibility.status.title') }}</h2>
                 <p>{{ __('pub_theme::accessibility.status.'.($status ?? 'pending')) }}</p>
+                @if ($status !== null)
+                    <p>{{ __('pub_theme::accessibility.status.reference') }}</p>
+                @endif
             </section>
             <section class="mb-5" aria-labelledby="a11y-content">
                 <h2 class="h4" id="a11y-content">{{ __('pub_theme::accessibility.content.title') }}</h2>
@@ -90,6 +106,16 @@
                 <p class="mb-1"><strong>{{ __('pub_theme::accessibility.drafting.evaluation_date') }}</strong>: {{ isset($issues['evaluation']) ? __('pub_theme::accessibility.drafting.pending') : $when('evaluation.date') }}</p>
                 <p class="mb-1"><strong>{{ __('pub_theme::accessibility.drafting.published_at') }}</strong>: {{ $when('published_at') }}</p>
                 <p class="mb-1"><strong>{{ __('pub_theme::accessibility.drafting.updated_at') }}</strong>: {{ $when('updated_at') }}</p>
+                @foreach (['verified', 'not_verified'] as $list)
+                    @if ($evidence($list) !== [])
+                        <h3 class="h5 mt-4" data-element="accessibility-{{ str_replace('_', '-', $list) }}">{{ __('pub_theme::accessibility.drafting.'.$list) }}</h3>
+                        <ul>
+                            @foreach ($evidence($list) as $line)
+                                <li>{{ $line }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                @endforeach
                 @if ($agidUrl !== '')
                     <p class="mt-3"><a href="{{ $agidUrl }}" rel="noopener">{{ __('pub_theme::accessibility.drafting.agid') }}</a></p>
                 @endif
@@ -98,6 +124,9 @@
                 <h2 class="h4" id="feedback">{{ __('pub_theme::accessibility.feedback.title') }}</h2>
                 <p>{{ __('pub_theme::accessibility.feedback.intro') }}</p>
                 <p>{{ $email !== '' ? __('pub_theme::accessibility.feedback.email') : __('pub_theme::accessibility.feedback.pending') }} @if ($email !== '')<a href="mailto:{{ $email }}">{{ $email }}</a>@endif</p>
+                @if ($officer !== '')
+                    <p><strong>{{ __('pub_theme::accessibility.feedback.officer') }}</strong>: {{ $officer }}</p>
+                @endif
                 @livewire(\Modules\Fixcity\Livewire\AccessibilityFeedbackForm::class)
             </section>
             <section class="mb-5" aria-labelledby="a11y-procedure">

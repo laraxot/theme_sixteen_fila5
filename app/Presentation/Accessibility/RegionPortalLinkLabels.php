@@ -13,13 +13,24 @@ use function Safe\preg_replace;
 final class RegionPortalLinkLabels
 {
     /**
-     * @param  array<string, mixed>  $region
+     * @param  array<string, mixed>  $region  `region` di header.json: `name` (es. "Demo"), `title`, `aria_label`
+     * @param  string|null  $enteName  nome dell'ente (DCP-289): se valorizzato vince su `name`
      * @return array{name: string, title: ?string, aria_label: ?string}
      */
-    public static function resolve(array $region): array
+    public static function resolve(array $region, ?string $enteName = null): array
     {
-        // DCP-289: il nome arriva dall'ente (config('ente.region_name')); nessun ripiego su `comune.regione`, il cui default `Regione` e' un segnaposto.
+        // DCP-289: nessun ripiego su `comune.regione`, il cui default `Regione` e' un segnaposto.
         $name = self::stringOrEmpty($region['name'] ?? null);
+        $enteName = self::stringOrEmpty($enteName);
+        if ($enteName !== '' && $enteName !== $name) {
+            // Le etichette del CMS sono scritte attorno al nome del CMS (D35): se vince l'ente, il nome accessibile lo segue (WCAG 2.5.3).
+            foreach (['title', 'aria_label'] as $key) {
+                if ($name !== '' && is_string($region[$key] ?? null)) {
+                    $region[$key] = str_replace($name, $enteName, $region[$key]);
+                }
+            }
+            $name = $enteName;
+        }
 
         return [
             'name' => $name,

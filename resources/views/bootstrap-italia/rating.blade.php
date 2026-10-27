@@ -6,9 +6,8 @@ $currentValue = $value ?? 0;
 @endphp
 
 <fieldset class="rating rating-italia">
-    @if(isset($legend))
-    <legend class="rating-legend">{{ $legend }}</legend>
-    @endif
+    {{-- Un gruppo di radio senza legend non ha nome accessibile (WCAG 1.3.1): senza `legend` si usa l'etichetta del tema. --}}
+    <legend class="rating-legend">{{ $legend ?? __('pub_theme::ui.feedback_rate_stars') }}</legend>
     <div class="rating-stars">
         @for($i = 1; $i <= 5; $i++)
         <div class="form-check form-check-inline rating-star">

@@ -18,7 +18,7 @@
     $html = $built['html'];
     $hasNotice = $issues !== [] || $html === null;
 @endphp
-<div class="container" id="main-container">
+<div class="container" id="main-container" data-slug="{{ $document === 'privacy' ? 'privacy.index' : $document.'.index' }}">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             @include('pub_theme::components.blocks.content-page.partials.breadcrumb', ['breadcrumb' => ['items' => [['label' => __('pub_theme::legal.home'), 'url' => '/'.app()->getLocale()]], 'current' => $title]])

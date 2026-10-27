@@ -12,16 +12,10 @@
                         <div class="cmp-rating__card-first">
                             <div class="card-header border-0"><h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $d('feedback.title') }}</h2></div>
                             <div class="card-body">
-                                <fieldset class="rating">
-                                    <legend class="visually-hidden">{{ $d('feedback.legend') }}</legend>
-                                    @foreach ([5 => 'first-star', 4 => 'second-star', 3 => 'third-star', 2 => 'fourth-star', 1 => 'fifth-star'] as $star => $labelId)
-                                        <input type="radio" id="star{{ $star }}a" name="ratingA" value="{{ $star }}">
-                                        <label class="full rating-star active" for="star{{ $star }}a" data-element="feedback-rate-{{ $star }}">
-                                            <svg class="icon icon-sm" role="img" aria-labelledby="{{ $labelId }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.7L9.5 9.2H1.6L8 13.9l-2.4 7.6 6.4-4.7 6.4 4.7-2.4-7.6 6.4-4.7h-7.9L12 1.7z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
-                                            <span class="visually-hidden" id="{{ $labelId }}">{{ sprintf($d('feedback.star_label'), $star) }}</span>
-                                        </label>
-                                    @endforeach
-                                </fieldset>
+                                @include('pub_theme::components.blocks.partials.dc-rating-stars', [
+                                    'legend' => $d('feedback.legend'),
+                                    'starLabels' => collect(range(1, 5))->mapWithKeys(fn (int $star): array => [$star => sprintf((string) $d('feedback.star_label'), $star)])->all(),
+                                ])
                             </div>
                         </div>
                         <div class="cmp-rating__card-second d-none" data-step="3">
@@ -82,6 +76,8 @@
                                 <button class="btn btn-primary fw-bold btn-next" type="submit" form="rating">{{ $d('feedback.next') }}</button>
                             </div>
                         </div>
+                        {{-- DCP-291 (FO-5-17): regione di stato nel DOM, si riempie al passo del ringraziamento (vedi partials/dc-rating). --}}
+                        <div class="visually-hidden" role="status" x-text="step === 3 ? {{ Js::from((string) $d('feedback.thanks')) }} : ''"></div>
                     </div>
                 </div>
             </div>

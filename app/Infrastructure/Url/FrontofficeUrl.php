@@ -38,7 +38,7 @@ final class FrontofficeUrl
      */
     public static function fromStoredUrl(string $url): string
     {
-        if ($url === '' || $url === '#') {
+        if ($url === '' || $url === '#' || self::isExternal($url)) {
             return $url;
         }
 
@@ -55,6 +55,23 @@ final class FrontofficeUrl
         }
 
         return self::path($normalized !== '/' ? $normalized : '/');
+    }
+
+    /**
+     * Link che non sono path del sito: altro host (social, portale regione) o schema non web (`tel:`, `mailto:`).
+     */
+    private static function isExternal(string $url): bool
+    {
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if (! is_string($scheme)) {
+            return false;
+        }
+        if (! in_array(strtolower($scheme), ['http', 'https'], true)) {
+            return true;
+        }
+        $host = parse_url($url, PHP_URL_HOST);
+
+        return is_string($host) && strcasecmp($host, request()->getHost()) !== 0;
     }
 
     /**

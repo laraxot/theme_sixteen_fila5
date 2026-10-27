@@ -10,7 +10,7 @@ use Themes\Sixteen\Datas\PageHeadData;
 /**
  * Metadati dell'intestazione HTML di una pagina del front office (DCP-288, FO-6-15, 17, 18).
  *
- * - Titolo: `<pagina> | <sito>`, senza ripetere il nome del sito dove il titolo lo contiene gia' ("FixCity — ...", "Accedi a FixCity").
+ * - Titolo: `<pagina> | <sito>`, senza ripetere il nome del sito dove il titolo lo contiene gia' ("FixCity, Segnala un problema...", "Accedi a FixCity").
  * - robots: `noindex,follow` per le pagine private o di servizio. Il `Disallow` di robots.txt non toglie dall'indice una pagina gia'
  *   conosciuta e non vale per le copie con la lingua in maiuscolo; il `meta robots` si'. Le pagine sotto `Disallow` (auth, area
  *   personale) il motore di ricerca non le scarica e quindi non legge il meta: il meta protegge le altre e le copie.

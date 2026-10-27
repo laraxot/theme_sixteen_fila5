@@ -296,3 +296,20 @@
   accent-color: var(--bs-primary, #007a52);
   cursor: pointer;
 }
+
+/*
+  Colori forzati (alto contrasto di Windows), DCP-291 FO-5-20. Il browser sostituisce sfondi e bordi con i colori di sistema:
+  `.btn-primary` ha bordo 0 e sfondo pieno, quindi diventava testo semplice (misurato: bordo 0px, sfondo Canvas); nello stepper
+  del wizard i tre passi avevano lo stesso peso e nessun bordo, il passo attivo non si distingueva (`aria-current="step"` c'e' gia').
+  Solo dentro `forced-colors: active`: nessun effetto sul tema normale. Logo bianco su trasparente (`.fc-brand-mark`): vedi story, da rimisurare
+  quando l'intestazione sara' stabile.
+*/
+@media (forced-colors: active) {
+  body:has(.page-content[data-dc]) .btn:not(.btn-link) {
+    border: 1px solid ButtonText;
+  }
+
+  body:has(.page-content[data-dc]) .steppers-header li.active {
+    border-bottom: 3px solid CanvasText;
+  }
+}

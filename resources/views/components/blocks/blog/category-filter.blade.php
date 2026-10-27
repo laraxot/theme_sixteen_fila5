@@ -5,7 +5,9 @@
     'style' => 'pills'
 ])
 
-@php($blogIndexUrl = route('container0.index', ['container0' => 'blog']))
+@php
+    $blogIndexUrl = route('container0.index', ['container0' => 'blog']);
+@endphp
 
 <section class="py-8 bg-gray-50 border-b border-gray-200">
     <div class="container mx-auto px-4">
