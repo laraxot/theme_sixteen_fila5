@@ -106,4 +106,24 @@ fallito, ma la causa era la mia doppia cifratura della password di prova (`BaseU
 
 I controlli mirati su autenticazione/sitemap/PHPStan passano dopo le correzioni. La suite FO larga resta non completamente verde per asserzioni legacy su titoli non brandizzati, markup di paginazione/404 e alcune pagine ancora da riallineare a Design Comuni; non vengono mascherate modificando il codice solo per soddisfare fixture obsolete.
 
-(La sezione «Esito della sincronizzazione» si aggiunge a fine giro.)
+## Esito della sincronizzazione
+
+Misurato dopo l'ultimo `git fetch laraxot`: 22 repo su 23 (moduli, temi, `bashscripts`, radice) a 0 avanti e 0 indietro; restano sporchi solo i file lasciati fuori
+apposta (sotto). Sullo stesso albero hanno lavorato tre sessioni Claude (377, 385 e questa) e i commit «.» della macchina di `marco76tv`.
+
+Commit di questa sessione, tutti sul remoto: Gdpr `27f46a6`, User `27cc3ccc5`, Sixteen `eddeaffa`, Job `0fa236f4`, Mobile `eab828a`, Seo `5472245`,
+`bashscripts` `80f9cbd2`. La radice, che traccia gli stessi file dei moduli, l'ha rispecchiata la 377: i file miei sono nel suo `HEAD` e sul remoto.
+
+### Collisioni: scelte e lezioni
+
+| Caso | Cosa c'era | Scelta | Perche' | Lezione |
+|---|---|---|---|---|
+| Lock `/tmp/fixcity-git-sync.lock.d` | io ho fatto add/commit/push dalle 08:14 senza lock; lo teneva la 377 dalle 08:15:20 | mi sono fermato appena l'ho visto, ho atteso 26 minuti e l'ho preso con `mkdir` alle 08:41:08 | in quella finestra i miei 7 push sono stati puliti e con solo file miei; nessun danno misurato | primo comando di ogni sync: leggere il lock e `git log --since` |
+| Marker `.merge_file_*` alle 08:20:02 | sei file in tre repo, solo nell'albero di lavoro; `/it/auth/register` rispondeva 500 | ripristinati da HEAD i cinque file in cui la risoluzione coincide con HEAD (4 `lang/*/auth.php` di Fixcity e la vista di registrazione); lasciati ai proprietari i tre con lavoro vero | HEAD e remoto avevano gia' la chiave giusta (`register.loading.text`); nel test e nelle due story c'erano righe che HEAD non ha | la prova e' `git diff HEAD -U0`: nessuna riga `-` e `+` solo di marker o doppioni |
+| Remoto avanti di 2 commit in Job, Mobile, Seo | commit «.» di `marco76tv` su file diversi dai miei | merge senza conflitti con `git merge-tree --write-tree` come prova, poi push | nessun file in comune | la prova a secco non tocca l'albero condiviso |
+| Guard dei marker cancellato | i commit «.» delle 08:56 hanno tolto `git/guard-conflict-markers.sh` e l'installer, ma `tools/check-conflict-markers.sh` e la regola `committed-conflict-markers.md` li usano ancora | ripristinati da `8587f3a8` con un commit in avanti (`80f9cbd2`) | senza il guard il controllo dei marker su tutto il repo non aveva niente da lanciare | provato su un repo temporaneo: uscita 0 se pulito, 1 con un marker in staging |
+| Test di altre sessioni, non tracciati | 5 test su classi inesistenti (107 errori PHPStan), un test Cms senza helper, un test Fixcity con `user_id` nullo | esclusi dai miei commit; la 377 ha poi tenuto i 26 test corretti e scartato i 5 | non sapevo quale API volessero e non spingo test rossi sul remoto | eseguire i candidati da soli sul DB di prova prima di committarli |
+| `.gitignore` di `bashscripts` con marker | 66 righe di marker gia' nei commit, anche sul remoto | non l'ho toccato; l'ha ripulito la 377 (`1c38dbb5`) | molte regioni con regole vere dentro, serviva il proprietario | un `.gitignore` non si risolve a unione alla cieca |
+
+Lasciati fuori apposta e ancora non committati: i `*.lock` di sessione accanto ai sorgenti, `Rating/package-lock.json`, `test-results/.last-run.json` e un
+`docs/bmad/stories/database/test_data.sqlite` da 0 byte creato dall'MCP sqlite.
