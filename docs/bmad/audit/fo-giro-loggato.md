@@ -99,3 +99,25 @@ Causa comune (ipotesi B, vedi FO-02): le pagine senza `data-dc` perdono lo scope
 - Errori di console: `puppeteer_evaluate` non intercetta `window.onerror` fra navigazioni; "non verificato" salvo i due log `[map-lit]`.
 - Tempi: il dev server e lento (passo 1 a 2 del wizard circa 6 secondi, login 8 secondi o piu). Non ho distinto lentezza di dev da difetto.
 - Ordine del tab e uso da tastiera, lettore di schermo, tema scuro, contrasto alto: non provati.
+
+## Stato dopo le correzioni (verificato nel browser, 2026-10-27)
+
+Misure con una sessione dell'utente di prova creata dal codice dell'app (senza cambiare la password), Chromium headless 1280 px, dopo `view:clear` e un `view:cache` completo.
+
+**Causa comune di FO-01, FO-02, FO-03, FO-08, FO-11 e FO-12.** Volt scrive il frammento di `@volt('nome')` in `storage/framework/views/<md5 del nome>.blade.php`: il percorso del file non entra nel nome. `pages_old/` dichiarava gli stessi nomi di `pages/` (`container0.index`, `container0.view`, `container1.index`) e una compilazione completa delle viste, che mette per ultima `pages_old/`, sovrascriveva il frammento vivo con la versione vecchia, senza `data-dc`. Senza `data-dc` le regole Tailwind `collapse` e i reset legacy restavano attivi. Correzione: i tre nomi in `pages_old/` sono ora `pages-old.*` e il test `Themes/Sixteen/tests/Unit/VoltFragmentNamesAreUniqueTest.php` fallisce se un nome di `pages/` ricompare altrove (prova inversa eseguita).
+
+| Difetto | Stato | Misura dopo la correzione |
+|---|---|---|
+| FO-01 | chiuso | `#collapse-Practices` `visibility: visible`; "Vedi il dettaglio" e "Traccia la segnalazione" visibili |
+| FO-02 | chiuso | `.page-content[data-dc]` presente su tickets/create e sulle 4 pagine area personale |
+| FO-03 | chiuso | link dell'indice visibili ("In corso (10)", "Concluse (3)") |
+| FO-05 | chiuso | link del wizard `/it/cookie-policy`; `policy.md` ora ha link assoluti con prefisso lingua in it, en, es, de; test in `LegalDocumentsCompletenessTest` |
+| FO-06 | non piu riproducibile | 0 occorrenze su blog, events, tickets, lista-categorie; erano copie compilate stale (exception renderer), vedi la memoria sul tema |
+| FO-07 | chiuso | un solo "Indietro" visibile al passo 2 (misura: un pulsante, y=2247) |
+| FO-08 | chiuso | etichetta "Avanti" `rgb(255,255,255)` su `rgb(0,122,82)` (5,38:1) |
+| FO-09 | chiuso | errori di validazione `rgb(217,54,79)` 12 px; passo 1: "Per inviare la segnalazione devi accettare l'informativa sulla privacy" |
+| FO-11 | in gran parte chiuso | tab attiva con barra verde, niente sottolineatura (screenshot) |
+| FO-12 | in gran parte chiuso | H1 dell'articolo 48 px (era 24); restano colonna a x=260 e i blocchi Dettagli e Argomenti |
+| FO-14 | chiuso | de: "Meine Dienste", "Meine Vorgänge"; es: "Mis servicios", "Mis trámites" |
+
+**Ancora aperti, da rimisurare o da decidere:** FO-04 (dati dell'ente mancanti: titolare, DPO, PEC; non si inventano), FO-10 (header e footer a tutta larghezza, logo a x=12 contro 94), FO-13 (Gravatar di terzi contro il testo sui soli cookie tecnici), FO-15 (pagina "Esplora le segnalazioni" con una sola scheda).
