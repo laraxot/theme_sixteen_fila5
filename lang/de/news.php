@@ -9,6 +9,15 @@ return [
     'latest' => ['title' => 'Neueste Nachrichten', 'subtitle' => 'Bleiben Sie über kommunale Neuigkeiten informiert.'],
     'search' => ['label' => 'Nachrichten suchen', 'placeholder' => 'Nachrichten suchen'],
     'read_more' => 'Mehr lesen',
+    'index' => [
+        'default_category' => 'Neuigkeiten',
+        'default_event_category' => 'Veranstaltungen',
+        'search_label' => 'Suchen',
+        'search_placeholder' => 'Nach Stichwort suchen',
+        'search_submit' => 'Absenden',
+        'result_one' => '1 Meldung gefunden',
+        'result_many' => ':count Meldungen gefunden',
+    ],
     'items' => [
         'one' => ['category' => 'Pressemitteilung', 'date_iso' => '2026-09-01', 'date' => '1. September 2026', 'title' => 'Neue digitale Dienste für Bürger', 'body' => 'Neue Online-Angebote für kommunale Dienste sind verfügbar.'],
         'two' => ['category' => 'Hinweis', 'date_iso' => '2026-08-20', 'date' => '20. August 2026', 'title' => 'Aktualisierte Dienste in der Stadt', 'body' => 'Lesen Sie aktuelle Informationen für die Gemeinschaft.'],
