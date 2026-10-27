@@ -62,6 +62,12 @@ JSON CMS li monta — il tema non decide il dominio.
 
 L'accesso pubblico segue la stessa regola: `pages/auth/login.blade.php` chiede lo slug `auth.login` e il blocco monta `LoginWidget` (modulo User: email, password rivelabile di Filament, «Ricordami», submit). L'occhio sulla password è la suffix action del campo, non un bottone del tema. Il vestito non è una card del tema: è la grammatica di [accesso-servizio](https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/pages/servizi/accesso-servizio.hbs), e il form è il blocco «Altre utenze». SPID e CIE non si montano finché un modulo owner non esiste. Piano: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md). «Accedi con Google» è href localizzato via `oauth.redirect` + `lang` ([oauth-login-locale-fix.md](./plans/oauth-login-locale-fix.md)); il tema non inventa path senza prefisso lingua.
 
+La callback `/auth/login/{provider}/callback` è una pagina Folio+Volt
+redirect-only: il tema gestisce il guscio e delega a
+`Modules\\User\\Actions\\Socialite\\ProcessCallbackAction`. Non è una Resource
+Filament né una policy nel tema; non si crea una route parallela in `web.php` o
+nel modulo User.
+
 La registrazione pubblica segue la stessa regola: `pages/auth/register.blade.php`
 chiede lo slug `auth.register` e il blocco include
 `components/pages/auth-register.blade.php`, che monta il widget GDPR. Titolo e

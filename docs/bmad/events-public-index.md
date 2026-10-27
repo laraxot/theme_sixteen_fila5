@@ -71,5 +71,5 @@ attesa pubblicati accidentalmente.
 
 ## Dettaglio e `data-dc`
 
-Come le novità: il dettaglio evento forza `layouts.design-comuni` + `data-dc`
-anche senza CMS `events.view`. Hub: [inbound-fo-index.md](./inbound-fo-index.md).
+Come le novità: il dettaglio evento forza `layouts.app` + `data-dc` anche senza
+CMS `events.view`. Hub: [inbound-fo-index.md](./inbound-fo-index.md).

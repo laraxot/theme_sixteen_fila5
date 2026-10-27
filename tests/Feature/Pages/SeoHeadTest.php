@@ -37,7 +37,7 @@ it('brands the title of inner pages and repeats it in og:title and twitter:title
 it('does not repeat the brand where the title already has it', function (string $url, string $title): void {
     expect(headOf($url)->querySelector('title')?->textContent)->toBe($title);
 })->with([
-    'home' => ['/it', 'FixCity — Segnala un problema, segui la soluzione'],
+    'home' => ['/it', "FixCity \u{2014} Segnala un problema, segui la soluzione"],
     'login' => ['/it/auth/login', 'Accedi a FixCity'],
 ]);
 

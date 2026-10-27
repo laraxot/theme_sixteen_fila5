@@ -67,14 +67,15 @@ it('has no fake toll-free number in the front office content files', function ()
     expect($offenders)->toBe([]);
 });
 
-it('has no placeholder region name in header.json', function (): void {
+it('allows the explicit Demo region label while forbidding a fake region URL', function (): void {
     $offenders = [];
     foreach (dcp289LiveContentFiles() as $file) {
         if (basename($file) !== 'header.json') {
             continue;
         }
         foreach (dcp289Leaves(json_decode(file_get_contents($file), true)) as $leaf) {
-            if (preg_match('/\.region\.(name|url) = ./', $leaf) === 1) {
+            if (preg_match('/\.region\.url = ./', $leaf) === 1
+                || (preg_match('/\.region\.name = /', $leaf) === 1 && ! str_ends_with($leaf, ' = Demo'))) {
                 $offenders[] = $leaf;
             }
         }
@@ -95,8 +96,8 @@ it('has no fake toll-free number in the live contact templates and in the theme 
         'resources/views/components/blocks/report-partials/contacts.blade.php',
         'resources/views/components/blocks/partials/dc-contacts.blade.php',
         'resources/views/components/blocks/ticket-list/design-comuni.blade.php',
-        'resources/views/components/sections/header/design-comuni.blade.php',
-        'resources/views/components/sections/footer/design-comuni.blade.php',
+        'resources/views/components/sections/header/v1.blade.php',
+        'resources/views/components/sections/footer/v1.blade.php',
         'config/sixteen.php',
     ];
 

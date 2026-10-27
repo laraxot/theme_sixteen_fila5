@@ -15,6 +15,16 @@ qmd: "decision log   redesign design comuni sixteen"
 
 # Decision Log — Redesign Design Comuni
 
+## D35: Header slim, "Demo" come regione e avatar come il riferimento (2026-10-26)
+
+- **Decisione:** nella fascia slim, dove il riferimento Design Comuni scrive "Nome della Regione", il tenant dimostrativo mostra "Demo". E' un testo, non un link: senza URL la Blade emette `<span class="navbar-brand">` senza `href`, `aria-label` o `title`.
+- **Contenuto:** `config/local/fixcity/database/content/sections/header.json`: `region.name` per lingua (it, en, de, es), `region.title` e `region.aria_label` scritti attorno a "Demo" (nessun segnaposto `{Nome della Regione}`), `account.label` per il pulsante. La Blade e' il vestito: nessun testo.
+- **Precedenza:** se l'ente fornisce `region_name` / `region_url` via `config('ente')` (GetEnteDataAction, DCP-289) vince l'ente. `RegionPortalLinkLabels::resolve($region, $ente->region_name)` fa seguire il nome al titolo e all'aria-label del link (WCAG 2.5.3, nome visibile contenuto nel nome accessibile). I tenant reali non vedono mai "Demo".
+- **Eccezione al divieto DCP-289:** `NoFakeEnteDataInFrontOfficeContentTest` ammette SOLO `region.name = Demo` in header.json (nessun altro valore e nessun `region.url`). In `EnteDataFrontOfficeTest` cambia solo l'asserzione sul "Demo": senza dati dell'ente compare una sola volta, come testo nella fascia slim; restano invariati gli altri controlli (`href="#"`, numeri finti, segnaposto).
+- **Avatar:** le misure sono quelle del riferimento, non inventate. Cerchio bianco 24px (`.rounded-icon`), icona `icon-primary` 18px verde #007a52 (5,38:1 sul bianco), etichetta 16px/600 da lg, pulsante 251x48 a 1440 (come il riferimento), 48x48 sotto lg (target >= 44). Hover e focus #006342, come il riferimento (testo bianco 7,3:1): il vecchio #00966a dava 3,8:1. Annullato il tentativo del disco 28px con bordo bianco, in cui l'icona era bianca su bianco.
+- **Come tornare indietro:** togliere `region.name` da header.json (la fascia mostra allora solo i dati dell'ente) e ripristinare nel test NoFake il vecchio divieto `region.(name|url) = .`. L'avatar e' solo CSS in `resources/css/app/22-header-shell.css`.
+- **Verifica:** `HeaderSlimBarContractTest` e i test header di Sixteen e Fixcity; pixel a 375, 768 e 1440 px, in quattro lingue, ospite e loggato. Studio e misure in `header-design-comuni-study.md`.
+
 ## D34: Mai `pages/profile/edit.blade.php` nel tema Sixteen
 
 <!-- GateGuard: supersede = fo-folio-links che diceva «linka profile.edit»; linked from why-profile-edit + filament-blueprint + NoSemanticFolioPageDirectoriesTest; user: «creare …/pages/profile/edit.blade.php e' sbagliato! … non commettere mai piu'… bmad + second brain + filament blueprint» -->
@@ -428,3 +438,17 @@ misurate a 375, 768 e 1440px con body comparator e screenshot.
 - All `docs/bmad/` stories must include: `github_issue`, `discussion`, `type`, `tags`, `qmd`, `links`, `status`, `module`.
 - All `docs/second-brain/` must reference specific stories via `links` and `tags`.
 - All `docs/bmad/` stories must follow the Design Comuni documentation standards (no Bootstrap, proper token usage, accessibility).
+
+## D39: Ownership and semantic resolution of frontoffice markers (2026-10-26)
+
+> Numero corretto il 2026-10-26: in origine D18, ma D18 era gia' preso quattro volte (tipografia DCP-221, contratto UserContract, ritorno post-login e questa voce). Prossimo libero verificato: D39 (il piu' alto in uso era D38).
+
+- **Decisione:** Sixteen owns frontoffice markup, Blade, CSS and responsive parity; Fixcity/Tenant own Actions, domain data and data contracts.
+- **Decisione:** committed merge markers are audited separately from `git status` unmerged entries. A clean index does not prove marker-free runtime files.
+- **Risoluzione:** keep tenant-driven `ente: toll_free` content, remove empty regional placeholders, drop unused `$phoneItems`, and resolve the footer as a third way: the Design Comuni structure (incoming, the only branch that closes the block and defines every variable it renders) with the localized contact labels from `footer.json` `contact.labels` (current), because the incoming branch read `pub_theme::footer.*`, which exists only in Italian.
+- **Verifica:** marker scan, JSON validation and Blade compile/lint; visual parity remains required at 375, 768 and 1440 px.
+## 2026-10-26 — Google CTA nel login Sixteen
+
+- Login e registrazione usano lo stesso componente `components.utilities.google-button`.
+- La visibilità dipende dalla configurazione reale del provider, non dalla sola esistenza della route.
+- Il tema non conosce né conserva credenziali: espone solo il link localizzato verso il contratto OAuth del modulo User.

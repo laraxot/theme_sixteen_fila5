@@ -89,3 +89,9 @@ test('la stella non scelta si distingue dallo sfondo bianco della scheda (1.4.11
 test('la scheda di ringraziamento visibile resta quella del riferimento', function (): void {
     expect(renderDcRating()->querySelectorAll('#rating-feedback'))->toHaveCount(1);
 });
+
+test('le due varianti usate dalle pagine pubbliche (partial condiviso e copia con la colonna dal JSON) usano le stesse stelle e la stessa regione di stato', function (string $view): void {
+    $source = file_get_contents(dirname(__DIR__, 2).'/resources/views/components/blocks/'.$view.'.blade.php');
+
+    expect($source)->toContain('partials.dc-rating-stars')->toContain('role="status"')->not->toContain('<fieldset class="rating">');
+})->with(['partials/dc-rating', 'report-partials/rating']);

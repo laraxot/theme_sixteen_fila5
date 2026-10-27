@@ -1,8 +1,8 @@
 ---
 title: "Social Login — Folio + Volt + Filament Blueprint"
 type: note
-status: draft
-updated: 2026-10-20
+status: active
+updated: 2026-10-27
 tags: [docs, sixteen]
 qmd: "social login   folio + volt + filament blueprint sixteen"
 ---
@@ -13,10 +13,12 @@ qmd: "social login   folio + volt + filament blueprint sixteen"
 | Azione | URI | Owner | Route name |
 |--------|-----|-------|------------|
 | Redirect provider | `/{lang}/auth/login/{provider}` | `RedirectToProviderController` via `routes/socialite.php` | `oauth.redirect` |
-| Callback provider | `/{lang}/auth/login/{provider}/callback` | `ProcessCallbackController` | `oauth.callback` |
+| Callback provider | `/{lang}/auth/login/{provider}/callback` | Folio page Sixteen → `ProcessCallbackAction` | `oauth.callback` |
 
-Folio sotto `pages/auth/login/[provider]/` è solo fallback che **delega** ai
-controller sopra. Non reclamare `name('oauth.redirect')` / `oauth.callback` nel tema.
+La callback è una pagina Folio+Volt del tema Sixteen, registrata con
+`name('oauth.callback')`, e delega la policy a
+`Modules\\User\\Actions\\Socialite\\ProcessCallbackAction`. Non esiste un
+controller callback né una rotta callback classica: `web.php` resta immutato.
 
 ## Componenti
 
@@ -27,7 +29,7 @@ controller sopra. Non reclamare `name('oauth.redirect')` / `oauth.callback` nel 
   `route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])`
 
 ### 2. Redirect / Callback
-- Dominio: Actions + controller Socialite del modulo User
+- Dominio: Actions Socialite del modulo User; pagina callback Folio nel tema Sixteen
 - `GOOGLE_REDIRECT_URI` deve essere esattamente
   `https://fixcity.eu/it/auth/login/google/callback` (o equivalente ambiente)
 
@@ -57,6 +59,6 @@ GOOGLE_REDIRECT_URI=https://fixcity.eu/it/auth/login/google/callback
 Modules/User/routes/socialite.php
 Modules/User/app/Filament/Widgets/Auth/SocialLoginWidget.php
 Themes/Sixteen/resources/views/components/utilities/google-button.blade.php
-Themes/Sixteen/resources/views/pages/auth/login/[provider]/index.blade.php
-Themes/Sixteen/resources/views/pages/auth/login/[provider]/callback/index.blade.php
+Themes/Sixteen/resources/views/pages/auth/login/[provider]/callback.blade.php
+Modules/User/app/Actions/Socialite/ProcessCallbackAction.php
 ```
