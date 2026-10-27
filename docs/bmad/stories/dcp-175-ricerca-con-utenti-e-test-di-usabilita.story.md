@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "test usabilita ricerca utenti linee guida design 4.3.3 4.3.4 4.3.5 4.3.6 semplicita d uso"
 related: [dcp-163, dcp-169, dcp-173]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-175: ricerca con utenti e test di usabilità (Linee guida design 4.3.3–4.3.6)

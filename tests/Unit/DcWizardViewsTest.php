@@ -404,7 +404,9 @@ it('renders Indietro and Avanti wired to the wizard, with no Salva Richiesta', f
     Assert::assertSame('goToPreviousStep()', $back->getAttribute('x-on:click'));
     Assert::assertTrue($next->classList->contains('steppers-btn-confirm'));
     Assert::assertSame('TXT-next', dcwText($next));
-    Assert::assertSame('requestNextStep()', $next->getAttribute('x-on:click'));
+    // DCP-286: dopo un "Avanti" respinto il focus va al primo campo non valido; il click continua a partire da requestNextStep()
+    Assert::assertStringStartsWith('await requestNextStep();', (string) $next->getAttribute('x-on:click'));
+    Assert::assertStringContainsString('[aria-invalid=true]', (string) $next->getAttribute('x-on:click'));
 
     // Le icone sono decorative e puntano agli sprite chevron del tema.
     Assert::assertStringEndsWith('#it-chevron-left', dcwOne($back, 'svg.icon[aria-hidden="true"] use')->getAttribute('href') ?? '');
@@ -473,7 +475,7 @@ it('escapes headings, descriptions, ids and language texts in both views', funct
 function dcwViewNames(): array
 {
     $datasets = [];
-    foreach ((new Finder())->files()->in(dirname(__DIR__, 2).'/resources/views/components/wizard')->name(['dc-section-card.blade.php', 'data-step.blade.php']) as $file) {
+    foreach ((new Finder)->files()->in(dirname(__DIR__, 2).'/resources/views/components/wizard')->name(['dc-section-card.blade.php', 'data-step.blade.php']) as $file) {
         $datasets[$file->getFilename()] = [str_replace('.blade.php', '', $file->getFilename())];
     }
 

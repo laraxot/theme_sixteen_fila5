@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use function Safe\file_put_contents;
+
 /*
  * Rende la vista del banner dei cookie (Modules/Gdpr/resources/views/cookie-consent) in MODO CONSENSO: dichiara un cookie analitico
  * di prova in `gdpr.config.cookie.extra` (la chiave e' sotto `config`: la config del modulo si carica come `gdpr.config.*`).

@@ -1,20 +1,12 @@
 @props(['links' => []])
 
 @php
-    $searchCreateUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/create');
-    $searchListUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/segnalazioni');
-    $searchTrackUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/tickets/track');
+    use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
+    use Themes\Sixteen\Presentation\Search\FrontofficeSearchSuggestions;
 
-    $defaultLinks = [
-        ['label' => 'Rilascio Carta Identità Elettronica (CIE)', 'url' => '#'],
-        ['label' => 'Cambio di residenza', 'url' => '#'],
-        ['label' => 'Tributi online', 'url' => '#'],
-        ['label' => 'Prenotazione appuntamenti', 'url' => '#'],
-        ['label' => 'Rilascio tessera elettorale', 'url' => '#'],
-        ['label' => 'Voucher connettività', 'url' => '#'],
-    ];
-
-    $displayLinks = !empty($links) ? $links : $defaultLinks;
+    // Regola FO: solo container0.* via FrontofficeRoutes; niente URL costruiti a mano.
+    $searchListUrl = FrontofficeRoutes::ticketsIndex();
+    $displayLinks = ! empty($links) ? $links : FrontofficeSearchSuggestions::defaults();
 @endphp
 
 <div id="search-modal" x-data="{ open: false }" x-cloak x-show="open" x-trap.noscroll="open" x-on:open-search.window="open = true; $nextTick(() => $refs.searchInput.focus())" x-on:keydown.escape.window="open = false" class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">

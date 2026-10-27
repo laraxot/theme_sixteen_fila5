@@ -11,6 +11,7 @@ created: 2026-10-14
 updated: 2026-10-14
 qmd: "ricerca interna cerca nel sito autocomplete sitemap xml canonical hreflang meta description seo linee guida design 4.3.9 motori di ricerca"
 related: [dcp-163, dcp-147, 8.3, 8.4]
+tags: [docs, sixteen, bmad]
 ---
 
 # DCP-166: ricerca interna funzionante, sitemap.xml, canonical e hreflang
@@ -38,7 +39,7 @@ Collegata a 8.3 (IA) e 8.4 (contenuti e SEO), che chiedono canonical e titoli ma
 
 ## Stato al 2026-10-14 (verificato)
 - **canonical e hreflang**: `Themes/Sixteen/resources/views/components/layouts/seo-links.blade.php`, incluso da `main.blade.php` (tutti i layout passano da li). Gli indirizzi si costruiscono dal percorso della richiesta con la lingua sostituita; il canonical non porta mai la query (`?code=` del tracciamento). Scartato `LaravelLocalization::getLocalizedURL()`: dipende da una richiesta memorizzata nel singleton e nei test restituiva `/en` al posto di `/en/privacy`.
-- **sitemap.xml**: rotta `/sitemap.xml` (`routes/web.php`, classe invocabile `Modules\Fixcity\Actions\BuildSitemapAction`, senza closure per non rompere `route:cache`). 10 pagine per 4 lingue = 40 URL, tutte 200; esclude le pagine di prova, quelle dietro `auth`, la conferma con `?code` e lo schema di dettaglio. Niente `lastmod` (manca una data affidabile: DCP-167).
+- **sitemap.xml**: rotta `/sitemap.xml` (`laravel/routes/web.php`, classe invocabile `Modules\Seo\Actions\Sitemap\BuildSitemapAction`). 10 pagine per 4 lingue = 40 URL, tutte 200; esclude le pagine di prova, quelle dietro `auth`, la conferma con `?code` e lo schema di dettaglio. Niente `lastmod` (manca una data affidabile: DCP-167).
 - **meta description e titolo** di accesso e registrazione: erano in italiano in tutte le lingue (il titolo «Accedi a FixCity» e l'intestazione comparivano in italiano anche in en, de, es). Chiavi `fixcity::auth.*` nelle 4 lingue.
 - Misura con `lg-design-scan.py` / `go-live-gate.py`: senza canonical 48/48 -> 0/48, senza hreflang 48/48 -> 0/48, senza meta description 8/48 -> 0/48, `sitemap.xml` 404 -> 200.
 - Test: `Modules/Fixcity/tests/Feature/Pages/SeoLinksTest.php` (canonical e hreflang in 4 lingue, nessun codice di tracciamento, sitemap valida e senza pagine private).

@@ -3,21 +3,13 @@ title: "CODE QUALITY ANALYSIS"
 type: note
 tags: [documentation]
 created: 2026-09-26
-<<<<<<< .merge_file_ViaYKN
-updated: 2026-10-15
-=======
 updated: 2026-09-26
->>>>>>> .merge_file_7xsohK
 qmd: "CODE QUALITY ANALYSIS"
 issues: []
 discussions: []
 status: draft
 ---
 
-<<<<<<< .merge_file_ViaYKN
-> Canon operativo qualità: [CODE_QUALITY_TOOLS.md](./CODE_QUALITY_TOOLS.md).
-=======
->>>>>>> .merge_file_7xsohK
 # Code Quality Analysis - Sixteen Theme
 
 **Date:** 2025-10-01  

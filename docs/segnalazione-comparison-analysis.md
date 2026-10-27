@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione comparison analysis"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-comparison-analysis.md
 ---
 
 # Analisi Comparativa Pagine Segnalazione - Task Attivo

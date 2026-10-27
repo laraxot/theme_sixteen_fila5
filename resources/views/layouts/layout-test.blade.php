@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4">
         <!-- Region link -->
         <x-nav-link :to="region.url" class="mr-6">
-          <span class="font-medium">[Nome della Regione]</span>
+          <span class="font-medium">{{ config('app.name', 'Il mio Comune') }}</span>
         </div>
         <!-- Utility links -->
         <div class="flex space-x-4">

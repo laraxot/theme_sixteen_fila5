@@ -67,7 +67,7 @@
     --}}
     @php
         $navData = (array) data_get($this->blockData ?? [], 'nav', []);
-        $navIcon = \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg';
+        $navIcon = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg';
     @endphp
     <div x-cloak class="dc-wizard-footer" x-show="! isLastStep()">
         <div class="row justify-content-center">

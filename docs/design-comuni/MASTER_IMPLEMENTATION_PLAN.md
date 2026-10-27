@@ -258,8 +258,8 @@ build: {
 
 **PRIMA** (❌ SBAGLIATO):
 ```blade
-<x-layouts.design-comuni>
-@includeIf('pub_theme::design-comuni.pages.'.$slug)
+<x-layouts.app>
+<x-page side="content" :slug="$pageSlug" :data="$data" />
 ```
 
 **DOPO** (✅ CORRETTO):

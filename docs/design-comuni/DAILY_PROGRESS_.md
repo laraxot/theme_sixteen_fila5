@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "DAILY PROGRESS "
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: DAILY_PROGRESS.md
 ---
 
 # Design Comuni Replication - Daily Progress

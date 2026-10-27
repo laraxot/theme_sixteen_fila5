@@ -49,4 +49,4 @@ Documentation for making the local FAQ page visually identical to the reference.
 ## Related Documentation
 
 - **Main Docs:** [bashscripts/docs/faq-screenshots.md](bashscripts/docs/faq-screenshots.md)
-- **Theme Index:** [DOCUMENTATION_INDEX.md](./documentation-index.md)
+- **Theme Index:** [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)

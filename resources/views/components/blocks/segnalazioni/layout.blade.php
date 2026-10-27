@@ -2,7 +2,6 @@
 
 @php
     use Illuminate\Support\Str;
-    use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
     use Modules\Fixcity\Enums\TicketStatusEnum;
     use Modules\Fixcity\ViewModels\SegnalazioniFilterViewModel;
 
@@ -71,10 +70,10 @@
     $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
 
     $contactLinks = [
-        'faq' => ['url' => LaravelLocalization::localizeURL('/domande-frequenti'), 'icon' => 'it-files'],
-        'assistance' => ['url' => LaravelLocalization::localizeURL('/tickets/create'), 'icon' => 'it-mail'],
+        'faq' => ['url' => \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::faqIndex(), 'icon' => 'it-files'],
+        'assistance' => ['url' => \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsCreate(), 'icon' => 'it-mail'],
         'phone' => ['url' => 'tel:'.str_replace(' ', '', $phoneNumber), 'icon' => 'it-phone'],
-        'appointment' => ['url' => LaravelLocalization::localizeURL('/servizi'), 'icon' => 'it-calendar'],
+        'appointment' => ['url' => \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::servicesIndex(), 'icon' => 'it-calendar'],
     ];
 @endphp
 
@@ -220,7 +219,7 @@
                                             <p class="subtitle-small mb-3 mt-3">{{ $cta['text'] }}</p>
                                         </div>
                                         <div class="button-wrapper">
-                                            <a href="{{ LaravelLocalization::localizeURL('/tickets/create') }}" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::ticketsCreate() }}" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
                                                 <span>{{ $cta['button_text'] }}</span>
                                             </a>
                                         </div>

@@ -19,7 +19,11 @@
 
         return is_string($value) ? $value : $default;
     };
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    // Dopo un "Avanti" respinto (campi mancanti) il focus va subito al primo campo non valido visibile: ha `aria-invalid` e `aria-describedby` verso il suo errore,
+    // cosi' tastiera e screen reader sentono cosa correggere (DCP-286, FO-3-17/FO-3-23). Filament poi scorre "smooth" fino al wrapper dell'ultimo errore, che puo'
+    // lasciare il campo sopra il bordo della finestra: a scorrimento finito (o dopo 1,2 s) lo si riporta al centro. Il click parte sempre da `requestNextStep()`.
+    $focusFirstInvalid = "await requestNextStep(); await \$nextTick(); const first = [...\$root.querySelectorAll('[aria-invalid=true]')].find((field) => field.offsetParent !== null); first?.focus({ preventScroll: true }); if (first) { await Promise.race([new Promise((done) => addEventListener('scrollend', done, { once: true })), new Promise((done) => setTimeout(done, 1200))]); first.scrollIntoView({ block: 'center' }); }";
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $childSchema = $getChildSchema()->gap(false)->extraAttributes(['class' => 'd-block']); // niente gap (24px) ne' display:grid (margini che non collassano): vedi dc-section-card
     $nav = [
         'suffix' => 'one',
@@ -48,7 +52,7 @@
                         <svg class="icon icon-primary icon-sm" aria-hidden="true"><use href="{{ $icon('it-chevron-left') }}"></use></svg>
                         <span class="text-button-sm t-primary">{{ $t('fixcity::ticket_form.nav.back', 'Indietro') }}</span>
                     </button>
-                    <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm" x-on:click="requestNextStep()">
+                    <button type="button" class="btn btn-primary btn-sm steppers-btn-confirm" x-on:click="{{ $focusFirstInvalid }}">
                         <span class="text-button-sm">{{ $t('fixcity::ticket_form.nav.next', 'Avanti') }}</span>
                         <svg class="icon icon-white icon-sm" aria-hidden="true"><use href="{{ $icon('it-chevron-right') }}"></use></svg>
                     </button>

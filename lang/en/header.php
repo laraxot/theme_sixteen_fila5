@@ -22,6 +22,7 @@ return [
     ],
 
     'user' => [
+        'unread_notifications' => 'unread notifications',
         'personal_area' => 'Personal area',
         'welcome' => [
             'label' => 'Hello, :name',

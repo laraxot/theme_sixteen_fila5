@@ -16,12 +16,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="it-brand-wrapper py-4">
-                        <a href="/">
+                        <a href="{{ url('/'.app()->getLocale()) }}" title="Vai alla homepage">
                             <svg width="82" height="82" class="icon" aria-hidden="true">
-                                <image href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
+                                <image xlink:href="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-comune.svg') }}"/>
                             </svg>
                             <div class="it-brand-text">
-                                <div class="it-brand-title">Nome del Comune</div>
+                                <div class="it-brand-title">{{ config('app.name', 'Il mio Comune') }}</div>
                             </div>
                         </a>
                     </div>
@@ -87,7 +87,7 @@
                         <li><a href="#" class="text-decoration-none">Avvisi</a></li>
                     </ul>
                     
-                    <h4 class="h5 mb-3">Vivere il Comune2</h4>
+                    <h4 class="h5 mb-3">Vivere il Comune</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-decoration-none">Luoghi</a></li>
                         <li><a href="#" class="text-decoration-none">Eventi</a></li>
@@ -145,6 +145,71 @@
                     </div>
                 </div>
             </div>
+            
+@if(config('comune.adsense.footer_enabled', true))
+    <div class="it-footer-sponsor-ad">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="ad-slot ad-slot-desk d-none d-lg-block">
+                        <span class="ad-label">{{ config('comune.adsense.labels.desk', 'Spazio in vendita - Desktop') }}</span>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="{{ config('comune.adsense.client_id', 'ca-pub-XXXXXXXX') }}"
+                             data-ad-slot="{{ config('comune.adsense.slots.spazio_in_vendita_desk', 'footer-sponsor-desk') }}"></ins>
+                    </div>
+                    <div class="ad-slot ad-slot-tablet d-none d-md-block d-lg-none">
+                        <span class="ad-label">{{ config('comune.adsense.labels.tablet', 'Spazio in vendita - Tablet') }}</span>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:468px;height:60px"
+                             data-ad-client="{{ config('comune.adsense.client_id', 'ca-pub-XXXXXXXX') }}"
+                             data-ad-slot="{{ config('comune.adsense.slots.spazio_in_vendita_tablet', 'footer-sponsor-tablet') }}"></ins>
+                    </div>
+                    <div class="ad-slot ad-slot-mobile d-block d-md-none">
+                        <span class="ad-label">{{ config('comune.adsense.labels.mobile', 'Spazio in vendita - Mobile') }}</span>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:320px;height:50px"
+                             data-ad-client="{{ config('comune.adsense.client_id', 'ca-pub-XXXXXXXX') }}"
+                             data-ad-slot="{{ config('comune.adsense.slots.spazio_in_vendita_mobile', 'footer-sponsor-mobile') }}"></ins>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if(config('comune.sponsor.area_enabled', true))
+    <div class="row sponsor-section mt-5 pt-4 border-top">
+        <div class="col-12">
+            <h4 class="h5 mb-3 text-center">{{ config('comune.sponsor.area_title', 'Partner e Sostenitori') }}</h4>
+            <div class="mb-3 text-center">
+                <p class="text-muted small">{{ config('comune.sponsor.area_description', 'Grazie ai nostri partner e sostenitori che rendono possibile questo servizio.')}}</p>
+            </div>
+            <div class="sponsor-logos d-flex flex-wrap justify-content-center gap-3 mb-4">
+                @php
+                    $maxLogos = config('comune.sponsor.logos_max', 8);
+                    $logos = array_filter(config('comune.sponsor.logos', []));
+                @endphp
+                @foreach($logos as $logoKey => $logoUrl)
+                    @if($logoUrl && $loop->iteration <= $maxLogos)
+                        <div class="sponsor-logo-item bg-light p-3 rounded border" style="width: {{ 100 / min($maxLogos, count($logos)) }}%; max-width: 150px;">
+                            <img src="{{ $logoUrl }}" alt="Logo partner {{ $logoKey }}" class="img-fluid" loading="lazy">
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="sponsor-disclosure text-muted small text-center">
+                <p><em>I partner e sostenitori supportano questo servizio pubblico in modo trasparente, senza tracking commerciale o privilegi speciali.</em></p>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    {{-- AdSense Script --}}
+    @if(config('comune.adsense.footer_enabled', true))
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ config('comune.adsense.client_id', 'ca-pub-XXXXXXXX') }}"
+            crossorigin="anonymous"></script>
+    @endif
         </div>
     </div>
     

@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "segnalazione 01 privacy css fix"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: ticket-01-privacy-css-fix.md
 ---
 
 # CSS/JS Parity Fix - Segnalazione 01 Privacy

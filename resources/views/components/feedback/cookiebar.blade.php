@@ -32,7 +32,7 @@
             {{ __('cookie-consent::texts.alert_text') }}
         </p>
         <div class="flex shrink-0 flex-wrap items-center gap-2">
-            <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeURL('/cookie-policy') }}" class="btn btn-ghost btn-sm min-h-11">
+            <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/cookie-policy') }}" class="btn btn-ghost btn-sm min-h-11">
                 {{ __('cookie-consent::texts.alert_settings') }}
             </a>
             <button type="button" class="btn btn-ghost btn-sm min-h-11" x-on:click="accept(essentialsValue)">

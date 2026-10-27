@@ -3,7 +3,7 @@
     footer {buttons[] {label, variant: primary|outline, target (id della finestra successiva)}} (assente = nessun piede).
 --}}
 @php
-    $assets = \Themes\Sixteen\Support\DesignComuniAssets::base();
+    $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="cmp-modal">

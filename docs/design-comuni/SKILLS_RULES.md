@@ -133,7 +133,7 @@ Documentazione delle skills, rules e best practices per il progetto Design Comun
 ## 📚 Link Correlati
 
 - **Master Index**: [docs/design-comuni/MASTER_INDEX.md](../../../../../docs/design-comuni/MASTER_INDEX.md)
-- **Cms Index**: [laravel/Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../../Modules/Cms/docs/DESIGN_COMUNI_INDEX.md)
+- **Cms Index**: [laravel/Modules/Cms/docs/DESIGN_COMUNI_INDEX.md](../../../../Modules/Cms/docs/design-comuni-index.md)
 - **UI Index**: [laravel/Modules/UI/docs/00-index.md](../../../../Modules/UI/docs/00-INDEX.md)
 - **Theme Index**: [laravel/Themes/Sixteen/docs/design-comuni/00-index.md](00-index.md)
 - **Progress Report**: [laravel/Themes/Sixteen/docs/design-comuni/PROGRESS_REPORT.md](PROGRESS_REPORT.md)

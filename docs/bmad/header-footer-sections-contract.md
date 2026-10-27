@@ -4,27 +4,43 @@ type: architecture
 tags: [bmad, sections, header, footer, json, design-comuni, accessibility]
 qmd: "Sixteen x-section header footer JSON contract Design Comuni"
 status: draft
-updated: 2026-10-11
+updated: 2026-10-15
 ---
 
 # Contratto delle sections header e footer
 
 ## Composizione
 
-I layout pubblici chiamano soltanto:
+La shell canonica delle pagine reali è `components/layouts/app.blade.php`.
+`components/layouts/design-comuni.blade.php` non esiste: il valore CMS storico
+`design-comuni` viene risolto in `app`, senza trasformarsi in un nome di view.
+Le shell di `/tests/*` sono un'eccezione di
+parità e non definiscono il runtime del front office.
+
+I layout FO Design Comuni chiamano:
 
 ```blade
-<x-section slug="header" />
-<x-section slug="footer" tpl="full" />
+<x-section slug="header" tpl="v1" />
+<x-section slug="footer" tpl="v1" />
 ```
+
+(`layouts/app.blade.php` puo' usare footer `tpl="full"` → `footer/v1`.)
 
 `Modules/Cms/View/Components/Section` carica i blocchi localizzati dalla
 section CMS e risolve rispettivamente:
 
 ```text
-pub_theme::components.sections.header.v1
-pub_theme::components.sections.footer.full
+pub_theme::components.sections.header.{tpl}
+pub_theme::components.sections.footer.{tpl}
 ```
+
+`v1` è l'entrypoint canonico del tema Sixteen per l'header Design Comuni e
+delega al renderer Tailwind. `header/design-comuni.blade.php` non è un
+entrypoint runtime e non va ricreato.
+
+Lo stesso principio vale per il footer: `footer/v1.blade.php` è l'unico
+renderer canonico. Un vecchio `tpl="design-comuni"` va migrato a `v1`, non
+supportato con una seconda view.
 
 Le view ricevono `blocks`; il primo blocco attivo contiene `data` e il campo
 `view` resta un riferimento verificabile al renderer del tema. `header.v1` e
@@ -44,34 +60,49 @@ props del componente farebbe perdere il contenuto JSON quando si usa
 | `account.label`, `account.url` | accesso all'area personale |
 | `navigation[]` | menu principale con `label` e `url` |
 
+Obbligo inbound (2026-10-15, Design Comuni): in tutte le locali devono
+comparire **Novità** → `/blog` e **Eventi** → `/events` (etichette civiche,
+path tecnici). Stesse voci in footer colonna Informazioni + `groups.news` /
+`groups.living`. Studio:
+[design-comuni-static-pages-study.md](../../../../Modules/Fixcity/docs/bmad/design-comuni-static-pages-study.md).
+
 Ogni voce di navigazione è un link reale: non si usa `#` come placeholder. I
 path relativi sono localizzati dal renderer; gli URL assoluti restano esterni.
 Logo e testo sono un unico link istituzionale, mentre il logo è decorativo
 quando il nome dell'ente è già adiacente (alt vuoto intenzionale).
 
+## Marchio header = footer (obbligatorio)
+
+`brand.logo` deve essere **identico** in `header.json` e `footer.json` (guard
+Pest). Il rendering è un solo partial
+`components/sections/partials/brand-mark.blade.php` (SVG + `xlink:href` +
+invert bianco su fondo scuro/verde). Vietato:
+
+- `<img class="icon">` solo nel footer (size/filtro diversi dall'header)
+- sprite `it-pa` al posto del marchio (hamburger / footer)
+- `logo-comune.svg` generico se il tenant ha `assets/fixcity/svg/logo.svg`
+
+Size canoniche: header/footer **82×82**, hamburger **48×48**.
+
 La view normalizza i path interni con LaravelLocalization. I link esterni
 restano assoluti. Il menu mobile è gestito da Alpine.js, ha target minimi
 accessibili e mantiene `aria-expanded`, `aria-controls` e focus visibile.
 
-## Footer: dati e responsabilità
+## Footer: dati e responsabilità (DCP-222)
 
 | Chiave JSON | Significato |
 |---|---|
-| `brand` | identità e descrizione dell'ente |
-| `columns[]` | gruppi di link istituzionali |
-| `contact` | indirizzo, email, telefono e orari |
-| `social[]` | profili esterni con `rel` sicuro |
-| `legal_links[]` | privacy, accessibilità, note legali, mappa |
+| `brand.name` / `brand.description` | FixCity + slogan prodotto |
+| `columns[]` / `groups.*` | link reali servizio (tickets, FAQ, …) |
+| `contact` | solo se ente fornisce dati (D198-1); altrimenti vuoto |
+| `social[]` | vuoto finché l'ente non dà account (D198-5) |
+| `legal_links[]` / `footer_bottom_links[]` | privacy, accessibilità, cookie, mappa |
+| `eu_logo.src` | vuoto finché non c'è prova PNRR (D198-4) |
 | `copyright` | riga conclusiva |
 
-`columns[]` contiene gruppi omogenei (`title`, `links[]`); `contact` è
-opzionale perché il contatto può essere espresso in una colonna. `social[]`
-richiede `label` e `url`: le voci senza destinazione non vengono renderizzate.
-I link HTTP esterni aprono in nuova scheda con `rel="noopener noreferrer"`.
-
-Il footer usa solo utility Tailwind e semantica HTML (`footer`, `address`,
-heading, liste). Non usa classi o runtime Bootstrap Italia e non contiene URL
-`#` per contenuti applicativi.
+Regola A5: URL vuoto/`#` → la voce **non** viene emessa come `<a>` (niente
+link morti che sembrano cliccabili). Path interni → `FrontofficeUrl`.
+Guard: `FooterJsonBrandAndLinksSsotTest`.
 
 ## Fonte dei dati
 

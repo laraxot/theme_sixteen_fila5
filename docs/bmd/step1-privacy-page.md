@@ -1,3 +1,11 @@
+---
+title: "Step 1: Privacy Page Creation"
+type: note
+status: draft
+updated: 2026-10-15
+tags: [docs, sixteen, bmd]
+qmd: "step 1: privacy page creation sixteen"
+---
 # Step 1: Privacy Page Creation
 
 ## Goal

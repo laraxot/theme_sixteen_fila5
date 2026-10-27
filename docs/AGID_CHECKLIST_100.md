@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "AGID CHECKLIST 100"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: agid_checklist-compliance.md
 ---
 
 # ✅ AGID COMPLIANCE - CHECKLIST 100%

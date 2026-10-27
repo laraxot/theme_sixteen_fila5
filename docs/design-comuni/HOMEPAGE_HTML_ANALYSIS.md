@@ -404,5 +404,5 @@ The template at `Themes/Sixteen/resources/views/pages/tests/[slug].blade.php` wi
 - → Vedi [ALL_PAGES_ANALYSIS.md](./ALL_PAGES_ANALYSIS.md) per analisi completa 54 pagine
 
 ### Documentazione Correlata
-- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../Modules/Cms/docs/PAGE_COMPONENT_ARCHITECTURE.md) — Architettura componente CMS
+- [PAGE_COMPONENT_ARCHITECTURE.md](../../../../Modules/Cms/docs/page-component-architecture.md) — Architettura componente CMS
 - [PAGE_ROUTING_ARCHITECTURE.md](../architecture/PAGE_ROUTING_ARCHITECTURE.md) — Architettura routing pagine

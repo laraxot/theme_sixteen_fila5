@@ -17,6 +17,49 @@ use Themes\Sixteen\Filters\HrefMenuFilter;
  * il task copre solo i 4 file di config, non i Providers.
  */
 return [
+    'blog' => [
+        'parity' => [
+            'feedback' => [
+                'title' => 'Quanto sono chiare le informazioni su questa pagina?',
+                'legend' => 'Valuta da 1 a 5 stelle la pagina',
+                'star_label' => 'Valuta %d stelle su 5',
+                'thanks' => 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!',
+                'positive' => ['question' => 'Quali sono stati gli aspetti che hai preferito?', 'answers' => ['Le indicazioni erano chiare', 'Le indicazioni erano complete', 'Capivo sempre che stavo procedendo correttamente', 'Non ho avuto problemi tecnici', 'Altro']],
+                'negative' => ['question' => 'Dove hai incontrato le maggiori difficoltà?', 'answers' => ['A volte le indicazioni non erano chiare', 'A volte le indicazioni non erano complete', 'A volte non capivo se stavo procedendo correttamente', 'Ho avuto problemi tecnici', 'Altro']],
+                'detail' => ['question' => 'Vuoi aggiungere altri dettagli?', 'label' => 'Dettaglio', 'help' => 'Inserire massimo 200 caratteri'],
+                'back' => 'Indietro',
+                'next' => 'Avanti',
+            ],
+            'contacts' => [
+                'main' => ['title' => 'Contatta il comune', 'items' => [
+                    ['icon' => 'it-help-circle', 'label' => 'Leggi le domande frequenti', 'url' => '/domande-frequenti'],
+                    ['icon' => 'it-mail', 'label' => 'Richiedi assistenza', 'url' => '/contatti', 'element' => 'contacts'],
+                    ['icon' => 'it-hearing', 'label' => 'Chiama il numero verde :value', 'ente' => 'toll_free'],
+                    ['icon' => 'it-calendar', 'label' => 'Prenota appuntamento', 'url' => '/servizi', 'element' => 'appointment-booking'],
+                ]],
+                'problems' => ['title' => 'Problemi in città', 'items' => [['icon' => 'it-map-marker-circle', 'label' => 'Segnala disservizio', 'url' => '/tickets/create']]],
+            ],
+        ],
+    ],
+    'events' => [
+        'parity' => [
+            'title' => 'Vivere il comune',
+            'hero' => [
+                'text' => 'Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.',
+                'image' => ['file' => 'roma-colosseo.png', 'title' => 'Colosseo, Roma', 'alt' => 'Colosseo di Roma'],
+                'caption' => 'Colosseo, Roma. Foto di Griffin Wooldridge.',
+            ],
+            'card' => ['read_more' => 'Leggi di più', 'read_more_aria' => 'Leggi di più sulla pagina di %s', 'read_more_hidden' => ''],
+            'locations' => [
+                ['image' => ['file' => 'luoghi-castello-1.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Scopri la storia e i luoghi di interesse del territorio.'],
+                ['image' => ['file' => 'luoghi-castello-2.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Scopri il programma degli eventi dell’estate.'],
+                ['image' => ['file' => 'luoghi-castello-3.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Un luogo da vivere e conoscere.'],
+                ['image' => ['file' => 'luoghi-gipsoteca.png', 'title' => 'La Gipsoteca canoviana', 'alt' => 'La Gipsoteca canoviana'], 'title' => 'La Gipsoteca canoviana', 'text' => 'Modelli in gesso e bozzetti dello scultore Antonio Canova.'],
+                ['image' => ['file' => 'luoghi-tomba.png', 'title' => 'Tomba Brion', 'alt' => 'Tomba Brion'], 'title' => 'Tomba Brion', 'text' => 'Un luogo affascinante e ricco di simbologia.'],
+                ['image' => ['file' => 'luoghi-castello-4.png', 'title' => 'Il castello normanno', 'alt' => 'Il castello normanno'], 'title' => 'Il castello normanno', 'text' => 'Un itinerario per scoprire il territorio.'],
+            ],
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Sixteen Theme Configuration

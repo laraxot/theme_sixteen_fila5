@@ -4,7 +4,7 @@
     items[] (anchor, label). Stesso markup di event-detail.
 --}}
 @php
-    $icon = static fn (string $name): string => \Themes\Sixteen\Support\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
+    $icon = static fn (string $name): string => \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base().'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
 @endphp
 <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
     <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="{{ $nav['aria_label'] ?? '' }}" data-bs-navscroll>

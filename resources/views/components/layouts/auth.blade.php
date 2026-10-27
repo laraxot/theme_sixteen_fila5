@@ -13,11 +13,6 @@
     <!-- Title -->
     <title>{{ $title ?? 'Accesso' }} - {{ config('app.name') }}</title>
     
-    <!-- AGID Fonts - Titillium Web -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-    
     <!-- Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
     
@@ -33,10 +28,6 @@
             --agid-gray-50: #F8F9FA;
             --agid-gray-100: #F1F3F4;
             --agid-gray-900: #17324D;
-        }
-        
-        body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         .agid-skip-link {
@@ -275,9 +266,9 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Informazioni</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="{{ route('pages.view', ['slug' => 'privacy']) }}" class="opacity-80 hover:opacity-100 transition-opacity">Privacy</a></li>
-                        <li><a href="{{ route('pages.view', ['slug' => 'legal-notes']) }}" class="opacity-80 hover:opacity-100 transition-opacity">Note legali</a></li>
-                        <li><a href="{{ route('pages.view', ['slug' => 'accessibility']) }}" class="opacity-80 hover:opacity-100 transition-opacity">Dichiarazione di accessibilità</a></li>
+                        <li><a href="{{ url('/pages/privacy') }}" class="opacity-80 hover:opacity-100 transition-opacity">Privacy</a></li>
+                        <li><a href="{{ url('/pages/legal-notes') }}" class="opacity-80 hover:opacity-100 transition-opacity">Note legali</a></li>
+                        <li><a href="{{ url('/pages/accessibility') }}" class="opacity-80 hover:opacity-100 transition-opacity">Dichiarazione di accessibilità</a></li>
                     </ul>
                 </div>
                 
@@ -285,8 +276,8 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Assistenza</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="{{ route('pages.view', ['slug' => 'contacts']) }}" class="opacity-80 hover:opacity-100 transition-opacity">Contatti</a></li>
-                        <li><a href="{{ route('pages.view', ['slug' => 'help']) }}" class="opacity-80 hover:opacity-100 transition-opacity">Guida</a></li>
+                        <li><a href="{{ url('/pages/contacts') }}" class="opacity-80 hover:opacity-100 transition-opacity">Contatti</a></li>
+                        <li><a href="{{ url('/pages/help') }}" class="opacity-80 hover:opacity-100 transition-opacity">Guida</a></li>
                         @if(config('app.support_email'))
                             <li><a href="mailto:{{ config('app.support_email') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ config('app.support_email') }}</a></li>
                         @endif

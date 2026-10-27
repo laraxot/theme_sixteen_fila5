@@ -3,7 +3,7 @@ title: "homepage guest visual fix"
 type: note
 tags: [documentation, ui, ux, design-comuni, puppeteer]
 created: 2026-09-27
-updated: 2026-09-27
+updated: 2026-10-15
 qmd: "homepage guest visual fix design comuni hero cta"
 issues:
   - "https://github.com/laraxot/base_fixcity_fila5/issues/572"
@@ -23,6 +23,11 @@ eyebrow `APP_NAME=Laravel`.
 
 ## fix (KISS)
 
+- ECC 2026-10-15: l’`h1` nascosto del blocco `blocks/homepage.blade.php` (path
+  `/it/tests/homepage` / JSON tests) non usa piu’ `id="main-container"`
+  (duplicato con `<main id="main-container">` in `layouts/app`); id dedicato
+  `home-page-title`. La home prodotto `/it` usa invece
+  `blocks/home/hero` → `id="fc-home-hero-heading"` (tipografia Lora, DCP-221).
 - Markup allineato a Bootstrap Italia / Design Comuni (`container`, `card`,
   `btn`, `bg-primary`, `map-lit`).
 - CTA hero con classi dedicate + CSS nello slot (`btn-hero-primary` /

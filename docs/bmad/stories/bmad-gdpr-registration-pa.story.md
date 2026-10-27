@@ -8,6 +8,9 @@ github_issue: "#56"
 discussion: "https://github.com/italia/design-comuni"
 rights_owner: "laravel/Modules/Gdpr"
 related_to: ["STORY-cookiebar-gdpr-compliance", "STORY-adozione-linee-guida-design-pa"]
+title: "BMAD Story — Registrazione Utente conforme GDPR per PA"
+updated: 2026-10-15
+qmd: "bmad story   registrazione utente conforme gdpr per pa sixteen"
 ---
 
 # BMAD Story — Registrazione Utente conforme GDPR per PA
