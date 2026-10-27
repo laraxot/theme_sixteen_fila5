@@ -105,4 +105,4 @@ See also:
 ## Nota Design Comuni /tests (2026-10-13)
 Per le pagine con chrome Design Comuni (`pages/tests/*` e le pagine reali con JSON `layout` design-comuni*) lo scope degli stili generati e' `body:has(.page-content[data-dc])`: il `<body>` resta plain e lo scope dipende dal wrapper `data-dc` (DCP-32, decision-log D16); fino al 2026-10-13 era `.page-content[data-slug*="tests."]`. Il wrapper
 canonico e' `div.page-content` (con `data-slug` e `data-dc`). Header, footer, modale di ricerca e skiplink stanno fuori da `page-content` ma dentro lo stesso body, quindi sono coperti dallo stesso scope
-(provato con scope solo su `<main>`: footer 76,6% contro 100%). Layout: `components/layouts/design-comuni.blade.php`. Dettagli: `docs/bmad/decisions/parity-root-cause-and-guardrails.md`.
+(provato con scope solo su `<main>`: footer 76,6% contro 100%). Shell: `components/layouts/app.blade.php`. Dettagli: `docs/bmad/decisions/parity-root-cause-and-guardrails.md`.

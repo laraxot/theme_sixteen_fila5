@@ -40,7 +40,7 @@ Senza `data-dc` il CSS legacy nasconde comunque il body.
 ## Fix
 
 1. `mount()`: Article in `blog|events` → `isDesignComuni=true` (`data-dc`).
-2. Layout: `layouts.design-comuni`, `headerActive` `news`/`live`.
+2. Layout: `layouts.app`, `headerActive` `news`/`live`; `design-comuni` è solo il valore storico del contenuto CMS.
 3. `header.json`: `element: news` (`/blog`), `element: live` (`/events`).
 4. Comment: view esplicita + `approved()` FO.
 

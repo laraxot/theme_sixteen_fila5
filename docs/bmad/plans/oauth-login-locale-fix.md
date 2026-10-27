@@ -3,7 +3,7 @@ title: "BMAD — Localized OAuth entry point"
 type: plan
 status: done
 created: 2026-10-20
-updated: 2026-10-20
+updated: 2026-10-26
 related:
   - ../decision-log.md
   - ../filament-blueprint.md
@@ -45,13 +45,13 @@ OAuth state/session matches the console redirect URI.
 - Build FO Google URLs with
   `route('oauth.redirect', ['provider' => 'google', 'lang' => $locale])`
   (fallback: `localizeURL('/auth/login/google', $locale)`).
-- Keep `oauth.redirect` / `oauth.callback` names and Socialite controllers as
-  SSoT. The Folio fallbacks under `pages/auth/[provider]/` and
-  `pages/auth/login/[provider]/` were **removed** (DCP-269): a top-level
-  `abort()` in a Folio view runs whenever Folio scans pages to resolve a route
-  name such as `route('login')`, and broke every redirect to a named route.
+- Keep `oauth.redirect` as the classic entry route; `oauth.callback` is now the
+  redirect-only Folio page at `pages/auth/login/[provider]/callback.blade.php`.
+  Its provider guard runs inside `render()`, so Folio route-name discovery does
+  not execute an `abort()` at file scope. The callback policy is shared by the
+  `ProcessSocialiteCallbackAction`; `web.php` remains unchanged.
 - Language entry point survives the fixed `GOOGLE_REDIRECT_URI` through the
-  session (`ProcessCallbackController::SESSION_LANG_KEY`); `{lang}` and
+  session (`ProcessCallbackSession::KEY`); `{lang}` and
   `{provider}` are constrained in `socialite.php`.
 - The login error block is the widget's (`filament/widgets/auth/login.blade.php`),
   styled by `.auth-login-alert*` in `components/pages/auth-login.blade.php`.
@@ -65,6 +65,7 @@ OAuth state/session matches the console redirect URI.
 - Italian login renders Google as `/it/auth/login/google`.
 - The entry point returns a 302 to Google with callback
   `/it/auth/login/google/callback`.
-- Localized callback invokes `ProcessCallbackController` (no segment-3 404).
+- Localized callback invokes the Folio page and returns a real redirect (no
+  segment-3 404).
 - Other locales preserve their prefix (`/en`, `/de`, `/es`).
 - No new controller or Filament schema duplication.

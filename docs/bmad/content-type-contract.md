@@ -1,13 +1,19 @@
 ---
 title: "Sixteen: contratto Blog/Eventi"
 type: decision-record
-status: accepted
-updated: 2026-10-15
+status: superseded
+updated: 2026-10-27
+superseded_by: ../../../../Modules/Blog/docs/stories/article-type-parental-sti-post-event.story.md
 tags: [sixteen, blog, post, content-type, event]
 qmd: "Sixteen content_type post event Novità Eventi FO"
 ---
 
 # Presentazione dei contenuti
+
+> **Superato (2026-10-27).** Le liste `/blog` e `/events` non filtrano piu' per `content_type`: `Post` e `Event` sono tipi Parental e
+> il discriminatore e' `Article.type` (`post` | `event`). Vedi la
+> [story Parental](../../../../Modules/Blog/docs/stories/article-type-parental-sti-post-event.story.md) e il contratto del Blog, anch'esso
+> marcato superato. Etichette pubbliche e superfici qui sotto restano valide; cambia solo il campo.
 
 Sixteen non introduce una tassonomia propria: legge il contratto del modulo Blog.
 

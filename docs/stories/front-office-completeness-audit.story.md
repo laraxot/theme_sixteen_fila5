@@ -56,3 +56,23 @@ Each finding was checked on disk before it was fixed. Two findings were wrong an
 7. Comments are auto-approved (`automatically_approve_all_comments => true`). For a public administration, moderation is safer. This is a product decision.
 8. The pre-existing Sixteen failures (39 in the suite on 2026-10-26) are in `ComunePagesTest` (dead routes and model), `SegnalazioniElencoPageTest` (an old homepage contract), `HeaderTenantFallbackTest` (header v1) and `BootstrapItaliaComponentsTest`. None of them touches the files changed here.
 9. The search covers tickets only. A real site-wide results page needs a story.
+
+## Second pass (2026-10-26 evening)
+
+Done:
+- **Site-wide search:** the CMS page `ricerca.index.json` plus `SearchFrontOfficeAction` cover tickets, posts, events and pages. The stub `pages/ricerca.blade.php` is removed. Story: Fixcity `site-wide-front-office-search`.
+- **Unknown detail slugs now return 404.** The site map page gets its breadcrumb and missing sections, and a test pins the sitemap without template URLs. Story: Sixteen `front-office-detail-not-found-and-sitemap-page`.
+- **External social, tel and mailto links** are no longer rewritten as `/it/...`. The tests pages no longer return 500 (the layout was deleted). Badge, rating legend, and the ticket-list phone placeholder are fixed. Stale tests now target the current pages. Story: Sixteen `sixteen-suite-stale-contracts`.
+- **Repairs after another session's merge:**
+  - comment reply avatar, and the Gravatar view;
+  - the `deleteOwnAccount` ability;
+  - the user menu in the canonical v1/tailwind header;
+  - the conflict markers in `blog/detail.blade.php`;
+  - the fake 05 0505 that came back.
+- **Templates:** `layouts/navigation` and `blog/category-filter` compile again (640 out of 640).
+- The root TestCase also rolls back the `blog` connection, so tests no longer leak articles.
+
+Still open, on top of the list above:
+- `ce04aee28e` deleted the 57 tenant configs again (`config/test`, `config/com`). Restoring them needs the user's OK.
+- The "double counters" in the personal practices page are a wrong finding: they match the design comuni reference (page index plus section heading).
+- `ComunePagesTest` (23 tests) targets routes and a model that do not exist. Deleting or rewriting it needs the user's OK; the replacement map is in the `sixteen-suite-stale-contracts` story.

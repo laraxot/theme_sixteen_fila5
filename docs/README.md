@@ -69,7 +69,7 @@ mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 
 - Il tema contiene controller e rotte (`app/Http/Controllers/`, `routes/web.php`, `routes/auth.php`) che a runtime non risultano registrati: `php artisan route:list` (461 rotte, senza route cache) non ha ne' `comune/*` ne' `auth/spid` ne' `auth/cie`. Sono codice dormiente, non la via con cui il tema serve le pagine.
 - Restano viste legacy non usate dal CSS principale: `resources/views/bootstrap-italia/` (16 Blade), `layouts/bootstrap-italia*.blade.php` (4), `pages_old/` (45); gli `@import` di Bootstrap Italia in `app.css` sono commentati.
-- Esistono `components/layouts/design-comuni.blade.php`, `design-comuni-authenticated.blade.php` e `design-comuni-bare.blade.php` (usato da `pages/tests/index.blade.php`), in contrasto con la regola [no-parallel-design-comuni-layout](wiki/rules/no-parallel-design-comuni-layout.md): vedi la story del 2026-10-14 per la decisione aperta.
+- Il layout pubblico canonico è `components/layouts/app.blade.php`: Sixteen è già Design Comuni. `design-comuni-authenticated.blade.php` e `design-comuni-bare.blade.php` restano solo template specializzati per le pagine di test che li dichiarano esplicitamente.
 
 ## Ownership e stack canonico
 

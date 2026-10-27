@@ -22,7 +22,7 @@ Lista `blog.index` = JSON CMS Fixcity + blocco `pub_theme::components.blocks.blo
 | Lista | Folio shell `container0.index` + CMS `blog.index` + blocco tema |
 | Post | `ThemeComposer` → `content_type=post` |
 | Dettaglio | Folio + CMS `blog.view` + `blog.detail` |
-| Chrome dettaglio | `layouts.design-comuni` + `data-dc`. Il JSON sta in `pages/blog/view.json` (slug `view`: la cartella aggiunge `blog.`) |
+| Chrome dettaglio | `layouts.app` + `data-dc`. Il JSON sta in `pages/blog/view.json` (slug `view`: la cartella aggiunge `blog.`) |
 | Commenti | `CommentsWidget` (Comment) |
 
 ## Parity Design Comuni — `lista-risorse.html`

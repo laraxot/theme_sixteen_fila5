@@ -38,7 +38,7 @@ it('draws the categories breadcrumb with the Design Comuni markup, not with util
     Assert::assertIsString($html);
     $items = HTMLDocument::createFromString($html, LIBXML_NOERROR)->querySelectorAll('.cmp-breadcrumbs ol.breadcrumb > li.breadcrumb-item');
 
-    expect($items)->toHaveCount(2)
-        ->and($items[0]?->querySelector('a')?->textContent)->toBe('Home')
-        ->and($items[1]?->getAttribute('aria-current'))->toBe('page');
+    Assert::assertCount(2, $items);
+    Assert::assertSame('Home', $items->item(0)?->querySelector('a')?->textContent);
+    Assert::assertSame('page', $items->item(1)?->getAttribute('aria-current'));
 });
