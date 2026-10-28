@@ -57,6 +57,14 @@ Themes/Sixteen/lang/it/
 // A:  {{ __('Ricordami') }}  ← ERRORE!
 ```
 
+### 4. FALLBACK CMS
+
+I blocchi CMS della lingua attiva hanno precedenza sui fallback tema. I fallback
+visibili al cittadino devono usare chiavi `pub_theme::` complete per tutte le
+lingue servite. Configurazioni globali non localizzate non devono sovrascrivere i
+cataloghi della lingua corrente; mantenerle solo come compatibilità della lingua
+per cui sono state scritte.
+
 **✅ GIUSTO - Creare la traduzione:**
 ```php
 // Mantenere: {{ __('pub_theme::auth.login.remember') }}

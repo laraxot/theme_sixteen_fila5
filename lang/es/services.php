@@ -19,5 +19,5 @@ return [
         'track_title' => 'Seguir una incidencia', 'track_body' => 'Consulta las actualizaciones con el código de seguimiento recibido tras el envío.', 'track_action' => 'Abrir seguimiento',
     ],
     'results' => ['singular' => 'tarea disponible', 'plural' => 'tareas disponibles', 'empty' => 'Ninguna tarea coincide con la búsqueda. Prueba con otras palabras.'],
-    'categories' => ['title' => 'Explora las incidencias públicas', 'subtitle' => 'Consulta el listado y el mapa de las incidencias publicadas.', 'items' => ['reports' => ['title' => 'Incidencias públicas', 'description' => 'Consulta las incidencias publicadas por el municipio y las actualizaciones de las intervenciones.']]],
+    'categories' => ['title' => 'Categorías de incidencias', 'subtitle' => 'Elige el tipo de problema que quieres comunicar o consulta las incidencias publicadas.', 'actions' => ['aria' => 'Acciones sobre incidencias', 'report' => 'Comunicar un problema', 'browse' => 'Consultar incidencias'], 'directory' => ['title' => 'Explora por categoría', 'subcategories' => 'Subcategorías', 'empty' => 'Las categorías aún no están disponibles. Puedes consultar las incidencias públicas.'], 'items' => ['reports' => ['title' => 'Incidencias públicas', 'description' => 'Consulta las incidencias publicadas por el municipio y las actualizaciones de las intervenciones.']]],
 ];

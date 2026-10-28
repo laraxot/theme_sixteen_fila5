@@ -17,6 +17,39 @@ return [
         'search_submit' => 'Submit',
         'result_one' => '1 news item found',
         'result_many' => ':count news items found',
+        'feedback' => [
+            'title' => 'How clear is the information on this page?',
+            'legend' => 'Rate this page from 1 to 5 stars',
+            'star_label' => 'Rate %d out of 5 stars',
+            'thanks' => 'Thank you. Your feedback will help us improve this service.',
+            'positive' => [
+                'question' => 'What did you like most?',
+                'answers' => [
+                    'clear' => 'The instructions were clear',
+                    'complete' => 'The instructions were complete',
+                    'progress' => 'I always knew I was following the right steps',
+                    'technical' => 'I did not have any technical issues',
+                    'other' => 'Other',
+                ],
+            ],
+            'negative' => [
+                'question' => 'Where did you have the most difficulty?',
+                'answers' => [
+                    'clear' => 'The instructions were sometimes unclear',
+                    'complete' => 'The instructions were sometimes incomplete',
+                    'progress' => 'I was sometimes unsure whether I was following the right steps',
+                    'technical' => 'I had technical issues',
+                    'other' => 'Other',
+                ],
+            ],
+            'detail' => [
+                'question' => 'Would you like to add more details?',
+                'label' => 'Details',
+                'help' => 'Enter up to 200 characters',
+            ],
+            'back' => 'Back',
+            'next' => 'Next',
+        ],
     ],
     'items' => [
         'one' => ['category' => 'Press release', 'date_iso' => '2026-09-01', 'date' => '1 September 2026', 'title' => 'New digital services for citizens', 'body' => 'New online journeys are available for municipal services.'],
