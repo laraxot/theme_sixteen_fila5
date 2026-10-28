@@ -327,7 +327,7 @@ A: No. Use Tailwind CSS + Alpine.js only. Bootstrap Italia classes may be in HTM
 A: Document in implementation report and adjust GSD plan. Maintain CSS-only approach unless critical.
 
 **Q: What's the rollback strategy?**  
-A: Git commit atomic changes. Each wave can be tested before proceeding to the next. Rollback via git revert if needed.
+A: Git commit atomic changes. Each wave can be tested before proceeding to the next. Rollback is forward-only: fix with a new commit (never `git revert`/`reset`/`checkout`).
 
 ### Getting Help
 

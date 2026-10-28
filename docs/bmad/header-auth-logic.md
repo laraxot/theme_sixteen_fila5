@@ -3,7 +3,7 @@ type: decision
 slug: header-auth-logic-area-personale
 status: applicato
 filosofia: il servizio pubblico richiede responsabilità; l'area personale non è anonima ma nominativa (nome reale dell'utente autenticato)
-scopo: mostrare stato (guest / auth) con chiarezza; non 'Mario Rossi' ma identità reale dell'utente (account di test fornito fuori repo: variabili DC_EMAIL e DC_PASS)
+scopo: "mostrare stato (guest / auth) con chiarezza; non 'Mario Rossi' ma identità reale dell'utente (account di test fornito fuori repo: variabili DC_EMAIL e DC_PASS)"
 funzionalita: non loggato → link 'Accedi all'area personale' (route login); loggato → mostra dati utente reale + link pagine area personale
 norme-legislative: multilingua (it/en), mobile responsive, accessibilità (aria-label, focus-visible), GDPR (autenticazione richiesta per dati personali), dichiarazione valore pubblico (callout wizard)
 zen: passo invisibile = identità verificata; poi accesso all'area personale con trasparenza e responsabilità

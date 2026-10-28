@@ -10,8 +10,8 @@ related:
   - ../auth-login-architettura.md
 decisions:
   - D-DOC-01: auth component files spostati da `components/pages/auth-*.blade.php` → `components/pages/auth/*.blade.php` (no prefisso ridondante, risolto merge conflict).
-  - D-DOC-02: `lista-categorie` è pagina CMS dinamica (`lista-categorie.index`) via `[container0]/index.blade.php`, NON una cartella dedicata; componente `categories.blade.php`; filosofia DRY per pagine list.
-  - D-DOC-03: Ponytail applicato: un solo piano BMAD, un solo aggiornamento index, nessun nuovo foglio CSS, nessun controller.
+  - D-DOC-02: "`lista-categorie` è pagina CMS dinamica (`lista-categorie.index`) via `[container0]/index.blade.php`, NON una cartella dedicata; componente `categories.blade.php`; filosofia DRY per pagine list."
+  - D-DOC-03: "Ponytail applicato: un solo piano BMAD, un solo aggiornamento index, nessun nuovo foglio CSS, nessun controller."
 constraints:
   - Docs BMAD solo in `Themes/*/docs/` (mai `bmad-output/`)
   - Second Brain: riferimento a `docs/bmad/auth-login-architettura.md`, `folio-pages-architecture.md`

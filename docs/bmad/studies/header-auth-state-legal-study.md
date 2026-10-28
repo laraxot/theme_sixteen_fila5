@@ -2,7 +2,6 @@
 id: header-auth-state-legal-study
 type: bmad-study
 title: Header Auth-State — Function + Legal + Multilang + Mobile Study
-type: study
 status: complete
 links:
   github_issue: "#999"

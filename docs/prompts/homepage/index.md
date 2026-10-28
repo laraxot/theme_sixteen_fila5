@@ -3,7 +3,7 @@ id: homepage-prompt
 title: Homepage Design Prompt — Sixteen / Design Comuni
 document_type: prompt
 category: design
-status: in-progress (la verifica sotto e' superata: vedi la correzione del 2026-10-13)
+status: "in-progress (la verifica sotto e' superata: vedi la correzione del 2026-10-13)"
 source_of_truth: true
 scope: [laravel/Themes/Sixteen/docs/prompts/homepage/]
 related:

@@ -1,7 +1,7 @@
 ---
 id: correction-dcp-22-json-file
 from: "Pensiero: test.tickets.create.json (errore — non esiste; il file corretto e' tickets.create.json)"
-to: "tickets.create.json esiste gia', slug corretto tickets.create. Non creare tests.tickets.create.json.
+to: "tickets.create.json esiste gia', slug corretto tickets.create. Non creare tests.tickets.create.json."
 
 type: correction
 scope: dcp-22 / tickets/create

@@ -20,7 +20,7 @@ status: active
 - [Lista categorie: contratto di rendering](./bmad/lista-categorie-rendering-contract.md)
 
 - [Documentation index](./index.md)
-- [Documentation governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md)
+- [Documentation naming and frontmatter rules](../../../../bashscripts/ai/wiki/rules/markdown-file-naming-and-frontmatter.md)
 - [Dependency refresh and verification](./bmad/dependency-refresh-and-verification.md)
 - [Typography remediation](./bmad/typography-comunidesign-remediation-bmad.md)
 - [FAQ route ownership](./bmad/faq-route-ownership.md)
@@ -39,8 +39,9 @@ assente. Il test di contratto lo verifica; il dettaglio è in
 
 Tema pubblico (front office) di Fixcity: resa Design Comuni su Laravel 13, PHP 8.4, Filament 5. Biglietto da visita: [IT](../README.md), [EN](./readme-en.md). L'indice operativo e' [00-INDEX.md](00-INDEX.md).
 
-`README.md` è l'ingresso canonico del tema. `00-INDEX.md` e `INDEX.md` sono
-mappe operative: orientano verso i documenti, ma non duplicano i contratti.
+`README.md` è l'ingresso canonico del tema. `00-INDEX.md` è l'indice operativo
+(documenti e cartelle): orienta verso i documenti, ma non duplica i contratti.
+`index.md` è un router storico; `INDEX.md` non esiste più (rimosso da git).
 
 ## Stato verificato (2026-10-14)
 
@@ -48,7 +49,7 @@ mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 |---|---|---|
 | E' il tema in uso? | si, vivo | `'pub_theme' => 'Sixteen'` in tutti e 4 i `laravel/config/**/xra.php`; `public_html/themes/Sixteen` e' un link a `laravel/Themes/Sixteen/public/` |
 | Dove vive il codice? | repo git separato (submodule) | `gitmodules.ini`, remote `git@github.com:laraxot/theme_sixteen_fila5.git`; Composer `laraxot/theme_sixteen_fila5`, namespace `Themes\Sixteen\` (app/), provider `Providers\ThemeServiceProvider` che estende `XotBaseThemeServiceProvider` |
-| Altri temi | `TwentyOne` (importato da Predict, non usato), `Barthelemy` e `Meetup` (gusci senza codice) | [Barthelemy/docs/README.md](../../Barthelemy/docs/README.md) |
+| Altri temi | `TwentyOne` (importato da Predict, non usato), `Barthelemy` e `Meetup` (gusci senza codice); al 2026-10-28 `laravel/Themes/` contiene solo Meetup, Sixteen, TwentyOne, Two, Zero: `Barthelemy` non è presente | [Meetup/docs](../../Meetup/docs/00-index.md) |
 
 ## Cosa contiene (conteggi del 2026-10-14)
 
@@ -61,10 +62,10 @@ mappe operative: orientano verso i documenti, ma non duplicano i contratti.
 
 ## Come si costruisce (da `package.json`)
 
-- `npm run build`: `vite build` (uscita in `public_html/themes/Sixteen`, cioe' `public/`), poi `npm run copy`, poi `php artisan view:clear` in `laravel/`. `build:with-webroot` e' lo stesso senza `view:clear`.
+- `npm run build`: `npm run prepare:static-assets` (`resources/scripts/prepare-static-assets.mjs`) e poi `vite build` (uscita in `public/`, collegata a `public_html/themes/Sixteen`). `build:with-webroot` e' `vite build` + `npm run copy`; la vecchia catena `vite build` + `copy` + `php artisan view:clear` e' ora `build1`.
 - `npm run dev`: server Vite. `npm test`: Jest. `npm run lint` e `npm run format`.
 - Smoke del browser: `test:map-picker-smoke`, `test:map-lit-smoke`, `test:map-lit-stress`, `test:auth-register-smoke`.
-- Riferimento esteso: [build/INDEX.md](build/INDEX.md).
+- Riferimento esteso: le 14 guide Vite in [build/](build/) (nessun indice proprio; partire da [vite-configuration-guide.md](build/vite-configuration-guide.md)).
 
 ## Limiti noti (verificati)
 
@@ -109,7 +110,7 @@ Second Brain: [no-docs-archive](../../../../bashscripts/ai/wiki/concepts/no-docs
 | 💶 Sostenibilità FO | [project-sustainability-front-office.md](./project-sustainability-front-office.md) |
 | 📣 Inbound blog/eventi | [inbound-marketing-blog-eventi.md](./inbound-marketing-blog-eventi.md) |
 | 🧭 Dipendenze e font | [Sixteen dependency maintenance](./bmad/dependency-refresh-and-verification.md) |
-| 🧠 Regole hub temi | [Laravel themes documentation hub](../../docs/README.md) |
+| 🧠 Moduli e temi (repo git separati) | [Multi-repo map](../../../../docs/wiki/rules/multi-repo-modules-themes-map.md) |
 
 ## Verifica 2026-10-19
 
