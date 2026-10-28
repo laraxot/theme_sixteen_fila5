@@ -20,8 +20,10 @@ return [
     ],
     'results' => ['singular' => 'task available', 'plural' => 'tasks available', 'empty' => 'No tasks match your search. Try different words.'],
     'categories' => [
-        'title' => 'Explore public reports',
-        'subtitle' => 'Browse the list and map of reports made public.',
+        'title' => 'Report categories',
+        'subtitle' => 'Choose the type of problem you want to report or browse reports already made public.',
+        'actions' => ['aria' => 'Report actions', 'report' => 'Report a problem', 'browse' => 'Browse reports'],
+        'directory' => ['title' => 'Explore by category', 'subcategories' => 'Subcategories', 'empty' => 'Categories are not available yet. You can still browse public reports.'],
         'items' => [
             'reports' => ['title' => 'Public reports', 'description' => 'Browse reports made public by the municipality and see intervention updates.'],
         ],

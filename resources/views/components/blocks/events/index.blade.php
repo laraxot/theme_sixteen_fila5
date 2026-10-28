@@ -17,38 +17,39 @@
         ?? config('sixteen.blog.parity')
         ?? [];
     $defaultFeedback = [
-        'title' => 'Quanto sono chiare le informazioni su questa pagina?',
-        'legend' => 'Valuta da 1 a 5 stelle la pagina',
-        'star_label' => 'Valuta %d stelle su 5',
-        'thanks' => 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!',
+        'title' => __('pub_theme::news.index.feedback.title'),
+        'legend' => __('pub_theme::news.index.feedback.legend'),
+        'star_label' => __('pub_theme::news.index.feedback.star_label'),
+        'thanks' => __('pub_theme::news.index.feedback.thanks'),
         'positive' => [
-            'question' => 'Quali sono stati gli aspetti che hai preferito?',
+            'question' => __('pub_theme::news.index.feedback.positive.question'),
             'answers' => [
-                'Le indicazioni erano chiare',
-                'Le indicazioni erano complete',
-                'Capivo sempre che stavo procedendo correttamente',
-                'Non ho avuto problemi tecnici',
-                'Altro',
+                __('pub_theme::news.index.feedback.positive.answers.clear'),
+                __('pub_theme::news.index.feedback.positive.answers.complete'),
+                __('pub_theme::news.index.feedback.positive.answers.progress'),
+                __('pub_theme::news.index.feedback.positive.answers.technical'),
+                __('pub_theme::news.index.feedback.positive.answers.other'),
             ],
         ],
         'negative' => [
-            'question' => 'Dove hai incontrato le maggiori difficoltà?',
+            'question' => __('pub_theme::news.index.feedback.negative.question'),
             'answers' => [
-                'A volte le indicazioni non erano chiare',
-                'A volte le indicazioni non erano complete',
-                'A volte non capivo se stavo procedendo correttamente',
-                'Ho avuto problemi tecnici',
-                'Altro',
+                __('pub_theme::news.index.feedback.negative.answers.clear'),
+                __('pub_theme::news.index.feedback.negative.answers.complete'),
+                __('pub_theme::news.index.feedback.negative.answers.progress'),
+                __('pub_theme::news.index.feedback.negative.answers.technical'),
+                __('pub_theme::news.index.feedback.negative.answers.other'),
             ],
         ],
         'detail' => [
-            'question' => 'Vuoi aggiungere altri dettagli?',
-            'label' => 'Dettaglio',
-            'help' => 'Inserire massimo 200 caratteri',
+            'question' => __('pub_theme::news.index.feedback.detail.question'),
+            'label' => __('pub_theme::news.index.feedback.detail.label'),
+            'help' => __('pub_theme::news.index.feedback.detail.help'),
         ],
-        'back' => 'Indietro',
-        'next' => 'Avanti',
+        'back' => __('pub_theme::news.index.feedback.back'),
+        'next' => __('pub_theme::news.index.feedback.next'),
     ];
+    $isItalian = app()->getLocale() === 'it';
     $parity = array_replace_recursive(
         [
             'title' => __('pub_theme::navigation.homepage.events'),
@@ -73,8 +74,10 @@
             'feedback' => $defaultFeedback,
             'contacts' => is_array($blogChrome['contacts'] ?? null) ? $blogChrome['contacts'] : [],
         ],
-        is_array($parityFromConfig) ? $parityFromConfig : [],
-        is_array($blogChrome['feedback'] ?? null) ? ['feedback' => $blogChrome['feedback']] : [],
+        is_array($parityFromConfig) ? array_replace($parityFromConfig, [
+            'feedback' => $isItalian && is_array($parityFromConfig['feedback'] ?? null) ? $parityFromConfig['feedback'] : [],
+        ]) : [],
+        $isItalian && is_array($blogChrome['feedback'] ?? null) ? ['feedback' => $blogChrome['feedback']] : [],
         array_filter([
             'feedback' => is_array($data['feedback'] ?? null) ? $data['feedback'] : null,
             'contacts' => is_array($data['contacts'] ?? null) ? $data['contacts'] : null,

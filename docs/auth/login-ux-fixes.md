@@ -89,6 +89,10 @@ Vedi ADR root [fo-pa-tokens-no-per-page-hex.md](../../../../../docs/wiki/decisio
 
 ## Verifica
 
+## Pass 2026-10-20 — checkbox Ricordami
+
+`Checkbox::make('remember')` c'era. In pagina il riquadro non si vedeva: `body:has(.page-content[data-dc]) input` impone `-webkit-appearance: none` e le utility Filament (sfondo, anello, spunta) non dipingono, quindi il controllo da 20px è trasparente. Il vestito disegna il riquadro su `.fi-checkbox-input`, spunta bianca su verde quando è selezionato. Nessun checkbox scritto a mano.
+
 ## Pass 2026-10-20 — password rivelabile Filament
 
 Lo schema aveva già `->password()->revealable()`. In pagina l'occhio stava sotto il campo (wrapper `display: block`, icona senza misura) perché lo sheet compilato non dipinge `.fi-input-wrp` dentro `data-dc`. Il vestito del componente rimette la suffix action dentro il campo. Nessun toggle Alpine scritto a mano.

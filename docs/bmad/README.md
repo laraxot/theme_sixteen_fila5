@@ -50,6 +50,14 @@ Sixteen partecipa ai workflow FixCity `07-ui-ux`, `08-security` (privacy visuale
 Non replica Actions, policy, schema o persistenza di FixCity.
 Indice: [FixCity workflows](../../../../Modules/Fixcity/docs/bmad/workflows/README.md).
 
+## Upload fotocamera mobile
+
+La story owner cross-module è [FIXCITY-MEDIA-001](../../../../Modules/Fixcity/docs/bmad/stories/mobile-camera-upload.story.md).
+Sixteen contribuisce solo con il [supporting handoff camera-upload](./stories/camera-upload-mobile-fix.story.md): bundle, attributi del campo,
+normalizzazione browser, fallback accessibile e verifica responsive. Claim,
+decisioni, handoff e stato restano nella story owner; `docs/chat/` è archivio
+storico e non riceve nuove note operative.
+
 **Design Comuni BMAD (ex `bmad-output/`):** [front-office-design-comuni/](front-office-design-comuni/README.md).
 Documenti FO solo qui — mai in `bmad-output/`.
 

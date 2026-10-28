@@ -1,6 +1,6 @@
 {{--
     Dettaglio PUBBLICO di una segnalazione (pagina reale /{lang}/tickets/{id}), DCP-148. Parametro: $detail (BuildPublicTicketDetailAction,
-    l'unica fonte dei campi esposti: mai codice di tracciamento, autore, email, immagini). Non c'e' un riferimento Design Comuni da
+    l'unica fonte dei campi esposti: mai autore o email; codice di tracciamento e foto solo al proprietario). Non c'e' un riferimento Design Comuni da
     replicare (sito/segnalazione-dettaglio.html e' la pagina di servizio, non il dettaglio di un ticket): stesso chrome, stesso breadcrumb
     e stesse classi dell'elenco `ticket-list/design-comuni`, contenuto con uno scopo per elemento.
     L'indirizzo e' una riga etichetta + valore (il partial info-summary ha un'intestazione vuota e padding da riepilogo del wizard).
@@ -107,6 +107,25 @@
                     </div>
                 @endif
             </section>
+            @if ($detail['images'] !== [])
+                <section aria-labelledby="td-images" class="mt-40">
+                    <h2 class="title-xxlarge mb-3" id="td-images">{{ $t('images') }}</h2>
+                    <div class="td-gallery" role="list">
+                        @foreach ($detail['images'] as $imageUrl)
+                            <figure class="td-gallery__item" role="listitem">
+                                <a href="{{ $imageUrl }}" target="_blank" rel="noopener">
+                                    <img
+                                        src="{{ $imageUrl }}"
+                                        alt="{{ $t('image_alt', ['name' => $detail['title']]) }}"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </a>
+                            </figure>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
             <section aria-labelledby="td-description" class="mt-40">
                 <h2 class="title-xxlarge mb-3" id="td-description">{{ $t('description.title') }}</h2>
                 @if (trim($detail['description']) !== '')

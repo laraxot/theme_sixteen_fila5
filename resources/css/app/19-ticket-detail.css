@@ -24,6 +24,32 @@ body:has(.page-content[data-dc]) .td-map {
   overflow: hidden;
 }
 
+body:has(.page-content[data-dc]) .td-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 20rem)); /* una foto sola non deve riempire lo schermo: il clic apre l'originale */
+  gap: 1rem;
+}
+
+body:has(.page-content[data-dc]) .td-gallery__item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d9e1e8;
+  border-radius: 0.25rem;
+  background: #fff;
+}
+
+body:has(.page-content[data-dc]) .td-gallery__item a,
+body:has(.page-content[data-dc]) .td-gallery__item img {
+  display: block;
+  width: 100%;
+}
+
+body:has(.page-content[data-dc]) .td-gallery__item img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain; /* foto intera: con `cover` una foto verticale del telefono perde il 44% dell'altezza */
+  background: #f2f5f8;
+}
+
 /* La cronologia e' una lista ordinata con una linea verticale: un punto per ogni cambio di stato. */
 body:has(.page-content[data-dc]) .td-timeline {
   margin: 0 0 0 0.5rem; /* il punto sporge a sinistra della linea: resta dentro il contenuto */

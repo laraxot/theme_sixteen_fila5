@@ -12,7 +12,8 @@
     use Modules\Fixcity\Datas\PublicTicketListFilters;
     use Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes;
 
-    $base = FrontofficeRoutes::ticketsIndex();
+    // path senza host, come il resto del front office (FrontofficeUrl)
+    $base = FrontofficeRoutes::ticketsIndex(false);
     $filters = PublicTicketListFilters::fromRequest(request());
     $list = app(ListPublicTicketsAction::class)->execute($filters);
     $t = static fn (string $key, array $replace = []): string => __('fixcity::ticket_list.'.$key, $replace);

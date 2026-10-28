@@ -17,6 +17,39 @@ return [
         'search_submit' => 'Absenden',
         'result_one' => '1 Meldung gefunden',
         'result_many' => ':count Meldungen gefunden',
+        'feedback' => [
+            'title' => 'Wie verständlich sind die Informationen auf dieser Seite?',
+            'legend' => 'Bewerten Sie diese Seite mit 1 bis 5 Sternen',
+            'star_label' => 'Bewertung: %d von 5 Sternen',
+            'thanks' => 'Vielen Dank. Ihre Rückmeldung hilft uns, diesen Service zu verbessern.',
+            'positive' => [
+                'question' => 'Was hat Ihnen besonders gut gefallen?',
+                'answers' => [
+                    'clear' => 'Die Hinweise waren verständlich',
+                    'complete' => 'Die Hinweise waren vollständig',
+                    'progress' => 'Ich wusste jederzeit, ob ich richtig vorging',
+                    'technical' => 'Es gab keine technischen Probleme',
+                    'other' => 'Sonstiges',
+                ],
+            ],
+            'negative' => [
+                'question' => 'Wo hatten Sie die größten Schwierigkeiten?',
+                'answers' => [
+                    'clear' => 'Die Hinweise waren teilweise unverständlich',
+                    'complete' => 'Die Hinweise waren teilweise unvollständig',
+                    'progress' => 'Ich war mir teilweise unsicher, ob ich richtig vorging',
+                    'technical' => 'Es gab technische Probleme',
+                    'other' => 'Sonstiges',
+                ],
+            ],
+            'detail' => [
+                'question' => 'Möchten Sie weitere Einzelheiten hinzufügen?',
+                'label' => 'Einzelheiten',
+                'help' => 'Geben Sie höchstens 200 Zeichen ein',
+            ],
+            'back' => 'Zurück',
+            'next' => 'Weiter',
+        ],
     ],
     'items' => [
         'one' => ['category' => 'Pressemitteilung', 'date_iso' => '2026-09-01', 'date' => '1. September 2026', 'title' => 'Neue digitale Dienste für Bürger', 'body' => 'Neue Online-Angebote für kommunale Dienste sind verfügbar.'],
