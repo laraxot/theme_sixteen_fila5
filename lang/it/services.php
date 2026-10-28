@@ -20,8 +20,10 @@ return [
     ],
     'results' => ['singular' => 'attività disponibile', 'plural' => 'attività disponibili', 'empty' => 'Nessuna attività corrisponde alla ricerca. Prova con parole diverse.'],
     'categories' => [
-        'title' => 'Esplora le segnalazioni',
-        'subtitle' => 'Consulta l’elenco e la mappa delle segnalazioni rese pubbliche.',
+        'title' => 'Categorie per le segnalazioni',
+        'subtitle' => 'Scegli il tipo di problema che vuoi segnalare oppure consulta le segnalazioni già pubblicate.',
+        'actions' => ['aria' => 'Azioni sulle segnalazioni', 'report' => 'Segnala un problema', 'browse' => 'Consulta le segnalazioni'],
+        'directory' => ['title' => 'Esplora per categoria', 'subcategories' => 'Sottocategorie', 'empty' => 'Le categorie non sono ancora disponibili. Puoi comunque consultare le segnalazioni pubbliche.'],
         'items' => [
             'reports' => ['title' => 'Segnalazioni pubbliche', 'description' => 'Consulta le segnalazioni che il Comune ha reso pubbliche e lo stato degli interventi.'],
         ],

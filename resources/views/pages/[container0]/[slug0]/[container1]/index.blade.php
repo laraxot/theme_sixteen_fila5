@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Laravel\Folio\render;
+use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
@@ -30,13 +31,18 @@ render(function (View $view, string $container0, string $slug0, string $containe
 });
 
 new class extends Component {
+    #[Locked]
     public string $container0 = '';
+    #[Locked]
     public string $slug0 = '';
+    #[Locked]
     public string $container1 = '';
 
+    #[Locked]
     public string $pageSlug = '';
 
     /** @var array<string, mixed> */
+    #[Locked]
     public array $data = [];
 
     public function mount(string $container0, string $slug0 = '', string $container1 = ''): void

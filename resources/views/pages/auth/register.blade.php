@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 use Modules\User\Actions\Auth\GetPostLoginUrlAction;
@@ -28,9 +29,11 @@ render(function (View $view): View|RedirectResponse {
 
 new class extends Component
 {
+    #[Locked]
     public string $pageSlug = '';
 
     /** @var array<string, mixed> */
+    #[Locked]
     public array $data = [];
 
     public function mount(): void

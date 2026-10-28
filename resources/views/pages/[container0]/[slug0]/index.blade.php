@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 use Modules\Cms\Actions\ResolvePageAction;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
@@ -12,15 +13,20 @@ name('container0.view');
 middleware(PageSlugMiddleware::class);
 
 new class extends Component {
+    #[Locked]
     public string $container0 = '';
+    #[Locked]
     public string $slug0 = '';
 
+    #[Locked]
     public string $pageSlug = '';
 
     /** Chrome Design Comuni (JSON `layout` = design-comuni*): attiva lo scope CSS di resources/css/design-comuni. */
+    #[Locked]
     public bool $isDesignComuni = false;
 
     /** @var array<string, mixed> */
+    #[Locked]
     public array $data = [];
 
     public function mount(string $container0, string $slug0 = ''): void

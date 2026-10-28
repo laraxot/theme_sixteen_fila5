@@ -17,6 +17,7 @@ status: active
 ## Operational guides
 
 - [Verified recovery, accessibility corrections and evidence](./bmad/verification-recovery.md)
+- [Lista categorie: contratto di rendering](./bmad/lista-categorie-rendering-contract.md)
 
 - [Documentation index](./index.md)
 - [Documentation governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md)
