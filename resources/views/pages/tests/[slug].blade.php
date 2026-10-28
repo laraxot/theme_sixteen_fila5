@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 
@@ -13,11 +14,14 @@ middleware(PageSlugMiddleware::class);
 
 new class extends Component
 {
+    #[Locked]
     public string $slug = '';
 
+    #[Locked]
     public string $pageSlug = '';
 
     /** @var array<string, mixed> */
+    #[Locked]
     public array $data = [];
 
     public function mount(string $slug = ''): void

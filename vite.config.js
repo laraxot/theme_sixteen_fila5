@@ -153,7 +153,7 @@ export default defineConfig({
     ],
 
     resolve: {
-        dedupe: ['lit', 'leaflet', 'leaflet.heat', 'leaflet.markercluster'],
+        dedupe: ['lit', 'leaflet', 'leaflet.heat', 'leaflet.markercluster', 'heic2any'],
         alias: {
             '@': resolve(import.meta.dirname, 'resources'),
             '@modules': resolve(import.meta.dirname, '../../Modules'),

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 use Themes\Sixteen\Actions\Folio\ResolveContainer0IndexAction;
@@ -29,11 +30,14 @@ render(function (View $view, string $container0): View|RedirectResponse {
 });
 
 new class extends Component {
+    #[Locked]
     public string $container0 = '';
 
+    #[Locked]
     public string $pageSlug = '';
 
     /** @var array<string, mixed> */
+    #[Locked]
     public array $data = [];
 
     public function mount(string $container0): void

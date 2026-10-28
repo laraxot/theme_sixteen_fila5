@@ -42,7 +42,9 @@ qmd: "doc folders index sixteen"
 
 ## Index / Search
 - `qmd` indexing per ricerche rapide su `docs/`
-- `docs/chat/` per nuove conversazioni (senza date nei nomi file, regola `agent-chat-directory.md`)
+- `stories/` è il punto operativo per nuove conversazioni di lavoro, claim, handoff,
+  decisioni e verifiche BMAD
+- `docs/chat/` è legacy/archive: non creare nuove note operative lì
 
 ## Filament Wizard — /it/tickets/create (NEW)
 - Story: `docs/bmad/stories/fil-tickets-create-filament-wizard-parity.story.md`

@@ -19,5 +19,5 @@ return [
         'track_title' => 'Meldung verfolgen', 'track_body' => 'Prüfen Sie Aktualisierungen mit dem Tracking-Code, den Sie nach dem Senden erhalten haben.', 'track_action' => 'Tracking öffnen',
     ],
     'results' => ['singular' => 'Aufgabe verfügbar', 'plural' => 'Aufgaben verfügbar', 'empty' => 'Keine Aufgabe entspricht Ihrer Suche. Versuchen Sie andere Begriffe.'],
-    'categories' => ['title' => 'Öffentliche Meldungen entdecken', 'subtitle' => 'Die Liste und Karte der veröffentlichten Meldungen ansehen.', 'items' => ['reports' => ['title' => 'Öffentliche Meldungen', 'description' => 'Von der Gemeinde veröffentlichte Meldungen und den Bearbeitungsstand ansehen.']]],
+    'categories' => ['title' => 'Kategorien für Meldungen', 'subtitle' => 'Wählen Sie die Art des Problems oder sehen Sie veröffentlichte Meldungen an.', 'actions' => ['aria' => 'Aktionen für Meldungen', 'report' => 'Problem melden', 'browse' => 'Meldungen ansehen'], 'directory' => ['title' => 'Nach Kategorie erkunden', 'subcategories' => 'Unterkategorien', 'empty' => 'Kategorien sind noch nicht verfügbar. Sie können trotzdem öffentliche Meldungen ansehen.'], 'items' => ['reports' => ['title' => 'Öffentliche Meldungen', 'description' => 'Von der Gemeinde veröffentlichte Meldungen und den Bearbeitungsstand ansehen.']]],
 ];

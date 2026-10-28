@@ -20,7 +20,7 @@ qmd: "second brain: designcomuni auth + blog/eventi sixteen"
 
 ## Pattern da applicare su FixCity
 
-La password del login è il campo Filament `revealable()`: l'occhio è la suffix action, il tema sistema solo il flex del wrapper perché lo sheet non dipinge dentro `data-dc`. Il login non è una card con gradient. Il riferimento è `src/pages/servizi/accesso-servizio.hbs`: `cmp-heading`, blocchi `cmp-text-button`, fascia contatti. L'account Fixcity (email e password, widget User) è il blocco «Altre utenze». SPID e CIE si aggiungono solo con un provider vero. Censimento: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md).
+«Ricordami» è il checkbox Filament: il foglio Design Comuni lo rende trasparente, il riquadro si disegna su `.fi-checkbox-input`. La password del login è il campo Filament `revealable()`: l'occhio è la suffix action, il tema sistema solo il flex del wrapper perché lo sheet non dipinge dentro `data-dc`. Il login non è una card con gradient. Il riferimento è `src/pages/servizi/accesso-servizio.hbs`: `cmp-heading`, blocchi `cmp-text-button`, fascia contatti. L'account Fixcity (email e password, widget User) è il blocco «Altre utenze». SPID e CIE si aggiungono solo con un provider vero. Censimento: [auth-login-design-comuni.md](../plans/auth-login-design-comuni.md).
 
 - Register: stesso ritmo di componenti del login, non una card gradient
 - Login: heading + «Altre utenze» (`LoginWidget`) + contatti
