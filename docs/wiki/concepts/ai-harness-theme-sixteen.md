@@ -35,7 +35,7 @@ Estensione locale della [mappa HackerNoon root](../../../../../../docs/wiki/conc
 | 003 | Folio `[container0]/[slug0]`: `mount($container0)` — mai `request()->route()` in `@php` (STORY-141 solo anti-`@volt` dinamico) |
 | 006 | Review UX auth (password stacked, contrasto) — issue tema #58 |
 | 009 | No dump intero `resources/views/` — qmd + file mirati |
-| 015 | Filament-first, no inline JS (`docs/rules/NO-INLINE-JS.md`) |
+| 015 | Filament-first, no inline JS (`docs/rules/no-inline-js.md`) |
 | 020 | Wiki tema `docs/wiki/concepts/` |
 
 ## Regole critiche

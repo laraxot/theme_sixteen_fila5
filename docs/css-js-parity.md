@@ -167,5 +167,5 @@ Senza screenshot automatici, verificare visivamente:
 
 ## See Also
 - [Segnalazione CSS Diff](segnalazione-css-diff.md)
-- [Design Comuni Master Plan](design-comuni/MASTER_IMPLEMENTATION_PLAN.md)
+- [Design Comuni Master Plan](design-comuni/master-implementation-plan.md)
 - [Sixteen Theme Index](../../docs/themes/index.md)

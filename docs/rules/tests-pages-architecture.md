@@ -57,7 +57,7 @@ new class extends Component {
 
 ## Reference
 - See: `pages/[container0]/[slug].blade.php` for correct pattern
-- See: `docs/architecture/PAGE_ROUTING_ARCHITECTURE.md`
+- See: `docs/architecture/page-routing-architecture.md`
 
 ### 7. HTML Parity Tooling
 - Use `bashscripts/html/html-structure-compare.sh` as the canonical parity script

@@ -87,5 +87,5 @@ npm run copy
 - [Bashscripts docs index](../../../../bashscripts/docs/index.md)
 - [Bashscripts inspect-readmore docs](../../../../bashscripts/docs/inspect-readmore-tool.md)
 - [Theme docs README](./README.md)
-- [Analisi precedente](./HOMEPAGE-VISUAL-ANALYSIS.md)
-- [Report precedente](./HOMEPAGE-CSS-JS-FIXES-COMPLETE.md)
+- [Analisi precedente](./homepage-visual-analysis.md)
+- [Report precedente](./homepage-css-js-fixes-complete.md)

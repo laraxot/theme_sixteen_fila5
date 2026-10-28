@@ -75,7 +75,7 @@ Strumenti: `bashscripts/inspectors/homepage-visual-parity/`, Playwright Sixteen.
 
 ## Collegamenti
 
-- [SEGNALAZIONI_ELENCO_ANALISI.md](../SEGNALAZIONI_ELENCO_ANALISI.md) — analisi 2026-04-04 (92% righe, componenti base OK).
+- [SEGNALAZIONI_ELENCO_ANALISI.md](../segnalazioni-elenco-analisi.md) — analisi 2026-04-04 (92% righe, componenti base OK).
 - [body-structure-comparison/ticket-list/report.md](../../body-structure-comparison/ticket-list/report.md)
 - [Fixcity ticket-list-map-architecture.md](../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md)
 - [no-pure-livewire-outside-filament-widgets.md](../../../../../../docs/wiki/concepts/no-pure-livewire-outside-filament-widgets.md)

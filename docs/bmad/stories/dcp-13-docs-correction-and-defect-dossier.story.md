@@ -17,7 +17,7 @@ tags: [docs, sixteen, bmad]
 ## Fatto
 - `docs/prompts/homepage/index.md`: dichiarazioni non misurate marcate come superate; misure reali aggiunte.
 - `docs/prompts/homepage/00-COORDINATION.md`: riscritto (la versione precedente descriveva una corsia rimossa).
-- Dossier `docs/bmad/homepage-visual-parity-defects/DEFECTS-D01-D14.md`: causa verificata, prevenzione, fix, controllo per ciascun difetto.
+- Dossier `docs/bmad/homepage-visual-parity-defects/defects-d01-d14.md`: causa verificata, prevenzione, fix, controllo per ciascun difetto.
 - Decisione sulle cause e i guardrail, lezioni, nota di metodo nel wiki del tema.
 - Documentazione degli strumenti in `bashscripts/docs/visual-comparison/` (indice aggiornato).
 

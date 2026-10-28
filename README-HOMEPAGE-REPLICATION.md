@@ -17,9 +17,9 @@ discussions: []
 
 - **Live Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html
 - **Local Implementation**: http://127.0.0.1:8000/it/tests/homepage
-- **Documentation**: [docs/00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-HOMEPAGE-REPLICATION-INDEX.md)
-- **Status Guide**: [docs/00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-IMPLEMENTATION-STATUS.md)
-- **Components**: [docs/ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/ALPINE-JS-COMPONENTS.md)
+- **Documentation**: [docs/00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-homepage-replication-index.md)
+- **Status Guide**: [docs/00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-implementation-status.md)
+- **Components**: [docs/ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/alpine-js-components.md)
 
 ## Project Overview
 
@@ -92,10 +92,10 @@ Maps all Bootstrap Italia classes to Tailwind CSS using `@layer components`:
 
 ### 3. Comprehensive Documentation
 
-- **00-IMPLEMENTATION-STATUS.md** - Complete implementation guide
-- **00-HOMEPAGE-REPLICATION-INDEX.md** - Master index with navigation
-- **CSS-MAPPING-ANALYSIS-REPORT.md** - CSS analysis and unmapped classes
-- **ALPINE-JS-COMPONENTS.md** - Component documentation (10,000+ words)
+- **00-implementation-status.md** - Complete implementation guide
+- **00-homepage-replication-index.md** - Master index with navigation
+- **css-mapping-analysis-report.md** - CSS analysis and unmapped classes
+- **alpine-js-components.md** - Component documentation (10,000+ words)
 - Plus analysis, visual comparisons, and implementation guides
 
 ## Build & Deployment
@@ -176,10 +176,10 @@ laravel/Themes/Sixteen/
 │           └── carousel.js                (Carousel navigation)
 │
 └── docs/
-    ├── 00-HOMEPAGE-REPLICATION-INDEX.md   (Master index)
-    ├── 00-IMPLEMENTATION-STATUS.md        (Status guide)
-    ├── CSS-MAPPING-ANALYSIS-REPORT.md     (CSS analysis)
-    ├── ALPINE-JS-COMPONENTS.md            (Component docs)
+    ├── 00-homepage-replication-index.md   (Master index)
+    ├── 00-implementation-status.md        (Status guide)
+    ├── css-mapping-analysis-report.md     (CSS analysis)
+    ├── alpine-js-components.md            (Component docs)
     └── [analysis, screenshots, comparisons...]
 ```
 
@@ -277,16 +277,16 @@ laravel/Themes/Sixteen/
 ## Documentation
 
 ### Start Here
-- **[00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-IMPLEMENTATION-STATUS.md)** - Complete status guide with next steps
+- **[00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-implementation-status.md)** - Complete status guide with next steps
 
 ### Components
-- **[ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/ALPINE-JS-COMPONENTS.md)** - Full Alpine.js documentation
+- **[ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/alpine-js-components.md)** - Full Alpine.js documentation
 
 ### Analysis
-- **[CSS-MAPPING-ANALYSIS-REPORT.md](laravel/Themes/Sixteen/docs/CSS-MAPPING-ANALYSIS-REPORT.md)** - CSS mapping details
+- **[CSS-MAPPING-ANALYSIS-REPORT.md](laravel/Themes/Sixteen/docs/css-mapping-analysis-report.md)** - CSS mapping details
 
 ### Master Index
-- **[00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-HOMEPAGE-REPLICATION-INDEX.md)** - Navigation guide
+- **[00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-homepage-replication-index.md)** - Navigation guide
 
 ## Maintenance
 
@@ -346,12 +346,12 @@ Current metrics:
 ## Support
 
 ### Documentation
-- **Implementation Status**: [00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-IMPLEMENTATION-STATUS.md)
-- **Component Docs**: [ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/ALPINE-JS-COMPONENTS.md)
-- **Master Index**: [00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-HOMEPAGE-REPLICATION-INDEX.md)
+- **Implementation Status**: [00-IMPLEMENTATION-STATUS.md](laravel/Themes/Sixteen/docs/00-implementation-status.md)
+- **Component Docs**: [ALPINE-JS-COMPONENTS.md](laravel/Themes/Sixteen/docs/alpine-js-components.md)
+- **Master Index**: [00-HOMEPAGE-REPLICATION-INDEX.md](laravel/Themes/Sixteen/docs/00-homepage-replication-index.md)
 
 ### Issues & Debugging
-1. Read: `docs/00-IMPLEMENTATION-STATUS.md`
+1. Read: `docs/00-implementation-status.md`
 2. Check: Relevant documentation
 3. Run: `./bashscripts/accessibility-audit.sh`
 4. Rebuild: `npm run build && npm run copy`

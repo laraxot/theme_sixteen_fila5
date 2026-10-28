@@ -21,7 +21,7 @@ status: draft
 
 ### 1. Master Plan Created
 
-**Document:** [`design-comuni/REPLICATION_MASTER_PLAN.md`](REPLICATION_MASTER_PLAN.md)
+**Document:** [`design-comuni/replication-master-plan.md`](replication-master-plan.md)
 
 **Contents:**
 - Architecture overview
@@ -103,7 +103,7 @@ status: draft
 
 ### 5. Header Analysis Documented
 
-**Document:** [`design-comuni/analysis/HEADER_ANALYSIS.md`](analysis/HEADER_ANALYSIS.md)
+**Document:** [`design-comuni/analysis/header-analysis.md`](analysis/header-analysis.md)
 
 **Contents:**
 - Visual differences (colors, logo, text, navigation)
@@ -242,10 +242,10 @@ All work proceeding as planned. Multi-agent coordination working effectively.
 
 ### Documentation
 
-- [Master Plan](REPLICATION_MASTER_PLAN.md)
-- [Header Analysis](analysis/HEADER_ANALYSIS.md)
+- [Master Plan](replication-master-plan.md)
+- [Header Analysis](analysis/header-analysis.md)
 - [Layout Architecture](../layout-architecture.md)
-- [Vite Manifest Fix](../build/VITE_MANIFEST_FIX_COMPLETE.md)
+- [Vite Manifest Fix](../build/vite-manifest-fix-complete.md)
 
 ### External
 

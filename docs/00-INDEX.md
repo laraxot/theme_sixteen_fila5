@@ -21,13 +21,13 @@ route:list` non ha `comune/*`, `auth/spid` ne' `auth/cie`. Stato e conteggi in
 [README.md](README.md).
 
 Questo file è l'indice operativo unico. Stato reale degli altri indici (verificato
-2026-10-14): `00-index.old.md`, `DOCUMENTATION_INDEX.old.md` e
-`INDEX.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` NON è
+2026-10-14): `00-index.old.md`, `documentation-index.old.md` e
+`index.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` NON è
 storico, è la mappa viva delle sottocartelle (DCP-112); `index.md` è l'indice
-BMAD/QMD più vecchio e `MASTER_DOCUMENTATION.md` è un resoconto del 2026-04-01,
+BMAD/QMD più vecchio e `master-documentation.md` è un resoconto del 2026-04-01,
 entrambi senza suffisso `.old`; restano anche `00-INDEX.md.tmp` (residuo del
-2026-09-24), `00-HOMEPAGE-REPLICATION-INDEX.md`, `DESIGN_COMUNI_REPLICATION_INDEX.md`,
-`REPLIKATE-MASTER-INDEX.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
+2026-09-24), `00-homepage-replication-index.md`, `design-comuni-replication-index.md`,
+`replikate-master-index.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
 nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 
 ## Riorganizzazione docs 2026-10-13
@@ -49,7 +49,7 @@ nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 | Supporto | `prompts/` (338, coordinamento tra agenti, es. `prompts/homepage/`), `scripts/` (16), `llm-wiki/` (9) |
 | Evidence (immutabili o storiche) | `screenshots/` (260), `visual-parity/` (280), `visual-comparison/` (224), `body-structure-comparison/` (156), `analysis/` (142), `comparisons/` (83), `visual-analysis/` (53), `html-parity-reports/` (29), `html-structure-comparison/` (21), `html-compare/` (12), `Main_files/` (47), `raw/` (16), `design-comuni/*/raw` |
 | Generate | `graphify-out/` (1.556 file: `cache/`, `graph.json`, `manifest.json`), `qmd-index/` |
-| Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `BATCH_PAGES_ANALYSIS.md`: 98) |
+| Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `batch-pages-analysis.md`: 98) |
 | Mappa viva | [INDEX.md](index.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
 
 ## Percorsi di lettura
@@ -63,7 +63,7 @@ nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 7. [header/footer data model](bmad/header-footer-data-model.md) — elementi, forma JSON e AC;
 8. [header/footer rationale](second-brain/header-footer-rationale.md) — decisione e perché;
 9. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
-10. [design-comuni](design-comuni/DESIGN-COMUNI-CANONICAL.md) — vincoli visuali;
+10. [design-comuni](design-comuni/design-comuni-canonical.md) — vincoli visuali;
 11. [design-system](design-system/README.md) — token e componenti del tema;
 12. [pages](pages/) — contratti delle pagine e parity;
 13. [stories](stories/) — storie BMAD e acceptance criteria;
@@ -116,7 +116,7 @@ chiude il gate.
 ## Parity Design Comuni v2 (2026-10-13)
 - [Epic DCP-00 e storie per la ripresa](bmad/stories/dcp-00-epic-design-comuni-parity-v2.story.md)
 - [Perche' la parity non e' stata completata e guardrail](bmad/decisions/parity-root-cause-and-guardrails.md)
-- [Dossier dei 14 difetti della homepage](bmad/homepage-visual-parity-defects/DEFECTS-D01-D14.md)
+- [Dossier dei 14 difetti della homepage](bmad/homepage-visual-parity-defects/defects-d01-d14.md)
 - [Coordinamento tra agenti](prompts/homepage/00-COORDINATION.md)
 - [Zen del wizard segnalazione (logica/perche'/filosofia/religione/politica)](bmad/decisions/segnalazione-flow-parity-zen.md)
 - [DCP-32 wizard step 1 privacy](bmad/stories/dcp-32-wizard-step1-privacy.story.md) · [DCP-33 step 2 dati + mappa](bmad/stories/dcp-33-wizard-step2-dati.story.md) · [DCP-34 step 3 riepilogo + mappa](bmad/stories/dcp-34-wizard-step3-riepilogo.story.md) · [DCP-35 conferma](bmad/stories/dcp-35-conferma-parity.story.md)
@@ -140,7 +140,7 @@ chiude il gate.
 - [DCP-110 area personale: Le mie segnalazioni e Segnalazioni che seguo](bmad/stories/dcp-110-area-personale-pratiche-e-seguite.story.md)
 
 ## Registro story e dettaglio ticket (2026-10-14)
-- [Registro completo delle story](bmad/stories/00-REGISTRO-COMPLETO.md): le story di `stories/` e `bmad/stories/` che prima non avevano un indice (stato e titolo dichiarati nei file)
+- [Registro completo delle story](bmad/stories/00-registro-completo.md): le story di `stories/` e `bmad/stories/` che prima non avevano un indice (stato e titolo dichiarati nei file)
 - [DCP-148 dettaglio pubblico e Segui](bmad/stories/dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md): blocco `components/blocks/ticket-detail/design-comuni.blade.php`
 - [DCP-152 (modulo Geo): marker del dettaglio e pulsanti della mappa](../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md): il blocco passa `marker-icon-url`, `marker-color`, `marker-label` al `coordinate-picker-lit` (vedi [coordinate-picker](wiki/coordinate-picker.md))
 

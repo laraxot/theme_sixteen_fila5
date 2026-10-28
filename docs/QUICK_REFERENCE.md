@@ -15,8 +15,8 @@ status: draft
 ## 🎯 Phase 2 Launch (START HERE)
 
 ### 1. Read These (15 min total)
-- `laravel/Themes/Sixteen/docs/PHASE_1_CHECKPOINT.md` - What's done, what's next
-- `laravel/Themes/Sixteen/docs/IMPLEMENTATION_MASTER_PLAN.md` - Detailed execution plan
+- `laravel/Themes/Sixteen/docs/phase-1-checkpoint.md` - What's done, what's next
+- `laravel/Themes/Sixteen/docs/implementation-master-plan.md` - Detailed execution plan
 
 ### 2. Essential Commands
 
@@ -142,13 +142,13 @@ UPDATE todos SET status = 'done' WHERE id = 'breadcrumb-css';
 
 ## 🔗 Documentation Navigation
 
-- **Master Plan**: `IMPLEMENTATION_MASTER_PLAN.md`
-- **Checkpoint**: `PHASE_1_CHECKPOINT.md`
-- **Bootstrap Reference**: `analysis/REFERENCE_DESIGN_ANALYSIS.md` (52KB)
+- **Master Plan**: `implementation-master-plan.md`
+- **Checkpoint**: `phase-1-checkpoint.md`
+- **Bootstrap Reference**: `analysis/reference-design-analysis.md` (52KB)
 - **Tools Guide**: `bashscripts/docs/compare/README.md`
-- **Team Coordination**: `implementation/TEAM_COORDINATION.md`
+- **Team Coordination**: `implementation/team-coordination.md`
 - **GitHub Hub**: `.github/DESIGN_COMUNI_CONVERSION.md`
 
 ---
 
-**Ready? Start with**: `PHASE_1_CHECKPOINT.md` → `IMPLEMENTATION_MASTER_PLAN.md` → Begin CSS_MAPPING.md
+**Ready? Start with**: `phase-1-checkpoint.md` → `implementation-master-plan.md` → Begin CSS_MAPPING.md

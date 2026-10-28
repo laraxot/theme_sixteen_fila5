@@ -107,7 +107,7 @@ All stepper text uses the `fixcity::segnalazione.steps.*` namespace:
 - **[Design Comuni Replication Rules](../DESIGN_COMUNI_RULES.md)** — Body tag rules, translation format
 - **[segnalazione-02-dati Page](../bmad/segnalazione-02-dati.md)** — Full page documentation
 - **[segnalazione-parity.css](../../resources/css/segnalazione-parity.css)** — CSS file (lines 1025-1180)
-- **[Block Implementation Guide](../BLOCK_IMPLEMENTATION_GUIDE.md)** — Universal block patterns
+- **[Block Implementation Guide](../block-implementation-guide.md)** — Universal block patterns
 
 ---
 

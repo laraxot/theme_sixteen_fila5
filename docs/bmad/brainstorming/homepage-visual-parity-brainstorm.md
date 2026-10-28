@@ -118,7 +118,7 @@ The discrepancies fall into four categories:
 2. Update JSON data files with missing fields (never hardcode in Blade).
 3. Fix components one by one; write a BMAD story per group of fixes.
 4. Automate verification: Playwright screenshots + DOM diff + contrast audit.
-5. Log every fix in the decision log + second brain (KNOWLEDGE.md).
+5. Log every fix in the decision log + second brain (knowledge.md).
 6. Re-measure parity after each batch; iterate until ≥97%.
 
 ## Key Learnings (do not repeat)

@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "ACCESSIBILITY IMPLEMENTATION GUIDE"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: accessibility-implementation-guide.md
 ---
 
 # WCAG 2.1 Accessibility Implementation Guide - Sixteen Theme

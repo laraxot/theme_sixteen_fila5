@@ -11,7 +11,7 @@ qmd: "bmad story   s-improve-wcag-header-footer sixteen"
 - Type: epic-story
 - Title: "WCAG/improvement — header/footer elements audit + fixes"
 - Status: IN_PROGRESS
-- References: PHASE-10-ACCESSIBILITY-AUDIT.md (existing), CSS_VISUAL_ALIGNMENT.md
+- References: phase-10-accessibility-audit.md (existing), css-visual-alignment.md
 - Elementi da auditare e migliorare (uno per uno):
 
   1. **Footer** — titoli colonne (Amministrazione / Categorie di servizio / Novità / Contatti) su sfondo scuro:

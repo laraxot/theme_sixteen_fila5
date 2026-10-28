@@ -15,14 +15,14 @@ status: draft
 ## 📋 Navigation
 
 ### Phase 1: HTML Analysis
-- **[STRUCTURE-COMPARISON.md](./STRUCTURE-COMPARISON.md)** - Detailed HTML element comparison
+- **[STRUCTURE-COMPARISON.md](./structure-comparison.md)** - Detailed HTML element comparison
   - Element count analysis (98.3% match)
   - Tag-by-tag differences
   - Visual metrics (header/footer heights, colors)
   - Assessment and recommendations
 
 ### Phase 2: CSS Fix Strategy  
-- **[CSS-FIX-STRATEGY.md](./CSS-FIX-STRATEGY.md)** - Tactical CSS fixes
+- **[CSS-FIX-STRATEGY.md](./css-fix-strategy.md)** - Tactical CSS fixes
   - 5 identified CSS issues with priorities
   - Implementation plan (45 min total)
   - Testing strategy
@@ -61,8 +61,8 @@ status: draft
 ## 📁 Related Documents
 
 - **[← INDEX](../index.md)** - Main theme docs
-- **[PHASE6-ALPINE-STATUS.md](../PHASE6-ALPINE-STATUS.md)** - Alpine.js status (blocked)
-- **[FINAL-VISUAL-PARITY-REPORT.md](../FINAL-VISUAL-PARITY-REPORT.md)** - Previous visual analysis
+- **[PHASE6-ALPINE-STATUS.md](../phase6-alpine-status.md)** - Alpine.js status (blocked)
+- **[FINAL-VISUAL-PARITY-REPORT.md](../final-visual-parity-report.md)** - Previous visual analysis
 
 ---
 
@@ -88,7 +88,7 @@ status: draft
 
 ## 🚀 Next Actions
 
-1. Execute CSS fixes according to CSS-FIX-STRATEGY.md
+1. Execute CSS fixes according to css-fix-strategy.md
 2. Test after each phase
 3. Capture before/after screenshots
 4. Compare with reference

@@ -25,7 +25,7 @@ qmd: "css data-page elimination plan bmad"
 
 ## Architecture Context (from docs)
 
-### Canonical CSS Scoping Rules (CSS-SCOPING-RULE.md)
+### Canonical CSS Scoping Rules (css-scoping-rule.md)
 
 | Page Type | Scope Hook | Example |
 |-----------|------------|---------|
@@ -267,10 +267,10 @@ If critical regression:
 
 ## References
 
-- [CSS-SCOPING-RULE.md](../../architecture/CSS-SCOPING-RULE.md)
-- [BODY_CLASS_RULE.md](../../BODY_CLASS_RULE.md)
-- [JSON_DRIVEN_PHILOSOPHY.md](../../design-comuni/JSON_DRIVEN_PHILOSOPHY.md)
-- [TAILWIND_ALPINE_RULES.md](../../design-comuni/TAILWIND-ALPINE-RULES.md)
+- [CSS-SCOPING-RULE.md](../../architecture/css-scoping-rule.md)
+- [BODY_CLASS_RULE.md](../../body-class-rule.md)
+- [JSON_DRIVEN_PHILOSOPHY.md](../../design-comuni/json-driven-philosophy.md)
+- [TAILWIND_ALPINE_RULES.md](../../design-comuni/tailwind-alpine-rules.md)
 - [Design Comuni Reference](https://italia.github.io/design-comuni-pagine-statiche/)
 - [Decision Log: D16/DCP-32](../decisions/parity-root-cause-and-guardrails.md)
 
@@ -312,6 +312,6 @@ If critical regression:
 
 1. All stories complete with AC met
 2. Decision log entry in `docs/bmad/decisions/`
-3. Documentation updated in `docs/architecture/CSS-SCOPING-RULE.md`
+3. Documentation updated in `docs/architecture/css-scoping-rule.md`
 4. Team notified of new convention
 5. No `data-page` CSS selectors remain in codebase

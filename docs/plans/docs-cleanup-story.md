@@ -14,7 +14,7 @@ decisions:
   - D-DOC-03: Ponytail applicato: un solo piano BMAD, un solo aggiornamento index, nessun nuovo foglio CSS, nessun controller.
 constraints:
   - Docs BMAD solo in `Themes/*/docs/` (mai `bmad-output/`)
-  - Second Brain: riferimento a `docs/bmad/auth-login-architettura.md`, `FOLIO_PAGES_ARCHITECTURE.md`
+  - Second Brain: riferimento a `docs/bmad/auth-login-architettura.md`, `folio-pages-architecture.md`
   - Ponytail: solo file necessari, nessun duplicato, nessun refactoring delle pagine esistenti.
 ---
 
@@ -24,7 +24,7 @@ constraints:
 - URL `/it/lista-categorie` → `container0.index` con `$container0 = 'lista-categorie'`.
 - JSON: `lista-categorie.index.json` → `slug`, `layout`, blocco `categories-page` con componente `pub_theme::components.pages.categories`.
 - Componente: `categories.blade.php` mostra categorie servizi (report, altri) con breadcrumb e griglia; è il vestito della pagina di esplorazione.
-- Non ho creato io questa pagina: esiste come CMS-driven via `[container0]/`. La regola FOLIO_PAGES_ARCHITECTURE (`docs/FOLIO_PAGES_ARCHITECTURE.md`) vieta cartelle `categories/` dedicate.
+- Non ho creato io questa pagina: esiste come CMS-driven via `[container0]/`. La regola FOLIO_PAGES_ARCHITECTURE (`docs/folio-pages-architecture.md`) vieta cartelle `categories/` dedicate.
 
 ## 2. Auth component reorg (completato)
 - `components/pages/auth-login.blade.php` (merge conflict + `<style>` privato) → ripulito, nuovo componente in `components/pages/auth/login.blade.php`, alias nel vecchio file.
@@ -34,7 +34,7 @@ constraints:
 ## 3. Docs cleanup (ponytail — minimo)
 - Piano BMAD: `docs/bmad/auth-components-reorg-plan.md` (già creato)
 - Aggiornamento indice operativo `00-INDEX.md`: riferimento al piano + stato `auth-components-reorg-plan.md`
-- Second Brain link: `auth-login-architettura.md` (architettura Folio+Volt), `FOLIO_PAGES_ARCHITECTURE.md` (DRY [container0])
+- Second Brain link: `auth-login-architettura.md` (architettura Folio+Volt), `folio-pages-architecture.md` (DRY [container0])
 - Nessun file duplicato creato, nessun foglio CSS nuovo, nessun controller.
 
 ## 4. Verifica
