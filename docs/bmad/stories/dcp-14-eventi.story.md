@@ -6,7 +6,7 @@ priority: P0
 owner: theme:Sixteen
 created: 2026-10-13
 qmd: "design comuni parity dcp-14 eventi"
-title: DCP-14: eventi Design Comuni
+title: "DCP-14: eventi Design Comuni"
 links:
   github_issue: "#14"
   design_comuni_ref: "tests.eventi.json + eventi-reference-raw.html"

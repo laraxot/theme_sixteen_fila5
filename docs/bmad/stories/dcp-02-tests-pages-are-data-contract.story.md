@@ -1,6 +1,6 @@
 ---
 id: dcp-02
-title: "DCP-02: contratto "le pagine /tests sono dato""
+title: 'DCP-02: contratto "le pagine /tests sono dato"'
 type: story
 epic: dc-parity-v2
 status: todo
@@ -8,7 +8,7 @@ priority: P0
 owner: theme:Sixteen
 created: 2026-10-13
 updated: 2026-10-13
-qmd: "design comuni parity dcp-02: contratto "le pagine /tests sono dato" bmad story"
+qmd: 'design comuni parity dcp-02: contratto "le pagine /tests sono dato" bmad story'
 tags: [docs, sixteen, bmad]
 ---
 

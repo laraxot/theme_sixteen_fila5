@@ -1,7 +1,7 @@
 ---
 issues: []
 discussions: []
-title: "Sixteen — mai Filament\*, sempre XotBase*"
+title: "Sixteen — mai Filament*, sempre XotBase*"
 type: concept
 theme: Sixteen
 tags: [sixteen, filament, xotbase, architecture]

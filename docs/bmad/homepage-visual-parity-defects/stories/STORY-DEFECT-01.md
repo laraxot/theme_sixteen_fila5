@@ -1,5 +1,5 @@
 ---
-id: defect-$IDX
+id: defect-D01
 type: story
 document_type: bmad-story
 category: defect
@@ -9,18 +9,18 @@ status: open (to continue tomorrow)
 links:
   github_issue: "#14"
   discussion: "https://github.com/org/repo/discussions/14"
-related_defect: $IDX
+related_defect: D01
 scope: [homepage.blade.php, layout-test.blade.php, pub_theme/components/]
-title: "Defect $IDX — Fix Story"
+title: "Defect D01 — Fix Story"
 updated: 2026-10-13
 tags: [docs, sixteen, bmad]
-qmd: "defect $idx   fix story sixteen"
+qmd: "defect d01   fix story sixteen"
 ---
 
-# Defect $IDX — Fix Story
+# Defect D01 — Fix Story
 
 ## Description
-Defect $IDX from homepage visual parity audit (95% → 97% target).
+Defect D01 from homepage visual parity audit (95% → 97% target).
 
 ## Acceptance Criteria
 - Component updated with Tailwind (NO Bootstrap Italia)

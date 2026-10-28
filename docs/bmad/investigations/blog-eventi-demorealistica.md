@@ -7,3 +7,8 @@ discussioni: |
   - Eventi: tipo "event" nel Blog O modulo Event separato?
   - Marketing: foto reali, descrizioni, date, categorie
   - No lorem ipsum — contenuto credibile per PA
+---
+
+# Blog + Eventi — demo realistica
+
+Appunti di discussione (nel frontmatter sopra). Il brainstorm completo e' in [blog-eventi-brainstorm.md](./blog-eventi-brainstorm.md).

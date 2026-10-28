@@ -22,18 +22,21 @@ route:list` non ha `comune/*`, `auth/spid` ne' `auth/cie`. Stato e conteggi in
 
 Questo file è l'indice operativo unico. Stato reale degli altri indici (verificato
 2026-10-14): `00-index.old.md`, `documentation-index.old.md` e
-`index.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` NON è
-storico, è la mappa viva delle sottocartelle (DCP-112); `index.md` è l'indice
-BMAD/QMD più vecchio e `master-documentation.md` è un resoconto del 2026-04-01,
-entrambi senza suffisso `.old`; restano anche `00-INDEX.md.tmp` (residuo del
-2026-09-24), `00-homepage-replication-index.md`, `design-comuni-replication-index.md`,
+`index.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` (la
+mappa delle sottocartelle, DCP-112) è stato rimosso da git (commit
+`52268d5b`): per le cartelle usa la tabella "Classificazione delle cartelle" qui
+sotto. `index.md` è l'indice BMAD/QMD più vecchio (router storico) e
+`master-documentation.md` è un resoconto del 2026-04-01, entrambi senza suffisso
+`.old`; restano anche `00-INDEX.md.tmp` (residuo del 2026-09-24),
+`00-homepage-replication-index.md`, `design-comuni-replication-index.md`,
 `replikate-master-index.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
-nuova struttura; per le cartelle vedi [INDEX.md](index.md).
+nuova struttura.
 
 ## Riorganizzazione docs 2026-10-13
 
-- `build/` — tutti i 14 documenti Vite/build, con `build/INDEX.md` come ordine
-  di lettura canonico (erano sparse alla root come `vite-*.md`/`VITE_*.md`);
+- `build/` — tutti i 14 documenti Vite/build (erano sparsi alla root come
+  `vite-*.md`/`VITE_*.md`); `build/INDEX.md` non esiste: ordine di lettura da
+  [vite-configuration-guide.md](build/vite-configuration-guide.md);
 - `visual-parity/` — struttura consolidata: `reports/`, `screenshots/pages/`
   (evidenza per pagina), `screenshots/legacy-2026-04/` (evidenza storica),
   `scripts/` (bug del path annidato `scripts/docs/visual-parity/scripts/`
@@ -48,15 +51,15 @@ nuova struttura; per le cartelle vedi [INDEX.md](index.md).
 | Canoniche | `bmad/` (410, story in `bmad/stories/`, decisioni in `bmad/decisions/`), `stories/` (37), `decision-log/` (14), `wiki/` (278), `architecture/` (19), `rules/` (3), `i18n/` (3), `compliance/` (1), `build/` (15), `design-system/` (6), `components/` (8), `pages/` (334, contratti per pagina), `design-comuni/` (643, vincoli visuali; i suoi `*/raw` sono evidence) |
 | Supporto | `prompts/` (338, coordinamento tra agenti, es. `prompts/homepage/`), `scripts/` (16), `llm-wiki/` (9) |
 | Evidence (immutabili o storiche) | `screenshots/` (260), `visual-parity/` (280), `visual-comparison/` (224), `body-structure-comparison/` (156), `analysis/` (142), `comparisons/` (83), `visual-analysis/` (53), `html-parity-reports/` (29), `html-structure-comparison/` (21), `html-compare/` (12), `Main_files/` (47), `raw/` (16), `design-comuni/*/raw` |
-| Generate | `graphify-out/` (1.556 file: `cache/`, `graph.json`, `manifest.json`), `qmd-index/` |
+| Generate | `graphify-out/` e `qmd-index/`: non presenti in `docs/` al 2026-10-28 |
 | Legacy o da triare (DOC-004, DOC-006) | i `.md` di radice (405, con 25 collisioni di maiuscole nel perimetro), `ui-fixes/` (14), i report di batch in `design-comuni/` (`batch-structure-audit*.md`: 108 link non risolti ciascuno, `batch-pages-analysis.md`: 98) |
-| Mappa viva | [INDEX.md](index.md) descrive ogni sottocartella; questo file resta l'indice dei documenti |
+| Mappa delle cartelle | questa tabella (il vecchio `INDEX.md` è stato rimosso); questo file è anche l'indice dei documenti |
 
 ## Percorsi di lettura
 
 1. [README](README.md) — identità, ownership e stack;
 2. [knowledge-map](knowledge-map.md) — mappa per QMD/Graphify/Second Brain;
-3. [docs governance](../../../../docs/DOCUMENTATION_GOVERNANCE.md) — regole cross-project;
+3. [nomi e frontmatter dei .md](../../../../bashscripts/ai/wiki/rules/markdown-file-naming-and-frontmatter.md) — regole cross-project;
 4. [docs knowledge architecture](bmad/docs-knowledge-architecture.md) — regole BMAD;
 5. [header/footer contract](bmad/header-footer-sections-contract.md) — dati e renderer;
 6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
@@ -84,7 +87,7 @@ Il perché: [why-domande-frequenti-blade-php-must-not-exist.md](bmad/knowledge/w
 | Accessibilità | `accessibility.md` + contratto mobile | claim “100%” senza audit |
 | Design Comuni | `design-comuni/` + documenti parity + `design-system/` | screenshot raw o report duplicati |
 | Componenti | `components/` | copie in `blocks/` non indicizzate |
-| Build asset | `build/INDEX.md` | log di singole sessioni |
+| Build asset | `build/vite-configuration-guide.md` + `vite.config.js` | log di singole sessioni |
 | FixCity journeys | `Modules/Fixcity/docs/actor-flows.md` | duplicati nel tema |
 
 ## Regola di consolidamento

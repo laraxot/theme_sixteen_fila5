@@ -241,10 +241,9 @@ node /tmp/analyze-visual-diff.js | grep -E "height|color"
 
 ## Rollback Plan
 
-If issues occur:
+If issues occur (Git forward-only: no `git checkout`/`restore`/`revert`; fix the CSS with a new commit):
 ```bash
-# Revert to last working CSS
-git checkout -- laravel/Themes/Sixteen/resources/css/
+# Edit laravel/Themes/Sixteen/resources/css/ to the last working state, then commit forward
 
 # Rebuild
 npm run build && npm run copy

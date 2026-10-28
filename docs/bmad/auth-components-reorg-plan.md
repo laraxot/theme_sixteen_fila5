@@ -18,7 +18,7 @@ constraints:
   - NO Bootstrap Italia
   - Folio + Volt per le pagine (`pages/auth/`)
   - CMS JSON fornisce slug/view (`auth.login` → `pub_theme::components.pages.auth-login`)
-  - Design Comuni: `data-dc`, `<x-auth.shell>`, widget Filament
+  - Design Comuni: "`data-dc`, `<x-auth.shell>`, widget Filament"
   - File in inglese (regola naming)
 ---
 
