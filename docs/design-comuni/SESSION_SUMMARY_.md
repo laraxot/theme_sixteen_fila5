@@ -85,10 +85,10 @@ npm run copy
 ### 4. Documentation Created ✅
 
 #### Theme Documentation (laravel/Themes/Sixteen/docs/design-comuni/)
-1. ✅ `MASTER_IMPLEMENTATION_PLAN.md` (38 pages plan, block analysis, architecture)
-2. ✅ `ARCHITECTURAL_DECISIONS.md` (10 key decisions, philosophy, zen)
-3. ✅ `HTML_PARITY_VERIFICATION_REPORT.md` (homepage verification)
-4. ✅ `HTML_PARITY_COMPLETE.md` (summary document)
+1. ✅ `master-implementation-plan.md` (38 pages plan, block analysis, architecture)
+2. ✅ `architectural-decisions.md` (10 key decisions, philosophy, zen)
+3. ✅ `html-parity-verification-report.md` (homepage verification)
+4. ✅ `html-parity-complete.md` (summary document)
 
 #### GitHub Templates
 1. ✅ `.github/ISSUE_TEMPLATE/design-comuni-page-replication.md`
@@ -202,10 +202,10 @@ npm run copy
 ### Theme Docs (laravel/Themes/Sixteen/docs/design-comuni/)
 ```
 design-comuni/
-├── MASTER_IMPLEMENTATION_PLAN.md ✅
-├── ARCHITECTURAL_DECISIONS.md ✅
-├── HTML_PARITY_VERIFICATION_REPORT.md ✅
-├── HTML_PARITY_COMPLETE.md ✅
+├── master-implementation-plan.md ✅
+├── architectural-decisions.md ✅
+├── html-parity-verification-report.md ✅
+├── html-parity-complete.md ✅
 ├── SESSION_SUMMARY_2026-04-01.md ✅ (this file)
 ├── screenshots/ (pending)
 │   └── [pagina]/ (one per page)
@@ -331,8 +331,8 @@ npm run copy
 ## 📞 References
 
 ### Documentation
-- [MASTER_IMPLEMENTATION_PLAN.md](MASTER_IMPLEMENTATION_PLAN.md)
-- [ARCHITECTURAL_DECISIONS.md](ARCHITECTURAL_DECISIONS.md)
+- [MASTER_IMPLEMENTATION_PLAN.md](master-implementation-plan.md)
+- [ARCHITECTURAL_DECISIONS.md](architectural-decisions.md)
 - [QWEN.md](../../../../../QWEN.md)
 
 ### External

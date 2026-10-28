@@ -106,7 +106,7 @@ Indice rapido Auth/Login + igiene tooling (dettaglio sotto; hub in [README.md](.
 
 **Contesto:** standing order Modules a zero; turno docs su tema Sixteen + moduli random (User, Comment, Notify, Activity).
 **Decisione:** registrare verifica `phpstan analyse` sui moduli owner del FO (batch quattro moduli → exit 0); docs `bmad/` conformi a `md-filenames.py check` (0 date/suffissi); sotto `docs/bmad/` restano ~79 legacy con maiuscole (story `STORY-DEFECT-*`, `DC-027.*`) — segnalazione senza rinomina finche' il tool non propone target sicuri.
-**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
+**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/css-scoping-rule.md) (nome legacy maiuscolo, contenuto canonico).
 **Stato:** OK al 2026-10-20.
 
 ## D28: PHPStan swarm — docs tema in parallelo al codice

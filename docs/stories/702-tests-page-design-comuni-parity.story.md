@@ -51,7 +51,7 @@ del reference: **Generali** (homepage, FAQ, ricerca, argomenti, etc.) e **Sito**
 ## Dependency
 - `pub_theme::components.ui.icon` (creato in `components/ui/icon.blade.php`)
 - `motion-reveal.js` Alpine utility (creato in `resources/js/components/`)
-- `docs/design-comuni/DESIGN-COMUNI-CANONICAL.md` (creato)
+- `docs/design-comuni/design-comuni-canonical.md` (creato)
 
 ## Nota su R3 religion
 La migration `2026_09_26_update_ticket_subscribers_user_id_to_uuid.php` viola

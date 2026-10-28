@@ -82,5 +82,5 @@ First CSS-only pass on `lista-risorse` in [../resources/css/app.css](../../resou
 
 ## Related
 
-- [BATCH_BODY_PARITY_REPORT.md](./BATCH_BODY_PARITY_REPORT.md)
-- [REPLICATION_MASTER_PLAN.md](./REPLICATION_MASTER_PLAN.md)
+- [BATCH_BODY_PARITY_REPORT.md](./batch-body-parity-report.md)
+- [REPLICATION_MASTER_PLAN.md](./replication-master-plan.md)

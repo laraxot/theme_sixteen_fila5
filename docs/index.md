@@ -98,8 +98,8 @@ Key files:
 | `segnalazione-dettaglio/README.md` | Visual comparison for segnalazione detail page |
 | `homepage/comparison.md` | Homepage visual parity comparison |
 | `structure-analysis/*.md` | HTML structural comparison per page (`amministrazione`, `domande-frequenti`, `eventi`, `servizi`, etc.) |
-| `VISUAL-PARITY-REPORT.md` | Complete visual parity status |
-| `COMPLETE-REPORT.md` | Final report on all front office pages |
+| `visual-parity-report.md` | Complete visual parity status |
+| `complete-report.md` | Final report on all front office pages |
 
 These are the evidence files for BMAD verification phase (`verify-work` skill, `audit-plan` skill reference). The comparison reports are linked to the initiative through the second brain.
 

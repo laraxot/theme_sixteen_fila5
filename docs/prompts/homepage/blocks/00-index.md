@@ -74,12 +74,12 @@ status: draft
 
 ### Indici
 - ← [Design Comuni Index](../../../00-INDEX.md)
-- ← [Homepage Structural Analysis](../../../design-comuni/HOMEPAGE_STRUCTURAL_ANALYSIS_FINAL.md)
+- ← [Homepage Structural Analysis](../../../design-comuni/homepage-structural-analysis-final.md)
 - ← [Bashscripts HTML Compare](../../../../../bashscripts/html/compare-html.sh) — script agnostico di confronto
 
 ### Documenti Correlati
-- → [HTML_SIMILARITY_90_PERCENT_PLAN.md](../HTML_SIMILARITY_90_PERCENT_PLAN.md)
-- → [HTML_SIMILARITY_90_PERCENT_SESSION.md](../HTML_SIMILARITY_90_PERCENT_SESSION.md)
+- → [HTML_SIMILARITY_90_PERCENT_PLAN.md](../html-similarity-90-percent-plan.md)
+- → [HTML_SIMILARITY_90_PERCENT_SESSION.md](../html-similarity-90-percent-session.md)
 
 ---
 

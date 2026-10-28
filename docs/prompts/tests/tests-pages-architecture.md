@@ -171,7 +171,7 @@ Render blocks dynamically
 ## 🔗 Related Documentation
 
 - [CMS Page Component Architecture](../../../../../Modules/Cms/docs/page-component-architecture.md)
-- [Page Routing Architecture](../../architecture/PAGE_ROUTING_ARCHITECTURE.md)
+- [Page Routing Architecture](../../architecture/page-routing-architecture.md)
 - [Folio Pages Architecture](../architecture/FOLIO_PAGES.md)
 - [Design Comuni Block Analysis](_bmad-output/design-comuni-block-analysis.md)
 

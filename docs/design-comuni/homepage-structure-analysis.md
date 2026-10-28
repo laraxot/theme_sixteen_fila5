@@ -181,7 +181,7 @@ npm run copy
 **Ultimo aggiornamento**: 2026-03-30
 
 ### 🔗 Documenti Correlati
-- [HOMEPAGE_HTML_ANALYSIS.md](./HOMEPAGE_HTML_ANALYSIS.md) — Analisi HTML dettagliata con diff strutturale (2026-04-07, 81% similarità)
+- [HOMEPAGE_HTML_ANALYSIS.md](./homepage-html-analysis.md) — Analisi HTML dettagliata con diff strutturale (2026-04-07, 81% similarità)
 - [homepage-structure-diff-2026-04-02.md](./homepage-structure-diff.md) — Diff strutturale precedente
 - [homepage-gap-analysis.md](./homepage-gap-analysis.md) — Analisi gap homepage
 - [homepage-parity-report.md](./homepage-parity-report.md) — Report parity homepage

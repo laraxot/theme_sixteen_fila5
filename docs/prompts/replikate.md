@@ -527,7 +527,7 @@ Per ogni pagina:
 
 ### Documentazione Design Comuni
 - [Master Index](../design-comuni/00-index.md)
-- [Status Report](../design-comuni/STATUS.md)
+- [Status Report](../design-comuni/status.md)
 - [Screenshots](../design-comuni/screenshots/)
 - [Pages Docs](../design-comuni/pages/)
 

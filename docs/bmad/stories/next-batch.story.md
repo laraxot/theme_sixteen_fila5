@@ -23,7 +23,7 @@ qmd: "next batch   continuare domani (bmad + second brain) sixteen"
 2. Creare JSON `tests.{slug}` con `layout: test`
 3. Creare componente `pub_theme/components/blocks/{slug}/default.blade.php`
 4. Verificare `curl -I http://192.168.1.40:8000/it/tests/{slug}` → 200 OK
-5. Aggiornare `docs/second-brain/KNOWLEDGE.md` con nuove regole
+5. Aggiornare `docs/second-brain/knowledge.md` con nuove regole
 6. Aggiornare `STATUS_RISULTATI_RICERCA.md` con stato batch
 
 ## Stack
@@ -33,7 +33,7 @@ Token primario: `.btn-primary` = `bg-primary-600` (verde PA #007A52).
 ## Stato Corrente
 - 136 BMAD stories totali
 - 27 moduli con docs/
-- Doc folders: organized (`DOC-FOLDERS-INDEX.md` creato)
-- Second brain: `KNOWLEDGE.md` + `header-footer-rationale.md` aggiornati
+- Doc folders: organized (`doc-folders-index.md` creato)
+- Second brain: `knowledge.md` + `header-footer-rationale.md` aggiornati
 - Componenti creati: events-list/default.blade.php, faq/default.blade.php, search-results/default.blade.php, filters/default.blade.php, sorting/default.blade.php, pagination/default.blade.php
 - Status file: `STATUS_RISULTATI_RICERCA.md` (200 OK, 152522B, 645 risultati, componenti verificati)

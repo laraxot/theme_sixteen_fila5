@@ -140,7 +140,7 @@ Each Design Comuni section = one Blade component:
 ## Second Brain Integration
 
 - Initiative: `kp-e8aae9de701a4371a3c059431d83e54c` (Homepage visual parity 40% → 97%)
-- Knowledge rules (KNOWLEDGE.md):
+- Knowledge rules (knowledge.md):
   - R001: Header/footer from JSON only
   - R002: Component = single Design Comuni block
   - R003: Tokens in tailwind.config.js

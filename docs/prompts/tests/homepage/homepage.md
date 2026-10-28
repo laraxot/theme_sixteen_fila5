@@ -717,7 +717,7 @@ curl -s "http://127.0.0.1:8000/it/tests/homepage" | grep -A 3 "personal-area-log
    - CSS: calendar header, rating, contact styling
 
 2. **`7b64de0e`** - `docs: add homepage fix analysis documentation`
-   - Creato HOMEPAGE-FIX-ANALYSIS.md con analisi completa
+   - Creato homepage-fix-analysis.md con analisi completa
 
 3. **`7ff2c0eb`** - `feat: hero section green colors (chip, link, title)`
    - Aggiunto chip-green class con background verde
@@ -1613,7 +1613,7 @@ Ogni agent deve:
    - CSS: calendar header, rating, contact styling
 
 2. **`7b64de0e`** - `docs: add homepage fix analysis documentation`
-   - Creato HOMEPAGE-FIX-ANALYSIS.md con analisi completa
+   - Creato homepage-fix-analysis.md con analisi completa
 
 3. **`7ff2c0eb`** - `feat: hero section green colors (chip, link, title)`
    - Aggiunto chip-green class con background verde
@@ -1637,7 +1637,7 @@ Ogni agent deve:
 9. **`[NEW]`** - `fix: governance cards horizontal layout (Screenshot 7)`
    - Mario Rossi card: horizontal layout (content left, image right)
    - CSS: card-flex row, card-image-rounded styling
-   - Docs: updated homepage.txt e HOMEPAGE-FIX-ANALYSIS.md
+   - Docs: updated homepage.txt e homepage-fix-analysis.md
 
 9. **`4cc35247`** - `fix: align rating CSS with rating-green-bg class name`
    - Allineamento CSS rating con classe rating-green-bg

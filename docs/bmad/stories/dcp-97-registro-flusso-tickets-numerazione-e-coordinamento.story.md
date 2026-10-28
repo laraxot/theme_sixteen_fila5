@@ -57,7 +57,7 @@ Nota di metodo: `fil-tickets-guest-access-why` (serie `fil-*`, altro agente) con
 Numerazione: nuove story del lead oltre DCP-50 a partire da 51; D17 e' `tickets-create-richiede-auth`, D18 libero.
 
 ## Aggiunte del lead 2026-10-14 (DCP-145..152, owner per cartella)
-Elenco completo e raggiungibile di tutte le story del tema: [00-REGISTRO-COMPLETO.md](00-REGISTRO-COMPLETO.md). Qui solo i numeri che mancavano a questo registro.
+Elenco completo e raggiungibile di tutte le story del tema: [00-REGISTRO-COMPLETO.md](00-registro-completo.md). Qui solo i numeri che mancavano a questo registro.
 | Story | Owner | Cosa |
 |---|---|---|
 | [DCP-145](dcp-145-licenze-e-attribuzioni-bsd3-font-icone-e-licenza-del-codice.story.md) | Sixteen | licenze e attribuzioni (BSD-3, font, icone, licenza del codice) |

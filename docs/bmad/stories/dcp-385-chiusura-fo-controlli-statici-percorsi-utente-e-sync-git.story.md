@@ -131,4 +131,3 @@ Rapporti completi: `docs/bmad/audit/fo-giro-ospite.md` (Playwright, 11 percorsi,
 **Lezioni.** (1) Un difetto che compare su molte pagine con sintomi diversi va cercato nella causa comune prima di toccare i sintomi: otto difetti dell'audit erano uno solo. (2) Il percorso del file non entra nel nome del frammento Volt: due `@volt('x')` nello stesso tema si sovrascrivono. (3) Per misurare le pagine loggate quando la password di prova non vale piu, si crea una sessione dal codice dell'app (`session.driver`, cookie cifrato con l'encrypter), in un file 0600, senza toccare l'utente.
 
 **Aperti (decisione o lavoro).** Dati dell'ente mancanti (D-PLACEHOLDER, D-ACCESS, FO-04: titolare, DPO, PEC, indirizzo; non si inventano); FO-07, FO-09, FO-10, FO-13 (Gravatar, terza parte), FO-15; D-COOKIETABLE (tabella a 375 px), D-SPINNER, D-HOMEGRID, D-CALENDAR, D-FOOTER, D-LOGINREDIRECT; blocchi Dettagli e Argomenti del dettaglio blog.
-

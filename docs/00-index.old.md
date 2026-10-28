@@ -36,9 +36,9 @@ status: draft
 - Story BMAD (refactor **Filament Schema Wizard** v5 al posto del Blade monolitico): [7-34](../../../../_bmad-output/implementation-artifacts/7-34-create-ticket-wizard-filament-schema-wizard-refactor.md)
 
 ### HTML parity — body minimale e scoping parity-safe
-- [BODY_CLASS_RULE.md](./BODY_CLASS_RULE.md) — il `<body>` deve restare plain, senza classi custom.
-- [architecture/CSS-SCOPING-RULE.md](./architecture/CSS-SCOPING-RULE.md) — usare hook strutturali reali (`#main-container`, `.steppers-*`, `.cmp-*`, `.ticket-wizard-root`) o data attribute applicativi stabili; evitare selettori fragili su slug runtime.
-- [STEPPER_MOBILE_FIRST_RULE.md](./STEPPER_MOBILE_FIRST_RULE.md) — stepper responsive senza selector runtime.
+- [BODY_CLASS_RULE.md](./body-class-rule.md) — il `<body>` deve restare plain, senza classi custom.
+- [architecture/CSS-SCOPING-RULE.md](./architecture/css-scoping-rule.md) — usare hook strutturali reali (`#main-container`, `.steppers-*`, `.cmp-*`, `.ticket-wizard-root`) o data attribute applicativi stabili; evitare selettori fragili su slug runtime.
+- [STEPPER_MOBILE_FIRST_RULE.md](./stepper-mobile-first-rule.md) — stepper responsive senza selector runtime.
 - Modulo Fixcity rule: [../../../Modules/Fixcity/docs/html-body-parity-rule.md](../../../Modules/Fixcity/docs/html-body-parity-rule.md)
 - Story 1-3: [Stepper Responsive + No Italian + Body Plain](../../../.planning/stories/1-3-segnalazione-02-dati-stepper-responsive-no-italian-body-plain.md)
 - Story 1-4: [segnalazione-crea Header Parity + Stepper Responsive](../../../.planning/stories/1-4-segnalazione-crea-header-parity-stepper-responsive.md)

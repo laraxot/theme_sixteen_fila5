@@ -35,7 +35,7 @@ status: draft
 
 ## Naming Conventions
 
-- **Files**: lowercase_with_underscores.ext (e.g., `tab_system.md`)
+- **Files**: lowercase_with_underscores.ext (e.g., `tab-system.md`)
 - **Directories**: lowercase-with-hyphens (e.g., `components/`)
 - **Exceptions**: `README.md` (must be uppercase)
 - **Language**: English only in documentation
