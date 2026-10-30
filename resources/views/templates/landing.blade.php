@@ -66,14 +66,12 @@
                                         <p class="text-gray-600 mb-4">{{ $action['description'] }}</p>
                                     @endif
                                     
-                                    <x-button 
-                                    <x-button 
+                                    <x-button
                                         href="{{ $action['url'] }}"
                                         variant="primary"
                                         size="md"
                                         class="w-full">
                                         {{ $action['button_text'] ?? 'Accedi' }}
-                                    </x-button>
                                     </x-button>
                                 </div>
                             @endforeach
@@ -233,7 +231,6 @@
 @section('modals')
     {{-- Feedback Modal --}}
     <x-modal id="feedback-modal" title="Valuta il Servizio">
-    <x-modal id="feedback-modal" title="Valuta il Servizio">
         <form action="{{ route('services.feedback', $service) }}" method="POST">
             @csrf
             
@@ -266,9 +263,8 @@
             </div>
             
             <div class="mt-6 flex justify-end space-x-3">
-                <x-button 
-                <x-button 
-                    type="button" 
+                <x-button
+                    type="button"
                     variant="secondary"
                     @click="$dispatch('close-modal', { id: 'feedback-modal' })">
                     Annulla
