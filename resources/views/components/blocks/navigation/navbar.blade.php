@@ -7,7 +7,7 @@
     'container' => true,
     'items' => [],
     'separator' => '/',
-    'aria-label' => 'Breadcrumb',
+    'aria-label' => __('pub_theme::components_common.a11y.breadcrumb.label'),
     'current-page' => 1,
     'total-pages' => 1,
     'base-url' => null,
@@ -42,7 +42,7 @@
     {{ $attributes->merge([
         'class' => "{$variantClasses['bg']} {$variantClasses['border']} border-b shadow-sm {$stickyClasses}",
         'role' => 'navigation',
-        'aria-label' => 'Navigazione principale'
+        'aria-label' => __('pub_theme::components_common.a11y.main_navigation.label')
     ]) }}
 >
     <div class="{{ $containerClasses }}">
@@ -74,9 +74,8 @@
                     x-data="{ open: false }"
                     @click="open = !open"
                 >
-                    <span class="sr-only">Apri menu principale</span>
+                    <span class="sr-only">{{ __('pub_theme::auth.navigation.open_menu') }}</span>
                     <x-filament::icon icon="heroicon-o-bars-3" class="h-6 w-6" />
-f7ac8eda (.)
                 </button>
             </div>
         </div>

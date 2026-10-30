@@ -15,10 +15,10 @@
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
                                 <a href="{{ route('comune.homepage') }}">
-                                    <img src="{{ theme_asset('images/logo-comune.png') }}" alt="Logo Comune" class="icon">
+                                    <img src="{{ theme_asset('images/logo-comune.png') }}" alt="{{ __('pub_theme::components_header.brand.logo_alt.label') }}" class="icon">
                                     <div class="it-brand-text">
-                                        <h2>{{ config('comune.nome', 'Nome Comune') }}</h2>
-                                        <h3>Comune di {{ config('comune.nome', 'Nome Comune') }}</h3>
+                                        <h2>{{ config('comune.nome', __('pub_theme::components_header.brand.municipality_name_default.label')) }}</h2>
+                                        <h3>{{ __('pub_theme::components_header.brand.municipality_of.label') }} {{ config('comune.nome', __('pub_theme::components_header.brand.municipality_name_default.label')) }}</h3>
                                     </div>
                                 </a>
                             </div>
@@ -26,10 +26,10 @@
                             {{-- Guest: Login/Register Links --}}
                             <div class="it-access-right-wrapper">
                                 <a href="{{ route('login') }}" class="btn btn-primary btn-sm">
-                                    {{ __('sixteen::header.guest.login') }}
+                                    {{ __('pub_theme::header.guest.login.label') }}
                                 </a>
                                 <a href="{{ route('register') }}" class="btn btn-outline-primary btn-sm ml-2">
-                                    {{ __('sixteen::header.guest.register') }}
+                                    {{ __('pub_theme::header.guest.register.label') }}
                                 </a>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 @click="toggle()"
                                 :aria-expanded="isOpen"
                                 aria-controls="navbarNav"
-                                aria-label="Toggle navigation"
+                                aria-label="{{ __('pub_theme::components_common.a11y.toggle_navigation.label') }}"
                             >
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -66,35 +66,35 @@
                                             class="nav-link {{ request()->routeIs('comune.homepage') ? 'active' : '' }}" 
                                             href="{{ route('comune.homepage') }}"
                                             @click="closeOnItemClick()"
-                                        >Home</a>
+                                        >{{ __('pub_theme::components_common.nav.home.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.servizi*') ? 'active' : '' }}" 
                                             href="{{ route('comune.servizi') }}"
                                             @click="closeOnItemClick()"
-                                        >Servizi</a>
+                                        >{{ __('pub_theme::header.center.nav.servizi.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.novita*') ? 'active' : '' }}" 
                                             href="{{ route('comune.novita') }}"
                                             @click="closeOnItemClick()"
-                                        >Novità</a>
+                                        >{{ __('pub_theme::header.center.nav.novita.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.contatti') ? 'active' : '' }}" 
                                             href="{{ route('comune.contatti') }}"
                                             @click="closeOnItemClick()"
-                                        >Contatti</a>
+                                        >{{ __('pub_theme::components_common.nav.contacts.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('fixcity.*') ? 'active' : '' }}" 
                                             href="{{ url('/'.app()->getLocale().'/tickets') }}"
                                             @click="closeOnItemClick()"
-                                        >Segnalazioni</a>
+                                        >{{ __('pub_theme::home.heading.title') }}</a>
                                     </li>
                                 </ul>
                             </div>

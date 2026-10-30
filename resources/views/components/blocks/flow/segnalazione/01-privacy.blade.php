@@ -13,11 +13,11 @@
 <div class="container" id="main-container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-            <nav class="cmp-breadcrumbs mb-6" aria-label="breadcrumb">
+            <nav class="cmp-breadcrumbs mb-6" aria-label="{{ __('pub_theme::blocks_common.shared.breadcrumb.label') }}">
                 <ol class="flex flex-wrap items-center gap-2 text-sm text-[#5d7083]">
-                    <li><a href="/it/tests" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">Home</a><span class="mx-1" aria-hidden="true">/</span></li>
-                    <li><a href="/it/tests" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">Servizi</a><span class="mx-1" aria-hidden="true">/</span></li>
-                    <li class="text-[#17324d]" aria-current="page">Segnalazione disservizio</li>
+                    <li><a href="{{ route('container0.index', ['container0' => 'tests'], false) }}" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">{{ __('pub_theme::blocks_common.shared.home.label') }}</a><span class="mx-1" aria-hidden="true">/</span></li>
+                    <li><a href="{{ route('container0.index', ['container0' => 'tests'], false) }}" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">{{ __('pub_theme::blocks_common.shared.services.label') }}</a><span class="mx-1" aria-hidden="true">/</span></li>
+                    <li class="text-[#17324d]" aria-current="page">{{ __('pub_theme::flow_report.shared.service_issue_report.label') }}</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-            <h1 class="title-xxxlarge mb-4 text-4xl font-bold leading-tight text-[#17324d] md:text-5xl">Segnalazione disservizio</h1>
+            <h1 class="title-xxxlarge mb-4 text-4xl font-bold leading-tight text-[#17324d] md:text-5xl">{{ __('pub_theme::flow_report.shared.service_issue_report.label') }}</h1>
         </div>
         <div class="col-12">
             <div class="steppers mt-6" data-element="stepper">
@@ -38,7 +38,7 @@
                             <li class="flex items-center gap-2 {{ $isActive ? 'text-[#007a52] font-semibold' : 'text-[#5d7083]' }}" {{ $isActive ? 'aria-current="step"' : '' }}>
                                 <span class="flex h-6 w-6 items-center justify-center rounded-full border-2 {{ $isActive ? 'border-[#007a52] bg-[#007a52] text-white' : 'border-[#d9e2e8] text-[#5d7083]' }} text-xs font-bold">{{ $index + 1 }}</span>
                                 <span class="text-sm">{{ $stepLabel }}</span>
-                                @if($isActive)<span class="visually-hidden">Attivo</span>@endif
+                                @if($isActive)<span class="visually-hidden">{{ __('pub_theme::flow_report.shared.active.label') }}</span>@endif
                             </li>
                         @endforeach
                     </ul>
@@ -56,7 +56,7 @@
                 {{ $description }}
             </p>
             <p class="text-paragraph mb-0 text-base leading-7 text-[#334e68]">
-                Per i dettagli sul trattamento dei dati personali consulta l\u2019
+                {{ __('pub_theme::flow_report.privacy.for_details_on_how_personal_data.message') }}
                 <a href="#" class="t-primary font-semibold text-[#007a52] underline underline-offset-2">{{ $privacyLinkLabel }}.</a>
             </p>
 
@@ -88,30 +88,30 @@
                 <div class="cmp-contacts">
                     <div class="card w-100 rounded-lg border border-[#d9e2e8] bg-white shadow-sm">
                         <div class="card-body p-6">
-                            <h2 class="title-medium-2-semi-bold text-xl font-semibold text-[#17324d]">Contatta il comune</h2>
+                            <h2 class="title-medium-2-semi-bold text-xl font-semibold text-[#17324d]">{{ __('pub_theme::flow_report.shared.contact_the_municipality.label') }}</h2>
                             <ul class="contact-list mt-4 space-y-3 p-0">
                                 <li>
-                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/domande-frequenti">
+                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'domande-frequenti'], false) }}">
                                         <svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2" stroke-linecap="round"/></svg>
-                                        <span>Leggi le domande frequenti</span>
+                                        <span>{{ __('pub_theme::blocks_common.shared.read_the_frequently_asked_questions.label') }}</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/assistenza-01-dati" data-element="contacts">
+                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'assistenza-01-dati'], false) }}" data-element="contacts">
                                         <svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2"/><path d="M3 7l9 6 9-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        <span>Richiedi assistenza</span>
+                                        <span>{{ __('pub_theme::blocks_common.shared.request_assistance.label') }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="tel:050505">
                                         <svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 012-2h2l2 5-2 2a12 12 0 006 6l2-2 5 2v2a2 2 0 01-2 2A17 17 0 013 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        <span>Chiama il numero verde 05 0505</span>
+                                        <span>{{ __('pub_theme::blocks_common.shared.call_the_toll_free_number_05.label') }}</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/appuntamento-01-ufficio" data-element="appointment-booking">
+                                    <a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'appuntamento-01-ufficio'], false) }}" data-element="appointment-booking">
                                         <svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2" stroke-linecap="round"/></svg>
-                                        <span>Prenota appuntamento</span>
+                                        <span>{{ __('pub_theme::blocks_common.shared.book_an_appointment.label') }}</span>
                                     </a>
                                 </li>
                             </ul>

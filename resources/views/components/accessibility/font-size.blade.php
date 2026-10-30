@@ -12,7 +12,7 @@
 --}}
 
 @props([
-    'label' => 'Dimensione testo',
+    'label' => __('pub_theme::agid_components.font_size.text_size.label'),
     'sizes' => ['small', 'normal', 'large', 'xl'],
     'currentSize' => 'normal',
     'size' => 'sm',
@@ -37,10 +37,10 @@
     $variantClass = $variantClasses[$variant] ?? $variantClasses['outline'];
     
     $sizeLabels = [
-        'small' => 'Piccolo',
-        'normal' => 'Normale',
-        'large' => 'Grande',
-        'xl' => 'Molto grande'
+        'small' => __('pub_theme::agid_components.font_size.small.label'),
+        'normal' => __('pub_theme::agid_components.font_size.normal.label'),
+        'large' => __('pub_theme::agid_components.font_size.large.label'),
+        'xl' => __('pub_theme::agid_components.font_size.very_large.label')
     ];
     
     $sizeValues = [
@@ -58,12 +58,11 @@
         <button 
             type="button"
             class="font-size-decrease inline-flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            aria-label="Diminuisci dimensione testo"
+            aria-label="{{ __('pub_theme::agid_components.font_size.decrease_text_size.label') }}"
             data-font-size-decrease
-            title="Diminuisci la dimensione del testo"
+            title="{{ __('pub_theme::agid_components.font_size.decrease_the_text_size.title') }}"
         >
             <x-filament::icon icon="heroicon-o-minus" class="h-4 w-4" />
-f7ac8eda (.)
         </button>
         
         <select 
@@ -86,17 +85,16 @@ f7ac8eda (.)
         <button 
             type="button"
             class="font-size-increase inline-flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            aria-label="Aumenta dimensione testo"
+            aria-label="{{ __('pub_theme::agid_components.font_size.increase_text_size.label') }}"
             data-font-size-increase
-            title="Aumenta la dimensione del testo"
+            title="{{ __('pub_theme::agid_components.font_size.increase_the_text_size.title') }}"
         >
             <x-filament::icon icon="heroicon-o-plus" class="h-4 w-4" />
-f7ac8eda (.)
         </button>
     </div>
     
     <span class="sr-only" aria-live="polite" id="font-size-status">
-        Dimensione testo: {{ $sizeLabels[$currentSize] ?? ucfirst($currentSize) }}
+        {{ __('pub_theme::agid_components.font_size.status.message', ['size' => $sizeLabels[$currentSize] ?? ucfirst($currentSize)]) }}
     </span>
 </div>
 

@@ -3,9 +3,9 @@
     NO Bootstrap Italia. Dati reali da pages JSON (tests.novita-dettaglio / novita-dettaglio).
     Stack: Tailwind CSS + Alpine.js + Lit + DaisyUI + Flowbite.
 --}}
-@props(['items' => [], 'title' => 'Novità'])
+@props(['items' => [], 'title' => __('pub_theme::header.center.nav.novita.label')])
 
-<section aria-label="Novità" class="bg-[#F8F9FB] py-12 lg:py-16">
+<section aria-label="{{ __('pub_theme::header.center.nav.novita.label') }}" class="bg-[#F8F9FB] py-12 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl lg:text-4xl font-extrabold text-[#0B1D36] mb-10 tracking-tight leading-tight">
             {{ $title }}
@@ -14,8 +14,8 @@
             @foreach ($items as $item)
             <article class="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 border border-[#E5E7EB] flex flex-col">
                 @if (!empty($item['image']))
-                <a href="{{ $item['url'] ?? '#' }}" class="block overflow-hidden" aria-label="Leggi: {{ $item['title'] ?? '' }}">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['image_alt'] ?? ($item['title'] ?? 'Novità') }}"
+                <a href="{{ $item['url'] ?? '#' }}" class="block overflow-hidden" aria-label="{{ __('pub_theme::components_content.news.read.label', ['title' => $item['title'] ?? '']) }}">
+                    <img src="{{ $item['image'] }}" alt="{{ $item['image_alt'] ?? ($item['title'] ?? __('pub_theme::header.center.nav.novita.label')) }}"
                         class="w-full h-52 object-cover transform group-hover:scale-[1.03] transition-transform duration-300"
                         loading="lazy">
                 </a>
@@ -39,8 +39,8 @@
                     </p>
                     <a href="{{ $item['url'] ?? '#' }}"
                         class="inline-flex items-center gap-2 text-[#007A52] font-semibold hover:text-[#005E3F] transition-colors mt-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#007A52] focus-visible:ring-offset-2 rounded-sm"
-                        aria-label="Leggi la novità: {{ $item['title'] ?? '' }}">
-                        Leggi di più
+                        aria-label="{{ __('pub_theme::components_content.news.read_item.label', ['title' => $item['title'] ?? '']) }}">
+                        {{ __('pub_theme::components_common.actions.read_more.label') }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>

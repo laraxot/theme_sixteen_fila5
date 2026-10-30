@@ -23,7 +23,7 @@
                             {{-- Left: Welcome Message --}}
                             <div class="it-brand-slim-wrapper">
                                 <span class="d-none d-md-inline">
-                                    {{ __('sixteen::header.user.welcome', ['name' => $user->name]) }}
+                                    {{ __('pub_theme::header.user.welcome.label', ['name' => $user->name]) }}
                                 </span>
                             </div>
                             
@@ -34,7 +34,7 @@
                                     class="btn btn-primary btn-sm btn-icon"
                                     aria-haspopup="true"
                                     :aria-expanded="open"
-                                    aria-label="{{ __('sixteen::header.user.aria.toggle_menu') }}"
+                                    aria-label="{{ __('pub_theme::header.user.aria.toggle_menu.label') }}"
                                 >
                                     <span class="d-none d-md-inline mr-2">{{ $user->name }}</span>
                                     <x-ui::icon name="user-circle" class="w-4 h-4" />
@@ -58,7 +58,7 @@
                                 >
                                     {{-- Mobile Welcome (visible only on small screens) --}}
                                     <div class="d-md-none px-4 py-2 border-bottom">
-                                        <span class="text-muted">{{ __('sixteen::header.user.welcome', ['name' => $user->name]) }}</span>
+                                        <span class="text-muted">{{ __('pub_theme::header.user.welcome.label', ['name' => $user->name]) }}</span>
                                     </div>
                                     
                                     {{-- Menu Items — named route Folio (folio:list) + pub_theme::header.user.dropdown.* --}}
@@ -111,10 +111,10 @@
                         <div class="it-header-center-content-wrapper">
                             <div class="it-brand-wrapper">
                                 <a href="{{ route('comune.homepage') }}">
-                                    <img src="{{ theme_asset('images/logo-comune.png') }}" alt="Logo Comune" class="icon">
+                                    <img src="{{ theme_asset('images/logo-comune.png') }}" alt="{{ __('pub_theme::components_header.brand.logo_alt.label') }}" class="icon">
                                     <div class="it-brand-text">
-                                        <h2>{{ config('comune.nome', 'Nome Comune') }}</h2>
-                                        <h3>Comune di {{ config('comune.nome', 'Nome Comune') }}</h3>
+                                        <h2>{{ config('comune.nome', __('pub_theme::components_header.brand.municipality_name_default.label')) }}</h2>
+                                        <h3>{{ __('pub_theme::components_header.brand.municipality_of.label') }} {{ config('comune.nome', __('pub_theme::components_header.brand.municipality_name_default.label')) }}</h3>
                                     </div>
                                 </a>
                             </div>
@@ -136,7 +136,7 @@
                                 @click="toggle()"
                                 :aria-expanded="isOpen"
                                 aria-controls="navbarNav"
-                                aria-label="Toggle navigation"
+                                aria-label="{{ __('pub_theme::components_common.a11y.toggle_navigation.label') }}"
                             >
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -153,35 +153,35 @@
                                             class="nav-link {{ request()->routeIs('comune.homepage') ? 'active' : '' }}" 
                                             href="{{ route('comune.homepage') }}"
                                             @click="closeOnItemClick()"
-                                        >Home</a>
+                                        >{{ __('pub_theme::components_common.nav.home.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.servizi*') ? 'active' : '' }}" 
                                             href="{{ route('comune.servizi') }}"
                                             @click="closeOnItemClick()"
-                                        >Servizi</a>
+                                        >{{ __('pub_theme::header.center.nav.servizi.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.novita*') ? 'active' : '' }}" 
                                             href="{{ route('comune.novita') }}"
                                             @click="closeOnItemClick()"
-                                        >Novità</a>
+                                        >{{ __('pub_theme::header.center.nav.novita.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('comune.contatti') ? 'active' : '' }}" 
                                             href="{{ route('comune.contatti') }}"
                                             @click="closeOnItemClick()"
-                                        >Contatti</a>
+                                        >{{ __('pub_theme::components_common.nav.contacts.label') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a 
                                             class="nav-link {{ request()->routeIs('fixcity.*') ? 'active' : '' }}" 
                                             href="{{ url('/'.app()->getLocale().'/tickets') }}"
                                             @click="closeOnItemClick()"
-                                        >Segnalazioni</a>
+                                        >{{ __('pub_theme::home.heading.title') }}</a>
                                     </li>
                                 </ul>
                             </div>

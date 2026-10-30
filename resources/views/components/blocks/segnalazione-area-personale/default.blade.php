@@ -1,8 +1,8 @@
 @props(['data' => []])
 
 @php
-    $title = $data['title'] ?? 'Segnalazione - Area personale';
-    $subtitle = $data['subtitle'] ?? 'Le tue segnalazioni';
+    $title = $data['title'] ?? __('pub_theme::components_reports.personal_area.report.title');
+    $subtitle = $data['subtitle'] ?? __('pub_theme::components_reports.personal_area.your_reports.title');
     $segnalazioni = $data['segnalazioni'] ?? [
         ['titolo' => 'Segnalazione 1', 'stato' => 'In lavorazione'],
         ['titolo' => 'Segnalazione 2', 'stato' => 'Completata'],
@@ -11,11 +11,11 @@
 
 <div class="main-container" id="main-container">
     <div class="mx-auto max-w-5xl px-4 py-8 lg:py-12">
-        <nav class="mb-6 text-sm text-[#5d7083]" aria-label="Breadcrumb">
+        <nav class="mb-6 text-sm text-[#5d7083]" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb.label') }}">
             <ol class="flex flex-wrap items-center gap-2">
-                <li><a href="{{ route('tests.view', ['slug' => 'homepage']) }}" class="underline-offset-2 hover:text-[#007a52] hover:underline">Home</a></li>
+                <li><a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'homepage']) }}" class="underline-offset-2 hover:text-[#007a52] hover:underline">{{ __('pub_theme::components_common.nav.home.label') }}</a></li>
                 <li aria-hidden="true">/</li>
-                <li><a href="{{ route('tests.view', ['slug' => 'area-personale']) }}" class="underline-offset-2 hover:text-[#007a52] hover:underline">Area personale</a></li>
+                <li><a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'area-personale']) }}" class="underline-offset-2 hover:text-[#007a52] hover:underline">{{ __('pub_theme::header.guest.cta.label') }}</a></li>
                 <li aria-hidden="true">/</li>
                 <li aria-current="page">{{ $title }}</li>
             </ol>
@@ -32,7 +32,7 @@
                 <div class="card-wrapper rounded border border-[#d9e2e8] bg-white p-4 shadow-sm">
                     <div class="card-body">
                         <h3 class="t-primary text-lg font-bold">{{ $segnalazione['titolo'] }}</h3>
-                        <p class="mt-2 text-sm text-[#334e68]">Stato: {{ $segnalazione['stato'] }}</p>
+                        <p class="mt-2 text-sm text-[#334e68]">{{ __('pub_theme::components_common.fields.status_colon.label') }} {{ $segnalazione['stato'] }}</p>
                     </div>
                 </div>
             @endforeach

@@ -15,7 +15,7 @@
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">{{ __('sixteen::footer.contact_municipality') }}</h2>
+                            <h2 class="title-medium-2-semi-bold">{{ __('pub_theme::blocks_common.shared.contact_the_municipality.label') }}</h2>
                             <ul class="contact-list p-0">
                                 @foreach($contact_links as $link)
                                 <li>
@@ -29,7 +29,7 @@
                                 @endforeach
                             </ul>
                             @if(!empty($report_links))
-                            <h2 class="title-medium-2-semi-bold mt-4">Problemi in città</h2>
+                            <h2 class="title-medium-2-semi-bold mt-4">{{ __('pub_theme::blocks_common.shared.problems_in_the_city.label') }}</h2>
                             <ul class="contact-list p-0">
                                 @foreach($report_links as $link)
                                 <li>

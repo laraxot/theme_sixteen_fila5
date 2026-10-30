@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Dati anagrafici',
-    'description' => 'Inserisci i tuoi dati per la richiesta di assistenza',
+    'title' => __('pub_theme::flow_appointment.riepilogo.personal_details.label'),
+    'description' => __('pub_theme::flow_assistance.dati.enter_your_details_for_the_assistance.help'),
 ])
 
 <div class="step-content mt-8">
@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">
-                    Nome <span class="text-red-500">*</span>
+                    {{ __('pub_theme::blocks_common.shared.name.label') }} <span class="text-red-500">*</span>
                 </label>
                 <input 
                     type="text" 
@@ -30,7 +30,7 @@
             </div>
             <div>
                 <label for="cognome" class="block text-sm font-medium text-gray-700 mb-2">
-                    Cognome <span class="text-red-500">*</span>
+                    {{ __('pub_theme::blocks_common.shared.surname.label') }} <span class="text-red-500">*</span>
                 </label>
                 <input 
                     type="text" 
@@ -46,7 +46,7 @@
 
         <div>
             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                Email <span class="text-red-500">*</span>
+                {{ __('pub_theme::blocks_common.shared.email.label') }} <span class="text-red-500">*</span>
             </label>
             <input 
                 type="email" 
@@ -61,7 +61,7 @@
 
         <div>
             <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">
-                Telefono
+                {{ __('pub_theme::blocks_common.shared.phone.label') }}
             </label>
             <input 
                 type="tel" 
@@ -82,7 +82,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

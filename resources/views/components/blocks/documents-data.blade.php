@@ -17,7 +17,7 @@
 
 <div class="dc-documents-page" x-data="{ query: '', visible: true, matches: {{ count($documents) }}, terms: @js($searchTerms) }">
     <div class="container dc-documents-container">
-        <nav class="dc-breadcrumb" aria-label="Breadcrumb">
+        <nav class="dc-breadcrumb" aria-label="{{ __('pub_theme::blocks_content.shared.breadcrumb.label') }}">
             <ol>
                 @foreach ($breadcrumb as $item)
                     <li><a href="{{ $item['url'] ?? '#' }}">{{ $item['label'] ?? '' }}</a><span aria-hidden="true">/</span></li>

@@ -141,7 +141,7 @@
                                 @else
                                     <span aria-hidden="true"></span>
                                 @endif
-                                <span class="text-slate-700" aria-live="polite">Pagina {{ $vm->listPage() }}</span>
+                                <span class="text-slate-700" aria-live="polite">{{ __('pub_theme::components_common.pagination.page.label') }} {{ $vm->listPage() }}</span>
                                 @if ($vm->hasNextListPage())
                                     <a class="inline-flex min-h-11 items-center rounded-lg border-2 border-sky-800 px-4 py-2 font-semibold text-sky-900" href="{{ $vm->listPageUrl($vm->listPage() + 1) }}">
                                         {{ __($ns . '.load-more.button.label') }}

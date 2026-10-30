@@ -51,7 +51,7 @@
                             <svg class="icon me-1 mr-lg-10" aria-hidden="true">
                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                             </svg>
-                            Scrivania
+                            {{ __('pub_theme::flow_personal_area.dashboard.desk.label') }}
                         </a>
                     </li>
                     <li class="nav-item w-100" role="tab">
@@ -59,7 +59,7 @@
                             <svg class="icon me-1 mr-lg-10" aria-hidden="true">
                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-mail"></use>
                             </svg>
-                            Messaggi
+                            {{ __('pub_theme::flow_personal_area.dashboard.messages.label') }}
                         </a>
                     </li>
                     <li class="nav-item w-100" role="tab">
@@ -67,7 +67,7 @@
                             <svg class="icon me-1 mr-lg-10" aria-hidden="true">
                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-files"></use>
                             </svg>
-                            Attività
+                            {{ __('pub_theme::flow_personal_area.dashboard.activities.label') }}
                         </a>
                     </li>
                     <li class="nav-item w-100" role="tab">
@@ -75,7 +75,7 @@
                             <svg class="icon me-1 mr-lg-10" aria-hidden="true">
                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-settings"></use>
                             </svg>
-                            Servizi
+                            {{ __('pub_theme::blocks_common.shared.services.label') }}
                         </a>
                     </li>
                 </ul>
@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="INDICE DELLA PAGINA" data-bs-navscroll>
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="{{ __('pub_theme::flow_personal_area.dashboard.page_index.label') }}" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">
                                     <div class="menu-wrapper">
                                         <div class="link-list-wrapper">
@@ -97,7 +97,7 @@
                                                 <div class="accordion-item">
                                                     <span class="accordion-header" id="accordion-title-one">
                                                         <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                                                            INDICE DELLA PAGINA
+                                                            {{ __('pub_theme::flow_personal_area.dashboard.page_index.label') }}
                                                             <svg class="icon icon-xs right">
                                                                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
                                                             </svg>
@@ -111,12 +111,12 @@
                                                             <ul class="link-list" data-element="page-index">
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#latest-posts">
-                                                                        <span>Ultimi messaggi</span>
+                                                                        <span>{{ __('pub_theme::flow_personal_area.dashboard.latest_messages.label') }}</span>
                                                                     </a>
                                                                 </li>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#latest-activities">
-                                                                        <span>Ultime attività</span>
+                                                                        <span>{{ __('pub_theme::flow_personal_area.dashboard.latest_activities.label') }}</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -137,7 +137,7 @@
                                 <div class="card">
                                     <div class="card-header border-0 p-0 mb-lg-20">
                                         <div class="d-flex">
-                                            <h2 class="title-xxlarge">Ultimi messaggi</h2>
+                                            <h2 class="title-xxlarge">{{ __('pub_theme::flow_personal_area.dashboard.latest_messages.label') }}</h2>
                                         </div>
                                     </div>
                                     <div class="card-body p-0">
@@ -151,13 +151,13 @@
                                                     <h3 class="title-small-semi-bold t-primary m-0 mb-1">
                                                         <a href="#" class="text-decoration-none">{{ $msg['titolo'] }}</a>
                                                     </h3>
-                                                    <p class="text-paragraph text-truncate">La richiesta è stata {{ $msg['stato'] }}...</p>
+                                                    <p class="text-paragraph text-truncate">{{ __('pub_theme::flow_personal_area.dashboard.request_status.message', ['status' => $msg['stato']]) }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                         @endforeach
                                         <button type="button" class="btn btn-xs btn-me btn-label t-primary px-0">
-                                            <span class="">Vedi altri messaggi</span>
+                                            <span class="">{{ __('pub_theme::flow_personal_area.dashboard.see_more_messages.label') }}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                 <div class="card">
                                     <div class="card-header border-0 p-0 mb-lg-20 m-0">
                                         <div class="d-flex">
-                                            <h2 class="title-xxlarge mb-3">Ultime attività</h2>
+                                            <h2 class="title-xxlarge mb-3">{{ __('pub_theme::flow_personal_area.dashboard.latest_activities.label') }}</h2>
                                         </div>
                                     </div>
                                     <div class="card-body p-0">
@@ -191,7 +191,7 @@
                                         </div>
                                         @endforeach
                                         <button type="button" class="btn btn-xs btn-me btn-label t-primary px-0">
-                                            <span class="">Vedi altre attività</span>
+                                            <span class="">{{ __('pub_theme::flow_personal_area.dashboard.see_more_activities.label') }}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@
                         <section class="it-page-section mb-40 mb-lg-60" id="practices">
                             <div class="cmp-filter">
                                 <div class="filter-section">
-                                    <h2 class="cmp-filter__title title-xxlarge">Pratiche</h2>
+                                    <h2 class="cmp-filter__title title-xxlarge">{{ __('pub_theme::flow_personal_area.dashboard.cases.label') }}</h2>
                                     <div class="filter-wrapper d-flex align-items-center">
                                         <button type="button" class="btn p-0 pe-2 t-primary">
                                             <span class="rounded-icon">
@@ -215,17 +215,17 @@
                                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-funnel"></use>
                                                 </svg>
                                             </span>
-                                            <span class="">Filtra</span>
+                                            <span class="">{{ __('pub_theme::blocks_common.shared.filter.label') }}</span>
                                         </button>
                                         <div class="dropdown">
                                             <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenu-pratiche" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="dropdown__title">Ordina</span>
+                                                <span class="dropdown__title">{{ __('pub_theme::flow_personal_area.dashboard.sort.label') }}</span>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu-pratiche">
                                                 <div class="link-list-wrapper">
                                                     <ul class="link-list">
-                                                        <li><a class="dropdown-item list-item" href="#"><span>Più recenti</span></a></li>
-                                                        <li><a class="dropdown-item list-item" href="#"><span>Più vecchi</span></a></li>
+                                                        <li><a class="dropdown-item list-item" href="#"><span>{{ __('pub_theme::flow_personal_area.dashboard.most_recent.label') }}</span></a></li>
+                                                        <li><a class="dropdown-item list-item" href="#"><span>{{ __('pub_theme::flow_personal_area.dashboard.oldest.label') }}</span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -244,11 +244,11 @@
                                                     {{ $pratica['titolo'] }}
                                                     <div class="icon-wrapper">
                                                         @if($pratica['stato'] === 'in_attesa')
-                                                        <img class="icon-folder" src="/themes/Sixteen/design-comuni/assets/images/folder-waiting.svg" alt="folder In attesa" role="img">
-                                                        <span class="u-main-black">In attesa</span>
+                                                        <img class="icon-folder" src="/themes/Sixteen/design-comuni/assets/images/folder-waiting.svg" alt="{{ __('pub_theme::flow_personal_area.dashboard.folder_pending.label') }}" role="img">
+                                                        <span class="u-main-black">{{ __('pub_theme::flow_personal_area.dashboard.pending.label') }}</span>
                                                         @else
-                                                        <img class="icon-folder" src="/themes/Sixteen/design-comuni/assets/images/folder-concluded.svg" alt="folder Conclusa" role="img">
-                                                        <span class="">Conclusa</span>
+                                                        <img class="icon-folder" src="/themes/Sixteen/design-comuni/assets/images/folder-concluded.svg" alt="{{ __('pub_theme::flow_personal_area.dashboard.folder_completed.label') }}" role="img">
+                                                        <span class="">{{ __('pub_theme::flow_personal_area.dashboard.completed.label') }}</span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -258,15 +258,15 @@
                                         
                                         <div id="collapse{{ $idx }}" class="accordion-collapse collapse p-0" data-bs-parent="#accordionPratiche" role="region" aria-labelledby="heading{{ $idx }}">
                                             <div class="accordion-body">
-                                                <p class="mb-2 fw-normal">Pratica: <span class="label">AN4059281</span></p>
+                                                <p class="mb-2 fw-normal">{{ __('pub_theme::flow_personal_area.dashboard.case_colon.label') }} <span class="label">AN4059281</span></p>
                                                 <a href="#" class="mb-2">
-                                                    <span class="t-primary">Scheda servizio</span>
+                                                    <span class="t-primary">{{ __('pub_theme::flow_personal_area.dashboard.service_sheet.label') }}</span>
                                                 </a>
                                                 <a class="chip chip-simple" href="#">
-                                                    <span class="chip-label">Servizio non digitale</span>
+                                                    <span class="chip-label">{{ __('pub_theme::flow_personal_area.dashboard.non_digital_service.label') }}</span>
                                                 </a>
                                                 <button type="button" class="btn btn-primary justify-content-center my-3">
-                                                    <span class="">Perfeziona la richiesta</span>
+                                                    <span class="">{{ __('pub_theme::flow_personal_area.dashboard.complete_the_request.label') }}</span>
                                                 </button>
                                             </div>
                                         </div>

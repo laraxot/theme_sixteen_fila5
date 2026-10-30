@@ -20,9 +20,8 @@ status: draft
 - Rimosse classi CSS da `<body>` in tutti i layout (ora semplice `<body>` come reference Design Comuni).
 - Rimosso `@section('js')` vuoto da `ticket-create-wizard.blade.php`.
 - Rimosso `<form wire:submit="submit">` wrappante da `ticket-create-wizard.blade.php`.
-- **RIMOSSO** `resources/js/theme/header-mobile-nav-boot.js` — entry Vite separato, broken (import mancante).
-- **RIMOSSO** `resources/js/theme/header-mobile-nav.js` — 110 righe di JS vanilla con zero template consumer.
-- **RIMOSSO** `resources/js/theme/header-mobile-nav-scope.js` — non esisteva mai su disco, reference fantasma.
+- **IN USE** `resources/js/theme/header-mobile-nav.js` — 189 righe con selector `[data-mobile-nav-*]` canonical (usato da `app.js:26,164,173,209,264-266,384,407,441`).
+  - **RIMOSSO** `resources/js/theme/header-mobile-nav-boot.js` — entry Vite separato, non più presente su disco.
 - Rimossi i relativi `.lock` files.
 
 ## Cosa è stato corretto
@@ -30,8 +29,8 @@ status: draft
 - `@vite()` in tutti i layout ora ha **un solo entry**: `@vite(['resources/js/app.js'], 'themes/Sixteen')`
 - Alpine `headerMobileNav` → **eliminato** (nessun template lo usava mai)
 - Alpine `mobileMenu()` → registrato via inline `<script>` su `alpine:init` **PRIMA** di `@livewireScripts`
-- `app.js` pulito: import e listener per `initHeaderMobileNav` rimossi
-- CSS morto per `data-sixteen-mobile-nav-*` rimosso da `app.css`
+- `app.js` — import `initHeaderMobileNav, isDesignComuniPage` da `./theme/header-mobile-nav.js` attivo (linea 26); `initHeaderMobileNav()` chiamato su `DOMContentLoaded`, `livewire:navigated`, `livewire:update` (linee 264-266) e inizializzazione immediata (linea 164).
+- CSS morto per gli hook proprietari della navigazione mobile rimosso da `app.css`
 
 ## Pattern attuale (canonico)
 

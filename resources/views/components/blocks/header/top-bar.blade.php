@@ -1,4 +1,4 @@
-@props(['region' => 'Nome della Regione', 'language' => 'ITA', 'login_url' => '#'])
+@props(['region' => __('pub_theme::header.slim.region.name.label'), 'language' => 'ITA', 'login_url' => '#'])
 
 {{-- Top Bar - Bootstrap Italia Exact Replica --}}
 <div class="it-top-nav-wrapper">
@@ -13,9 +13,9 @@
             <div class="col-6 col-md-3 offset-md-6 text-right">
                 {{-- Language Selector --}}
                 <div class="d-inline-block mr-2">
-                    <select class="form-control form-control-sm" aria-label="Seleziona lingua" style="width: auto; display: inline-block;">
-                        <option value="it" {{ $language === 'ITA' ? 'selected' : '' }}>ITA</option>
-                        <option value="en" {{ $language === 'ENG' ? 'selected' : '' }}>ENG</option>
+                    <select class="form-control form-control-sm" aria-label="{{ __('pub_theme::components_header.language.select.label') }}" style="width: auto; display: inline-block;">
+                        <option value="it" {{ $language === 'ITA' ? 'selected' : '' }}>{{ __('pub_theme::header.language.code_it.label') }}</option>
+                        <option value="en" {{ $language === 'ENG' ? 'selected' : '' }}>{{ __('pub_theme::header.language.code_en.label') }}</option>
                     </select>
                 </div>
                 
@@ -24,7 +24,7 @@
                     <svg class="icon icon-sm">
                         <use href="#it-user"></use>
                     </svg>
-                    <span class="d-none d-sm-inline">Accedi all'area personale</span>
+                    <span class="d-none d-sm-inline">{{ __('pub_theme::faq.contacts.login') }}</span>
                 </a>
             </div>
         </div>

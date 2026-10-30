@@ -45,7 +45,7 @@
     <div class="mt-4 pt-4 border-t border-gray-300">
         <div class="flex items-center text-sm">
             <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-            <span class="text-gray-600">Sistema Operativo</span>
+            <span class="text-gray-600">{{ __('pub_theme::components_content.sidebar.operating_system.label') }}</span>
         </div>
     </div>
 </div>

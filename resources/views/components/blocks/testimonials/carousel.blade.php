@@ -28,7 +28,6 @@
                         {{-- Quote Icon --}}
                         <div class="absolute top-6 right-6 text-blue-200">
                             <x-filament::icon icon="heroicon-o-chat-bubble-left-ellipsis" class="w-8 h-8" />
-f7ac8eda (.)
                         </div>
 
                         {{-- Rating --}}
@@ -52,7 +51,7 @@ f7ac8eda (.)
                             @if(isset($testimonial['avatar']))
                                 <img 
                                     src="{{ $testimonial['avatar'] }}" 
-                                    alt="{{ $testimonial['author'] ?? 'Cliente' }}"
+                                    alt="{{ $testimonial['author'] ?? __('pub_theme::components_common.fallback.customer.label') }}"
                                     class="w-12 h-12 rounded-full mr-4 object-cover"
                                 >
                             @else

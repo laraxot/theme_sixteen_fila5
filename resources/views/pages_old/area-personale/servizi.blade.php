@@ -25,7 +25,7 @@ middleware(['web', 'auth']);
 
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
-                        <p class="text-muted">Questa pagina mostrerà i servizi disponibili presto.</p>
+                        <p class="text-muted">{{ __('pub_theme::legacy_homepage.services.coming_soon.message') }}</p>
                     </div>
                 </div>
             </div>

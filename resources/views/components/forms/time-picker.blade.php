@@ -162,7 +162,7 @@ for ($hour = $startHour; $hour <= $endHour; $hour++) {
                 type="button"
                 @click="clearTime()"
                 class="absolute top-1/2 right-8 transform -translate-y-1/2 text-gray-400 hover:text-italia-red-600 transition-colors"
-                aria-label="Cancella orario"
+                aria-label="{{ __('pub_theme::components_forms.clear.time.label') }}"
                 @if($disabled || $readonly) disabled @endif
             >
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -213,7 +213,7 @@ for ($hour = $startHour; $hour <= $endHour; $hour++) {
             </template>
             
             <li x-show="filteredOptions.length === 0" class="px-4 py-2 text-gray-500 italic" role="option">
-                Nessun orario disponibile
+                {{ __('pub_theme::components_forms.time_picker.empty.message') }}
             </li>
         </ul>
     </div>
@@ -222,13 +222,13 @@ for ($hour = $startHour; $hour <= $endHour; $hour++) {
     @if($required || $minTime || $maxTime)
         <div id="{{ $id }}-help" class="mt-1 text-sm text-gray-500">
             @if($required)
-                <span>Campo obbligatorio</span>
+                <span>{{ __('pub_theme::components_forms.validation.required.label') }}</span>
             @endif
             @if($minTime)
-                <span x-show="minTime">Ora minima: <span x-text="minTime"></span></span>
+                <span x-show="minTime">{{ __('pub_theme::components_forms.time_picker.min.label') }} <span x-text="minTime"></span></span>
             @endif
             @if($maxTime)
-                <span x-show="maxTime">Ora massima: <span x-text="maxTime"></span></span>
+                <span x-show="maxTime">{{ __('pub_theme::components_forms.time_picker.max.label') }} <span x-text="maxTime"></span></span>
             @endif
         </div>
     @endif

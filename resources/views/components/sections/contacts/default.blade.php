@@ -41,7 +41,7 @@
             @endif
             @if($openingHours)
                 <div>
-                    <span class="font-semibold text-slate-700 dark:text-slate-300">Orari di apertura:</span>
+                    <span class="font-semibold text-slate-700 dark:text-slate-300">{{ __('pub_theme::navigation_components.contacts.opening_hours.label') }}</span>
                     <ul class="mt-2 space-y-1">
                         @foreach($openingHours as $hour)
                             <li class="flex gap-2">

@@ -18,7 +18,7 @@
         <button type="button" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button"
                 data-load-more
                 data-page="{{ $next }}">
-            <span class="">Carica altri risultati</span>
+            <span class="">{{ __('pub_theme::components_common.actions.load_more_results.label') }}</span>
         </button>
         @endif
     </div>

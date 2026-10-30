@@ -1,6 +1,6 @@
 {{-- Bootstrap Italia Footer Component --}}
 @props([
-    'brandName' => config('app.name', 'Comune di '),
+    'brandName' => config('app.name', __('pub_theme::components_header.brand.municipality_of.label').' '),
     'brandLogo' => null,
     'description' => null,
     'address' => [],
@@ -34,7 +34,7 @@
                     {{-- Address --}}
                     @if(!empty($address))
                     <div class="mb-6">
-                        <h4 class="font-semibold text-white mb-3">Indirizzo</h4>
+                        <h4 class="font-semibold text-white mb-3">{{ __('pub_theme::components_common.form.address.label') }}</h4>
                         <div class="text-primary-200 text-sm space-y-1">
                             @foreach($address as $line)
                             <div>{{ $line }}</div>
@@ -46,7 +46,7 @@
                     {{-- Contacts --}}
                     @if(!empty($contacts))
                     <div class="mb-6">
-                        <h4 class="font-semibold text-white mb-3">Contatti</h4>
+                        <h4 class="font-semibold text-white mb-3">{{ __('pub_theme::components_common.nav.contacts.label') }}</h4>
                         <div class="space-y-2">
                             @foreach($contacts as $contact)
                             <div class="flex items-center text-sm text-primary-200">
@@ -96,15 +96,15 @@
                 {{-- Newsletter --}}
                 @if($showNewsletter)
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Newsletter</h4>
-                    <p class="text-primary-200 text-sm mb-4">Rimani aggiornato sulle ultime novità</p>
+                    <h4 class="font-semibold text-white mb-4">{{ __('pub_theme::components_footer.newsletter.title.label') }}</h4>
+                    <p class="text-primary-200 text-sm mb-4">{{ __('pub_theme::components_footer.newsletter.intro.text') }}</p>
                     <form class="space-y-3">
                         <input type="email" 
-                               placeholder="La tua email"
+                               placeholder="{{ __('pub_theme::components_footer.newsletter.email.placeholder') }}"
                                class="w-full px-3 py-2 text-italia-gray-900 bg-white rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent text-sm">
                         <button type="submit" 
                                 class="btn-italia bg-primary-700 hover:bg-primary-600 text-white w-full text-sm">
-                            Iscriviti
+                            {{ __('pub_theme::components_footer.newsletter.subscribe.label') }}
                         </button>
                     </form>
                 </div>
@@ -114,14 +114,14 @@
             {{-- Social Links --}}
             @if(!empty($socialLinks))
             <div class="mt-8 pt-8 border-t border-primary-800">
-                <h4 class="font-semibold text-white mb-4">Seguici sui social</h4>
+                <h4 class="font-semibold text-white mb-4">{{ __('pub_theme::components_footer.social.follow_us_social.label') }}</h4>
                 <div class="flex space-x-4">
                     @foreach($socialLinks as $social)
                     <a href="{{ $social['url'] ?? '#' }}" 
                        target="_blank"
                        rel="noopener noreferrer"
                        class="flex items-center justify-center w-10 h-10 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors">
-                        <span class="sr-only">{{ $social['name'] ?? 'Social' }}</span>
+                        <span class="sr-only">{{ $social['name'] ?? __('pub_theme::components_common.fallback.social.label') }}</span>
                         @if($social['icon'] ?? false)
                             {!! $social['icon'] !!}
                         @endif
@@ -138,7 +138,7 @@
         <div class="container-italia">
             <div class="flex flex-col md:flex-row items-center justify-between text-sm text-primary-300">
                 <div class="mb-2 md:mb-0">
-                    {{ $copyright ?? '© ' . date('Y') . ' ' . $brandName . '. Tutti i diritti riservati.' }}
+                    {{ $copyright ?? '© ' . date('Y') . ' ' . $brandName . __('pub_theme::components_footer.legal.rights_reserved.label') }}
                 </div>
                 
                 @if(!empty($bottomLinks))

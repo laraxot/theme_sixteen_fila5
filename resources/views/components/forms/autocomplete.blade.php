@@ -8,7 +8,7 @@
     'id' => null,
     'label' => null,
     'value' => null,
-    'placeholder' => 'Cerca...',
+    'placeholder' => __('pub_theme::components_forms.fields.autocomplete.placeholder'),
     'required' => false,
     'disabled' => false,
     'readonly' => false,
@@ -20,8 +20,8 @@
     'autocomplete' => 'off',
     'size' => 'md', // 'sm', 'md', 'lg'
     'variant' => 'default', // 'default', 'inline'
-    'loadingText' => 'Caricamento...',
-    'noResultsText' => 'Nessun risultato trovato',
+    'loadingText' => __('pub_theme::components_common.states.loading.label'),
+    'noResultsText' => __('pub_theme::components_forms.autocomplete.no_results.message'),
     'remoteUrl' => null, // URL per fetch remoto
     'remoteMethod' => 'GET', // Metodo HTTP per fetch
     'valueField' => 'value', // Campo per valore
@@ -143,7 +143,7 @@ $localOptions = is_array($options) ? $options : [];
             type="button"
             @click="clearSearch"
             class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400 hover:text-italia-red-600 transition-colors"
-            aria-label="Cancella ricerca"
+            aria-label="{{ __('pub_theme::components_forms.clear.search.label') }}"
         >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -161,7 +161,7 @@ $localOptions = is_array($options) ? $options : [];
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <span class="sr-only">Caricamento...</span>
+            <span class="sr-only">{{ __('pub_theme::components_common.states.loading.label') }}</span>
         </div>
     </div>
 
@@ -239,10 +239,10 @@ $localOptions = is_array($options) ? $options : [];
     @if($required || $minLength > 0)
         <div id="{{ $id }}-help" class="mt-1 text-sm text-gray-500">
             @if($required)
-                <span>Campo obbligatorio</span>
+                <span>{{ __('pub_theme::components_forms.validation.required.label') }}</span>
             @endif
             @if($minLength > 0)
-                <span x-show="minLength">Inserisci almeno {{ $minLength }} caratteri</span>
+                <span x-show="minLength">{{ __('pub_theme::components_forms.autocomplete.min_length.text', ['min' => $minLength]) }}</span>
             @endif
         </div>
     @endif

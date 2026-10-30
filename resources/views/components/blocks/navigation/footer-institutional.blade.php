@@ -17,9 +17,9 @@
 @props([
     'variant' => 'default',
     'logoSrc' => '/images/logo-white.svg',
-    'logoAlt' => 'Logo Ente',
-    'enteName' => 'Nome Ente',
-    'enteDescription' => 'Servizi digitali per i cittadini',
+    'logoAlt' => __('pub_theme::components_common.a11y.entity_logo.label'),
+    'enteName' => __('pub_theme::components_common.brand.entity_name.label'),
+    'enteDescription' => __('pub_theme::components_common.brand.digital_services.text'),
     'showLinks' => true,
     'background' => 'dark',
     'customLinks' => []
@@ -40,10 +40,10 @@ $footerClasses = collect([
 ])->filter()->implode(' ');
 
 $defaultLinks = [
-    ['title' => 'Privacy', 'url' => '/privacy'],
-    ['title' => 'Note legali', 'url' => '/note-legali'],
-    ['title' => 'Dichiarazione di accessibilità', 'url' => '/accessibilita'],
-    ['title' => 'Assistenza', 'url' => '/help']
+    ['title' => __('pub_theme::components_footer.legal.privacy_short.label'), 'url' => '/privacy'],
+    ['title' => __('pub_theme::legal.documents.legal_notes.title'), 'url' => '/note-legali'],
+    ['title' => __('pub_theme::accessibility.page.title.text'), 'url' => '/accessibilita'],
+    ['title' => __('pub_theme::components_common.footer.support.label'), 'url' => '/help']
 ];
 
 $allLinks = array_merge($defaultLinks, $customLinks);
@@ -71,7 +71,7 @@ $allLinks = array_merge($defaultLinks, $customLinks);
             <!-- Institutional Links -->
             @if($showLinks && count($allLinks) > 0)
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Link utili</h4>
+                    <h4 class="text-lg font-semibold mb-4">{{ __('pub_theme::navigation.homepage.useful_links') }}</h4>
                     <ul class="space-y-2 text-sm">
                         @foreach($allLinks as $link)
                             <li>

@@ -19,7 +19,7 @@
                                 <h3 class="card-title h5">{{ $item['title'] }}</h3>
                                 <p class="card-text">{{ $item['excerpt'] ?? '' }}</p>
                                 <a href="{{ $item['url'] }}" class="read-more">
-                                    <span class="text">Leggi di più</span>
+                                    <span class="text">{{ __('pub_theme::components_common.actions.read_more.label') }}</span>
                                     <svg class="icon icon-primary icon-xs" aria-hidden="true">
                                         <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                     </svg>
@@ -32,7 +32,7 @@
             </div>
             <div class="text-center mt-4">
                 <a class="btn btn-outline-primary" :href="route('news') ?? route('events.index')">
-                    Tutte le novità
+                    {{ __('pub_theme::navigation.homepage.all_news') }}
                     <svg class="icon icon-sm">
                         <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                     </svg>

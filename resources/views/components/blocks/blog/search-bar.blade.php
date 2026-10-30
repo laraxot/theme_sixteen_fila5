@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Cerca',
+    'title' => __('pub_theme::blocks_common.shared.search.label'),
     'subtitle' => '',
     'placeholder' => 'Cerca...',
     'show_advanced' => false,
@@ -31,10 +31,10 @@
         
         @if($show_suggestions)
              <div class="mt-4 text-sm text-gray-500">
-                <span class="font-medium">Popolari:</span> 
-                <a href="{{ $blogSearchUrl.'?q='.urlencode('Radioprotezione') }}" class="hover:text-blue-600 transition-colors">Radioprotezione</a>,
-                <a href="{{ $blogSearchUrl.'?q='.urlencode('Normativa 2026') }}" class="hover:text-blue-600 transition-colors">Normativa 2026</a>,
-                <a href="{{ $blogSearchUrl.'?q='.urlencode('Sicurezza') }}" class="hover:text-blue-600 transition-colors">Sicurezza</a>
+                <span class="font-medium">{{ __('pub_theme::blocks_content.search_bar.popular_colon.label') }}</span> 
+                <a href="{{ $blogSearchUrl.'?q='.urlencode('Radioprotezione') }}" class="hover:text-blue-600 transition-colors">{{ __('pub_theme::blocks_content.search_bar.radiation_protection.label') }}</a>,
+                <a href="{{ $blogSearchUrl.'?q='.urlencode('Normativa 2026') }}" class="hover:text-blue-600 transition-colors">{{ __('pub_theme::blocks_content.search_bar.2026_regulations.label') }}</a>,
+                <a href="{{ $blogSearchUrl.'?q='.urlencode('Sicurezza') }}" class="hover:text-blue-600 transition-colors">{{ __('pub_theme::blocks_content.search_bar.safety.label') }}</a>
              </div>
         @endif
     </div>

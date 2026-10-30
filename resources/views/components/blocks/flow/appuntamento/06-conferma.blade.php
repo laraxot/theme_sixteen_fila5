@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Appuntamento confermato',
+    'title' => __('pub_theme::blocks_common.shared.appointment_confirmed.title'),
     'appointment' => [],
     'showActions' => true,
 ])
@@ -27,31 +27,31 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <h4 class="text-lg font-semibold text-green-800">Appuntamento prenotato con successo!</h4>
-                <p class="text-green-700">Riceverai una conferma via email</p>
+                <h4 class="text-lg font-semibold text-green-800">{{ __('pub_theme::flow_appointment.conferma.appointment_booked_successfully.message') }}</h4>
+                <p class="text-green-700">{{ __('pub_theme::flow_appointment.conferma.you_will_receive_a_confirmation_by.label') }}</p>
             </div>
         </div>
 
         <div class="border-t border-green-200 pt-4 mt-4">
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <dt class="text-sm text-green-700">Codice prenotazione</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_appointment.conferma.booking_code.label') }}</dt>
                     <dd class="text-lg font-bold text-green-800" data-element="booking-code">{{ $appointment['codice_prenotazione'] ?: 'APT-2025-001234' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Ufficio</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_appointment.shared.office.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-office">{{ $appointment['office'] ?: 'Ufficio Anagrafe' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Data</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::blocks_common.shared.date.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-date">{{ $appointment['date'] ?: '15 Aprile 2025' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Orario</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_appointment.shared.time.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-time">{{ $appointment['time'] ?: '09:00' }}</dd>
                 </div>
                 <div class="md:col-span-2">
-                    <dt class="text-sm text-green-700">Motivo</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_appointment.shared.reason.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-motivo">{{ $appointment['motivo'] ?: 'Informazioni generali' }}</dd>
                 </div>
             </dl>
@@ -65,7 +65,7 @@
             </svg>
             <div class="ml-3">
                 <p class="text-sm text-blue-700">
-                    <strong>Ricorda:</strong> Presentati presso l'ufficio 10 minuti prima dell'orario prenotato e porta un documento di identità valido.
+                    <strong>{{ __('pub_theme::flow_appointment.conferma.remember_colon.label') }}</strong> {{ __('pub_theme::flow_appointment.conferma.arrive_at_the_office_10_minutes.message') }}
                 </p>
             </div>
         </div>
@@ -77,13 +77,13 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
-            Aggiungi al calendario
+            {{ __('pub_theme::flow_appointment.conferma.add_to_calendar.label') }}
         </a>
         <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
             </svg>
-            Stampa conferma
+            {{ __('pub_theme::flow_appointment.conferma.print_confirmation.label') }}
         </a>
     </div>
     @endif

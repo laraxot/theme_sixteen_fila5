@@ -17,9 +17,9 @@
 @props([
     'variant' => 'default',
     'logoSrc' => '/images/logo.svg',
-    'logoAlt' => 'Logo Ente',
-    'enteName' => 'Nome Ente',
-    'serviceTagline' => 'Servizi digitali per i cittadini',
+    'logoAlt' => __('pub_theme::components_common.a11y.entity_logo.label'),
+    'enteName' => __('pub_theme::components_common.brand.entity_name.label'),
+    'serviceTagline' => __('pub_theme::components_common.brand.digital_services.text'),
     'homeUrl' => '/',
     'showNavigation' => false,
     'position' => 'static'
@@ -62,7 +62,7 @@ $headerClasses = collect([
             </div>
             
             @if($showNavigation)
-                <nav role="navigation" aria-label="Navigazione principale" class="hidden md:flex items-center space-x-6">
+                <nav role="navigation" aria-label="{{ __('pub_theme::components_common.a11y.main_navigation.label') }}" class="hidden md:flex items-center space-x-6">
                     {{ $slot }}
                 </nav>
             @endif

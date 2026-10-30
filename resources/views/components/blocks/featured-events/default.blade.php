@@ -14,7 +14,7 @@
                         <h3><a href="{{ $item['url'] ?? '#' }}">{{ $item['title'] ?? '' }}</a></h3>
                         <p>{{ $item['description'] ?? '' }}</p>
                         @if (!empty($item['location']))<p class="dc-event-card__location">{{ $item['location'] }}</p>@endif
-                        <a class="dc-event-card__more" href="{{ $item['url'] ?? '#' }}">Leggi di più <span aria-hidden="true">→</span></a>
+                        <a class="dc-event-card__more" href="{{ $item['url'] ?? '#' }}">{{ __('pub_theme::blocks_content.shared.read_more.label') }} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
             @endforeach

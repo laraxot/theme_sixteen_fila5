@@ -34,8 +34,8 @@ $iconName = match($type ?? 'info') {
         </div>
     </div>
     @if($dismissible ?? false)
-    <button type="button" class="btn-close notification-close" aria-label="Chiudi notifica">
-        <span class="visually-hidden">Chiudi</span>
+    <button type="button" class="btn-close notification-close" aria-label="{{ __('pub_theme::components_common.actions.close_notification.label') }}">
+        <span class="visually-hidden">{{ __('pub_theme::components_common.actions.close.label') }}</span>
     </button>
     @endif
 </div>

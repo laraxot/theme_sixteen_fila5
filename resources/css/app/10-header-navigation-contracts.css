@@ -58,8 +58,11 @@ coordinate-picker-lit .map-container.is-fullscreen {
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
+  /* Mobile: dvh segue la barra URL di iOS/Android (100vh la eccede e taglia il fondo mappa); 100vh = fallback. */
+  height: 100dvh !important;
   max-width: 100vw !important;
   max-height: 100vh !important;
+  max-height: 100dvh !important;
   border: 0 !important;
   border-radius: 0 !important;
   z-index: 2147483647 !important;
@@ -68,4 +71,5 @@ coordinate-picker-lit .map-container.is-fullscreen {
 coordinate-picker-lit:fullscreen .map-picker-leaflet-pane,
 coordinate-picker-lit .map-container.is-fullscreen .map-picker-leaflet-pane {
   height: 100vh !important;
+  height: 100dvh !important;
 }

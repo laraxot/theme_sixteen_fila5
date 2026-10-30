@@ -36,12 +36,11 @@
 
                         {{-- Label --}}
                         <span class="text-gray-700 group-hover:text-blue-700 font-medium">
-                            {{ $link['label'] ?? 'Link' }}
+                            {{ $link['label'] ?? __('pub_theme::components_common.fallback.link.label') }}
                         </span>
 
                         {{-- Arrow --}}
                         <x-filament::icon icon="heroicon-o-chevron-right" class="w-4 h-4 text-gray-400 ml-auto group-hover:text-blue-600" />
-f7ac8eda (.)
                     </a>
                 </li>
             @endforeach

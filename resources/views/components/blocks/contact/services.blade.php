@@ -1,7 +1,7 @@
 {{-- Contact & Services Section - Design Comuni Style --}}
 @props([
-    'contact_title' => 'Contatta il Comune',
-    'report_title' => 'Problemi in città',
+    'contact_title' => __('pub_theme::blocks_content.article.contact_the_municipality.label'),
+    'report_title' => __('pub_theme::blocks_common.shared.problems_in_the_city.label'),
 ])
 
 <section class="py-8 bg-light">
@@ -17,31 +17,31 @@
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none">
                                     <x-filament::icon icon="heroicon-o-document-text" class="w-4 h-4 inline me-2" />
-                                    Leggi le FAQ
+                                    {{ __('pub_theme::blocks_content.services.read_the_faq.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none">
                                     <x-filament::icon icon="heroicon-o-lifebuoy" class="w-4 h-4 inline me-2" />
-                                    Richiedi assistenza
+                                    {{ __('pub_theme::blocks_common.shared.request_assistance.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="tel:061234567" class="text-decoration-none">
                                     <x-filament::icon icon="heroicon-o-phone" class="w-4 h-4 inline me-2" />
-                                    Chiama il numero verde
+                                    {{ __('pub_theme::blocks_content.services.call_the_toll_free_number.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none">
                                     <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 inline me-2" />
-                                    Prenota appuntamento
+                                    {{ __('pub_theme::blocks_common.shared.book_an_appointment.label') }}
                                 </a>
                             </li>
                         </ul>
                         
                         <a href="#" class="btn btn-outline-primary w-100">
-                            Tutti i contatti
+                            {{ __('pub_theme::blocks_content.services.all_contacts.label') }}
                         </a>
                     </div>
                 </div>
@@ -54,12 +54,12 @@
                         <h3 class="h5 mb-3">{{ $report_title }}</h3>
                         
                         <p class="text-muted mb-4">
-                            Segnala un disservizio o un problema sul territorio
+                            {{ __('pub_theme::blocks_content.services.report_a_service_issue_or_a.label') }}
                         </p>
                         
                         <a href="#" class="btn btn-outline-primary w-100">
                             <x-filament::icon icon="heroicon-o-exclamation-triangle" class="w-5 h-5 me-2" />
-                            Segnala disservizio
+                            {{ __('pub_theme::blocks_common.shared.report_a_service_issue.label') }}
                         </a>
                     </div>
                 </div>
@@ -75,31 +75,31 @@
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none text-primary">
                                     <x-filament::icon icon="heroicon-o-document-arrow-down" class="w-4 h-4 inline me-2" />
-                                    Rilascio CIE
+                                    {{ __('pub_theme::blocks_content.services.electronic_id_card_issuance.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none text-primary">
                                     <x-filament::icon icon="heroicon-o-home" class="w-4 h-4 inline me-2" />
-                                    Cambio di residenza
+                                    {{ __('pub_theme::blocks_common.shared.change_of_residence.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none text-primary">
                                     <x-filament::icon icon="heroicon-o-currency-euro" class="w-4 h-4 inline me-2" />
-                                    Tributi online
+                                    {{ __('pub_theme::blocks_common.shared.online_taxes.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none text-primary">
                                     <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 inline me-2" />
-                                    Prenotazione appuntamenti
+                                    {{ __('pub_theme::blocks_content.services.appointment_booking.label') }}
                                 </a>
                             </li>
                             <li class="mb-2">
                                 <a href="#" class="text-decoration-none text-primary">
                                     <x-filament::icon icon="heroicon-o-identification" class="w-4 h-4 inline me-2" />
-                                    Rilascio tessera elettorale
+                                    {{ __('pub_theme::blocks_content.services.issuance_of_polling_card.label') }}
                                 </a>
                             </li>
                         </ul>

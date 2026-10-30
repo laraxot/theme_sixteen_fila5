@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Articoli Recenti',
+    'title' => __('pub_theme::blocks_content.shared.recent_articles.title'),
     'subtitle' => '',
     'articles' => [],
 ])
@@ -117,7 +117,7 @@
                             </div>
                             
                             <a href="{{ $article['url'] ?? '#' }}" class="inline-flex items-center text-[#2D8659] hover:text-[#1E5A96] font-semibold group-hover:translate-x-1 transition-all">
-                                Leggi
+                                {{ __('pub_theme::blocks_common.shared.read.label') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -136,7 +136,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                     </svg>
-                    Vedi Tutti gli Articoli
+                    {{ __('pub_theme::blocks_content.shared.view_all_articles.label') }}
                 </a>
             </div>
         @endif

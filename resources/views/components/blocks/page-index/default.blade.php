@@ -6,7 +6,7 @@
 @endphp
 
 @if($items)
-    <nav class="mb-8" aria-label="Indice della pagina">
+    <nav class="mb-8" aria-label="{{ __('pub_theme::components_common.a11y.page_index.label') }}">
         @if($title)
             <h3 class="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
                 {{ $title }}

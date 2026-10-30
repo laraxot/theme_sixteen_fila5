@@ -1,6 +1,6 @@
 @props(['items' => []])
 @if(!empty($items))
-<nav aria-label="Breadcrumb" class="mb-6">
+<nav aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb.label') }}" class="mb-6">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ol class="flex items-center space-x-2 text-sm text-gray-600">
             @foreach($items as $i => $item)

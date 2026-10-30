@@ -1,6 +1,6 @@
 @props([
     'title' => '',
-    'button_label' => 'Invio',
+    'button_label' => __('pub_theme::news.index.search_submit'),
     'summary' => '',
     'items' => [],
 ])
@@ -12,7 +12,7 @@
             <div class="form-group autocomplete-wrapper mb-0">
                 <div class="input-group">
                     <label for="search-input" class="visually-hidden">{{ $title }}</label>
-                    <input type="search" class="form-control" placeholder="Cerca per parola chiave" id="search-input" name="search">
+                    <input type="search" class="form-control" placeholder="{{ __('pub_theme::components_search.fields.keyword_search.placeholder') }}" id="search-input" name="search">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">{{ $button_label }}</button>
                     </div>

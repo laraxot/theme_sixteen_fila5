@@ -101,7 +101,7 @@ $stepStatus = function ($stepIndex) use ($currentStep, $steps) {
 <div class="w-full" 
      x-data="{ currentStep: {{ $currentStep }} }"
      role="group"
-     aria-label="Processo in {{ $totalSteps }} step">
+     aria-label="{{ __('pub_theme::utilities_components.stepper.process.label', ['total' => $totalSteps]) }}">
     
     @if($variant === 'horizontal')
         {{-- Stepper Orizzontale --}}
@@ -181,7 +181,7 @@ $stepStatus = function ($stepIndex) use ($currentStep, $steps) {
                         ])>
                             {{ $step['title'] }}
                             @if($step['optional'])
-                                <span class="text-xs text-gray-500">(opzionale)</span>
+                                <span class="text-xs text-gray-500">{{ __('pub_theme::common.forms.optional.label') }}</span>
                             @endif
                         </div>
                         
@@ -272,7 +272,7 @@ $stepStatus = function ($stepIndex) use ($currentStep, $steps) {
                         ])>
                             {{ $step['title'] }}
                             @if($step['optional'])
-                                <span class="text-xs text-gray-500 ml-1">(opzionale)</span>
+                                <span class="text-xs text-gray-500 ml-1">{{ __('pub_theme::common.forms.optional.label') }}</span>
                             @endif
                         </div>
                         

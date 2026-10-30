@@ -7,7 +7,7 @@
     'container' => true,
     'items' => [],
     'separator' => '/',
-    'aria-label' => 'Breadcrumb',
+    'aria-label' => __('pub_theme::components_common.a11y.breadcrumb.label'),
     'current-page' => 1,
     'total-pages' => 1,
     'base-url' => null,
@@ -39,7 +39,7 @@
     {{ $attributes->merge([
         'class' => 'flex items-center justify-center',
         'role' => 'navigation',
-        'aria-label' => 'Paginazione'
+        'aria-label' => __('pub_theme::components_common.a11y.pagination.label')
     ]) }}
 >
     <ul class="flex items-center space-x-1">
@@ -48,10 +48,9 @@
                 <a 
                     href="{{ $base-url }}?page=1" 
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    aria-label="Prima pagina"
+                    aria-label="{{ __('pub_theme::components_common.pagination.first.label') }}"
                 >
                     <x-filament::icon icon="heroicon-o-chevron-double-left" class="h-4 w-4" />
-f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -61,10 +60,9 @@ f7ac8eda (.)
                 <a 
                     href="{{ $base-url }}?page={{ $current-page - 1 }}" 
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    aria-label="Pagina precedente"
+                    aria-label="{{ __('pub_theme::components_common.pagination.previous_page.label') }}"
                 >
                     <x-filament::icon icon="heroicon-o-chevron-left" class="h-4 w-4" />
-f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -94,10 +92,9 @@ f7ac8eda (.)
                 <a 
                     href="{{ $base-url }}?page={{ $current-page + 1 }}" 
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    aria-label="Pagina successiva"
+                    aria-label="{{ __('pub_theme::components_common.pagination.next_page.label') }}"
                 >
                     <x-filament::icon icon="heroicon-o-chevron-right" class="h-4 w-4" />
-f7ac8eda (.)
                 </a>
             </li>
         @endif
@@ -107,10 +104,9 @@ f7ac8eda (.)
                 <a 
                     href="{{ $base-url }}?page={{ $total-pages }}" 
                     class="{$sizeClasses} text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    aria-label="Ultima pagina"
+                    aria-label="{{ __('pub_theme::components_common.pagination.last.label') }}"
                 >
                     <x-filament::icon icon="heroicon-o-chevron-double-right" class="h-4 w-4" />
-f7ac8eda (.)
                 </a>
             </li>
         @endif

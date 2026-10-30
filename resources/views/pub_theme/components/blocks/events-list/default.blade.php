@@ -33,7 +33,7 @@
                                         </div>
                                     @endif
                                     @if(isset($event['url']))
-                                        <a href="{{ $event['url'] }}" class="btn btn-primary btn-sm w-full text-center">Dettagli</a>
+                                        <a href="{{ $event['url'] }}" class="btn btn-primary btn-sm w-full text-center">{{ __('pub_theme::listing_blocks.common.details.label') }}</a>
                                     @endif
                                 </div>
                             </article>

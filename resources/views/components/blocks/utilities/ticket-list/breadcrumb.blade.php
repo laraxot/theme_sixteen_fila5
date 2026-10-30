@@ -8,7 +8,7 @@
 @endphp
 
 <div class="cmp-breadcrumbs" role="navigation">
-    <nav class="breadcrumb-container" aria-label="breadcrumb">
+    <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb_trail.label') }}">
         <ol class="breadcrumb p-0" data-element="breadcrumb">
             @foreach ($items as $index => $item)
                 @php

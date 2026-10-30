@@ -263,7 +263,7 @@
                                                                     <div class="cmp-info-summary bg-white border-0">
                                                                         <div class="card">
                                                                             <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-end">
-                                                                                <a href="#" class="d-none text-decoration-none"><span class="text-button-sm-semi t-primary">{{ $item->isOwnedByAuthenticatedUser() ? __('pub_theme::segnalazione.card.edit.label') : '' }}</span></a>
+                                                                                <a href="#" class="d-none text-decoration-none"><span class="text-button-sm-semi t-primary">{{ $item->isOwnedByAuthenticatedUser() ? __('pub_theme::components_common.actions.edit.label') : '' }}</span></a>
                                                                             </div>
                                                                             <div class="card-body p-0">
                                                                                 @if ($itemAddress !== '')

@@ -465,7 +465,7 @@ header-mobile-nav.js: Auto-initializes on DOM ready
 
 ### ATTENZIONE: LEGACY RIMOSSA
 
-Il vecchio pattern `header-mobile-nav.js` (vanilla JS con `data-sixteen-mobile-nav-*`) e l'entry Vite separato `header-mobile-nav-boot.js` sono stati **rimossi** il 2026-05-26. Zero template usavano i loro selettori.
+Il vecchio pattern `header-mobile-nav.js` (vanilla JS con hook proprietari) e l'entry Vite separato `header-mobile-nav-boot.js` sono stati **rimossi** il 2026-05-26. Zero template usavano i loro selettori.
 
 ### Pattern Attuale: Alpine `mobileMenu()` con Inline Bootstrap
 

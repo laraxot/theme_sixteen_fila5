@@ -7,17 +7,17 @@
         <div class="flex justify-between items-center gap-4">
             {{-- Left: Region Name --}}
             <a href="#" class="text-white text-sm font-semibold hover:underline no-underline">
-                Nome della Regione
+                {{ __('pub_theme::header.slim.region.name.label') }}
             </a>
             
             {{-- Right: Language + Login --}}
             <div class="flex items-center gap-4">
                 {{-- Language Switcher --}}
                 <div class="text-white text-sm flex items-center gap-2">
-                    <span class="opacity-90">Lingua attiva:</span>
-                    <span class="font-bold">ITA</span>
+                    <span class="opacity-90">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
+                    <span class="font-bold">{{ __('pub_theme::header.language.code_it.label') }}</span>
                     <span class="opacity-70">/</span>
-                    <a href="#" class="opacity-70 hover:opacity-100 no-underline">ENG</a>
+                    <a href="#" class="opacity-70 hover:opacity-100 no-underline">{{ __('pub_theme::header.language.code_en.label') }}</a>
                 </div>
                 
                 {{-- Login Button --}}
@@ -26,7 +26,7 @@
                     <svg class="w-4 h-4" aria-hidden="true">
                         <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
                     </svg>
-                    <span>Accedi all'area personale</span>
+                    <span>{{ __('pub_theme::faq.contacts.login') }}</span>
                 </a>
             </div>
         </div>

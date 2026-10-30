@@ -15,8 +15,8 @@
 --}}
 
 @php
-    $cityName = $data['city_name'] ?? 'Il mio Comune';
-    $tagline = $data['tagline'] ?? 'Un comune da vivere';
+    $cityName = $data['city_name'] ?? __('pub_theme::header.center.brand.title.label');
+    $tagline = $data['tagline'] ?? __('pub_theme::header.center.brand.tagline.label');
     $logoUrl = $data['logo_url'] ?? asset('themes/sixteen/images/logo-comune.svg');
     $homeUrl = $data['home_url'] ?? '/it/tests/homepage';
     $socialLinks = $data['social_links'] ?? [
@@ -54,14 +54,14 @@
                         <div class="it-right-zone">
                             {{-- Social Links - EXACT structure --}}
                             <div class="it-socials d-none d-lg-flex">
-                                <span>Seguici su</span>
+                                <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                 <ul>
                                     @foreach($socialLinks as $social)
                                     <li>
                                         <a href="{{ $social['url'] }}" 
                                            target="_blank"
                                            rel="noopener"
-                                           aria-label="{{ $social['platform'] }} - link esterno - apertura nuova scheda"
+                                           aria-label="{{ __('pub_theme::components_header.social.external_link.label', ['platform' => $social['platform']]) }}"
                                            title="{{ $social['platform'] }}">
                                             {{ $social['label'] }}
                                         </a>

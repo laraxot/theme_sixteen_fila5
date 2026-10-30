@@ -53,7 +53,7 @@
             @if($featured)
                 <div class="absolute top-2 left-2">
                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-600 text-white">
-                        In evidenza
+                        {{ __('pub_theme::blocks_content.shared.featured.label') }}
                     </span>
                 </div>
             @endif
@@ -72,7 +72,6 @@
             <div class="event-card-date mb-3">
                 <div class="flex items-center text-sm text-gray-500">
                     <x-filament::icon icon="heroicon-o-calendar" class="w-4 h-4 mr-2" />
-f7ac8eda (.)
                     <time datetime="{{ $startDate->format('Y-m-d\TH:i:s') }}">
                         @if($isMultiDay)
                             {{ $startDate->format('d/m/Y') }} - {{ $endDate->format('d/m/Y') }}
@@ -88,7 +87,7 @@ f7ac8eda (.)
             <a 
                 href="{{ $url }}" 
                 class="hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
-                aria-label="Visualizza dettagli evento: {{ $title }}"
+                aria-label="{{ __('pub_theme::blocks_content.event_card.view_event_details.label', ['title' => $title]) }}"
             >
                 {{ $title }}
             </a>
@@ -104,7 +103,6 @@ f7ac8eda (.)
             <div class="event-card-location mb-4">
                 <div class="flex items-center text-sm text-gray-500">
                     <x-filament::icon icon="heroicon-o-map-pin" class="w-4 h-4 mr-2" />
-f7ac8eda (.)
                     <span>{{ $location }}</span>
                 </div>
             </div>
@@ -115,7 +113,6 @@ f7ac8eda (.)
                 @if($category)
                     <span class="flex items-center">
                         <x-filament::icon icon="heroicon-o-tag" class="w-4 h-4 mr-1" />
-f7ac8eda (.)
                         {{ $category }}
                     </span>
                 @endif
@@ -124,11 +121,10 @@ f7ac8eda (.)
             <a 
                 href="{{ $url }}" 
                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
-                aria-label="Visualizza dettagli evento: {{ $title }}"
+                aria-label="{{ __('pub_theme::blocks_content.event_card.view_event_details.label', ['title' => $title]) }}"
             >
-                Dettagli
+                {{ __('pub_theme::blocks_common.shared.details.label') }}
                 <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
-f7ac8eda (.)
             </a>
         </div>
     </div>

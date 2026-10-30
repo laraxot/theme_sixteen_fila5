@@ -1,15 +1,15 @@
-<header class="it-header-wrapper" data-sixteen-mobile-nav-target="#header-nav-wrapper" style="">
+<header class="it-header-wrapper" data-mobile-nav-target="#header-nav-wrapper" style="">
     <div class="it-header-slim-wrapper">
       <div class="container">
         <div class="row">
           <div class="col-12">
 <div class="it-header-slim-wrapper-content">
-               <a class="navbar-brand text-white" target="_blank" href="#" aria-label="Vai al portale {Nome della Regione} - link esterno - apertura nuova scheda" title="Vai al portale {Nome della Regione}">Nome della Regione</a>
+               <a class="navbar-brand text-white" target="_blank" href="#" aria-label="{{ __('pub_theme::header.slim.region.portal_aria.label', ['region' => '{'.__('pub_theme::header.slim.region.name.label').'}']) }}" title="{{ __('pub_theme::header.slim.region.portal_title.label', ['region' => '{'.__('pub_theme::header.slim.region.name.label').'}']) }}">{{ __('pub_theme::header.slim.region.name.label') }}</a>
                <div class="it-header-slim-right-zone" role="navigation">
                    <div class="nav-item dropdown">
                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="languages" aria-haspopup="true">
-                           <span class="visually-hidden">Lingua attiva:</span>
-                           <span>ITA</span>
+                           <span class="visually-hidden">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
+                           <span>{{ __('pub_theme::header.language.code_it.label') }}</span>
                            <svg class="icon">
                                <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
                            </svg>
@@ -19,8 +19,8 @@
                                <div class="col-12">
                                    <div class="link-list-wrapper">
                                        <ul class="link-list">
-                                           <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-                                           <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
+                                           <li><a class="dropdown-item list-item" href="#"><span>{{ __('pub_theme::header.language.code_it.label') }} <span class="visually-hidden">{{ __('pub_theme::header.language.selected_suffix.label') }}</span></span></a></li>
+                                           <li><a class="dropdown-item list-item" href="#"><span>{{ __('pub_theme::header.language.code_en.label') }}</span></a></li>
                                        </ul>
                                    </div>
                                </div>
@@ -34,7 +34,7 @@
       </div>
     </div>
   
-    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
+    <div class="it-nav-wrapper" data-mobile-nav>
       <div class="it-header-center-wrapper">
         <div class="container">
           <div class="row">
@@ -46,14 +46,14 @@
                         <image href="../assets/images/logo-comune.svg"/>
                       </svg>
                       <div class="it-brand-text">
-                        <div class="it-brand-title">Il mio Comune</div>
-                        <div class="it-brand-tagline d-none d-md-block">Un comune da vivere </div>
+                        <div class="it-brand-title">{{ __('pub_theme::header.center.brand.title.label') }}</div>
+                        <div class="it-brand-tagline d-none d-md-block">{{ __('pub_theme::header.center.brand.tagline.label') }} </div>
                       </div>
                     </a>
                 </div>
 <div class="it-right-zone">
        <div class="it-socials d-none d-lg-flex">
-           <span>Seguici su</span>
+           <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
            <ul>
                <li>
                    <a href="#" target="_blank">
@@ -106,8 +106,8 @@
            </ul>
        </div>
        <div class="it-search-wrapper d-flex align-items-center">
-           <span class="d-none d-md-block">Cerca</span>
-           <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
+           <span class="d-none d-md-block">{{ __('pub_theme::header.center.search.label') }}</span>
+           <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
                <svg class="icon">
                    <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
                </svg>
@@ -120,13 +120,13 @@
                        <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
                    </svg>
                </span>
-               <span class="d-none d-lg-block">Area personale</span>
+               <span class="d-none d-lg-block">{{ __('pub_theme::header.guest.cta.label') }}</span>
            </a>
        </div>
    </div>
                   <div class="it-search-wrapper">
-                    <span class="d-none d-md-block">Cerca</span>
-                    <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
+                    <span class="d-none d-md-block">{{ __('pub_theme::header.center.search.label') }}</span>
+                    <button class="search-link rounded-icon" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="{{ __('pub_theme::header.center.search.toggle_aria.label') }}">
                       <svg class="icon">
                         <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
                       </svg>
@@ -138,22 +138,22 @@
           </div>
         </div>
       </div>
-      <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-sixteen-mobile-nav>
+      <div class="it-header-navbar-wrapper" id="header-nav-wrapper" data-mobile-nav>
         <div class="container">
           <div class="row">
             <div class="col-12">
               <!--start nav-->
               <div class="navbar navbar-expand-lg has-megamenu">
-                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-sixteen-mobile-nav-target="#nav4" data-sixteen-mobile-nav-toggle>
+                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="{{ __('pub_theme::header.center.nav.toggle_aria.label') }}" data-mobile-nav-target="#nav4" data-mobile-nav-toggle>
                   <svg class="icon">
                     <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
                   </svg>
                 </button>
-                <div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav4">
-                  <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
+                <div class="navbar-collapsable" data-mobile-nav-panel id="nav4">
+                  <div class="overlay" data-mobile-nav-overlay hidden></div>
                   <div class="close-div">
-                    <button class="btn close-menu" data-sixteen-mobile-nav-close type="button">
-                      <span class="visually-hidden">Nascondi la navigazione</span>
+                    <button class="btn close-menu" data-mobile-nav-close type="button">
+                      <span class="visually-hidden">{{ __('pub_theme::header.center.nav.close_aria.label') }}</span>
                       <svg class="icon">
                         <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use>
                       </svg>
@@ -165,47 +165,47 @@
                         <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
                       </svg>
                       <div class="it-brand-text">
-                        <div class="it-brand-title">Nome del Comune</div>
+                        <div class="it-brand-title">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</div>
                       </div>
                     </a>
-                    <nav aria-label="Principale">
+                    <nav aria-label="{{ __('pub_theme::header.center.nav.primary_aria.label') }}">
                       <ul class="navbar-nav" data-element="main-navigation">
                         <li class="nav-item">
                           <a class="nav-link" href="../sito/amministrazione.html" data-element="management">
-                            <span>Amministrazione</span>
+                            <span>{{ __('pub_theme::header.center.nav.amministrazione.label') }}</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="../sito/novita.html" data-element="news">
-                            <span>Novità</span>
+                            <span>{{ __('pub_theme::header.center.nav.novita.label') }}</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="../sito/servizi.html" data-element="all-services">
-                            <span>Servizi</span>
+                            <span>{{ __('pub_theme::header.center.nav.servizi.label') }}</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="../sito/eventi.html" data-element="live">
-                            <span>Vivere il Comune14</span>
+                            <span>{{ __('pub_theme::header.center.nav.vivere.label') }}14</span>
                           </a>
                         </li>
                       </ul>
                     </nav>
-                    <nav aria-label="Secondaria">
+                    <nav aria-label="{{ __('pub_theme::header.center.nav.secondary_aria.label') }}">
                       <ul class="navbar-nav navbar-secondary">
                         <li class="nav-item">
-                          <a class="nav-link" href="../sito/argomento.html">Iscrizioni</a>
+                          <a class="nav-link" href="../sito/argomento.html">{{ __('pub_theme::header.center.nav.iscrizioni.label') }}</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="../sito/argomento.html">Estate in città</a>
+                          <a class="nav-link" href="../sito/argomento.html">{{ __('pub_theme::header.center.nav.estate.label') }}</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="../sito/argomento.html">Polizia locale</a>
+                          <a class="nav-link" href="../sito/argomento.html">{{ __('pub_theme::header.center.nav.polizia.label') }}</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="argomenti.html" data-element="all-topics">
-                            <span>Tutti gli argomenti 
+                            <span>{{ __('pub_theme::header.center.nav.argomenti.label') }} 
                               <svg class="icon icon-sm">
                                 <use href="../assets/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
                               </svg>
@@ -215,7 +215,7 @@
                       </ul>
                     </nav>
                     <div class="it-socials">
-                      <span>Seguici su</span>
+                      <span>{{ __('pub_theme::header.center.social.follow.label') }}</span>
                       <ul>
                         <li>
                           <a href="#" target="_blank">

@@ -157,7 +157,7 @@
         <div class="max-w-2xl mx-auto">
             <div class="flex justify-between items-center mb-3">
                 <span class="text-sm font-medium text-gray-700">
-                    Step <span x-text="currentStep"></span> di <span x-text="totalSteps"></span>
+                    {{ __('pub_theme::municipal_components.service_form.progress_step.label') }} <span x-text="currentStep"></span> {{ __('pub_theme::common.pagination.of.label') }} <span x-text="totalSteps"></span>
                 </span>
                 <span class="text-sm text-gray-500" x-text="Math.round(progress) + '%'"></span>
             </div>
@@ -187,12 +187,12 @@
                 
                 {{-- Step 1: Dati richiedente --}}
                 <div x-show="currentStep === 1" x-transition>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Dati del richiedente</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ __('pub_theme::municipal_components.service_form.applicant.title') }}</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         {{-- Nome --}}
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Nome *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.first_name.label') }} *</label>
                             <input type="text" 
                                    x-model="formData.name"
                                    :class="{ 'border-red-500': errors.name }"
@@ -203,7 +203,7 @@
 
                         {{-- Cognome --}}
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Cognome *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.last_name.label') }} *</label>
                             <input type="text" 
                                    x-model="formData.surname"
                                    :class="{ 'border-red-500': errors.surname }"
@@ -216,7 +216,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         {{-- Email --}}
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.email.label') }} *</label>
                             <input type="email" 
                                    x-model="formData.email"
                                    :class="{ 'border-red-500': errors.email }"
@@ -227,7 +227,7 @@
 
                         {{-- Telefono --}}
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Telefono</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.phone.label') }}</label>
                             <input type="tel" 
                                    x-model="formData.phone"
                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -236,7 +236,7 @@
 
                     {{-- Indirizzo --}}
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Indirizzo</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.address.label') }}</label>
                         <input type="text" 
                                x-model="formData.address"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -245,69 +245,69 @@
 
                 {{-- Step 2: Dettagli richiesta --}}
                 <div x-show="currentStep === 2" x-transition>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Dettagli della richiesta</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ __('pub_theme::municipal_components.service_form.request.title') }}</h3>
                     
                     {{-- Tipo richiesta --}}
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tipo richiesta *</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.request_type.label') }} *</label>
                         <select x-model="formData.request_type"
                                 :class="{ 'border-red-500': errors.request_type }"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 required>
-                            <option value="">Seleziona tipo...</option>
-                            <option value="info">Informazioni</option>
-                            <option value="appointment">Prenotazione appuntamento</option>
-                            <option value="issue">Segnalazione problema</option>
-                            <option value="document">Richiesta documento</option>
+                            <option value="">{{ __('pub_theme::municipal_components.service_form.request_type.placeholder') }}</option>
+                            <option value="info">{{ __('pub_theme::municipal_components.service_form.request_type_info.label') }}</option>
+                            <option value="appointment">{{ __('pub_theme::municipal_components.service_form.request_type_appointment.label') }}</option>
+                            <option value="issue">{{ __('pub_theme::municipal_components.service_form.request_type_issue.label') }}</option>
+                            <option value="document">{{ __('pub_theme::municipal_components.service_form.request_type_document.label') }}</option>
                         </select>
                         <p class="text-red-500 text-xs mt-1" x-show="errors.request_type" x-text="errors.request_type"></p>
                     </div>
 
                     {{-- Descrizione --}}
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Descrizione *</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.description.label') }} *</label>
                         <textarea x-model="formData.description"
                                   :class="{ 'border-red-500': errors.description }"
                                   rows="4"
                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                  placeholder="Descrivi la tua richiesta in dettaglio..."
+                                  placeholder="{{ __('pub_theme::municipal_components.service_form.description.placeholder') }}"
                                   required></textarea>
                         <p class="text-red-500 text-xs mt-1" x-show="errors.description" x-text="errors.description"></p>
                     </div>
 
                     {{-- Allegati --}}
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Allegati (opzionale)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.service_form.attachments.label') }}</label>
                         <input type="file" 
                                @change="formData.attachments = $event.target.files"
                                multiple
                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p class="text-gray-500 text-xs mt-1">Max 5 file, 10MB totali</p>
+                        <p class="text-gray-500 text-xs mt-1">{{ __('pub_theme::municipal_components.service_form.attachments.help') }}</p>
                     </div>
                 </div>
 
                 {{-- Step 3: Conferma --}}
                 <div x-show="currentStep === 3" x-transition>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Riepilogo e conferma</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ __('pub_theme::municipal_components.service_form.summary.title') }}</h3>
                     
                     <div class="bg-gray-50 p-4 rounded-lg mb-4">
-                        <h4 class="font-semibold text-gray-900 mb-2">Dati inseriti:</h4>
+                        <h4 class="font-semibold text-gray-900 mb-2">{{ __('pub_theme::municipal_components.service_form.summary_data.label') }}</h4>
                         
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between">
-                                <span class="text-gray-600">Nome e cognome:</span>
+                                <span class="text-gray-600">{{ __('pub_theme::municipal_components.service_form.summary_full_name.label') }}</span>
                                 <span class="font-medium" x-text="formData.name + ' ' + formData.surname"></span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-gray-600">Email:</span>
+                                <span class="text-gray-600">{{ __('pub_theme::municipal_components.service_form.summary_email.label') }}</span>
                                 <span class="font-medium" x-text="formData.email"></span>
                             </div>
                             <div class="flex justify-between" x-show="formData.phone">
-                                <span class="text-gray-600">Telefono:</span>
+                                <span class="text-gray-600">{{ __('pub_theme::municipal_components.service_form.summary_phone.label') }}</span>
                                 <span class="font-medium" x-text="formData.phone"></span>
                             </div>
                             <div class="flex justify-between" x-show="formData.request_type">
-                                <span class="text-gray-600">Tipo richiesta:</span>
+                                <span class="text-gray-600">{{ __('pub_theme::municipal_components.service_form.summary_request_type.label') }}</span>
                                 <span class="font-medium" x-text="formData.request_type"></span>
                             </div>
                         </div>
@@ -321,9 +321,9 @@
                                    class="mt-1 mr-2"
                                    required>
                             <span class="text-sm text-gray-700">
-                                Acconsento al trattamento dei dati personali ai sensi del GDPR e della normativa privacy.
+                                {{ __('pub_theme::municipal_components.service_form.consent.label') }}
                                 <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/privacy') }}" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener">
-                                    Leggi l'informativa privacy
+                                    {{ __('pub_theme::municipal_components.service_form.privacy_link.label') }}
                                 </a>
                             </span>
                         </label>
@@ -336,14 +336,14 @@
                             @click="prevStep()"
                             x-show="currentStep > 1"
                             class="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                        Indietro
+                        {{ __('pub_theme::common.actions.back.label') }}
                     </button>
 
                     <div class="flex space-x-2 ml-auto">
                         <button type="button"
                                 @click="resetForm()"
                                 class="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
-                            Annulla
+                            {{ __('pub_theme::common.actions.cancel.label') }}
                         </button>
 
                         <button type="submit"
@@ -359,7 +359,7 @@
                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
-                                    Invio in corso...
+                                    {{ __('pub_theme::municipal_components.service_form.submitting.message') }}
                                 </span>
                             </template>
                         </button>
@@ -381,18 +381,18 @@
                     
                     <h3 class="text-lg font-semibold text-green-800 mb-2">{{ $successMessage }}</h3>
                     <p class="text-green-700 mb-4">
-                        La tua richiesta è stata inviata con successo. Riceverai una email di conferma a breve.
+                        {{ __('pub_theme::municipal_components.service_form.success.message') }}
                     </p>
                     
                     <div class="bg-white p-4 rounded border border-green-100 mb-4">
                         <p class="text-sm text-gray-600">
-                            Numero pratica: <span class="font-mono text-green-800" x-text="'PR-' + Date.now().toString().slice(-6)"></span>
+                            {{ __('pub_theme::municipal_components.service_form.case_number.label') }} <span class="font-mono text-green-800" x-text="'PR-' + Date.now().toString().slice(-6)"></span>
                         </p>
                     </div>
                     
                     <button @click="resetForm()"
                             class="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        Nuova richiesta
+                        {{ __('pub_theme::municipal_components.service_form.new_request.label') }}
                     </button>
                 </div>
             </div>
@@ -402,7 +402,7 @@
     {{-- Footer --}}
     <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
         <div class="text-center text-sm text-gray-600">
-            <p>Per assistenza contatta: <a href="mailto:servizi@comune.example.it" class="text-blue-600 hover:text-blue-800">servizi@comune.example.it</a></p>
+            <p>{{ __('pub_theme::municipal_components.service_form.support.label') }} <a href="mailto:servizi@comune.example.it" class="text-blue-600 hover:text-blue-800">servizi@comune.example.it</a></p>
         </div>
     </div>
 </div>

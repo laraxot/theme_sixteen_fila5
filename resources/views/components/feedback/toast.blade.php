@@ -107,7 +107,7 @@
         <button 
             type="button" 
             class="btn-close ms-2" 
-            aria-label="Chiudi"
+            aria-label="{{ __('pub_theme::components_common.actions.close.label') }}"
             x-on:click="hide()"
         >
             <span aria-hidden="true">&times;</span>
@@ -129,7 +129,7 @@
                             @if(!empty($action['icon']))
                                 <x-filament::icon icon="heroicon-o-{{" $action['icon'] }} class="w-4 h-4 me-1" />
                             @endif
-                            {{ $action['text'] ?? 'Azione' }}
+                            {{ $action['text'] ?? __('pub_theme::components_common.fields.action.label') }}
                         </button>
                     @endforeach
                 </div>

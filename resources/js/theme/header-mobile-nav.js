@@ -1,9 +1,10 @@
 // Pagine /tests: qualunque toggler/pannello `navbarcollapsible` del riferimento (es. `#navbarNavB` del catalogo), non solo `#nav4`
 const withDesignComuni = (base, extra) => (isDesignComuniPage() ? `${base}, ${extra}` : base);
-const navToggleSelector = () => withDesignComuni('.custom-navbar-toggler[data-bs-target="#nav4"], [data-sixteen-mobile-nav-toggle]', '[data-bs-toggle="navbarcollapsible"]');
-const navPanelSelector = () => withDesignComuni('#nav4.navbar-collapsable, [data-sixteen-mobile-nav-panel]', '.navbar-collapsable');
-const navOverlaySelector = () => '.navbar-collapsable > .overlay, [data-sixteen-mobile-nav-overlay]';
-const navCloseSelector = () => '.navbar-collapsable .close-menu, [data-sixteen-mobile-nav-close]';
+const navToggleSelector = () => withDesignComuni('.custom-navbar-toggler[data-bs-target="#nav4"], [data-mobile-nav-toggle]', '[data-bs-toggle="navbarcollapsible"]');
+const navPanelSelector = () => withDesignComuni('#nav4.navbar-collapsable, [data-mobile-nav-panel]', '.navbar-collapsable');
+const navOverlaySelector = () => '.navbar-collapsable > .overlay, [data-mobile-nav-overlay]';
+const navCloseSelector = () => '.navbar-collapsable .close-menu, [data-mobile-nav-close]';
+const panelOpeners = new WeakMap();
 
 /**
  * Dove valgono i comportamenti Design Comuni (menu `expanded`, modali con backdrop, tendine posizionate): pagine con il wrapper `data-dc` (CSS generato)
@@ -13,13 +14,13 @@ export const isDesignComuniPage = () => document.querySelector('.page-content[da
 
 function getTargetPanel(toggle) {
     const selector = toggle.getAttribute('data-bs-target')
-        ?? toggle.getAttribute('data-sixteen-mobile-nav-target');
+        ?? toggle.getAttribute('data-mobile-nav-target');
 
     return selector ? document.querySelector(selector) : document.querySelector('#nav4');
 }
 
 function getRelatedOverlays(panel) {
-    const root = panel.closest('[data-sixteen-mobile-nav]') || panel.closest('.it-nav-wrapper') || document;
+    const root = panel.closest('[data-mobile-nav]') || panel.closest('.it-nav-wrapper') || document;
     const overlays = root.querySelectorAll(navOverlaySelector());
 
     return overlays.length > 0 ? overlays : document.querySelectorAll(navOverlaySelector());
@@ -31,13 +32,18 @@ function updateBodyLock() {
     document.body.classList.toggle('nav-open', document.querySelector(openPanels) !== null);
 }
 
-function setPanelOpen(panel, open, focusFirstLink = false) {
+function setPanelOpen(panel, open, focusFirstLink = false, opener = null) {
     if (!panel) {
         return;
     }
 
+    if (open && opener) {
+        panelOpeners.set(panel, opener);
+    }
+
     panel.classList.toggle('is-open', open);
     panel.classList.toggle('show', open);
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
     // pagine Design Comuni (/tests, stesso ambito del CSS generato): `expanded`, display e aria-expanded sul pannello, come nel riferimento
     if (isDesignComuniPage()) {
         panel.classList.toggle('expanded', open);
@@ -68,6 +74,14 @@ function setPanelOpen(panel, open, focusFirstLink = false) {
 
     updateBodyLock();
 
+    if (!open) {
+        const previousOpener = opener ?? panelOpeners.get(panel);
+        if (previousOpener?.isConnected && panel.contains(document.activeElement)) {
+            previousOpener.focus();
+        }
+        panelOpeners.delete(panel);
+    }
+
     if (open && focusFirstLink) {
         window.requestAnimationFrame(() => {
             panel.querySelector('.menu-wrapper a, a, button')?.focus();
@@ -77,49 +91,89 @@ function setPanelOpen(panel, open, focusFirstLink = false) {
 
 function closeAllPanels() {
     document.querySelectorAll(navPanelSelector()).forEach((panel) => {
-        setPanelOpen(panel, false);
+        setPanelOpen(panel, false, false, panelOpeners.get(panel));
     });
 }
 
+function getFocusableElements(panel) {
+    return [...panel.querySelectorAll(
+        'a[href], area[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter((element) => element.offsetParent !== null || element === document.activeElement);
+}
+
+function keepFocusInsideOpenPanel(event) {
+    if (event.key !== 'Tab') {
+        return;
+    }
+
+    const panel = document.querySelector(`${navPanelSelector().split(',').map((part) => `${part.trim()}.is-open`).join(', ')}`);
+    if (!panel) {
+        return;
+    }
+
+    const focusable = getFocusableElements(panel);
+    if (focusable.length === 0) {
+        return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!panel.contains(document.activeElement)) {
+        event.preventDefault();
+        first.focus();
+    } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
 export function initHeaderMobileNav() {
+    document.querySelectorAll(navPanelSelector()).forEach((panel) => {
+        panel.setAttribute('aria-hidden', panel.classList.contains('is-open') ? 'false' : 'true');
+    });
+
     document.querySelectorAll(navToggleSelector()).forEach((toggle) => {
-        if (toggle.dataset.sixteenMobileNavBound === 'true') {
+        if (toggle.dataset.mobileNavBound === 'true') {
             return;
         }
 
-        toggle.dataset.sixteenMobileNavBound = 'true';
+        toggle.dataset.mobileNavBound = 'true';
         toggle.addEventListener('click', (event) => {
             event.preventDefault();
             const panel = getTargetPanel(toggle);
-            setPanelOpen(panel, !(panel?.classList.contains('is-open')), true);
+            setPanelOpen(panel, !(panel?.classList.contains('is-open')), true, toggle);
         });
     });
 
     document.querySelectorAll(navOverlaySelector()).forEach((overlay) => {
-        if (overlay.dataset.sixteenMobileNavBound === 'true') {
+        if (overlay.dataset.mobileNavBound === 'true') {
             return;
         }
 
-        overlay.dataset.sixteenMobileNavBound = 'true';
+        overlay.dataset.mobileNavBound = 'true';
         overlay.addEventListener('click', closeAllPanels);
     });
 
     document.querySelectorAll(navCloseSelector()).forEach((closeButton) => {
-        if (closeButton.dataset.sixteenMobileNavBound === 'true') {
+        if (closeButton.dataset.mobileNavBound === 'true') {
             return;
         }
 
-        closeButton.dataset.sixteenMobileNavBound = 'true';
+        closeButton.dataset.mobileNavBound = 'true';
         closeButton.addEventListener('click', (event) => {
             event.preventDefault();
             const panel = closeButton.closest(navPanelSelector()) || document.querySelector(navPanelSelector());
-            setPanelOpen(panel, false);
+            setPanelOpen(panel, false, false, panelOpeners.get(panel));
         });
     });
 }
 
 if (typeof document !== 'undefined') {
     document.addEventListener('keydown', (event) => {
+        keepFocusInsideOpenPanel(event);
         if (event.key === 'Escape') {
             closeAllPanels();
         }

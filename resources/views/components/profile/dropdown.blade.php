@@ -15,7 +15,7 @@
                   role="menuitem">
                   <div class="inline-flex items-center whitespace-nowrap">
                       <x-fas-toolbox class="w-3.5 h-3.5 me-2" />
-                      Area admin
+                      {{ __('pub_theme::navigation_components.profile_dropdown.admin_area.label') }}
                   </div>
               </a>
           </li>
@@ -26,7 +26,7 @@
                   role="menuitem">
                   <div class="inline-flex items-center">
                       <x-fas-sign-out-alt class="w-3.5 h-3.5 me-2" />
-                      Log Out
+                      {{ __('pub_theme::navigation_components.profile_dropdown.logout.label') }}
                   </div>
               </a>
           </li>

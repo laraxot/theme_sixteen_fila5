@@ -31,7 +31,7 @@
                     @if($slug)
                         <a href="#{{ $slug }}" class="read-more mt-3 d-inline-flex align-items-center">
                             <span class="text-decoration-none">
-                                {{ __('sixteen::common.labels.learn_more.label', ['default' => 'Scopri di più']) }}
+                                {{ __('pub_theme::common.labels.learn_more.label', ['default' => 'Scopri di più']) }}
                             </span>
                             <x-filament::icon icon="heroicon-o-arrow-down" class="icon icon-sm ms-1" />
                         </a>

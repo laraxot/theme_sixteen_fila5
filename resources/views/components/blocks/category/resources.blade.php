@@ -28,14 +28,14 @@
                                 <svg class="icon icon-sm"><use href="#it-arrow-right"></use></svg>
                             </a>
                         @empty
-                            <p class="text-muted">Nessuna risorsa in questa categoria</p>
+                            <p class="text-muted">{{ __('pub_theme::blocks_content.resources.no_resources_in_this_category.label') }}</p>
                         @endforelse
                     </div>
                 </div>
             </div>
         @empty
             <div class="col-12">
-                <p class="text-muted text-center">Nessuna categoria disponibile</p>
+                <p class="text-muted text-center">{{ __('pub_theme::blocks_content.resources.no_categories_available.label') }}</p>
             </div>
         @endforelse
     </div>

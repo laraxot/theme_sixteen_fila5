@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Categorie',
+    'title' => __('pub_theme::flow_tickets.elenco.categories.label'),
     'subtitle' => '',
     'categories' => [],
     'style' => 'pills'
@@ -21,7 +21,7 @@
         @endif
 
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="{{ $blogIndexUrl }}" class="px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition-colors">Tutti</a>
+            <a href="{{ $blogIndexUrl }}" class="px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition-colors">{{ __('pub_theme::blocks_content.category_filter.all.label') }}</a>
             @foreach($categories as $category)
                 @php
                     $color = $category['color'] ?? 'blue';

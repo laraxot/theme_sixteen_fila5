@@ -14,7 +14,7 @@
 <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
         <div class="cmp-breadcrumbs" role="navigation">
-            <nav class="breadcrumb-container" aria-label="breadcrumb"><ol class="breadcrumb p-0" data-element="breadcrumb">
+            <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb_trail.label') }}"><ol class="breadcrumb p-0" data-element="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ $localize('/') }}">{{ __('fixcity::personal_area.breadcrumb.home') }}</a><span class="separator">/</span></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
             </ol></nav>

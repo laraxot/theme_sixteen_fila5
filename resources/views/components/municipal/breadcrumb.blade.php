@@ -40,7 +40,7 @@
 @if($breadcrumbs->isNotEmpty())
     <nav class="agid-breadcrumb"
          role="navigation"
-         aria-label="Percorso di navigazione"
+         aria-label="{{ __('pub_theme::common.aria.breadcrumb_nav.label') }}"
          {{ $structured ? 'itemscope itemtype="https://schema.org/BreadcrumbList"' : '' }}>
 
         <div class="agid-breadcrumb__container agid-container">
@@ -64,7 +64,7 @@
 
                                 @if($index === 0 && isset($item['icon']))
                                     @svg($item['icon'], 'agid-breadcrumb__icon')
-                                    <span class="sr-only">Home - </span>
+                                    <span class="sr-only">{{ __('pub_theme::common.navigation.home.label') }} - </span>
                                 @endif
 
                                 <span {{ $structured ? 'itemprop="name"' : '' }}>
@@ -95,12 +95,12 @@
             </ol>
 
             {{-- Mobile dropdown version per spazi ridotti --}}
-            <div class="agid-breadcrumb__mobile" role="navigation" aria-label="Navigazione mobile">
+            <div class="agid-breadcrumb__mobile" role="navigation" aria-label="{{ __('pub_theme::municipal_components.breadcrumb.mobile_nav.label') }}">
                 @if($breadcrumbs->count() > 1)
                     @php $previousPage = $breadcrumbs->get($breadcrumbs->count() - 2); @endphp
                     <a href="{{ $previousPage['url'] ?? '#' }}"
                        class="agid-breadcrumb__back-button agid-focus"
-                       aria-label="Torna a {{ $previousPage['title'] ?? 'pagina precedente' }}">
+                       aria-label="{{ __('pub_theme::municipal_components.breadcrumb.back_to.label', ['title' => $previousPage['title'] ?? __('pub_theme::municipal_components.breadcrumb.previous_page.label')]) }}">
                         @svg('heroicon-o-arrow-left', 'agid-breadcrumb__back-icon')
                         <span class="agid-breadcrumb__back-text">
                             {{ Str::limit($previousPage['title'] ?? 'Indietro', 20) }}

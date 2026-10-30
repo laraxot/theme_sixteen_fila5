@@ -14,16 +14,16 @@
 
 {{-- Skip Links --}}
 <div class="skiplink">
-    <a class="visually-hidden-focusable" href="#main-container">Vai ai contenuti</a>
-    <a class="visually-hidden-focusable" href="#footer">Vai al footer</a>
+    <a class="visually-hidden-focusable" href="#main-container">{{ __('pub_theme::ui.skip_to_content') }}</a>
+    <a class="visually-hidden-focusable" href="#footer">{{ __('pub_theme::ui.skip_to_footer') }}</a>
 </div>
 
 <main>
-    <h1 class="visually-hidden" id="main-container">Il mio Comune</h1>
+    <h1 class="visually-hidden" id="main-container">{{ __('pub_theme::header.center.brand.title.label') }}</h1>
 
     {{-- Hero Section --}}
     <section id="head-section" class="py-6">
-        <h2 class="visually-hidden">Contenuti in evidenza</h2>
+        <h2 class="visually-hidden">{{ __('pub_theme::navigation.homepage.featured_content') }}</h2>
         <div class="mx-auto max-w-7xl">
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start">
                 {{-- News Card --}}
@@ -32,23 +32,23 @@
                         <div class="p-6 pb-5">
                             <div class="mb-3 flex items-center gap-2">
                                 @include('pub_theme::components.ui.icon', ['name' => 'it-calendar', 'class' => 'h-5 w-5 text-emerald-600'])
-                                <span class="text-xs font-semibold uppercase text-slate-500">Notizie</span>
+                                <span class="text-xs font-semibold uppercase text-slate-500">{{ __('pub_theme::navigation.news') }}</span>
                                 <span class="text-sm text-slate-500">18 mag 2026</span>
                             </div>
                             <a href="/it/tests/novita-dettaglio" class="text-decoration-none">
                                 <h3 class="mb-3 text-xl font-semibold text-slate-900">
-                                    Parte l'estate con oltre 300 eventi in centro e nei quartieri, tutti gli eventi previsti
+                                    {{ __('pub_theme::home_components.dc_homepage.news.title') }}
                                 </h3>
                             </a>
                             <p class="mb-4 text-slate-700">
-                                <strong>Inaugurazione lunedì 2 luglio</strong> con il concerto
-                                gratuito in piazza XX Settembre degli Sweet Soul Music Revue. Sul palco 20 musicisti dal tutto il mondo
+                                <strong>{{ __('pub_theme::home_components.dc_homepage.news.highlight') }}</strong> {{ __('pub_theme::home_components.dc_homepage.news.concert_intro') }}
+                                {{ __('pub_theme::home_components.dc_homepage.news.concert_detail') }}
                             </p>
                             <a class="chip chip-simple chip-green" href="/it/tests/novita-dettaglio">
-                                <span class="chip-label">Estate in città</span>
+                                <span class="chip-label">{{ __('pub_theme::header.center.nav.estate.label') }}</span>
                             </a>
                             <a class="read-more read-more-green pb-3" href="/it/tests/novita">
-                                <span class="text">Tutte le novità</span>
+                                <span class="text">{{ __('pub_theme::navigation.homepage.all_news') }}</span>
                                 @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-5 w-5'])
                             </a>
                         </div>
@@ -127,7 +127,7 @@
                     <article class="overflow-hidden rounded-lg bg-white shadow">
                         <div class="p-6">
                             <div class="mb-2">
-                                <span class="text-sm text-slate-500">Servizio</span>
+                                <span class="text-sm text-slate-500">{{ __('pub_theme::home_components.dc_homepage.service.label') }}</span>
                             </div>
                             <h3 class="mb-2 text-lg font-semibold text-slate-900">{{ $servizio['nome'] ?? 'Servizio' }}</h3>
                             <p class="mb-0 text-sm text-slate-600">{{ $servizio['descrizione'] ?? '' }}</p>
@@ -137,7 +137,7 @@
             </div>
             <div class="mt-5 text-center">
                 <a class="btn btn-outline-primary" href="/it/tests/servizi">
-                    Tutti i servizi
+                    {{ __('pub_theme::navigation.homepage.all_services') }}
                     @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4 ml-1'])
                 </a>
             </div>
@@ -160,7 +160,7 @@
             </div>
             <div class="mt-5 text-center">
                 <a class="btn btn-outline-primary" href="/it/tests/amministrazione">
-                    Tutta l'amministrazione
+                    {{ __('pub_theme::navigation.homepage.all_administration') }}
                     @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4 ml-1'])
                 </a>
             </div>
@@ -183,7 +183,7 @@
                             <h3 class="mb-2 text-lg font-semibold text-slate-900">{{ $notizia['titolo'] ?? 'Notizia' }}</h3>
                             <p class="mb-3 text-sm text-slate-600">{{ Str::limit($notizia['contenuto'] ?? '', 100) }}</p>
                             <a class="read-more" href="{{ $notizia['url'] ?? '#' }}">
-                                <span class="text">Leggi tutto</span>
+                                <span class="text">{{ __('pub_theme::news.read_more') }}</span>
                                 @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4'])
                             </a>
                         </div>
@@ -192,7 +192,7 @@
             </div>
             <div class="mt-5 text-center">
                 <a class="btn btn-outline-primary" href="/it/tests/novita">
-                    Tutte le novità
+                    {{ __('pub_theme::navigation.homepage.all_news') }}
                     @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4 ml-1'])
                 </a>
             </div>
@@ -220,7 +220,7 @@
             </div>
             <div class="mt-5 text-center">
                 <a class="btn btn-outline-primary" href="/it/tests/eventi">
-                    Tutti gli eventi
+                    {{ __('pub_theme::navigation.homepage.all_events') }}
                     @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4 ml-1'])
                 </a>
             </div>
@@ -276,7 +276,7 @@
                                 </ul>
                             @endif
                             <a href="{{ $topic['url'] }}" class="read-more">
-                                <span class="text">Esplora argomento</span>
+                                <span class="text">{{ __('pub_theme::home_components.dc_homepage.explore_topic.label') }}</span>
                                 @include('pub_theme::components.ui.icon', ['name' => 'it-arrow-right', 'class' => 'h-4 w-4'])
                             </a>
                         </div>
@@ -291,13 +291,13 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="mb-5 text-3xl font-bold">{{ __('navigation.homepage.other_topics') }}</h2>
             <div class="flex flex-wrap gap-2">
-                <a href="#" class="chip chip-simple"><span class="chip-label">Associazioni</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Concorsi</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Energie rinnovabili</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Gestione rifiuti</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Imposte</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Istruzione</span></a>
-                <a href="#" class="chip chip-simple"><span class="chip-label">Pista ciclabile</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.associations.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.competitions.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.renewable_energy.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.waste_management.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.taxes.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.education.label') }}</span></a>
+                <a href="#" class="chip chip-simple"><span class="chip-label">{{ __('pub_theme::home_components.dc_homepage.topics.cycle_path.label') }}</span></a>
             </div>
             <a class="btn btn-outline-primary mt-4" href="#">{{ __('navigation.homepage.show_all') }}</a>
         </div>
@@ -353,12 +353,12 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="mb-5 text-3xl font-bold">{{ __('navigation.homepage.useful_links') }}</h2>
             <ul class="list-none space-y-3 text-lg">
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Rilascio Carta Identità Elettronica (CIE)</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Cambio di residenza</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Tributi online</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Prenotazione appuntamenti</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Rilascio tessera elettorale</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Voucher connettività</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.cie.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.residence_change.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.online_taxes.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.appointments.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.voter_card.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.connectivity_voucher.label') }}</a></li>
             </ul>
         </div>
     </section>
@@ -392,12 +392,12 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="mb-5 text-3xl font-bold">{{ __('navigation.homepage.maybe_searching') }}</h2>
             <ul class="list-none space-y-3 text-lg">
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Rilascio Carta Identità Elettronica (CIE)</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Cambio di residenza</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Tributi online</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Prenotazione appuntamenti</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Rilascio tessera elettorale</a></li>
-                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">Voucher connettività</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.cie.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.residence_change.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.online_taxes.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.appointments.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.voter_card.label') }}</a></li>
+                <li><a href="#" class="text-emerald-700 hover:text-emerald-800">{{ __('pub_theme::home_components.dc_homepage.services.connectivity_voucher.label') }}</a></li>
             </ul>
         </div>
     </section>

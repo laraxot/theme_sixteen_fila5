@@ -27,7 +27,7 @@
                         @for($i = 1; $i <= 5; $i++)
                         <button 
                             class="btn btn-link p-0 text-3xl hover:text-primary transition-colors"
-                            aria-label="Valuta {{ $i }} stelle"
+                            aria-label="{{ __('pub_theme::blocks_content.feedback_section.rate_stars.label', ['count' => $i]) }}"
                         >
                             <x-filament::icon icon="heroicon-o-star" class="w-10 h-10" />
                         </button>
@@ -37,43 +37,43 @@
                 
                 {{-- Feedback Options --}}
                 <div class="feedback-options">
-                    <h3 class="h5 font-semibold mb-3">Aspetti positivi</h3>
+                    <h3 class="h5 font-semibold mb-3">{{ __('pub_theme::blocks_content.feedback_section.positive_aspects.label') }}</h3>
                     <div class="d-flex flex-wrap gap-2 justify-content-center">
-                        <button class="btn btn-outline-primary btn-sm">Istruzioni chiare</button>
-                        <button class="btn btn-outline-primary btn-sm">Completo</button>
-                        <button class="btn btn-outline-primary btn-sm">Monitoraggio avanzamento</button>
-                        <button class="btn btn-outline-primary btn-sm">Nessun problema tecnico</button>
-                        <button class="btn btn-outline-primary btn-sm">Altro</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.clear_instructions.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.complete.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.progress_tracking.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.no_technical_issues.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.other.label') }}</button>
                     </div>
                 </div>
                 
                 <div class="mt-4">
-                    <h3 class="h5 font-semibold mb-3">Difficoltà riscontrate</h3>
+                    <h3 class="h5 font-semibold mb-3">{{ __('pub_theme::blocks_content.feedback_section.difficulties_encountered.label') }}</h3>
                     <div class="d-flex flex-wrap gap-2 justify-content-center">
-                        <button class="btn btn-outline-primary btn-sm">Istruzioni poco chiare</button>
-                        <button class="btn btn-outline-primary btn-sm">Informazioni incomplete</button>
-                        <button class="btn btn-outline-primary btn-sm">Confusione avanzamento</button>
-                        <button class="btn btn-outline-primary btn-sm">Problemi tecnici</button>
-                        <button class="btn btn-outline-primary btn-sm">Altro</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.unclear_instructions.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.incomplete_information.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.unclear_progress.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.technical_issues.label') }}</button>
+                        <button class="btn btn-outline-primary btn-sm">{{ __('pub_theme::blocks_content.feedback_section.other.label') }}</button>
                     </div>
                 </div>
                 
                 {{-- Details Textarea --}}
                 <div class="mt-6">
-                    <label for="feedback-details" class="form-label h5 font-semibold">Dettagli (max 200 caratteri)</label>
+                    <label for="feedback-details" class="form-label h5 font-semibold">{{ __('pub_theme::blocks_content.feedback_section.details_max_200_characters.label') }}</label>
                     <textarea 
                         id="feedback-details" 
                         class="form-control" 
                         rows="3" 
                         maxlength="200"
-                        placeholder="Descrivi la tua esperienza..."
+                        placeholder="{{ __('pub_theme::blocks_content.feedback_section.describe_your_experience.placeholder') }}"
                     ></textarea>
                 </div>
                 
                 {{-- Navigation Buttons --}}
                 <div class="mt-6">
-                    <button class="btn btn-secondary me-2">Indietro</button>
-                    <button class="btn btn-primary">Avanti</button>
+                    <button class="btn btn-secondary me-2">{{ __('pub_theme::blocks_common.shared.back.label') }}</button>
+                    <button class="btn btn-primary">{{ __('pub_theme::blocks_common.shared.next.label') }}</button>
                 </div>
             </div>
         </div>

@@ -15,9 +15,9 @@
     'method' => 'GET',
     'name' => 'q',
     'value' => null,
-    'placeholder' => __('Cerca nel sito'),
-    'label' => __('Cerca nel sito'),
-    'submitLabel' => __('Cerca'),
+    'placeholder' => __('pub_theme::ui.search_site_aria'),
+    'label' => __('pub_theme::ui.search_site_aria'),
+    'submitLabel' => __('pub_theme::header.center.search.label'),
     'size' => 'md',
 ])
 

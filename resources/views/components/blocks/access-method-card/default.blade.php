@@ -28,7 +28,7 @@ body:has(.page-content[data-slug="tests.accesso-servizio"]) .dc-contacts svg{wid
 </style>
 
 <section class="dc-access-methods" aria-labelledby="dc-access-methods-title">
-    <h2 id="dc-access-methods-title" class="sr-only">Modalità di accesso</h2>
+    <h2 id="dc-access-methods-title" class="sr-only">{{ __('pub_theme::blocks_content.default.access_methods.label') }}</h2>
     @foreach(($data['items'] ?? []) as $item)
         <article class="dc-access-method">
             <h2>{{ $item['label'] ?? '' }}</h2>

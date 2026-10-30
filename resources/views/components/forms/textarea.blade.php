@@ -105,7 +105,7 @@ $labelClasses = [
         >
             {{ $label }}
             @if($required)
-                <span class="text-red-500 ml-1" aria-label="Campo obbligatorio">*</span>
+                <span class="text-red-500 ml-1" aria-label="{{ __('pub_theme::components_forms.validation.required.label') }}">*</span>
             @endif
         </label>
     @endif

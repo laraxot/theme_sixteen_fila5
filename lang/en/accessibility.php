@@ -7,6 +7,8 @@ declare(strict_types=1);
  * inaccessible parts and contacts are NOT here: the municipality supplies them in the JSON `accessibilita.index` (block accessibility-statement).
  */
 return [
+    'high_contrast_toggle' => 'Toggle high contrast',
+    'contrast' => 'Contrast',
     'home' => 'Home',
     'page' => ['title' => ['text' => 'Accessibility statement']],
     'title' => [

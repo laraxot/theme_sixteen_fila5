@@ -4,7 +4,7 @@
 --}}
 @php
     $data = $data ?? [];
-    $placeholder  = isset($placeholder) ? $placeholder : ($data['placeholder'] ?? 'Cerca una parola chiave');
+    $placeholder  = isset($placeholder) ? $placeholder : ($data['placeholder'] ?? __('pub_theme::components_search.fields.keyword.placeholder'));
     $action       = isset($action) ? $action : ($data['action'] ?? '/it/ricerca');
     $useful_links = isset($useful_links) && is_array($useful_links) ? $useful_links : ($data['useful_links'] ?? []);
 @endphp
@@ -20,7 +20,7 @@
                                 <label for="autocomplete-autocomplete-three" class="visually-hidden">{{ $placeholder }}</label>
                                 <input type="search" class="autocomplete form-control" placeholder="{{ $placeholder }}" id="autocomplete-autocomplete-three" name="autocomplete-three" data-bs-autocomplete="[]">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" id="button-3">Invio</button>
+                                    <button class="btn btn-primary" type="button" id="button-3">{{ __('pub_theme::news.index.search_submit') }}</button>
                                 </div>
                                 <span class="autocomplete-icon" aria-hidden="true">
                                     <svg class="icon icon-sm icon-primary">
@@ -32,7 +32,7 @@
                     </div>
                     @if(!empty($useful_links))
                     <div class="link-list-wrapper">
-                        <div class="link-list-heading text-uppercase mb-3 ps-0 text-secondary">Link utili</div>
+                        <div class="link-list-heading text-uppercase mb-3 ps-0 text-secondary">{{ __('pub_theme::navigation.homepage.useful_links') }}</div>
                         <ul class="link-list">
                             @foreach($useful_links as $link)
                             <li>

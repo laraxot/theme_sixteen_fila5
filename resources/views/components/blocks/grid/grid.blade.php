@@ -95,7 +95,7 @@
                         <div class="modal-content">
                             <div class="modal-header border-bottom-0">
                                 <h2 class="title-medium-semi-bold" id="modal-categories-title">{{ $vm->filtersTitle() }}</h2>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Chiudi') }}"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('pub_theme::components_common.actions.close.label') }}"></button>
                             </div>
                             <div class="modal-body text-black">
                                 @include('pub_theme::components.blocks.ticket.filters-sidebar', [

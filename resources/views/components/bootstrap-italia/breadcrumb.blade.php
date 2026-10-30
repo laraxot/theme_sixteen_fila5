@@ -2,13 +2,13 @@
 @props([
     'items' => [],
     'separator' => '/',
-    'homeLabel' => 'Home',
+    'homeLabel' => __('pub_theme::components_common.nav.home.label'),
     'homeUrl' => '/',
     'showHome' => true
 ])
 
 @if(!empty($items) || $showHome)
-<nav aria-label="Breadcrumb" class="py-3">
+<nav aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb.label') }}" class="py-3">
     <div class="container-italia">
         <ol class="breadcrumb-italia">
             @if($showHome)

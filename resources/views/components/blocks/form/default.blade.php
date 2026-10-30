@@ -3,7 +3,7 @@
     Reference: design-comuni-pagine-statiche form pages
 --}}
 @props([
-    'title' => 'Modulo',
+    'title' => __('pub_theme::blocks_content.default.form.title'),
     'fields' => [],
     'action' => '#',
     'method' => 'POST',
@@ -54,7 +54,7 @@
                                                 name="{{ $field['name'] }}"
                                                 {{ !empty($field['required']) ? 'required' : '' }}
                                             >
-                                                <option value="">Seleziona...</option>
+                                                <option value="">{{ __('pub_theme::blocks_content.shared.select.message') }}</option>
                                                 @if(!empty($field['options']))
                                                     @foreach($field['options'] as $option)
                                                         <option value="{{ $option['value'] ?? '' }}">
@@ -100,7 +100,7 @@
                             
                             <div class="mt-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Invia
+                                    {{ __('pub_theme::blocks_content.default.submit.label') }}
                                 </button>
                             </div>
                         </form>

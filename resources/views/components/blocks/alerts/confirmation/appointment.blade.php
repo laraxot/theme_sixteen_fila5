@@ -3,7 +3,7 @@
     Reference: design-comuni-pagine-statiche appointment confirmation page
 --}}
 @props([
-    'title' => 'Appuntamento confermato',
+    'title' => __('pub_theme::blocks_common.shared.appointment_confirmed.title'),
     'description' => '',
     'reference_number' => '',
     'details' => [],
@@ -32,7 +32,7 @@
                 <div class="alert alert-info mb-4">
                     <div class="d-flex align-items-center">
                         <svg class="icon icon-sm me-2"><use href="#it-info-circle"></use></svg>
-                        <span>Codice di prenotazione: <strong>{{ $reference_number }}</strong></span>
+                        <span>{{ __('pub_theme::blocks_content.shared.booking_code_colon.label') }} <strong>{{ $reference_number }}</strong></span>
                     </div>
                 </div>
                 @endif
@@ -41,7 +41,7 @@
                 @if(!empty($details))
                 <div class="card shadow-sm rounded mb-4">
                     <div class="card-header bg-light">
-                        <h2 class="h5 mb-0">Dettagli appuntamento</h2>
+                        <h2 class="h5 mb-0">{{ __('pub_theme::blocks_content.shared.appointment_details_2.label') }}</h2>
                     </div>
                     <div class="card-body">
                         <dl class="row mb-0">
@@ -58,7 +58,7 @@
                 @if(!empty($next_steps))
                 <div class="card shadow-sm rounded">
                     <div class="card-header bg-light">
-                        <h2 class="h5 mb-0">Cosa portare</h2>
+                        <h2 class="h5 mb-0">{{ __('pub_theme::blocks_content.shared.what_to_bring.label') }}</h2>
                     </div>
                     <div class="card-body">
                         <ul class="mb-0">
@@ -72,7 +72,7 @@
 
                 {{-- Actions --}}
                 <div class="text-center mt-4">
-                    <a href="/" class="btn btn-primary">Torna alla home</a>
+                    <a href="/" class="btn btn-primary">{{ __('pub_theme::blocks_common.shared.back_to_home.label') }}</a>
                 </div>
             </div>
         </div>

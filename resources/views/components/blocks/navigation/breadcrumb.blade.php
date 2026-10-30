@@ -16,7 +16,7 @@
 @props([
     'variant' => 'default',
     'items' => [],
-    'currentPage' => 'Pagina corrente',
+    'currentPage' => __('pub_theme::components_common.nav.current_page.label'),
     'homeUrl' => '/',
     'separator' => '/',
     'showHome' => true,
@@ -38,18 +38,18 @@ $breadcrumbClasses = collect([
 ])->filter()->implode(' ');
 @endphp
 
-<nav class="{{ $breadcrumbClasses }}" aria-label="Percorso di navigazione" role="navigation">
+<nav class="{{ $breadcrumbClasses }}" aria-label="{{ __('pub_theme::components_common.a11y.navigation_path.label') }}" role="navigation">
     <div class="container mx-auto px-4">
         <ol class="flex items-center space-x-2 text-sm">
             @if($showHome)
                 <li>
                     <a href="{{ $homeUrl }}" 
                        class="text-blue-600 hover:text-blue-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1"
-                       aria-label="Torna alla home">
+                       aria-label="{{ __('pub_theme::components_common.a11y.back_home.label') }}">
                         <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                         </svg>
-                        Home
+                        {{ __('pub_theme::components_common.nav.home.label') }}
                     </a>
                 </li>
                 @if(count($items) > 0 || $currentPage)
@@ -62,10 +62,10 @@ $breadcrumbClasses = collect([
                     @if(isset($item['url']) && $item['url'])
                         <a href="{{ $item['url'] }}" 
                            class="text-blue-600 hover:text-blue-800 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1">
-                            {{ $item['title'] ?? $item['text'] ?? $item['label'] ?? 'Item' }}
+                            {{ $item['title'] ?? $item['text'] ?? $item['label'] ?? __('pub_theme::components_common.fallback.item.label') }}
                         </a>
                     @else
-                        <span class="text-gray-700">{{ $item['title'] ?? $item['text'] ?? $item['label'] ?? 'Item' }}</span>
+                        <span class="text-gray-700">{{ $item['title'] ?? $item['text'] ?? $item['label'] ?? __('pub_theme::components_common.fallback.item.label') }}</span>
                     @endif
                 </li>
                 @if($index < count($items) - 1 || $currentPage)

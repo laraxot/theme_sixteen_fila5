@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Tags',
+    'title' => __('pub_theme::blocks_content.tags.tags.title'),
     'subtitle' => '',
     'tags' => [],
     'style' => 'cloud'

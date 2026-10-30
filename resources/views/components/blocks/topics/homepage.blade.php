@@ -20,12 +20,12 @@
                                         <svg class="icon icon-primary" aria-hidden="true">
                                             <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#' . ($item['icon'] ?? 'it-folder')) }}"></use>
                                         </svg>
-                                        <span class="text">Argomento</span>
+                                        <span class="text">{{ __('pub_theme::components_common.fields.topic.label') }}</span>
                                     </div>
                                     <h3 class="card-title h5">{{ $item['title'] }}</h3>
                                     <p class="card-text">{{ $item['description'] ?? '' }}</p>
                                     <a href="{{ $item['url'] }}" class="read-more">
-                                        <span class="text">Esplora</span>
+                                        <span class="text">{{ __('pub_theme::components_content.topic.explore_short.label') }}</span>
                                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
                                             <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                         </svg>

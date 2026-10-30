@@ -49,4 +49,6 @@ return [
     'back_to_top_aria' => 'Torna all\'inizio della pagina',
     'home_link' => 'Torna alla home',
     'footer_secondary_links' => 'Link del footer secondario',
+    'documents' => 'Documenti',
+    'all_rights_reserved' => 'Tutti i diritti riservati',
 ];

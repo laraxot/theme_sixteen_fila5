@@ -29,26 +29,26 @@
             @if(count($contact) > 0)
             <div class="col-12 col-md-4">
                 <div class="footer-contact">
-                    <h3 class="footer-title">Contatti</h3>
+                    <h3 class="footer-title">{{ __('pub_theme::blocks_common.shared.contacts.label') }}</h3>
                     <address class="footer-address">
                         @if(isset($contact['address']))
                             <p>{{ $contact['address'] }}</p>
                         @endif
                         @if(isset($contact['phone']))
                             <p>
-                                <strong>Telefono:</strong> 
+                                <strong>{{ __('pub_theme::blocks_common.shared.phone_colon.label') }}</strong> 
                                 <a href="tel:{{ $contact['phone'] }}">{{ $contact['phone'] }}</a>
                             </p>
                         @endif
                         @if(isset($contact['email']))
                             <p>
-                                <strong>Email:</strong> 
+                                <strong>{{ __('pub_theme::blocks_common.shared.email_colon.label') }}</strong> 
                                 <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a>
                             </p>
                         @endif
                         @if(isset($contact['pec']))
                             <p>
-                                <strong>PEC:</strong> 
+                                <strong>{{ __('pub_theme::footer_blocks.shared.certified_email_colon.label') }}</strong> 
                                 <a href="mailto:{{ $contact['pec'] }}">{{ $contact['pec'] }}</a>
                             </p>
                         @endif
@@ -81,7 +81,7 @@
                 @if(count($social) > 0)
                 <div class="col-12 col-md-6">
                     <div class="footer-social">
-                        <span class="footer-social-label">Seguici su:</span>
+                        <span class="footer-social-label">{{ __('pub_theme::blocks_common.shared.follow_us_on_colon.label') }}</span>
                         <ul class="footer-social-list list-inline">
                             @foreach($social as $platform)
                                 <li class="list-inline-item">
@@ -119,19 +119,19 @@
                     <div class="col-12">
                         <ul class="footer-small-prints-list list-inline text-center mb-0">
                             <li class="list-inline-item me-3">
-                                <a href="/it/amministrazione-trasparente" class="footer-small-print-link">Amministrazione trasparente</a>
+                                <a href="{{ route('container0.index', ['container0' => 'amministrazione-trasparente'], false) }}" class="footer-small-print-link">{{ __('pub_theme::footer_blocks.shared.transparent_administration.label') }}</a>
                             </li>
                             <li class="list-inline-item me-3">
-                                <a href="/it/cookie-policy" class="footer-small-print-link">{{ __('footer.cookie_policy') }}</a>
+                                <a href="{{ route('container0.index', ['container0' => 'cookie-policy'], false) }}" class="footer-small-print-link">{{ __('footer.cookie_policy') }}</a>
                             </li>
                             <li class="list-inline-item me-3">
-                                <a href="/it/informativa-privacy" class="footer-small-print-link">{{ __('footer.privacy') }}</a>
+                                <a href="{{ route('container0.index', ['container0' => 'informativa-privacy'], false) }}" class="footer-small-print-link">{{ __('footer.privacy') }}</a>
                             </li>
                             <li class="list-inline-item me-3">
-                                <a href="/it/note-legali" class="footer-small-print-link">{{ __('footer.legal_notes') }}</a>
+                                <a href="{{ route('container0.index', ['container0' => 'note-legali'], false) }}" class="footer-small-print-link">{{ __('footer.legal_notes') }}</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="/it/dichiarazione-accessibilita" class="footer-small-print-link">{{ __('footer.accessibility') }}</a>
+                                <a href="{{ route('container0.index', ['container0' => 'dichiarazione-accessibilita'], false) }}" class="footer-small-print-link">{{ __('footer.accessibility') }}</a>
                             </li>
                         </ul>
                     </div>

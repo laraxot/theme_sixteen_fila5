@@ -1,11 +1,11 @@
-@props(['title' => 'Articoli Popolari', 'posts' => []])
+@props(['title' => __('pub_theme::blocks_content.popular_posts.popular_articles.title'), 'posts' => []])
 
 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-8">
     <h4 class="font-bold text-gray-900 mb-4 text-lg border-l-4 border-blue-500 pl-3">{{ $title }}</h4>
     <div class="space-y-4">
         {{-- Fallback content if empty --}}
         @if(empty($posts))
-            <p class="text-sm text-gray-500 italic">Nessun articolo popolare al momento.</p>
+            <p class="text-sm text-gray-500 italic">{{ __('pub_theme::blocks_content.popular_posts.no_popular_articles_at_the_moment.message') }}</p>
         @else
             @foreach($posts as $post)
                 <a href="{{ $post['url'] ?? '#' }}" class="flex gap-4 group">

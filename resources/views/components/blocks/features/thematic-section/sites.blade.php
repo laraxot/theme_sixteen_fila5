@@ -12,7 +12,7 @@
                         <h3 class="card-title h5 mb-2">{{ $item['title'] }}</h3>
                         <p class="card-text text-muted">{{ $item['description'] }}</p>
                         <a href="{{ $item['url'] }}" class="read-more text-primary fw-semibold text-decoration-none mt-3 d-inline-flex align-items-center">
-                            <span>Visita il sito</span>
+                            <span>{{ __('pub_theme::blocks_content.sites.visit_the_site.label') }}</span>
                             <x-filament::icon icon="heroicon-o-arrow-right" class="icon-sm ms-2" />
                         </a>
                     </div>

@@ -1,8 +1,8 @@
 @props([
     'availableDates' => [],
     'selectedDate' => null,
-    'title' => 'Seleziona data e orario',
-    'description' => 'Scegli il giorno e l\'orario del tuo appuntamento',
+    'title' => __('pub_theme::flow_appointment.data_orario.select_date_and_time.title'),
+    'description' => __('pub_theme::flow_appointment.data_orario.choose_the_day_and_time_of.help'),
 ])
 
 @php
@@ -54,7 +54,7 @@
     {{-- Time Slots --}}
     @if($selectedDate)
         <div class="mt-6">
-            <h4 class="text-sm font-medium text-gray-700 mb-3">Orari disponibili</h4>
+            <h4 class="text-sm font-medium text-gray-700 mb-3">{{ __('pub_theme::flow_appointment.data_orario.available_times.label') }}</h4>
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                 @foreach(['08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'] as $time)
                     <button 
@@ -77,7 +77,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -86,7 +86,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

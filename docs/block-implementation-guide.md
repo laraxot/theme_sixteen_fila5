@@ -61,7 +61,8 @@ La **parità HTML strutturale** è ESSENZIALE, NON secondaria. Replichiamo ESATT
 - ✅ Tailwind @apply per styling: `style-apply.css`
 - ✅ Alpine.js per comportamento: `x-data`, `@click`, `x-show`
 - ❌ File Bootstrap CSS/JS: MAI
-- ❌ Attributi `data-bs-*`: MAI
+- ✅ Attributi `data-bs-*` e `data-element`: copiarli dal reference con gli stessi nomi (Bootstrap JS non c'e', il comportamento lo da il runtime del tema)
+- ❌ Attributi `data-*` col nome del tema (`data-sixteen-*`): MAI, vedi [data-attribute-rule.md](./data-attribute-rule.md)
 - ❌ Inventare classi custom: MAI
 
 ### 2. NO Hardcoded Language Strings

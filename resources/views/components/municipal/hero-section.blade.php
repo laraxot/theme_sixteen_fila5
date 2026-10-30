@@ -31,11 +31,11 @@
 
 <section class="agid-hero agid-hero--{{ $variant }}"
          role="banner"
-         aria-label="Sezione principale homepage">
+         aria-label="{{ __('pub_theme::municipal_components.hero.section.label') }}">
 
     {{-- Background --}}
     @if($backgroundImage)
-        <div class="agid-hero__background" role="img" aria-label="Immagine di sfondo {{ $title }}">
+        <div class="agid-hero__background" role="img" aria-label="{{ __('pub_theme::municipal_components.hero.background_image.label', ['title' => $title]) }}">
             <img src="{{ $backgroundImage }}"
                  alt="{{ $title }}"
                  class="agid-hero__bg-image"
@@ -69,38 +69,38 @@
 
                 {{-- Search Bar --}}
                 @if($showSearch)
-                    <div class="agid-hero__search" role="search" aria-label="Ricerca nel sito">
+                    <div class="agid-hero__search" role="search" aria-label="{{ __('pub_theme::municipal_components.hero.search_region.label') }}">
                         <form action="/ricerca" method="GET" class="agid-hero__search-form">
                             <div class="agid-hero__search-input-group">
                                 <label for="hero-search" class="sr-only">
-                                    Cerca servizi, informazioni, documenti
+                                    {{ __('pub_theme::municipal_components.hero.search.label') }}
                                 </label>
                                 <input type="search"
                                        id="hero-search"
                                        name="q"
-                                       placeholder="Cerca servizi, informazioni, documenti..."
+                                       placeholder="{{ __('pub_theme::municipal_components.hero.search.placeholder') }}"
                                        class="fi-input agid-hero__search-input"
                                        autocomplete="off"
                                        aria-describedby="search-help">
                                 <button type="submit"
                                         class="fi-btn fi-btn-primary agid-hero__search-button"
-                                        aria-label="Avvia ricerca">
+                                        aria-label="{{ __('pub_theme::municipal_components.hero.search_submit.label') }}">
                                     @svg('heroicon-o-magnifying-glass', 'w-5 h-5')
                                 </button>
                             </div>
                             <div id="search-help" class="agid-hero__search-help sr-only">
-                                Premi Invio o clicca sul pulsante per cercare
+                                {{ __('pub_theme::municipal_components.hero.search.help') }}
                             </div>
                         </form>
 
                         {{-- Suggerimenti di ricerca --}}
-                        <div class="agid-hero__search-suggestions" role="region" aria-label="Suggerimenti di ricerca">
-                            <span class="agid-hero__suggestions-label">Ricerche frequenti:</span>
+                        <div class="agid-hero__search-suggestions" role="region" aria-label="{{ __('pub_theme::municipal_components.hero.suggestions.region.label') }}">
+                            <span class="agid-hero__suggestions-label">{{ __('pub_theme::municipal_components.hero.suggestions.title.label') }}</span>
                             <div class="agid-hero__suggestions-list">
-                                <a href="/servizi/anagrafe" class="agid-hero__suggestion-link">Anagrafe</a>
-                                <a href="/servizi/tributi" class="agid-hero__suggestion-link">Tributi</a>
-                                <a href="/servizi/edilizia" class="agid-hero__suggestion-link">Edilizia</a>
-                                <a href="/bandi" class="agid-hero__suggestion-link">Bandi</a>
+                                <a href="/servizi/anagrafe" class="agid-hero__suggestion-link">{{ __('pub_theme::municipal_components.hero.suggestions.registry.label') }}</a>
+                                <a href="/servizi/tributi" class="agid-hero__suggestion-link">{{ __('pub_theme::municipal_components.hero.suggestions.taxes.label') }}</a>
+                                <a href="/servizi/edilizia" class="agid-hero__suggestion-link">{{ __('pub_theme::municipal_components.hero.suggestions.building.label') }}</a>
+                                <a href="/bandi" class="agid-hero__suggestion-link">{{ __('pub_theme::municipal_components.hero.suggestions.tenders.label') }}</a>
                             </div>
                         </div>
                     </div>
@@ -129,8 +129,8 @@
 
             {{-- Quick Links Sidebar --}}
             @if(!empty($quickLinks))
-                <aside class="agid-hero__sidebar" aria-label="Link rapidi">
-                    <h2 class="agid-hero__sidebar-title">Accesso Rapido</h2>
+                <aside class="agid-hero__sidebar" aria-label="{{ __('pub_theme::municipal_components.hero.sidebar.region.label') }}">
+                    <h2 class="agid-hero__sidebar-title">{{ __('pub_theme::municipal_components.hero.sidebar.title.label') }}</h2>
                     <nav class="agid-hero__quick-nav">
                         <ul class="agid-hero__quick-links" role="list">
                             @foreach($quickLinks as $link)
@@ -144,7 +144,7 @@
                                         <span class="agid-hero__quick-text">{{ $link['title'] ?? $link['name'] ?? 'Link' }}</span>
                                         @if(isset($link['external']) && $link['external'])
                                             @svg('heroicon-o-arrow-top-right-on-square', 'agid-hero__external-icon')
-                                            <span class="sr-only">(apre in nuova finestra)</span>
+                                            <span class="sr-only">{{ __('pub_theme::common.links.opens_new_window.label') }}</span>
                                         @endif
                                     </a>
                                 </li>
@@ -160,7 +160,7 @@
     <div class="agid-hero__scroll-indicator" aria-hidden="true">
         <button class="agid-hero__scroll-button"
                 onclick="document.querySelector('#main-content').scrollIntoView({behavior: 'smooth'})"
-                aria-label="Scorri per vedere i contenuti">
+                aria-label="{{ __('pub_theme::municipal_components.hero.scroll.label') }}">
             @svg('heroicon-o-chevron-down', 'agid-hero__scroll-icon')
         </button>
     </div>

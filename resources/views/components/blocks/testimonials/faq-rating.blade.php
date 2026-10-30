@@ -1,8 +1,8 @@
 @props(['data' => []])
 
 @php
-    $title = $data['title'] ?? 'Quanto sono chiare le informazioni su questa pagina?';
-    $subtitle = $data['subtitle'] ?? 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!';
+    $title = $data['title'] ?? __('pub_theme::news.index.feedback.title');
+    $subtitle = $data['subtitle'] ?? __('pub_theme::news.index.feedback.thanks');
 @endphp
 
 <div class="bg-primary">
@@ -16,7 +16,7 @@
                                 <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $title }}</h2>
                             </div>
                             <div class="card-body">
-                                <div class="faq-rating-stars" aria-label="Valuta da 1 a 5 stelle la pagina">
+                                <div class="faq-rating-stars" aria-label="{{ __('pub_theme::news.index.feedback.legend') }}">
                                     @for ($star = 1; $star <= 5; $star++)
                                         <button type="button" class="faq-rating-star" aria-label="{{ __('pub_theme::navigation.homepage.rate_'.$star) }}">★</button>
                                     @endfor

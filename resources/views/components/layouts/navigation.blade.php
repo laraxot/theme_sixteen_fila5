@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('pub_theme::auth.navigation.dashboard') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('pub_theme::auth.profile.title') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -44,7 +44,7 @@
                             @csrf
                             <x-dropdown-link :href="url('/'.app()->getLocale().'/auth/logout')"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('pub_theme::header.user.dropdown.logout.label') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -68,7 +68,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('pub_theme::auth.navigation.dashboard') }}
             </x-responsive-nav-link>
         </div>
 
@@ -81,7 +81,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('pub_theme::auth.profile.title') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -89,7 +89,7 @@
                     @csrf
                     <x-responsive-nav-link :href="url('/'.app()->getLocale().'/auth/logout')"
                             onclick="event.preventDefault(); this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('pub_theme::header.user.dropdown.logout.label') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

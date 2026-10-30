@@ -7,10 +7,10 @@
 @php
     // Support both @include (direct vars) and @component (via $data)
     $data = $data ?? [];
-    $title = isset($title) ? $title : ($data['title'] ?? 'Nome del comune');
+    $title = isset($title) ? $title : ($data['title'] ?? __('pub_theme::components_content.hero.municipality_name.label'));
     $news = isset($news) && is_array($news) ? $news : ($data['news'] ?? []);
     $image = isset($image) ? $image : ($data['image'] ?? 'https://picsum.photos/800/600');
-    $allNewsLabel = isset($all_news_label) ? $all_news_label : ($data['all_news_label'] ?? 'Tutte le novità');
+    $allNewsLabel = isset($all_news_label) ? $all_news_label : ($data['all_news_label'] ?? __('pub_theme::navigation.homepage.all_news'));
     $allNewsUrl = isset($all_news_url) ? $all_news_url : ($data['all_news_url'] ?? '#');
     $excerpt = $news['excerpt'] ?? '';
     $excerptLead = $excerpt;
@@ -30,20 +30,20 @@
 <section class="fc-home-hero" aria-labelledby="fc-home-hero-heading">
     <div class="fc-home-hero__inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="fc-home-hero__copy">
-            <p class="fc-eyebrow">SERVIZI DIGITALI DEL COMUNE</p>
-            <h1 id="fc-home-hero-heading" class="font-serif">Segnalazioni e servizi per la tua comunità</h1>
-            <p class="fc-home-hero__intro">Racconta cosa non funziona, indica dove e segui gli aggiornamenti in modo semplice e trasparente.</p>
+            <p class="fc-eyebrow">{{ __('pub_theme::components_content.hero.eyebrow.label') }}</p>
+            <h1 id="fc-home-hero-heading" class="font-serif">{{ __('pub_theme::components_content.hero.heading.title') }}</h1>
+            <p class="fc-home-hero__intro">{{ __('pub_theme::components_content.hero.intro.text') }}</p>
             <div class="fc-home-hero__actions">
-                <a class="fc-button fc-button--primary" href="https://fixcity.eu/it/tickets/create">Invia una segnalazione</a>
-                <a class="fc-button fc-button--quiet" href="https://fixcity.eu/it/tickets">Vedi le segnalazioni</a>
+                <a class="fc-button fc-button--primary" href="https://fixcity.eu/it/tickets/create">{{ __('pub_theme::faq.contacts.report') }}</a>
+                <a class="fc-button fc-button--quiet" href="https://fixcity.eu/it/tickets">{{ __('pub_theme::components_content.hero.view_reports.label') }}</a>
             </div>
         </div>
 
-        <aside class="fc-home-hero__signal" aria-label="IMPEGNO CIVICO">
+        <aside class="fc-home-hero__signal" aria-label="{{ __('pub_theme::components_content.hero.signal_eyebrow.label') }}">
             <span class="fc-home-hero__signal-mark" aria-hidden="true"></span>
-            <p class="fc-eyebrow">IMPEGNO CIVICO</p>
-            <p class="fc-home-hero__signal-value">La tua voce conta</p>
-            <p class="fc-home-hero__signal-body">Ogni segnalazione aiuta il Comune a capire le priorità e a rendere visibili gli interventi.</p>
+            <p class="fc-eyebrow">{{ __('pub_theme::components_content.hero.signal_eyebrow.label') }}</p>
+            <p class="fc-home-hero__signal-value">{{ __('pub_theme::home.hero.signal_heading') }}</p>
+            <p class="fc-home-hero__signal-body">{{ __('pub_theme::home.hero.signal_body') }}</p>
             <div class="fc-home-hero__signal-line" aria-hidden="true"></div>
         </aside>
     </div>

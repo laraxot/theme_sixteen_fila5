@@ -9,11 +9,11 @@
     $month = $data['month'] ?? 'SETTEMBRE 2022';
     $events = $data['events'] ?? [];
     $eventTypes = [
-        'payment' => ['label' => 'Pagamento', 'color' => 'text-red-600'],
-        'event' => ['label' => 'Evento', 'color' => 'text-primary'],
-        'meeting' => ['label' => 'Riunione', 'color' => 'text-blue-600'],
-        'exhibition' => ['label' => 'Mostra', 'color' => 'text-green-600'],
-        'tour' => ['label' => 'Visita', 'color' => 'text-purple-600'],
+        'payment' => ['label' => __('pub_theme::blocks_common.shared.payment.label'), 'color' => 'text-red-600'],
+        'event' => ['label' => __('pub_theme::blocks_content.events_calendar.event.label'), 'color' => 'text-primary'],
+        'meeting' => ['label' => __('pub_theme::blocks_content.events_calendar.meeting.label'), 'color' => 'text-blue-600'],
+        'exhibition' => ['label' => __('pub_theme::blocks_content.events_calendar.exhibition.label'), 'color' => 'text-green-600'],
+        'tour' => ['label' => __('pub_theme::blocks_content.events_calendar.visit.label'), 'color' => 'text-purple-600'],
     ];
 @endphp
 
@@ -29,13 +29,13 @@
             <div class="col-12">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                     <div class="grid grid-cols-7 bg-gray-100 border-b">
-                        <div class="text-center py-2 text-sm font-semibold">LUN</div>
-                        <div class="text-center py-2 text-sm font-semibold">MAR</div>
-                        <div class="text-center py-2 text-sm font-semibold">MER</div>
-                        <div class="text-center py-2 text-sm font-semibold">GIO</div>
-                        <div class="text-center py-2 text-sm font-semibold">VEN</div>
-                        <div class="text-center py-2 text-sm font-semibold">SAB</div>
-                        <div class="text-center py-2 text-sm font-semibold">DOM</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.mon.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.tue.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.wed.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.thu.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.fri.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.sat.label') }}</div>
+                        <div class="text-center py-2 text-sm font-semibold">{{ __('pub_theme::blocks_content.events_calendar.sun.label') }}</div>
                     </div>
                     
                     <div class="grid grid-cols-7">

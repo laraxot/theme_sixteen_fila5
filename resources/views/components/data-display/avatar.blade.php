@@ -85,17 +85,17 @@ $avatarClasses = [
         href="{{ $href ?? '#' }}" 
         @class($avatarClasses)
         @if($clickable && !$href) role="button" tabindex="0" @endif
-        aria-label="{{ $alt ?? 'Avatar' }}"
+        aria-label="{{ $alt ?? __('pub_theme::components_common.fallback.avatar.label') }}"
     >
 @else
-    <div @class($avatarClasses) role="img" aria-label="{{ $alt ?? 'Avatar' }}">
+    <div @class($avatarClasses) role="img" aria-label="{{ $alt ?? __('pub_theme::components_common.fallback.avatar.label') }}">
 @endif
 
     @if($src)
         {{-- Avatar con immagine --}}
         <img 
             src="{{ $src }}" 
-            alt="{{ $alt ?? 'Avatar' }}"
+            alt="{{ $alt ?? __('pub_theme::components_common.fallback.avatar.label') }}"
             class="w-full h-full object-cover"
             loading="lazy"
         >
@@ -116,7 +116,7 @@ $avatarClasses = [
         {{-- Indicatore di stato --}}
         <span 
             class="absolute w-3 h-3 border-2 border-white rounded-full {{ $badgePositionClasses['bottom-right'] }} {{ $statusClasses[$status] }}"
-            aria-label="Stato: {{ $status }}"
+            aria-label="{{ __('pub_theme::components_common.a11y.status_value.label', ['status' => $status]) }}"
         ></span>
     @endif
 
@@ -124,7 +124,7 @@ $avatarClasses = [
         {{-- Badge --}}
         <span 
             class="absolute inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-medium text-white rounded-full {{ $badgePositionClasses[$badgePosition] }} {{ $variantClasses[$badgeVariant] }}"
-            aria-label="Badge: {{ $badge }}"
+            aria-label="{{ __('pub_theme::components_common.a11y.badge_value.label', ['badge' => $badge]) }}"
         >
             {{ $badge }}
         </span>

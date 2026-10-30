@@ -14,7 +14,7 @@
 <div class="it-hero-wrapper it-wrapped-container" id="main-container">
     {{-- Breadcrumb --}}
     @if(!empty($breadcrumb))
-        <nav aria-label="Breadcrumb" class="container pt-3">
+        <nav aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb.label') }}" class="container pt-3">
             <ol class="breadcrumb">
                 @foreach($breadcrumb as $item)
                     <li class="breadcrumb-item {{ $loop->last ? 'active' : '' }}">
@@ -56,13 +56,13 @@
 
                         @if(!empty($managing_offices))
                         <div class="col-12 col-lg-5">
-                            <h3 class="title-xsmall-semi-bold text-secondary mb-3">Questo argomento è gestito da:</h3>
+                            <h3 class="title-xsmall-semi-bold text-secondary mb-3">{{ __('pub_theme::components_content.topic.managed_by.label') }}</h3>
                             @foreach($managing_offices as $office)
                             <div class="card card-teaser shadow-sm rounded p-3 mb-2">
                                 <div class="card-body">
                                     <h4 class="mb-1">
                                         <a href="{{ $office['url'] ?? '#' }}" class="text-decoration-none">
-                                            {{ $office['title'] ?? 'Ufficio' }}
+                                            {{ $office['title'] ?? __('pub_theme::components_common.fields.office.label') }}
                                         </a>
                                     </h4>
                                 </div>

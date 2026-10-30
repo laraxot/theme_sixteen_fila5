@@ -16,7 +16,7 @@
     Docs: docs/design-comuni/blocks/00-index.md
 --}}
 
-<nav class="it-nav-wrapper" aria-label="Navigazione principale">
+<nav class="it-nav-wrapper" aria-label="{{ __('pub_theme::components_common.a11y.main_navigation.label') }}">
     <div class="container">
         <div class="row">
             <div class="col-12">

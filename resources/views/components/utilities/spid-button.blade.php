@@ -50,7 +50,7 @@ $spidProviders = empty($providers) ? $defaultProviders : $providers;
             <path d="M35 35h30v5H35zm0 10h30v5H35zm0 10h20v5H35z"/>
         </svg>
         
-        <span>Entra con SPID</span>
+        <span>{{ __('pub_theme::utilities_components.spid.login.label') }}</span>
         
         <!-- Dropdown Arrow -->
         <svg class="ml-2 -mr-1 h-4 w-4" x-bind:class="{ 'rotate-180': open }" fill="currentColor" viewBox="0 0 20 20">
@@ -73,8 +73,8 @@ $spidProviders = empty($providers) ? $defaultProviders : $providers;
     >
         <div class="p-4">
             <div class="mb-4">
-                <h3 class="text-lg font-semibold text-gray-900">Scegli il tuo Identity Provider</h3>
-                <p class="text-sm text-gray-600 mt-1">Seleziona il provider con cui hai attivato SPID</p>
+                <h3 class="text-lg font-semibold text-gray-900">{{ __('pub_theme::utilities_components.spid.choose_provider.title') }}</h3>
+                <p class="text-sm text-gray-600 mt-1">{{ __('pub_theme::utilities_components.spid.choose_provider.help') }}</p>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
@@ -85,7 +85,7 @@ $spidProviders = empty($providers) ? $defaultProviders : $providers;
                 >
                     <img 
                         src="{{ $provider['logo'] }}" 
-                        alt="{{ $provider['name'] }} logo"
+                        alt="{{ __('pub_theme::utilities_components.spid.provider_logo.label', ['name' => $provider['name']]) }}"
                         class="h-8 w-auto mr-3 object-contain"
                     >
                     <span class="text-sm font-medium text-gray-700 group-hover:text-italia-blue-700">
@@ -102,17 +102,17 @@ $spidProviders = empty($providers) ? $defaultProviders : $providers;
                        target="_blank" 
                        rel="noopener"
                        class="hover:text-italia-blue-600">
-                        Cos'è SPID?
+                        {{ __('pub_theme::utilities_components.spid.what_is.label') }}
                     </a>
                     <a href="https://www.spid.gov.it/richiedi-spid" 
                        target="_blank" 
                        rel="noopener"
                        class="hover:text-italia-blue-600">
-                        Non hai SPID?
+                        {{ __('pub_theme::utilities_components.spid.no_spid.label') }}
                     </a>
                 </div>
                 <div class="mt-2 text-xs text-gray-500">
-                    Livello di sicurezza richiesto: {{ $level }}
+                    {{ __('pub_theme::utilities_components.spid.security_level.label') }} {{ $level }}
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@ $spidProviders = empty($providers) ? $defaultProviders : $providers;
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
                 <path d="M6 8h12v2H6zm0 4h12v2H6z"/>
             </svg>
-            Entra con CIE
+            {{ __('pub_theme::utilities_components.spid.login_cie.label') }}
         </a>
     </div>
 </div>

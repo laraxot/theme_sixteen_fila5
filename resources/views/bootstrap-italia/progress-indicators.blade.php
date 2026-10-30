@@ -4,7 +4,7 @@
 <div class="progress-spinner {{ ($active ?? false) ? 'progress-spinner-active' : '' }} {{ 'size-' . ($size ?? 'md') }}"
      role="status"
      aria-live="polite">
-    <span class="visually-hidden">Caricamento in corso...</span>
+    <span class="visually-hidden">{{ __('pub_theme::bootstrap_italia.progress_indicators.loading.message') }}</span>
 </div>
 @else
 @php

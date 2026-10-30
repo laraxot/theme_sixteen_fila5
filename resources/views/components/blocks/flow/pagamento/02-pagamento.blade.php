@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Dati pagamento',
-    'description' => 'Inserisci i dati per il pagamento',
+    'title' => __('pub_theme::flow_payment.pagamento.payment_data.title'),
+    'description' => __('pub_theme::flow_payment.pagamento.enter_the_payment_details.help'),
 ])
 
 <div class="step-content mt-8">
@@ -15,7 +15,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-3">
-                Metodo di pagamento <span class="text-red-500">*</span>
+                {{ __('pub_theme::flow_payment.shared.payment_method.label') }} <span class="text-red-500">*</span>
             </label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <label class="relative flex items-start p-4 border-2 rounded-lg cursor-pointer hover:border-blue-300 transition-colors
@@ -23,7 +23,7 @@
                     <input type="radio" name="metodo_pagamento" value="carta" x-model="metodoPagamento" class="sr-only">
                     <div class="flex-1">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="font-medium text-gray-900">Carta di credito</span>
+                            <span class="font-medium text-gray-900">{{ __('pub_theme::flow_payment.pagamento.credit_card.label') }}</span>
                             @if(in_array('carta', ['carta']))
                                 <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -42,14 +42,14 @@
                     <input type="radio" name="metodo_pagamento" value="banca" x-model="metodoPagamento" class="sr-only">
                     <div class="flex-1">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="font-medium text-gray-900">Bonifico</span>
+                            <span class="font-medium text-gray-900">{{ __('pub_theme::flow_payment.pagamento.bank_transfer.label') }}</span>
                             @if(in_array('banca', ['banca']))
                                 <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                 </svg>
                             @endif
                         </div>
-                        <p class="text-sm text-gray-500">Pagamento tramite home banking</p>
+                        <p class="text-sm text-gray-500">{{ __('pub_theme::flow_payment.pagamento.payment_via_online_banking.label') }}</p>
                     </div>
                 </label>
 
@@ -65,7 +65,7 @@
                                 </svg>
                             @endif
                         </div>
-                        <p class="text-sm text-gray-500">Pagamento con pagoPA</p>
+                        <p class="text-sm text-gray-500">{{ __('pub_theme::flow_payment.pagamento.payment_with_pagopa.label') }}</p>
                     </div>
                 </label>
             </div>
@@ -74,7 +74,7 @@
         <div x-show="metodoPagamento === 'carta'" class="space-y-4 p-4 bg-gray-50 rounded-lg">
             <div>
                 <label for="numero_carta" class="block text-sm font-medium text-gray-700 mb-2">
-                    Numero carta <span class="text-red-500">*</span>
+                    {{ __('pub_theme::flow_payment.pagamento.card_number.label') }} <span class="text-red-500">*</span>
                 </label>
                 <input 
                     type="text" 
@@ -89,7 +89,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="scadenza" class="block text-sm font-medium text-gray-700 mb-2">
-                        Scadenza <span class="text-red-500">*</span>
+                        {{ __('pub_theme::flow_payment.pagamento.expiry.label') }} <span class="text-red-500">*</span>
                     </label>
                     <input 
                         type="text" 
@@ -118,7 +118,7 @@
             </div>
             <div>
                 <label for="titolare_carta" class="block text-sm font-medium text-gray-700 mb-2">
-                    Titolare carta <span class="text-red-500">*</span>
+                    {{ __('pub_theme::flow_payment.pagamento.cardholder.label') }} <span class="text-red-500">*</span>
                 </label>
                 <input 
                     type="text" 
@@ -126,25 +126,25 @@
                     name="titolare_carta"
                     x-model="titolareCarta"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Nome cognome"
+                    placeholder="{{ __('pub_theme::flow_payment.pagamento.first_name_and_surname.placeholder') }}"
                 >
             </div>
         </div>
 
         <div x-show="metodoPagamento === 'banca'" class="p-4 bg-gray-50 rounded-lg">
             <p class="text-sm text-gray-600 mb-4">
-                Riceverai via email le coordinate bancarie per effettuare il bonifico. Il pagamento dovrà essere effettuato entro 5 giorni lavorativi.
+                {{ __('pub_theme::flow_payment.pagamento.you_will_receive_the_bank_details.message') }}
             </p>
             <div class="bg-white p-3 rounded border border-gray-200 text-sm">
                 <p><strong>IBAN:</strong> IT12 A123 4567 8901 2345 6789 012</p>
                 <p><strong>BIC:</strong> BANCITMM</p>
-                <p><strong>Causale:</strong> PAG-2025-001234-TARI</p>
+                <p><strong>{{ __('pub_theme::flow_payment.pagamento.reference_colon.label') }}</strong> PAG-2025-001234-TARI</p>
             </div>
         </div>
 
         <div x-show="metodoPagamento === 'pa'" class="p-4 bg-gray-50 rounded-lg">
             <p class="text-sm text-gray-600 mb-4">
-                Verrai reindirizzato sul sistema di pagamento pagoPA per completare la transazione in modo sicuro.
+                {{ __('pub_theme::flow_payment.pagamento.you_will_be_redirected_to_the.message') }}
             </p>
         </div>
     </div>
@@ -156,7 +156,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -165,7 +165,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

@@ -34,12 +34,12 @@ import '@modules/Media/resources/js/camera-image.js';
  *
  * IMPORTANT: questo file e' un ES module (defer). Il markup iniziale non deve
  * dipendere da Alpine.data registrati qui; l'header usa il controller
- * data-sixteen-mobile-nav importato in questo bundle Vite.
+ * il controller della navigazione mobile importato in questo bundle Vite.
  *
  * @param {object} AlpineInstance
  */
 function registerAlpineComponents(AlpineInstance) {
-    if (!AlpineInstance || document.documentElement.hasAttribute('data-sixteen-alpine-components')) {
+    if (!AlpineInstance || document.documentElement.hasAttribute('data-alpine-components')) {
         return;
     }
 
@@ -110,7 +110,7 @@ function registerAlpineComponents(AlpineInstance) {
         },
     }));
 
-    document.documentElement.setAttribute('data-sixteen-alpine-components', 'true');
+    document.documentElement.setAttribute('data-alpine-components', 'true');
 }
 
 if (window.Alpine) {
