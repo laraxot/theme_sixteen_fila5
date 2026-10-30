@@ -57,7 +57,7 @@
 
                 {{-- Hero Image --}}
                 <div class="lg:col-span-6 lg:col-start-7 lg:order-1 lg:order-2 px-0 lg:px-0">
-                    <img src="https://picsum.photos/800/600" title="titolo immagine" alt="descrizione immagine" class="w-full max-w-full rounded-lg shadow">
+                    <img src="https://picsum.photos/800/600" title="{{ __('pub_theme::design_comuni_pages.homepage.hero_image.title') }}" alt="{{ __('pub_theme::design_comuni_pages.homepage.hero_image.alt') }}" class="w-full max-w-full rounded-lg shadow">
                 </div>
             </div>
         </div>

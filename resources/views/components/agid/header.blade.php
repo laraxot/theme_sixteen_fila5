@@ -109,12 +109,12 @@
                                 <span class="visually-hidden">{{ __('pub_theme::blocks_common.shared.follow_us_on_colon.label') }}</span>
                                 <ul>
                                     <li>
-                                        <a href="#" aria-label="{{ __('Facebook') }}" target="_blank" rel="noopener noreferrer">
+                                        <a href="#" aria-label="{{ __('pub_theme::header.social.facebook.label') }}" target="_blank" rel="noopener noreferrer">
                                             <svg class="icon"><use href="#it-facebook"></use></svg>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" aria-label="{{ __('Twitter') }}" target="_blank" rel="noopener noreferrer">
+                                        <a href="#" aria-label="{{ __('pub_theme::header.social.twitter.label') }}" target="_blank" rel="noopener noreferrer">
                                             <svg class="icon"><use href="#it-twitter"></use></svg>
                                         </a>
                                     </li>

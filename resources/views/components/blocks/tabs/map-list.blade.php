@@ -289,7 +289,7 @@
                                 <div class="form-check">
                                     <div class="checkbox-body border-light py-1">
                                         <input type="checkbox" id="modal-water" name="category" value="acqua,allagamenti,fogne">
-                                        <label for="modal-water" class="subtitle-small_semi-bold mb-0 category-list__list">Acqua, allagamenti, problemi fognari (21)</label>
+                                        <label for="modal-water" class="subtitle-small_semi-bold mb-0 category-list__list">{{ __('pub_theme::legacy_prototypes.listing.category_water_sewage.label') }} (21)</label>
                                     </div>
                                 </div>
                             </li>
@@ -297,7 +297,7 @@
                                 <div class="form-check">
                                     <div class="checkbox-body border-light py-1">
                                         <input type="checkbox" id="modal-enviroment" name="category" value="inquinamneto">
-                                        <label for="modal-enviroment" class="subtitle-small_semi-bold mb-0 category-list__list">Ambiente, inquinamento, protezione ambientale (14)</label>
+                                        <label for="modal-enviroment" class="subtitle-small_semi-bold mb-0 category-list__list">{{ __('pub_theme::tickets_list.categories.environment.label') }} (14)</label>
                                     </div>
                                 </div>
                             </li>
@@ -305,7 +305,7 @@
                                 <div class="form-check">
                                     <div class="checkbox-body border-light py-1">
                                         <input type="checkbox" id="modal-waste" name="category" value="igiene">
-                                        <label for="modal-waste" class="subtitle-small_semi-bold mb-0 category-list__list">Igiene urbana, rifiuti, pulizia e decoro (321)</label>
+                                        <label for="modal-waste" class="subtitle-small_semi-bold mb-0 category-list__list">{{ __('pub_theme::tickets_list.categories.urban_hygiene.label') }} (321)</label>
                                     </div>
                                 </div>
                             </li>

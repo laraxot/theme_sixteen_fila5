@@ -152,7 +152,7 @@
         <div class="container-italia">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div class="text-italia-gray-400 text-sm mb-2 md:mb-0">
-                    &copy; {{ date('Y') }} {{ $institutionName }} - Tutti i diritti riservati
+                    &copy; {{ date('Y') }} {{ $institutionName }} - {{ __('pub_theme::components_copyright.copyright.rights_reserved.label') }}
                 </div>
                 
                 <div class="text-italia-gray-400 text-sm">

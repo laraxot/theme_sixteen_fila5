@@ -105,7 +105,7 @@ $allLinks = array_merge($defaultLinks, $customLinks);
         
         <!-- Copyright -->
         <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm opacity-80">
-            <p>&copy; {{ date('Y') }} {{ $enteName }}. Tutti i diritti riservati.</p>
+            <p>&copy; {{ date('Y') }} {{ $enteName }}{{ __('pub_theme::components_footer.legal.rights_reserved.label') }}</p>
         </div>
     </div>
 </footer>

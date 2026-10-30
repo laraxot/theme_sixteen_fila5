@@ -410,7 +410,7 @@
                     variant="secondary"
                     {{ $isFirstStep ? 'disabled' : '' }}>
                     <x-filament::icon icon="heroicon-o-arrow-left" class="w-4 h-4 mr-2" />
-                    Indietro
+                    {{ __('pub_theme::common.actions.back.label') }}
                 </x-button>
 
                 @if($currentStep < $totalSteps)
