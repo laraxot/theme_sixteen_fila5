@@ -258,20 +258,17 @@
                                         {{ __('pub_theme::appointment_form.booking.tax_code.label') }}
                                     </label>
                                     <div class="flex space-x-2">
-                                        <x-input 
-                                        <x-input 
+                                        <x-input
                                             type="text"
                                             wire:model="citizenData.fiscal_code"
                                             placeholder="{{ __('pub_theme::appointment_form.booking.tax_code.placeholder') }}"
                                             class="flex-1"
                                             wire:keydown.enter="searchCitizen($event.target.value)" />
-                                        <x-button 
-                                        <x-button 
+                                        <x-button
                                             type="button"
                                             wire:click="searchCitizen($citizenData['fiscal_code'] ?? '')"
                                             variant="secondary">
                                             {{ __('pub_theme::header.center.search.label') }}
-                                        </x-button>
                                         </x-button>
                                     </div>
                                 </div>
@@ -316,8 +313,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">
                                 {{ __('pub_theme::appointment_form.booking.notes.label') }}
                             </label>
-                            <x-textarea 
-                            <x-textarea 
+                            <x-textarea
                                 wire:model="notes"
                                 placeholder="{{ __('pub_theme::appointment_form.booking.notes.placeholder') }}"
                                 rows="3" />
@@ -327,8 +323,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">
                                 {{ __('pub_theme::appointment_form.booking.emergency_contact.label') }}
                             </label>
-                            <x-input 
-                            <x-input 
+                            <x-input
                                 type="text"
                                 wire:model="emergencyContact"
                                 placeholder="{{ __('pub_theme::appointment_form.booking.emergency_contact.placeholder') }}" />
@@ -404,11 +399,10 @@
 
             {{-- Navigation Buttons --}}
             <div class="flex justify-between">
-                <x-button 
-                <x-button 
+                <x-button
                     wire:click="previousStep"
                     variant="secondary"
-                    {{ $isFirstStep ? 'disabled' : '' }}>
+                    :disabled="$currentStep === 1">
                     <x-filament::icon icon="heroicon-o-arrow-left" class="w-4 h-4 mr-2" />
                     {{ __('pub_theme::common.actions.back.label') }}
                 </x-button>
@@ -421,16 +415,12 @@
                         <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-2" />
                     </x-button>
                 @else
-                    <x-button 
-                    </x-button>
-                @else
-                    <x-button 
+                    <x-button
                         wire:click="confirmAppointment"
                         variant="primary"
                         wire:loading.attr="disabled">
                         <span wire:loading.remove>{{ __('pub_theme::appointment_form.booking.confirm.label') }}</span>
                         <span wire:loading>{{ __('pub_theme::appointment_form.booking.confirm.loading') }}</span>
-                    </x-button>
                     </x-button>
                 @endif
             </div>

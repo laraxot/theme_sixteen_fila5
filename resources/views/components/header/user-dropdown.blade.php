@@ -1,11 +1,11 @@
 <!-- User Dropdown Component (legacy — prefer sections/header/partials/user-dropdown) -->
 <div x-data="{userOpen: false}"
-     x-data="{avatarUrl: '{{  }}'}"
-     x-data="{displayName: '{{  }}'}"
+     x-data="{avatarUrl: '{{ $avatarUrl }}'}"
+     x-data="{displayName: '{{ $displayName }}'}"
      @click.away="userOpen = false">
   <button @click="userOpen = !userOpen"
           class="nav-link dropdown-toggle header-auth-toggle"
-          id="header-user-toggle">{{  }}</button>
+          id="header-user-toggle">{{ $displayName }}</button>
 
   <div x-show="userOpen"
        class="dropdown-menu bg-white text-gray-800 rounded-md px-3 py-2"
