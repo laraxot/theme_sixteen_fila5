@@ -19,7 +19,7 @@
     'returnUrl' => null,
     'cancelUrl' => null,
     'environment' => 'production', // 'sandbox', 'production'
-    'language' => 'it', // 'it', 'en'
+    'language' => app()->getLocale(), // 'it', 'en', 'de', 'es'
 ])
 
 @php
@@ -120,22 +120,14 @@ $paymentUrl = route('pagopa.payment', [
         <span class="flex items-center">
             <template x-if="!processing">
                 <span class="flex items-center">
-                    @if($language === 'en')
-                        Pay
-                    @else
-                        Paga
-                    @endif
+                    {{ __('pub_theme::components_pagopa_button.button.pay.label', [], $language) }}
                     
                     @if($showAmount && $amount > 0)
                         <span class="mx-1">€</span>
                         <span class="font-bold">{{ $formattedAmount }}</span>
                     @endif
                     
-                    @if($language === 'en')
-                        <span class="ml-1">with PagoPA</span>
-                    @else
-                        <span class="ml-1">con PagoPA</span>
-                    @endif
+                    <span class="ml-1">{{ __('pub_theme::components_pagopa_button.button.with_pagopa.label', [], $language) }}</span>
                 </span>
             </template>
             
@@ -145,11 +137,7 @@ $paymentUrl = route('pagopa.payment', [
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    @if($language === 'en')
-                        Processing...
-                    @else
-                        Elaborazione...
-                    @endif
+                    {{ __('pub_theme::components_pagopa_button.button.processing.label', [], $language) }}
                 </span>
             </template>
         </span>
@@ -162,17 +150,10 @@ $paymentUrl = route('pagopa.payment', [
 
     {{-- Informazioni PagoPA --}}
     <div id="pagopa-info" class="mt-2 text-xs text-gray-600">
-        @if($language === 'en')
-            <p>Secure payments powered by PagoPA</p>
+        <p>{{ __('pub_theme::components_pagopa_button.info.secure_payments.message', [], $language) }}</p>
             @if($description)
                 <p class="mt-1">{{ $description }}</p>
             @endif
-        @else
-            <p>Pagamenti sicuri tramite il circuito PagoPA</p>
-            @if($description)
-                <p class="mt-1">{{ $description }}</p>
-            @endif
-        @endif
         
         @if($noticeNumber)
             <p class="mt-1">
@@ -184,11 +165,7 @@ $paymentUrl = route('pagopa.payment', [
     {{-- Metodi di pagamento supportati --}}
     <div class="mt-3 flex items-center space-x-2 text-xs text-gray-500">
         <span>
-            @if($language === 'en')
-                Accepted:
-            @else
-                Accettati:
-            @endif
+            {{ __('pub_theme::components_pagopa_button.methods.accepted.label', [], $language) }}
         </span>
         
         {{-- Icone carte/metodi --}}

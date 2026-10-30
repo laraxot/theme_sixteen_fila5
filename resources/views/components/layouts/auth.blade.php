@@ -287,7 +287,7 @@
             
             <!-- Copyright -->
             <div class="pt-8 border-t border-gray-700 text-center text-sm opacity-80">
-                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. Tutti i diritti riservati.</p>
+                <p>&copy; {{ date('Y') }} {{ config('app.name') }}{{ __('pub_theme::components_footer.legal.rights_reserved.label') }}</p>
                 <p class="mt-2">{{ __('pub_theme::components_common.footer.agid_compliance.text') }}</p>
             </div>
         </div>

@@ -152,7 +152,7 @@
 <div class="footer-copyright py-3 border-top">
     <div class="container text-center">
         <p class="mb-0 text-muted small">
-            &copy; {{ date('Y') }} {{ $municipality ?: 'Comune di Nome Comune' }}. Tutti i diritti riservati.
+            &copy; {{ date('Y') }} {{ $municipality ?: 'Comune di Nome Comune' }}{{ __('pub_theme::components_footer.legal.rights_reserved.label') }}
         </p>
     </div>
 </div>

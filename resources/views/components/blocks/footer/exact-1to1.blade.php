@@ -46,7 +46,7 @@
           <strong>Comune di Example</strong><br>
           Via Example, 1<br>
           00100 Example (RM)<br>
-          Codice fiscale / P. IVA: 00000000000
+          {{ __('pub_theme::components_footer.contacts.tax_code_vat.label') }} 00000000000
         </p>
         <ul class="footer-contact-list">
           <li>
