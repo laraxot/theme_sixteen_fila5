@@ -12,7 +12,7 @@
             @if($title)
             <h3 class="title-medium-2-semi-bold mb-3">{{ $title }}</h3>
             @endif
-            <nav aria-label="Navigatione secondaria">
+            <nav aria-label="{{ __('pub_theme::components_common.a11y.secondary_navigation.label') }}">
                 <ul class="list-unstyled mb-0">
                     @foreach($items as $item)
                     <li class="mb-2">

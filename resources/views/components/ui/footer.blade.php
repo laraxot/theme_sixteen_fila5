@@ -16,7 +16,7 @@
                 {{-- Logo e descrizione ente --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
                     <div class="it-brand-wrapper">
-                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('pub_theme::common.navigation.back_home.label') }}">
                             <svg class="icon" role="img" aria-labelledby="footer-logo-title">
                                 <title id="footer-logo-title">{{ config('app.name') }}</title>
                                 <use href="#it-pa"></use>
@@ -27,8 +27,8 @@
                         </a>
                     </div>
                     <p class="mt-3">
-                        {{ __('Piattaforma per la gestione delle segnalazioni cittadine.') }}
-                        {{ __('Miglioriamo insieme la nostra città.') }}
+                        {{ __('pub_theme::ui_components.footer.tagline.label') }}
+                        {{ __('pub_theme::ui_components.footer.improving_together.label') }}
                     </p>
                 </div>
 
@@ -79,7 +79,7 @@
                             <strong>{{ config('app.name') }}</strong><br>
                             Via Example, 123<br>
                             00100 Roma (RM)<br>
-                            Italia
+                            {{ __('pub_theme::ui_components.footer.country.label') }}
                         </p>
                         <p>
                             <strong>{{ __('footer.email') }}:</strong> 

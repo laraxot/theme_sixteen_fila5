@@ -114,7 +114,10 @@ chiude il gate.
 
 ## Story BMAD recenti (standard di codice)
 
+- [Parity degli attributi data-* (2026-10-29)](stories/data-attribute-parity.story.md) — via `data-sixteen-*` dal markup; regola in [data-attribute-rule.md](data-attribute-rule.md) (scala di scelta, inventario del riferimento: 12 nomi, nessuno col nome del tema); 6 varianti legacy di header, una sola con un consumatore.
+- [Passata UX mobile (2026-10-28)](stories/mobile-ux-pass.story.md) — **in revisione**: il tema servito e' Two, non Sixteen; `loading="lazy"` annullato; viewport senza blocco zoom, campi a 16 px, mappa a schermo intero in `dvh` da confermare contro il riferimento.
 - [Services -> Actions e const -> enum (2026-10-08)](stories/services-to-actions-sixteen.story.md) — il tema non ha piu' `app/Services/`; 31 const in enum con lang it/en.
+- [Niente testi fissi nelle Blade (2026-10-30)](stories/blade-i18n-no-hardcoded-text.story.md) — chiavi `pub_theme::` in it, en, de, es; numeri, residui e regola dei link.
 
 ## Parity Design Comuni v2 (2026-10-13)
 - [Epic DCP-00 e storie per la ripresa](bmad/stories/dcp-00-epic-design-comuni-parity-v2.story.md)

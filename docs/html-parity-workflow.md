@@ -3,8 +3,8 @@ title: "HTML PARITY WORKFLOW"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
-qmd: "HTML PARITY WORKFLOW"
+updated: 2026-10-29
+qmd: "HTML PARITY WORKFLOW data-bs data-element attributi data"
 issues: []
 discussions: []
 status: draft
@@ -157,7 +157,7 @@ Riesegui lo script fino a raggiungere ≥90%
 - **ID**: Identificatori semantici
 - **Tag Semantici**: `<header>`, `<main>`, `<footer>`, `<nav>`, `<article>`, `<section>`, `<aside>`
 - **Struttura**: Gerarchia degli elementi
-- **Attributi data-**: `data-element`, `data-bs-toggle` (MAI usare data-bs-* nel nostro caso)
+- **Attributi data-**: gli stessi nomi del reference (`data-element`, `data-bs-*`, `data-step`...), e nessuno col nome del tema ([data-attribute-rule.md](./data-attribute-rule.md))
 
 ### ❌ ESCLUSO (Non Conta)
 
@@ -205,8 +205,8 @@ Riesegui lo script fino a raggiungere ≥90%
 <link href="bootstrap-italia.min.css" rel="stylesheet"> <!-- NO -->
 <script src="bootstrap-italia.bundle.min.js"></script> <!-- NO -->
 
-<!-- MAI usare data-bs-* -->
-<div data-bs-toggle="collapse">...</div> <!-- NO, usa Alpine.js -->
+<!-- MAI un data-* col nome del tema al posto di quello del reference -->
+<div data-sixteen-toggle="collapse">...</div> <!-- NO: data-bs-toggle come il reference; vedi data-attribute-rule.md -->
 
 <!-- MAI inventare classi custom al posto di Bootstrap -->
 <div class="my-custom-container">...</div> <!-- NO, usa container -->
@@ -259,6 +259,10 @@ Esempi corretti:
 <x-layouts.design-comuni>  <!-- NO: layout non deve esistere -->
 @php ... @endphp  <!-- NO: logica inline, usa Volt component -->
 ```
+
+### 4. Attributi data-*
+
+Il reference usa 12 nomi `data-*` (1780 occorrenze nelle 33 pagine) e nessuno porta il nome di un tema. Si copiano **con gli stessi nomi**: `data-bs-*` compresi. Bootstrap JS non e' caricato, quindi l'attributo e' inerte e il comportamento lo da il runtime del tema (`resources/js/app.js`, `resources/js/theme/header-mobile-nav.js`, Alpine). Fino al 2026-10-29 questa guida diceva «MAI usare data-bs-*»: la riga era sbagliata e ha spinto a inventare `data-sixteen-*`. Se serve un aggancio che il reference non ha: classe del reference, poi `data-element="<ruolo>"`, poi `data-<comportamento>` generico, mai il nome del tema. Regola completa, scala di scelta e verifica: [data-attribute-rule.md](./data-attribute-rule.md).
 
 ---
 

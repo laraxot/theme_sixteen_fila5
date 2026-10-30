@@ -1,7 +1,7 @@
 @props([
     'lat' => null,
     'lng' => null,
-    'label' => 'Danno da riparare',
+    'label' => __('pub_theme::blocks_content.mappa_static.damage_to_be_repaired.label'),
     'recordLat' => null,
     'recordLng' => null,
 ])
@@ -35,11 +35,11 @@
     x-init="centerOnUser()"
     class="geo-map-container bg-emerald-50 rounded-xl p-4 shadow-sm border border-emerald-100"
 >
-    <h3 class="text-emerald-800 font-bold mb-2">Localizzazione del danno</h3>
-    <p class="text-xs text-emerald-600 mb-3">La mappa si centra dove ti trovi ora (permesso browser). Funziona su http, https e locale senza configurazione.</p>
+    <h3 class="text-emerald-800 font-bold mb-2">{{ __('pub_theme::blocks_content.mappa_static.location_of_the_damage.label') }}</h3>
+    <p class="text-xs text-emerald-600 mb-3">{{ __('pub_theme::blocks_content.mappa_static.the_map_centres_on_where_you.message') }}</p>
 
     <div class="map-canvas h-64 bg-gradient-to-br from-emerald-100 to-teal-50 rounded-lg flex items-center justify-center relative overflow-hidden">
-        <svg x-ref="mapSvg" viewBox="0 0 400 300" class="w-full h-full" aria-label="Mappa con pin a {{ $label }}" role="img" data-geo-local="true">
+        <svg x-ref="mapSvg" viewBox="0 0 400 300" class="w-full h-full" aria-label="{{ __('pub_theme::blocks_content.geo_static_map.map_with_pin.label', ['label' => $label]) }}" role="img" data-geo-local="true">
             <rect width="400" height="300" fill="#e8f5e9"/>
             <path d="M0 150 Q100 100 200 150 T400 150 L400 300 L0 300 Z" fill="#c8e6c9" opacity="0.6"/>
             {{-- Il pin si sposta in base a latInit/lngInit tramite x-bind (SVG dinamico tramite Alpine) --}}
@@ -51,8 +51,8 @@
     </div>
 
     <div class="mt-3 text-xs text-emerald-700 flex gap-4">
-        <span>Lat: <span x-text="latInit.toFixed(4)"></span></span>
-        <span>Lng: <span x-text="lngInit.toFixed(4)"></span></span>
-        <span class="text-emerald-500" x-show="latInit === {{ (float)($recordLat ?? $lat ?? 41.89) }}">↳ Posizione attuale o riferimento</span>
+        <span>{{ __('pub_theme::blocks_content.mappa_static.lat_colon.label') }} <span x-text="latInit.toFixed(4)"></span></span>
+        <span>{{ __('pub_theme::blocks_content.mappa_static.lng_colon.label') }} <span x-text="lngInit.toFixed(4)"></span></span>
+        <span class="text-emerald-500" x-show="latInit === {{ (float)($recordLat ?? $lat ?? 41.89) }}">{{ __('pub_theme::blocks_content.mappa_static.current_position_or_reference_point.label') }}</span>
     </div>
 </div>

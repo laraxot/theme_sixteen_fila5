@@ -1,4 +1,4 @@
-@props(['title' => 'Ultime notizie', 'news' => []])
+@props(['title' => __('pub_theme::components_content.news.latest.title'), 'news' => []])
 
 {{--
     News Carousel Block
@@ -35,7 +35,7 @@
                                 <p class="news-excerpt">{{ $item['excerpt'] }}</p>
                             @endif
                             <a href="{{ $item['url'] }}" class="btn btn-link">
-                                Leggi di più
+                                {{ __('pub_theme::components_common.actions.read_more.label') }}
                                 <svg class="icon icon-primary icon-sm">
                                     <use href="#it-arrow-right"></use>
                                 </svg>

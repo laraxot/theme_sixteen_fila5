@@ -9,14 +9,14 @@
             {{-- Logo row --}}
             <div class="row">
                 <div class="col-12 footer-items-wrapper logo-wrapper">
-                    <img class="ue-logo" src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg') }}" alt="logo Unione Europea">
+                    <img class="ue-logo" src="{{ asset('themes/Sixteen/design-comuni/assets/images/logo-eu-inverted.svg') }}" alt="{{ __('pub_theme::components_footer.eu.logo_alt.label') }}">
                     <div class="it-brand-wrapper">
                         <a href="#">
                             <svg class="icon" aria-hidden="true">
                                 <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-pa') }}"></use>
                             </svg>
                             <div class="it-brand-text">
-                                <h2 class="no_toc">Nome del Comune</h2>
+                                <h2 class="no_toc">{{ __('pub_theme::header.center.nav.hamburger_brand.label') }}</h2>
                             </div>
                         </a>
                     </div>
@@ -27,43 +27,43 @@
             <div class="row">
                 {{-- Amministrazione --}}
                 <div class="col-md-3 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Amministrazione</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::header.center.nav.amministrazione.label') }}</h4>
                     <ul class="footer-list">
-                        <li><a href="#">Organi di governo</a></li>
-                        <li><a href="#">Aree amministrative</a></li>
-                        <li><a href="#">Uffici</a></li>
-                        <li><a href="#">Enti e fondazioni</a></li>
-                        <li><a href="#">Politici</a></li>
-                        <li><a href="#">Personale amministrativo</a></li>
-                        <li><a href="#">Documenti e dati</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.governing_bodies.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.administrative_areas.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.offices.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.bodies_foundations.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.politicians.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.staff.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.admin.documents_data.label') }}</a></li>
                     </ul>
                 </div>
 
                 {{-- Categorie di servizio --}}
                 <div class="col-md-6 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Categorie di servizio</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::components_footer.services.heading_lower.label') }}</h4>
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="footer-list">
-                                <li><a href="#">Anagrafe e stato civile</a></li>
-                                <li><a href="#">Cultura e tempo libero</a></li>
-                                <li><a href="#">Vita lavorativa</a></li>
-                                <li><a href="#">Imprese e commercio</a></li>
-                                <li><a href="#">Appalti pubblici</a></li>
-                                <li><a href="#">Catasto e urbanistica</a></li>
-                                <li><a href="#">Turismo</a></li>
-                                <li><a href="#">Mobilità e trasporti</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.registry_civil.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.culture_leisure.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.work_life.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.business_commerce.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.public_procurement.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.land_registry_planning.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.tourism.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.mobility_transport.label') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="footer-list">
-                                <li><a href="#">Educazione e formazione</a></li>
-                                <li><a href="#">Giustizia e sicurezza pubblica</a></li>
-                                <li><a href="#">Tributi, finanze e contravvenzioni</a></li>
-                                <li><a href="#">Ambiente</a></li>
-                                <li><a href="#">Salute, benessere e assistenza</a></li>
-                                <li><a href="#">Autorizzazioni</a></li>
-                                <li><a href="#">Agricoltura e pesca</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.education_training.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.justice_security.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.taxes_finance_fines.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.environment.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.health_welfare.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.permits.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.services.agriculture_fishing.label') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,48 +71,48 @@
 
                 {{-- Novità + Vivere il comune --}}
                 <div class="col-md-3 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Novità</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::header.center.nav.novita.label') }}</h4>
                     <ul class="footer-list">
-                        <li><a href="#">Notizie</a></li>
-                        <li><a href="#">Comunicati</a></li>
-                        <li><a href="#">Avvisi</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.news.news.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.news.press_releases.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.news.notices.label') }}</a></li>
                     </ul>
-                    <h4 class="footer-heading-title">Vivere il comune10</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::components_footer.live.heading_lower.label') }}10</h4>
                     <ul class="footer-list">
-                        <li><a href="#">Luoghi</a></li>
-                        <li><a href="#">Eventi</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.live.places.label') }}</a></li>
+                        <li><a href="#">{{ __('pub_theme::components_footer.live.events.label') }}</a></li>
                     </ul>
                 </div>
 
                 {{-- Contatti --}}
                 <div class="col-md-9 mt-md-4 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Contatti</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::components_common.nav.contacts.label') }}</h4>
                     <div class="row">
                         <div class="col-md-4">
                             <p class="footer-info">Comune di Nome Comune<br>
                                 Via Roma 123 - 00100 Comune<br>
-                                Codice fiscale / P. IVA: 00123456789<br><br>
-                                <a href="#">Ufficio Relazioni con il Pubblico</a><br>
-                                Numero verde: 800 016 123<br>
-                                SMS e WhatsApp: +39 320 1234567<br>
-                                Posta Elettronica Certificata<br>
-                                Centralino unico: 012 3456
+                                {{ __('pub_theme::components_footer.contacts.tax_code_vat.label') }} 00123456789<br><br>
+                                <a href="#">{{ __('pub_theme::components_footer.contacts.urp.label') }}</a><br>
+                                {{ __('pub_theme::components_footer.contacts.toll_free.label') }} 800 016 123<br>
+                                {{ __('pub_theme::components_footer.contacts.sms_whatsapp.label') }} +39 320 1234567<br>
+                                {{ __('pub_theme::components_footer.contacts.pec.label') }}<br>
+                                {{ __('pub_theme::components_footer.contacts.switchboard_single.label') }} 012 3456
                             </p>
                         </div>
                         <div class="col-md-4">
                             <ul class="footer-list">
-                                <li><a href="#" data-element="faq">Leggi le FAQ</a></li>
-                                <li><a href="#">Prenotazione appuntamento</a></li>
-                                <li><a href="#" data-element="report-inefficiency">Segnalazione disservizio</a></li>
-                                <li><a href="#">Richiesta d'assistenza</a></li>
+                                <li><a href="#" data-element="faq">{{ __('pub_theme::components_footer.help.read_faq.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.help.appointment_booking.label') }}</a></li>
+                                <li><a href="#" data-element="report-inefficiency">{{ __('pub_theme::components_footer.help.report_issue.label') }}</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.help.support_request.label') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             <ul class="footer-list">
-                                <li><a href="#">Amministrazione trasparente</a></li>
-                                <li><a href="#" data-element="privacy-policy-link">Informativa privacy</a></li>
-                                <li><a href="#" data-element="legal-notes">Note legali</a></li>
-                                <li><a href="#" data-element="accessibility-link">Dichiarazione di accessibilità</a></li>
+                                <li><a href="#">{{ __('pub_theme::components_footer.legal.transparent_administration.label') }}</a></li>
+                                <li><a href="#" data-element="privacy-policy-link">{{ __('pub_theme::legal.documents.privacy.title') }}</a></li>
+                                <li><a href="#" data-element="legal-notes">{{ __('pub_theme::legal.documents.legal_notes.title') }}</a></li>
+                                <li><a href="#" data-element="accessibility-link">{{ __('pub_theme::accessibility.page.title.text') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
 
                 {{-- Seguici su --}}
                 <div class="col-md-3 mt-md-4 footer-items-wrapper">
-                    <h4 class="footer-heading-title">Seguici su</h4>
+                    <h4 class="footer-heading-title">{{ __('pub_theme::header.center.social.follow.label') }}</h4>
                     <ul class="list-inline text-start social">
                         <li class="list-inline-item">
                             <a class="p-1 text-white" href="#" target="_blank">
@@ -178,8 +178,8 @@
             <div class="row">
                 <div class="col-12 footer-items-wrapper">
                     <div class="footer-bottom">
-                        <a href="#">Media policy</a>
-                        <a href="#">Mappa del sito</a>
+                        <a href="#">{{ __('pub_theme::legal.documents.media_policy.title') }}</a>
+                        <a href="#">{{ __('pub_theme::sitemap.meta.title') }}</a>
                     </div>
                 </div>
             </div>

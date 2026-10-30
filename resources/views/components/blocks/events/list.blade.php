@@ -44,7 +44,7 @@
                             @endif
                             
                             <a class="read-more" href="{{ $event['url'] ?? '#' }}">
-                                <span class="text">Leggi tutto</span>
+                                <span class="text">{{ __('pub_theme::blocks_content.shared.read_all.label') }}</span>
                                 <svg class="icon"><use href="#it-arrow-right"></use></svg>
                             </a>
                         </div>
@@ -52,7 +52,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-muted text-center">Nessun evento disponibile</p>
+                    <p class="text-muted text-center">{{ __('pub_theme::blocks_content.list.no_events_available.label') }}</p>
                 </div>
             @endforelse
         </div>

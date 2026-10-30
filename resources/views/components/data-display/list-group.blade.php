@@ -138,7 +138,7 @@
                             class="btn btn-sm btn-outline-primary ms-auto"
                             wire:click="{{ $item['action'] }}"
                         >
-                            Azione
+                            {{ __('pub_theme::components_common.fields.action.label') }}
                         </button>
                     @endif
                 </li>

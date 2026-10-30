@@ -8,7 +8,7 @@
     'id' => null,
     'label' => null,
     'value' => null,
-    'placeholder' => 'GG/MM/AAAA',
+    'placeholder' => __('pub_theme::components_forms.date_picker.format.placeholder'),
     'required' => false,
     'disabled' => false,
     'readonly' => false,
@@ -140,7 +140,7 @@ $iconClasses = [
                 type="button"
                 @click="clearDate()"
                 class="absolute top-1/2 right-8 transform -translate-y-1/2 text-gray-400 hover:text-italia-red-600 transition-colors"
-                aria-label="Cancella data"
+                aria-label="{{ __('pub_theme::components_forms.clear.date.label') }}"
                 @if($disabled || $readonly) disabled @endif
             >
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -170,13 +170,13 @@ $iconClasses = [
     >
         <div class="flex items-center justify-between mb-4">
             <h3 id="{{ $id }}-calendar-title" class="text-sm font-semibold text-gray-900">
-                Seleziona data
+                {{ __('pub_theme::components_forms.date_picker.select.label') }}
             </h3>
             <button
                 type="button"
                 @click="calendarOpen = false"
                 class="text-gray-400 hover:text-gray-600"
-                aria-label="Chiudi calendario"
+                aria-label="{{ __('pub_theme::components_forms.date_picker.close.label') }}"
             >
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -218,7 +218,7 @@ $iconClasses = [
                     @click="selectToday()"
                     class="w-full text-sm text-italia-blue-600 hover:text-italia-blue-800 font-medium"
                 >
-                    Oggi
+                    {{ __('pub_theme::components_forms.date_picker.today.label') }}
                 </button>
             </div>
         @endif
@@ -228,13 +228,13 @@ $iconClasses = [
     @if($required || $minDate || $maxDate)
         <div id="{{ $id }}-help" class="mt-1 text-sm text-gray-500">
             @if($required)
-                <span>Campo obbligatorio</span>
+                <span>{{ __('pub_theme::components_forms.validation.required.label') }}</span>
             @endif
             @if($minDate)
-                <span x-show="minDate">Data minima: <span x-text="minDate"></span></span>
+                <span x-show="minDate">{{ __('pub_theme::components_forms.date_picker.min.label') }} <span x-text="minDate"></span></span>
             @endif
             @if($maxDate)
-                <span x-show="maxDate">Data massima: <span x-text="maxDate"></span></span>
+                <span x-show="maxDate">{{ __('pub_theme::components_forms.date_picker.max.label') }} <span x-text="maxDate"></span></span>
             @endif
         </div>
     @endif

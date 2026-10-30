@@ -63,7 +63,7 @@
                     'border-gray-600 hover:border-gray-500': !isActive('{{ $item['id'] }}') && theme === 'dark'
                 }"
                 @click="setActive('{{ $item['id'] }}')"
-                aria-label="Vai a {{ $item['label'] }}"
+                aria-label="{{ __('pub_theme::navigation_components.thumbnav.go_to.label', ['label' => $item['label']]) }}"
             >
                 @if(isset($item['image']))
                     <img 

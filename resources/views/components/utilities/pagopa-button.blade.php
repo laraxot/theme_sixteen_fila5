@@ -176,7 +176,7 @@ $paymentUrl = route('pagopa.payment', [
         
         @if($noticeNumber)
             <p class="mt-1">
-                <span class="font-medium">Numero avviso:</span> {{ $noticeNumber }}
+                <span class="font-medium">{{ __('pub_theme::utilities_components.pagopa.notice_number.label') }}</span> {{ $noticeNumber }}
             </p>
         @endif
     </div>

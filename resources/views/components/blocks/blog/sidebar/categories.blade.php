@@ -1,4 +1,4 @@
-@props(['title' => 'Categorie', 'categories' => []])
+@props(['title' => __('pub_theme::flow_tickets.elenco.categories.label'), 'categories' => []])
 
 @php($blogIndexUrl = route('container0.index', ['container0' => 'blog']))
 
@@ -7,7 +7,7 @@
     <ul class="space-y-1">
          {{-- Fallback content if empty --}}
         @if(empty($categories))
-            <li class="text-sm text-gray-500 italic">Nessuna categoria disponibile.</li>
+            <li class="text-sm text-gray-500 italic">{{ __('pub_theme::blocks_content.categories.no_categories_available.message') }}</li>
         @else
             @foreach($categories as $cat)
                 <li>

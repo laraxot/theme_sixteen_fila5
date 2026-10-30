@@ -109,6 +109,7 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 
 - [fo-pa-tokens-uniformity](../architecture/fo-pa-tokens-uniformity.md) — token PA + `.fo-filament-form-shell`; no hex per `data-page`
 - [auth-login-ux-design-wcag](./design/auth-login-ux-design-wcag.md) — login/register WCAG + Filament primary
+- [mobile-navigation-contract](./concepts/mobile-navigation-contract.md) — hook condivisi per menu mobile e accessibilità
 - [filament-first-frontoffice](./concepts/filament-first-frontoffice.md) — Filament Blade su FO (`x-filament::tabs` su `/it`, skin Design Comuni)
 - [ticket-list-filament-tabs](./concepts/ticket-list-filament-tabs.md) _(target mancante, verificato 2026-10-14)_ — tab Mappa/Elenco STORY-065
 - [wizard-parity-documentation-map](./concepts/wizard-parity-documentation-map.md) — ordine lettura parity segnalazione (dry tema)

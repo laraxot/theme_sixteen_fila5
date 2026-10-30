@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Pagamento effettuato',
+    'title' => __('pub_theme::flow_payment.conferma.payment_made.title'),
     'pagamento' => [],
     'showActions' => true,
 ])
@@ -26,27 +26,27 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <h4 class="text-lg font-semibold text-green-800">Pagamento completato con successo!</h4>
-                <p class="text-green-700">Riceverai la ricevuta via email</p>
+                <h4 class="text-lg font-semibold text-green-800">{{ __('pub_theme::flow_payment.conferma.payment_completed_successfully.message') }}</h4>
+                <p class="text-green-700">{{ __('pub_theme::flow_payment.conferma.you_will_receive_the_receipt_by.label') }}</p>
             </div>
         </div>
 
         <div class="border-t border-green-200 pt-4 mt-4">
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <dt class="text-sm text-green-700">Codice transazione</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_payment.conferma.transaction_code.label') }}</dt>
                     <dd class="text-lg font-bold text-green-800" data-element="transaction-code">{{ $pagamento['codice_transazione'] ?: 'TXN-2025-789012' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Servizio</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_payment.shared.service.label') }}</dt>
                     <dd class="text-green-800" data-element="paid-service">{{ $pagamento['servizio'] ?: 'Tassa Rifiuti (TARI)' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Importo pagato</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_payment.conferma.amount_paid.label') }}</dt>
                     <dd class="text-green-800 font-bold" data-element="paid-amount">{{ $pagamento['importo'] ?: '€ 150,00' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Data</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::blocks_common.shared.date.label') }}</dt>
                     <dd class="text-green-800" data-element="paid-date">{{ $pagamento['data'] ?: '6 Aprile 2026' }}</dd>
                 </div>
             </dl>
@@ -60,7 +60,7 @@
             </svg>
             <div class="ml-3">
                 <p class="text-sm text-blue-700">
-                    <strong>Nota:</strong> La ricevuta di pagamento è disponibile nella sezione "I miei pagamenti" dell'area personale.
+                    <strong>{{ __('pub_theme::blocks_common.shared.note_colon.label') }}</strong> {{ __('pub_theme::flow_payment.conferma.the_payment_receipt_is_available_in.message') }}
                 </p>
             </div>
         </div>
@@ -72,13 +72,13 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
-            Scarica ricevuta
+            {{ __('pub_theme::flow_payment.conferma.download_receipt.label') }}
         </a>
         <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            Invia ricevuta via email
+            {{ __('pub_theme::flow_payment.conferma.send_receipt_by_email.label') }}
         </a>
     </div>
     @endif

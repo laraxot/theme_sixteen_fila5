@@ -26,7 +26,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::blocks_common.shared.breadcrumb.label') }}">
                     <ol class="breadcrumb p-0" data-element="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}">{{ __('pub_theme::navigation.home') }}</a>
@@ -84,7 +84,7 @@
             ])
 
             <section class="mt-5 pt-4 border-top" aria-labelledby="comments-title">
-                <h2 id="comments-title" class="h3 mb-4">Commenti</h2>
+                <h2 id="comments-title" class="h3 mb-4">{{ __('pub_theme::blocks_content.shared.comments.label') }}</h2>
                 @auth
                     @livewire(\Modules\Comment\Filament\Widgets\Commentable\CommentsWidget::class, [
                         'commentableType' => $post::class,

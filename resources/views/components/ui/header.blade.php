@@ -8,7 +8,7 @@
     - Logo PA conforme
 --}}
 
-<header class="it-header-wrapper" data-sixteen-mobile-nav-target="#header-nav-wrapper" style="">
+<header class="it-header-wrapper" data-mobile-nav-target="#header-nav-wrapper" style="">
     {{-- Skip Links per accessibilità --}}
     <div class="it-header-slim-wrapper">
         <div class="container">
@@ -16,16 +16,16 @@
                 <div class="col-12">
                     <div class="it-header-slim-wrapper-content">
                         <a class="sr-only sr-only-focusable" href="#main-content">
-                            {{ __('Vai al contenuto principale') }}
+                            {{ __('pub_theme::ui_components.header.skip_main.label') }}
                         </a>
                         <a class="sr-only sr-only-focusable" href="#main-navigation">
-                            {{ __('Vai alla navigazione') }}
+                            {{ __('pub_theme::ui_components.header.skip_nav.label') }}
                         </a>
                         <a class="sr-only sr-only-focusable" href="#footer">
-                            {{ __('Vai al piè di pagina') }}
+                            {{ __('pub_theme::ui_components.header.skip_footer.label') }}
                         </a>
                         
-                        <div class="header-slim-right-zone" role="navigation" aria-label="{{ __('Lingua e accesso') }}">
+                        <div class="header-slim-right-zone" role="navigation" aria-label="{{ __('pub_theme::ui_components.header.language_access.label') }}">
                             {{-- Language Selector --}}
                             <div class="nav-item dropdown">
                                 <button 
@@ -34,10 +34,10 @@
                                     id="languageDropdown"
                                     data-bs-toggle="dropdown" 
                                     aria-expanded="false"
-                                    aria-label="{{ __('Seleziona lingua') }}"
+                                    aria-label="{{ __('pub_theme::ui_components.header.select_language.label') }}"
                                 >
-                                    <span class="visually-hidden">{{ __('Lingua attuale:') }}</span>
-                                    ITA
+                                    <span class="visually-hidden">{{ __('pub_theme::ui_components.header.current_language.label') }}</span>
+                                    {{ __('pub_theme::header.language.code_it.label') }}
                                     <svg class="icon d-none d-lg-block"><use href="#it-expand"></use></svg>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="languageDropdown">
@@ -52,18 +52,18 @@
                             
                             {{-- Area Personale / Login --}}
                             @auth
-                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.pages.dashboard') }}" data-element="personal-area-login" aria-label="{{ __('Area personale') }}">
+                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.pages.dashboard') }}" data-element="personal-area-login" aria-label="{{ __('pub_theme::header.guest.cta.label') }}">
                                     <span class="rounded-icon" aria-hidden="true">
                                         <svg class="icon icon-primary"><use href="#it-user"></use></svg>
                                     </span>
-                                    <span class="d-none d-lg-block">{{ __('Accedi all'area personale') }}</span>
+                                    <span class="d-none d-lg-block">{{ __('pub_theme::ui.personal_area') }}</span>
                                 </a>
                             @else
-                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.auth.login') }}" data-element="personal-area-login" aria-label="{{ __('Accedi') }}">
+                                <a class="btn btn-primary btn-icon btn-full" href="{{ route('filament.admin.auth.login') }}" data-element="personal-area-login" aria-label="{{ __('pub_theme::header.guest.login.label') }}">
                                     <span class="rounded-icon" aria-hidden="true">
                                         <svg class="icon icon-primary"><use href="#it-user"></use></svg>
                                     </span>
-                                    <span class="d-none d-lg-block">{{ __('Accedi all'area personale') }}</span>
+                                    <span class="d-none d-lg-block">{{ __('pub_theme::ui.personal_area') }}</span>
                                 </a>
                             @endauth
                         </div>
@@ -81,14 +81,14 @@
                     <div class="it-header-center-content-wrapper">
                         {{-- Logo --}}
                         <div class="it-brand-wrapper">
-                            <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                            <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('pub_theme::common.navigation.back_home.label') }}">
                                 <svg class="icon" role="img" aria-labelledby="logo-title">
                                     <title id="logo-title">{{ config('app.name') }}</title>
                                     <use href="#it-pa"></use>
                                 </svg>
                                 <div class="it-brand-text">
                                     <h2 class="no_toc">{{ config('app.name') }}</h2>
-                                    <h3 class="no_toc d-none d-md-block">{{ __('Segnalazioni Cittadine') }}</h3>
+                                    <h3 class="no_toc d-none d-md-block">{{ __('pub_theme::ui_components.header.site_title.label') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -100,9 +100,9 @@
                                 <button 
                                     class="search-link rounded-icon" 
                                     type="button" 
-                                    aria-label="{{ __('Cerca') }}"
+                                    aria-label="{{ __('pub_theme::header.center.search.label') }}"
                                     data-bs-toggle="modal" 
-                                    data-sixteen-mobile-nav-target="#searchModal"
+                                    data-bs-target="#searchModal"
                                 >
                                     <svg class="icon">
                                         <use href="#it-search"></use>
@@ -112,15 +112,15 @@
                             
                             {{-- Social --}}
                             <div class="it-socials d-none d-md-flex">
-                                <span class="visually-hidden">{{ __('Seguici su:') }}</span>
+                                <span class="visually-hidden">{{ __('pub_theme::ui_components.header.follow_us.label') }}</span>
                                 <ul>
                                     <li>
-                                        <a href="#" aria-label="{{ __('Facebook') }}" target="_blank" rel="noopener noreferrer">
+                                        <a href="#" aria-label="{{ __('pub_theme::header.social.facebook.label') }}" target="_blank" rel="noopener noreferrer">
                                             <svg class="icon"><use href="#it-facebook"></use></svg>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" aria-label="{{ __('Twitter') }}" target="_blank" rel="noopener noreferrer">
+                                        <a href="#" aria-label="{{ __('pub_theme::header.social.twitter.label') }}" target="_blank" rel="noopener noreferrer">
                                             <svg class="icon"><use href="#it-twitter"></use></svg>
                                         </a>
                                     </li>
@@ -134,31 +134,31 @@
     </div>
     
     {{-- Navigazione Principale --}}
-    <div class="it-nav-wrapper" data-sixteen-mobile-nav>
-        <div class="it-header-navbar-wrapper" data-sixteen-mobile-nav>
+    <div class="it-nav-wrapper" data-mobile-nav>
+        <div class="it-header-navbar-wrapper" data-mobile-nav>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <nav class="navbar navbar-expand-lg has-megamenu" id="main-navigation" aria-label="{{ __('Navigazione principale') }}">
+                        <nav class="navbar navbar-expand-lg has-megamenu" id="main-navigation" aria-label="{{ __('pub_theme::navigation.main') }}">
                             <button 
                                 class="custom-navbar-toggler" 
                                 type="button" 
                                 aria-controls="nav" 
                                 aria-expanded="false" 
-                                aria-label="{{ __('Apri menu di navigazione') }}"
-                                data-sixteen-mobile-nav-toggle
-                                data-sixteen-mobile-nav-target="#nav"
+                                aria-label="{{ __('pub_theme::navigation_components.navbar.open_menu.label') }}"
+                                data-mobile-nav-toggle
+                                data-mobile-nav-target="#nav"
                             >
                                 <svg class="icon"><use href="#it-burger"></use></svg>
                             </button>
                             
-                            <div class="navbar-collapsable" data-sixteen-mobile-nav-panel id="nav">
-                                <div class="overlay" data-sixteen-mobile-nav-overlay hidden></div>
+                            <div class="navbar-collapsable" data-mobile-nav-panel id="nav">
+                                <div class="overlay" data-mobile-nav-overlay hidden></div>
                                 <div class="close-div">
                                     <button 
-                                        class="btn close-menu" data-sixteen-mobile-nav-close 
+                                        class="btn close-menu" data-mobile-nav-close
                                         type="button"
-                                        aria-label="{{ __('Chiudi menu') }}"
+                                        aria-label="{{ __('pub_theme::common.actions.close_menu.label') }}"
                                     >
                                         <svg class="icon"><use href="#it-close-big"></use></svg>
                                     </button>
@@ -168,27 +168,27 @@
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('/'.app()->getLocale()) }}" aria-current="page">
-                                                <span>{{ __('Home') }}</span>
+                                                <span>{{ __('pub_theme::common.navigation.home.label') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('/'.app()->getLocale().'/tickets') }}">
-                                                <span>{{ __('Segnalazioni') }}</span>
+                                                <span>{{ __('pub_theme::common.navigation.reports.label') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('/'.app()->getLocale().'/tickets/create') }}">
-                                                <span>{{ __('Nuova Segnalazione') }}</span>
+                                                <span>{{ __('pub_theme::common.navigation.new_report.label') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('/info') }}">
-                                                <span>{{ __('Informazioni') }}</span>
+                                                <span>{{ __('pub_theme::common.navigation.information.label') }}</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('/contatti') }}">
-                                                <span>{{ __('Contatti') }}</span>
+                                                <span>{{ __('pub_theme::common.navigation.contacts.label') }}</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -207,26 +207,26 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Chiudi ricerca') }}">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('pub_theme::ui_components.header.close_search.label') }}">
                     <svg class="icon"><use href="#it-close"></use></svg>
                 </button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('search') }}" method="GET" role="search">
                     <div class="form-group">
-                        <label for="search-input" class="visually-hidden">{{ __('Cerca nel sito') }}</label>
+                        <label for="search-input" class="visually-hidden">{{ __('pub_theme::ui.search_site_aria') }}</label>
                         <input 
                             type="search" 
                             class="form-control" 
                             id="search-input"
                             name="q"
-                            placeholder="{{ __('Cerca nel sito...') }}"
-                            aria-label="{{ __('Campo di ricerca') }}"
+                            placeholder="{{ __('pub_theme::ui_components.header.search_site.placeholder') }}"
+                            aria-label="{{ __('pub_theme::ui_components.header.search_field.label') }}"
                             required
                         >
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">
-                        {{ __('Cerca') }}
+                        {{ __('pub_theme::header.center.search.label') }}
                     </button>
                 </form>
             </div>

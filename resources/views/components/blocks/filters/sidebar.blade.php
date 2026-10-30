@@ -2,7 +2,7 @@
     Filters Sidebar Block - Design Comuni Style with Tailwind CSS
     Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
 --}}
-@props(['title' => 'Filtro', 'filters' => [], 'resultsCount' => 0])
+@props(['title' => __('pub_theme::blocks_content.sidebar.filter.title'), 'filters' => [], 'resultsCount' => 0])
 
 <div class="lg:hidden mb-6">
     <!-- Mobile filters would go here -->
@@ -28,7 +28,7 @@
         {{-- Results Button --}}
         <div class="mt-6">
             <button class="w-full bg-primary-500 text-white py-2 px-4 rounded-lg hover:bg-primary-600 transition font-medium">
-                {{ $resultsCount }} Risultati
+                {{ __('pub_theme::blocks_common.shared.results_count.label', ['count' => $resultsCount]) }}
             </button>
         </div>
     </div>

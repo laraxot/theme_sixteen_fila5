@@ -16,7 +16,7 @@
                 {{-- Logo e descrizione ente --}}
                 <div class="col-12 col-md-6 col-lg-4 pb-2">
                     <div class="it-brand-wrapper">
-                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('Torna alla home') }}">
+                        <a href="{{ url('/'.app()->getLocale()) }}" aria-label="{{ config('app.name') }} - {{ __('pub_theme::blocks_common.shared.back_to_home.label') }}">
                             <svg class="icon" role="img" aria-labelledby="footer-logo-title">
                                 <title id="footer-logo-title">{{ config('app.name') }}</title>
                                 <use href="#it-pa"></use>
@@ -178,11 +178,11 @@
        aria-hidden="true"
        data-attribute="back-to-top"
        class="back-to-top shadow"
-       title="{{ __('Torna su') }}">
+       title="{{ __('pub_theme::agid_components.footer.back_to_top.label') }}">
         <svg class="icon icon-light">
             <use href="#it-arrow-up"></use>
         </svg>
-        <span class="visually-hidden">{{ __('Torna all\'inizio della pagina') }}</span>
+        <span class="visually-hidden">{{ __('pub_theme::agid_components.footer.back_to_the_top_of_the.label') }}</span>
     </a>
 </footer>
 

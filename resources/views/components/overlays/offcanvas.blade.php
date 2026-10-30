@@ -93,7 +93,7 @@
         <button 
             type="button" 
             class="btn-close" 
-            aria-label="Chiudi"
+            aria-label="{{ __('pub_theme::ui.close') }}"
             x-on:click="close()"
         >
             <span aria-hidden="true">&times;</span>

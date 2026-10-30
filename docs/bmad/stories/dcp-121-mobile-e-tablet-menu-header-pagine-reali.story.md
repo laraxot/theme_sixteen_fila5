@@ -7,7 +7,7 @@ status: in-progress
 priority: P0
 owner: theme:Sixteen
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-28
 qmd: "mobile tablet menu hamburger header design comuni pagine reali navbar-collapsable nav-open derive-dc-chrome-css isolate-legacy-important 375 768 touch 44px"
 related: [dcp-32, dcp-51, dcp-106, dcp-120]
 tags: [docs, sixteen, bmad]
@@ -45,3 +45,22 @@ Sulle pagine REALI (home `/it`, login, ...), che dopo il cambio di `layouts/app`
 - La casella "Ricevi aggiornamenti via email" ha l'etichetta alta 24 px; breadcrumb "Home" e indice laterale sotto 44 px (componenti del riferimento).
 - `map-lit` ha `min-height: 320px` contro 305 px del riferimento (+15 px a 375 su `/it/tickets`): serve una modifica in `Modules/Geo/resources/js/components/map-lit.js:140-141` con build di Geo.
 - ~~Audit sistematico delle pagine reali a 375/768/1024~~ **fatto in DCP-129** (13 percorsi, ospite e loggato: 0 px di scroll orizzontale; difetto del footer corretto; bersagli < 24 px elencati). Restano i testi lunghi de/es da misurare a mano.
+
+## Quality pass mobile — 2026-10-28
+
+La navigazione mobile ora mantiene anche questi contratti:
+
+- `aria-hidden` riflette lo stato reale del pannello, evitando che un menu chiuso resti
+  esposto agli screen reader;
+- la chiusura da pulsante, overlay o `Escape` restituisce il focus al relativo toggler;
+- il pannello e i controlli rispettano le aree sicure dei dispositivi con notch/home
+  indicator;
+- il generatore `derive-dc-chrome-css.py` normalizza le coordinate fisse del riferimento
+  in un ancoraggio responsive a destra: il pulsante di chiusura resta nel viewport anche
+  a 320px, senza alterare il layout canonico a 375/768px;
+- brand e contenuti dell'header possono restringersi senza generare overflow orizzontale;
+- il test Playwright verifica overflow, stato ARIA e ripristino del focus a 320, 360,
+  375 e 414px.
+
+La modifica resta nel controller mobile e nel foglio già importato da `app.css`: non è
+stata introdotta una nuova libreria o una seconda navigazione.

@@ -31,7 +31,7 @@ Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/lista-cat
                             @endif
                             @if(isset($category['count']))
                                 <p class="text-muted mb-0 mt-2 small">
-                                    {{ $category['count'] }} contenuti
+                                    {{ __('pub_theme::blocks_content.categories_grid.contents_count.label', ['count' => $category['count']]) }}
                                 </p>
                             @endif
                         </div>

@@ -1,8 +1,8 @@
 @props([
     'offices' => [],
     'selectedOffice' => null,
-    'title' => 'Seleziona l\'ufficio',
-    'description' => 'Scegli l\'ufficio presso cui presentarti',
+    'title' => __('pub_theme::flow_appointment.ufficio.select_the_office.title'),
+    'description' => __('pub_theme::flow_appointment.ufficio.choose_the_office_you_will_visit.help'),
 ])
 
 @php
@@ -23,7 +23,7 @@
         <p class="text-gray-600 mb-6" data-element="step-description">{{ $description }}</p>
     @endif
 
-    <div class="space-y-4" role="radiogroup" aria-label="Selezione ufficio">
+    <div class="space-y-4" role="radiogroup" aria-label="{{ __('pub_theme::flow_appointment.ufficio.office_selection.label') }}">
         @foreach($offices as $office)
             <label 
                 class="block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:border-blue-300 hover:bg-blue-50
@@ -66,7 +66,7 @@
 
         @if($offices->isEmpty())
             <div class="text-center py-8 text-gray-500">
-                <p>Nessun ufficio disponibile</p>
+                <p>{{ __('pub_theme::flow_appointment.ufficio.no_office_available.label') }}</p>
             </div>
         @endif
     </div>
@@ -79,7 +79,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

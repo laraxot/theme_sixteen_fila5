@@ -6,8 +6,8 @@
 @props(['data' => []])
 
 @php
-    $title = $data['title'] ?? 'Argomento';
-    $subtitle = $data['subtitle'] ?? 'Informazioni e servizi correlati';
+    $title = $data['title'] ?? __('pub_theme::components_common.fields.topic.label');
+    $subtitle = $data['subtitle'] ?? __('pub_theme::components_content.topic.subtitle.text');
     $description = $data['content'] ?? '';
     $image = $data['image'] ?? 'https://picsum.photos/800/400';
     $office = $data['office'] ?? null;
@@ -41,7 +41,7 @@
                         {{-- Office Cards --}}
                         @if($offices || $office)
                         <div class="col-12 col-lg-5">
-                            <h3 class="title-xsmall-semi-bold text-secondary mb-2">Questo argomento è gestito da:</h3>
+                            <h3 class="title-xsmall-semi-bold text-secondary mb-2">{{ __('pub_theme::components_content.topic.managed_by.label') }}</h3>
                             @php
                                 $officeList = $offices ?: ($office ? [$office] : []);
                             @endphp
@@ -50,7 +50,7 @@
                                 <div class="card-body">
                                     <h4 class="mb-1 title-small-semi-bold-medium">
                                         <a href="{{ $off['url'] ?? '#' }}" class="text-decoration-none">
-                                            {{ $off['name'] ?? $off['title'] ?? 'Ufficio' }}
+                                            {{ $off['name'] ?? $off['title'] ?? __('pub_theme::components_common.fields.office.label') }}
                                         </a>
                                     </h4>
                                     @if($off['address'] ?? false)
@@ -77,7 +77,7 @@
                                 </div>
                                 @if($off['image'] ?? false)
                                 <div class="avatar size-xl">
-                                    <img src="{{ $off['image'] }}" alt="Immagine">
+                                    <img src="{{ $off['image'] }}" alt="{{ __('pub_theme::components_common.a11y.image.label') }}">
                                 </div>
                                 @endif
                             </div>

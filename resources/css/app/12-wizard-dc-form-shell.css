@@ -224,10 +224,10 @@
     box-shadow: none !important;
 }
 
-[data-sixteen-mobile-nav-overlay][hidden] {
+[data-mobile-nav-overlay][hidden] {
   display: none !important;
 }
 
-[data-sixteen-mobile-nav-overlay].is-open {
+[data-mobile-nav-overlay].is-open {
   display: block !important;
 }

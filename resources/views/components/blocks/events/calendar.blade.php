@@ -32,7 +32,7 @@
                                     @foreach($item['events'] as $event)
                                     @if(!empty($event['image']))
                                     <p class="card-text px-2 pb-10 mb-10 d-flex">
-                                        <img src="{{ $event['image'] }}" alt="random image" class="me-3 rounded">
+                                        <img src="{{ $event['image'] }}" alt="{{ __('pub_theme::blocks_content.shared.random_image.label') }}" class="me-3 rounded">
                                         <a href="{{ $event['url'] ?? '#' }}">{{ $event['title'] }}</a>
                                     </p>
                                     @else
