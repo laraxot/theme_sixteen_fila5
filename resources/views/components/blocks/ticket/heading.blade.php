@@ -18,7 +18,10 @@
     foreach ($blockData['breadcrumb'] ?? [] as $item) {
         $breadcrumbItems[] = [
             'label' => $t($item['label'] ?? ''),
-            'url' => $item['url'] ?? null,
+            // i link nel JSON sono senza lingua ("/"): si prefissano qui; schemi e ancore restano intatti
+            'url' => isset($item['url']) && str_starts_with((string) $item['url'], '/')
+                ? \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl((string) $item['url'])
+                : ($item['url'] ?? null),
             'active' => $item['active'] ?? false,
         ];
     }
@@ -36,14 +39,14 @@
     $subtitle = trans_choice($subtitleKey, $resolvedCount, ['count' => $resolvedCount]);
 @endphp
 
-<div class="col-12 col-lg-10">
-    <div class="cmp-breadcrumbs" role="navigation">
-        <nav class="breadcrumb-container" aria-label="breadcrumb">
-            <ol class="breadcrumb p-0" data-element="breadcrumb">
+<div class="w-full max-w-4xl">
+    <div class="mb-6" role="navigation">
+        <nav aria-label="{{ __('fixcity::global.breadcrumb') }}">
+            <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-700" data-element="breadcrumb">
                 @foreach ($breadcrumbItems as $item)
-                    <li class="breadcrumb-item{{ $item['active'] ?? false ? ' active' : '' }}"{{ $item['active'] ?? false ? ' aria-current="page"' : '' }}>
+                    <li class="flex items-center gap-2{{ $item['active'] ?? false ? ' font-semibold text-slate-950' : '' }}"@if ($item['active'] ?? false) aria-current="page"@endif>
                         @if ($item['url'] ?? false)
-                            <a href="{{ $item['url'] }}">{{ $item['label'] }}</a><span class="separator">/</span>
+                            <a class="underline decoration-slate-400 underline-offset-4 hover:text-sky-800" href="{{ $item['url'] }}">{{ $item['label'] }}</a><span aria-hidden="true">/</span>
                         @else
                             {{ $item['label'] }}
                         @endif
@@ -52,10 +55,10 @@
             </ol>
         </nav>
     </div>
-    <div class="cmp-heading p-0">
-        <h1 class="title-xxxlarge">{{ $title }}</h1>
+    <div>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">{{ $title }}</h1>
         @if ($subtitle)
-            <p class="subtitle-small">{{ $subtitle }}</p>
+            <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">{{ $subtitle }}</p>
         @endif
     </div>
 </div>

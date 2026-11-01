@@ -1,6 +1,6 @@
 @props([
-    'title' => 'I tuoi dati',
-    'description' => 'Verifica i tuoi dati anagrafici',
+    'title' => __('pub_theme::flow_appointment.richiedente_autenticato.your_details.title'),
+    'description' => __('pub_theme::flow_appointment.richiedente_autenticato.check_your_personal_details.help'),
     'user' => [],
 ])
 
@@ -26,29 +26,29 @@
     <div class="bg-gray-50 rounded-lg p-6">
         <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <dt class="text-sm text-gray-500">Nome</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.name.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="user-nome">{{ $user['nome'] ?: 'Mario' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Cognome</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.surname.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="user-cognome">{{ $user['cognome'] ?: 'Rossi' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Codice Fiscale</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.tax_code.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="user-cf">{{ $user['codice_fiscale'] ?: 'RSSMRA85T10A562B' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Email</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.email.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="user-email">{{ $user['email'] ?: 'mario.rossi@email.it' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Telefono</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.phone.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="user-telefono">{{ $user['telefono'] ?: '333 1234567' }}</dd>
             </div>
         </dl>
         
         <div class="mt-4 pt-4 border-t border-gray-200">
-            <a href="#" class="text-sm text-blue-600 hover:underline" data-element="edit-data">Modifica dati</a>
+            <a href="#" class="text-sm text-blue-600 hover:underline" data-element="edit-data">{{ __('pub_theme::flow_appointment.richiedente_autenticato.edit_details.label') }}</a>
         </div>
     </div>
 
@@ -59,7 +59,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -67,7 +67,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Riepilogo pagamento',
+    'title' => __('pub_theme::flow_payment.riepilogo.payment_summary.title'),
     'pagamento' => [],
 ])
 
@@ -17,19 +17,19 @@
     @endif
 
     <div class="bg-gray-50 rounded-lg p-6 mb-6">
-        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Dettagli pagamento</h4>
+        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">{{ __('pub_theme::flow_payment.riepilogo.payment_details.label') }}</h4>
         
         <dl class="space-y-4">
             <div class="flex justify-between">
-                <dt class="text-gray-500">Servizio</dt>
+                <dt class="text-gray-500">{{ __('pub_theme::flow_payment.shared.service.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-servizio">{{ $pagamento['servizio'] ?: 'Tassa Rifiuti (TARI)' }}</dd>
             </div>
             <div class="flex justify-between">
-                <dt class="text-gray-500">Metodo di pagamento</dt>
+                <dt class="text-gray-500">{{ __('pub_theme::flow_payment.shared.payment_method.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-metodo">{{ $pagamento['metodo'] ?: 'Carta di credito' }}</dd>
             </div>
             <div class="border-t border-gray-200 pt-4 flex justify-between">
-                <dt class="text-gray-700 font-medium">Totale da pagare</dt>
+                <dt class="text-gray-700 font-medium">{{ __('pub_theme::flow_payment.riepilogo.total_to_pay.label') }}</dt>
                 <dd class="text-blue-600 font-bold text-xl" data-element="summary-importo">{{ $pagamento['importo'] ?: '€ 150,00' }}</dd>
             </div>
         </dl>
@@ -42,7 +42,7 @@
             </svg>
             <div class="ml-3">
                 <p class="text-sm text-yellow-700">
-                    <strong>Attenzione:</strong> Il pagamento è irrevocabile. Assicurati che tutti i dati siano corretti prima di confermare.
+                    <strong>{{ __('pub_theme::flow_payment.riepilogo.warning_colon.label') }}</strong> {{ __('pub_theme::flow_payment.riepilogo.the_payment_is_irrevocable_make_sure.message') }}
                 </p>
             </div>
         </div>
@@ -56,7 +56,7 @@
             class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
         >
         <label for="accetto_condizioni" class="ml-2 text-sm text-gray-700">
-            Ho letto e accetto le <a href="#" class="text-blue-600 hover:underline">condizioni di servizio</a> e il <a href="#" class="text-blue-600 hover:underline">regolamento di pagamento</a>
+            {!! __('pub_theme::flow_payment.summary.consent_terms_rules.message', ['terms' => '<a href="#" class="text-blue-600 hover:underline">'.e(__('pub_theme::blocks_common.shared.terms_of_service.label')).'</a>', 'rules' => '<a href="#" class="text-blue-600 hover:underline">'.e(__('pub_theme::flow_payment.riepilogo.payment_regulations.label')).'</a>']) !!}
         </label>
     </div>
 
@@ -67,7 +67,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -76,7 +76,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Effettua pagamento
+            {{ __('pub_theme::flow_payment.riepilogo.make_payment.label') }}
         </button>
     </div>
 </div>

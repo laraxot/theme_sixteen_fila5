@@ -56,24 +56,24 @@ $baseClasses = [
 ];
 @endphp
 
-<nav class="flex items-center justify-between" aria-label="Navigazione pagine">
+<nav class="flex items-center justify-between" aria-label="{{ __('pub_theme::common.pagination.nav.label') }}">
     @if($showInfo)
         {{-- Info risultati --}}
         <div class="flex flex-1 justify-between sm:hidden">
             <p class="text-sm text-gray-700">
-                Risultati <span class="font-medium">{{ $from }}</span> - <span class="font-medium">{{ $to }}</span> di <span class="font-medium">{{ $total }}</span>
+                {{ __('pub_theme::utilities_components.pagination.results_summary.label') }} <span class="font-medium">{{ $from }}</span> - <span class="font-medium">{{ $to }}</span> {{ __('pub_theme::common.pagination.of.label') }} <span class="font-medium">{{ $total }}</span>
             </p>
         </div>
         <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
                 <p class="text-sm text-gray-700">
-                    Mostrando 
+                    {{ __('pub_theme::utilities_components.pagination.showing.label') }} 
                     <span class="font-medium">{{ $from }}</span>
                     -
                     <span class="font-medium">{{ $to }}</span>
-                    di
+                    {{ __('pub_theme::common.pagination.of.label') }}
                     <span class="font-medium">{{ $total }}</span>
-                    risultati
+                    {{ __('pub_theme::municipal_components.tenders.results.label') }}
                 </p>
             </div>
         </div>
@@ -247,7 +247,7 @@ $baseClasses = [
                            'bg-white',
                            'border-l-0'
                        ])
-                       aria-label="Vai alla pagina {{ $page }}">
+                       aria-label="{{ __('pub_theme::common.pagination.go_to_page.label', ['page' => $page]) }}">
                         {{ $page }}
                     </a>
                 @endif
@@ -326,7 +326,7 @@ $baseClasses = [
     @if($showJumper && $lastPage > 10)
         {{-- Page jumper --}}
         <div class="ml-4 flex items-center space-x-2">
-            <label for="page-jumper" class="text-sm text-gray-700">Vai alla pagina:</label>
+            <label for="page-jumper" class="text-sm text-gray-700">{{ __('pub_theme::utilities_components.pagination.page_jumper.label') }}</label>
             <input 
                 id="page-jumper"
                 type="number" 
@@ -335,7 +335,7 @@ $baseClasses = [
                 value="{{ $currentPage }}"
                 class="w-16 px-2 py-1 text-sm border border-gray-300 rounded-md focus:ring-italia-blue-500 focus:border-italia-blue-500"
                 onchange="if(this.value >= 1 && this.value <= {{ $lastPage }}) window.location.href = '{{ $paginator->url(1) }}'.replace('page=1', 'page=' + this.value)"
-                aria-label="Numero pagina"
+                aria-label="{{ __('pub_theme::utilities_components.pagination.page_number.label') }}"
             >
         </div>
     @endif

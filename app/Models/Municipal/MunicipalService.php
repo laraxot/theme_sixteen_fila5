@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+<<<<<<< .merge_file_s3PJA9
+=======
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> .merge_file_B490GA
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,12 +37,21 @@ use Illuminate\Support\Str;
  * @property int|null $parent_service_id
  * @property string $service_status
  * @property string $service_level
+<<<<<<< .merge_file_s3PJA9
  * @property array|null $target_audience
  * @property array|null $geographic_coverage
  * @property array|null $requirements
  * @property array|null $procedures
  * @property array|null $required_documents
  * @property array|null $costs
+=======
+ * @property array<array-key, mixed>|null $target_audience
+ * @property array<array-key, mixed>|null $geographic_coverage
+ * @property array<array-key, mixed>|null $requirements
+ * @property array<array-key, mixed>|null $procedures
+ * @property array<array-key, mixed>|null $required_documents
+ * @property array<array-key, mixed>|null $costs
+>>>>>>> .merge_file_B490GA
  * @property string|null $processing_time
  * @property array|null $delivery_methods
  * @property array|null $digital_channels
@@ -46,6 +60,7 @@ use Illuminate\Support\Str;
  * @property bool $appointment_required
  * @property string|null $appointment_url
  * @property string|null $online_form_url
+<<<<<<< .merge_file_s3PJA9
  * @property array|null $legislation_references
  * @property array|null $accessibility_info
  * @property array|null $contact_info
@@ -56,16 +71,35 @@ use Illuminate\Support\Str;
  * @property array|null $satisfaction_metrics
  * @property \Carbon\Carbon|null $last_updated
  * @property \Carbon\Carbon|null $next_review_date
+=======
+ * @property array<array-key, mixed>|null $legislation_references
+ * @property array<array-key, mixed>|null $accessibility_info
+ * @property array<array-key, mixed>|null $contact_info
+ * @property array<array-key, mixed>|null $faq
+ * @property array<array-key, mixed>|null $related_services
+ * @property array<array-key, mixed>|null $service_outcomes
+ * @property array<array-key, mixed>|null $quality_standards
+ * @property array<array-key, mixed>|null $satisfaction_metrics
+ * @property Carbon|null $last_updated
+ * @property Carbon|null $next_review_date
+>>>>>>> .merge_file_B490GA
  * @property bool $is_active
  * @property bool $is_public
  * @property bool $is_digital
  * @property bool $is_accessible
  * @property int $priority_level
+<<<<<<< .merge_file_s3PJA9
  * @property array|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
+=======
+ * @property array<array-key, mixed>|null $metadata
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+>>>>>>> .merge_file_B490GA
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read self|null $parentService
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $subServices
@@ -211,6 +245,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con l'unità organizzativa responsabile
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return BelongsTo<OrganizationalUnit, $this>
+>>>>>>> .merge_file_B490GA
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -219,6 +258,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con il servizio padre (per sottocategorie)
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return BelongsTo<static, $this>
+>>>>>>> .merge_file_B490GA
      */
     public function parentService(): BelongsTo
     {
@@ -227,6 +271,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con i servizi figlio
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return HasMany<static, $this>
+>>>>>>> .merge_file_B490GA
      */
     public function subServices(): HasMany
     {
@@ -235,6 +284,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con i punti di contatto
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return MorphMany<ContactPoint, $this>
+>>>>>>> .merge_file_B490GA
      */
     public function contacts(): MorphMany
     {
@@ -243,6 +297,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con i documenti associati
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return HasMany<PublicDocument, $this>
+>>>>>>> .merge_file_B490GA
      */
     public function documents(): HasMany
     {
@@ -251,6 +310,11 @@ class MunicipalService extends Model
 
     /**
      * Relazione con le sedi di erogazione
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return BelongsToMany<MunicipalLocation, $this, Pivot, 'pivot'>
+>>>>>>> .merge_file_B490GA
      */
     public function locations(): BelongsToMany
     {
@@ -260,7 +324,11 @@ class MunicipalService extends Model
     /**
      * Scope per servizi attivi
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeActive($query)
+=======
+    public function scopeActive(Builder $query): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->where('is_active', true)
             ->where('service_status', 'active');
@@ -269,7 +337,11 @@ class MunicipalService extends Model
     /**
      * Scope per servizi pubblici
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopePublic($query)
+=======
+    public function scopePublic(Builder $query): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->where('is_public', true);
     }
@@ -277,7 +349,11 @@ class MunicipalService extends Model
     /**
      * Scope per servizi digitali
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeDigital($query)
+=======
+    public function scopeDigital(Builder $query): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->where('is_digital', true);
     }
@@ -285,7 +361,11 @@ class MunicipalService extends Model
     /**
      * Scope per tipologia di servizio
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeOfType($query, string $type)
+=======
+    public function scopeOfType(Builder $query, string $type): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->where('service_type', $type);
     }
@@ -293,7 +373,11 @@ class MunicipalService extends Model
     /**
      * Scope per categoria
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeInCategory($query, string $category)
+=======
+    public function scopeInCategory(Builder $query, string $category): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->where('category', $category);
     }
@@ -301,7 +385,11 @@ class MunicipalService extends Model
     /**
      * Scope per servizi principali (senza parent)
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeMain($query)
+=======
+    public function scopeMain(Builder $query): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->whereNull('parent_service_id');
     }
@@ -309,13 +397,22 @@ class MunicipalService extends Model
     /**
      * Scope ordinati per priorità e nome
      */
+<<<<<<< .merge_file_s3PJA9
     public function scopeOrdered($query)
+=======
+    public function scopeOrdered(Builder $query): Builder
+>>>>>>> .merge_file_B490GA
     {
         return $query->orderByDesc('priority_level')->orderBy('name');
     }
 
     /**
      * Ottiene i requisiti formattati
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedRequirements(): array
     {
@@ -336,6 +433,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene le procedure formattate
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedProcedures(): array
     {
@@ -356,6 +458,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene i documenti richiesti formattati
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedRequiredDocuments(): array
     {
@@ -376,6 +483,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene i costi formattati
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedCosts(): array
     {
@@ -396,6 +508,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene i canali digitali formattati
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedDigitalChannels(): array
     {
@@ -422,6 +539,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene le FAQ formattate
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getFormattedFaq(): array
     {
@@ -500,6 +622,11 @@ class MunicipalService extends Model
 
     /**
      * Ottiene informazioni per il citizen journey
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_B490GA
      */
     public function getCitizenJourney(): array
     {
@@ -534,6 +661,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del tipo di servizio
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function serviceTypeName(): Attribute
     {
@@ -544,6 +676,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome dello stato
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function serviceStatusName(): Attribute
     {
@@ -554,6 +691,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per il nome del livello
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function serviceLevelName(): Attribute
     {
@@ -564,6 +706,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se il servizio è disponibile
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function isAvailable(): Attribute
     {
@@ -574,6 +721,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per verificare se richiede appuntamento
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function requiresAppointment(): Attribute
     {
@@ -584,6 +736,11 @@ class MunicipalService extends Model
 
     /**
      * Accessor per l'URL del servizio
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_B490GA
      */
     protected function url(): Attribute
     {
@@ -594,11 +751,20 @@ class MunicipalService extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
+<<<<<<< .merge_file_s3PJA9
+=======
+     *
+     * @return Attribute<string, string>
+>>>>>>> .merge_file_B490GA
      */
     protected function name(): Attribute
     {
         return Attribute::make(
+<<<<<<< .merge_file_s3PJA9
             set: function ($value) {
+=======
+            set: function (string $value): string {
+>>>>>>> .merge_file_B490GA
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -617,14 +783,22 @@ class MunicipalService extends Model
         parent::boot();
 
         // Genera slug se mancante
+<<<<<<< .merge_file_s3PJA9
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_B490GA
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
+<<<<<<< .merge_file_s3PJA9
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_B490GA
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -635,7 +809,11 @@ class MunicipalService extends Model
         });
 
         // Set default values
+<<<<<<< .merge_file_s3PJA9
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_B490GA
             if (is_null($model->service_status)) {
                 $model->service_status = 'active';
             }

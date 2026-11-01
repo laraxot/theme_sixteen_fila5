@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Body Structure Comparison Results
 
 Canonical output directory for HTML parity reports.
@@ -23,6 +35,7 @@ bashscripts/html/html-structure-compare.sh segnalazione-dettaglio \
 
 See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
 
+<<<<<<< .merge_file_nieoUg
 ## Governance
 
 - Bash scripts are reusable and project-agnostic.
@@ -30,3 +43,13 @@ See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
 - Raw HTML snapshots for manual analysis go in `laravel/Themes/Sixteen/docs/prompts/<page>/`.
 
 - Priority rule: structural HTML parity is essential first; visual/functional parity is addressed after via Tailwind @apply + Alpine.js.
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_SDK3Hv

@@ -117,7 +117,7 @@ $currentVariant = $variants[$variant] ?? $variants['default'];
                             
                             @if(isset($document['date']))
                             <p class="text-xs text-gray-500 mt-1">
-                                Aggiornato: {{ $document['date'] }}
+                                {{ __('pub_theme::municipal_components.transparency.updated.label') }} {{ $document['date'] }}
                             </p>
                             @endif
                         </div>
@@ -130,7 +130,7 @@ $currentVariant = $variants[$variant] ?? $variants['default'];
                            @if(isset($document['external']) && $document['external'])
                            target="_blank" rel="noopener noreferrer"
                            @endif>
-                            Visualizza
+                            {{ __('pub_theme::municipal_components.transparency.view.label') }}
                         </a>
                         @endif
                         
@@ -153,7 +153,7 @@ $currentVariant = $variants[$variant] ?? $variants['default'];
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 <p class="text-gray-500 text-sm">
-                    Nessun documento disponibile in questa sezione
+                    {{ __('pub_theme::municipal_components.transparency.empty.message') }}
                 </p>
             </div>
             @endif

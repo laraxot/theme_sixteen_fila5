@@ -4,20 +4,36 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Providers;
 
+<<<<<<< .merge_file_MmKe1E
+=======
+use Illuminate\Contracts\View\View;
+>>>>>>> .merge_file_wfPjh8
 use Illuminate\Support\Facades\Blade;
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
 use Modules\Xot\Providers\XotBaseThemeServiceProvider;
+use Safe\Exceptions\FilesystemException;
+use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Actions\MenuBuilderAction;
+use Themes\Sixteen\Actions\SpidAuthAction;
+use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\Console\Commands\SixteenInstallCommand;
 use Themes\Sixteen\Console\Commands\SixteenPublishCommand;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
 use Themes\Sixteen\Filters\ActiveMenuFilter;
 use Themes\Sixteen\Filters\GateMenuFilter;
 use Themes\Sixteen\Filters\HrefMenuFilter;
+<<<<<<< .merge_file_MmKe1E
 use Themes\Sixteen\Actions\CieAuthAction;
 use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Adapters\ThemeAdapter;
 use Themes\Sixteen\View\Composers\SixteenComposer;
+=======
+use Themes\Sixteen\View\Composers\SixteenComposer;
+
+use function Safe\glob;
+use function Safe\realpath;
+>>>>>>> .merge_file_wfPjh8
 
 /**
  * Enhanced Service Provider per il tema Sixteen.
@@ -99,6 +115,9 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'sixteen');
 
         // Caricamento delle configurazioni del tema
+        // Keep the main theme contract at config('sixteen.*'); the per-file
+        // namespace loader below remains available for legacy config groups.
+        $this->mergeConfigFrom(__DIR__.'/../../config/sixteen.php', 'sixteen');
         $this->loadConfigFrom(__DIR__.'/../../config', 'sixteen');
     }
 
@@ -108,7 +127,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerMenuSystem(): void
     {
         // Singleton per il Menu Builder
-        $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction());
+        $this->app->singleton(MenuBuilderAction::class, static fn (): MenuBuilderAction => new MenuBuilderAction);
 
         // Alias per backward compatibility
         $this->app->alias(MenuBuilderAction::class, 'sixteen.menu');
@@ -121,7 +140,7 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     {
         // Theme Service con dependency injection del MenuBuilder
         $this->app->singleton('sixteen.theme', function ($app) {
-            return new ThemeAdapter();
+            return new ThemeAdapter;
         });
 
         // Alias per il ThemeService
@@ -175,7 +194,11 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerViewComposers(): void
     {
         // Composer per layout principali
+<<<<<<< .merge_file_MmKe1E
         $this->app['view']->composer([
+=======
+        $this->app->make('view')->composer([
+>>>>>>> .merge_file_wfPjh8
             'pub_theme::layouts.app',
             'pub_theme::layouts.guest',
             'pub_theme::layouts.guest-agid',
@@ -236,8 +259,13 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
         Blade::componentNamespace($componentNamespace, 'pub_theme');
 
         // Register anonymous components (default + pub_theme namespace)
+<<<<<<< .merge_file_MmKe1E
         $componentsPath = realpath(__DIR__.'/../../resources/views/components');
         if ($componentsPath !== false) {
+=======
+        try {
+            $componentsPath = realpath(__DIR__.'/../../resources/views/components');
+>>>>>>> .merge_file_wfPjh8
             Blade::anonymousComponentPath($componentsPath);
             Blade::anonymousComponentPath($componentsPath, 'pub_theme');
         }
@@ -263,11 +291,19 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     protected function registerLayoutShortcuts(): void
     {
         // Registrazione dei layout shortcuts per facilitare l'uso
+<<<<<<< .merge_file_MmKe1E
         $this->app['view']->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
 
         // Enhanced composer per layout AGID-compliant
         $this->app['view']->composer('layouts.guest-agid', function ($view): void {
             $themeService = app('sixteen.theme');
+=======
+        $this->app->make('view')->addNamespace('layouts', __DIR__.'/../../resources/views/layouts');
+
+        // Enhanced composer per layout AGID-compliant
+        $this->app->make('view')->composer('layouts.guest-agid', function (View $view): void {
+            $themeService = app(ThemeAdapter::class);
+>>>>>>> .merge_file_wfPjh8
 
             $view->with([
                 'theme_name' => 'Sixteen',
@@ -284,11 +320,31 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
      */
     protected function loadConfigFrom(string $path, string $namespace): void
     {
+<<<<<<< .merge_file_MmKe1E
         if (is_dir($path)) {
             foreach (glob($path.'/*.php') as $file) {
                 $name = basename($file, '.php');
                 $this->mergeConfigFrom($file, $namespace.'.'.$name);
             }
+=======
+        if (! is_dir($path)) {
+            return;
+        }
+
+        try {
+            $files = glob($path.'/*.php');
+        } catch (FilesystemException) {
+            return;
+        }
+
+        foreach ($files as $file) {
+            if (! is_string($file)) {
+                continue;
+            }
+
+            $name = basename($file, '.php');
+            $this->mergeConfigFrom($file, $namespace.'.'.$name);
+>>>>>>> .merge_file_wfPjh8
         }
     }
 }

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Parity Analysis: `segnalazione-area-personale`
 
 **Date:** 2026-04-08
@@ -29,6 +41,7 @@
 - Aligned `latest-posts`, tab ordering, filter search blocks, dropdown controls, attachment list markup, repeated accordion identifiers, and service-tab classes with the reference structure.
 - Kept the page on the shared `tests/[slug].blade.php` route with `<x-layouts.app>` and the same CMS-view philosophy as the generic Folio page.
 
+<<<<<<< .merge_file_LbRJ9F
 ## Current Findings
 
 - The phase target is now reached in the bash structural comparator: `91.9%` similarity.
@@ -48,3 +61,13 @@
 - `body-structure-comparison-pass2/` contains the dashboard-based attempt.
 - `body-structure-comparison-pass5/report_20260408_164500.md` contains the first stable post-reset baseline.
 - `body-structure-comparison-pass11/report_20260408_172952.md` contains the successful parity report above threshold.
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_n6GgR2

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Design Comuni Documentation Index
 
 This directory contains all documentation for the Design Comuni Italiani static pages replication project.
@@ -22,6 +34,7 @@ The goal is to replicate the Bootstrap Italia design using **Tailwind CSS + Alpi
 
 ## Architecture
 
+<<<<<<< .merge_file_hzkZuq
 ### Key Files
 - **Layout:** `resources/views/components/layouts/main.blade.php` - Adds `dc-homepage-parity` body class
 - **Page Component:** `resources/views/components/page.blade.php` - Block assembler
@@ -136,3 +149,13 @@ Documenti canonici:
 - [Fixcity / Filament Wizard Rules](../../../../Modules/Fixcity/docs/rules/filament-wizard-rules.md)
 - [Fixcity / Ticket Wizard Frontoffice](../../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md)
 - [Story 7-48 - step 2 visual parity via sections and infolist](../../../../../_bmad-output/implementation-artifacts/7-48-segnalazione-crea-step2-visual-parity-via-sections-and-infolist.md)
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_kQPDhc

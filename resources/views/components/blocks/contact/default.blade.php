@@ -1,7 +1,7 @@
 @props(['data' => []])
 
 @php
-    $title = $data['title'] ?? 'Contatta il comune';
+    $title = $data['title'] ?? __('pub_theme::footer.contact_municipality');
     $links = $data['links'] ?? [];
 @endphp
 

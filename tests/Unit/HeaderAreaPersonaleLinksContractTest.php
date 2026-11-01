@@ -2,33 +2,48 @@
 
 declare(strict_types=1);
 
+<<<<<<< .merge_file_DBcoH7
 use Themes\Sixteen\Actions\Url\BuildLocalizedFrontofficePathAction;
 use Themes\Sixteen\Actions\Url\NormalizeStoredFrontofficeUrlAction;
+=======
+use function Safe\file_get_contents;
+>>>>>>> .merge_file_sTz7bK
 
 /**
- * Contratto header area personale: named route Folio verificate (folio:list), no wrapper path custom.
+ * Contratto header area personale: Folio + FrontofficeRoutes, no wrapper path custom.
+ * Source-level (no TestCase): il bootstrap Laravel non e' richiesto per queste guardie.
  */
+<<<<<<< .merge_file_DBcoH7
 test('FrontofficeUrl e autoloadabile per nav CMS', function (): void {
     expect(class_exists(BuildLocalizedFrontofficePathAction::class))->toBeTrue();
     expect(class_exists(NormalizeStoredFrontofficeUrlAction::class))->toBeTrue();
+=======
+test('Frontoffice URL helpers esistono per nav CMS', function (): void {
+    $themeRoot = dirname(__DIR__, 2);
+
+    expect(file_exists($themeRoot.'/app/Actions/Url/BuildLocalizedFrontofficePathAction.php'))->toBeTrue();
+    expect(file_exists($themeRoot.'/app/Actions/Url/NormalizeStoredFrontofficeUrlAction.php'))->toBeTrue();
+    expect(file_exists($themeRoot.'/app/Infrastructure/Url/FrontofficeRoutes.php'))->toBeTrue();
+>>>>>>> .merge_file_sTz7bK
 });
 
-test('user-dropdown usa named route Folio verificate', function (): void {
+test('user-dropdown usa FrontofficeRoutes area personale e route Folio', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     $html = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/user-dropdown.blade.php');
 
     expect($html)->toContain("route('services.categories')");
-    expect($html)->toContain("route('dashboard')");
-    expect($html)->toContain("route('notifications')");
-    expect($html)->toContain("route('profile.edit')");
+    expect($html)->toContain('FrontofficeRoutes::personalAreaPratiche');
+    expect($html)->toContain('FrontofficeRoutes::personalAreaNotifiche');
+    expect($html)->toContain('FrontofficeRoutes::personalAreaImpostazioni');
     expect($html)->toContain("route('logout')");
     expect($html)->not->toContain('FrontofficeUrl::personalArea');
     expect($html)->not->toContain("route('tests.view'");
     expect($html)->not->toContain("route('user.services'");
     expect($html)->not->toContain("route('area-personale");
     expect($html)->not->toContain('area-personale.notifiche');
+    expect($html)->not->toContain("route('profile.edit')");
     expect($html)->not->toContain('ui::ui.profile');
-    expect($html)->toContain("pub_theme::header.user.dropdown.notifications.label");
+    expect($html)->toContain('pub_theme::header.user.dropdown.notifications.label');
 });
 
 test('guest CTA header usa route login Folio', function (): void {
@@ -72,25 +87,45 @@ test('header area-personale partials non contengono locale hardcoded ne Frontoff
     }
 });
 
-test('bootstrap-italia header riusa partial canonici area personale', function (): void {
+test('header riusa partial canonici area personale', function (): void {
     $themeRoot = dirname(__DIR__, 2);
+<<<<<<< .merge_file_DBcoH7
     $html = (string) file_get_contents($themeRoot.'/resources/views/components/bootstrap-italia/header.blade.php');
 
     expect($html)->toContain('partials.personal-area-guest-cta');
     expect($html)->toContain('partials.user-dropdown');
+=======
+    $partial = $themeRoot.'/resources/views/components/sections/header/partials/user-dropdown.blade.php';
+    $guest = $themeRoot.'/resources/views/components/sections/header/partials/personal-area-guest-parity.blade.php';
+    $consumer = $themeRoot.'/resources/views/components/header-comune.blade.php';
+
+    expect(file_exists($partial))->toBeTrue();
+    expect(file_exists($guest))->toBeTrue();
+    expect(file_exists($consumer))->toBeTrue();
+    expect(file_get_contents($consumer))->toContain('partials.user-dropdown');
+    expect(file_get_contents($partial))->toContain('FrontofficeRoutes::personalAreaPratiche');
+>>>>>>> .merge_file_sTz7bK
 });
 
 test('nav partials localizzano url da header.json via fromStoredUrl', function (): void {
     $themeRoot = dirname(__DIR__, 2);
     foreach (['nav-primary.blade.php', 'nav-secondary.blade.php'] as $file) {
+<<<<<<< .merge_file_DBcoH7
         $html = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
+=======
+        $html = file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/'.$file);
+>>>>>>> .merge_file_sTz7bK
         expect($html)->toContain('$headerFolioUrl');
         expect($html)->not->toContain('href="/it/');
     }
 });
 
 test('FrontofficeUrl non espone wrapper personalArea', function (): void {
+<<<<<<< .merge_file_DBcoH7
     $php = (string) file_get_contents(dirname(__DIR__, 2).'/app/Support/FrontofficeUrl.php.bak');
+=======
+    $php = file_get_contents(dirname(__DIR__, 2).'/app/Infrastructure/Url/FrontofficeUrl.php');
+>>>>>>> .merge_file_sTz7bK
 
     expect($php)->not->toContain('personalAreaServices');
     expect($php)->not->toContain('personalAreaNotifications');

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazione Flow — CSS/JS Parity Status
 
 **Date:** 2026-04-07
@@ -23,6 +35,7 @@ All 8 Segnalazione pages now use Design Comuni-compatible HTML structure and CSS
 - `flow.ticket/02-dati.blade.php` — Now uses: `fieldset`, `legend`, `form-group`, `form-control`, `card user-card`, `steppers-nav`, `btn btn-primary`, `btn btn-outline-primary`
 - `flow.ticket/03-riepilogo.blade.php` — Now uses: `it-alert alert-warning`, `card-wrapper`, `card-header`, `it-list-wrapper`, `actions-wrapper`, `terms-section`, `form-check`, `btn btn-primary`, `btn btn-outline-danger`
 
+<<<<<<< .merge_file_kbcY3c
 #### 3. CSS Additions (segnalazione-parity.css)
 Added 220+ lines covering:
 - Alert/warning boxes (`.it-alert`, `.alert-warning`)
@@ -129,3 +142,13 @@ All pages captured at desktop (1440px) and tablet (768px) breakpoints:
 - [screenshots/segnalazione-dettaglio/](../screenshots/segnalazione-dettaglio/)
 - [screenshots/segnalazione-disservizio/](../screenshots/segnalazione-disservizio/)
 - [screenshots/ticket-list/](../screenshots/ticket-list/)
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_c3mST2

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # 📊 Analysis Folder
 
 > Structural and technical analysis of HTML, CSS, and component differences between reference and local homepage
@@ -59,6 +71,7 @@ Analyzes each major section:
 - Image/text stacking behavior
 - Hidden/shown elements by viewport
 
+<<<<<<< .merge_file_YnlaiE
 🔗 [Read](./04-RESPONSIVE-PATTERNS.md) | [← Back](#-documents-in-this-folder)
 
 ---
@@ -133,3 +146,13 @@ Analyzes each major section:
 - Mobile: `domande-frequenti-reference-mobile.png` vs `domande-frequenti-local-mobile.png`
 - Tablet: `domande-frequenti-reference-tablet.png` vs `domande-frequenti-local-tablet.png`
 
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_8Q6lBE

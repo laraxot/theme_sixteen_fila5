@@ -24,7 +24,7 @@
                         class="btn-close"
                         type="button"
                         data-bs-dismiss="modal"
-                        aria-label="{{ __('Chiudi') }}"
+                        aria-label="{{ __('pub_theme::components_common.actions.close.label') }}"
                     >
                         <svg class="icon" aria-hidden="true">
                             <use href="{{ $sprite }}#it-close"></use>

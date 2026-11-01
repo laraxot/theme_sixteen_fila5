@@ -44,7 +44,7 @@
 <nav 
     id="{{ $id }}"
     class="forward-back-navigation {{ $variantClasses[$variant] }}"
-    aria-label="Navigazione avanti e indietro"
+    aria-label="{{ __('pub_theme::navigation_components.forward_back.nav.label') }}"
 >
     <div class="flex {{ $orientationClass }} items-center justify-between">
         {{-- Previous button --}}
@@ -52,7 +52,7 @@
             <a
                 href="{{ $previous['url'] }}"
                 class="previous-btn flex items-center space-x-2 {{ $buttonClasses[$variant] }} border-gray-300 text-gray-700 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50"
-                aria-label="Vai a: {{ $previous['label'] }}"
+                aria-label="{{ __('pub_theme::navigation_components.forward_back.go_to.label', ['label' => $previous['label']]) }}"
             >
                 @if($showIcons)
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,10 +62,10 @@
                 
                 <div class="flex flex-col">
                     @if($showLabels)
-                        <span class="text-sm text-gray-500">Precedente</span>
+                        <span class="text-sm text-gray-500">{{ __('pub_theme::common.pagination.previous.label') }}</span>
                         <span class="font-medium">{{ $previous['label'] }}</span>
                     @else
-                        <span class="sr-only">Vai a: {{ $previous['label'] }}</span>
+                        <span class="sr-only">{{ __('pub_theme::navigation_components.forward_back.go_to.label', ['label' => $previous['label']]) }}</span>
                     @endif
                 </div>
             </a>
@@ -76,7 +76,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 @endif
-                <span class="text-sm">Inizio</span>
+                <span class="text-sm">{{ __('pub_theme::navigation_components.forward_back.first.label') }}</span>
             </div>
         @endif
 
@@ -85,14 +85,14 @@
             <a
                 href="{{ $next['url'] }}"
                 class="next-btn flex items-center space-x-2 {{ $buttonClasses[$variant] }} border-blue-300 text-blue-700 hover:border-blue-500 hover:text-blue-900 hover:bg-blue-100 justify-end"
-                aria-label="Vai a: {{ $next['label'] }}"
+                aria-label="{{ __('pub_theme::navigation_components.forward_back.go_to.label', ['label' => $next['label']]) }}"
             >
                 <div class="flex flex-col items-end">
                     @if($showLabels)
-                        <span class="text-sm text-dc-600">Avanti</span>
+                        <span class="text-sm text-dc-600">{{ __('pub_theme::common.actions.next.label') }}</span>
                         <span class="font-medium">{{ $next['label'] }}</span>
                     @else
-                        <span class="sr-only">Vai a: {{ $next['label'] }}</span>
+                        <span class="sr-only">{{ __('pub_theme::navigation_components.forward_back.go_to.label', ['label' => $next['label']]) }}</span>
                     @endif
                 </div>
                 
@@ -104,7 +104,7 @@
             </a>
         @else
             <div class="flex items-center space-x-2 {{ $buttonClasses[$variant] }} border-gray-200 text-gray-400 opacity-50 cursor-not-allowed">
-                <span class="text-sm">Fine</span>
+                <span class="text-sm">{{ __('pub_theme::navigation_components.forward_back.last.label') }}</span>
                 @if($showIcons)
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

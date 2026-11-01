@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Richiesta inviata',
+    'title' => __('pub_theme::flow_assistance.conferma.request_sent.title'),
     'richiesta' => [],
     'showActions' => true,
 ])
@@ -25,23 +25,23 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <h4 class="text-lg font-semibold text-green-800">Richiesta di assistenza inviata!</h4>
-                <p class="text-green-700">Ti risponderemo entro 2 giorni lavorativi</p>
+                <h4 class="text-lg font-semibold text-green-800">{{ __('pub_theme::flow_assistance.conferma.assistance_request_sent.message') }}</h4>
+                <p class="text-green-700">{{ __('pub_theme::flow_assistance.conferma.we_will_reply_within_2_working.label') }}</p>
             </div>
         </div>
 
         <div class="border-t border-green-200 pt-4 mt-4">
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <dt class="text-sm text-green-700">Codice richiesta</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_assistance.conferma.request_code.label') }}</dt>
                     <dd class="text-lg font-bold text-green-800" data-element="request-code">{{ $richiesta['codice_richiesta'] ?: 'ASS-2025-003456' }}</dd>
                 </div>
                 <div>
-                    <dt class="text-sm text-green-700">Tipo</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_assistance.conferma.type.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-type">{{ $richiesta['tipo_richiesta'] ?: 'Supporto tecnico' }}</dd>
                 </div>
                 <div class="md:col-span-2">
-                    <dt class="text-sm text-green-700">Oggetto</dt>
+                    <dt class="text-sm text-green-700">{{ __('pub_theme::flow_assistance.shared.subject.label') }}</dt>
                     <dd class="text-green-800" data-element="confirmed-subject">{{ $richiesta['oggetto'] ?: 'Problema con il portale' }}</dd>
                 </div>
             </dl>
@@ -55,7 +55,7 @@
             </svg>
             <div class="ml-3">
                 <p class="text-sm text-blue-700">
-                    <strong>Nota:</strong> Riceverai una conferma via email con il codice della tua richiesta. Potrai tracciare lo stato della risposta tramite il portale.
+                    <strong>{{ __('pub_theme::blocks_common.shared.note_colon.label') }}</strong> {{ __('pub_theme::flow_assistance.conferma.you_will_receive_a_confirmation_email.message') }}
                 </p>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            Invia un'altra richiesta
+            {{ __('pub_theme::flow_assistance.conferma.submit_another_request.label') }}
         </a>
     </div>
     @endif

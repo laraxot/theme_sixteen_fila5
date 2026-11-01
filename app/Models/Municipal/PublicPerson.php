@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
+<<<<<<< .merge_file_rqVTXc
+=======
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> .merge_file_2tuhTy
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Themes\Sixteen\Enums\PublicPersonCategoryEnum;
+use Themes\Sixteen\Enums\PublicPersonRoleEnum;
 
 /**
  * Modello per le persone pubbliche (Public Person)
@@ -44,6 +51,7 @@ use Illuminate\Support\Str;
  * @property \Carbon\Carbon|null $end_date
  * @property bool $is_active
  * @property bool $is_public
+<<<<<<< .merge_file_rqVTXc
  * @property \Carbon\Carbon|null $publication_date
  * @property array|null $privacy_settings
  * @property array|null $social_profiles
@@ -59,11 +67,36 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant
+=======
+ * @property Carbon|null $publication_date
+ * @property array<array-key, mixed>|null $privacy_settings
+ * @property array<array-key, mixed>|null $social_profiles
+ * @property array<array-key, mixed>|null $education
+ * @property array<array-key, mixed>|null $work_experience
+ * @property array<array-key, mixed>|null $skills
+ * @property array<array-key, mixed>|null $languages
+ * @property array<array-key, mixed>|null $metadata
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Collection<int, ContactPoint> $contacts
+ * @property-read Collection<int, MunicipalEvent> $eventsAsSpeaker
+ * @property-read Collection<int, MunicipalEvent> $eventsAsParticipant
+ * @property-read string $full_name
+ * @property-read string $display_name
+ * @property-read string $category_name
+ * @property-read string $role_name
+ * @property-read int|null $age
+ * @property-read bool $is_in_office
+ * @property-read float|null $days_in_office
+ * @property-read string $url
+>>>>>>> .merge_file_2tuhTy
  */
 class PublicPerson extends Model
 {
     use HasFactory, SoftDeletes;
 
+<<<<<<< .merge_file_rqVTXc
     /**
      * Categorie di persone pubbliche secondo AGID
      */
@@ -96,6 +129,8 @@ class PublicPerson extends Model
         'collaborator' => 'Collaboratore',
     ];
 
+=======
+>>>>>>> .merge_file_2tuhTy
     protected $table = 'sixteen_public_people';
 
     protected $fillable = [
@@ -153,6 +188,11 @@ class PublicPerson extends Model
 
     /**
      * Relazione con i punti di contatto
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return MorphMany<ContactPoint, $this>
+>>>>>>> .merge_file_2tuhTy
      */
     public function contacts(): MorphMany
     {
@@ -161,6 +201,11 @@ class PublicPerson extends Model
 
     /**
      * Relazione con le unità organizzative
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
+>>>>>>> .merge_file_2tuhTy
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -171,6 +216,11 @@ class PublicPerson extends Model
 
     /**
      * Relazione con le unità organizzative attive
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
+>>>>>>> .merge_file_2tuhTy
      */
     public function activeOrganizationalUnits(): BelongsToMany
     {
@@ -182,6 +232,11 @@ class PublicPerson extends Model
 
     /**
      * Relazione con i documenti associati
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return HasMany<PublicDocument, $this>
+>>>>>>> .merge_file_2tuhTy
      */
     public function documents(): HasMany
     {
@@ -191,7 +246,11 @@ class PublicPerson extends Model
     /**
      * Scope per persone attive
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopeActive($query)
+=======
+    public function scopeActive(Builder $query): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->where('is_active', true);
     }
@@ -199,7 +258,11 @@ class PublicPerson extends Model
     /**
      * Scope per persone pubbliche
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopePublic($query)
+=======
+    public function scopePublic(Builder $query): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->where('is_public', true);
     }
@@ -207,7 +270,11 @@ class PublicPerson extends Model
     /**
      * Scope per categoria
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopeOfCategory($query, string $category)
+=======
+    public function scopeOfCategory(Builder $query, string $category): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->where('category', $category);
     }
@@ -215,7 +282,11 @@ class PublicPerson extends Model
     /**
      * Scope per ruolo
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopeWithRole($query, string $role)
+=======
+    public function scopeWithRole(Builder $query, string $role): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->where('role', $role);
     }
@@ -223,7 +294,11 @@ class PublicPerson extends Model
     /**
      * Scope per persone in carica
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopeInOffice($query)
+=======
+    public function scopeInOffice(Builder $query): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->where('start_date', '<=', now())
             ->where(function ($q): void {
@@ -235,13 +310,22 @@ class PublicPerson extends Model
     /**
      * Scope ordinati per cognome e nome
      */
+<<<<<<< .merge_file_rqVTXc
     public function scopeOrdered($query)
+=======
+    public function scopeOrdered(Builder $query): Builder
+>>>>>>> .merge_file_2tuhTy
     {
         return $query->orderBy('last_name')->orderBy('first_name');
     }
 
     /**
      * Ottiene le qualifiche formattate
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_2tuhTy
      */
     public function getFormattedEducation(): array
     {
@@ -262,6 +346,11 @@ class PublicPerson extends Model
 
     /**
      * Ottiene l'esperienza lavorativa formattata
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_2tuhTy
      */
     public function getFormattedWorkExperience(): array
     {
@@ -284,6 +373,11 @@ class PublicPerson extends Model
 
     /**
      * Ottiene i profili social formattati
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return array<array-key, mixed>
+>>>>>>> .merge_file_2tuhTy
      */
     public function getFormattedSocialProfiles(): array
     {
@@ -375,6 +469,11 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome completo
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function fullName(): Attribute
     {
@@ -385,6 +484,11 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome invertito (Cognome, Nome)
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function displayName(): Attribute
     {
@@ -395,26 +499,41 @@ class PublicPerson extends Model
 
     /**
      * Accessor per il nome della categoria
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function categoryName(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
+            get: fn () => PublicPersonCategoryEnum::tryFrom($this->category)?->getLabel() ?? $this->category
         );
     }
 
     /**
      * Accessor per il nome del ruolo
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<string|null, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function roleName(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::ROLES[$this->role] ?? $this->role
+            get: fn () => $this->role === null ? null : (PublicPersonRoleEnum::tryFrom($this->role)?->getLabel() ?? $this->role)
         );
     }
 
     /**
      * Accessor per l'età
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<int|null, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function age(): Attribute
     {
@@ -425,6 +544,11 @@ class PublicPerson extends Model
 
     /**
      * Accessor per verificare se è in carica
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function isInOffice(): Attribute
     {
@@ -441,22 +565,40 @@ class PublicPerson extends Model
 
     /**
      * Accessor per i giorni rimanenti in carica
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<float|null, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
+<<<<<<< .merge_file_rqVTXc
             get: function (): void {
+=======
+            get: function (): ?float {
+>>>>>>> .merge_file_2tuhTy
                 if (! $this->is_in_office) {
                     return;
                 }
 
+<<<<<<< .merge_file_rqVTXc
                 return $this->end_date?->diffInDays(now()) ?? null;
+=======
+                return $this->end_date?->diffInDays(now());
+>>>>>>> .merge_file_2tuhTy
             }
         );
     }
 
     /**
      * Accessor per l'URL della persona
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function url(): Attribute
     {
@@ -467,14 +609,26 @@ class PublicPerson extends Model
 
     /**
      * Mutator per nome (genera automaticamente lo slug)
+<<<<<<< .merge_file_rqVTXc
+=======
+     *
+     * @return Attribute<never, string>
+>>>>>>> .merge_file_2tuhTy
      */
     protected function lastName(): Attribute
     {
         return Attribute::make(
+<<<<<<< .merge_file_rqVTXc
             set: function ($value) {
                 $this->attributes['last_name'] = $value;
                 if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
                     $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
+=======
+            set: function (string $value): string {
+                $this->attributes['last_name'] = $value;
+                if (empty($this->attributes['slug']) && ! empty($this->first_name)) {
+                    $this->attributes['slug'] = Str::slug($this->first_name.' '.$value);
+>>>>>>> .merge_file_2tuhTy
                 }
 
                 return $value;
@@ -490,14 +644,22 @@ class PublicPerson extends Model
         parent::boot();
 
         // Genera slug se mancante
+<<<<<<< .merge_file_rqVTXc
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_2tuhTy
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
                 $model->slug = Str::slug($model->first_name.' '.$model->last_name);
             }
         });
 
         // Assicura unicità dello slug
+<<<<<<< .merge_file_rqVTXc
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_2tuhTy
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -508,7 +670,11 @@ class PublicPerson extends Model
         });
 
         // Set default privacy settings
+<<<<<<< .merge_file_rqVTXc
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_2tuhTy
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,

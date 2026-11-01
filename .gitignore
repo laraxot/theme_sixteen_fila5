@@ -1,70 +1,78 @@
-# Node.js
+# Dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
+vendor/
+
+# Lockfiles (managed at monorepo root)
 package-lock.json
 yarn.lock
 
-# Vendor (per PHP, Composer, ecc.)
-vendor/
-
-# Build outputs (per progetti frontend, React, Angular, Vue, ecc.)
+# Build outputs
 build/
 dist/
+# The stable Design Comuni sprite is a source input for Vite, not build output.
+!resources/static/
+!resources/static/design-comuni/
+!resources/static/design-comuni/assets/
+!resources/static/design-comuni/assets/bootstrap-italia/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/svg/
+!resources/static/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg
+!resources/scripts/
+!resources/scripts/prepare-static-assets.mjs
+public/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg
+test-results/
 
-
-# Cache e temporary files
+# Cache / temp
 .cache/
 tmp/
 temp/
-
-# IDEs e editor (Visual Studio Code, JetBrains, ecc.)
-.vscode/
-.idea/
-
-# Sistema operativo (macOS, Windows, Linux)
-.DS_Store
-Thumbs.db
-*.bak
-
-# Log files
-*.log
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Documentation Cache (siti generati da strumenti come Jekyll, Hugo, ecc.)
 docs/cache/
 
-# Git-specific
-.git-blame-ignore-revs
+# Environment
+.env
+.env.*
+!.env.example
 
-# Standard ignores (auto)
+# Logs
+*.log
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / AI tool workspaces
+.vscode/
+.idea/
+.cursor/
+.windsurf/
+.claude-flow
+.supermemory
+agentdb.rvf
+ruvector.db
+
+# Stray browser-saved-page dump (not theme source, keep out of history)
+Main_files/
+
+# Backups / stray artifacts
+*.bak
 *.old
 *.old1
+*.backup
+*.backup.*
 *.bakcup
-*.backup
-*.backup.*
-*.backup
-*.backup
-*.backup.*
-*.backup
-*.backup.*
-_docs/
 
-# Second brain: no-docs-archive (wiki) — non tracciare albero legacy docs/archive/
-docs/archive/
-# Copie residue da merge/rebase o editor (mai committare — es. `.agent~HEAD`, `*.md~head`)
+# Merge/rebase leftovers — never commit
 *~HEAD
 *~BASE
 *~LOCAL
 *~REMOTE
+*~head
 *.orig
 *.rej
-*~head
 
+<<<<<<< .merge_file_6YgrG4
 .c*
 .claude-flow
 .supermemory
@@ -77,6 +85,44 @@ components
 layouts
 agentdb.rvf
 ruvector.db
-.cursor/
-.windsurf/
+=======
+# AI/TOOL SCAFFOLD — must never exist in module/theme tree (see docs/wiki/rules/module-theme-root-cleanup.md, Rule 5)
+# Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
+_docs/
+scripts/
+bashscripts/
+!resources/scripts/
+!resources/scripts/prepare-static-assets.mjs
+docs/archive/
+docs/archived/
+docs/legacy/
+docs/workbench/
+.circleci/
+.claude-audit/
+tests/.claude-audit/
+_bmad-output/
 .devcontainer/
+.kilocode/
+.kiro/
+.ralph/
+tests/AuditCoverage/
+
+# Git internals
+.git-blame-ignore-revs
+
+# Laraxot — IDE folders forbidden at module/theme root (see module-theme-root-hygiene)
+>>>>>>> .merge_file_hsaRpx
+.cursor/
+.devcontainer/
+<<<<<<< .merge_file_6YgrG4
+=======
+.vscode/
+.windsurf/
+
+# Laraxot — quality tool configs forbidden in module/theme root (use laravel/phpinsights.php, laravel/rector.php)
+phpinsights.php
+rector.php
+storage/
+# graphify-out: generated AST/knowledge graph — never commit (no git-lfs; rebuild with graphify update)
+graphify-out/
+>>>>>>> .merge_file_hsaRpx

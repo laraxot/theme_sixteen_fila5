@@ -1,3 +1,15 @@
+---
+title: "amministrazione html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "amministrazione html comparison"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Structure Comparison: amministrazione
 
 **Generated**: 2026-04-05T07:52:55.569Z
@@ -5,7 +17,6 @@
 **Local**: http://127.0.0.1:8000/it/tests/amministrazione
 
 ---
-
 ## Summary
 
 | Metric | Reference | Local | Difference |
@@ -109,5 +120,5 @@ Based on the comparison:
 
 **Related Docs**:
 - [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

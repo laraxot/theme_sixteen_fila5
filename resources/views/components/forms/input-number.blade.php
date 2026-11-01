@@ -137,7 +137,7 @@ $btnClasses = [
                     :disabled="isMaxReached"
                     :class="{ 'opacity-50 cursor-not-allowed': isMaxReached, 'hover:bg-gray-100': !isMaxReached }"
                     class="{{ implode(' ', $btnClasses) }} mb-px"
-                    aria-label="Incrementa"
+                    aria-label="{{ __('pub_theme::components_forms.number.increase.label') }}"
                 >
                     <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
@@ -152,7 +152,7 @@ $btnClasses = [
                     :disabled="isMinReached"
                     :class="{ 'opacity-50 cursor-not-allowed': isMinReached, 'hover:bg-gray-100': !isMinReached }"
                     class="{{ implode(' ', $btnClasses) }}"
-                    aria-label="Decrementa"
+                    aria-label="{{ __('pub_theme::components_forms.number.decrease.label') }}"
                 >
                     <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -166,13 +166,13 @@ $btnClasses = [
     @if($required || $min !== null || $max !== null)
         <div id="{{ $id }}-help" class="mt-1 text-sm text-gray-500">
             @if($required)
-                <span>Campo obbligatorio</span>
+                <span>{{ __('pub_theme::components_forms.validation.required.label') }}</span>
             @endif
             @if($min !== null)
-                <span x-show="min !== null">Valore minimo: <span x-text="formatForDisplay(min)"></span></span>
+                <span x-show="min !== null">{{ __('pub_theme::components_forms.number.min.label') }} <span x-text="formatForDisplay(min)"></span></span>
             @endif
             @if($max !== null)
-                <span x-show="max !== null">Valore massimo: <span x-text="formatForDisplay(max)"></span></span>
+                <span x-show="max !== null">{{ __('pub_theme::components_forms.number.max.label') }} <span x-text="formatForDisplay(max)"></span></span>
             @endif
         </div>
     @endif

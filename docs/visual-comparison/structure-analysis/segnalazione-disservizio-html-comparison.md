@@ -1,3 +1,16 @@
+---
+title: "segnalazione disservizio html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "segnalazione disservizio html comparison"
+issues: []
+discussions: []
+status: superseded
+superseded_by: ticket-disservizio-html-comparison.md
+---
+
 # HTML Structure Comparison: segnalazione-disservizio
 
 **Generated**: 2026-04-06T19:25:11.809Z
@@ -5,7 +18,6 @@
 **Local**: http://127.0.0.1:8000/it/tests/segnalazione-disservizio
 
 ---
-
 ## Summary
 
 | Metric | Reference | Local | Difference |
@@ -99,5 +111,5 @@ Based on the comparison:
 
 **Related Docs**:
 - [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

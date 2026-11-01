@@ -1,10 +1,49 @@
+@props(['title' => null, 'description' => null, 'bodyPage' => ''])
+
+@php
+    $layoutAppName = trim((string) config('app.name', ''));
+    if (in_array(mb_strtolower($layoutAppName), ['', 'laravel'], true)) {
+        $layoutAppName = 'FixCity';
+    }
+    // Titolo con il marchio, robots sulle pagine private e og:locale regionale: DCP-288 (FO-6-15, 17, 18).
+    $layoutHead = app(\Themes\Sixteen\Actions\Seo\ResolvePageHeadAction::class)
+        ->execute($title, $layoutAppName, request()->path(), app()->getLocale());
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ $title ?: config('app.name', 'FixCity') }}</title>
-        <meta name="description" content="{{ $description ?: config('app.name', 'FixCity') }}">
+        <title>{{ $layoutHead->title }}</title>
+        <meta name="description" content="{{ $description ?: $layoutAppName }}">
+        @if ($layoutHead->robots !== null)
+            <meta name="robots" content="{{ $layoutHead->robots }}">
+        @endif
+        {{-- Verde istituzionale dell'intestazione (#007a52): colora la barra del browser sul telefono. --}}
+        <meta name="theme-color" content="#007a52">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{ $layoutAppName }}">
+        <meta property="og:title" content="{{ $layoutHead->title }}">
+        <meta property="og:description" content="{{ $description ?: $layoutAppName }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:locale" content="{{ $layoutHead->ogLocale }}">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="{{ $layoutHead->title }}">
+        <meta name="twitter:description" content="{{ $description ?: $layoutAppName }}">
+        @if ($bodyPage === 'homepage')
+            <script type="application/ld+json">
+                {!! json_encode([
+                    chr(64).'context' => 'https://schema.org',
+                    '@type' => 'WebSite',
+                    'name' => $layoutAppName,
+                    'url' => url('/'.app()->getLocale()),
+                    'inLanguage' => app()->getLocale(),
+                    'description' => $description ?: $layoutAppName,
+                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+            </script>
+        @endif
+        <x-layouts.seo-links />
 
         {{-- PHILOSOPHY: TailwindCSS + Alpine.js ONLY. NO Bootstrap Italia JS/CSS. --}}
         {{-- See: docs/architecture/tailwind-alpine-philosophy.md --}}
@@ -53,15 +92,27 @@
         @livewireStyles
         @filamentStyles
         @vite(['resources/css/app.css'], 'themes/Sixteen')
-        {{-- Cookie consent: NON in app.css — @import url(/vendor/...) fa fallire vite build (postcss-import filesystem). Solo asset() --}}
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
+        {{-- Critical FOUC guard: Vite CSS ~1.4MB; senza questo #head-section resta trasparente 300–600ms --}}
+        <style id="sixteen-critical-fouc">
+            #head-section.bg-primary { background-color: #007a52 !important; }
+            #head-section #welcome-heading,
+            #head-section #fc-home-hero-heading,
+            #head-section .lead,
+            #head-section .title-xsmall-semi-bold,
+            #head-section .title-xxxlarge { color: #ffffff !important; }
+            #head-section .btn-hero-primary { background:#fff !important; color:#007a52 !important; border:0 !important; }
+            #head-section .btn-hero-secondary { background:rgb(255 255 255 / 14%) !important; color:#fff !important; border:2px solid #fff !important; }
+            [x-cloak] { display: none !important; }
+        </style>
         @stack('styles')
     </head>
-    <body @if(!empty($bodyPage)) data-page="{{ $bodyPage }}" @endif>
-        
+    <body @if($bodyPage !== '') data-page="{{ $bodyPage }}" @endif>
+
         {{ $slot }}
         @livewireScripts
         @filamentScripts
         @vite(['resources/js/app.js'], 'themes/Sixteen')
+
+
     </body>
 </html>

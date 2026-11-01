@@ -22,35 +22,35 @@
                 <div class="border-4 border-dashed border-gray-200 rounded-lg p-8">
                     <div class="text-center">
                         <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-                            Benvenuto in <nome progetto>
+                            {{ __('pub_theme::components_project_home.hero.welcome.title') }} <nome progetto>
                         </h2>
                         <p class="text-gray-600 mb-8">
-                            Sistema di gestione tecnica e pianificazione avanzata
+                            {{ __('pub_theme::components_project_home.hero.subtitle.description') }}
                         </p>
                         
                         {{-- Quick Actions --}}
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-blue-900 mb-2">Gestione Dipendenti</h3>
-                                <p class="text-blue-700 mb-4">Gestisci il personale e le presenze</p>
+                                <h3 class="text-lg font-semibold text-blue-900 mb-2">{{ __('pub_theme::components_project_home.quick_actions.employees.title') }}</h3>
+                                <p class="text-blue-700 mb-4">{{ __('pub_theme::components_project_home.quick_actions.employees.description') }}</p>
                                 <a href="/employee/admin" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                                    Accedi
+                                    {{ __('pub_theme::blocks_common.shared.log_in.label') }}
                                 </a>
                             </div>
                             
                             <div class="bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-green-900 mb-2">Dashboard Admin</h3>
-                                <p class="text-green-700 mb-4">Pannello di controllo amministrativo</p>
+                                <h3 class="text-lg font-semibold text-green-900 mb-2">{{ __('pub_theme::components_project_home.quick_actions.admin.title') }}</h3>
+                                <p class="text-green-700 mb-4">{{ __('pub_theme::components_project_home.quick_actions.admin.description') }}</p>
                                 <a href="/admin" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                                    Accedi
+                                    {{ __('pub_theme::blocks_common.shared.log_in.label') }}
                                 </a>
                             </div>
                             
                             <div class="bg-purple-50 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-purple-900 mb-2">Grafici e Report</h3>
-                                <p class="text-purple-700 mb-4">Visualizza statistiche e analytics</p>
+                                <h3 class="text-lg font-semibold text-purple-900 mb-2">{{ __('pub_theme::components_project_home.quick_actions.charts.title') }}</h3>
+                                <p class="text-purple-700 mb-4">{{ __('pub_theme::components_project_home.quick_actions.charts.description') }}</p>
                                 <a href="/chart/admin" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
-                                    Accedi
+                                    {{ __('pub_theme::blocks_common.shared.log_in.label') }}
                                 </a>
                             </div>
                         </div>

@@ -6,7 +6,7 @@
         <div class="it-header-slim-wrapper-content">
             {{-- Left: Region --}}
             <a href="#" class="it-header-slim-link">
-                {{ $region ?: 'Nome della Regione' }}
+                {{ $region ?: __('pub_theme::header.slim.region.name.label') }}
             </a>
             
             {{-- Right: Language, Login, Social --}}
@@ -14,7 +14,7 @@
                 {{-- Language Dropdown --}}
                 <div class="dropdown">
                     <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Lingua attiva:</span>
+                        <span class="visually-hidden">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
                         {{ $language }}
                         <svg class="icon icon-xs">
                             <use href="#it-chevron-down"></use>
@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a class="dropdown-item" href="#" lang="it">
-                                <span>ITA</span>
+                                <span>{{ __('pub_theme::header.language.code_it.label') }}</span>
                                 @if($language === 'ITA')
                                     <svg class="icon icon-xs ms-2">
                                         <use href="#it-check"></use>
@@ -33,7 +33,7 @@
                         </li>
                         <li>
                             <a class="dropdown-item" href="#" lang="en">
-                                <span>ENG</span>
+                                <span>{{ __('pub_theme::header.language.code_en.label') }}</span>
                                 @if($language === 'ENG')
                                     <svg class="icon icon-xs ms-2">
                                         <use href="#it-check"></use>
@@ -49,13 +49,13 @@
                     <svg class="icon icon-sm">
                         <use href="#it-user"></use>
                     </svg>
-                    <span>Accedi all'area personale</span>
+                    <span>{{ __('pub_theme::faq.contacts.login') }}</span>
                 </a>
                 
                 {{-- Social Icons --}}
                 @if(count($social) > 0)
                 <div class="it-socials d-none d-lg-flex">
-                    <span class="me-2">Seguici su</span>
+                    <span class="me-2">{{ __('pub_theme::header.center.social.follow.label') }}</span>
                     <ul class="list-inline mb-0">
                         @foreach($social as $network)
                         <li class="list-inline-item">

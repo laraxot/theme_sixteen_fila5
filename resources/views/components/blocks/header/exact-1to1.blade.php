@@ -1,4 +1,4 @@
-@props(['region' => 'Nome della Regione', 'municipality' => 'NOME DEL COMUNE', 'subtitle' => 'Un comune da vivere', 'language' => 'ITA'])
+@props(['region' => __('pub_theme::header.slim.region.name.label'), 'municipality' => __('pub_theme::components_header.brand.municipality_name_caps.label'), 'subtitle' => __('pub_theme::header.center.brand.tagline.label'), 'language' => 'ITA'])
 
 {{-- EXACT Bootstrap Italia Header - 1:1 Replication from view-source --}}
 {{-- Source: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html --}}
@@ -21,7 +21,7 @@
               {{-- Language Dropdown --}}
               <div class="dropdown">
                 <button class="btn btn-link dropdown-toggle" type="button" id="language-button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="visually-hidden">Lingua attiva:</span>
+                  <span class="visually-hidden">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
                   <span>{{ $language }}</span>
                   <svg class="icon icon-xs">
                     <use href="#it-chevron-down"></use>
@@ -29,7 +29,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="language-button">
                   <a class="dropdown-item" href="#" lang="it">
-                    <span>ITA</span>
+                    <span>{{ __('pub_theme::header.language.code_it.label') }}</span>
                     @if($language === 'ITA')
                     <svg class="icon icon-xs ms-2">
                       <use href="#it-check"></use>
@@ -37,7 +37,7 @@
                     @endif
                   </a>
                   <a class="dropdown-item" href="#" lang="en">
-                    <span>ENG</span>
+                    <span>{{ __('pub_theme::header.language.code_en.label') }}</span>
                     @if($language === 'ENG')
                     <svg class="icon icon-xs ms-2">
                       <use href="#it-check"></use>
@@ -52,12 +52,12 @@
                 <svg class="icon">
                   <use href="#it-user"></use>
                 </svg>
-                <span>Accedi all'area personale</span>
+                <span>{{ __('pub_theme::faq.contacts.login') }}</span>
               </a>
               
               {{-- Social Icons --}}
               <div class="it-header-slim-social d-none d-lg-flex">
-                <span class="me-2">Seguici su</span>
+                <span class="me-2">{{ __('pub_theme::header.center.social.follow.label') }}</span>
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item">
                     <a class="text-link" href="#" aria-label="Twitter">
@@ -120,7 +120,7 @@
             {{-- Brand --}}
             <div class="it-brand-wrapper">
               <a href="/">
-                <img class="it-logo" src="https://picsum.photos/80/80" alt="Logo" width="80" height="80">
+                <img class="it-logo" src="https://picsum.photos/80/80" alt="{{ __('pub_theme::components_common.a11y.logo.label') }}" width="80" height="80">
                 <div class="it-brand-text">
                   <h2 class="it-brand-title">{{ $municipality }}</h2>
                   <p class="it-brand-tagline">{{ $subtitle }}</p>
@@ -130,11 +130,11 @@
             
             {{-- Search --}}
             <div class="it-search-wrapper">
-              <button class="search-link" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Cerca">
+              <button class="search-link" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="{{ __('pub_theme::header.center.search.label') }}">
                 <svg class="icon icon-white">
                   <use href="#it-search"></use>
                 </svg>
-                <span class="d-none d-lg-block">Cerca</span>
+                <span class="d-none d-lg-block">{{ __('pub_theme::header.center.search.label') }}</span>
               </button>
             </div>
             
@@ -149,7 +149,7 @@
       <div class="container">
         
         {{-- Hamburger Toggle --}}
-        <button class="custom-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav-wrapper" aria-controls="header-nav-wrapper" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="custom-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav-wrapper" aria-controls="header-nav-wrapper" aria-expanded="false" aria-label="{{ __('pub_theme::components_common.a11y.toggle_navigation.label') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -159,23 +159,23 @@
           {{-- Primary Menu --}}
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/it/tests/amministrazione">
-                <span>Amministrazione</span>
+              <a class="nav-link" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'amministrazione']) }}">
+                <span>{{ __('pub_theme::header.center.nav.amministrazione.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/it/tests/novita">
-                <span>Novità</span>
+              <a class="nav-link" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'novita']) }}">
+                <span>{{ __('pub_theme::header.center.nav.novita.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/it/tests/servizi">
-                <span>Servizi</span>
+              <a class="nav-link" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'servizi']) }}">
+                <span>{{ __('pub_theme::header.center.nav.servizi.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/it/tests/eventi">
-                <span>Vivere il Comune8</span>
+              <a class="nav-link" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'eventi']) }}">
+                <span>{{ __('pub_theme::header.center.nav.vivere.label') }}8</span>
               </a>
             </li>
           </ul>
@@ -184,22 +184,22 @@
           <ul class="navbar-nav navbar-secondary">
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span>Iscrizioni</span>
+                <span>{{ __('pub_theme::header.center.nav.iscrizioni.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span>Estate in città</span>
+                <span>{{ __('pub_theme::header.center.nav.estate.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span>Polizia locale</span>
+                <span>{{ __('pub_theme::header.center.nav.polizia.label') }}</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/it/tests/argomenti">
-                <span>Tutti gli argomenti</span>
+              <a class="nav-link" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'argomenti']) }}">
+                <span>{{ __('pub_theme::header.center.nav.argomenti.label') }}</span>
               </a>
             </li>
           </ul>
@@ -215,16 +215,16 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel">Cerca nel sito</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="searchModalLabel">{{ __('pub_theme::header.center.search.toggle_aria.label') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('pub_theme::components_common.actions.close_aria.label') }}"></button>
       </div>
       <div class="modal-body">
         <form action="#" method="get">
           <div class="mb-3">
-            <label for="search-input" class="form-label">Parola chiave</label>
-            <input type="text" class="form-control" id="search-input" placeholder="Cerca una parola chiave">
+            <label for="search-input" class="form-label">{{ __('pub_theme::components_search.fields.keyword.label') }}</label>
+            <input type="text" class="form-control" id="search-input" placeholder="{{ __('pub_theme::components_search.fields.keyword.placeholder') }}">
           </div>
-          <button type="submit" class="btn btn-primary">Cerca</button>
+          <button type="submit" class="btn btn-primary">{{ __('pub_theme::header.center.search.label') }}</button>
         </form>
       </div>
     </div>

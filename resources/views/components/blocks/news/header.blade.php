@@ -25,7 +25,7 @@
                 @if($reading_time)
                 <span class="text-muted small">
                     <x-filament::icon icon="heroicon-o-clock" class="w-4 h-4 inline me-1" />
-                    {{ $reading_time }} lettura
+                    {{ $reading_time }} {{ __('pub_theme::components_content.news.reading_time_suffix.label') }}
                 </span>
                 @endif
             </div>

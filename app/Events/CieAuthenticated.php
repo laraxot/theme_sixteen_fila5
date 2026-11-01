@@ -18,6 +18,12 @@ class CieAuthenticated
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< .merge_file_vVQcst
+=======
+    /**
+     * @param  array<string, mixed>  $cieAttributes
+     */
+>>>>>>> .merge_file_LZIAFB
     public function __construct(
         public User $user,
         public array $cieAttributes
@@ -92,6 +98,12 @@ class CieAuthenticated
     /**
      * Ottiene tutti gli attributi CIE ricevuti
      */
+<<<<<<< .merge_file_vVQcst
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> .merge_file_LZIAFB
     public function getCieAttributes(): array
     {
         return $this->cieAttributes;
@@ -99,6 +111,12 @@ class CieAuthenticated
 
     /**
      * Ottiene attributi specifici per logging sicuro
+<<<<<<< .merge_file_vVQcst
+=======
+     */
+    /**
+     * @return array<string, mixed>
+>>>>>>> .merge_file_LZIAFB
      */
     public function getLoggingData(): array
     {

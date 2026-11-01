@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Themes\Sixteen\Enums\MunicipalEventLocationTypeEnum;
+use Themes\Sixteen\Enums\MunicipalEventStatusEnum;
+use Themes\Sixteen\Enums\MunicipalEventTypeEnum;
 
 /**
  * Modello per gli eventi municipali (Municipal Event)
@@ -30,6 +33,7 @@ use Illuminate\Support\Str;
  * @property string|null $subcategory
  * @property int|null $organizational_unit_id
  * @property string|null $organizer
+<<<<<<< .merge_file_7dt9eB
  * @property array|null $co_organizers
  * @property string $event_status
  * @property string $visibility
@@ -42,11 +46,29 @@ use Illuminate\Support\Str;
  * @property bool $is_all_day
  * @property bool $is_recurring
  * @property array|null $recurrence_pattern
+=======
+ * @property array<array-key, mixed>|null $co_organizers
+ * @property string $event_status
+ * @property string $visibility
+ * @property array<array-key, mixed>|null $target_audience
+ * @property Carbon|null $start_date
+ * @property Carbon|null $end_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
+ * @property string|null $timezone
+ * @property bool $is_all_day
+ * @property bool $is_recurring
+ * @property array<array-key, mixed>|null $recurrence_pattern
+>>>>>>> .merge_file_NpgJe8
  * @property string $location_type
  * @property string|null $venue_name
  * @property string|null $address
  * @property string|null $room
+<<<<<<< .merge_file_7dt9eB
  * @property array|null $coordinates
+=======
+ * @property array<array-key, mixed>|null $coordinates
+>>>>>>> .merge_file_NpgJe8
  * @property string|null $online_url
  * @property string|null $streaming_url
  * @property bool $hybrid_mode
@@ -54,6 +76,7 @@ use Illuminate\Support\Str;
  * @property int $current_attendees
  * @property bool $registration_required
  * @property string|null $registration_url
+<<<<<<< .merge_file_7dt9eB
  * @property \Carbon\Carbon|null $registration_deadline
  * @property float|null $registration_cost
  * @property array|null $contact_info
@@ -71,17 +94,43 @@ use Illuminate\Support\Str;
  * @property array|null $related_events
  * @property array|null $tags
  * @property array|null $social_links
+=======
+ * @property Carbon|null $registration_deadline
+ * @property string|null $registration_cost
+ * @property array<array-key, mixed>|null $contact_info
+ * @property array<int, mixed>|null $speaker_info
+ * @property array<int, mixed>|null $agenda
+ * @property array<array-key, mixed>|null $materials
+ * @property array<int, mixed>|null $requirements
+ * @property array<array-key, mixed>|null $accessibility_info
+ * @property array<array-key, mixed>|null $transport_info
+ * @property array<array-key, mixed>|null $parking_info
+ * @property array<array-key, mixed>|null $catering_info
+ * @property string|null $image
+ * @property array<array-key, mixed>|null $gallery
+ * @property array<array-key, mixed>|null $documents
+ * @property array<array-key, mixed>|null $related_events
+ * @property array<array-key, mixed>|null $tags
+ * @property array<array-key, mixed>|null $social_links
+>>>>>>> .merge_file_NpgJe8
  * @property string|null $feedback_url
  * @property string|null $recording_url
  * @property bool $is_published
  * @property \Carbon\Carbon|null $published_at
  * @property bool $featured
  * @property int $priority_level
+<<<<<<< .merge_file_7dt9eB
  * @property array|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
+=======
+ * @property array<array-key, mixed>|null $metadata
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+>>>>>>> .merge_file_NpgJe8
  * @property-read string $event_type_name
  * @property-read string $event_status_name
  * @property-read string $location_type_name
@@ -103,6 +152,7 @@ class MunicipalEvent extends Model
 {
     use HasFactory, SoftDeletes;
 
+<<<<<<< .merge_file_7dt9eB
     /**
      * Tipologie di evento secondo AGID
      */
@@ -161,6 +211,8 @@ class MunicipalEvent extends Model
         'invite_only' => 'Solo su Invito',
     ];
 
+=======
+>>>>>>> .merge_file_NpgJe8
     protected $table = 'sixteen_municipal_events';
 
     protected $fillable = [
@@ -263,6 +315,11 @@ class MunicipalEvent extends Model
 
     /**
      * Relazione con l'unità organizzativa
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return BelongsTo<OrganizationalUnit, $this>
+>>>>>>> .merge_file_NpgJe8
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -271,6 +328,11 @@ class MunicipalEvent extends Model
 
     /**
      * Relazione con i punti di contatto
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return MorphMany<ContactPoint, $this>
+>>>>>>> .merge_file_NpgJe8
      */
     public function contacts(): MorphMany
     {
@@ -279,6 +341,11 @@ class MunicipalEvent extends Model
 
     /**
      * Relazione con le persone pubbliche (relatori, partecipanti)
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return BelongsToMany<PublicPerson, $this>
+>>>>>>> .merge_file_NpgJe8
      */
     public function participants(): BelongsToMany
     {
@@ -290,6 +357,11 @@ class MunicipalEvent extends Model
 
     /**
      * Relazione con i relatori
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return BelongsToMany<PublicPerson, $this>
+>>>>>>> .merge_file_NpgJe8
      */
     public function speakers(): BelongsToMany
     {
@@ -299,7 +371,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi pubblicati
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopePublished($query)
+=======
+    public function scopePublished(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('is_published', true)
             ->where('published_at', '<=', now());
@@ -308,7 +384,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi pubblici
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopePublic($query)
+=======
+    public function scopePublic(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('visibility', 'public');
     }
@@ -316,7 +396,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi futuri
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopeUpcoming($query)
+=======
+    public function scopeUpcoming(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('start_date', '>=', now()->toDateString())
             ->where('event_status', '!=', 'cancelled');
@@ -325,7 +409,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi passati
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopePast($query)
+=======
+    public function scopePast(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('end_date', '<', now()->toDateString())
             ->orWhere(function ($q): void {
@@ -337,7 +425,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi in corso
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopeOngoing($query)
+=======
+    public function scopeOngoing(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         $today = now()->toDateString();
 
@@ -352,7 +444,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per tipologia di evento
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopeOfType($query, string $type)
+=======
+    public function scopeOfType(Builder $query, string $type): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('event_type', $type);
     }
@@ -360,7 +456,11 @@ class MunicipalEvent extends Model
     /**
      * Scope per eventi in evidenza
      */
+<<<<<<< .merge_file_7dt9eB
     public function scopeFeatured($query)
+=======
+    public function scopeFeatured(Builder $query): Builder
+>>>>>>> .merge_file_NpgJe8
     {
         return $query->where('featured', true);
     }
@@ -379,11 +479,20 @@ class MunicipalEvent extends Model
      */
     public function getStartDateTime(): Carbon
     {
+<<<<<<< .merge_file_7dt9eB
+=======
+        $startDate = $this->start_date ?? Carbon::now();
+
+>>>>>>> .merge_file_NpgJe8
         if ($this->is_all_day) {
             return $this->start_date->startOfDay();
         }
 
+<<<<<<< .merge_file_7dt9eB
         return $this->start_time ?: $this->start_date->startOfDay();
+=======
+        return $this->start_time ?: $startDate->startOfDay();
+>>>>>>> .merge_file_NpgJe8
     }
 
     /**
@@ -392,7 +501,15 @@ class MunicipalEvent extends Model
     public function getEndDateTime(): ?Carbon
     {
         if ($this->is_all_day) {
+<<<<<<< .merge_file_7dt9eB
             return $this->end_date ? $this->end_date->endOfDay() : $this->start_date->endOfDay();
+=======
+            if ($this->end_date) {
+                return $this->end_date->endOfDay();
+            }
+
+            return $this->start_date?->endOfDay();
+>>>>>>> .merge_file_NpgJe8
         }
 
         return $this->end_time;
@@ -403,10 +520,14 @@ class MunicipalEvent extends Model
      */
     public function getFormattedDateTime(): string
     {
+<<<<<<< .merge_file_7dt9eB
         if ($this->is_all_day) {
             if ($this->end_date && ! $this->start_date->isSameDay($this->end_date)) {
                 return $this->start_date->format('d/m/Y').' - '.$this->end_date->format('d/m/Y');
             }
+=======
+        $startDate = $this->start_date;
+>>>>>>> .merge_file_NpgJe8
 
             return $this->start_date->format('d/m/Y').' (tutto il giorno)';
         }
@@ -430,6 +551,11 @@ class MunicipalEvent extends Model
 
     /**
      * Ottiene l'agenda formattata
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return array<int|string, mixed>
+>>>>>>> .merge_file_NpgJe8
      */
     public function getFormattedAgenda(): array
     {
@@ -437,8 +563,13 @@ class MunicipalEvent extends Model
             return [];
         }
 
+<<<<<<< .merge_file_7dt9eB
         return collect($this->agenda)
             ->map(function ($item, $index) {
+=======
+        return collect($agenda)
+            ->map(function (mixed $item, int $index): mixed {
+>>>>>>> .merge_file_NpgJe8
                 if (is_string($item)) {
                     return [
                         'time' => null,
@@ -458,6 +589,11 @@ class MunicipalEvent extends Model
 
     /**
      * Ottiene i relatori formattati
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return array<int|string, mixed>
+>>>>>>> .merge_file_NpgJe8
      */
     public function getFormattedSpeakers(): array
     {
@@ -465,8 +601,13 @@ class MunicipalEvent extends Model
             return [];
         }
 
+<<<<<<< .merge_file_7dt9eB
         return collect($this->speaker_info)
             ->map(function ($speaker) {
+=======
+        return collect($speakerInfo)
+            ->map(function (mixed $speaker): mixed {
+>>>>>>> .merge_file_NpgJe8
                 if (is_string($speaker)) {
                     return ['name' => $speaker];
                 }
@@ -478,6 +619,11 @@ class MunicipalEvent extends Model
 
     /**
      * Ottiene i requisiti di partecipazione
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return array<int|string, mixed>
+>>>>>>> .merge_file_NpgJe8
      */
     public function getFormattedRequirements(): array
     {
@@ -485,8 +631,13 @@ class MunicipalEvent extends Model
             return [];
         }
 
+<<<<<<< .merge_file_7dt9eB
         return collect($this->requirements)
             ->map(function ($requirement) {
+=======
+        return collect($requirements)
+            ->map(function (mixed $requirement): mixed {
+>>>>>>> .merge_file_NpgJe8
                 if (is_string($requirement)) {
                     return ['description' => $requirement, 'mandatory' => true];
                 }
@@ -521,11 +672,20 @@ class MunicipalEvent extends Model
      */
     public function isFree(): bool
     {
+<<<<<<< .merge_file_7dt9eB
         return ! $this->registration_cost || $this->registration_cost === 0;
+=======
+        return $this->registration_cost === null || (float) $this->registration_cost === 0.0;
+>>>>>>> .merge_file_NpgJe8
     }
 
     /**
      * Ottiene informazioni complete sull'evento
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return array<string, mixed>
+>>>>>>> .merge_file_NpgJe8
      */
     public function getEventDetails(): array
     {
@@ -575,47 +735,85 @@ class MunicipalEvent extends Model
 
     /**
      * Accessor per il nome del tipo di evento
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function eventTypeName(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::EVENT_TYPES[$this->event_type] ?? $this->event_type
+            get: fn () => MunicipalEventTypeEnum::tryFrom($this->event_type)?->getLabel() ?? $this->event_type
         );
     }
 
     /**
      * Accessor per il nome dello stato
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function eventStatusName(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::EVENT_STATUSES[$this->event_status] ?? $this->event_status
+            get: fn () => MunicipalEventStatusEnum::tryFrom($this->event_status)?->getLabel() ?? $this->event_status
         );
     }
 
     /**
      * Accessor per il nome del tipo di location
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function locationTypeName(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::LOCATION_TYPES[$this->location_type] ?? $this->location_type
+            get: fn () => MunicipalEventLocationTypeEnum::tryFrom($this->location_type)?->getLabel() ?? $this->location_type
         );
     }
 
     /**
      * Accessor per verificare se l'evento è futuro
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function isUpcoming(): Attribute
     {
         return Attribute::make(
+<<<<<<< .merge_file_7dt9eB
             get: fn () => $this->start_date->isFuture() ||
                 ($this->start_date->isToday() && $this->start_time?->isFuture())
+=======
+            get: function (): bool {
+                $startDate = $this->start_date;
+
+                if ($startDate === null) {
+                    return false;
+                }
+
+                return $startDate->isFuture() ||
+                    ($startDate->isToday() && ($this->start_time?->isFuture() ?? false));
+            }
+>>>>>>> .merge_file_NpgJe8
         );
     }
 
     /**
      * Accessor per verificare se l'evento è in corso
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function isOngoing(): Attribute
     {
@@ -634,6 +832,11 @@ class MunicipalEvent extends Model
 
     /**
      * Accessor per verificare se l'evento è passato
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function isPast(): Attribute
     {
@@ -641,13 +844,26 @@ class MunicipalEvent extends Model
             get: function () {
                 $endDateTime = $this->getEndDateTime();
 
+<<<<<<< .merge_file_7dt9eB
                 return $endDateTime ? $endDateTime->isPast() : $this->start_date->isPast();
+=======
+                if ($endDateTime !== null) {
+                    return $endDateTime->isPast();
+                }
+
+                return $this->start_date !== null && $this->start_date->isPast();
+>>>>>>> .merge_file_NpgJe8
             }
         );
     }
 
     /**
      * Accessor per verificare se l'evento è cancellato
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function isCancelled(): Attribute
     {
@@ -658,6 +874,11 @@ class MunicipalEvent extends Model
 
     /**
      * Accessor per verificare se ha posti disponibili
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<bool, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function hasAvailableSpots(): Attribute
     {
@@ -668,6 +889,11 @@ class MunicipalEvent extends Model
 
     /**
      * Accessor per i posti rimanenti
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<int|null, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function availableSpots(): Attribute
     {
@@ -678,6 +904,11 @@ class MunicipalEvent extends Model
 
     /**
      * Accessor per la durata dell'evento
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string|null, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function duration(): Attribute
     {
@@ -685,7 +916,11 @@ class MunicipalEvent extends Model
             get: function () {
                 if ($this->is_all_day) {
                     return $this->end_date
+<<<<<<< .merge_file_7dt9eB
                         ? $this->start_date->diffInDays($this->end_date) + 1 .' giorni'
+=======
+                        ? $startDate->diffInDays($this->end_date) + 1 .' giorni'
+>>>>>>> .merge_file_NpgJe8
                         : '1 giorno';
                 }
 
@@ -701,12 +936,22 @@ class MunicipalEvent extends Model
 
                     return "{$diff}m";
                 }
+<<<<<<< .merge_file_7dt9eB
+=======
+
+                return null;
+>>>>>>> .merge_file_NpgJe8
             }
         );
     }
 
     /**
      * Accessor per l'URL dell'evento
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string, never>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function url(): Attribute
     {
@@ -717,11 +962,20 @@ class MunicipalEvent extends Model
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
+<<<<<<< .merge_file_7dt9eB
+=======
+     *
+     * @return Attribute<string, string>
+>>>>>>> .merge_file_NpgJe8
      */
     protected function title(): Attribute
     {
         return Attribute::make(
+<<<<<<< .merge_file_7dt9eB
             set: function ($value) {
+=======
+            set: function (string $value): string {
+>>>>>>> .merge_file_NpgJe8
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -740,14 +994,22 @@ class MunicipalEvent extends Model
         parent::boot();
 
         // Genera slug se mancante
+<<<<<<< .merge_file_7dt9eB
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_NpgJe8
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
+<<<<<<< .merge_file_7dt9eB
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_NpgJe8
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -758,7 +1020,11 @@ class MunicipalEvent extends Model
         });
 
         // Set default values
+<<<<<<< .merge_file_7dt9eB
         static::creating(function ($model): void {
+=======
+        static::creating(function (self $model): void {
+>>>>>>> .merge_file_NpgJe8
             if (is_null($model->event_status)) {
                 $model->event_status = 'scheduled';
             }

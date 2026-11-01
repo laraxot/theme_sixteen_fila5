@@ -18,6 +18,12 @@ class SpidLoggedOut
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< .merge_file_MNBrP8
+=======
+    /**
+     * @param  array<array-key, mixed>  $spidAttributes
+     */
+>>>>>>> .merge_file_30EqC3
     public function __construct(
         public User $user,
         public array $spidAttributes
@@ -46,6 +52,12 @@ class SpidLoggedOut
     /**
      * Ottiene attributi specifici per logging sicuro
      */
+<<<<<<< .merge_file_MNBrP8
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> .merge_file_30EqC3
     public function getLoggingData(): array
     {
         return [

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Theme - Product Roadmap
 
 ## Overview
@@ -32,6 +44,7 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
    - Add database query optimization
    - Create performance monitoring
 
+<<<<<<< .merge_file_KbqScd
 ### Phase 2: Feature Enhancement (Q2 2026)
 **Duration**: April - June 2026
 **Objective**: Add advanced features and improve user experience
@@ -133,3 +146,13 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
 ---
 
 *This roadmap will be reviewed and updated quarterly based on feedback and changing requirements.*
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_ch7d05

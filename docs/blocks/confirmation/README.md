@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Confirmation Block - Appointment Confirmation
 
 > *"La conferma è l'ultimo passo. Deve essere chiaro, rassicurante, completo."*
@@ -380,6 +392,7 @@ p-6                   /* Padding: 1.5rem */
 - [Bootstrap Italia Alert](https://italia.github.io/bootstrap-italia/docs/componenti/alert/)
 - [Bootstrap Italia Steppers](https://italia.github.io/bootstrap-italia/docs/componenti/steppers/)
 
+<<<<<<< .merge_file_eTmmFv
 ### Internal
 - [Blocks Structure Convention](./BLOCKS_STRUCTURE_CONVENTION.md)
 - [Bootstrap Italia Tailwind Conversion](./BOOTSTRAP_ITALIA_TAILWIND_CONVERSION.md)
@@ -390,3 +403,13 @@ p-6                   /* Padding: 1.5rem */
 **Date**: 2026-03-30  
 **Status**: ✅ Ready to Use  
 **OpenViking URI**: `viking://themes/sixteen/docs/blocks/confirmation`
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_e2jUgE

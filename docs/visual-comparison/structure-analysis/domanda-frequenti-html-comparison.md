@@ -1,3 +1,15 @@
+---
+title: "domanda frequenti html comparison"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "domanda frequenti html comparison"
+issues: []
+discussions: []
+status: draft
+---
+
 # HTML Structure Comparison: domanda-frequenti
 
 **Generated**: 2026-04-05T07:51:24.370Z
@@ -5,7 +17,6 @@
 **Local**: http://127.0.0.1:8000/it/tests/domanda-frequenti
 
 ---
-
 ## Summary
 
 | Metric | Reference | Local | Difference |
@@ -72,5 +83,5 @@ Based on the comparison:
 
 **Related Docs**:
 - [Visual Parity Report](../screenshots/VISUAL-PARITY-REPORT.md)
-- [CSS/JS Plan](../design-comuni-html-match-css-js-plan.md)
+- [CSS/JS Plan](../../design-comuni-html-match-css-js-plan.md)
 - [Screenshot Tools](../../../../bashscripts/docs/SCREENSHOT-TOOLS.md)

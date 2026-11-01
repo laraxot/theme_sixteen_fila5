@@ -1,3 +1,21 @@
+<<<<<<< .merge_file_PVXwnH
+=======
+---
+created: 2026-09-26
+qmd: "ai handoff"
+issues: []
+discussions: []
+title: ai handoff — Theme Sixteen
+type: handoff
+tags: [theme, sixteen, pest, data-sacred]
+updated: 2026-08-31
+related:
+  - ../../../Modules/Xot/docs/ai-handoff.md
+  - ../../../../docs/wiki/rules/data-sacred-no-destructive-db.md
+status: draft
+---
+
+>>>>>>> .merge_file_frqb7z
 # ai handoff
 
 ## regole non negoziabili

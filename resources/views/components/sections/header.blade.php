@@ -2,6 +2,6 @@
     Header Section Component
     Bootstrap Italia Exact Header
 --}}
-@props(['data' => []])
+@props(['blocks' => [], 'data' => []])
 
-<x-bootstrap-italia.header />
+@include('pub_theme::components.sections.header.v1', ['blocks' => $blocks])
