@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\View\Components;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 use Modules\Cms\Datas\BlockData;
 use Modules\Cms\Models\Page as PageModel;
 
@@ -16,15 +16,7 @@ class Page extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param  array<string, mixed>  $data
      */
-<<<<<<< HEAD
-=======
-    /**
-     * @param  array<string, mixed>  $data
-     */
->>>>>>> 464cfc5 (.)
     public function __construct(
         public string $side = 'content',
         public string $slug = '',
@@ -40,7 +32,7 @@ class Page extends Component
      */
     public function render(): View
     {
-        return view()->make('pub_theme::components.page', [
+        return view('pub_theme::components.page', [
             'side' => $this->side,
             'slug' => $this->slug,
             'data' => $this->data,
