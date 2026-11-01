@@ -20,20 +20,8 @@ class BuildingSixteenMenu
     public function __construct(
         public MenuBuilderAction $menuBuilder,
         public string $location
-<<<<<<< HEAD
-    ) {}
-=======
-<<<<<<< HEAD
-<<<<<<< .merge_file_QBpwrb
-    ) {}
-=======
     ) {
     }
->>>>>>> .merge_file_LpvRCl
-=======
-    ) {}
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
 
     /**
      * Aggiunge elementi al menu corrente in base alla location
@@ -45,7 +33,7 @@ class BuildingSixteenMenu
             'header' => $this->menuBuilder->addHeader($items),
             'footer' => $this->menuBuilder->addFooter($items),
             'footer_bar' => $this->menuBuilder->addFooterBar($items),
-            default => throw new \InvalidArgumentException("Unknown menu location: {$this->location}")
+            default => throw new \InvalidArgumentException("Unknown menu location: {$this->location}"),
         };
     }
 

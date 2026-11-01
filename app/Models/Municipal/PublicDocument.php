@@ -4,34 +4,14 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-=======
-<<<<<<< HEAD
->>>>>>> 9e18142 (.)
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-=======
-use function Safe\filesize;
-use function Safe\hash_file;
-
-use Illuminate\Database\Eloquent\Builder;
-use Themes\Sixteen\Support\FrontofficeUrl;
-
-use Illuminate\Database\Eloquent\Casts\Attribute;
->>>>>>> 464cfc5 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-
-use function Safe\filesize;
-use function Safe\hash_file;
 
 /**
  * Modello per i documenti pubblici (Public Document)
@@ -58,22 +38,14 @@ use function Safe\hash_file;
  * @property string|null $legal_status
  * @property string|null $classification_code
  * @property string|null $subject_matter
-<<<<<<< HEAD
- * @property array<array-key, mixed>|null $keywords
-=======
-<<<<<<< HEAD
  * @property array|null $keywords
-=======
- * @property array<string, mixed>|null $keywords
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
  * @property string|null $language
- * @property Carbon|null $document_date
- * @property Carbon|null $approval_date
- * @property Carbon|null $publication_date
- * @property Carbon|null $effective_date
- * @property Carbon|null $expiry_date
- * @property Carbon|null $review_date
+ * @property \Carbon\Carbon|null $document_date
+ * @property \Carbon\Carbon|null $approval_date
+ * @property \Carbon\Carbon|null $publication_date
+ * @property \Carbon\Carbon|null $effective_date
+ * @property \Carbon\Carbon|null $expiry_date
+ * @property \Carbon\Carbon|null $review_date
  * @property string|null $file_path
  * @property string|null $file_name
  * @property int|null $file_size
@@ -82,50 +54,23 @@ use function Safe\hash_file;
  * @property string|null $original_format
  * @property string|null $accessible_format
  * @property string|null $signed_version
-<<<<<<< HEAD
- * @property array<array-key, mixed>|null $attachments
- * @property array<array-key, mixed>|null $versions
- * @property array<array-key, mixed>|null $related_documents
- * @property array<array-key, mixed>|null $legislative_references
- * @property array<array-key, mixed>|null $administrative_references
-=======
-<<<<<<< HEAD
  * @property array|null $attachments
  * @property array|null $versions
  * @property array|null $related_documents
  * @property array|null $legislative_references
  * @property array|null $administrative_references
-=======
- * @property array<string, mixed>|null $attachments
- * @property array<string, mixed>|null $versions
- * @property array<string, mixed>|null $related_documents
- * @property array<string, mixed>|null $legislative_references
- * @property array<string, mixed>|null $administrative_references
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
  * @property string|null $transparency_section
  * @property string|null $access_rights
  * @property string $privacy_level
  * @property int|null $retention_period
-<<<<<<< HEAD
- * @property Carbon|null $disposal_date
- * @property array<array-key, mixed>|null $digital_signature
- * @property array<array-key, mixed>|null $timestamp
-=======
  * @property \Carbon\Carbon|null $disposal_date
-<<<<<<< HEAD
  * @property array|null $digital_signature
  * @property array|null $timestamp
-=======
- * @property array<string, mixed>|null $digital_signature
- * @property array<string, mixed>|null $timestamp
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
  * @property bool $accessibility_compliance
  * @property bool $format_compliance
  * @property bool $metadata_compliance
  * @property int $download_count
- * @property Carbon|null $last_accessed
+ * @property \Carbon\Carbon|null $last_accessed
  * @property string|null $checksum
  * @property bool $is_published
  * @property bool $is_active
@@ -133,54 +78,21 @@ use function Safe\hash_file;
  * @property bool $is_downloadable
  * @property bool $requires_authentication
  * @property string $visibility_level
-<<<<<<< HEAD
- * @property array<array-key, mixed>|null $metadata
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Carbon|null $deleted_at
-=======
-<<<<<<< HEAD
  * @property array|null $metadata
-=======
- * @property array<string, mixed>|null $metadata
->>>>>>> 464cfc5 (.)
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
  *
->>>>>>> 9e18142 (.)
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read PublicPerson|null $author
  * @property-read MunicipalService|null $service
- * @property-read Collection<int, ContactPoint> $contacts
- * @property-read Collection<int, PublicPerson> $people
- * @property-read string $document_type_name
- * @property-read string $document_status_name
- * @property-read string $publication_status_name
- * @property-read string $privacy_level_name
- * @property-read bool $is_expired
- * @property-read bool $is_effective
- * @property-read bool $needs_review
- * @property-read string|null $formatted_file_size
- * @property-read string $url
- * @property-read string|null $download_url
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  */
-<<<<<<< HEAD
 class PublicDocument extends Model
 {
-    /** @use HasFactory<Factory<self>> */
     use HasFactory, SoftDeletes;
 
     /**
-=======
-class PublicDocument extends MunicipalBaseModel
-{
-    use SoftDeletes;
-
-    /**
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
->>>>>>> 464cfc5 (.)
      * Tipologie di documento secondo AGID
      */
     public const DOCUMENT_TYPES = [
@@ -352,55 +264,40 @@ class PublicDocument extends MunicipalBaseModel
         'metadata',
     ];
 
-    /**
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'document_date' => 'date',
-            'approval_date' => 'date',
-            'publication_date' => 'date',
-            'effective_date' => 'date',
-            'expiry_date' => 'date',
-            'review_date' => 'date',
-            'disposal_date' => 'date',
-            'last_accessed' => 'datetime',
-            'file_size' => 'integer',
-            'download_count' => 'integer',
-            'retention_period' => 'integer',
-            'is_published' => 'boolean',
-            'is_active' => 'boolean',
-            'is_searchable' => 'boolean',
-            'is_downloadable' => 'boolean',
-            'requires_authentication' => 'boolean',
-            'accessibility_compliance' => 'boolean',
-            'format_compliance' => 'boolean',
-            'metadata_compliance' => 'boolean',
-            'keywords' => 'json',
-            'attachments' => 'json',
-            'versions' => 'json',
-            'related_documents' => 'json',
-            'legislative_references' => 'json',
-            'administrative_references' => 'json',
-            'access_rights' => 'json',
-            'digital_signature' => 'json',
-            'timestamp' => 'json',
-            'metadata' => 'json',
-        ];
-    }
+    protected $casts = [
+        'document_date' => 'date',
+        'approval_date' => 'date',
+        'publication_date' => 'date',
+        'effective_date' => 'date',
+        'expiry_date' => 'date',
+        'review_date' => 'date',
+        'disposal_date' => 'date',
+        'last_accessed' => 'datetime',
+        'file_size' => 'integer',
+        'download_count' => 'integer',
+        'retention_period' => 'integer',
+        'is_published' => 'boolean',
+        'is_active' => 'boolean',
+        'is_searchable' => 'boolean',
+        'is_downloadable' => 'boolean',
+        'requires_authentication' => 'boolean',
+        'accessibility_compliance' => 'boolean',
+        'format_compliance' => 'boolean',
+        'metadata_compliance' => 'boolean',
+        'keywords' => 'json',
+        'attachments' => 'json',
+        'versions' => 'json',
+        'related_documents' => 'json',
+        'legislative_references' => 'json',
+        'administrative_references' => 'json',
+        'access_rights' => 'json',
+        'digital_signature' => 'json',
+        'timestamp' => 'json',
+        'metadata' => 'json',
+    ];
 
     /**
-<<<<<<< HEAD
      * Relazione con l'unità organizzativa
-<<<<<<< HEAD
-     *
-     * @return BelongsTo<OrganizationalUnit, $this>
-=======
-=======
-     * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -408,16 +305,7 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con l'autore
-<<<<<<< HEAD
-     *
-     * @return BelongsTo<PublicPerson, $this>
-=======
-=======
-     * @return BelongsTo<PublicPerson, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function author(): BelongsTo
     {
@@ -425,16 +313,7 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con il servizio correlato
-<<<<<<< HEAD
-     *
-     * @return BelongsTo<MunicipalService, $this>
-=======
-=======
-     * @return BelongsTo<MunicipalService, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function service(): BelongsTo
     {
@@ -442,16 +321,7 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con i punti di contatto
-<<<<<<< HEAD
-     *
-     * @return MorphMany<ContactPoint, $this>
-=======
-=======
-     * @return MorphMany<ContactPoint, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function contacts(): MorphMany
     {
@@ -459,16 +329,7 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con le persone correlate
-<<<<<<< HEAD
-     *
-     * @return BelongsToMany<PublicPerson, $this>
-=======
-=======
-     * @return BelongsToMany<PublicPerson, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function people(): BelongsToMany
     {
@@ -479,24 +340,9 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti pubblicati
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopePublished(Builder $query): Builder
-=======
     public function scopePublished($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti pubblicati
-     */
-    public function scopePublished(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('is_published', true)
             ->where('publication_date', '<=', now())
@@ -504,231 +350,88 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti attivi
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeActive(Builder $query): Builder
-=======
     public function scopeActive($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti attivi
-     */
-    public function scopeActive(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('is_active', true)
-            ->where(function (Builder $q): void {
+            ->where(function ($q): void {
                 $q->whereNull('expiry_date')
                     ->orWhere('expiry_date', '>', now());
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti ricercabili
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeSearchable(Builder $query): Builder
-=======
     public function scopeSearchable($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti ricercabili
-     */
-    public function scopeSearchable(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('is_searchable', true);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per tipologia di documento
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeOfType(Builder $query, string $type): Builder
-=======
     public function scopeOfType($query, string $type)
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per tipologia di documento
-     */
-    public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('document_type', $type);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per sezione di trasparenza
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeInTransparencySection(Builder $query, string $section): Builder
-=======
     public function scopeInTransparencySection($query, string $section)
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per sezione di trasparenza
-     */
-    public function scopeInTransparencySection(Builder $query, string $section): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('transparency_section', $section);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per documenti in vigore
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeEffective(Builder $query): Builder
-=======
     public function scopeEffective($query)
-=======
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope per documenti in vigore
-     */
-    public function scopeEffective(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('document_status', 'effective')
-            ->where(function (Builder $q): void {
+            ->where(function ($q): void {
                 $q->whereNull('effective_date')
                     ->orWhere('effective_date', '<=', now());
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope ordinati per data
-     *
-     * @param  Builder<static>  $query
-     * @param  'asc'|'desc'  $direction
-     * @return Builder<static>
      */
-    public function scopeOrdered(Builder $query, string $field = 'document_date', string $direction = 'desc'): Builder
+    public function scopeOrdered($query, string $field = 'document_date', string $direction = 'desc')
     {
         return $query->orderBy($field, $direction);
-=======
-     *
-     * @param  Builder<PublicDocument>  $query
-     * @return Builder<PublicDocument>
-     * Scope ordinati per data
-     */
-    public function scopeOrdered(Builder $query, string $field = 'document_date', string $direction = 'desc'): Builder
-    {
-        $dir = in_array($direction, ['asc', 'desc'], true) ? $direction : 'desc';
-
-        return $query->orderBy($field, $dir);
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene le parole chiave formattate
-<<<<<<< HEAD
-     *
-     * @return array<int|string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedKeywords(): array
     {
-        $keywords = $this->keywords;
-
-        if (! is_array($keywords)) {
+        if (! $this->keywords || ! is_array($this->keywords)) {
             return [];
         }
 
-<<<<<<< HEAD
-        return collect($keywords)
-            ->map(function (mixed $keyword): mixed {
-=======
-<<<<<<< HEAD
         return collect($this->keywords)
             ->map(function ($keyword) {
->>>>>>> 9e18142 (.)
                 return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
             })
             ->toArray();
-=======
-        $formatted = collect($this->keywords)
-            ->map(function ($keyword) {
-                return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
-            })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene gli allegati formattati
-<<<<<<< HEAD
-     *
-     * @return array<int|string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedAttachments(): array
     {
-        $attachments = $this->attachments;
-
-        if (! is_array($attachments)) {
+        if (! $this->attachments || ! is_array($this->attachments)) {
             return [];
         }
 
-<<<<<<< HEAD
-        return collect($attachments)
-            ->map(function (mixed $attachment): mixed {
-=======
-<<<<<<< HEAD
         return collect($this->attachments)
-=======
-        $formatted = collect($this->attachments)
->>>>>>> 464cfc5 (.)
             ->map(function ($attachment) {
->>>>>>> 9e18142 (.)
                 if (is_string($attachment)) {
                     return [
                         'path' => $attachment,
@@ -738,76 +441,26 @@ class PublicDocument extends MunicipalBaseModel
                     ];
                 }
 
-<<<<<<< HEAD
-                if (! is_array($attachment)) {
-                    return $attachment;
-                }
-
-                $path = $attachment['path'] ?? null;
-
-=======
-<<<<<<< HEAD
->>>>>>> 9e18142 (.)
                 return array_merge([
-                    'url' => is_string($path) ? asset('storage/'.$path) : null,
+                    'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
                 ], $attachment);
             })
             ->toArray();
-=======
-                return is_array($attachment)
-                    ? array_merge([
-                        'url' => isset($attachment['path']) && is_string($attachment['path'])
-                            ? asset('storage/'.$attachment['path'])
-                            : null,
-                    ], $attachment)
-                    : [];
-            })
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene le versioni del documento
-<<<<<<< HEAD
-     *
-     * @return array<int|string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedVersions(): array
     {
-        $versions = $this->versions;
-
-        if (! is_array($versions)) {
+        if (! $this->versions || ! is_array($this->versions)) {
             return [];
         }
 
-<<<<<<< HEAD
-        return collect($versions)
-            ->map(function (mixed $version, int|string $index): array {
-                return array_merge([
-                    'version' => (is_int($index) ? $index : 0) + 1,
-=======
-<<<<<<< HEAD
         return collect($this->versions)
             ->map(function ($version, $index) {
                 return array_merge([
                     'version' => $index + 1,
-=======
-        $formatted = collect($this->versions)
-            ->map(function (mixed $version, int|string $index): array {
-                return array_merge([
-                    'version' => (int) $index + 1,
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
                     'date' => null,
                     'changes' => null,
                     'file' => null,
@@ -815,62 +468,27 @@ class PublicDocument extends MunicipalBaseModel
             })
             ->sortByDesc('version')
             ->values()
-<<<<<<< HEAD
             ->toArray();
-=======
-            ->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene i riferimenti normativi formattati
-<<<<<<< HEAD
-     *
-     * @return array<int|string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedLegislativeReferences(): array
     {
-        $references = $this->legislative_references;
-
-        if (! is_array($references)) {
+        if (! $this->legislative_references || ! is_array($this->legislative_references)) {
             return [];
         }
 
-<<<<<<< HEAD
-        return collect($references)
-            ->map(function (mixed $reference): mixed {
-=======
-<<<<<<< HEAD
         return collect($this->legislative_references)
-=======
-        $formatted = collect($this->legislative_references)
->>>>>>> 464cfc5 (.)
             ->map(function ($reference) {
->>>>>>> 9e18142 (.)
                 if (is_string($reference)) {
                     return ['title' => $reference];
                 }
 
                 return $reference;
             })
-<<<<<<< HEAD
             ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -908,25 +526,11 @@ class PublicDocument extends MunicipalBaseModel
             return false;
         }
 
-<<<<<<< HEAD
         return hash_file('sha256', $filePath) === $this->checksum;
-=======
-        return is_string($this->checksum) && hash_file('sha256', $filePath) === $this->checksum;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Verifica la compliance AGID
-<<<<<<< HEAD
-     *
-     * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function checkAgidCompliance(): array
     {
@@ -957,37 +561,10 @@ class PublicDocument extends MunicipalBaseModel
     }
 
     /**
-     * Ottiene il nome completo dell'autore, se presente
-     */
-    protected function authorFullName(): ?string
-    {
-        if ($this->author === null) {
-            return null;
-        }
-
-        return trim($this->author->first_name.' '.$this->author->last_name);
-    }
-
-    /**
      * Ottiene i dati strutturati per SEO
-<<<<<<< HEAD
-     *
-     * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getStructuredData(): array
     {
-        $keywords = $this->keywords;
-        $keywordNames = is_array($keywords)
-            ? array_map(static fn (mixed $keyword): string => is_array($keyword) && is_string($keyword['name'] ?? null) ? $keyword['name'] : (is_scalar($keyword) ? (string) $keyword : ''), $keywords)
-            : [];
-
         return [
             '@context' => 'https://schema.org',
             '@type' => 'DigitalDocument',
@@ -995,47 +572,18 @@ class PublicDocument extends MunicipalBaseModel
             'description' => $this->description,
             'dateCreated' => $this->document_date?->toISOString(),
             'datePublished' => $this->publication_date?->toISOString(),
-<<<<<<< HEAD
-            'dateModified' => $this->updated_at?->toISOString(),
-=======
-<<<<<<< HEAD
             'dateModified' => $this->updated_at->toISOString(),
-=======
-            'dateModified' => $this->updated_at?->toISOString(),
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             'author' => [
                 '@type' => 'Person',
-                'name' => $this->authorFullName(),
+                'name' => $this->author?->full_name,
             ],
             'publisher' => [
                 '@type' => 'Organization',
-<<<<<<< HEAD
-                'name' => $this->organizationalUnit?->getAttribute('name') ?? 'Comune',
-            ],
-            'encodingFormat' => $this->file_type,
-            'contentSize' => $this->formatted_file_size,
-            'keywords' => $keywordNames !== [] ? implode(', ', $keywordNames) : null,
-=======
-<<<<<<< HEAD
                 'name' => $this->organizationalUnit?->name ?? 'Comune',
             ],
             'encodingFormat' => $this->file_type,
             'contentSize' => $this->formatted_file_size,
             'keywords' => is_array($this->keywords) ? implode(', ', array_column($this->keywords, 'name')) : null,
-=======
-                'name' => $this->organizationalUnit->name ?? 'Comune',
-            ],
-            'encodingFormat' => $this->file_type,
-            'contentSize' => $this->formatted_file_size,
-            'keywords' => is_array($this->keywords)
-                ? implode(', ', array_map(
-                    static fn (mixed $name): string => (string) $name,
-                    array_column($this->keywords, 'name')
-                ))
-                : null,
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             'inLanguage' => $this->language ?? 'it',
             'isAccessibleForFree' => true,
             'license' => 'https://creativecommons.org/licenses/by/4.0/',
@@ -1044,16 +592,6 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Ottiene le informazioni complete del documento
-<<<<<<< HEAD
-     *
-     * @return array<string, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<string, mixed>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getDocumentDetails(): array
     {
@@ -1091,9 +629,9 @@ class PublicDocument extends MunicipalBaseModel
                 'keywords' => $this->getFormattedKeywords(),
             ],
             'relationships' => [
-                'author' => $this->authorFullName(),
-                'organizational_unit' => $this->organizationalUnit?->getAttribute('name'),
-                'service' => $this->service?->getAttribute('name'),
+                'author' => $this->author?->full_name,
+                'organizational_unit' => $this->organizationalUnit?->name,
+                'service' => $this->service?->name,
                 'attachments' => $this->getFormattedAttachments(),
                 'versions' => $this->getFormattedVersions(),
             ],
@@ -1103,121 +641,61 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del tipo di documento
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function documentTypeName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
+            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
         );
     }
 
     /**
      * Accessor per il nome dello stato
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function documentStatusName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
+            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
         );
     }
 
     /**
      * Accessor per il nome dello stato di pubblicazione
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function publicationStatusName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
+            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
         );
     }
 
     /**
      * Accessor per il nome del livello di privacy
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function privacyLevelName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
+            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
         );
     }
 
     /**
      * Accessor per verificare se è scaduto
-<<<<<<< HEAD
-     *
-     * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function isExpired(): Attribute
     {
         return Attribute::make(
-            get: fn (): bool => (bool) ($this->expiry_date && $this->expiry_date->isPast())
+            get: fn () => $this->expiry_date && $this->expiry_date->isPast()
         );
     }
 
     /**
      * Accessor per verificare se è in vigore
-<<<<<<< HEAD
-     *
-     * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function isEffective(): Attribute
     {
         return Attribute::make(
-            get: function (): bool {
+            get: function () {
                 if ($this->document_status !== 'effective') {
                     return false;
                 }
@@ -1237,55 +715,23 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se necessita revisione
-<<<<<<< HEAD
-     *
-     * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function needsReview(): Attribute
     {
         return Attribute::make(
-            get: fn (): bool => (bool) ($this->review_date && $this->review_date->isPast())
+            get: fn () => $this->review_date && $this->review_date->isPast()
         );
     }
 
     /**
      * Accessor per la dimensione del file formattata
-<<<<<<< HEAD
-     *
-     * @return Attribute<string|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function formattedFileSize(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: function (): ?string {
-                if (! $this->file_size) {
-                    return null;
-=======
-<<<<<<< HEAD
             get: function (): void {
                 if (! $this->file_size) {
                     return;
-=======
-            get: function (): ?string {
-                if (! $this->file_size) {
-                    return null;
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
                 }
 
                 $units = ['B', 'KB', 'MB', 'GB'];
@@ -1304,85 +750,31 @@ class PublicDocument extends MunicipalBaseModel
 
     /**
      * Accessor per l'URL del documento
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn (): string => route('municipal.documents.show', $this->slug)
-=======
-<<<<<<< HEAD
             get: fn () => route('municipal.documents.show', $this->slug)
-=======
-            get: fn () => FrontofficeUrl::path('/amministrazione/documenti/'.$this->slug)
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
         );
     }
 
     /**
      * Accessor per l'URL di download
-<<<<<<< HEAD
-     *
-     * @return Attribute<string|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string|null, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function downloadUrl(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: fn (): ?string => $this->file_path ? route('municipal.documents.download', $this->id) : null
-=======
-<<<<<<< HEAD
             get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null
-=======
-            get: fn () => $this->file_path ? FrontofficeUrl::path('/amministrazione/documenti/'.$this->id.'/download') : null
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
         );
     }
 
     /**
      * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, string>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<mixed, mixed>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function (string $value): string {
-=======
             set: function ($value) {
-<<<<<<< HEAD
-=======
-                $value = (string) $value;
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1401,32 +793,14 @@ class PublicDocument extends MunicipalBaseModel
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
->>>>>>> 9e18142 (.)
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
-=======
-        static::creating(function (PublicDocument $model): void {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug((string) $model->title);
->>>>>>> 464cfc5 (.)
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
-=======
-        static::creating(function (PublicDocument $model): void {
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1437,15 +811,7 @@ class PublicDocument extends MunicipalBaseModel
         });
 
         // Set default values
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
-=======
-        static::creating(function (PublicDocument $model): void {
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             if (is_null($model->document_status)) {
                 $model->document_status = 'draft';
             }
@@ -1468,25 +834,12 @@ class PublicDocument extends MunicipalBaseModel
         });
 
         // Calcola checksum del file se presente
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
->>>>>>> 9e18142 (.)
             if ($model->file_path && empty($model->checksum)) {
                 $filePath = storage_path('app/'.$model->file_path);
                 if (file_exists($filePath)) {
                     $model->checksum = hash_file('sha256', $filePath);
                     $model->file_size = filesize($filePath);
-=======
-        static::creating(function (PublicDocument $model): void {
-            if ($model->file_path && empty($model->checksum)) {
-                $filePath = storage_path('app/'.$model->file_path);
-                if (file_exists($filePath)) {
-                    $model->checksum = (string) hash_file('sha256', $filePath);
-                    $model->file_size = (int) filesize($filePath);
->>>>>>> 464cfc5 (.)
                 }
             }
         });

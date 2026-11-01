@@ -4,14 +4,6 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Http\Controllers;
 
-<<<<<<< HEAD
-use Illuminate\Http\RedirectResponse;
-=======
-<<<<<<< HEAD
-=======
-use Illuminate\Http\RedirectResponse;
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -19,65 +11,22 @@ use Modules\Fixcity\Models\Ticket;
 
 class ComuneController extends Controller
 {
-<<<<<<< HEAD
-    /**
-     * Inoltra una chiamata dinamica su un target di tipo sconosciuto a livello statico.
-     *
-     * Modules\Fixcity non e' presente in questa base (modulo agnostico/esterno):
-     * Ticket non e' risolvibile staticamente da PHPStan. Il dispatch dinamico evita
-     * di dichiarare un tipo falso, mantenendo il comportamento reale invariato
-     * quando il modulo e' installato altrove.
-     *
-     * @param  array<int, mixed>  $args
-     */
-    private function dynamicCall(mixed $target, string $method, array $args = []): mixed
-    {
-        return $target->{$method}(...$args);
-    }
-
     /**
      * Homepage del comune
      */
     public function homepage(): View
     {
-<<<<<<< HEAD
-        if (! class_exists(Ticket::class)) {
-            return view('sixteen::pages.comune.homepage', ['recentTickets' => collect()]);
-        }
-
-        $ticketClass = Ticket::class;
-
-        $ticketsQuery = $this->dynamicCall($ticketClass::with(['user', 'status', 'priority']), 'orderBy', ['created_at', 'desc']);
-        $ticketsQuery = $this->dynamicCall($ticketsQuery, 'limit', [5]);
-        $recentTickets = $this->dynamicCall($ticketsQuery, 'get');
-=======
         $recentTickets = Ticket::with(['user', 'status', 'priority'])
-=======
-    public function homepage(): View
-    {
-        $recentTickets = Ticket::query()
-            ->with(['owner'])
->>>>>>> 464cfc5 (.)
             ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
->>>>>>> 9e18142 (.)
 
-<<<<<<< HEAD
         return view('sixteen::pages.comune.homepage', ['recentTickets' => $recentTickets]);
     }
 
     /**
      * Pagina servizi
      */
-=======
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.homepage';
-
-        return view($view, ['recentTickets' => $recentTickets]);
-    }
-
->>>>>>> 464cfc5 (.)
     public function servizi(): View
     {
         $services = [
@@ -119,7 +68,6 @@ class ComuneController extends Controller
             ],
         ];
 
-<<<<<<< HEAD
         return view('sixteen::pages.comune.servizi', compact('services'));
     }
 
@@ -134,28 +82,7 @@ class ComuneController extends Controller
     /**
      * Invia messaggio di contatto
      */
-<<<<<<< HEAD
-    public function sendContact(Request $request): RedirectResponse
-=======
     public function sendContact(Request $request): \Illuminate\Http\RedirectResponse
-=======
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.servizi';
-
-        return view($view, compact('services'));
-    }
-
-    public function contatti(): View
-    {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.contatti';
-
-        return view($view);
-    }
-
-    public function sendContact(Request $request): RedirectResponse
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         $request->validate([
             'nome' => 'required|string|max:255',
@@ -165,7 +92,6 @@ class ComuneController extends Controller
             'messaggio' => 'required|string|max:1000',
         ]);
 
-<<<<<<< HEAD
         // Qui implementeresti l'invio dell'email
         // Mail::to(config('comune.email'))->send(new ContactMessage($request->all()));
 
@@ -175,11 +101,6 @@ class ComuneController extends Controller
     /**
      * Pagina documenti
      */
-=======
-        return redirect()->back()->with('success', 'Messaggio inviato con successo!');
-    }
-
->>>>>>> 464cfc5 (.)
     public function documenti(): View
     {
         $documenti = [
@@ -209,21 +130,12 @@ class ComuneController extends Controller
             ],
         ];
 
-<<<<<<< HEAD
         return view('sixteen::pages.comune.documenti', compact('documenti'));
     }
 
     /**
      * Pagina eventi
      */
-=======
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.documenti';
-
-        return view($view, compact('documenti'));
-    }
-
->>>>>>> 464cfc5 (.)
     public function eventi(): View
     {
         $eventi = [
@@ -253,7 +165,6 @@ class ComuneController extends Controller
             ],
         ];
 
-<<<<<<< HEAD
         return view('sixteen::pages.comune.eventi', compact('eventi'));
     }
 
@@ -287,43 +198,5 @@ class ComuneController extends Controller
     public function prenotazioni(): View
     {
         return view('sixteen::pages.comune.prenotazioni');
-=======
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.eventi';
-
-        return view($view, compact('eventi'));
-    }
-
-    public function anagrafe(): View
-    {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.anagrafe';
-
-        return view($view);
-    }
-
-    public function tributi(): View
-    {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.tributi';
-
-        return view($view);
-    }
-
-    public function urbanistica(): View
-    {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.urbanistica';
-
-        return view($view);
-    }
-
-    public function prenotazioni(): View
-    {
-        /** @var view-string $view */
-        $view = 'sixteen::pages.comune.prenotazioni';
-
-        return view($view);
->>>>>>> 464cfc5 (.)
     }
 }

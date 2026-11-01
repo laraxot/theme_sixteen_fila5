@@ -4,27 +4,12 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< HEAD
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-=======
-<<<<<<< HEAD
->>>>>>> 9e18142 (.)
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-=======
-use Illuminate\Database\Eloquent\Builder;
-use Themes\Sixteen\Support\FrontofficeUrl;
-
-use Illuminate\Database\Eloquent\Casts\Attribute;
->>>>>>> 464cfc5 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
@@ -43,7 +28,7 @@ use Illuminate\Support\Str;
  * @property string|null $qualification
  * @property string|null $role
  * @property string $category
- * @property Carbon|null $birth_date
+ * @property \Carbon\Carbon|null $birth_date
  * @property string|null $birth_place
  * @property string|null $fiscal_code
  * @property string|null $email
@@ -55,36 +40,11 @@ use Illuminate\Support\Str;
  * @property string|null $cv_file_path
  * @property float|null $compensation
  * @property float|null $travel_expenses
- * @property Carbon|null $start_date
- * @property Carbon|null $end_date
+ * @property \Carbon\Carbon|null $start_date
+ * @property \Carbon\Carbon|null $end_date
  * @property bool $is_active
  * @property bool $is_public
-<<<<<<< HEAD
- * @property Carbon|null $publication_date
- * @property array<array-key, mixed>|null $privacy_settings
- * @property array<array-key, mixed>|null $social_profiles
- * @property array<array-key, mixed>|null $education
- * @property array<array-key, mixed>|null $work_experience
- * @property array<array-key, mixed>|null $skills
- * @property array<array-key, mixed>|null $languages
- * @property array<array-key, mixed>|null $metadata
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Carbon|null $deleted_at
- * @property-read Collection<int, ContactPoint> $contacts
- * @property-read Collection<int, MunicipalEvent> $eventsAsSpeaker
- * @property-read Collection<int, MunicipalEvent> $eventsAsParticipant
- * @property-read string $full_name
- * @property-read string $display_name
- * @property-read string $category_name
- * @property-read string $role_name
- * @property-read int|null $age
- * @property-read bool $is_in_office
- * @property-read float|null $days_in_office
- * @property-read string $url
-=======
  * @property \Carbon\Carbon|null $publication_date
-<<<<<<< HEAD
  * @property array|null $privacy_settings
  * @property array|null $social_profiles
  * @property array|null $education
@@ -92,15 +52,6 @@ use Illuminate\Support\Str;
  * @property array|null $skills
  * @property array|null $languages
  * @property array|null $metadata
-=======
- * @property array<string, mixed>|null $privacy_settings
- * @property array<string, mixed>|null $social_profiles
- * @property array<string, mixed>|null $education
- * @property array<string, mixed>|null $work_experience
- * @property array<string, mixed>|null $skills
- * @property array<string, mixed>|null $languages
- * @property array<string, mixed>|null $metadata
->>>>>>> 464cfc5 (.)
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
@@ -108,24 +59,12 @@ use Illuminate\Support\Str;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant
->>>>>>> 9e18142 (.)
  */
-<<<<<<< HEAD
 class PublicPerson extends Model
 {
-    /** @use HasFactory<Factory<static>> */
     use HasFactory, SoftDeletes;
 
     /**
-=======
-class PublicPerson extends MunicipalBaseModel
-{
-    use SoftDeletes;
-
-    /**
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
->>>>>>> 464cfc5 (.)
      * Categorie di persone pubbliche secondo AGID
      */
     public const CATEGORIES = [
@@ -213,16 +152,7 @@ class PublicPerson extends MunicipalBaseModel
     ];
 
     /**
-<<<<<<< HEAD
      * Relazione con i punti di contatto
-<<<<<<< HEAD
-     *
-     * @return MorphMany<ContactPoint, $this>
-=======
-=======
-     * @return MorphMany<ContactPoint, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function contacts(): MorphMany
     {
@@ -230,16 +160,7 @@ class PublicPerson extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con le unità organizzative
-<<<<<<< HEAD
-     *
-     * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
-=======
-=======
-     * @return BelongsToMany<OrganizationalUnit, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -250,16 +171,6 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Relazione con le unità organizzative attive
-<<<<<<< HEAD
-     *
-     * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return BelongsToMany<OrganizationalUnit, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function activeOrganizationalUnits(): BelongsToMany
     {
@@ -270,16 +181,7 @@ class PublicPerson extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Relazione con i documenti associati
-<<<<<<< HEAD
-     *
-     * @return HasMany<PublicDocument, $this>
-=======
-=======
-     * @return HasMany<PublicDocument, $this>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function documents(): HasMany
     {
@@ -287,161 +189,59 @@ class PublicPerson extends MunicipalBaseModel
     }
 
     /**
-<<<<<<< HEAD
      * Scope per persone attive
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeActive(Builder $query): Builder
-=======
     public function scopeActive($query)
-=======
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope per persone attive
-     */
-    public function scopeActive(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('is_active', true);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per persone pubbliche
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopePublic(Builder $query): Builder
-=======
     public function scopePublic($query)
-=======
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope per persone pubbliche
-     */
-    public function scopePublic(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('is_public', true);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per categoria
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeOfCategory(Builder $query, string $category): Builder
-=======
     public function scopeOfCategory($query, string $category)
-=======
-     *
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope per categoria
-     */
-    public function scopeOfCategory(Builder $query, string $category): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('category', $category);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per ruolo
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeWithRole(Builder $query, string $role): Builder
-=======
     public function scopeWithRole($query, string $role)
-=======
-     *
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope per ruolo
-     */
-    public function scopeWithRole(Builder $query, string $role): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('role', $role);
     }
 
     /**
-<<<<<<< HEAD
      * Scope per persone in carica
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeInOffice(Builder $query): Builder
-=======
     public function scopeInOffice($query)
-=======
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope per persone in carica
-     */
-    public function scopeInOffice(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->where('start_date', '<=', now())
-            ->where(function (Builder $q): void {
+            ->where(function ($q): void {
                 $q->whereNull('end_date')
                     ->orWhere('end_date', '>', now());
             });
     }
 
     /**
-<<<<<<< HEAD
      * Scope ordinati per cognome e nome
-     *
-     * @param  Builder<static>  $query
-     * @return Builder<static>
      */
-<<<<<<< HEAD
-    public function scopeOrdered(Builder $query): Builder
-=======
     public function scopeOrdered($query)
-=======
-     * @param  Builder<PublicPerson>  $query
-     * @return Builder<PublicPerson>
-     * Scope ordinati per cognome e nome
-     */
-    public function scopeOrdered(Builder $query): Builder
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
     {
         return $query->orderBy('last_name')->orderBy('first_name');
     }
 
     /**
      * Ottiene le qualifiche formattate
-<<<<<<< HEAD
-     *
-     * @return array<array-key, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedEducation(): array
     {
@@ -449,11 +249,7 @@ class PublicPerson extends MunicipalBaseModel
             return [];
         }
 
-<<<<<<< HEAD
         return collect($this->education)
-=======
-        $formatted = collect($this->education)
->>>>>>> 464cfc5 (.)
             ->map(function ($education) {
                 if (is_string($education)) {
                     return ['degree' => $education];
@@ -461,28 +257,11 @@ class PublicPerson extends MunicipalBaseModel
 
                 return $education;
             })
-<<<<<<< HEAD
             ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene l'esperienza lavorativa formattata
-<<<<<<< HEAD
-     *
-     * @return array<array-key, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedWorkExperience(): array
     {
@@ -490,11 +269,7 @@ class PublicPerson extends MunicipalBaseModel
             return [];
         }
 
-<<<<<<< HEAD
         return collect($this->work_experience)
-=======
-        $formatted = collect($this->work_experience)
->>>>>>> 464cfc5 (.)
             ->map(function ($experience) {
                 if (is_string($experience)) {
                     return ['position' => $experience];
@@ -504,28 +279,11 @@ class PublicPerson extends MunicipalBaseModel
             })
             ->sortByDesc('start_date')
             ->values()
-<<<<<<< HEAD
             ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
      * Ottiene i profili social formattati
-<<<<<<< HEAD
-     *
-     * @return array<array-key, mixed>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return array<int, array<string, mixed>>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     public function getFormattedSocialProfiles(): array
     {
@@ -542,23 +300,12 @@ class PublicPerson extends MunicipalBaseModel
             'telegram' => 'Telegram',
         ];
 
-<<<<<<< HEAD
         return collect($this->social_profiles)
-=======
-        $formatted = collect($this->social_profiles)
->>>>>>> 464cfc5 (.)
             ->mapWithKeys(function ($url, $platform) use ($platforms) {
                 return [$platforms[$platform] ?? $platform => $url];
             })
             ->filter()
-<<<<<<< HEAD
             ->toArray();
-=======
-            ->values()->all();
-
-        /** @var array<int, array<string, mixed>> $formatted */
-        return $formatted;
->>>>>>> 464cfc5 (.)
     }
 
     /**
@@ -592,13 +339,7 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Ottiene informazioni per il profilo pubblico
-     *
-     * @return array<array-key, mixed>
      */
-<<<<<<< HEAD
-=======
-    /** @return array<string, mixed> */
->>>>>>> 464cfc5 (.)
     public function getPublicProfile(): array
     {
         $profile = [
@@ -634,64 +375,26 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Accessor per il nome completo
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function fullName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn () => trim($this->first_name.' '.$this->last_name)
-=======
-            get: fn () => trim((string) $this->getAttribute('first_name').' '.(string) $this->getAttribute('last_name'))
->>>>>>> 464cfc5 (.)
         );
     }
 
     /**
      * Accessor per il nome invertito (Cognome, Nome)
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function displayName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn () => trim($this->last_name.', '.$this->first_name)
-=======
-            get: fn () => trim((string) $this->getAttribute('last_name').', '.(string) $this->getAttribute('first_name'))
->>>>>>> 464cfc5 (.)
         );
     }
 
     /**
      * Accessor per il nome della categoria
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function categoryName(): Attribute
     {
@@ -702,16 +405,6 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Accessor per il nome del ruolo
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function roleName(): Attribute
     {
@@ -722,16 +415,6 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Accessor per l'età
-<<<<<<< HEAD
-     *
-     * @return Attribute<int|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function age(): Attribute
     {
@@ -742,16 +425,6 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Accessor per verificare se è in carica
-<<<<<<< HEAD
-     *
-     * @return Attribute<bool, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<bool, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function isInOffice(): Attribute
     {
@@ -768,109 +441,40 @@ class PublicPerson extends MunicipalBaseModel
 
     /**
      * Accessor per i giorni rimanenti in carica
-<<<<<<< HEAD
-     *
-     * @return Attribute<float|null, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<?float, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            get: function (): ?float {
-=======
-<<<<<<< HEAD
             get: function (): void {
->>>>>>> 9e18142 (.)
                 if (! $this->is_in_office) {
-                    return null;
+                    return;
                 }
 
-<<<<<<< HEAD
-                return $this->end_date?->diffInDays(now());
-=======
                 return $this->end_date?->diffInDays(now()) ?? null;
-=======
-            get: function (): ?float {
-                if (! $this->start_date || $this->start_date->isFuture()) {
-                    return null;
-                }
-
-                if ($this->end_date && ! $this->end_date->isFuture()) {
-                    return null;
-                }
-
-                return $this->end_date?->diffInDays(now());
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             }
         );
     }
 
     /**
      * Accessor per l'URL della persona
-<<<<<<< HEAD
-     *
-     * @return Attribute<string, never>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<string, never>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
             get: fn () => route('municipal.public-people.show', $this->slug)
-=======
-            get: fn () => FrontofficeUrl::path('/amministrazione/personale/'.$this->slug)
->>>>>>> 464cfc5 (.)
         );
     }
 
     /**
      * Mutator per nome (genera automaticamente lo slug)
-<<<<<<< HEAD
-     *
-     * @return Attribute<never, string>
-=======
-<<<<<<< HEAD
-=======
-     *
-     * @return Attribute<mixed, mixed>
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
      */
     protected function lastName(): Attribute
     {
         return Attribute::make(
-<<<<<<< HEAD
-            set: function (string $value): string {
-                $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && ! empty($this->first_name)) {
-                    $this->attributes['slug'] = Str::slug($this->first_name.' '.$value);
-=======
             set: function ($value) {
-<<<<<<< HEAD
                 $this->attributes['last_name'] = $value;
                 if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
                     $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);
-=======
-                $value = (string) $value;
-                $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug((string) $this->attributes['first_name'].' '.$value);
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
                 }
 
                 return $value;
@@ -886,55 +490,25 @@ class PublicPerson extends MunicipalBaseModel
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
->>>>>>> 9e18142 (.)
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
                 $model->slug = Str::slug($model->first_name.' '.$model->last_name);
-=======
-        static::creating(function (PublicPerson $model): void {
-            if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
-                $model->slug = Str::slug((string) $model->first_name.' '.(string) $model->last_name);
->>>>>>> 464cfc5 (.)
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
-=======
-        static::creating(function (PublicPerson $model): void {
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             $originalSlug = $model->slug;
             $counter = 1;
 
             while (static::where('slug', $model->slug)->exists()) {
-<<<<<<< HEAD
                 $model->slug = $originalSlug.'-'.$counter;
-=======
-                $model->slug = (string) $originalSlug.'-'.$counter;
->>>>>>> 464cfc5 (.)
                 $counter++;
             }
         });
 
         // Set default privacy settings
-<<<<<<< HEAD
-        static::creating(function (self $model): void {
-=======
-<<<<<<< HEAD
         static::creating(function ($model): void {
-=======
-        static::creating(function (PublicPerson $model): void {
->>>>>>> 464cfc5 (.)
->>>>>>> 9e18142 (.)
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,

@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
 use Tests\TestCase;
 
-uses(TestCase::class, DatabaseTransactions::class);
+uses(TestCase::class, RefreshDatabase::class);
 
-beforeEach(function (): void {
+beforeEach(function () {
     /** @var TestCase $this */
-    if (! class_exists(Ticket::class)) {
-        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
-    }
+    $this->artisan('migrate', ['--database' => 'testing']);
 });
 
 test('homepage returns view', function () {
@@ -26,16 +24,10 @@ test('homepage returns view', function () {
 
 test('homepage displays recent tickets', function () {
     /** @var TestCase $this */
-    if (! class_exists(Ticket::class)) {
-        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
-    }
-
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
-
-    $dynamicCall(Ticket::factory(), 'create', [[
+    $ticket = Ticket::factory()->create([
         'name' => 'Test Ticket',
         'description' => 'Test Description',
-    ]]);
+    ]);
 
     $response = $this->get(route('comune.homepage'));
 
@@ -45,16 +37,10 @@ test('homepage displays recent tickets', function () {
 
 test('homepage displays recent news', function () {
     /** @var TestCase $this */
-    if (! class_exists(News::class)) {
-        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
-    }
-
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
-
-    $dynamicCall(News::factory(), 'create', [[
+    $news = News::factory()->create([
         'title' => 'Test News',
         'excerpt' => 'Test Excerpt',
-    ]]);
+    ]);
 
     $response = $this->get(route('comune.homepage'));
 
@@ -90,25 +76,12 @@ test('novita returns view', function () {
 
 test('novita displays news', function () {
     /** @var TestCase $this */
-    if (! class_exists(News::class)) {
-        $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
-    }
-
-    $dynamicCall = static fn (mixed $target, string $method, array $args = []): mixed => $target->{$method}(...$args);
-
-    $titles = [];
-    for ($i = 1; $i <= 5; $i++) {
-        $title = 'Notizia Test '.$i;
-        $titles[] = $title;
-        $dynamicCall(News::factory(), 'create', [[
-            'title' => $title,
-        ]]);
-    }
+    $news = News::factory()->count(5)->create();
 
     $response = $this->get(route('comune.novita'));
 
-    foreach ($titles as $title) {
-        $response->assertSee($title);
+    foreach ($news as $article) {
+        $response->assertSee($article->title);
     }
 });
 
@@ -124,10 +97,10 @@ test('contatti displays contact info', function () {
     /** @var TestCase $this */
     $response = $this->get(route('comune.contatti'));
 
-    $response->assertSee(config()->string('comune.nome'));
-    $response->assertSee(config()->string('comune.indirizzo'));
-    $response->assertSee(config()->string('comune.telefono'));
-    $response->assertSee(config()->string('comune.email'));
+    $response->assertSee((string) config('comune.nome'));
+    $response->assertSee((string) config('comune.indirizzo'));
+    $response->assertSee((string) config('comune.telefono'));
+    $response->assertSee((string) config('comune.email'));
 });
 
 test('documenti returns view', function () {
