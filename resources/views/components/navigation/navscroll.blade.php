@@ -101,7 +101,7 @@
     }"
 >
     <div class="space-y-2">
-        <h3 class="font-semibold text-lg mb-3 border-b pb-2">Navigazione Pagina</h3>
+        <h3 class="font-semibold text-lg mb-3 border-b pb-2">{{ __('pub_theme::navigation_components.navscroll.title.label') }}</h3>
         
         @foreach($sections as $section)
             <button

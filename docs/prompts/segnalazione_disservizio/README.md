@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazione Disservizio - Documentation Index
 
 Documentation for implementing the "Segnalazione Disservizio" (Report Issue) flow in Design Comuni pages.
@@ -22,6 +34,7 @@ Implementation of the citizen report flow following Design Comuni Italia pattern
 | 4 | Conferma | `/it/tests/segnalazione-04-conferma` | `[slug].blade.php` |
 | Elenco | Elenco segnalazioni | `/it/tests/ticket-list` | `[slug].blade.php` |
 
+<<<<<<< .merge_file_eLiwSV
 ## Architecture
 
 - **Blade**: `laravel/Themes/Sixteen/resources/views/pages/tests/[slug].blade.php`
@@ -49,3 +62,13 @@ Implementation of the citizen report flow following Design Comuni Italia pattern
 - [Theme Docs Index](../README.md)
 - [Body Structure Comparison Index](../body-structure-comparison/INDEX.md)
 - [Root Bridge Config](../../../../../docs/html-structure-comparison.md)
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_odEtHZ

@@ -72,7 +72,7 @@
 <nav {{ $attributes->merge(['class' => $classes]) }} 
      x-data="navbar()" 
      role="navigation" 
-     aria-label="Navigazione principale">
+     aria-label="{{ __('pub_theme::navigation.main') }}">
     
     <div class="container-fluid">
         {{-- Brand --}}
@@ -91,7 +91,7 @@
             x-bind:aria-expanded="isOpen"
             aria-controls="navbarNav"
             x-on:click="toggle()"
-            aria-label="Apri menu di navigazione"
+            aria-label="{{ __('pub_theme::navigation_components.navbar.open_menu.label') }}"
         >
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -129,7 +129,7 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ $dropdownItem['href'] ?? '#' }}">
                                             @if(!empty($dropdownItem['icon']))
-                                                <x-filament::icon icon="heroicon-o-{{" $dropdownItem['icon'] }} class="me-2" />
+                                                <x-filament::icon icon="heroicon-o-{{ $dropdownItem['icon'] }}" class="me-2" />
                                             @endif
                                             {{ $dropdownItem['text'] }}
                                         </a>
@@ -151,7 +151,7 @@
                                 @endif
                             >
                                 @if(!empty($item['icon']))
-                                    <x-filament::icon icon="heroicon-o-{{" $item['icon'] }} class="me-1" />
+                                    <x-filament::icon icon="heroicon-o-{{ $item['icon'] }}" class="me-1" />
                                 @endif
                                 {{ $item['text'] }}
                             </a>
@@ -170,8 +170,8 @@
                                 <input 
                                     class="form-control" 
                                     type="search" 
-                                    placeholder="Cerca..." 
-                                    aria-label="Cerca"
+                                    placeholder="{{ __('pub_theme::navigation_components.navbar.search.placeholder') }}" 
+                                    aria-label="{{ __('pub_theme::header.center.search.label') }}"
                                     x-model="searchQuery"
                                     x-on:keyup.enter="performSearch()"
                                 >
@@ -179,10 +179,9 @@
                                     class="btn btn-outline-secondary" 
                                     type="button"
                                     x-on:click="performSearch()"
-                                    aria-label="Esegui ricerca"
+                                    aria-label="{{ __('pub_theme::navigation_components.navbar.search_submit.label') }}"
                                 >
                                     <x-filament::icon icon="heroicon-o-magnifying-glass" class="w-4 h-4" />
-f7ac8eda (.)
                                 </button>
                             </div>
                         </form>
@@ -216,7 +215,7 @@ f7ac8eda (.)
                                 <li>
                                     <a class="dropdown-item" href="{{ $userItem['href'] ?? '#' }}">
                                         @if(!empty($userItem['icon']))
-                                            <x-filament::icon icon="heroicon-o-{{" $userItem['icon'] }} class="me-2" />
+                                            <x-filament::icon icon="heroicon-o-{{ $userItem['icon'] }}" class="me-2" />
                                         @endif
                                         {{ $userItem['text'] }}
                                     </a>

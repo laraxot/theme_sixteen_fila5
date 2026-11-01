@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Riepilogo richiesta',
+    'title' => __('pub_theme::flow_assistance.riepilogo.request_summary.title'),
     'richiesta' => [],
 ])
 
@@ -21,24 +21,24 @@
     @endif
 
     <div class="bg-gray-50 rounded-lg p-6 mb-6">
-        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Dati richiedente</h4>
+        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">{{ __('pub_theme::flow_assistance.riepilogo.applicant_details.label') }}</h4>
         
         <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <dt class="text-sm text-gray-500">Nome</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.name.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-nome">{{ $richiesta['nome'] ?: 'Mario' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Cognome</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.surname.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-cognome">{{ $richiesta['cognome'] ?: 'Rossi' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Email</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.email.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-email">{{ $richiesta['email'] ?: 'mario.rossi@email.it' }}</dd>
             </div>
             @if(!empty($richiesta['telefono']))
             <div>
-                <dt class="text-sm text-gray-500">Telefono</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::blocks_common.shared.phone.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-telefono">{{ $richiesta['telefono'] }}</dd>
             </div>
             @endif
@@ -46,19 +46,19 @@
     </div>
 
     <div class="bg-gray-50 rounded-lg p-6 mb-6">
-        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Dettagli richiesta</h4>
+        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">{{ __('pub_theme::flow_assistance.riepilogo.request_details.label') }}</h4>
         
         <dl class="space-y-4">
             <div>
-                <dt class="text-sm text-gray-500">Tipo di richiesta</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::flow_assistance.shared.request_type.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-tipo">{{ $richiesta['tipo_richiesta'] ?: 'Supporto tecnico' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Oggetto</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::flow_assistance.shared.subject.label') }}</dt>
                 <dd class="text-gray-900 font-medium" data-element="summary-oggetto">{{ $richiesta['oggetto'] ?: 'Problema con il portale' }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Messaggio</dt>
+                <dt class="text-sm text-gray-500">{{ __('pub_theme::flow_assistance.shared.message.label') }}</dt>
                 <dd class="text-gray-900" data-element="summary-messaggio">{{ $richiesta['messaggio'] ?: 'Non riesco ad accedere alla sezione dedicata ai pagamenti. Ricevo un errore di autenticazione.' }}</dd>
             </div>
         </dl>
@@ -72,7 +72,7 @@
             class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
         >
         <label for="accetto_privacy" class="ml-2 text-sm text-gray-700">
-            Ho letto e accetto la <a href="#" class="text-blue-600 hover:underline">privacy policy</a> e le <a href="#" class="text-blue-600 hover:underline">condizioni di servizio</a>
+            {!! __('pub_theme::flow_assistance.summary.consent_privacy_terms.message', ['privacy' => '<a href="#" class="text-blue-600 hover:underline">'.e(__('pub_theme::blocks_common.shared.privacy_policy.label')).'</a>', 'terms' => '<a href="#" class="text-blue-600 hover:underline">'.e(__('pub_theme::blocks_common.shared.terms_of_service.label')).'</a>']) !!}
         </label>
     </div>
 
@@ -83,7 +83,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -92,7 +92,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Invia richiesta
+            {{ __('pub_theme::blocks_common.shared.submit_request.label') }}
         </button>
     </div>
 </div>

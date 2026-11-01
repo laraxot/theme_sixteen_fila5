@@ -11,10 +11,11 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Datas\XotData;
+use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Events\SpidAuthenticated;
 use Themes\Sixteen\Events\SpidLoggedOut;
-use Themes\Sixteen\Models\User;
-use Themes\Sixteen\Actions\SpidAuthAction;
 
 /**
  * Controller per l'autenticazione SPID
@@ -98,7 +99,12 @@ class SpidAuthController extends Controller
             ]);
 
             // Redirect all'URL di ritorno
+<<<<<<< .merge_file_4fvJF2
             $returnUrl = Session::pull('spid.return_url', route('dashboard'));
+=======
+            $returnUrl = Session::pull('spid.return_url');
+            $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : route('dashboard');
+>>>>>>> .merge_file_kSlQM6
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione SPID completata con successo.');
@@ -124,12 +130,26 @@ class SpidAuthController extends Controller
     {
         try {
             $user = Auth::user();
+<<<<<<< .merge_file_4fvJF2
             $userData = Session::get('spid.user_data');
             $provider = Session::get('spid.provider');
+=======
+            $sessionUserData = Session::get('spid.user_data');
+            $userData = is_array($sessionUserData) ? $sessionUserData : null;
+            $sessionProvider = Session::get('spid.provider');
+            $provider = is_string($sessionProvider) ? $sessionProvider : null;
+>>>>>>> .merge_file_kSlQM6
 
             if ($user && $userData && $provider) {
                 // Se abbiamo i dati per il Single Logout, usiamoli
+<<<<<<< .merge_file_4fvJF2
                 if (isset($userData['name_id']) && isset($userData['session_index'])) {
+=======
+                $nameId = $userData['name_id'] ?? null;
+                $sessionIndex = $userData['session_index'] ?? null;
+
+                if (is_string($nameId) && is_string($sessionIndex)) {
+>>>>>>> .merge_file_kSlQM6
                     Log::info('SPID logout initiated', [
                         'user_id' => $user->id,
                         'provider' => $provider,
@@ -161,7 +181,11 @@ class SpidAuthController extends Controller
             Session::invalidate();
             Session::regenerateToken();
 
+<<<<<<< .merge_file_4fvJF2
             if ($user && $userData) {
+=======
+            if ($user !== null && $userData !== null) {
+>>>>>>> .merge_file_kSlQM6
                 event(new SpidLoggedOut($user, $userData));
             }
 
@@ -191,9 +215,14 @@ class SpidAuthController extends Controller
     public function singleLogout(Request $request): Response
     {
         try {
+<<<<<<< .merge_file_4fvJF2
             // Processa la richiesta SLO
             $logoutRequest = $request->input('SAMLRequest');
             $relayState = $request->input('RelayState');
+=======
+            // Processa la richiesta SLO (la SAMLRequest non viene ancora interpretata: oggi si registra e si chiude la sessione)
+            $relayState = $request->string('RelayState')->toString();
+>>>>>>> .merge_file_kSlQM6
 
             Log::info('SPID SLO received', [
                 'relay_state' => $relayState,
@@ -203,13 +232,24 @@ class SpidAuthController extends Controller
             // Effettua logout se l'utente è loggato
             if (Auth::check()) {
                 $user = Auth::user();
+<<<<<<< .merge_file_4fvJF2
                 $userData = Session::get('spid.user_data', []);
+=======
+                $sessionUserData = Session::get('spid.user_data', []);
+                $userData = is_array($sessionUserData) ? $sessionUserData : [];
+>>>>>>> .merge_file_kSlQM6
 
                 Auth::logout();
                 $this->spidService->logout();
                 Session::invalidate();
 
+<<<<<<< .merge_file_4fvJF2
                 event(new SpidLoggedOut($user, $userData));
+=======
+                if ($user !== null) {
+                    event(new SpidLoggedOut($user, $userData));
+                }
+>>>>>>> .merge_file_kSlQM6
             }
 
             // Genera response SLO
@@ -273,6 +313,16 @@ class SpidAuthController extends Controller
             return $user;
         }
 
+<<<<<<< .merge_file_4fvJF2
+=======
+        if ($user !== null) {
+            Log::error('SPID: existing user record does not implement UserContract', [
+                'user_class' => $user::class,
+                'fiscal_code' => $fiscalCode,
+            ]);
+        }
+
+>>>>>>> .merge_file_kSlQM6
         // Crea nuovo utente
         return $this->createUserFromSpid($attributes);
     }
@@ -307,6 +357,11 @@ class SpidAuthController extends Controller
 
     /**
      * Aggiorna un utente esistente con i dati SPID
+<<<<<<< .merge_file_4fvJF2
+=======
+     *
+     * @param  array<string, mixed>  $attributes
+>>>>>>> .merge_file_kSlQM6
      */
     protected function updateUserFromSpid(User $user, array $attributes): void
     {
@@ -338,9 +393,13 @@ class SpidAuthController extends Controller
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
+<<<<<<< .merge_file_4fvJF2
         if (! empty($updateData)) {
             $user->update($updateData);
         }
+=======
+        $user->update($updateData);
+>>>>>>> .merge_file_kSlQM6
     }
 
     /**
@@ -357,7 +416,11 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
+<<<<<<< .merge_file_4fvJF2
                '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+=======
+               '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+>>>>>>> .merge_file_kSlQM6
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.
@@ -378,7 +441,11 @@ class SpidAuthController extends Controller
                '                      ID="'.$responseId.'"'.PHP_EOL.
                '                      Version="2.0"'.PHP_EOL.
                '                      IssueInstant="'.$issueInstant.'">'.PHP_EOL.
+<<<<<<< .merge_file_4fvJF2
                '  <saml:Issuer>'.config('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+=======
+               '  <saml:Issuer>'.config()->string('spid.entity_id').'</saml:Issuer>'.PHP_EOL.
+>>>>>>> .merge_file_kSlQM6
                '  <samlp:Status>'.PHP_EOL.
                '    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder"/>'.PHP_EOL.
                '  </samlp:Status>'.PHP_EOL.

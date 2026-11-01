@@ -16,10 +16,10 @@
     $count = $data['count'] ?? 645;
     $results = $data['results'] ?? [];
     $categories = $data['categories'] ?? [
-        ['id' => 'unit', 'name' => 'Unità organizzativa', 'count' => 21],
-        ['id' => 'public-person', 'name' => 'Persona pubblica', 'count' => 14],
-        ['id' => 'documents', 'name' => 'Documenti', 'count' => 7],
-        ['id' => 'services', 'name' => 'Servizi', 'count' => 208],
+        ['id' => 'unit', 'name' => __('pub_theme::components_search.types.organizational_unit.label'), 'count' => 21],
+        ['id' => 'public-person', 'name' => __('pub_theme::components_search.types.public_person.label'), 'count' => 14],
+        ['id' => 'documents', 'name' => __('pub_theme::components_search.types.documents.label'), 'count' => 7],
+        ['id' => 'services', 'name' => __('pub_theme::header.center.nav.servizi.label'), 'count' => 208],
     ];
 @endphp
 
@@ -34,11 +34,11 @@
                     </svg>
                 </div>
             </div>
-            <label for="input-group-ricerca" class="active">Con Etichetta</label>
-            <input type="search" class="form-control" id="input-group-ricerca" name="input-group-ricerca" placeholder="Pagamento TARI" value="{{ $query }}">
+            <label for="input-group-ricerca" class="active">{{ __('pub_theme::components_search.demo.with_label.label') }}</label>
+            <input type="search" class="form-control" id="input-group-ricerca" name="input-group-ricerca" placeholder="{{ __('pub_theme::components_search.demo.search_example.placeholder') }}" value="{{ $query }}">
         </div>
         <button type="button" class="btn btn-primary">
-            <span class="">Cerca</span>
+            <span class="">{{ __('pub_theme::header.center.search.label') }}</span>
         </button>
     </div>
 </div>
@@ -48,9 +48,9 @@
     <div class="row justify-content-center">
         {{-- Filters Sidebar (LEFT) --}}
         <div class="col-lg-3 d-none d-lg-block scroll-filter-wrapper">
-            <h2 class="visually-hidden" id="filter">filtri da applicare</h2>
+            <h2 class="visually-hidden" id="filter">{{ __('pub_theme::components_search.filters.to_apply.label') }}</h2>
             <fieldset>
-                <legend class="h6 text-uppercase category-list__title">Tipologie</legend>
+                <legend class="h6 text-uppercase category-list__title">{{ __('pub_theme::components_common.fields.types.label') }}</legend>
                 <div class="categoy-list pb-4">
                     <ul>
                         @foreach($categories as $cat)
@@ -74,9 +74,9 @@
         <div class="col-lg-8 offset-lg-1">
             {{-- Results Header Bar --}}
             <div class="d-flex justify-content-between align-items-center border-bottom border-light pb-3 mb-2">
-                <h2 class="visually-hidden" id="search-result">Risultati di ricerca</h2>
+                <h2 class="visually-hidden" id="search-result">{{ __('pub_theme::components_search.results.title.label') }}</h2>
                 <span class="search-results u-grey-light">
-                    <span class="numResult">{{ $count }}</span> Risultati
+                    <span class="numResult">{{ $count }}</span> {{ __('pub_theme::components_common.search.results_count.label') }}
                 </span>
                 {{-- Mobile filter button --}}
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-categories"
@@ -84,11 +84,11 @@
                     <span class="rounded-icon">
                         <svg class="icon icon-primary icon-xs"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-funnel"></use></svg>
                     </span>
-                    <span class="t-primary title-xsmall-semi-bold ms-1">Filtra</span>
+                    <span class="t-primary title-xsmall-semi-bold ms-1">{{ __('pub_theme::components_reports.filters.filter.label') }}</span>
                 </button>
                 {{-- Desktop clear filters --}}
                 <button type="button" class="btn d-none d-lg-block btn-result" disabled="disabled">
-                    Rimuovi tutti i filtri
+                    {{ __('pub_theme::components_reports.filters.remove_all.label') }}
                 </button>
             </div>
 
@@ -99,10 +99,10 @@
                         @foreach($results as $index => $result)
                         <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#">
                             <div class="card shadow-sm px-4 pt-4 pb-4 rounded">
-                                <span class="visually-hidden">Categoria:</span>
+                                <span class="visually-hidden">{{ __('pub_theme::components_common.fields.category_colon.label') }}</span>
                                 <div class="card-header border-0 p-0">
                                     <a class="text-decoration-none title-xsmall-bold mb-2 category text-uppercase" href="#">
-                                        {{ $result['type'] ?? 'Documento' }}
+                                        {{ $result['type'] ?? __('pub_theme::components_search.types.document.label') }}
                                     </a>
                                 </div>
                                 <div class="card-body p-0 my-2">
@@ -123,7 +123,7 @@
             {{-- Load More Button --}}
             <div class="d-flex justify-content-center mt-4">
                 <button type="button" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button">
-                    <span class="">Carica altri risultati</span>
+                    <span class="">{{ __('pub_theme::components_common.actions.load_more_results.label') }}</span>
                 </button>
             </div>
         </div>
@@ -134,14 +134,14 @@
 <div class="modal fade" id="modal-categories" tabindex="-1" role="dialog" aria-labelledby="modal-categories-label">
     <div class="modal-wrapper">
         <div class="modal-header">
-            <h2 class="title-medium-semi-bold" id="modal-categories-label">Filtra per categoria</h2>
-            <button class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi">
+            <h2 class="title-medium-semi-bold" id="modal-categories-label">{{ __('pub_theme::components_search.filters.by_category.label') }}</h2>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('pub_theme::components_common.actions.close.label') }}">
                 <svg class="icon"><use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-close"></use></svg>
             </button>
         </div>
         <div class="modal-body">
             <fieldset>
-                <legend class="h6 text-uppercase category-list__title">Tipologie</legend>
+                <legend class="h6 text-uppercase category-list__title">{{ __('pub_theme::components_common.fields.types.label') }}</legend>
                 <div class="categoy-list pb-4">
                     <ul>
                         @foreach($categories as $cat)
@@ -161,7 +161,7 @@
             </fieldset>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" data-bs-dismiss="modal">Applica</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal">{{ __('pub_theme::components_common.actions.apply.label') }}</button>
         </div>
     </div>
 </div>

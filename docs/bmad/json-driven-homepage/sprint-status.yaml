@@ -1,0 +1,34 @@
+project: sixteen-json-driven-homepage
+track: quick-flow
+status: planning
+stories:
+  - id: 1.1
+    file: 1.1-index-shell.story.md
+    status: backlog
+    dependencies: []
+    parallel_set: 1
+    owned_scope: [Themes/Sixteen/resources/views/pages/index.blade.php]
+  - id: 1.2
+    file: 1.2-json-content-contract.story.md
+    status: backlog
+    dependencies: [1.1]
+    parallel_set: 2
+    owned_scope: [laravel/config/local/fixcity/database/content/pages/home.json]
+  - id: 1.3
+    file: 1.3-home-block-extraction.story.md
+    status: backlog
+    dependencies: [1.2]
+    parallel_set: 3
+    owned_scope: [laravel/Themes/Sixteen/resources/views/components/blocks]
+  - id: 1.4
+    file: 1.4-block-resolution-compatibility.story.md
+    status: backlog
+    dependencies: [1.2, 1.3]
+    parallel_set: 4
+    owned_scope: [laravel/Modules/Cms, laravel/Themes/Sixteen/resources/views/components/blocks]
+  - id: 1.5
+    file: 1.5-verification-and-cutover.story.md
+    status: backlog
+    dependencies: [1.4]
+    parallel_set: 5
+    owned_scope: [laravel/Themes/Sixteen/tests, laravel/Themes/Sixteen/resources/views/pages/index.blade.php]

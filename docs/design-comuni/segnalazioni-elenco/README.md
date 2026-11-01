@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazioni elenco
 
 Data: 2026-04-04
@@ -20,5 +32,22 @@ Allineare il layout della pagina `tests.ticket-list` alla reference, mantenendo 
 - [local.png](./local.png)
 - [reference.png](./reference.png)
 
+<<<<<<< .merge_file_w3O6wC
 ## Next passi
 - stabilire eventuali variazioni visive nel tab "Mappa" (modal immagini + pin). Se ulteriori differenze emergono, aggiornare i CSS/JS specifici all'interno di `resource/css/app.css` e, se serve, aggiungere un piccolo script Alpine alla pagina stessa.
+=======
+- Modular component with XotBase patterns
+- Professional-grade implementation
+- Integrated with FixCity Platform
+
+## Documentazione
+
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_MPghOG

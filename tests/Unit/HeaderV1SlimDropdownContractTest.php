@@ -50,6 +50,43 @@ test('header v1 slim wrapper non forza background hex inline (token CSS)', funct
     expect($html)->not->toContain("style='background-color: #0066CC'");
 });
 
+test('header v1 espone il contratto condiviso della navigazione mobile', function (): void {
+    $bladePath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php';
+    $html = file_get_contents($bladePath);
+
+    $forbiddenThemePrefix = 'data-'.'sixteen-';
+
+    expect($html)
+        ->toContain('data-bs-target="#nav4"')
+        ->toContain('data-bs-toggle="navbarcollapsible"')
+        ->toContain('id="nav4"')
+        ->toContain('class="overlay"')
+        ->toContain('class="btn close-menu"')
+        ->not->toContain($forbiddenThemePrefix);
+});
+
+test('mobile navigation keeps keyboard focus inside the open panel', function (): void {
+    $jsPath = dirname(__DIR__, 2).'/resources/js/theme/header-mobile-nav.js';
+    $js = file_get_contents($jsPath);
+
+    expect($js)
+        ->toContain('keepFocusInsideOpenPanel')
+        ->toContain('event.shiftKey')
+        ->toContain('first.focus()')
+        ->toContain('last.focus()');
+});
+
+test('Design Comuni header keeps the center and navigation bands green', function (): void {
+    $cssPath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/css/civic-design-global.css';
+    $css = file_get_contents($cssPath);
+
+    expect($css)
+        ->toContain('.it-header-center-wrapper')
+        ->toContain('.it-header-navbar-wrapper')
+        ->toContain('background: #007a52 !important;')
+        ->toContain('color: #fff !important;');
+});
+
 test('story 8-105: app.css slim usa token --dc-green-dark e nav attivo centrato', function (): void {
     $cssPath = dirname(__DIR__, 2).'/resources/css/app.css';
     expect(file_exists($cssPath))->toBeTrue('app.css tema mancante: '.$cssPath);

@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage Visual Comparison - Sixteen Theme
 
 **Data**: 2026-04-02  
@@ -133,6 +145,7 @@ La struttura della pagina locale è DIFFERENTE dalla reference:
 
 ## Documentazione Collegata
 
+<<<<<<< .merge_file_E3mmTK
 - [Project Visual Comparison](../docs/project/visual-comparison/index.md)
 - [Theme Documentation](./README.md)
 - [Design Comuni Analysis](./docs/design-comuni-analysis.md)
@@ -162,3 +175,13 @@ La struttura della pagina locale è DIFFERENTE dalla reference:
 - [Project Visual Comparison](../docs/project/visual-comparison/index.md)
 - [Theme Documentation](./README.md)
 - [Design Comuni Analysis](./docs/design-comuni-analysis.md)
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_MGuHn3

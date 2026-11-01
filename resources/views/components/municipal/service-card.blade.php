@@ -51,12 +51,12 @@
             <div class="agid-service-card__status-badge agid-service-card__status-badge--{{ $status }}">
                 @switch($status)
                     @case('coming-soon')
-                        <span class="sr-only">Stato servizio:</span>
-                        Prossimamente
+                        <span class="sr-only">{{ __('pub_theme::municipal_components.service_card.status.label') }}</span>
+                        {{ __('pub_theme::municipal_components.service_card.status_coming_soon.label') }}
                         @break
                     @case('maintenance')
-                        <span class="sr-only">Stato servizio:</span>
-                        Manutenzione
+                        <span class="sr-only">{{ __('pub_theme::municipal_components.service_card.status.label') }}</span>
+                        {{ __('pub_theme::municipal_components.service_card.status_maintenance.label') }}
                         @break
                 @endswitch
             </div>
@@ -64,9 +64,9 @@
 
         {{-- Badge featured --}}
         @if($featured)
-            <div class="agid-service-card__featured-badge" aria-label="Servizio in evidenza">
+            <div class="agid-service-card__featured-badge" aria-label="{{ __('pub_theme::municipal_components.service_card.featured.label') }}">
                 @svg('heroicon-o-star', 'w-4 h-4')
-                In evidenza
+                {{ __('pub_theme::municipal_components.service_card.featured_badge.label') }}
             </div>
         @endif
     </div>
@@ -75,7 +75,7 @@
     <div class="agid-service-card__content">
         {{-- Tags --}}
         @if(!empty($tags))
-            <div class="agid-service-card__tags" role="list" aria-label="Categorie servizio">
+            <div class="agid-service-card__tags" role="list" aria-label="{{ __('pub_theme::municipal_components.service_card.categories.label') }}">
                 @foreach($tags as $tag)
                     <span class="agid-service-card__tag fi-badge fi-badge-secondary" role="listitem">
                         {{ $tag }}
@@ -93,9 +93,9 @@
                     {{ $title }}
                     <span class="sr-only">
                         @if($status === 'maintenance')
-                            - Servizio in manutenzione
+                            - {{ __('pub_theme::municipal_components.service_card.under_maintenance.label') }}
                         @else
-                            - Accedi al servizio
+                            - {{ __('pub_theme::municipal_components.service_card.access.label') }}
                         @endif
                     </span>
                 </a>
@@ -116,7 +116,7 @@
         @if($deadline)
             <div class="agid-service-card__deadline">
                 @svg('heroicon-o-clock', 'w-4 h-4 inline mr-1')
-                <span class="font-semibold">Scadenza:</span>
+                <span class="font-semibold">{{ __('pub_theme::municipal_components.service_card.deadline.label') }}</span>
                 <time datetime="{{ $deadline }}">
                     {{ \Carbon\Carbon::parse($deadline)->locale('it')->translatedFormat('d F Y') }}
                 </time>
@@ -130,21 +130,21 @@
             <a href="{{ $url }}"
                class="fi-btn fi-btn-primary agid-service-card__cta"
                {{ $accessibility ? 'aria-describedby="service-' . Str::slug($title) . '-desc"' : '' }}>
-                Accedi al servizio
+                {{ __('pub_theme::municipal_components.service_card.access.label') }}
                 @svg('heroicon-o-arrow-right', 'w-4 h-4 ml-2')
             </a>
         </div>
     @elseif($status === 'coming-soon')
         <div class="agid-service-card__footer">
             <button class="fi-btn fi-btn-secondary agid-service-card__cta" disabled>
-                Disponibile prossimamente
+                {{ __('pub_theme::municipal_components.service_card.available_soon.label') }}
             </button>
         </div>
     @elseif($status === 'maintenance')
         <div class="agid-service-card__footer">
             <div class="agid-service-card__maintenance-notice">
                 @svg('heroicon-o-wrench-screwdriver', 'w-4 h-4 mr-2')
-                Servizio temporaneamente non disponibile
+                {{ __('pub_theme::municipal_components.service_card.unavailable.label') }}
             </div>
         </div>
     @endif

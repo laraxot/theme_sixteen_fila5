@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Architecture Documentation Index
 
 **Theme**: Sixteen  
@@ -129,6 +141,7 @@ laravel/Themes/Sixteen/resources/views/pages/
 
 ## 📊 Metrics
 
+<<<<<<< .merge_file_TYpqQx
 | Metric | Count |
 |--------|-------|
 | Architecture Docs | 10+ |
@@ -141,3 +154,13 @@ laravel/Themes/Sixteen/resources/views/pages/
 **Maintained By**: Architecture Team  
 **Last Review**: 2026-04-01  
 **Next Review**: After each major architecture change
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_qRi9jl

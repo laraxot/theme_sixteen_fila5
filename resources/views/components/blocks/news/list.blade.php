@@ -35,7 +35,7 @@
                             @endif
                             
                             <a class="read-more" href="{{ $item['url'] ?? '#' }}">
-                                <span class="text">Leggi tutto</span>
+                                <span class="text">{{ __('pub_theme::components_common.actions.read_all.label') }}</span>
                                 <svg class="icon"><use href="#it-arrow-right"></use></svg>
                             </a>
                         </div>
@@ -43,7 +43,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-muted text-center">Nessuna novità disponibile</p>
+                    <p class="text-muted text-center">{{ __('pub_theme::components_content.news.empty.message') }}</p>
                 </div>
             @endforelse
         </div>

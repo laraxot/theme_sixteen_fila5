@@ -9,7 +9,7 @@
 
 <div class="row row-title pt-5 pt-lg-60 pb-3">
     <div class="col-12 d-lg-flex justify-content-between">
-        <h2>Eventi</h2>
+        <h2>{{ __('pub_theme::ui.events_title') }}</h2>
     </div>
 </div>
 <div class="row row-calendar">
@@ -32,7 +32,7 @@
                                     @foreach($item['events'] as $event)
                                     @if(!empty($event['image']))
                                     <p class="card-text px-2 pb-10 mb-10 d-flex">
-                                        <img src="{{ $event['image'] }}" alt="random image" class="me-3 rounded">
+                                        <img src="{{ $event['image'] }}" alt="{{ __('pub_theme::blocks_content.shared.random_image.label') }}" class="me-3 rounded">
                                         <a href="{{ $event['url'] ?? '#' }}">{{ $event['title'] }}</a>
                                     </p>
                                     @else

@@ -11,7 +11,7 @@
 --}}
 
 @php
-    $regionName = $data['region_name'] ?? 'Nome della Regione';
+    $regionName = $data['region_name'] ?? __('pub_theme::header.slim.region.name.label');
     $languages = $data['languages'] ?? [
         ['code' => 'ita', 'label' => 'ITA', 'active' => true],
         ['code' => 'eng', 'label' => 'ENG', 'active' => false],
@@ -35,7 +35,7 @@
                             font-size: 0.875rem;
                             {{ $lang['active'] ? 'background-color: #FFFFFF; color: #003D73;' : 'background-color: transparent; color: #FFFFFF;' }}
                         "
-                        aria-label="Switch to {{ $lang['label'] }}"
+                        aria-label="{{ __('pub_theme::components_header.language.switch_to.label', ['language' => $lang['label']]) }}"
                     >
                         {{ $lang['label'] }}
                     </button>

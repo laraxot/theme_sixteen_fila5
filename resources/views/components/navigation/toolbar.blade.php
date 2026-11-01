@@ -47,7 +47,7 @@
     id="{{ $id }}"
     class="toolbar {{ $themeClasses[$theme] }} {{ $variantClasses[$variant] }} {{ $borderClass }} {{ $stickyClass }} px-4"
     role="toolbar"
-    aria-label="Barra degli strumenti"
+    aria-label="{{ __('pub_theme::navigation_components.toolbar.region.label') }}"
 >
     <div class="flex items-center justify-between">
         {{-- Left section --}}

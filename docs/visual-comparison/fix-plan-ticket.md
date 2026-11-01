@@ -1,10 +1,21 @@
+---
+title: "fix plan ticket"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "fix plan ticket"
+issues: []
+discussions: []
+status: draft
+---
+
 # Visual Parity Fix Plan - Segnalazione Pages
 
 **Generated**: 2026-04-06
 **Goal**: Achieve ≥90% visual parity with design.comuni.it reference pages
 
 ---
-
 ## Executive Summary
 
 After analyzing all 8 pages, the main issues are:

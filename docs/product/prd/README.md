@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Theme - Product Requirements Document (PRD)
 
 ## Document Information
@@ -41,6 +53,7 @@ To provide the most modern, performant, and user-friendly theme for the Laraxot 
 4. **Design System** - Work with a consistent design system
 5. **Real-time Preview** - See changes in real-time
 
+<<<<<<< .merge_file_KA0pN9
 ### As a business user, I want to:
 1. **Professional Appearance** - Have a website that looks professional
 2. **Easy Content Management** - Update content without technical skills
@@ -337,3 +350,13 @@ To provide the most modern, performant, and user-friendly theme for the Laraxot 
 ---
 
 *This PRD will be reviewed and updated quarterly based on feedback and changing requirements.*
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_7a01tX

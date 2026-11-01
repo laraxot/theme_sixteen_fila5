@@ -1,6 +1,6 @@
 @props([
     'data' => [],
-    'title' => 'Contenuti correlati',
+    'title' => __('pub_theme::blocks_content.related.related_content.title'),
     'categories' => [],
     'contacts' => [],
 ])
@@ -56,7 +56,7 @@
                                                             @if ($collapsedLinks !== [])
                                                                 <li x-data="{ open: false }">
                                                                     <a class="show-more px-0" data-bs-toggle="collapse" href="#{{ $collapseId }}" aria-controls="{{ $collapseId }}" :aria-expanded="open.toString()" @click.prevent="open = !open">
-                                                                        <span class="show-more d-flex align-items-center">Vedi altri {{ count($collapsedLinks) }}
+                                                                        <span class="show-more d-flex align-items-center">{{ __('pub_theme::blocks_content.related.show_more.label', ['count' => count($collapsedLinks)]) }}
                                                                             <svg class="icon icon-primary icon-md">
                                                                                 <use href="{{ $sprite }}#it-expand"></use>
                                                                             </svg>

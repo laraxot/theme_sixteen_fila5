@@ -18,6 +18,12 @@ class SpidAuthenticated
 {
     use Dispatchable, SerializesModels;
 
+<<<<<<< .merge_file_tq8zm6
+=======
+    /**
+     * @param  array<string, mixed>  $spidAttributes
+     */
+>>>>>>> .merge_file_ycqHjw
     public function __construct(
         public User $user,
         public array $spidAttributes
@@ -64,6 +70,12 @@ class SpidAuthenticated
     /**
      * Ottiene tutti gli attributi SPID ricevuti
      */
+<<<<<<< .merge_file_tq8zm6
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> .merge_file_ycqHjw
     public function getSpidAttributes(): array
     {
         return $this->spidAttributes;
@@ -71,6 +83,12 @@ class SpidAuthenticated
 
     /**
      * Ottiene attributi specifici per logging sicuro
+<<<<<<< .merge_file_tq8zm6
+=======
+     */
+    /**
+     * @return array<string, mixed>
+>>>>>>> .merge_file_ycqHjw
      */
     public function getLoggingData(): array
     {

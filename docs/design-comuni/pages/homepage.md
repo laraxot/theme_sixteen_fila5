@@ -1,3 +1,15 @@
+---
+title: "homepage"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "homepage"
+issues: []
+discussions: []
+status: draft
+---
+
 # Homepage Replication
 
 > **Replicare la homepage di Design Comuni Italia**
@@ -32,10 +44,9 @@
 <x-section slug="header" />
 ```
 
-**Documentazione:** [Header Component](../../components/header.md)
+**Documentazione:** [Header Component](../../prompts/header.md)
 
 ---
-
 ### Main Content
 
 #### 1. Hero Newscard
@@ -274,7 +285,7 @@
 <x-section slug="footer" />
 ```
 
-**Documentazione:** [Footer Component](../../components/footer.md)
+**Documentazione:** [Footer Component](../../components/ui/marketing/footer.md)
 
 ---
 
@@ -517,8 +528,8 @@ npx playwright test Modules/Geo/tests/Playwright/homepage-it-mobile-qa.spec.js
 - [Block System](../blocks/00-index.md)
 - [Replication Guide](../replication-guide.md)
 - [Screenshot Analysis](../screenshots/homepage/homepage.md)
-- [Header Component](../../components/header.md)
-- [Footer Component](../../components/footer.md)
+- [Header Component](../../prompts/header.md)
+- [Footer Component](../../components/ui/marketing/footer.md)
 
 ---
 

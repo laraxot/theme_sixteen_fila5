@@ -15,18 +15,18 @@
                   role="menuitem">
                   <div class="inline-flex items-center whitespace-nowrap">
                       <x-fas-toolbox class="w-3.5 h-3.5 me-2" />
-                      Area admin
+                      {{ __('pub_theme::navigation_components.profile_dropdown.admin_area.label') }}
                   </div>
               </a>
           </li>
           @endcan
           <li>
-              <a href="{{ route('logout') }}"
+              <a href="{{ url('/'.app()->getLocale().'/auth/logout') }}"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                   role="menuitem">
                   <div class="inline-flex items-center">
                       <x-fas-sign-out-alt class="w-3.5 h-3.5 me-2" />
-                      Log Out
+                      {{ __('pub_theme::navigation_components.profile_dropdown.logout.label') }}
                   </div>
               </a>
           </li>

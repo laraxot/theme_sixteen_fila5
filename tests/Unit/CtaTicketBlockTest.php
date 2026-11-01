@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 uses(Tests\TestCase::class);
 
+<<<<<<< .merge_file_BGmGME
 test('cta ticket block renders with defaults', function (): void {
     /** @var Tests\TestCase $this */
+=======
+test('cta ticket block omits empty CMS payload', function (): void {
+    /** @var TestCase $this */
+>>>>>>> .merge_file_WwzLlW
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [],
     ]);
 
-    $view->assertSee('cmp-text-button', false);
-    $view->assertSee(__('fixcity::ticket.map.cta.title.label'), false);
-    $view->assertSee(__('fixcity::ticket.map.cta.button.label'), false);
+    $view->assertDontSee('cmp-text-button', false);
+    $view->assertDontSee('<h2', false);
 });
 
 test('cta ticket block renders custom payload', function (): void {

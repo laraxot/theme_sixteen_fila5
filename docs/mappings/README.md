@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # 🗺️ Mappings Folder
 
 > Bootstrap Italia → Tailwind CSS class translations and component mappings
@@ -129,6 +141,7 @@ module.exports = {
 }
 ```
 
+<<<<<<< .merge_file_gMWrYj
 ### Implementation in Blade Templates
 
 Replace Bootstrap classes:
@@ -184,3 +197,13 @@ Replace Bootstrap classes:
 - [← Previous: Visual Comparison](../visual-comparison/README.md)
 - [Next: Phases →](../phases/README.md)
 
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_PZ7yhP

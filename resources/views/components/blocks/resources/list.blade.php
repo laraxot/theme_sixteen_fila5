@@ -47,7 +47,7 @@
                             
                             @if(!empty($resource['url']))
                             <a class="read-more mt-3" href="{{ $resource['url'] }}">
-                                <span class="text">Scarica</span>
+                                <span class="text">{{ __('pub_theme::components_common.actions.download.label') }}</span>
                                 <svg class="icon"><use href="#it-download"></use></svg>
                             </a>
                             @endif
@@ -56,7 +56,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-muted text-center">Nessuna risorsa disponibile</p>
+                    <p class="text-muted text-center">{{ __('pub_theme::components_content.resources.empty.message') }}</p>
                 </div>
             @endforelse
         </div>

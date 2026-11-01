@@ -1,10 +1,22 @@
+---
+title: "DEEP ANALYSIS "
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "DEEP ANALYSIS "
+issues: []
+discussions: []
+status: superseded
+superseded_by: DEEP_ANALYSIS.md
+---
+
 # Homepage Visual Comparison - Deep Analysis 2026-04-02
 
 **Reference**: https://italia.github.io/design-comuni-pagine-statiche/sito/homepage.html  
 **Local**: http://127.0.0.1:8000/it/tests/homepage
 
 ---
-
 ## SEZIONE 1: HEADER
 
 ### Reference (Bootstrap Italia Standard)

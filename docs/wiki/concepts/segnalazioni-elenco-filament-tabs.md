@@ -1,11 +1,19 @@
 ---
+qmd: "segnalazioni elenco filament tabs"
+issues: []
+discussions: []
 title: "Segnalazioni elenco — tab Design Comuni su /it (Alpine.js)"
 type: concept
 status: active
 created: 2026-05-28
+<<<<<<< .merge_file_WHRYyF
 tags: [filament, tabs, ticket-list]
 updated: 2026-05-29
 tags: [tabs, design-comuni, alpine, segnalazioni-elenco]
+=======
+updated: 2026-05-29
+tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
+>>>>>>> .merge_file_kZ4Qx4
 related:
   - ../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
@@ -32,8 +40,12 @@ Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/desig
 
 ## CSS
 
+<<<<<<< .merge_file_WHRYyF
 Skin Design Comuni in `style-apply.css` — selettore `.ticket-list .segnalazioni-fi-tabs`.
 Skin Design Comuni in `style-apply.css` — selettore `.segnalazioni-elenco .nav-tabs`.
+=======
+Skin Design Comuni in `style-apply.css` — selettori `.ticket-list .segnalazioni-fi-tabs` e `.segnalazioni-elenco .nav-tabs`.
+>>>>>>> .merge_file_kZ4Qx4
 
 ## Riferimenti
 

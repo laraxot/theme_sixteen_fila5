@@ -16,9 +16,9 @@
                                 <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ $title }}</h2>
                             </div>
                             <div class="card-body">
-                                <div class="faq-rating-stars" aria-label="Valuta da 1 a 5 stelle la pagina">
+                                <div class="faq-rating-stars" aria-label="{{ __('pub_theme::blocks_common.shared.rate_the_page_from_1_to.label') }}">
                                     @for ($star = 1; $star <= 5; $star++)
-                                        <button type="button" class="faq-rating-star" aria-label="Valuta {{ $star }} stelle su 5">★</button>
+                                        <button type="button" class="faq-rating-star" aria-label="{{ __('pub_theme::navigation.homepage.rate_'.$star) }}">★</button>
                                     @endfor
                                 </div>
                                 <p class="faq-rating-help mb-0">{{ $subtitle }}</p>

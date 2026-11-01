@@ -84,7 +84,6 @@
                     >
                         {{ $link-text }}
                         <x-filament::icon icon="heroicon-o-arrow-right" class="ml-1 h-3 w-3" />
-f7ac8eda (.)
                     </a>
                 @endif
             </div>

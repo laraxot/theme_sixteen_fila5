@@ -1,0 +1,88 @@
+{
+  "sixteen_unit": {
+    "passed": 716,
+    "failed": 0,
+    "assertions": 3422
+  },
+  "changed_contracts_and_guest_names": {
+    "passed": 12,
+    "failed": 0,
+    "assertions": 306
+  },
+  "precise_cms_shape_recheck": {
+    "passed": 3,
+    "failed": 0,
+    "assertions": 43
+  },
+  "browser": {
+    "passed": 55,
+    "failed": 0,
+    "skipped": 1,
+    "skip_reason": "Optional mobile filter control absent from current page",
+    "axe_strict": true,
+    "tags": [
+      "wcag2a",
+      "wcag2aa",
+      "wcag21a",
+      "wcag21aa"
+    ],
+    "widths": [
+      375,
+      768,
+      1440
+    ],
+    "real_login": true,
+    "keyboard_menu_checks": true
+  },
+  "root_suite_checkpoint": {
+    "passed": 37,
+    "failed": 310,
+    "skipped": 4,
+    "assertions": 163,
+    "status": "failed",
+    "bootstrap_null_application_fixed": true
+  },
+  "module_discovery": {
+    "status": "failed",
+    "reason": "Empty module_roots data providers in exported checkout without per-module .git"
+  },
+  "gates": {
+    "phpstan_changed_php": "passed",
+    "phpmd_changed_php": "passed",
+    "pint_changed_php": "passed",
+    "insights_root_testcase": {
+      "code": 100,
+      "complexity": 100,
+      "architecture": 100,
+      "style": 100
+    },
+    "blade_compilation": "passed",
+    "vite_build": "passed",
+    "asset_copy": "passed",
+    "build_without_ancestor_lit_and_heat": "passed"
+  },
+  "database_fixture": {
+    "scope": "disposable schemas",
+    "development_data_written": false
+  },
+  "responsive_checks": {
+    "cases": 12,
+    "http_errors": 0,
+    "horizontal_overflow_cases": 0,
+    "heading_or_main_landmark_failures": 0
+  },
+  "boost_mcp": {
+    "environment": "local",
+    "initialize": "passed",
+    "tools_list": "passed",
+    "tools": 10,
+    "application_info": "passed"
+  },
+  "leaflet_png": {
+    "repaired_files": 3,
+    "source_bytes_match": true,
+    "png_chunk_crc_valid": true,
+    "previous_committed_png_valid": false,
+    "binary_attributes_restored": true
+  }
+}

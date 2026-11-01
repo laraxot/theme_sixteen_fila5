@@ -18,6 +18,11 @@ class PWAMiddleware
 {
     /**
      * Handle an incoming request.
+<<<<<<< .merge_file_fgDlOW
+=======
+     *
+     * @param  Closure(Request): Response  $next
+>>>>>>> .merge_file_nEQW3a
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -52,8 +57,13 @@ class PWAMiddleware
         $response->headers->set('Link', '</manifest.json>; rel="manifest"');
 
         // Header per viewport mobile
+<<<<<<< .merge_file_fgDlOW
         if ($response->headers->has('Content-Type') &&
             str_contains($response->headers->get('Content-Type'), 'text/html')) {
+=======
+        $contentType = $response->headers->get('Content-Type');
+        if (is_string($contentType) && str_contains($contentType, 'text/html')) {
+>>>>>>> .merge_file_nEQW3a
             $this->addViewportMeta($response);
         }
     }
@@ -95,8 +105,13 @@ class PWAMiddleware
         }
 
         // Aggiungi meta tag per offline
+<<<<<<< .merge_file_fgDlOW
         if ($response->headers->has('Content-Type') &&
             str_contains($response->headers->get('Content-Type'), 'text/html')) {
+=======
+        $contentType = $response->headers->get('Content-Type');
+        if (is_string($contentType) && str_contains($contentType, 'text/html')) {
+>>>>>>> .merge_file_nEQW3a
             $this->addOfflineMeta($response);
         }
     }
@@ -113,8 +128,13 @@ class PWAMiddleware
             return;
         }
 
+<<<<<<< .merge_file_fgDlOW
         // Aggiungi viewport meta tag
         $viewportMeta = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">';
+=======
+        // Aggiungi viewport meta tag. Mai maximum-scale/user-scalable=no: blocca lo zoom (WCAG 1.4.4).
+        $viewportMeta = '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+>>>>>>> .merge_file_nEQW3a
 
         // Inserisci dopo <head>
         $content = str_replace('<head>', "<head>\n    {$viewportMeta}", $content);
@@ -166,7 +186,13 @@ class PWAMiddleware
      */
     private function isPageRequest(Request $request): bool
     {
+<<<<<<< .merge_file_fgDlOW
         return $request->header('Accept') &&
                str_contains($request->header('Accept'), 'text/html');
+=======
+        $accept = $request->header('Accept');
+
+        return is_string($accept) && str_contains($accept, 'text/html');
+>>>>>>> .merge_file_nEQW3a
     }
 }

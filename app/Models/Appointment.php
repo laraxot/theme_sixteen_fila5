@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models;
 
+<<<<<<< .merge_file_QA0wJm
+=======
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> .merge_file_6qApHP
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
+use Themes\Sixteen\Enums\AppointmentServiceTypeEnum;
+use Themes\Sixteen\Enums\AppointmentStatusEnum;
 
 /**
  * Modello Appuntamento - Gestione prenotazioni servizi comunali
@@ -20,10 +27,17 @@ use Modules\User\Models\User;
  * @property int|null $service_id
  * @property int|null $office_id
  * @property int|null $citizen_id
+<<<<<<< .merge_file_QA0wJm
  * @property \Carbon\Carbon|null $appointment_date
  * @property \Carbon\Carbon|null $start_time
  * @property \Carbon\Carbon|null $end_time
  * @property string $status
+=======
+ * @property Carbon|null $appointment_date
+ * @property Carbon|null $start_time
+ * @property Carbon|null $end_time
+ * @property AppointmentStatusEnum|null $status
+>>>>>>> .merge_file_6qApHP
  * @property string|null $purpose
  * @property string|null $notes
  * @property array|null $required_documents
@@ -44,6 +58,7 @@ class Appointment extends Model
 {
     use HasFactory, SoftDeletes;
 
+<<<<<<< .merge_file_QA0wJm
     /**
      * Stati appuntamento conformi AGID
      */
@@ -70,6 +85,8 @@ class Appointment extends Model
 
     public const SERVICE_OTHER = 'other';
 
+=======
+>>>>>>> .merge_file_6qApHP
     protected $table = 'sixteen_appointments';
 
     protected $fillable = [
@@ -97,6 +114,10 @@ class Appointment extends Model
         'required_documents' => 'array',
         'reminder_sent' => 'boolean',
         'metadata' => 'array',
+<<<<<<< .merge_file_QA0wJm
+=======
+        'status' => AppointmentStatusEnum::class,
+>>>>>>> .merge_file_6qApHP
     ];
 
     /**
@@ -134,16 +155,24 @@ class Appointment extends Model
     /**
      * Scope per appuntamenti futuri
      */
+<<<<<<< .merge_file_QA0wJm
     public function scopeUpcoming($query)
+=======
+    public function scopeUpcoming(Builder $query): Builder
+>>>>>>> .merge_file_6qApHP
     {
         return $query->where('appointment_date', '>=', now()->toDateString())
-            ->where('status', self::STATUS_CONFIRMED);
+            ->where('status', AppointmentStatusEnum::CONFIRMED->value);
     }
 
     /**
      * Scope per appuntamenti di un utente
      */
+<<<<<<< .merge_file_QA0wJm
     public function scopeForUser($query, $userId)
+=======
+    public function scopeForUser(Builder $query, int $userId): Builder
+>>>>>>> .merge_file_6qApHP
     {
         return $query->where('user_id', $userId);
     }
@@ -151,7 +180,11 @@ class Appointment extends Model
     /**
      * Scope per appuntamenti di un ufficio
      */
+<<<<<<< .merge_file_QA0wJm
     public function scopeForOffice($query, $officeId)
+=======
+    public function scopeForOffice(Builder $query, int $officeId): Builder
+>>>>>>> .merge_file_6qApHP
     {
         return $query->where('office_id', $officeId);
     }
@@ -161,7 +194,7 @@ class Appointment extends Model
      */
     public function getIsCancellableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
+        return ($this->status?->isOpen() ?? false)
             && $this->appointment_date > now()->addHours(24); // Cancellabile fino a 24h prima
     }
 
@@ -170,7 +203,7 @@ class Appointment extends Model
      */
     public function getIsModifiableAttribute(): bool
     {
-        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_CONFIRMED])
+        return ($this->status?->isOpen() ?? false)
             && $this->appointment_date > now()->addHours(48); // Modificabile fino a 48h prima
     }
 
@@ -188,37 +221,40 @@ class Appointment extends Model
     public function needsReminder(): bool
     {
         return ! $this->reminder_sent
+<<<<<<< .merge_file_QA0wJm
             && $this->status === self::STATUS_CONFIRMED
             && $this->appointment_date->isTomorrow()
+=======
+            && $this->status === AppointmentStatusEnum::CONFIRMED
+            && ($this->appointment_date?->isTomorrow() ?? false)
+>>>>>>> .merge_file_6qApHP
             && now()->hour < 18; // Invio solo prima delle 18
     }
 
     /**
      * Array di stati validi
+<<<<<<< .merge_file_QA0wJm
+=======
+     *
+     * @return array<string, string>
+>>>>>>> .merge_file_6qApHP
      */
     public static function getStatuses(): array
     {
-        return [
-            self::STATUS_PENDING => 'In attesa',
-            self::STATUS_CONFIRMED => 'Confermato',
-            self::STATUS_COMPLETED => 'Completato',
-            self::STATUS_CANCELLED => 'Cancellato',
-            self::STATUS_NO_SHOW => 'Non presentato',
-        ];
+        return AppointmentStatusEnum::options();
     }
 
     /**
      * Array di tipi servizio
+<<<<<<< .merge_file_QA0wJm
+=======
+     *
+     * @return array<string, string>
+>>>>>>> .merge_file_6qApHP
      */
     public static function getServiceTypes(): array
     {
-        return [
-            self::SERVICE_ANAGRAFE => 'Anagrafe',
-            self::SERVICE_TRIBUTI => 'Tributi',
-            self::SERVICE_SUAP => 'SUAP',
-            self::SERVICE_URP => 'URP',
-            self::SERVICE_OTHER => 'Altro',
-        ];
+        return AppointmentServiceTypeEnum::options();
     }
 
     /**
@@ -252,8 +288,13 @@ class Appointment extends Model
             }
         });
 
+<<<<<<< .merge_file_QA0wJm
         static::updating(function ($appointment): void {
             if ($appointment->isDirty('status') && $appointment->status === self::STATUS_CANCELLED) {
+=======
+        static::updating(function (self $appointment): void {
+            if ($appointment->isDirty('status') && $appointment->status === AppointmentStatusEnum::CANCELLED) {
+>>>>>>> .merge_file_6qApHP
                 $appointment->cancelled_at = now();
             }
         });

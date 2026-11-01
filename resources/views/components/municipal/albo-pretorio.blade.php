@@ -71,13 +71,13 @@
             <div>
                 <h2 class="text-xl font-bold">{{ $title }}</h2>
                 <p class="text-primary-100 text-sm mt-1">
-                    Pubblicazioni ufficiali del comune - Art. 32 D.Lgs. 33/2013
+                    {{ __('pub_theme::components_municipal.albo.subtitle.text') }}
                 </p>
             </div>
             
             <div class="flex items-center space-x-2">
                 <span class="text-primary-200 text-sm">
-                    <span x-text="filteredItems.length"></span> pubblicazioni
+                    <span x-text="filteredItems.length"></span> {{ __('pub_theme::components_municipal.albo.publications.label') }}
                 </span>
             </div>
         </div>
@@ -89,17 +89,17 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             {{-- Ricerca --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Cerca</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::header.center.search.label') }}</label>
                 <input type="text" 
                        x-model="searchTerm" 
                        @input="updateFilters"
-                       placeholder="Cerca per titolo o descrizione..."
+                       placeholder="{{ __('pub_theme::components_municipal.albo.search.placeholder') }}"
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
 
             {{-- Categoria --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::home.list.category_legend') }}</label>
                 <select x-model="selectedCategory" @change="updateFilters"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     @foreach($categories as $category)
@@ -110,10 +110,10 @@
 
             {{-- Anno --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Anno</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::components_common.fields.year.label') }}</label>
                 <select x-model="selectedYear" @change="updateFilters"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option value="Tutti">Tutti</option>
+                    <option value="Tutti">{{ __('pub_theme::components_municipal.albo.all.label') }}</option>
                     @foreach($years as $year)
                     <option value="{{ $year }}">{{ $year }}</option>
                     @endforeach
@@ -124,7 +124,7 @@
             <div class="flex items-end">
                 <button @click="searchTerm = ''; selectedCategory = 'Tutti'; selectedYear = 'Tutti'; updateFilters()"
                         class="w-full px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Reset
+                    {{ __('pub_theme::components_common.actions.reset.label') }}
                 </button>
             </div>
         </div>
@@ -138,7 +138,7 @@
                 <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <p class="text-gray-500">Nessuna pubblicazione trovata</p>
+                <p class="text-gray-500">{{ __('pub_theme::components_municipal.albo.empty.message') }}</p>
             </div>
         </template>
 
@@ -199,7 +199,7 @@
                                class="btn-italia bg-blue-600 hover:bg-blue-700 text-white px-4 py-2"
                                target="_blank"
                                rel="noopener noreferrer">
-                                Visualizza
+                                {{ __('pub_theme::components_common.actions.view.label') }}
                             </a>
                         </template>
 
@@ -223,8 +223,8 @@
     <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
         <div class="flex items-center justify-between">
             <div class="text-sm text-gray-700">
-                Mostrati <span x-text="paginatedItems.length"></span> di 
-                <span x-text="filteredItems.length"></span> risultati
+                {{ __('pub_theme::components_municipal.albo.shown.label') }} <span x-text="paginatedItems.length"></span> di 
+                <span x-text="filteredItems.length"></span> {{ __('pub_theme::components_municipal.albo.results.label') }}
             </div>
 
             <div class="flex space-x-2" x-show="totalPages > 1">
@@ -232,11 +232,11 @@
                         :disabled="currentPage === 1"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
                         class="px-3 py-1 border border-gray-300 rounded text-sm">
-                    Precedente
+                    {{ __('pub_theme::components_common.pagination.previous.label') }}
                 </button>
 
                 <span class="px-3 py-1 text-sm text-gray-700">
-                    Pagina <span x-text="currentPage"></span> di 
+                    {{ __('pub_theme::components_common.pagination.page.label') }} <span x-text="currentPage"></span> di 
                     <span x-text="totalPages"></span>
                 </span>
 
@@ -244,7 +244,7 @@
                         :disabled="currentPage === totalPages"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
                         class="px-3 py-1 border border-gray-300 rounded text-sm">
-                    Successiva
+                    {{ __('pub_theme::components_common.pagination.next.label') }}
                 </button>
             </div>
         </div>

@@ -1,3 +1,15 @@
+---
+title: "map picker smoke"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "map picker smoke"
+issues: []
+discussions: []
+status: draft
+---
+
 # map-picker-smoke.cjs
 
 - **movement**: already in scripts/ before this cleanup pass (pre-existing)

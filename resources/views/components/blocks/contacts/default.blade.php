@@ -1,43 +1,28 @@
-{{--
-    Contacts Card Block - Design Comuni Segnalazione Style
-    Reference: https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazione-01-privacy.html
-    Used as a separate content block in JSON (NOT hardcoded in blade)
-    
-    Philosophy: Blocks are defined in JSON content_blocks, NOT hardcoded in blade templates.
-    This keeps blade templates minimal and generic, while content is data-driven.
---}}
 @props(['data' => []])
 
-@php
-    $sprite = '/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg';
-    $heading = (string) ($data['heading'] ?? __('fixcity::segnalazione.contact.heading.label'));
-    $items = (array) ($data['items'] ?? []);
-@endphp
-
-<div class="bg-grey-card shadow-contacts">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-3 p-contacts">
-                <div class="cmp-contacts">
-                    <div class="card w-100">
-                        <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">{{ $heading }}</h2>
-                            <ul class="contact-list p-0">
-                                @foreach($items as $item)
-                                <li>
-                                    <a class="list-item" href="{{ $item['url'] ?? '#' }}" @if(!empty($item['data_element'])) data-element="{{ $item['data_element'] }}" @endif>
-                                        <svg class="icon icon-primary icon-sm" aria-hidden="true">
-                                            <use href="{{ $sprite }}#{{ $item['icon'] ?? 'it-help-circle' }}"></use>
-                                        </svg>
-                                        <span>{{ $item['label'] ?? '' }}</span>
-                                    </a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="dc-contacts" aria-labelledby="dc-contacts-title">
+    <div class="dc-contacts__card">
+        <h2 id="dc-contacts-title">{{ $data['title'] ?? ($data['heading'] ?? 'Contatta il comune') }}</h2>
+        <ul>
+            @foreach(($data['items'] ?? []) as $item)
+                @php($icon = $item['icon'] ?? 'help')
+                <li>
+                    <a href="{{ $item['url'] ?? '#' }}" @if(!empty($item['data_element'])) data-element="{{ $item['data_element'] }}" @endif>
+                        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                            @if($icon === 'mail')
+                                <path d="M3 5h18v14H3zM3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
+                            @elseif($icon === 'phone' || $icon === 'hearing')
+                                <path d="M7 3h3l1.5 4-2 1.5a14 14 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2C11 19 5 13 5 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
+                            @elseif($icon === 'calendar')
+                                <path d="M5 4h14v16H5zM8 2v4m8-4v4M5 9h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                            @else
+                                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5m0-8v.1" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                            @endif
+                        </svg>
+                        <span>{{ $item['label'] ?? '' }}</span>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
     </div>
-</div>
+</section>

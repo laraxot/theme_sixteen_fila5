@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Sixteen Theme - User Research
 
 ## Research Overview
@@ -27,6 +39,7 @@ This document outlines the user research methodology, findings, and insights gat
 
 ### Data Collection Methods
 
+<<<<<<< .merge_file_cgTJow
 #### 1. Surveys
 - **Target Audience**: 300+ web developers
 - **Platforms**: GitHub, Discord, Twitter, developer forums
@@ -260,3 +273,13 @@ The research will inform ongoing product development, marketing strategy, and bu
 ---
 
 *This research document will be updated quarterly based on new findings and changing market conditions.*
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_EsVRuE

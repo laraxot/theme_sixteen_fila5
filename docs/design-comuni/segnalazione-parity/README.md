@@ -1,3 +1,15 @@
+---
+title: "README"
+type: note
+tags: [documentation]
+created: 2026-09-26
+updated: 2026-09-26
+qmd: "README"
+issues: []
+discussions: []
+status: draft
+---
+
 # Segnalazione Pages Parity - Index
 
 **Project:** Design Comuni Italia - Segnalazione Workflow
@@ -62,6 +74,7 @@
 
 ## Cross-References
 
+<<<<<<< .merge_file_tCB1vX
 - → [../00-index.md](../00-index.md) - Theme docs index
 - → [../css-js-parity-2026-04-04.md](../css-js-parity-2026-04-04.md) - Previous CSS/JS parity
 - → [../../../../../docs/MODULE_DOCS_INDEX.md](../../../../../docs/MODULE_DOCS_INDEX.md) - Master project index
@@ -70,3 +83,13 @@
 ---
 
 *Index updated: 2026-04-07*
+=======
+| Lingua | Link |
+|--------|------|
+| 🇮🇹 Presentazione | Questo file (`README.md`) |
+| 🇬🇧 Business card | [docs/readme-en.md](../../readme-en.md) |
+| 📚 Wiki tecnica | [./docs/wiki/](../..) |
+
+---
+**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
+>>>>>>> .merge_file_I499XJ
