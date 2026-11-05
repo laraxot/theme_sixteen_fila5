@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< .merge_file_M4TKSQ
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> .merge_file_13nviD
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -42,20 +41,6 @@ use Themes\Sixteen\Enums\OrganizationalUnitTypeEnum;
  * @property string|null $pec
  * @property string|null $phone
  * @property string|null $address
-<<<<<<< .merge_file_M4TKSQ
- * @property array|null $office_hours
- * @property bool $is_active
- * @property bool $is_public
- * @property int $position
- * @property array|null $competences
- * @property array|null $services_provided
- * @property array|null $accessibility_info
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
-=======
  * @property array<array-key, mixed>|null $office_hours
  * @property bool $is_active
  * @property bool $is_public
@@ -67,38 +52,21 @@ use Themes\Sixteen\Enums\OrganizationalUnitTypeEnum;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
->>>>>>> .merge_file_13nviD
  * @property-read self|null $parent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $children
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
  * @property-read \Illuminate\Database\Eloquent\Collection<int, self> $allChildren
+ * @property-read string $type_name
+ * @property-read string $hierarchy_path
+ * @property-read bool $has_children
+ * @property-read int $level
+ * @property-read string $url
  */
 class OrganizationalUnit extends Model
 {
+    /** @use HasFactory<Factory<static>> */
     use HasFactory, SoftDeletes;
 
-<<<<<<< .merge_file_M4TKSQ
-    /**
-     * Tipi di unità organizzative secondo AGID
-     */
-    public const TYPES = [
-        'municipality' => 'Comune',
-        'department' => 'Dipartimento',
-        'sector' => 'Settore',
-        'office' => 'Ufficio',
-        'service' => 'Servizio',
-        'area' => 'Area',
-        'division' => 'Divisione',
-        'unit' => 'Unità',
-        'committee' => 'Commissione',
-        'council' => 'Consiglio',
-        'board' => 'Giunta',
-        'authority' => 'Autorità',
-        'agency' => 'Agenzia',
-    ];
-
-=======
->>>>>>> .merge_file_13nviD
     protected $table = 'sixteen_organizational_units';
 
     protected $fillable = [
@@ -139,50 +107,38 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con l'unità parent
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return BelongsTo<static, $this>
->>>>>>> .merge_file_13nviD
      */
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(self::class, 'parent_id');
+        return $this->belongsTo(static::class, 'parent_id');
     }
 
     /**
      * Relazione con le unità figlie
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return HasMany<static, $this>
->>>>>>> .merge_file_13nviD
      */
     public function children(): HasMany
     {
-        return $this->hasMany(self::class, 'parent_id')->ordered();
+        return $this->hasMany(static::class, 'parent_id')->ordered();
     }
 
     /**
      * Relazione con tutti i discendenti
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return HasMany<static, $this>
->>>>>>> .merge_file_13nviD
      */
     public function descendants(): HasMany
     {
-        return $this->hasMany(self::class, 'parent_id')->with('descendants');
+        return $this->hasMany(static::class, 'parent_id')->with('descendants');
     }
 
     /**
      * Relazione con i punti di contatto
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> .merge_file_13nviD
      */
     public function contacts(): MorphMany
     {
@@ -191,11 +147,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con le persone pubbliche
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return BelongsToMany<PublicPerson, $this, Pivot, 'pivot'>
->>>>>>> .merge_file_13nviD
      */
     public function people(): BelongsToMany
     {
@@ -206,11 +159,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con i responsabili attuali
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return BelongsToMany<PublicPerson, $this, Pivot, 'pivot'>
->>>>>>> .merge_file_13nviD
      */
     public function managers(): BelongsToMany
     {
@@ -222,11 +172,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con i servizi erogati
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return HasMany<MunicipalService, $this>
->>>>>>> .merge_file_13nviD
      */
     public function services(): HasMany
     {
@@ -235,11 +182,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Relazione con le location
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return BelongsToMany<MunicipalLocation, $this, Pivot, 'pivot'>
->>>>>>> .merge_file_13nviD
      */
     public function locations(): BelongsToMany
     {
@@ -248,71 +192,63 @@ class OrganizationalUnit extends Model
 
     /**
      * Scope per unità attive
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_M4TKSQ
-    public function scopeActive($query)
-=======
     public function scopeActive(Builder $query): Builder
->>>>>>> .merge_file_13nviD
     {
         return $query->where('is_active', true);
     }
 
     /**
      * Scope per unità pubbliche
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_M4TKSQ
-    public function scopePublic($query)
-=======
     public function scopePublic(Builder $query): Builder
->>>>>>> .merge_file_13nviD
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per tipo di unità
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_M4TKSQ
-    public function scopeOfType($query, string $type)
-=======
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> .merge_file_13nviD
     {
         return $query->where('type', $type);
     }
 
     /**
      * Scope per unità radice (senza parent)
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_M4TKSQ
-    public function scopeRoot($query)
-=======
     public function scopeRoot(Builder $query): Builder
->>>>>>> .merge_file_13nviD
     {
         return $query->whereNull('parent_id');
     }
 
     /**
      * Scope ordinato per posizione
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_M4TKSQ
-    public function scopeOrdered($query)
-=======
     public function scopeOrdered(Builder $query): Builder
->>>>>>> .merge_file_13nviD
     {
         return $query->orderBy('position')->orderBy('name');
     }
 
     /**
      * Ottiene le competenze formattate
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> .merge_file_13nviD
      */
     public function getFormattedCompetences(): array
     {
@@ -333,11 +269,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene i servizi forniti formattati
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> .merge_file_13nviD
      */
     public function getFormattedServices(): array
     {
@@ -358,11 +291,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene gli orari di apertura formattati
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> .merge_file_13nviD
      */
     public function getFormattedOfficeHours(): array
     {
@@ -407,15 +337,11 @@ class OrganizationalUnit extends Model
         }
 
         foreach ($todayHours as $period) {
-<<<<<<< .merge_file_M4TKSQ
-            if (isset($period['open']) && isset($period['close'])) {
-=======
             if (! is_array($period)) {
                 continue;
             }
 
             if (isset($period['open'], $period['close'])) {
->>>>>>> .merge_file_13nviD
                 if ($currentTime >= $period['open'] && $currentTime <= $period['close']) {
                     return true;
                 }
@@ -427,41 +353,37 @@ class OrganizationalUnit extends Model
 
     /**
      * Ottiene tutti gli antenati
+     *
+     * @return Collection<int, self>
      */
     public function getAncestors(): Collection
     {
-<<<<<<< .merge_file_M4TKSQ
-        $ancestors = collect();
-=======
         $ancestors = [];
->>>>>>> .merge_file_13nviD
         $current = $this->parent;
 
         while ($current) {
-            $ancestors->prepend($current);
+            array_unshift($ancestors, $current);
             $current = $current->parent;
         }
 
-        return $ancestors;
+        return new Collection($ancestors);
     }
 
     /**
      * Ottiene tutti i discendenti (recursivo)
+     *
+     * @return Collection<int, self>
      */
     public function getAllDescendants(): Collection
     {
-<<<<<<< .merge_file_M4TKSQ
-        $descendants = collect();
-=======
         $descendants = [];
->>>>>>> .merge_file_13nviD
 
         foreach ($this->children as $child) {
-            $descendants->push($child);
-            $descendants = $descendants->merge($child->getAllDescendants());
+            $descendants[] = $child;
+            $descendants = array_merge($descendants, $child->getAllDescendants()->all());
         }
 
-        return $descendants;
+        return new Collection($descendants);
     }
 
     /**
@@ -482,11 +404,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il nome del tipo
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_13nviD
      */
     protected function typeName(): Attribute
     {
@@ -497,11 +416,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il percorso gerarchico
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_13nviD
      */
     protected function hierarchyPath(): Attribute
     {
@@ -522,11 +438,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per verificare se ha figli
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_13nviD
      */
     protected function hasChildren(): Attribute
     {
@@ -537,11 +450,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per il livello gerarchico
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<int, never>
->>>>>>> .merge_file_13nviD
      */
     protected function level(): Attribute
     {
@@ -562,11 +472,8 @@ class OrganizationalUnit extends Model
 
     /**
      * Accessor per l'URL dell'unità
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_13nviD
      */
     protected function url(): Attribute
     {
@@ -577,20 +484,13 @@ class OrganizationalUnit extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
-<<<<<<< .merge_file_M4TKSQ
-=======
      *
      * @return Attribute<string, string>
->>>>>>> .merge_file_13nviD
      */
     protected function name(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_M4TKSQ
-            set: function ($value) {
-=======
             set: function (string $value): string {
->>>>>>> .merge_file_13nviD
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -609,40 +509,24 @@ class OrganizationalUnit extends Model
         parent::boot();
 
         // Auto-increment position nella stessa categoria
-<<<<<<< .merge_file_M4TKSQ
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_13nviD
             if (is_null($model->position)) {
-                $model->position = static::where('parent_id', $model->parent_id)
+                $maxPosition = static::where('parent_id', $model->parent_id)
                     ->where('type', $model->type)
-<<<<<<< .merge_file_M4TKSQ
-                    ->max('position') + 1;
-=======
                     ->max('position');
                 $model->position = is_numeric($maxPosition) ? ((int) $maxPosition + 1) : 1;
->>>>>>> .merge_file_13nviD
             }
         });
 
         // Genera slug se mancante
-<<<<<<< .merge_file_M4TKSQ
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_13nviD
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< .merge_file_M4TKSQ
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_13nviD
             $originalSlug = $model->slug;
             $counter = 1;
 

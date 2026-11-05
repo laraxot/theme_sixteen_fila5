@@ -2,52 +2,20 @@
 
 declare(strict_types=1);
 
-<<<<<<< .merge_file_NDPGqX
-/**
- * Contratto markup story 7-3: niente handler JS assente; navigazione come link.
- */
-test('il blade segnalazione-02-dati espone stepper nav e non usa confirmAndProceed', function (): void {
-    $bladePath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/views/components/blocks/tests/segnalazione-02-dati.blade.php';
-    expect(file_exists($bladePath))->toBeTrue('Blade tema mancante: '.$bladePath);
-
-    $html = (string) file_get_contents($bladePath);
-    expect($html)->toContain('steppers-btn-confirm');
-    expect($html)->toContain('steppers-btn-prev');
-    expect($html)->toContain('fixcity::segnalazione.actions.next.label');
-    expect($html)->toContain('fixcity::segnalazione.breadcrumb.home.label');
-    expect($html)->not->toContain('fixcity::common.');
-    expect($html)->not->toContain('confirmAndProceed()');
-});
-=======
 use PHPUnit\Framework\Assert;
 use Tests\TestCase;
 
 use function Safe\file_get_contents;
 
 uses(TestCase::class);
->>>>>>> .merge_file_3ziUCc
 
 /**
  * @return array{view: string, layout: string, nav: array{next: string, ...}, steps: array{index: string, ...}, ...}
  */
-<<<<<<< .merge_file_NDPGqX
-test('il blade segnalazione-02-dati ha steppers-header e steppers-index per la responsive', function (): void {
-    $bladePath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/views/components/blocks/tests/segnalazione-02-dati.blade.php';
-    $html = (string) file_get_contents($bladePath);
-
-    // Elementi strutturali del stepper necessari per il CSS responsive
-    expect($html)->toContain('steppers-header');
-    expect($html)->toContain('steppers-index');
-    // Il blade usa classi dinamiche Blade (non literal 'class="active"')
-    expect($html)->toContain("'active'");
-    expect($html)->toContain("'confirmed'");
-});
-=======
 function segnalazioneDatiPayload(): array
 {
     $path = dirname(__DIR__, 4).'/Modules/Fixcity/config/database/content/pages/tests.segnalazione-02-dati.json';
     $page = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
->>>>>>> .merge_file_3ziUCc
 
     Assert::assertIsArray($page);
     Assert::assertIsArray($page['content_blocks']);
@@ -55,9 +23,6 @@ function segnalazioneDatiPayload(): array
     Assert::assertIsArray($page['content_blocks']['it'][0]);
     Assert::assertIsArray($page['content_blocks']['it'][0]['data']);
 
-<<<<<<< .merge_file_NDPGqX
-    $css = (string) file_get_contents($cssPath);
-=======
     $data = $page['content_blocks']['it'][0]['data'];
     Assert::assertIsString($data['view']);
     Assert::assertIsString($data['layout']);
@@ -65,7 +30,6 @@ function segnalazioneDatiPayload(): array
     Assert::assertIsString($data['nav']['next']);
     Assert::assertIsArray($data['steps']);
     Assert::assertIsString($data['steps']['index']);
->>>>>>> .merge_file_3ziUCc
 
     return $data;
 }

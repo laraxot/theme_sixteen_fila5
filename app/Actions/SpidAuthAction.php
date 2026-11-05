@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Themes\Sixteen\Actions;
 
 use DOMDocument;
+use DOMElement;
 use DOMXPath;
 use Exception;
 use Illuminate\Http\Request;
@@ -13,20 +14,14 @@ use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use Spatie\QueueableAction\QueueableAction;
 
-<<<<<<< .merge_file_uv05oI
-=======
 use function Safe\base64_decode;
 use function Safe\gzdeflate;
 
->>>>>>> .merge_file_5VbKOx
 class SpidAuthAction
 {
     use QueueableAction;
 
-<<<<<<< .merge_file_uv05oI
-=======
     /** @var array<string, array<string, string>> */
->>>>>>> .merge_file_5VbKOx
     protected array $providers = [];
 
     protected string $entityId;
@@ -37,11 +32,7 @@ class SpidAuthAction
 
     public function __construct()
     {
-<<<<<<< .merge_file_uv05oI
-        $this->entityId = config('spid.entity_id', config('app.url'));
-=======
         $this->entityId = config()->string('spid.entity_id', config()->string('app.url'));
->>>>>>> .merge_file_5VbKOx
         $this->assertionConsumerServiceUrl = route('spid.callback');
         $this->singleLogoutServiceUrl = route('spid.slo');
         $this->loadProviders();
@@ -49,6 +40,9 @@ class SpidAuthAction
 
     public function execute(): void {}
 
+    /**
+     * @return array<string, array<string, string>>
+     */
     public function getProviders(): array
     {
         return $this->providers;
@@ -97,32 +91,28 @@ class SpidAuthAction
         ]);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function processCallback(Request $request): array
     {
-        $samlResponse = $request->input('SAMLResponse');
-        $relayState = $request->input('RelayState');
+        $samlResponse = $request->string('SAMLResponse')->toString();
+        $relayState = $request->string('RelayState')->toString();
 
-<<<<<<< .merge_file_uv05oI
-        if (! $samlResponse) {
-=======
         if ($samlResponse === '') {
->>>>>>> .merge_file_5VbKOx
             throw new Exception('SAMLResponse mancante');
         }
 
-        if (! $relayState || $relayState !== Session::get('spid.request_id')) {
+        if ($relayState === '' || $relayState !== Session::get('spid.request_id')) {
             throw new Exception('RelayState non valido');
         }
 
         $decodedResponse = base64_decode($samlResponse);
-<<<<<<< .merge_file_uv05oI
-=======
 
         if ($decodedResponse === '') {
             throw new Exception('SAMLResponse non decodificabile');
         }
 
->>>>>>> .merge_file_5VbKOx
         $responseDoc = new DOMDocument;
         $responseDoc->loadXML($decodedResponse);
 
@@ -164,11 +154,7 @@ class SpidAuthAction
         $metadata .= '                           Location="'.htmlspecialchars($this->singleLogoutServiceUrl).'"/>'.PHP_EOL;
 
         $metadata .= '    <md:AttributeConsumingService index="0">'.PHP_EOL;
-<<<<<<< .merge_file_uv05oI
-        $metadata .= '      <md:ServiceName xml:lang="it">'.config('app.name').'</md:ServiceName>'.PHP_EOL;
-=======
         $metadata .= '      <md:ServiceName xml:lang="it">'.config()->string('app.name').'</md:ServiceName>'.PHP_EOL;
->>>>>>> .merge_file_5VbKOx
 
         $spidAttributes = [
             'spidCode', 'name', 'familyName', 'placeOfBirth', 'countyOfBirth',
@@ -193,13 +179,18 @@ class SpidAuthAction
         return Session::has('spid.authenticated') && Session::get('spid.authenticated') === true;
     }
 
+    /**
+     * @return array<array-key, mixed>|null
+     */
     public function getAuthenticatedUser(): ?array
     {
         if (! $this->isAuthenticated()) {
             return null;
         }
 
-        return Session::get('spid.user_data');
+        $userData = Session::get('spid.user_data');
+
+        return is_array($userData) ? $userData : null;
     }
 
     public function logout(): void
@@ -215,11 +206,7 @@ class SpidAuthAction
 
     protected function loadProviders(): void
     {
-<<<<<<< .merge_file_uv05oI
-        $this->providers = config('spid.providers', [
-=======
         $default = [
->>>>>>> .merge_file_5VbKOx
             'poste' => [
                 'name' => 'Poste Italiane',
                 'entityId' => 'https://posteid.poste.it',
@@ -244,9 +231,6 @@ class SpidAuthAction
                 'cert' => 'tim.crt',
                 'logo' => 'tim-logo.svg',
             ],
-<<<<<<< .merge_file_uv05oI
-        ]);
-=======
         ];
 
         $configured = config('spid.providers');
@@ -280,7 +264,6 @@ class SpidAuthAction
         }
 
         return $normalized;
->>>>>>> .merge_file_5VbKOx
     }
 
     protected function generateRequestId(): string
@@ -288,6 +271,9 @@ class SpidAuthAction
         return 'req_'.bin2hex(random_bytes(16));
     }
 
+    /**
+     * @param  array<string, string>  $provider
+     */
     protected function buildSamlAuthRequest(string $requestId, array $provider, int $level): string
     {
         $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
@@ -312,6 +298,9 @@ class SpidAuthAction
         return $request;
     }
 
+    /**
+     * @param  array<string, string>  $provider
+     */
     protected function buildSamlLogoutRequest(string $requestId, string $nameId, string $sessionIndex, array $provider): string
     {
         $issueInstant = gmdate('Y-m-d\TH:i:s\Z');
@@ -339,19 +328,18 @@ class SpidAuthAction
         $xpath->registerNamespace('saml', 'urn:oasis:names:tc:SAML:2.0:assertion');
 
         $statusCode = $xpath->query('//samlp:StatusCode/@Value');
-<<<<<<< .merge_file_uv05oI
-        if ($statusCode->length === 0 || $statusCode->item(0)->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
-=======
         if ($statusCode === false || $statusCode->length === 0) {
             throw new Exception('SPID authentication failed');
         }
 
         if ($statusCode->item(0)?->nodeValue !== 'urn:oasis:names:tc:SAML:2.0:status:Success') {
->>>>>>> .merge_file_5VbKOx
             throw new Exception('SPID authentication failed');
         }
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function extractUserAttributes(DOMDocument $responseDoc): array
     {
         $xpath = new DOMXPath($responseDoc);
@@ -360,11 +348,6 @@ class SpidAuthAction
         $attributes = [];
 
         $attributeNodes = $xpath->query('//saml:Attribute');
-<<<<<<< .merge_file_uv05oI
-        foreach ($attributeNodes as $attributeNode) {
-            $name = $attributeNode->getAttribute('Name');
-            $valueNodes = $xpath->query('saml:AttributeValue', $attributeNode);
-=======
         if ($attributeNodes === false) {
             throw new Exception('SPID response contains no readable attributes');
         }
@@ -380,11 +363,8 @@ class SpidAuthAction
             if ($valueNodes === false || $valueNodes->length === 0) {
                 continue;
             }
->>>>>>> .merge_file_5VbKOx
 
-            if ($valueNodes->length > 0) {
-                $attributes[$name] = $valueNodes->item(0)->nodeValue;
-            }
+            $attributes[$name] = $valueNodes->item(0)?->nodeValue;
         }
 
         return [
@@ -408,10 +388,6 @@ class SpidAuthAction
 
     protected function getSigningCertificate(): string
     {
-<<<<<<< .merge_file_uv05oI
-        return config('spid.signing_cert', '');
-=======
         return config()->string('spid.signing_cert', '');
->>>>>>> .merge_file_5VbKOx
     }
 }

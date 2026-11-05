@@ -6,7 +6,7 @@ namespace Themes\Sixteen\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Modules\User\Models\User;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Evento lanciato quando un utente effettua il logout da CIE
@@ -18,14 +18,11 @@ class CieLoggedOut
 {
     use Dispatchable, SerializesModels;
 
-<<<<<<< .merge_file_BvYNLa
-=======
     /**
      * @param  array<array-key, mixed>  $cieAttributes
      */
->>>>>>> .merge_file_RfHnki
     public function __construct(
-        public User $user,
+        public UserContract $user,
         public array $cieAttributes
     ) {}
 
@@ -62,12 +59,9 @@ class CieLoggedOut
     /**
      * Ottiene attributi specifici per logging sicuro
      */
-<<<<<<< .merge_file_BvYNLa
-=======
     /**
      * @return array<string, mixed>
      */
->>>>>>> .merge_file_RfHnki
     public function getLoggingData(): array
     {
         return [

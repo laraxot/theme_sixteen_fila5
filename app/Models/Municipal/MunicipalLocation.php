@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< .merge_file_IcjqFp
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> .merge_file_LT4PZv
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -41,19 +40,11 @@ use Themes\Sixteen\Enums\MunicipalLocationTypeEnum;
  * @property string|null $province
  * @property string|null $region
  * @property string|null $country
-<<<<<<< .merge_file_IcjqFp
- * @property array|null $coordinates
- * @property string|null $floor
- * @property string|null $room
- * @property array|null $building_info
- * @property array|null $opening_hours
-=======
  * @property array{lat?: float, lng?: float}|null $coordinates
  * @property string|null $floor
  * @property string|null $room
  * @property array<array-key, mixed>|null $building_info
  * @property array<string, list<array{open?: string, close?: string}>>|null $opening_hours
->>>>>>> .merge_file_LT4PZv
  * @property bool $public_access
  * @property bool $appointment_required
  * @property string|null $appointment_url
@@ -62,33 +53,20 @@ use Themes\Sixteen\Enums\MunicipalLocationTypeEnum;
  * @property string|null $pec
  * @property string|null $fax
  * @property string|null $website
-<<<<<<< .merge_file_IcjqFp
- * @property array|null $directions
- * @property array|null $parking_info
- * @property array|null $public_transport
- * @property array|null $accessibility_info
- * @property array|null $facilities
- * @property array|null $equipment
-=======
  * @property array<array-key, mixed>|null $directions
  * @property array<string, mixed>|null $parking_info
  * @property array<int, mixed>|null $public_transport
  * @property array<string, mixed>|null $accessibility_info
  * @property array<int, mixed>|null $facilities
  * @property array<array-key, mixed>|null $equipment
->>>>>>> .merge_file_LT4PZv
  * @property int|null $capacity
- * @property array|null $services_available
- * @property array|null $staff_info
- * @property array|null $manager_info
- * @property array|null $emergency_contacts
- * @property array|null $safety_info
+ * @property array<array-key, mixed>|null $services_available
+ * @property array<array-key, mixed>|null $staff_info
+ * @property array<array-key, mixed>|null $manager_info
+ * @property array<array-key, mixed>|null $emergency_contacts
+ * @property array<array-key, mixed>|null $safety_info
  * @property string|null $image
-<<<<<<< .merge_file_IcjqFp
- * @property array|null $gallery
-=======
  * @property array<int, mixed>|null $gallery
->>>>>>> .merge_file_LT4PZv
  * @property string|null $virtual_tour_url
  * @property string|null $map_embed
  * @property string|null $place_id
@@ -97,17 +75,6 @@ use Themes\Sixteen\Enums\MunicipalLocationTypeEnum;
  * @property bool $is_headquarters
  * @property bool $is_accessible
  * @property int $priority_level
-<<<<<<< .merge_file_IcjqFp
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, OrganizationalUnit> $organizationalUnits
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalService> $services
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $events
-=======
  * @property array<array-key, mixed>|null $metadata
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -124,74 +91,12 @@ use Themes\Sixteen\Enums\MunicipalLocationTypeEnum;
  * @property-read Collection<int, OrganizationalUnit> $organizationalUnits
  * @property-read Collection<int, MunicipalService> $services
  * @property-read Collection<int, MunicipalEvent> $events
->>>>>>> .merge_file_LT4PZv
  */
 class MunicipalLocation extends Model
 {
+    /** @use HasFactory<Factory<self>> */
     use HasFactory, SoftDeletes;
 
-<<<<<<< .merge_file_IcjqFp
-    /**
-     * Tipologie di location secondo AGID
-     */
-    public const LOCATION_TYPES = [
-        'headquarters' => 'Sede Principale',
-        'office' => 'Ufficio',
-        'service_center' => 'Centro Servizi',
-        'library' => 'Biblioteca',
-        'school' => 'Scuola',
-        'sports_facility' => 'Impianto Sportivo',
-        'cultural_center' => 'Centro Culturale',
-        'healthcare' => 'Struttura Sanitaria',
-        'social_center' => 'Centro Sociale',
-        'cemetery' => 'Cimitero',
-        'market' => 'Mercato',
-        'parking' => 'Parcheggio',
-        'park' => 'Parco',
-        'square' => 'Piazza',
-        'monument' => 'Monumento',
-        'tourist_office' => 'Ufficio Turistico',
-        'waste_center' => 'Centro Raccolta Rifiuti',
-        'emergency' => 'Struttura di Emergenza',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Categorie principali
-     */
-    public const CATEGORIES = [
-        'administrative' => 'Amministrativo',
-        'cultural' => 'Culturale',
-        'educational' => 'Educativo',
-        'sports' => 'Sportivo',
-        'social' => 'Sociale',
-        'healthcare' => 'Sanitario',
-        'tourist' => 'Turistico',
-        'commercial' => 'Commerciale',
-        'environmental' => 'Ambientale',
-        'emergency' => 'Emergenza',
-    ];
-
-    /**
-     * Servizi disponibili
-     */
-    public const AVAILABLE_SERVICES = [
-        'citizen_services' => 'Servizi al Cittadino',
-        'document_collection' => 'Ritiro Documenti',
-        'payments' => 'Pagamenti',
-        'appointments' => 'Appuntamenti',
-        'information' => 'Informazioni',
-        'complaints' => 'Reclami/Segnalazioni',
-        'wifi' => 'WiFi Gratuito',
-        'photocopies' => 'Fotocopie',
-        'parking' => 'Parcheggio',
-        'accessibility' => 'Accessibilità',
-        'translation' => 'Servizi di Traduzione',
-        'assistance' => 'Assistenza',
-    ];
-
-=======
->>>>>>> .merge_file_LT4PZv
     protected $table = 'sixteen_municipal_locations';
 
     protected $fillable = [
@@ -247,40 +152,45 @@ class MunicipalLocation extends Model
         'metadata',
     ];
 
-    protected $casts = [
-        'coordinates' => 'json',
-        'building_info' => 'json',
-        'opening_hours' => 'json',
-        'directions' => 'json',
-        'parking_info' => 'json',
-        'public_transport' => 'json',
-        'accessibility_info' => 'json',
-        'facilities' => 'json',
-        'equipment' => 'json',
-        'services_available' => 'json',
-        'staff_info' => 'json',
-        'manager_info' => 'json',
-        'emergency_contacts' => 'json',
-        'safety_info' => 'json',
-        'gallery' => 'json',
-        'is_active' => 'boolean',
-        'is_public' => 'boolean',
-        'is_headquarters' => 'boolean',
-        'is_accessible' => 'boolean',
-        'appointment_required' => 'boolean',
-        'public_access' => 'boolean',
-        'capacity' => 'integer',
-        'priority_level' => 'integer',
-        'metadata' => 'json',
-    ];
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'coordinates' => 'json',
+            'building_info' => 'json',
+            'opening_hours' => 'json',
+            'directions' => 'json',
+            'parking_info' => 'json',
+            'public_transport' => 'json',
+            'accessibility_info' => 'json',
+            'facilities' => 'json',
+            'equipment' => 'json',
+            'services_available' => 'json',
+            'staff_info' => 'json',
+            'manager_info' => 'json',
+            'emergency_contacts' => 'json',
+            'safety_info' => 'json',
+            'gallery' => 'json',
+            'is_active' => 'boolean',
+            'is_public' => 'boolean',
+            'is_headquarters' => 'boolean',
+            'is_accessible' => 'boolean',
+            'appointment_required' => 'boolean',
+            'public_access' => 'boolean',
+            'capacity' => 'integer',
+            'priority_level' => 'integer',
+            'metadata' => 'json',
+        ];
+    }
 
     /**
      * Relazione con i punti di contatto
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> .merge_file_LT4PZv
      */
     public function contacts(): MorphMany
     {
@@ -289,11 +199,8 @@ class MunicipalLocation extends Model
 
     /**
      * Relazione con le unità organizzative
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return BelongsToMany<OrganizationalUnit, $this>
->>>>>>> .merge_file_LT4PZv
      */
     public function organizationalUnits(): BelongsToMany
     {
@@ -302,11 +209,8 @@ class MunicipalLocation extends Model
 
     /**
      * Relazione con i servizi erogati
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return BelongsToMany<MunicipalService, $this>
->>>>>>> .merge_file_LT4PZv
      */
     public function services(): BelongsToMany
     {
@@ -315,11 +219,8 @@ class MunicipalLocation extends Model
 
     /**
      * Relazione con gli eventi che si svolgono nella sede
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return HasMany<MunicipalEvent, $this>
->>>>>>> .merge_file_LT4PZv
      */
     public function events(): HasMany
     {
@@ -328,84 +229,77 @@ class MunicipalLocation extends Model
 
     /**
      * Scope per sedi attive
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeActive($query)
-=======
     public function scopeActive(Builder $query): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('is_active', true);
     }
 
     /**
      * Scope per sedi pubbliche
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopePublic($query)
-=======
     public function scopePublic(Builder $query): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per sedi accessibili
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeAccessible($query)
-=======
     public function scopeAccessible(Builder $query): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('is_accessible', true);
     }
 
     /**
      * Scope per tipologia di sede
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeOfType($query, string $type)
-=======
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('location_type', $type);
     }
 
     /**
      * Scope per categoria
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeInCategory($query, string $category)
-=======
     public function scopeInCategory(Builder $query, string $category): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('category', $category);
     }
 
     /**
      * Scope per sedi principali
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeHeadquarters($query)
-=======
     public function scopeHeadquarters(Builder $query): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->where('is_headquarters', true);
     }
 
     /**
      * Scope ordinati per priorità
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeOrdered($query)
-=======
     public function scopeOrdered(Builder $query): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->orderByDesc('is_headquarters')
             ->orderByDesc('priority_level')
@@ -414,12 +308,11 @@ class MunicipalLocation extends Model
 
     /**
      * Scope per ricerca geografica
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_IcjqFp
-    public function scopeNearby($query, float $lat, float $lng, float $radiusKm = 10)
-=======
     public function scopeNearby(Builder $query, float $lat, float $lng, float $radiusKm = 10): Builder
->>>>>>> .merge_file_LT4PZv
     {
         return $query->whereRaw(
             '(6371 * acos(cos(radians(?)) * cos(radians(JSON_EXTRACT(coordinates, "$.lat"))) * cos(radians(JSON_EXTRACT(coordinates, "$.lng")) - radians(?)) + sin(radians(?)) * sin(radians(JSON_EXTRACT(coordinates, "$.lat"))))) <= ?',
@@ -429,15 +322,14 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene gli orari di apertura formattati
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedOpeningHours(): array
     {
-        if (! $this->opening_hours || ! is_array($this->opening_hours)) {
+        $openingHours = $this->opening_hours;
+
+        if (! is_array($openingHours)) {
             return [];
         }
 
@@ -453,13 +345,8 @@ class MunicipalLocation extends Model
         ];
 
         return collect($days)
-<<<<<<< .merge_file_IcjqFp
-            ->mapWithKeys(function ($day) use ($dayNames) {
-                $hours = $this->opening_hours[$day] ?? null;
-=======
             ->mapWithKeys(function (string $day) use ($dayNames, $openingHours): array {
                 $hours = $openingHours[$day] ?? [];
->>>>>>> .merge_file_LT4PZv
 
                 return [$dayNames[$day] => $hours];
             })
@@ -469,25 +356,19 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene le informazioni sui mezzi pubblici
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedPublicTransport(): array
     {
-        if (! $this->public_transport || ! is_array($this->public_transport)) {
+        $publicTransport = $this->public_transport;
+
+        if (! is_array($publicTransport)) {
             return [];
         }
 
-<<<<<<< .merge_file_IcjqFp
-        return collect($this->public_transport)
-            ->map(function ($transport) {
-=======
         return collect($publicTransport)
             ->map(function (mixed $transport): mixed {
->>>>>>> .merge_file_LT4PZv
                 if (is_string($transport)) {
                     return ['type' => 'bus', 'line' => $transport];
                 }
@@ -500,15 +381,14 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene le informazioni sull'accessibilità
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedAccessibilityInfo(): array
     {
-        if (! $this->accessibility_info || ! is_array($this->accessibility_info)) {
+        $accessibilityInfo = $this->accessibility_info;
+
+        if (! is_array($accessibilityInfo)) {
             return [];
         }
 
@@ -523,30 +403,24 @@ class MunicipalLocation extends Model
             'wide_doors' => false,
         ];
 
-        return array_merge($defaultFeatures, $this->accessibility_info);
+        return array_merge($defaultFeatures, $accessibilityInfo);
     }
 
     /**
      * Ottiene le facilities disponibili
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedFacilities(): array
     {
-        if (! $this->facilities || ! is_array($this->facilities)) {
+        $facilities = $this->facilities;
+
+        if (! is_array($facilities)) {
             return [];
         }
 
-<<<<<<< .merge_file_IcjqFp
-        return collect($this->facilities)
-            ->map(function ($facility) {
-=======
         return collect($facilities)
             ->map(function (mixed $facility): mixed {
->>>>>>> .merge_file_LT4PZv
                 if (is_string($facility)) {
                     return ['name' => $facility, 'available' => true];
                 }
@@ -558,49 +432,40 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene i servizi disponibili formattati
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<array-key, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedServicesAvailable(): array
     {
-        if (! $this->services_available || ! is_array($this->services_available)) {
+        $servicesAvailable = $this->services_available;
+
+        if (! is_array($servicesAvailable)) {
             return [];
         }
 
-<<<<<<< .merge_file_IcjqFp
-        return collect($this->services_available)
-            ->mapWithKeys(function ($available, $service) {
-                if (is_numeric($service)) {
-                    // Array semplice
-=======
         return collect($servicesAvailable)
             ->mapWithKeys(function (mixed $available, int|string $service): array {
                 if (is_numeric($service) && is_string($available)) {
                     // Array semplice: il valore è il nome del servizio
->>>>>>> .merge_file_LT4PZv
                     return [$available => true];
                 }
 
-                // Array associativo
-                return [$service => $available];
+                // Array associativo, o valore non stringa in un array semplice
+                return [(string) $service => $available];
             })
             ->toArray();
     }
 
     /**
      * Ottiene le informazioni sui parcheggi
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedParkingInfo(): array
     {
-        if (! $this->parking_info || ! is_array($this->parking_info)) {
+        $parkingInfo = $this->parking_info;
+
+        if (! is_array($parkingInfo)) {
             return [];
         }
 
@@ -614,30 +479,24 @@ class MunicipalLocation extends Model
             'cost' => null,
         ];
 
-        return array_merge($defaultInfo, $this->parking_info);
+        return array_merge($defaultInfo, $parkingInfo);
     }
 
     /**
      * Ottiene la galleria immagini formattata
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getFormattedGallery(): array
     {
-        if (! $this->gallery || ! is_array($this->gallery)) {
+        $gallery = $this->gallery;
+
+        if (! is_array($gallery)) {
             return [];
         }
 
-<<<<<<< .merge_file_IcjqFp
-        return collect($this->gallery)
-            ->map(function ($image) {
-=======
         return collect($gallery)
             ->map(function (mixed $image): mixed {
->>>>>>> .merge_file_LT4PZv
                 if (is_string($image)) {
                     return [
                         'path' => $image,
@@ -647,15 +506,12 @@ class MunicipalLocation extends Model
                     ];
                 }
 
-<<<<<<< .merge_file_IcjqFp
-=======
                 if (! is_array($image)) {
                     return $image;
                 }
 
->>>>>>> .merge_file_LT4PZv
                 return array_merge([
-                    'url' => isset($image['path']) ? asset('storage/'.$image['path']) : null,
+                    'url' => isset($image['path']) && is_string($image['path']) ? asset('storage/'.$image['path']) : null,
                     'alt' => $this->name,
                 ], $image);
             })
@@ -667,7 +523,9 @@ class MunicipalLocation extends Model
      */
     public function isOpenNow(): bool
     {
-        if (! $this->opening_hours || ! is_array($this->opening_hours)) {
+        $openingHours = $this->opening_hours;
+
+        if (! is_array($openingHours)) {
             return false;
         }
 
@@ -675,9 +533,9 @@ class MunicipalLocation extends Model
         $currentDay = strtolower($now->format('l'));
         $currentTime = $now->format('H:i');
 
-        $todayHours = $this->opening_hours[$currentDay] ?? null;
+        $todayHours = $openingHours[$currentDay] ?? null;
 
-        if (! $todayHours || ! is_array($todayHours)) {
+        if (! $todayHours) {
             return false;
         }
 
@@ -697,25 +555,20 @@ class MunicipalLocation extends Model
      */
     public function distanceFrom(float $lat, float $lng): ?float
     {
-        if (! $this->has_coordinates) {
+        $latitude = $this->latitude;
+        $longitude = $this->longitude;
+
+        if ($latitude === null || $longitude === null) {
             return null;
         }
 
         $earthRadius = 6371; // km
 
-<<<<<<< .merge_file_IcjqFp
-        $latDelta = deg2rad($this->latitude - $lat);
-        $lngDelta = deg2rad($this->longitude - $lng);
-
-        $a = sin($latDelta / 2) * sin($latDelta / 2) +
-             cos(deg2rad($lat)) * cos(deg2rad($this->latitude)) *
-=======
         $latDelta = deg2rad($latitude - $lat);
         $lngDelta = deg2rad($longitude - $lng);
 
         $a = sin($latDelta / 2) * sin($latDelta / 2) +
              cos(deg2rad($lat)) * cos(deg2rad($latitude)) *
->>>>>>> .merge_file_LT4PZv
              sin($lngDelta / 2) * sin($lngDelta / 2);
 
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
@@ -725,11 +578,8 @@ class MunicipalLocation extends Model
 
     /**
      * Ottiene le informazioni complete della sede
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return array<string, mixed>
->>>>>>> .merge_file_LT4PZv
      */
     public function getLocationDetails(): array
     {
@@ -782,11 +632,8 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per il nome del tipo di location
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function locationTypeName(): Attribute
     {
@@ -797,36 +644,26 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per il nome della categoria
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string|null, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function categoryName(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_IcjqFp
-            get: fn () => self::CATEGORIES[$this->category] ?? $this->category
-=======
             get: fn () => $this->category === null ? null : (MunicipalLocationCategoryEnum::tryFrom($this->category)?->getLabel() ?? $this->category)
->>>>>>> .merge_file_LT4PZv
         );
     }
 
     /**
      * Accessor per l'indirizzo completo
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function fullAddress(): Attribute
     {
         return Attribute::make(
-            get: function () {
-                $address = $this->address;
+            get: function (): string {
+                $address = (string) $this->address;
 
                 if ($this->civic_number) {
                     $address .= ', '.$this->civic_number;
@@ -851,11 +688,8 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per verificare se ha coordinate GPS
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function hasCoordinates(): Attribute
     {
@@ -866,11 +700,8 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per la latitudine
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<float|null, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function latitude(): Attribute
     {
@@ -881,11 +712,8 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per la longitudine
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<float|null, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function longitude(): Attribute
     {
@@ -896,11 +724,8 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per l'URL della sede
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function url(): Attribute
     {
@@ -911,18 +736,18 @@ class MunicipalLocation extends Model
 
     /**
      * Accessor per l'URL di Google Maps
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_LT4PZv
      */
     protected function googleMapsUrl(): Attribute
     {
         return Attribute::make(
-            get: function () {
-                if ($this->has_coordinates) {
-                    return "https://www.google.com/maps?q={$this->latitude},{$this->longitude}";
+            get: function (): string {
+                $latitude = $this->latitude;
+                $longitude = $this->longitude;
+
+                if ($latitude !== null && $longitude !== null) {
+                    return "https://www.google.com/maps?q={$latitude},{$longitude}";
                 }
 
                 return 'https://www.google.com/maps/search/'.urlencode($this->full_address);
@@ -932,20 +757,13 @@ class MunicipalLocation extends Model
 
     /**
      * Mutator per il nome (genera automaticamente lo slug)
-<<<<<<< .merge_file_IcjqFp
-=======
      *
      * @return Attribute<string, string>
->>>>>>> .merge_file_LT4PZv
      */
     protected function name(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_IcjqFp
-            set: function ($value) {
-=======
             set: function (string $value): string {
->>>>>>> .merge_file_LT4PZv
                 $this->attributes['name'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -964,22 +782,14 @@ class MunicipalLocation extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< .merge_file_IcjqFp
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_LT4PZv
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< .merge_file_IcjqFp
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_LT4PZv
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -990,11 +800,7 @@ class MunicipalLocation extends Model
         });
 
         // Set default values
-<<<<<<< .merge_file_IcjqFp
-        static::creating(function ($model): void {
-=======
         static::creating(function (self $model): void {
->>>>>>> .merge_file_LT4PZv
             if (is_null($model->priority_level)) {
                 $model->priority_level = $model->is_headquarters ? 5 : 1;
             }

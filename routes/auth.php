@@ -8,17 +8,10 @@ declare(strict_types=1);
  */
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< .merge_file_ITeIwq
-use Themes\Sixteen\Http\Controllers\CieAuthController;
-use Themes\Sixteen\Http\Controllers\SpidAuthController;
-use Themes\Sixteen\Actions\CieAuthAction;
-use Themes\Sixteen\Actions\SpidAuthAction;
-=======
 use Themes\Sixteen\Actions\CieAuthAction;
 use Themes\Sixteen\Actions\SpidAuthAction;
 use Themes\Sixteen\Http\Controllers\CieAuthController;
 use Themes\Sixteen\Http\Controllers\SpidAuthController;
->>>>>>> .merge_file_4PMeLs
 
 /*
 |--------------------------------------------------------------------------

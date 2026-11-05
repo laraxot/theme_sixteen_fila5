@@ -6,6 +6,7 @@ namespace Themes\Sixteen\Filters;
 
 use Illuminate\Support\Facades\Request;
 use Themes\Sixteen\Contracts\MenuFilterInterface;
+
 use function Safe\parse_url;
 use function Safe\preg_match;
 
@@ -15,13 +16,10 @@ use function Safe\preg_match;
  */
 class ActiveMenuFilter implements MenuFilterInterface
 {
-<<<<<<< .merge_file_baEO6V
-=======
     /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> .merge_file_322xTR
     public function filter(array $item): array|false
     {
         // Non processare header e separatori
@@ -70,11 +68,8 @@ class ActiveMenuFilter implements MenuFilterInterface
 
     /**
      * Determina se un elemento del menu è attivo
-<<<<<<< .merge_file_baEO6V
-=======
      *
      * @param  array<array-key, mixed>  $item
->>>>>>> .merge_file_322xTR
      */
     protected function isActive(array $item): bool
     {

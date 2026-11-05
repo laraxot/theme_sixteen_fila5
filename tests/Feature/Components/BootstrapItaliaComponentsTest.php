@@ -2,17 +2,10 @@
 
 declare(strict_types=1);
 
-<<<<<<< .merge_file_QvwrrP
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
-uses(TestCase::class, RefreshDatabase::class);
-=======
 use PHPUnit\Framework\Assert;
 use Tests\TestCase;
 
 uses(TestCase::class);
->>>>>>> .merge_file_nGlMR9
 
 test('skiplinks component renders correctly', function (): void {
     /** @var TestCase $this */

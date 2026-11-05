@@ -4,18 +4,12 @@ namespace Themes\Sixteen\Http\Livewire\Appointment;
 
 use Carbon\Carbon;
 use Exception;
-<<<<<<< .merge_file_kmsoCl
-=======
 use Illuminate\Contracts\View\View;
->>>>>>> .merge_file_7kKBBt
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
-<<<<<<< .merge_file_kmsoCl
-=======
 use Themes\Sixteen\Enums\AppointmentStatusEnum;
->>>>>>> .merge_file_7kKBBt
 use Themes\Sixteen\Models\Appointment;
 use Themes\Sixteen\Models\Citizen;
 use Themes\Sixteen\Models\Office;
@@ -31,55 +25,63 @@ class CreateAppointment extends Component
     use WithPagination;
 
     // Step tracking
-    public $currentStep = 1;
+    public int $currentStep = 1;
 
-    public $totalSteps = 6;
+    public int $totalSteps = 6;
 
     // Step 1: Selezione servizio
-    public $serviceId;
+    public ?int $serviceId = null;
 
-    public $officeId;
+    public ?int $officeId = null;
 
-    public $purpose;
+    public ?string $purpose = null;
 
     // Step 2: Selezione data
-    public $appointmentDate;
+    public ?string $appointmentDate = null;
 
-    public $availableSlots = [];
+    /** @var array<int, array{start: string, end: string}> */
+    public array $availableSlots = [];
 
     // Step 3: Selezione orario
-    public $selectedSlot;
+    /** @var array{start: string, end: string}|null */
+    public ?array $selectedSlot = null;
 
     // Step 4: Dati richiedente
-    public $isSelf = true;
+    public bool $isSelf = true;
 
-    public $citizenId;
+    public ?int $citizenId = null;
 
-    public $citizenData = [];
+    /** @var array<array-key, mixed> */
+    public array $citizenData = [];
 
     // Step 5: Dettagli aggiuntivi
-    public $notes;
+    public ?string $notes = null;
 
-    public $requiredDocuments = [];
+    /** @var array<int, string> */
+    public array $requiredDocuments = [];
 
-    public $emergencyContact;
+    public ?string $emergencyContact = null;
 
     // Step 6: Riepilogo
-    public $confirmationCode;
+    public ?string $confirmationCode = null;
 
     // Data and services
-    public $services = [];
+    /** @var array<int, Service> */
+    public array $services = [];
 
-    public $offices = [];
+    /** @var array<int, Office> */
+    public array $offices = [];
 
-    public $availableDates = [];
+    /** @var array<int, string> */
+    public array $availableDates = [];
 
+    /** @var array<string, string> */
+    public array $availableDocuments = [];
+
+    /** @var array<int, string> */
     protected $queryString = ['currentStep'];
 
-<<<<<<< .merge_file_kmsoCl
-=======
     /** @var array<string, string> */
->>>>>>> .merge_file_7kKBBt
     protected $listeners = [
         'serviceSelected' => 'loadOffices',
         'officeSelected' => 'loadAvailableDates',
@@ -87,21 +89,13 @@ class CreateAppointment extends Component
         'slotSelected' => 'proceedToStep4',
     ];
 
-<<<<<<< .merge_file_kmsoCl
-    public function mount()
-=======
     public function mount(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->services = Service::where('is_active', true)
             ->where('requires_appointment', true)
             ->orderBy('name')
-<<<<<<< .merge_file_kmsoCl
-            ->get();
-=======
             ->get()
             ->all();
->>>>>>> .merge_file_7kKBBt
 
         $this->availableDocuments = [
             'carta_identita' => 'Carta d\'Identità',
@@ -112,23 +106,15 @@ class CreateAppointment extends Component
         ];
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function render()
-=======
     public function render(): View
->>>>>>> .merge_file_7kKBBt
     {
-        return view('livewire.appointment.create-appointment', [
+        return view()->make('livewire.appointment.create-appointment', [
             'stepTitle' => $this->getStepTitle(),
             'stepProgress' => ($this->currentStep / $this->totalSteps) * 100,
         ]);
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function getStepTitle()
-=======
     public function getStepTitle(): string
->>>>>>> .merge_file_7kKBBt
     {
         return match ($this->currentStep) {
             1 => 'Selezione Servizio e Ufficio',
@@ -142,22 +128,19 @@ class CreateAppointment extends Component
     }
 
     // Step 1: Service selection
-    public function loadOffices($serviceId)
+    public function loadOffices(int $serviceId): void
     {
         $this->serviceId = $serviceId;
         $this->offices = Office::where('service_id', $serviceId)
             ->where('is_active', true)
             ->orderBy('name')
-            ->get();
+            ->get()
+            ->all();
 
-<<<<<<< .merge_file_kmsoCl
-        $this->emit('officesLoaded', $this->offices);
-=======
         $this->dispatch('officesLoaded', offices: $this->offices);
->>>>>>> .merge_file_7kKBBt
     }
 
-    public function selectOffice($officeId)
+    public function selectOffice(int $officeId): void
     {
         $this->officeId = $officeId;
         $this->loadAvailableDates();
@@ -165,17 +148,20 @@ class CreateAppointment extends Component
     }
 
     // Step 2: Date selection
-    public function loadAvailableDates()
+    public function loadAvailableDates(): void
     {
         $office = Office::find($this->officeId);
+
+        if ($office === null) {
+            $this->addError('officeId', 'Ufficio non trovato.');
+
+            return;
+        }
+
         $this->availableDates = $office->getAvailableDates(30); // Next 30 days
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function selectDate($date)
-=======
     public function selectDate(string $date): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->appointmentDate = $date;
         $this->loadAvailableSlots();
@@ -183,31 +169,36 @@ class CreateAppointment extends Component
     }
 
     // Step 3: Time slot selection
-    public function loadAvailableSlots()
+    public function loadAvailableSlots(): void
     {
+        if ($this->appointmentDate === null) {
+            $this->addError('appointmentDate', 'Data non selezionata.');
+
+            return;
+        }
+
         $office = Office::find($this->officeId);
+
+        if ($office === null) {
+            $this->addError('officeId', 'Ufficio non trovato.');
+
+            return;
+        }
+
         $this->availableSlots = $office->getAvailableTimeSlots($this->appointmentDate);
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function selectSlot($slot)
-=======
     /**
      * @param  array{start: string, end: string}  $slot
      */
     public function selectSlot(array $slot): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->selectedSlot = $slot;
         $this->currentStep = 4;
     }
 
     // Step 4: Citizen data
-<<<<<<< .merge_file_kmsoCl
-    public function toggleSelfBooking()
-=======
     public function toggleSelfBooking(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->isSelf = ! $this->isSelf;
         if ($this->isSelf) {
@@ -216,28 +207,20 @@ class CreateAppointment extends Component
         }
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function searchCitizen($fiscalCode)
-=======
     public function searchCitizen(string $fiscalCode): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->citizenData = Citizen::where('fiscal_code', $fiscalCode)
             ->first()?->toArray() ?? [];
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function proceedToStep5()
-=======
     public function proceedToStep5(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->validateStep4();
         $this->currentStep = 5;
     }
 
     // Step 5: Additional details
-    public function toggleDocument($document)
+    public function toggleDocument(string $document): void
     {
         if (in_array($document, $this->requiredDocuments)) {
             $this->requiredDocuments = array_diff($this->requiredDocuments, [$document]);
@@ -246,35 +229,26 @@ class CreateAppointment extends Component
         }
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function proceedToStep6()
-=======
     public function proceedToStep6(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->validateStep5();
         $this->currentStep = 6;
     }
 
     // Step 6: Confirmation
-    public function confirmAppointment()
+    public function confirmAppointment(): void
     {
         $this->validateStep6();
 
-        DB::transaction(function () {
+        DB::transaction(function (): void {
             $appointment = Appointment::create([
                 'user_id' => Auth::id(),
                 'service_id' => $this->serviceId,
                 'office_id' => $this->officeId,
                 'citizen_id' => $this->isSelf ? null : $this->citizenId,
                 'appointment_date' => $this->appointmentDate,
-<<<<<<< .merge_file_kmsoCl
-                'start_time' => $this->selectedSlot['start'],
-                'end_time' => $this->selectedSlot['end'],
-=======
                 'start_time' => $this->selectedSlot['start'] ?? null,
                 'end_time' => $this->selectedSlot['end'] ?? null,
->>>>>>> .merge_file_7kKBBt
                 'purpose' => $this->purpose,
                 'notes' => $this->notes,
                 'required_documents' => $this->requiredDocuments,
@@ -287,57 +261,43 @@ class CreateAppointment extends Component
 
             $this->confirmationCode = $appointment->confirmation_code;
 
-<<<<<<< .merge_file_kmsoCl
-            // Invia notifica email
-            $appointment->sendConfirmationNotification();
-=======
             // NOTA: la notifica email di conferma non è ancora implementata.
             // Appointment (Themes/Sixteen/app/Models/Appointment.php, fuori scope
             // per questo intervento) non ha ne' il metodo sendConfirmationNotification()
             // ne' il trait Notifiable: la chiamata precedente era una fatal-error
             // certa a runtime (method.notFound) ed è stata rimossa. Va reintrodotta
             // insieme a una Notification dedicata quando si lavorerà su quel modello.
->>>>>>> .merge_file_7kKBBt
         });
 
         $this->currentStep = 7; // Success step
     }
 
     // Navigation
-<<<<<<< .merge_file_kmsoCl
-    public function nextStep()
-=======
     public function nextStep(): void
->>>>>>> .merge_file_7kKBBt
     {
         if ($this->currentStep < $this->totalSteps) {
             $this->currentStep++;
         }
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function previousStep()
-=======
     public function previousStep(): void
->>>>>>> .merge_file_7kKBBt
     {
         if ($this->currentStep > 1) {
             $this->currentStep--;
         }
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function restart()
-=======
     public function restart(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->resetExcept('services', 'availableDocuments');
         $this->currentStep = 1;
     }
 
     // Validation rules
-    protected function rules()
+    /**
+     * @return array<string, mixed>
+     */
+    protected function rules(): array
     {
         return match ($this->currentStep) {
             1 => [
@@ -373,7 +333,7 @@ class CreateAppointment extends Component
         };
     }
 
-    protected function validateStep4()
+    protected function validateStep4(): void
     {
         $this->validate([
             'isSelf' => 'required|boolean',
@@ -381,11 +341,7 @@ class CreateAppointment extends Component
         ]);
     }
 
-<<<<<<< .merge_file_kmsoCl
-    protected function validateStep5()
-=======
     protected function validateStep5(): void
->>>>>>> .merge_file_7kKBBt
     {
         $this->validate([
             'requiredDocuments' => 'array',
@@ -393,69 +349,60 @@ class CreateAppointment extends Component
         ]);
     }
 
-<<<<<<< .merge_file_kmsoCl
-    protected function validateStep6()
-=======
     protected function validateStep6(): void
->>>>>>> .merge_file_7kKBBt
     {
         // Additional validation for final confirmation
+        if ($this->officeId === null || $this->appointmentDate === null || $this->selectedSlot === null) {
+            throw new Exception('Dati appuntamento incompleti.');
+        }
+
         $office = Office::find($this->officeId);
+
+        if ($office === null) {
+            throw new Exception('Ufficio non trovato.');
+        }
+
         if (! $office->isSlotAvailable($this->appointmentDate, $this->selectedSlot['start'])) {
             $this->addError('selectedSlot', 'Questo slot orario non è più disponibile.');
-            throw new Exception('Slot non disponibile');
+
             throw new Exception('Slot non disponibile');
         }
     }
 
     // Computed properties
-    public function getServiceProperty()
+    public function getServiceProperty(): ?Service
     {
         return Service::find($this->serviceId);
     }
 
-    public function getOfficeProperty()
+    public function getOfficeProperty(): ?Office
     {
         return Office::find($this->officeId);
     }
 
-    public function getSelectedDateFormattedProperty()
+    public function getSelectedDateFormattedProperty(): ?string
     {
-<<<<<<< .merge_file_kmsoCl
-        return $this->appointmentDate
-=======
         return $this->appointmentDate !== null
->>>>>>> .merge_file_7kKBBt
             ? Carbon::parse($this->appointmentDate)->translatedFormat('l d F Y')
             : null;
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function getSelectedTimeFormattedProperty()
-=======
     public function getSelectedTimeFormattedProperty(): ?string
->>>>>>> .merge_file_7kKBBt
     {
-        return $this->selectedSlot
-            ? Carbon::parse($this->selectedSlot['start'])->format('H:i').' - '.
-              Carbon::parse($this->selectedSlot['end'])->format('H:i')
-            : null;
+        if ($this->selectedSlot === null) {
+            return null;
+        }
+
+        return Carbon::parse($this->selectedSlot['start'])->format('H:i').' - '.
+              Carbon::parse($this->selectedSlot['end'])->format('H:i');
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function getIsLastStepProperty()
-=======
     public function getIsLastStepProperty(): bool
->>>>>>> .merge_file_7kKBBt
     {
         return $this->currentStep === $this->totalSteps;
     }
 
-<<<<<<< .merge_file_kmsoCl
-    public function getIsFirstStepProperty()
-=======
     public function getIsFirstStepProperty(): bool
->>>>>>> .merge_file_7kKBBt
     {
         return $this->currentStep === 1;
     }

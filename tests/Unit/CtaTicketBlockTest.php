@@ -1,16 +1,14 @@
 <?php
 
 declare(strict_types=1);
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+use function Safe\file_get_contents;
 
-<<<<<<< .merge_file_BGmGME
-test('cta ticket block renders with defaults', function (): void {
-    /** @var Tests\TestCase $this */
-=======
+uses(TestCase::class);
+
 test('cta ticket block omits empty CMS payload', function (): void {
     /** @var TestCase $this */
->>>>>>> .merge_file_WwzLlW
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [],
     ]);
@@ -20,7 +18,7 @@ test('cta ticket block omits empty CMS payload', function (): void {
 });
 
 test('cta ticket block renders custom payload', function (): void {
-    /** @var Tests\TestCase $this */
+    /** @var TestCase $this */
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [
             'title' => 'Custom title',
@@ -37,7 +35,7 @@ test('cta ticket block renders custom payload', function (): void {
 
 test('cta ticket block does not use frontoffice url', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/components/blocks/cta/ticket.blade.php';
-    $html = (string) file_get_contents($path);
+    $html = file_get_contents($path);
 
     expect($html)->not->toContain('FrontofficeUrl');
 });

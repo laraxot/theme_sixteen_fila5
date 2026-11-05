@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
 
-<<<<<<< .merge_file_Vu0PbI
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> .merge_file_fOEB6n
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Themes\Sixteen\Enums\ContactPointTypeEnum;
+
+use function Safe\preg_replace;
 
 /**
  * Modello per i punti di contatto (Contact Point)
@@ -31,17 +31,6 @@ use Themes\Sixteen\Enums\ContactPointTypeEnum;
  * @property string|null $description
  * @property bool $is_primary
  * @property bool $is_public
-<<<<<<< .merge_file_Vu0PbI
- * @property array|null $office_hours
- * @property array|null $languages
- * @property array|null $accessibility_notes
- * @property int $position
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
-=======
  * @property array<array-key, mixed>|null $office_hours
  * @property array<array-key, mixed>|null $languages
  * @property array<array-key, mixed>|null $accessibility_notes
@@ -50,38 +39,19 @@ use Themes\Sixteen\Enums\ContactPointTypeEnum;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
->>>>>>> .merge_file_fOEB6n
  * @property-read Model|\Eloquent $contactable
+ * @property-read string $type_name
+ * @property-read string $formatted_value
+ * @property-read bool $is_email
+ * @property-read bool $is_phone
+ * @property-read bool $is_social
+ * @property-read string $icon
  */
 class ContactPoint extends Model
 {
+    /** @use HasFactory<Factory<static>> */
     use HasFactory, SoftDeletes;
 
-<<<<<<< .merge_file_Vu0PbI
-    /**
-     * Tipi di contatto supportati secondo AGID
-     */
-    public const TYPES = [
-        'email' => 'Email',
-        'pec' => 'PEC (Posta Elettronica Certificata)',
-        'phone' => 'Telefono',
-        'fax' => 'Fax',
-        'mobile' => 'Cellulare',
-        'whatsapp' => 'WhatsApp',
-        'telegram' => 'Telegram',
-        'address' => 'Indirizzo fisico',
-        'website' => 'Sito web',
-        'social_facebook' => 'Facebook',
-        'social_twitter' => 'Twitter/X',
-        'social_linkedin' => 'LinkedIn',
-        'social_youtube' => 'YouTube',
-        'social_instagram' => 'Instagram',
-        'appointment_url' => 'Prenotazione appuntamenti',
-        'other' => 'Altro',
-    ];
-
-=======
->>>>>>> .merge_file_fOEB6n
     protected $table = 'sixteen_contact_points';
 
     protected $fillable = [
@@ -111,11 +81,8 @@ class ContactPoint extends Model
 
     /**
      * Relazione polimorfica con l'entità che possiede il contatto
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return MorphTo<Model, $this>
->>>>>>> .merge_file_fOEB6n
      */
     public function contactable(): MorphTo
     {
@@ -124,48 +91,44 @@ class ContactPoint extends Model
 
     /**
      * Scope per contatti pubblici
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_Vu0PbI
-    public function scopePublic($query)
-=======
     public function scopePublic(Builder $query): Builder
->>>>>>> .merge_file_fOEB6n
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per contatti primari
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_Vu0PbI
-    public function scopePrimary($query)
-=======
     public function scopePrimary(Builder $query): Builder
->>>>>>> .merge_file_fOEB6n
     {
         return $query->where('is_primary', true);
     }
 
     /**
      * Scope per tipo di contatto
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_Vu0PbI
-    public function scopeOfType($query, string $type)
-=======
     public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> .merge_file_fOEB6n
     {
         return $query->where('type', $type);
     }
 
     /**
      * Scope ordinati per posizione
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-<<<<<<< .merge_file_Vu0PbI
-    public function scopeOrdered($query)
-=======
     public function scopeOrdered(Builder $query): Builder
->>>>>>> .merge_file_fOEB6n
     {
         return $query->orderBy('position')->orderBy('is_primary', 'desc');
     }
@@ -251,11 +214,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il nome del tipo di contatto
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function typeName(): Attribute
     {
@@ -266,11 +226,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per il valore formattato del contatto
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function formattedValue(): Attribute
     {
@@ -281,11 +238,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un indirizzo email
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function isEmail(): Attribute
     {
@@ -296,11 +250,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un numero di telefono
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function isPhone(): Attribute
     {
@@ -311,11 +262,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per verificare se il contatto è un social media
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function isSocial(): Attribute
     {
@@ -326,11 +274,8 @@ class ContactPoint extends Model
 
     /**
      * Accessor per l'icona del tipo di contatto
-<<<<<<< .merge_file_Vu0PbI
-=======
      *
      * @return Attribute<string, never>
->>>>>>> .merge_file_fOEB6n
      */
     protected function icon(): Attribute
     {
@@ -428,16 +373,10 @@ class ContactPoint extends Model
         // Auto-increment position
         static::creating(function (ContactPoint $model): void {
             if (is_null($model->position)) {
-<<<<<<< .merge_file_Vu0PbI
-                $model->position = static::where('contactable_type', $model->contactable_type)
-                    ->where('contactable_id', $model->contactable_id)
-                    ->max('position') + 1;
-=======
                 $maxPosition = static::where('contactable_type', $model->contactable_type)
                     ->where('contactable_id', $model->contactable_id)
                     ->max('position');
                 $model->position = is_numeric($maxPosition) ? ((int) $maxPosition + 1) : 1;
->>>>>>> .merge_file_fOEB6n
             }
         });
 
