@@ -71,7 +71,6 @@ Analyzes each major section:
 - Image/text stacking behavior
 - Hidden/shown elements by viewport
 
-<<<<<<< .merge_file_YnlaiE
 🔗 [Read](./04-RESPONSIVE-PATTERNS.md) | [← Back](#-documents-in-this-folder)
 
 ---
@@ -146,7 +145,6 @@ Analyzes each major section:
 - Mobile: `domande-frequenti-reference-mobile.png` vs `domande-frequenti-local-mobile.png`
 - Tablet: `domande-frequenti-reference-tablet.png` vs `domande-frequenti-local-tablet.png`
 
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -155,4 +153,3 @@ Analyzes each major section:
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_8Q6lBE

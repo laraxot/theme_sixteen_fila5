@@ -61,7 +61,6 @@ Entrambi caricati da Google Fonts con `display=swap`.
 | Vite | 7.0.7 | Build tool |
 | laravel-vite-plugin | 2.0.0 | Integrazione Laravel |
 
-<<<<<<< .merge_file_JbGNGz
 ### PHP e Laravel
 
 | Tecnologia | Versione |
@@ -208,7 +207,6 @@ Namespace traduzioni: `pub_theme`.
 | Screen reader support | Parziale |
 | Titillium Web font | Implementato |
 | Colori AGID ufficiali | Implementato |
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -217,4 +215,3 @@ Namespace traduzioni: `pub_theme`.
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_dmX3RR

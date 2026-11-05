@@ -35,7 +35,6 @@ All 8 Segnalazione pages now use Design Comuni-compatible HTML structure and CSS
 - `flow.ticket/02-dati.blade.php` — Now uses: `fieldset`, `legend`, `form-group`, `form-control`, `card user-card`, `steppers-nav`, `btn btn-primary`, `btn btn-outline-primary`
 - `flow.ticket/03-riepilogo.blade.php` — Now uses: `it-alert alert-warning`, `card-wrapper`, `card-header`, `it-list-wrapper`, `actions-wrapper`, `terms-section`, `form-check`, `btn btn-primary`, `btn btn-outline-danger`
 
-<<<<<<< .merge_file_kbcY3c
 #### 3. CSS Additions (segnalazione-parity.css)
 Added 220+ lines covering:
 - Alert/warning boxes (`.it-alert`, `.alert-warning`)
@@ -142,7 +141,6 @@ All pages captured at desktop (1440px) and tablet (768px) breakpoints:
 - [screenshots/segnalazione-dettaglio/](../screenshots/segnalazione-dettaglio/)
 - [screenshots/segnalazione-disservizio/](../screenshots/segnalazione-disservizio/)
 - [screenshots/ticket-list/](../screenshots/ticket-list/)
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -151,4 +149,3 @@ All pages captured at desktop (1440px) and tablet (768px) breakpoints:
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_c3mST2

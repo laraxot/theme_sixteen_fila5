@@ -392,7 +392,6 @@ p-6                   /* Padding: 1.5rem */
 - [Bootstrap Italia Alert](https://italia.github.io/bootstrap-italia/docs/componenti/alert/)
 - [Bootstrap Italia Steppers](https://italia.github.io/bootstrap-italia/docs/componenti/steppers/)
 
-<<<<<<< .merge_file_eTmmFv
 ### Internal
 - [Blocks Structure Convention](./BLOCKS_STRUCTURE_CONVENTION.md)
 - [Bootstrap Italia Tailwind Conversion](./BOOTSTRAP_ITALIA_TAILWIND_CONVERSION.md)
@@ -403,7 +402,6 @@ p-6                   /* Padding: 1.5rem */
 **Date**: 2026-03-30  
 **Status**: ✅ Ready to Use  
 **OpenViking URI**: `viking://themes/sixteen/docs/blocks/confirmation`
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -412,4 +410,3 @@ p-6                   /* Padding: 1.5rem */
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_e2jUgE

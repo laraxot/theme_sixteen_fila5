@@ -1,5 +1,3 @@
-<<<<<<< .merge_file_y6oC25
-=======
 ---
 title: "CHANGELOG"
 type: note
@@ -50,7 +48,6 @@ discussions: []
 * add map rendering and fullscreen fixes, remove duplicate component import, and update asset manifest ([7589a86](https://github.com/laraxot/theme_sixteen_fila5/commit/7589a86db0a99d5aa987622b40462db1faae2d8c))
 * **map:** STORY-123 cluster hover-escape — no transform su .geo-cluster-wrapper ([84715db](https://github.com/laraxot/theme_sixteen_fila5/commit/84715dbc4474c3698c45003ba49895f586c59db0))
 
->>>>>>> .merge_file_bz9c9G
 ## [1.0.0-dev.2](https://github.com/laraxot/theme_sixteen_fila5/compare/theme-sixteen-v1.0.0-dev.1...theme-sixteen-v1.0.0-dev.2) (2026-07-08)
 
 ### Bug Fixes

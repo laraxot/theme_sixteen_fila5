@@ -35,7 +35,6 @@ bashscripts/html/html-structure-compare.sh segnalazione-dettaglio \
 
 See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
 
-<<<<<<< .merge_file_nieoUg
 ## Governance
 
 - Bash scripts are reusable and project-agnostic.
@@ -43,7 +42,6 @@ See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
 - Raw HTML snapshots for manual analysis go in `laravel/Themes/Sixteen/docs/prompts/<page>/`.
 
 - Priority rule: structural HTML parity is essential first; visual/functional parity is addressed after via Tailwind @apply + Alpine.js.
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -52,4 +50,3 @@ See [`INDEX.md`](./INDEX.md) for parity scores and page-level artifacts.
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_SDK3Hv

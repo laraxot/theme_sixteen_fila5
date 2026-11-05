@@ -145,7 +145,6 @@ La struttura della pagina locale è DIFFERENTE dalla reference:
 
 ## Documentazione Collegata
 
-<<<<<<< .merge_file_E3mmTK
 - [Project Visual Comparison](../docs/project/visual-comparison/index.md)
 - [Theme Documentation](./README.md)
 - [Design Comuni Analysis](./docs/design-comuni-analysis.md)
@@ -175,7 +174,6 @@ La struttura della pagina locale è DIFFERENTE dalla reference:
 - [Project Visual Comparison](../docs/project/visual-comparison/index.md)
 - [Theme Documentation](./README.md)
 - [Design Comuni Analysis](./docs/design-comuni-analysis.md)
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -184,4 +182,3 @@ La struttura della pagina locale è DIFFERENTE dalla reference:
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_MGuHn3

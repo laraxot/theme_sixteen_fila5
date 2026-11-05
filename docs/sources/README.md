@@ -16,21 +16,10 @@ Use this directory for imported external markdown that should feed the theme wik
 
 Examples:
 
-<<<<<<< .merge_file_t5hbi9
 - external design references;
 - copied framework notes;
 - clipped articles about accessibility or motion;
 - curated excerpts from upstream design systems.
-=======
-## Perché esiste
-
-Core module for the FixCity Platform.
-
-## Superpoteri
-
-- Modular component with XotBase patterns
-- Professional-grade implementation
-- Integrated with FixCity Platform
 
 ## Documentazione
 
@@ -42,4 +31,3 @@ Core module for the FixCity Platform.
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_ZquN8q

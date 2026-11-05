@@ -369,7 +369,6 @@ curl -o laravel/Themes/Sixteen/docs/prompts/segnalazione-dettaglio/reference.htm
 # Re-run comparison
 ./bashscripts/compare-html-structure.sh segnalazione-dettaglio
 
-<<<<<<< .merge_file_Rb0G7G
 # Review changes
 git diff laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazione-dettaglio/
 ```
@@ -379,7 +378,6 @@ git diff laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazione-dett
 **Last Updated**: See git history  
 **Status**: Ready for analysis  
 **Parity Target**: 95%+
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -388,4 +386,3 @@ git diff laravel/Themes/Sixteen/docs/body-structure-comparison/segnalazione-dett
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_iv7dbQ

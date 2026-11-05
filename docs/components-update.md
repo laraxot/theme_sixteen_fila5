@@ -303,10 +303,7 @@ Per aggiornare componenti esistenti:
    - Verificare accessibilità
 
 ---
-<<<<<<< .merge_file_bXFzDP
 
-=======
->>>>>>> .merge_file_MVlYv2
 **Autore**: Claude Code
 **Data**: 2025-10-15
 **Versione Tema**: 1.x

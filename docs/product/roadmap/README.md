@@ -44,7 +44,6 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
    - Add database query optimization
    - Create performance monitoring
 
-<<<<<<< .merge_file_KbqScd
 ### Phase 2: Feature Enhancement (Q2 2026)
 **Duration**: April - June 2026
 **Objective**: Add advanced features and improve user experience
@@ -146,7 +145,6 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
 ---
 
 *This roadmap will be reviewed and updated quarterly based on feedback and changing requirements.*
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -155,4 +153,3 @@ The Sixteen theme is a modern, responsive theme for the Laraxot framework that p
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_ch7d05
