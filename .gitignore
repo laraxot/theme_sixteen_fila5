@@ -97,6 +97,12 @@ tests/AuditCoverage/
 .git-blame-ignore-revs
 
 # Laraxot — IDE folders forbidden at module/theme root (see module-theme-root-hygiene)
+# Artefatti di strumenti AI locali
+.claude-flow
+.supermemory
+test-results
+agentdb.rvf
+ruvector.db
 .cursor/
 .devcontainer/
 .vscode/
