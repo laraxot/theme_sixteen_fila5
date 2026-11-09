@@ -141,7 +141,6 @@ laravel/Themes/Sixteen/resources/views/pages/
 
 ## 📊 Metrics
 
-<<<<<<< .merge_file_TYpqQx
 | Metric | Count |
 |--------|-------|
 | Architecture Docs | 10+ |
@@ -154,7 +153,6 @@ laravel/Themes/Sixteen/resources/views/pages/
 **Maintained By**: Architecture Team  
 **Last Review**: 2026-04-01  
 **Next Review**: After each major architecture change
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -163,4 +161,3 @@ laravel/Themes/Sixteen/resources/views/pages/
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_qRi9jl

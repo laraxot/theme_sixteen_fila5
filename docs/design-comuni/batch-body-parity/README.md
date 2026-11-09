@@ -22,16 +22,9 @@ Use these files to inspect the HTML structure inside `<body>` without scripts be
 
 ## Related
 
-<<<<<<< .merge_file_ZHkW8g
 - Report: [../BATCH_BODY_PARITY_REPORT.md](../BATCH_BODY_PARITY_REPORT.md)
 - Script doc: [../../../../../../bashscripts/docs/design-comuni-batch-body-parity.md](../../../../../../bashscripts/docs/design-comuni-batch-body-parity.md)
 - Script: [../../../../../../bashscripts/design-comuni/batch-body-parity.php](../../../../../../bashscripts/design-comuni/batch-body-parity.php)
-=======
-## Superpoteri
-
-- Modular component with XotBase patterns
-- Professional-grade implementation
-- Integrated with FixCity Platform
 
 ## Documentazione
 
@@ -43,4 +36,3 @@ Use these files to inspect the HTML structure inside `<body>` without scripts be
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_GtTDjp

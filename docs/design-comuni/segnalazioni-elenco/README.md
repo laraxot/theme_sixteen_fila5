@@ -32,13 +32,8 @@ Allineare il layout della pagina `tests.ticket-list` alla reference, mantenendo 
 - [local.png](./local.png)
 - [reference.png](./reference.png)
 
-<<<<<<< .merge_file_w3O6wC
 ## Next passi
 - stabilire eventuali variazioni visive nel tab "Mappa" (modal immagini + pin). Se ulteriori differenze emergono, aggiornare i CSS/JS specifici all'interno di `resource/css/app.css` e, se serve, aggiungere un piccolo script Alpine alla pagina stessa.
-=======
-- Modular component with XotBase patterns
-- Professional-grade implementation
-- Integrated with FixCity Platform
 
 ## Documentazione
 
@@ -50,4 +45,3 @@ Allineare il layout della pagina `tests.ticket-list` alla reference, mantenendo 
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_MPghOG

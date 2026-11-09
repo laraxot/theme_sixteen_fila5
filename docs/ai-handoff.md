@@ -1,5 +1,3 @@
-<<<<<<< .merge_file_PVXwnH
-=======
 ---
 created: 2026-09-26
 qmd: "ai handoff"
@@ -15,7 +13,6 @@ related:
 status: draft
 ---
 
->>>>>>> .merge_file_frqb7z
 # ai handoff
 
 ## regole non negoziabili

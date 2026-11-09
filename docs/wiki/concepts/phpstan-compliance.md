@@ -12,11 +12,7 @@ discussions:
 related:
   - ./theme-component-test-contract.md
   - ../overviews/completion-roadmap.md
-<<<<<<< .merge_file_3IOO08
-  - ../../../Modules/Fixcity/docs/wiki/concepts/phpstan-compliance.md
-=======
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/phpstan-compliance.md
->>>>>>> .merge_file_WuALkt
   - ../../../../docs/wiki/concepts/phpstan-level-max-compliance.md
   - ../../../../../../docs/wiki/rules/git-forward-only.md
 status: draft

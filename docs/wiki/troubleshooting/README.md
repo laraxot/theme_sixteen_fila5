@@ -29,9 +29,7 @@ Runbook specifici del tema (build Vite, CSS parity, conflitti Leaflet).
 
 - [git-merge-conflict-inventory-2026-04-28.md](./git-merge-conflict-inventory-2026-04-28.md)
 
-<<<<<<< .merge_file_JideRH
 - [route-not-found-view-cache](route-not-found-view-cache.md) — `area-personale.notifiche` / cache Blade
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -40,4 +38,3 @@ Runbook specifici del tema (build Vite, CSS parity, conflitti Leaflet).
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_1jbw9l

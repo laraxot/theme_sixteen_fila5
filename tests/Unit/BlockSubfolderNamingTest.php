@@ -2,20 +2,13 @@
 
 declare(strict_types=1);
 
-use PHPUnit\Framework\Assert;use Tests\TestCase;
+use PHPUnit\Framework\Assert;
+use Tests\TestCase;
 use Themes\Sixteen\Actions\Block\IsCanonicalBlockCategoryFolderAction;
 use Themes\Sixteen\Actions\Block\IsLegacyBlockCategoryFolderAction;
 use Themes\Sixteen\Datas\BlockCategoryRegistryData;
-$blocksRoot = dirname(__DIR__, 2).'/resources/views/components/blocks';
 
-test('blocks subfolders use allowed tailwind or flowbite names', function () use ($blocksRoot): void {
-    $invalid = app(ListInvalidBlockCategoryFoldersAction::class)->execute($blocksRoot);
-
-    Assert::assertSame(
-        [],
-        $invalid,
-        'Sottocartelle blocks/ non ammesse (usare slug da Flowbite/Tailwind UI): '.implode(', ', $invalid)
-    );use function Safe\glob;
+use function Safe\glob;
 
 uses(TestCase::class);
 

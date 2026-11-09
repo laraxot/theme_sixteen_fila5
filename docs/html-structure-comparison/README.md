@@ -43,7 +43,6 @@ docs/html-structure-comparison/          ← This directory (theme-specific outp
     └── {page}-comparison-summary.md      ← Markdown summary
 ```
 
-<<<<<<< .merge_file_Z1E32u
 ## Bidirectional Links
 
 - **Script**: [`bashscripts/html/html-structure-compare.sh`](../../../bashscripts/html/html-structure-compare.sh)
@@ -57,7 +56,6 @@ docs/html-structure-comparison/          ← This directory (theme-specific outp
 Target: **≥90% parity score** for all Design Comuni pages before production deployment.
 
 Current status: **4.52%** (ticket-list) — significant work needed.
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -66,4 +64,3 @@ Current status: **4.52%** (ticket-list) — significant work needed.
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_457axK

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 use function Safe\glob;
 use function Safe\scandir;
 
@@ -14,19 +15,11 @@ use function Safe\scandir;
  * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-profile-edit-blade-must-not-exist.md
  * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md
  */
-test('sixteen pages non contiene directory semantiche vietate', function (): void {test('sixteen pages ammette solo auth, container0 e tests', function (): void {
+test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
     $allowed = ['[container0]', 'auth', 'tests'];
 
-    $forbidden = [
-        'administration', 'ambiente', 'article', 'articles', 'categories', 'cultura',
-        'dashboard', 'eventi', 'famiglia', 'genesis', 'lavoro', 'learn', 'mobilita',
-        'news', 'pages', 'profile', 'salute', 'segnalazioni', 'services', 'sport',
-        'tickets', 'turismo',
-    ];
-
-    foreach ($forbidden as $dir) {
-        expect(is_dir($pagesRoot.'/'.$dir))->toBeFalse("Forbidden Folio dir: pages/{$dir}");    /** @var array<int, string> */
+    /** @var array<int, string> */
     $scanned = scandir($pagesRoot) ?: [];
     $found = [];
     foreach ($scanned as $entry) {

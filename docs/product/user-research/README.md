@@ -39,7 +39,6 @@ This document outlines the user research methodology, findings, and insights gat
 
 ### Data Collection Methods
 
-<<<<<<< .merge_file_cgTJow
 #### 1. Surveys
 - **Target Audience**: 300+ web developers
 - **Platforms**: GitHub, Discord, Twitter, developer forums
@@ -273,7 +272,6 @@ The research will inform ongoing product development, marketing strategy, and bu
 ---
 
 *This research document will be updated quarterly based on new findings and changing market conditions.*
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -282,4 +280,3 @@ The research will inform ongoing product development, marketing strategy, and bu
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_EsVRuE

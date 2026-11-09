@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
-uses(TestCase::class, RefreshDatabase::class);use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert;
 use Tests\TestCase;
 
 uses(TestCase::class);

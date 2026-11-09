@@ -141,7 +141,6 @@ module.exports = {
 }
 ```
 
-<<<<<<< .merge_file_gMWrYj
 ### Implementation in Blade Templates
 
 Replace Bootstrap classes:
@@ -197,7 +196,6 @@ Replace Bootstrap classes:
 - [← Previous: Visual Comparison](../visual-comparison/README.md)
 - [Next: Phases →](../phases/README.md)
 
-=======
 | Lingua | Link |
 |--------|------|
 | 🇮🇹 Presentazione | Questo file (`README.md`) |
@@ -206,4 +204,3 @@ Replace Bootstrap classes:
 
 ---
 **Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_PZ7yhP

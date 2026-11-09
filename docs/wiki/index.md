@@ -54,17 +54,9 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 ## Testing / PHPStan (2026-06-13)
 
 - [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
-<<<<<<< .merge_file_kXi89T
-- [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
-- [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
-=======
-- [theme-tests-data-sacred](./concepts/theme-tests-data-sacred.md) — policy dati sacri + skip onesti
-- [perfection-checklist](./overviews/perfection-checklist.md) — checklist verso tema perfetto
 - [page-directory-structure](../page-directory-structure.md) — regola Folio canonica (root docs)
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
-- [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) _(target mancante, verificato 2026-10-14)_ — hub temi
->>>>>>> .merge_file_C7ussQ
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root

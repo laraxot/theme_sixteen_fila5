@@ -72,32 +72,7 @@
             $data = array_merge($data, $blockData);
         }
     }
-    $testsPath = (string) request()->path();
-    /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
-    $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
-    $headerRegionLabel = __('pub_theme::header.slim.region.name.label');
-
-    // Story 8-107: nav items dinamici da header.json (no hardcoded)
-    $headerNavConfig = [];
-    $headerNavJsonPath = \Modules\Tenant\Services\TenantService::filePath('database/content/sections/header.json');
-    if (is_string($headerNavJsonPath) && file_exists($headerNavJsonPath)) {
-        $headerNavConfig = \Illuminate\Support\Facades\File::json($headerNavJsonPath);
-    }
-    $headerNavAllItems  = $headerNavConfig['sections']['primary_nav']['items'] ?? [];
-    $headerFolioUrl = static function (string $url): string {
-        if ($url === '' || $url === '#') {
-            return $url;
-        }
-
-        $path = parse_url($url, PHP_URL_PATH);
-        if (! is_string($path) || $path === '') {
-            return $url;
-        }
-
-        $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
-        $segments = array_values(array_filter(explode('/', trim($path, '/')), static fn (string $segment): bool => $segment !== ''));
-        if ($segments !== [] && in_array($segments[0], $supportedLocales, true)) {
-            array_shift($segments);    $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
+    $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
     $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $storedNavHref = static function (?string $url): ?string {

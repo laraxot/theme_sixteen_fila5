@@ -15,6 +15,8 @@
         {{-- Tailwind CSS (replicates Bootstrap Italia design tokens) --}}
         @vite(['resources/css/app.css'], 'themes/Sixteen')
 
+        @filamentStyles
+
         <style>
             [x-cloak] {
                 display: none !important;
@@ -27,6 +29,8 @@
 
     <body>
         @yield('body')
+
+        @filamentScripts
 
     </body>
 </html>

@@ -110,7 +110,7 @@
 
         {{ $slot }}
         @livewireScripts
-        @filamentScripts
+        @filamentScripts(withCore: true)
         @vite(['resources/js/app.js'], 'themes/Sixteen')
 
 
