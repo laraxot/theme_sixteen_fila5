@@ -66,16 +66,4 @@ Stack frontoffice: **Tailwind · Alpine · Lit · DaisyUI · Flowbite · Filamen
 
 ---
 
-<<<<<<< .merge_file_s6k4CB
 **Tema** `sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
-=======
-title: "README"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "README"
-issues: []
-discussions: []
-**Tema** `Sixteen` · **Laraxot** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_UBxdOc

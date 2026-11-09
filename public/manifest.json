@@ -1,11 +1,4 @@
 {
-<<<<<<< .merge_file_GIG5qn
-  "../../Modules/Geo/resources/js/components/map-lit.js": {
-    "file": "assets/map-lit-D4K-wE4-.js",
-    "name": "map-lit",
-    "src": "../../Modules/Geo/resources/js/components/map-lit.js",
-    "isEntry": true,
-=======
   "_fonts-B7bCY8tl.css": {
     "file": "assets/fonts-B7bCY8tl.css",
     "src": "_fonts-B7bCY8tl.css"
@@ -61,7 +54,6 @@
   "_theme-map-BUsFAwjH.js": {
     "file": "assets/theme-map-BUsFAwjH.js",
     "name": "theme-map",
->>>>>>> .merge_file_zWt50p
     "imports": [
       "_rolldown-runtime-XKyaHtl9.js"
     ],
@@ -187,13 +179,7 @@
     "src": "public/images/logo.svg"
   },
   "resources/css/app-test.css": {
-<<<<<<< .merge_file_GIG5qn
-    "file": "assets/app-test-dkt6CV16.css",
-    "src": "resources/css/app-test.css",
-    "isEntry": true,
-=======
     "file": "assets/app-test-cswdMygX.css",
->>>>>>> .merge_file_zWt50p
     "name": "app-test",
     "names": [
       "app-test.css"
@@ -223,13 +209,7 @@
     ]
   },
   "resources/css/app.css": {
-<<<<<<< .merge_file_GIG5qn
-    "file": "assets/app-B-CW9-gg.css",
-    "src": "resources/css/app.css",
-    "isEntry": true,
-=======
     "file": "assets/app-CuEYjvYZ.css",
->>>>>>> .merge_file_zWt50p
     "name": "app",
     "names": [
       "app.css"
@@ -333,11 +313,7 @@
     "src": "resources/fonts/titillium-web/titillium-web-v19-latin-ext-900.woff2"
   },
   "resources/js/app.js": {
-<<<<<<< .merge_file_GIG5qn
-    "file": "assets/app-BDpAKEGq.js",
-=======
     "file": "assets/app-Dj_91GAn.js",
->>>>>>> .merge_file_zWt50p
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

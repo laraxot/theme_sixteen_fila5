@@ -405,16 +405,4 @@ Mail::to($user->email)->send($email);
 
 ---
 
-<<<<<<< .merge_file_vKzVqI
 **Nota**: Questo README descrive solo i layout nella cartella `mail-layouts`. Per la documentazione completa del sistema di template stagionali, consulta la [documentazione principale](../../../Modules/Notify/docs/seasonal-email-templates.md).
-=======
-title: "README"
-type: note
-tags: [documentation]
-created: 2026-09-26
-updated: 2026-09-26
-qmd: "README"
-issues: []
-discussions: []
-**Modulo** `Sixteen` · **Laraxot** · **FixCity Platform** · PHPStan 10 · Filament 5
->>>>>>> .merge_file_iLNOvw
