@@ -72,8 +72,6 @@
             $data = array_merge($data, $blockData);
         }
     }
-<<<<<<< .merge_file_e4sjSW
-
     $testsPath = (string) request()->path();
     /** Story 7-3: chrome slim come kit statico Design Comuni per compare-html.sh (path tests/segnalazione-area-personale) */
     $headerHtmlParityPersonalArea = str_contains($testsPath, 'tests/segnalazione-area-personale');
@@ -99,16 +97,13 @@
         $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
         $segments = array_values(array_filter(explode('/', trim($path, '/')), static fn (string $segment): bool => $segment !== ''));
         if ($segments !== [] && in_array($segments[0], $supportedLocales, true)) {
-            array_shift($segments);
-=======
-    $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
+            array_shift($segments);    $d = static fn (string $key, mixed $default = '') => data_get($data, $key, $default);
     $assets = \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::base();
     $icon = static fn (string $name): string => $assets.'/bootstrap-italia/dist/svg/sprites.svg#'.$name;
     $storedNavHref = static function (?string $url): ?string {
         $raw = trim((string) ($url ?? ''));
         if ($raw === '' || $raw === '#') {
             return null;
->>>>>>> .merge_file_CwtFlu
         }
         $resolved = \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl($raw);
 

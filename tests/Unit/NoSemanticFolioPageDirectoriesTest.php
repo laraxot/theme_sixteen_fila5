@@ -1,13 +1,9 @@
 <?php
 
 declare(strict_types=1);
-
-<<<<<<< .merge_file_UKzFCf
-=======
 use function Safe\glob;
 use function Safe\scandir;
 
->>>>>>> .merge_file_f40MZu
 /**
  * Il tema veste. Il dominio sta nel JSON CMS, non in una cartella Folio.
  * pages/domande-frequenti/ e pages/profile/ sono sbagliati: Folio darebbe a
@@ -18,15 +14,10 @@ use function Safe\scandir;
  * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-profile-edit-blade-must-not-exist.md
  * @see laravel/Themes/Sixteen/docs/bmad/knowledge/why-domande-frequenti-blade-php-must-not-exist.md
  */
-<<<<<<< .merge_file_UKzFCf
-test('sixteen pages non contiene directory semantiche vietate', function (): void {
-=======
-test('sixteen pages ammette solo auth, container0 e tests', function (): void {
->>>>>>> .merge_file_f40MZu
+test('sixteen pages non contiene directory semantiche vietate', function (): void {test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     $pagesRoot = dirname(__DIR__, 2).'/resources/views/pages';
     $allowed = ['[container0]', 'auth', 'tests'];
 
-<<<<<<< .merge_file_UKzFCf
     $forbidden = [
         'administration', 'ambiente', 'article', 'articles', 'categories', 'cultura',
         'dashboard', 'eventi', 'famiglia', 'genesis', 'lavoro', 'learn', 'mobilita',
@@ -35,9 +26,7 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     ];
 
     foreach ($forbidden as $dir) {
-        expect(is_dir($pagesRoot.'/'.$dir))->toBeFalse("Forbidden Folio dir: pages/{$dir}");
-=======
-    /** @var array<int, string> */
+        expect(is_dir($pagesRoot.'/'.$dir))->toBeFalse("Forbidden Folio dir: pages/{$dir}");    /** @var array<int, string> */
     $scanned = scandir($pagesRoot) ?: [];
     $found = [];
     foreach ($scanned as $entry) {
@@ -47,7 +36,6 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
         if (is_dir($pagesRoot.'/'.$entry)) {
             $found[] = $entry;
         }
->>>>>>> .merge_file_f40MZu
     }
 
     $extra = array_values(array_diff($found, $allowed));

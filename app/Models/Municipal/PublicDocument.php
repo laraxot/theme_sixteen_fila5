@@ -3,12 +3,8 @@
 declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
-
-<<<<<<< .merge_file_121CSh
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> .merge_file_sGpykE
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,11 +43,7 @@ use Themes\Sixteen\Enums\PublicDocumentTypeEnum;
  * @property string|null $legal_status
  * @property string|null $classification_code
  * @property string|null $subject_matter
-<<<<<<< .merge_file_121CSh
- * @property array|null $keywords
-=======
- * @property array<array-key, mixed>|null $keywords
->>>>>>> .merge_file_sGpykE
+ * @property array|null $keywords * @property array<array-key, mixed>|null $keywords
  * @property string|null $language
  * @property \Carbon\Carbon|null $document_date
  * @property \Carbon\Carbon|null $approval_date
@@ -67,32 +59,24 @@ use Themes\Sixteen\Enums\PublicDocumentTypeEnum;
  * @property string|null $original_format
  * @property string|null $accessible_format
  * @property string|null $signed_version
-<<<<<<< .merge_file_121CSh
  * @property array|null $attachments
  * @property array|null $versions
  * @property array|null $related_documents
  * @property array|null $legislative_references
- * @property array|null $administrative_references
-=======
- * @property array<array-key, mixed>|null $attachments
+ * @property array|null $administrative_references * @property array<array-key, mixed>|null $attachments
  * @property array<array-key, mixed>|null $versions
  * @property array<array-key, mixed>|null $related_documents
  * @property array<array-key, mixed>|null $legislative_references
  * @property array<array-key, mixed>|null $administrative_references
->>>>>>> .merge_file_sGpykE
  * @property string|null $transparency_section
  * @property string|null $access_rights
  * @property string $privacy_level
  * @property int|null $retention_period
-<<<<<<< .merge_file_121CSh
  * @property \Carbon\Carbon|null $disposal_date
  * @property array|null $digital_signature
- * @property array|null $timestamp
-=======
- * @property Carbon|null $disposal_date
+ * @property array|null $timestamp * @property Carbon|null $disposal_date
  * @property array<array-key, mixed>|null $digital_signature
  * @property array<array-key, mixed>|null $timestamp
->>>>>>> .merge_file_sGpykE
  * @property bool $accessibility_compliance
  * @property bool $format_compliance
  * @property bool $metadata_compliance
@@ -105,18 +89,14 @@ use Themes\Sixteen\Enums\PublicDocumentTypeEnum;
  * @property bool $is_downloadable
  * @property bool $requires_authentication
  * @property string $visibility_level
-<<<<<<< .merge_file_121CSh
  * @property array|null $metadata
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- *
-=======
- * @property array<array-key, mixed>|null $metadata
+ * * @property array<array-key, mixed>|null $metadata
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
->>>>>>> .merge_file_sGpykE
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read PublicPerson|null $author
  * @property-read MunicipalService|null $service
@@ -126,7 +106,6 @@ class PublicDocument extends Model
 {
     use HasFactory, SoftDeletes;
 
-<<<<<<< .merge_file_121CSh
     /**
      * Tipologie di documento secondo AGID
      */
@@ -234,9 +213,6 @@ class PublicDocument extends Model
         'social_interventions' => 'Interventi Straordinari e di Emergenza',
         'other' => 'Altri Contenuti',
     ];
-
-=======
->>>>>>> .merge_file_sGpykE
     protected $table = 'sixteen_public_documents';
 
     protected $fillable = [
@@ -334,12 +310,8 @@ class PublicDocument extends Model
     ];
 
     /**
-     * Relazione con l'unità organizzativa
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Relazione con l'unità organizzativa     *
      * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> .merge_file_sGpykE
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -347,12 +319,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Relazione con l'autore
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Relazione con l'autore     *
      * @return BelongsTo<PublicPerson, $this>
->>>>>>> .merge_file_sGpykE
      */
     public function author(): BelongsTo
     {
@@ -360,12 +328,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Relazione con il servizio correlato
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Relazione con il servizio correlato     *
      * @return BelongsTo<MunicipalService, $this>
->>>>>>> .merge_file_sGpykE
      */
     public function service(): BelongsTo
     {
@@ -373,12 +337,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Relazione con i punti di contatto
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Relazione con i punti di contatto     *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> .merge_file_sGpykE
      */
     public function contacts(): MorphMany
     {
@@ -386,12 +346,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Relazione con le persone correlate
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Relazione con le persone correlate     *
      * @return BelongsToMany<PublicPerson, $this>
->>>>>>> .merge_file_sGpykE
      */
     public function people(): BelongsToMany
     {
@@ -404,11 +360,7 @@ class PublicDocument extends Model
     /**
      * Scope per documenti pubblicati
      */
-<<<<<<< .merge_file_121CSh
-    public function scopePublished($query)
-=======
-    public function scopePublished(Builder $query): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopePublished($query)    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true)
             ->where('publication_date', '<=', now())
@@ -418,11 +370,7 @@ class PublicDocument extends Model
     /**
      * Scope per documenti attivi
      */
-<<<<<<< .merge_file_121CSh
-    public function scopeActive($query)
-=======
-    public function scopeActive(Builder $query): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopeActive($query)    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true)
             ->where(function ($q): void {
@@ -434,11 +382,7 @@ class PublicDocument extends Model
     /**
      * Scope per documenti ricercabili
      */
-<<<<<<< .merge_file_121CSh
-    public function scopeSearchable($query)
-=======
-    public function scopeSearchable(Builder $query): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopeSearchable($query)    public function scopeSearchable(Builder $query): Builder
     {
         return $query->where('is_searchable', true);
     }
@@ -446,11 +390,7 @@ class PublicDocument extends Model
     /**
      * Scope per tipologia di documento
      */
-<<<<<<< .merge_file_121CSh
-    public function scopeOfType($query, string $type)
-=======
-    public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopeOfType($query, string $type)    public function scopeOfType(Builder $query, string $type): Builder
     {
         return $query->where('document_type', $type);
     }
@@ -458,11 +398,7 @@ class PublicDocument extends Model
     /**
      * Scope per sezione di trasparenza
      */
-<<<<<<< .merge_file_121CSh
-    public function scopeInTransparencySection($query, string $section)
-=======
-    public function scopeInTransparencySection(Builder $query, string $section): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopeInTransparencySection($query, string $section)    public function scopeInTransparencySection(Builder $query, string $section): Builder
     {
         return $query->where('transparency_section', $section);
     }
@@ -470,11 +406,7 @@ class PublicDocument extends Model
     /**
      * Scope per documenti in vigore
      */
-<<<<<<< .merge_file_121CSh
-    public function scopeEffective($query)
-=======
-    public function scopeEffective(Builder $query): Builder
->>>>>>> .merge_file_sGpykE
+    public function scopeEffective($query)    public function scopeEffective(Builder $query): Builder
     {
         return $query->where('document_status', 'effective')
             ->where(function ($q): void {
@@ -492,12 +424,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Ottiene le parole chiave formattate
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene le parole chiave formattate     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getFormattedKeywords(): array
     {
@@ -505,25 +433,17 @@ class PublicDocument extends Model
             return [];
         }
 
-<<<<<<< .merge_file_121CSh
         return collect($this->keywords)
-            ->map(function ($keyword) {
-=======
-        return collect($keywords)
+            ->map(function ($keyword) {        return collect($keywords)
             ->map(function (mixed $keyword): mixed {
->>>>>>> .merge_file_sGpykE
                 return is_string($keyword) ? ['name' => $keyword, 'slug' => Str::slug($keyword)] : $keyword;
             })
             ->toArray();
     }
 
     /**
-     * Ottiene gli allegati formattati
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene gli allegati formattati     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getFormattedAttachments(): array
     {
@@ -531,13 +451,9 @@ class PublicDocument extends Model
             return [];
         }
 
-<<<<<<< .merge_file_121CSh
         return collect($this->attachments)
-            ->map(function ($attachment) {
-=======
-        return collect($attachments)
+            ->map(function ($attachment) {        return collect($attachments)
             ->map(function (mixed $attachment): mixed {
->>>>>>> .merge_file_sGpykE
                 if (is_string($attachment)) {
                     return [
                         'path' => $attachment,
@@ -546,16 +462,12 @@ class PublicDocument extends Model
                         'type' => pathinfo($attachment, PATHINFO_EXTENSION),
                     ];
                 }
-
-<<<<<<< .merge_file_121CSh
-=======
                 if (! is_array($attachment)) {
                     return $attachment;
                 }
 
                 $path = $attachment['path'] ?? null;
 
->>>>>>> .merge_file_sGpykE
                 return array_merge([
                     'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
                 ], $attachment);
@@ -564,12 +476,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Ottiene le versioni del documento
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene le versioni del documento     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getFormattedVersions(): array
     {
@@ -577,17 +485,13 @@ class PublicDocument extends Model
             return [];
         }
 
-<<<<<<< .merge_file_121CSh
         return collect($this->versions)
             ->map(function ($version, $index) {
                 return array_merge([
-                    'version' => $index + 1,
-=======
-        return collect($versions)
+                    'version' => $index + 1,        return collect($versions)
             ->map(function (mixed $version, int|string $index): array {
                 return array_merge([
                     'version' => (is_int($index) ? $index : 0) + 1,
->>>>>>> .merge_file_sGpykE
                     'date' => null,
                     'changes' => null,
                     'file' => null,
@@ -599,12 +503,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Ottiene i riferimenti normativi formattati
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene i riferimenti normativi formattati     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getFormattedLegislativeReferences(): array
     {
@@ -612,13 +512,9 @@ class PublicDocument extends Model
             return [];
         }
 
-<<<<<<< .merge_file_121CSh
         return collect($this->legislative_references)
-            ->map(function ($reference) {
-=======
-        return collect($references)
+            ->map(function ($reference) {        return collect($references)
             ->map(function (mixed $reference): mixed {
->>>>>>> .merge_file_sGpykE
                 if (is_string($reference)) {
                     return ['title' => $reference];
                 }
@@ -667,12 +563,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Verifica la compliance AGID
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Verifica la compliance AGID     *
      * @return array{accessibility: bool, format: bool, metadata: bool, overall: bool, requirements: array<string, bool>, score: float|int}
->>>>>>> .merge_file_sGpykE
      */
     public function checkAgidCompliance(): array
     {
@@ -701,12 +593,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Ottiene i dati strutturati per SEO
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene i dati strutturati per SEO     *
      * @return array<string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getStructuredData(): array
     {
@@ -717,30 +605,22 @@ class PublicDocument extends Model
             'description' => $this->description,
             'dateCreated' => $this->document_date?->toISOString(),
             'datePublished' => $this->publication_date?->toISOString(),
-<<<<<<< .merge_file_121CSh
-            'dateModified' => $this->updated_at->toISOString(),
-=======
-            'dateModified' => $this->updated_at?->toISOString(),
->>>>>>> .merge_file_sGpykE
+            'dateModified' => $this->updated_at->toISOString(),            'dateModified' => $this->updated_at?->toISOString(),
             'author' => [
                 '@type' => 'Person',
                 'name' => $this->author?->full_name,
             ],
             'publisher' => [
                 '@type' => 'Organization',
-<<<<<<< .merge_file_121CSh
                 'name' => $this->organizationalUnit?->name ?? 'Comune',
             ],
             'encodingFormat' => $this->file_type,
             'contentSize' => $this->formatted_file_size,
-            'keywords' => is_array($this->keywords) ? implode(', ', array_column($this->keywords, 'name')) : null,
-=======
-                'name' => $this->organizationalUnit?->getAttribute('name') ?? 'Comune',
+            'keywords' => is_array($this->keywords) ? implode(', ', array_column($this->keywords, 'name')) : null,                'name' => $this->organizationalUnit?->getAttribute('name') ?? 'Comune',
             ],
             'encodingFormat' => $this->file_type,
             'contentSize' => $this->formatted_file_size,
             'keywords' => $keywordNames !== [] ? implode(', ', $keywordNames) : null,
->>>>>>> .merge_file_sGpykE
             'inLanguage' => $this->language ?? 'it',
             'isAccessibleForFree' => true,
             'license' => 'https://creativecommons.org/licenses/by/4.0/',
@@ -748,12 +628,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Ottiene le informazioni complete del documento
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Ottiene le informazioni complete del documento     *
      * @return array<string, mixed>
->>>>>>> .merge_file_sGpykE
      */
     public function getDocumentDetails(): array
     {
@@ -802,88 +678,52 @@ class PublicDocument extends Model
     }
 
     /**
-     * Accessor per il nome del tipo di documento
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per il nome del tipo di documento     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function documentTypeName(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type
-=======
-            get: fn (): string => PublicDocumentTypeEnum::tryFrom($this->document_type)?->getLabel() ?? $this->document_type
->>>>>>> .merge_file_sGpykE
+            get: fn () => self::DOCUMENT_TYPES[$this->document_type] ?? $this->document_type            get: fn (): string => PublicDocumentTypeEnum::tryFrom($this->document_type)?->getLabel() ?? $this->document_type
         );
     }
 
     /**
-     * Accessor per il nome dello stato
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per il nome dello stato     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function documentStatusName(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status
-=======
-            get: fn (): string => PublicDocumentStatusEnum::tryFrom($this->document_status)?->getLabel() ?? $this->document_status
->>>>>>> .merge_file_sGpykE
+            get: fn () => self::DOCUMENT_STATUSES[$this->document_status] ?? $this->document_status            get: fn (): string => PublicDocumentStatusEnum::tryFrom($this->document_status)?->getLabel() ?? $this->document_status
         );
     }
 
     /**
-     * Accessor per il nome dello stato di pubblicazione
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per il nome dello stato di pubblicazione     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function publicationStatusName(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status
-=======
-            get: fn (): string => PublicDocumentPublicationStatusEnum::tryFrom($this->publication_status)?->getLabel() ?? $this->publication_status
->>>>>>> .merge_file_sGpykE
+            get: fn () => self::PUBLICATION_STATUSES[$this->publication_status] ?? $this->publication_status            get: fn (): string => PublicDocumentPublicationStatusEnum::tryFrom($this->publication_status)?->getLabel() ?? $this->publication_status
         );
     }
 
     /**
-     * Accessor per il nome del livello di privacy
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per il nome del livello di privacy     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function privacyLevelName(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level
-=======
-            get: fn (): string => PublicDocumentPrivacyLevelEnum::tryFrom($this->privacy_level)?->getLabel() ?? $this->privacy_level
->>>>>>> .merge_file_sGpykE
+            get: fn () => self::PRIVACY_LEVELS[$this->privacy_level] ?? $this->privacy_level            get: fn (): string => PublicDocumentPrivacyLevelEnum::tryFrom($this->privacy_level)?->getLabel() ?? $this->privacy_level
         );
     }
 
     /**
-     * Accessor per verificare se è scaduto
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per verificare se è scaduto     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function isExpired(): Attribute
     {
@@ -893,12 +733,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Accessor per verificare se è in vigore
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per verificare se è in vigore     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function isEffective(): Attribute
     {
@@ -922,12 +758,8 @@ class PublicDocument extends Model
     }
 
     /**
-     * Accessor per verificare se necessita revisione
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per verificare se necessita revisione     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function needsReview(): Attribute
     {
@@ -937,25 +769,17 @@ class PublicDocument extends Model
     }
 
     /**
-     * Accessor per la dimensione del file formattata
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per la dimensione del file formattata     *
      * @return Attribute<string|null, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function formattedFileSize(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
             get: function (): void {
                 if (! $this->file_size) {
-                    return;
-=======
-            get: function (): ?string {
+                    return;            get: function (): ?string {
                 if (! $this->file_size) {
                     return null;
->>>>>>> .merge_file_sGpykE
                 }
 
                 $units = ['B', 'KB', 'MB', 'GB'];
@@ -973,59 +797,35 @@ class PublicDocument extends Model
     }
 
     /**
-     * Accessor per l'URL del documento
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per l'URL del documento     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function url(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => route('municipal.documents.show', $this->slug)
-=======
-            get: fn (): string => route('municipal.documents.show', $this->slug)
->>>>>>> .merge_file_sGpykE
+            get: fn () => route('municipal.documents.show', $this->slug)            get: fn (): string => route('municipal.documents.show', $this->slug)
         );
     }
 
     /**
-     * Accessor per l'URL di download
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Accessor per l'URL di download     *
      * @return Attribute<string|null, never>
->>>>>>> .merge_file_sGpykE
      */
     protected function downloadUrl(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null
-=======
-            get: fn (): ?string => $this->file_path ? route('municipal.documents.download', $this->id) : null
->>>>>>> .merge_file_sGpykE
+            get: fn () => $this->file_path ? route('municipal.documents.download', $this->id) : null            get: fn (): ?string => $this->file_path ? route('municipal.documents.download', $this->id) : null
         );
     }
 
     /**
-     * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< .merge_file_121CSh
-=======
-     *
+     * Mutator per il titolo (genera automaticamente lo slug)     *
      * @return Attribute<string, string>
->>>>>>> .merge_file_sGpykE
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_121CSh
-            set: function ($value) {
-=======
-            set: function (string $value): string {
->>>>>>> .merge_file_sGpykE
+            set: function ($value) {            set: function (string $value): string {
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1044,22 +844,14 @@ class PublicDocument extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< .merge_file_121CSh
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_sGpykE
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< .merge_file_121CSh
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_sGpykE
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1070,11 +862,7 @@ class PublicDocument extends Model
         });
 
         // Set default values
-<<<<<<< .merge_file_121CSh
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_sGpykE
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             if (is_null($model->document_status)) {
                 $model->document_status = 'draft';
             }
@@ -1097,11 +885,7 @@ class PublicDocument extends Model
         });
 
         // Calcola checksum del file se presente
-<<<<<<< .merge_file_121CSh
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_sGpykE
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             if ($model->file_path && empty($model->checksum)) {
                 $filePath = storage_path('app/'.$model->file_path);
                 if (file_exists($filePath)) {

@@ -14,14 +14,10 @@ use function Safe\preg_match;
  * Marca come attivi gli elementi del menu basati sull'URL corrente
  */
 class ActiveMenuFilter implements MenuFilterInterface
-{
-<<<<<<< .merge_file_baEO6V
-=======
-    /**
+{    /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> .merge_file_322xTR
     public function filter(array $item): array|false
     {
         // Non processare header e separatori
@@ -69,12 +65,8 @@ class ActiveMenuFilter implements MenuFilterInterface
     }
 
     /**
-     * Determina se un elemento del menu è attivo
-<<<<<<< .merge_file_baEO6V
-=======
-     *
+     * Determina se un elemento del menu è attivo     *
      * @param  array<array-key, mixed>  $item
->>>>>>> .merge_file_322xTR
      */
     protected function isActive(array $item): bool
     {

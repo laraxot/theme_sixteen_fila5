@@ -134,12 +134,8 @@ class CieAuthController extends Controller
             ]);
 
             // Redirect all'URL di ritorno
-<<<<<<< .merge_file_XwBY0X
-            $returnUrl = Session::pull('cie.return_url', route('dashboard'));
-=======
-            $returnUrl = Session::pull('cie.return_url');
+            $returnUrl = Session::pull('cie.return_url', route('dashboard'));            $returnUrl = Session::pull('cie.return_url');
             $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : route('dashboard');
->>>>>>> .merge_file_9HbzzP
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione CIE completata con successo.');
@@ -165,12 +161,8 @@ class CieAuthController extends Controller
     {
         try {
             $user = Auth::user();
-<<<<<<< .merge_file_XwBY0X
-            $userData = Session::get('cie.user_data');
-=======
-            $sessionUserData = Session::get('cie.user_data');
+            $userData = Session::get('cie.user_data');            $sessionUserData = Session::get('cie.user_data');
             $userData = is_array($sessionUserData) ? $sessionUserData : null;
->>>>>>> .merge_file_9HbzzP
             $returnUrl = $request->query('return_url', route('home'));
 
             if ($user && $userData) {
@@ -304,12 +296,8 @@ class CieAuthController extends Controller
         if (! config('app.debug') || ! app()->environment(['local', 'development'])) {
             abort(404);
         }
-
-<<<<<<< .merge_file_XwBY0X
-=======
         $authUser = Auth::user();
 
->>>>>>> .merge_file_9HbzzP
         return response()->json([
             'config_info' => $this->cieService->getConfigInfo(),
             'session_data' => [
@@ -319,17 +307,13 @@ class CieAuthController extends Controller
                 'state' => Session::get('cie.state'),
                 'auth_method' => Session::get('cie.auth_method'),
             ],
-<<<<<<< .merge_file_XwBY0X
             'auth_user' => Auth::check() ? [
                 'id' => Auth::id(),
                 'email' => Auth::user()->email,
-                'fiscal_code' => Auth::user()->fiscal_code ?? null,
-=======
-            'auth_user' => $authUser !== null ? [
+                'fiscal_code' => Auth::user()->fiscal_code ?? null,            'auth_user' => $authUser !== null ? [
                 'id' => $authUser->id,
                 'email' => $authUser->email,
                 'fiscal_code' => $authUser->getAttribute('fiscal_code'),
->>>>>>> .merge_file_9HbzzP
             ] : null,
         ]);
     }
@@ -354,9 +338,6 @@ class CieAuthController extends Controller
 
             return $user;
         }
-
-<<<<<<< .merge_file_XwBY0X
-=======
         if ($user !== null) {
             Log::error('CIE: existing user record does not implement UserContract', [
                 'user_class' => $user::class,
@@ -364,7 +345,6 @@ class CieAuthController extends Controller
             ]);
         }
 
->>>>>>> .merge_file_9HbzzP
         // Crea nuovo utente
         return $this->createUserFromCie($attributes);
     }
@@ -400,12 +380,8 @@ class CieAuthController extends Controller
     }
 
     /**
-     * Aggiorna un utente esistente con i dati CIE
-<<<<<<< .merge_file_XwBY0X
-=======
-     *
+     * Aggiorna un utente esistente con i dati CIE     *
      * @param  array<string, mixed>  $attributes
->>>>>>> .merge_file_9HbzzP
      */
     protected function updateUserFromCie(User $user, array $attributes): void
     {
@@ -445,12 +421,8 @@ class CieAuthController extends Controller
         // Aggiorna ultimo accesso
         $updateData['last_login_at'] = now();
 
-<<<<<<< .merge_file_XwBY0X
         if (! empty($updateData)) {
             $user->update($updateData);
-        }
-=======
-        $user->update($updateData);
->>>>>>> .merge_file_9HbzzP
+        }        $user->update($updateData);
     }
 }

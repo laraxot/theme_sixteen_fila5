@@ -11,11 +11,6 @@ class ThemeAdapter
     protected string $themeName = 'Sixteen';
 
     protected string $version = '1.0.0';
-
-<<<<<<< .merge_file_jpT0tF
-
-=======
->>>>>>> .merge_file_My57rk
     public function getName(): string
     {
         return $this->themeName;

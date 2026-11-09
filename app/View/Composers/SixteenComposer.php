@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace Themes\Sixteen\View\Composers;
 
 use Illuminate\View\View;
-<<<<<<< .merge_file_1EyANZ
 use Themes\Sixteen\Events\BuildingSixteenMenu;
-use Themes\Sixteen\Actions\MenuBuilderAction;
-=======
-use Themes\Sixteen\Actions\MenuBuilderAction;
+use Themes\Sixteen\Actions\MenuBuilderAction;use Themes\Sixteen\Actions\MenuBuilderAction;
 use Themes\Sixteen\Events\BuildingSixteenMenu;
->>>>>>> .merge_file_7OBhXN
 
 /**
  * View Composer per il tema Sixteen

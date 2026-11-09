@@ -3,12 +3,8 @@
 declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
-
-<<<<<<< .merge_file_ja8Qyi
-=======
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> .merge_file_DzQp7C
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -43,22 +39,17 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property string|null $source
  * @property string $news_status
  * @property string $visibility
-<<<<<<< .merge_file_ja8Qyi
  * @property int $priority_level
  * @property int $urgency_level
  * @property array|null $target_audience
- * @property array|null $geographic_scope
-=======
- * @property int|null $priority_level
+ * @property array|null $geographic_scope * @property int|null $priority_level
  * @property int|null $urgency_level
  * @property array<array-key, mixed>|null $target_audience
  * @property array<array-key, mixed>|null $geographic_scope
->>>>>>> .merge_file_DzQp7C
  * @property string|null $language
  * @property string|null $featured_image
  * @property string|null $image_caption
  * @property string|null $image_alt_text
-<<<<<<< .merge_file_ja8Qyi
  * @property array|null $gallery
  * @property array|null $attachments
  * @property array|null $related_services
@@ -72,9 +63,7 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property array|null $seo_keywords
  * @property \Carbon\Carbon|null $publication_date
  * @property \Carbon\Carbon|null $expiry_date
- * @property \Carbon\Carbon|null $last_modified
-=======
- * @property array<int, mixed>|null $gallery
+ * @property \Carbon\Carbon|null $last_modified * @property array<int, mixed>|null $gallery
  * @property array<int, mixed>|null $attachments
  * @property array<array-key, mixed>|null $related_services
  * @property array<array-key, mixed>|null $related_events
@@ -88,7 +77,6 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property Carbon|null $publication_date
  * @property Carbon|null $expiry_date
  * @property Carbon|null $last_modified
->>>>>>> .merge_file_DzQp7C
  * @property int $revision_number
  * @property bool $is_published
  * @property bool $is_featured
@@ -99,7 +87,6 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property int $view_count
  * @property int $share_count
  * @property int $reading_time
-<<<<<<< .merge_file_ja8Qyi
  * @property array|null $accessibility_notes
  * @property string|null $feedback_url
  * @property string|null $correction_notice
@@ -109,9 +96,7 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- *
-=======
- * @property array<array-key, mixed>|null $accessibility_notes
+ * * @property array<array-key, mixed>|null $accessibility_notes
  * @property string|null $feedback_url
  * @property string|null $correction_notice
  * @property array<array-key, mixed>|null $translation_links
@@ -131,7 +116,6 @@ use Themes\Sixteen\Enums\MunicipalNewsUrgencyEnum;
  * @property-read int $estimated_reading_time
  * @property-read string $url
  * @property-read string|null $featured_image_url
->>>>>>> .merge_file_DzQp7C
  * @property-read OrganizationalUnit|null $organizationalUnit
  * @property-read PublicPerson|null $author
  * @property-read PublicPerson|null $editor
@@ -143,7 +127,6 @@ class MunicipalNews extends Model
 {
     use HasFactory, SoftDeletes;
 
-<<<<<<< .merge_file_ja8Qyi
     /**
      * Tipologie di notizia secondo AGID
      */
@@ -211,9 +194,6 @@ class MunicipalNews extends Model
         'european' => 'Europeo',
         'international' => 'Internazionale',
     ];
-
-=======
->>>>>>> .merge_file_DzQp7C
     protected $table = 'sixteen_municipal_news';
 
     protected $fillable = [
@@ -305,12 +285,8 @@ class MunicipalNews extends Model
     ];
 
     /**
-     * Relazione con l'unità organizzativa
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con l'unità organizzativa     *
      * @return BelongsTo<OrganizationalUnit, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function organizationalUnit(): BelongsTo
     {
@@ -318,12 +294,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con l'autore
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con l'autore     *
      * @return BelongsTo<PublicPerson, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function author(): BelongsTo
     {
@@ -331,12 +303,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con l'editor
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con l'editor     *
      * @return BelongsTo<PublicPerson, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function editor(): BelongsTo
     {
@@ -344,12 +312,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con i punti di contatto
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con i punti di contatto     *
      * @return MorphMany<ContactPoint, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function contacts(): MorphMany
     {
@@ -357,12 +321,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con i servizi correlati
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con i servizi correlati     *
      * @return BelongsToMany<MunicipalService, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function services(): BelongsToMany
     {
@@ -370,12 +330,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con gli eventi correlati
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con gli eventi correlati     *
      * @return BelongsToMany<MunicipalEvent, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function events(): BelongsToMany
     {
@@ -383,12 +339,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Relazione con le persone correlate
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Relazione con le persone correlate     *
      * @return BelongsToMany<PublicPerson, $this>
->>>>>>> .merge_file_DzQp7C
      */
     public function people(): BelongsToMany
     {
@@ -398,11 +350,7 @@ class MunicipalNews extends Model
     /**
      * Scope per notizie pubblicate
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopePublished($query)
-=======
-    public function scopePublished(Builder $query): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopePublished($query)    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true)
             ->where('news_status', 'published')
@@ -416,11 +364,7 @@ class MunicipalNews extends Model
     /**
      * Scope per notizie in evidenza
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeFeatured($query)
-=======
-    public function scopeFeatured(Builder $query): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeFeatured($query)    public function scopeFeatured(Builder $query): Builder
     {
         return $query->where('is_featured', true);
     }
@@ -428,11 +372,7 @@ class MunicipalNews extends Model
     /**
      * Scope per notizie breaking
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeBreaking($query)
-=======
-    public function scopeBreaking(Builder $query): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeBreaking($query)    public function scopeBreaking(Builder $query): Builder
     {
         return $query->where('is_breaking', true);
     }
@@ -440,11 +380,7 @@ class MunicipalNews extends Model
     /**
      * Scope per notizie da homepage
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeHomepage($query)
-=======
-    public function scopeHomepage(Builder $query): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeHomepage($query)    public function scopeHomepage(Builder $query): Builder
     {
         return $query->where('show_on_homepage', true);
     }
@@ -452,11 +388,7 @@ class MunicipalNews extends Model
     /**
      * Scope per tipologia di notizia
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeOfType($query, string $type)
-=======
-    public function scopeOfType(Builder $query, string $type): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeOfType($query, string $type)    public function scopeOfType(Builder $query, string $type): Builder
     {
         return $query->where('news_type', $type);
     }
@@ -464,11 +396,7 @@ class MunicipalNews extends Model
     /**
      * Scope per categoria
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeInCategory($query, string $category)
-=======
-    public function scopeInCategory(Builder $query, string $category): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeInCategory($query, string $category)    public function scopeInCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
     }
@@ -476,11 +404,7 @@ class MunicipalNews extends Model
     /**
      * Scope per priorità minima
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeMinPriority($query, int $priority)
-=======
-    public function scopeMinPriority(Builder $query, int $priority): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeMinPriority($query, int $priority)    public function scopeMinPriority(Builder $query, int $priority): Builder
     {
         return $query->where('priority_level', '>=', $priority);
     }
@@ -488,11 +412,7 @@ class MunicipalNews extends Model
     /**
      * Scope per notizie recenti
      */
-<<<<<<< .merge_file_ja8Qyi
-    public function scopeRecent($query, int $days = 30)
-=======
-    public function scopeRecent(Builder $query, int $days = 30): Builder
->>>>>>> .merge_file_DzQp7C
+    public function scopeRecent($query, int $days = 30)    public function scopeRecent(Builder $query, int $days = 30): Builder
     {
         return $query->where('publication_date', '>=', now()->subDays($days));
     }
@@ -515,20 +435,12 @@ class MunicipalNews extends Model
             return $this->excerpt;
         }
 
-<<<<<<< .merge_file_ja8Qyi
-        return Str::limit(strip_tags($this->content), $length);
-=======
-        return Str::limit(strip_tags((string) $this->content), $length);
->>>>>>> .merge_file_DzQp7C
+        return Str::limit(strip_tags($this->content), $length);        return Str::limit(strip_tags((string) $this->content), $length);
     }
 
     /**
-     * Ottiene i tag formattati
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene i tag formattati     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getFormattedTags(): array
     {
@@ -544,12 +456,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Ottiene i link esterni formattati
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene i link esterni formattati     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getFormattedExternalLinks(): array
     {
@@ -557,13 +465,9 @@ class MunicipalNews extends Model
             return [];
         }
 
-<<<<<<< .merge_file_ja8Qyi
         return collect($this->external_links)
-            ->map(function ($link) {
-=======
-        return collect($externalLinks)
+            ->map(function ($link) {        return collect($externalLinks)
             ->map(function (mixed $link): mixed {
->>>>>>> .merge_file_DzQp7C
                 if (is_string($link)) {
                     return ['url' => $link, 'title' => parse_url($link, PHP_URL_HOST)];
                 }
@@ -574,12 +478,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Ottiene gli allegati formattati
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene gli allegati formattati     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getFormattedAttachments(): array
     {
@@ -587,13 +487,9 @@ class MunicipalNews extends Model
             return [];
         }
 
-<<<<<<< .merge_file_ja8Qyi
         return collect($this->attachments)
-            ->map(function ($attachment) {
-=======
-        return collect($attachments)
+            ->map(function ($attachment) {        return collect($attachments)
             ->map(function (mixed $attachment): mixed {
->>>>>>> .merge_file_DzQp7C
                 if (is_string($attachment)) {
                     return [
                         'path' => $attachment,
@@ -603,16 +499,12 @@ class MunicipalNews extends Model
                         'type' => pathinfo($attachment, PATHINFO_EXTENSION),
                     ];
                 }
-
-<<<<<<< .merge_file_ja8Qyi
-=======
                 if (! is_array($attachment)) {
                     return $attachment;
                 }
 
                 $path = $attachment['path'] ?? null;
 
->>>>>>> .merge_file_DzQp7C
                 return array_merge([
                     'url' => isset($attachment['path']) ? asset('storage/'.$attachment['path']) : null,
                 ], $attachment);
@@ -621,12 +513,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Ottiene la galleria immagini formattata
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene la galleria immagini formattata     *
      * @return array<int|string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getFormattedGallery(): array
     {
@@ -634,13 +522,9 @@ class MunicipalNews extends Model
             return [];
         }
 
-<<<<<<< .merge_file_ja8Qyi
         return collect($this->gallery)
-            ->map(function ($image) {
-=======
-        return collect($gallery)
+            ->map(function ($image) {        return collect($gallery)
             ->map(function (mixed $image): mixed {
->>>>>>> .merge_file_DzQp7C
                 if (is_string($image)) {
                     return [
                         'path' => $image,
@@ -649,16 +533,12 @@ class MunicipalNews extends Model
                         'alt' => null,
                     ];
                 }
-
-<<<<<<< .merge_file_ja8Qyi
-=======
                 if (! is_array($image)) {
                     return $image;
                 }
 
                 $path = $image['path'] ?? null;
 
->>>>>>> .merge_file_DzQp7C
                 return array_merge([
                     'url' => isset($image['path']) ? asset('storage/'.$image['path']) : null,
                 ], $image);
@@ -701,12 +581,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Ottiene i dati strutturati per SEO
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene i dati strutturati per SEO     *
      * @return array<string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getStructuredData(): array
     {
@@ -724,15 +600,12 @@ class MunicipalNews extends Model
             ],
             'publisher' => [
                 '@type' => 'Organization',
-<<<<<<< .merge_file_ja8Qyi
                 'name' => $this->organizationalUnit?->name ?? 'Comune',
             ],
             'mainEntityOfPage' => $this->url,
             'articleSection' => $this->category,
             'keywords' => is_array($this->seo_keywords) ? implode(', ', $this->seo_keywords) : null,
-            'wordCount' => str_word_count(strip_tags($this->content)),
-=======
-                'name' => $this->organizationalUnit?->getAttribute('name') ?? 'Comune',
+            'wordCount' => str_word_count(strip_tags($this->content)),                'name' => $this->organizationalUnit?->getAttribute('name') ?? 'Comune',
             ],
             'mainEntityOfPage' => $this->url,
             'articleSection' => $this->category,
@@ -743,18 +616,13 @@ class MunicipalNews extends Model
                 ))
                 : null,
             'wordCount' => str_word_count(strip_tags((string) $this->content)),
->>>>>>> .merge_file_DzQp7C
             'timeRequired' => 'PT'.$this->estimated_reading_time.'M',
         ];
     }
 
     /**
-     * Ottiene le informazioni complete della notizia
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Ottiene le informazioni complete della notizia     *
      * @return array<string, mixed>
->>>>>>> .merge_file_DzQp7C
      */
     public function getNewsDetails(): array
     {
@@ -796,12 +664,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per il nome del tipo di notizia
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per il nome del tipo di notizia     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function newsTypeName(): Attribute
     {
@@ -811,12 +675,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per il nome dello stato
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per il nome dello stato     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function newsStatusName(): Attribute
     {
@@ -826,12 +686,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per il nome della priorità
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per il nome della priorità     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function priorityName(): Attribute
     {
@@ -841,12 +697,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per il nome dell'urgenza
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per il nome dell'urgenza     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function urgencyName(): Attribute
     {
@@ -856,12 +708,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per verificare se è scaduta
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per verificare se è scaduta     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function isExpired(): Attribute
     {
@@ -871,12 +719,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per verificare se è attuale
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per verificare se è attuale     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function isCurrent(): Attribute
     {
@@ -892,12 +736,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per l'età della notizia in giorni
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per l'età della notizia in giorni     *
      * @return Attribute<int|null, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function ageInDays(): Attribute
     {
@@ -907,12 +747,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per verificare se è una notizia fresca
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per verificare se è una notizia fresca     *
      * @return Attribute<bool, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function isFresh(): Attribute
     {
@@ -922,12 +758,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per il tempo di lettura stimato
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per il tempo di lettura stimato     *
      * @return Attribute<int, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function estimatedReadingTime(): Attribute
     {
@@ -938,11 +770,7 @@ class MunicipalNews extends Model
                 }
 
                 // Stima basata su 200 parole al minuto
-<<<<<<< .merge_file_ja8Qyi
-                $wordCount = str_word_count(strip_tags($this->content));
-=======
-                $wordCount = str_word_count(strip_tags((string) $this->content));
->>>>>>> .merge_file_DzQp7C
+                $wordCount = str_word_count(strip_tags($this->content));                $wordCount = str_word_count(strip_tags((string) $this->content));
 
                 return max(1, ceil($wordCount / 200));
             }
@@ -950,12 +778,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per l'URL della notizia
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per l'URL della notizia     *
      * @return Attribute<string, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function url(): Attribute
     {
@@ -965,12 +789,8 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Accessor per l'URL dell'immagine in evidenza
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Accessor per l'URL dell'immagine in evidenza     *
      * @return Attribute<string|null, never>
->>>>>>> .merge_file_DzQp7C
      */
     protected function featuredImageUrl(): Attribute
     {
@@ -980,21 +800,13 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Mutator per il titolo (genera automaticamente lo slug)
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Mutator per il titolo (genera automaticamente lo slug)     *
      * @return Attribute<string, string>
->>>>>>> .merge_file_DzQp7C
      */
     protected function title(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_ja8Qyi
-            set: function ($value) {
-=======
-            set: function (string $value): string {
->>>>>>> .merge_file_DzQp7C
+            set: function ($value) {            set: function (string $value): string {
                 $this->attributes['title'] = $value;
                 if (empty($this->attributes['slug'])) {
                     $this->attributes['slug'] = Str::slug($value);
@@ -1006,31 +818,19 @@ class MunicipalNews extends Model
     }
 
     /**
-     * Mutator per il contenuto (aggiorna reading_time)
-<<<<<<< .merge_file_ja8Qyi
-=======
-     *
+     * Mutator per il contenuto (aggiorna reading_time)     *
      * @return Attribute<string, string>
->>>>>>> .merge_file_DzQp7C
      */
     protected function content(): Attribute
     {
         return Attribute::make(
-<<<<<<< .merge_file_ja8Qyi
-            set: function ($value) {
-=======
-            set: function (string $value): string {
->>>>>>> .merge_file_DzQp7C
+            set: function ($value) {            set: function (string $value): string {
                 $this->attributes['content'] = $value;
 
                 // Auto-calcola reading time se non impostato
                 if (! isset($this->attributes['reading_time'])) {
                     $wordCount = str_word_count(strip_tags($value));
-<<<<<<< .merge_file_ja8Qyi
-                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));
-=======
-                    $this->attributes['reading_time'] = max(1, (int) ceil($wordCount / 200));
->>>>>>> .merge_file_DzQp7C
+                    $this->attributes['reading_time'] = max(1, ceil($wordCount / 200));                    $this->attributes['reading_time'] = max(1, (int) ceil($wordCount / 200));
                 }
 
                 return $value;
@@ -1046,22 +846,14 @@ class MunicipalNews extends Model
         parent::boot();
 
         // Genera slug se mancante
-<<<<<<< .merge_file_ja8Qyi
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_DzQp7C
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->title);
             }
         });
 
         // Assicura unicità dello slug
-<<<<<<< .merge_file_ja8Qyi
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_DzQp7C
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -1072,11 +864,7 @@ class MunicipalNews extends Model
         });
 
         // Set default values
-<<<<<<< .merge_file_ja8Qyi
-        static::creating(function ($model): void {
-=======
-        static::creating(function (self $model): void {
->>>>>>> .merge_file_DzQp7C
+        static::creating(function ($model): void {        static::creating(function (self $model): void {
             if (is_null($model->news_status)) {
                 $model->news_status = 'draft';
             }
@@ -1099,11 +887,7 @@ class MunicipalNews extends Model
         });
 
         // Auto-publish se la data è raggiunta
-<<<<<<< .merge_file_ja8Qyi
-        static::updating(function ($model): void {
-=======
-        static::updating(function (self $model): void {
->>>>>>> .merge_file_DzQp7C
+        static::updating(function ($model): void {        static::updating(function (self $model): void {
             if ($model->news_status === 'approved' &&
                 $model->publication_date <= now() &&
                 ! $model->is_published) {
@@ -1113,11 +897,7 @@ class MunicipalNews extends Model
         });
 
         // Increment revision number on updates
-<<<<<<< .merge_file_ja8Qyi
-        static::updating(function ($model): void {
-=======
-        static::updating(function (self $model): void {
->>>>>>> .merge_file_DzQp7C
+        static::updating(function ($model): void {        static::updating(function (self $model): void {
             if ($model->isDirty(['title', 'content', 'excerpt'])) {
                 $model->revision_number++;
                 $model->last_modified = now();

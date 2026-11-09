@@ -12,14 +12,10 @@ use Themes\Sixteen\Contracts\MenuFilterInterface;
  * Nasconde elementi del menu basati su permessi utente
  */
 class GateMenuFilter implements MenuFilterInterface
-{
-<<<<<<< .merge_file_1tRLie
-=======
-    /**
+{    /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> .merge_file_8yL6dW
     public function filter(array $item): array|false
     {
         // Controllo permesso con Laravel Gate

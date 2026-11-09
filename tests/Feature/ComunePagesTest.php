@@ -2,15 +2,11 @@
 
 declare(strict_types=1);
 
-<<<<<<< .merge_file_9SdmSM
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Fixcity\App\Models\News;
-use Modules\Fixcity\App\Models\Ticket;
-=======
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Modules\Fixcity\App\Models\Ticket;use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\Fixcity\Models\News;
 use Modules\Fixcity\Models\Ticket;
->>>>>>> .merge_file_ZLdGiK
 use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);
@@ -33,17 +29,13 @@ test('homepage loads successfully', function () {
 
 test('homepage displays recent tickets', function () {
     /** @var TestCase $this */
-<<<<<<< .merge_file_9SdmSM
-    $ticket = Ticket::factory()->create([
-=======
-    if (! class_exists(Ticket::class)) {
+    $ticket = Ticket::factory()->create([    if (! class_exists(Ticket::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
     /** @var \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Fixcity\Models\Ticket> $ticketFactory */
     $ticketFactory = Ticket::factory();
     $ticketFactory->create([
->>>>>>> .merge_file_ZLdGiK
         'name' => 'Buca Stradale',
         'description' => 'Buca pericolosa in via Roma',
     ]);
@@ -57,16 +49,12 @@ test('homepage displays recent tickets', function () {
 
 test('homepage displays recent news', function () {
     /** @var TestCase $this */
-<<<<<<< .merge_file_9SdmSM
-    $news = News::factory()->create([
-=======
-    if (! class_exists(News::class)) {
+    $news = News::factory()->create([    if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
     $newsFactory = News::factory();
     $newsFactory->create([
->>>>>>> .merge_file_ZLdGiK
         'title' => 'Nuovo Servizio Online',
         'excerpt' => 'Il comune lancia un nuovo servizio digitale',
     ]);
@@ -151,7 +139,6 @@ test('novita page loads successfully', function () {
 
 test('novita page displays news articles', function () {
     /** @var TestCase $this */
-<<<<<<< .merge_file_9SdmSM
     $news = News::factory()->count(3)->create([
         'title' => 'Notizia Test',
         'excerpt' => 'Estratto notizia test',
@@ -162,9 +149,7 @@ test('novita page displays news articles', function () {
     foreach ($news as $article) {
         $response->assertSee($article->title);
         $response->assertSee($article->excerpt);
-    }
-=======
-    if (! class_exists(News::class)) {
+    }    if (! class_exists(News::class)) {
         $this->markTestSkipped('Modulo Fixcity assente in questa base — test Comune rinviati.');
     }
 
@@ -173,7 +158,6 @@ test('novita page displays news articles', function () {
     $newsFactory->count(3)->create();
 
     $this->get(route('comune.novita'));
->>>>>>> .merge_file_ZLdGiK
 });
 
 test('contatti page loads successfully', function () {

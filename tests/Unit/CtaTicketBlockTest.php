@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 uses(Tests\TestCase::class);
 
-<<<<<<< .merge_file_BGmGME
 test('cta ticket block renders with defaults', function (): void {
-    /** @var Tests\TestCase $this */
-=======
-test('cta ticket block omits empty CMS payload', function (): void {
+    /** @var Tests\TestCase $this */test('cta ticket block omits empty CMS payload', function (): void {
     /** @var TestCase $this */
->>>>>>> .merge_file_WwzLlW
     $view = $this->view('pub_theme::components.blocks.cta.ticket', [
         'cta' => [],
     ]);

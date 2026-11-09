@@ -14,14 +14,10 @@ use function Safe\parse_url;
  * Converte route in URL e aggiunge informazioni di navigazione
  */
 class HrefMenuFilter implements MenuFilterInterface
-{
-<<<<<<< .merge_file_RlqhHs
-=======
-    /**
+{    /**
      * @param  array<array-key, mixed>  $item
      * @return array<array-key, mixed>|false
      */
->>>>>>> .merge_file_ChhgQc
     public function filter(array $item): array|false
     {
         // Converti route in URL
