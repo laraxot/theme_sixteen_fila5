@@ -439,7 +439,7 @@ Vantaggi:
 
 - [Layout Architecture](./layout-architecture.md)
 - [Page Component Architecture](./page-component-architecture.md)
-- [Blocks Implementation](../BLOCKS_IMPLEMENTATION.md)
+- [Blocks Implementation](../blocks-implementation.md)
 - [ThemeServiceProvider](../../app/Providers/ThemeServiceProvider.php)
 - [Replikate.txt](../prompts/replikate.txt)
 

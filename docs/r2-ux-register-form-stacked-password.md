@@ -14,7 +14,7 @@ related:
   - ../../User/docs/r1-form-fields-self-validate.md
   - ../../../../docs/chat/register-flow-religions-r1-r6.md
   - login-refactoring-plan.md
-  - ARCHITECTURE-QUEUEABLE-ACTION.md
+  - architecture-queueable-action.md
   - ../../../docs/wiki/memories/form-fields-self-validate-religion.md
 status: draft
 ---

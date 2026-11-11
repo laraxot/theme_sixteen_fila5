@@ -29,14 +29,14 @@ new class extends Component {
 };
 ?>
 
-<x-layouts.app :title="__('Reimposta la password')">
+<x-layouts.app :title="__('pub_theme::auth_components.reset.title.label')">
     @volt('container1.token')
         @if ($container0 === 'auth' && $slug0 === 'password' && $container1 === 'reset')
             <section class="bg-slate-50 px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="auth-password-token-heading">
                 <div class="mx-auto max-w-md">
                     <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                        <h1 id="auth-password-token-heading" class="text-3xl font-bold tracking-tight text-slate-950">{{ __('Reimposta la password') }}</h1>
-                        <p class="mt-2 text-slate-700">{{ __('Scegli una nuova password per il tuo account.') }}</p>
+                        <h1 id="auth-password-token-heading" class="text-3xl font-bold tracking-tight text-slate-950">{{ __('pub_theme::auth_components.reset.title.label') }}</h1>
+                        <p class="mt-2 text-slate-700">{{ __('pub_theme::auth_components.reset.help.message') }}</p>
                         <div class="mt-8">@livewire(\Modules\User\Filament\Widgets\Auth\ResetPasswordWidget::class, ['token' => $token, 'email' => request()->query('email')])</div>
                     </div>
                 </div>

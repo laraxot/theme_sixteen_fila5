@@ -72,10 +72,22 @@ Main_files/
 *.orig
 *.rej
 
+.c*
+.claude-flow
+.supermemory
+bmad
+Main_files
+test-results
+laravel
+.supermemory
+components
+layouts
+agentdb.rvf
+ruvector.db
 # AI/TOOL SCAFFOLD — must never exist in module/theme tree (see docs/wiki/rules/module-theme-root-cleanup.md, Rule 5)
 # Reports/audit artifacts belong under the monorepo build/, not inside the theme tree.
 _docs/
-scripts/
+/scripts/
 bashscripts/
 !resources/scripts/
 !resources/scripts/prepare-static-assets.mjs
@@ -97,6 +109,12 @@ tests/AuditCoverage/
 .git-blame-ignore-revs
 
 # Laraxot — IDE folders forbidden at module/theme root (see module-theme-root-hygiene)
+# Artefatti di strumenti AI locali
+.claude-flow
+.supermemory
+test-results
+agentdb.rvf
+ruvector.db
 .cursor/
 .devcontainer/
 .vscode/

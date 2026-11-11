@@ -108,9 +108,35 @@
     </head>
     <body @if($bodyPage !== '') data-page="{{ $bodyPage }}" @endif>
 
+        {{-- Messaggio flash di sessione (`status`), es. "account eliminato" dopo il logout: prima solo il layout legacy lo
+             mostrava. La chiave e' nel namespace del modulo che l'ha generata (gdpr::account.flash.account_deleted). --}}
+        @php
+            // Si mostra solo testo leggibile: una chiave tradotta o una frase. Codici come `verification-link-sent` restano
+            // alle pagine che li gestiscono.
+            $layoutFlash = session('status');
+            $layoutFlashMessage = null;
+            if (is_string($layoutFlash) && $layoutFlash !== '') {
+                $layoutFlashTranslated = __($layoutFlash);
+                if (is_string($layoutFlashTranslated) && $layoutFlashTranslated !== $layoutFlash) {
+                    $layoutFlashMessage = $layoutFlashTranslated;
+                } elseif (str_contains($layoutFlash, ' ')) {
+                    $layoutFlashMessage = $layoutFlash;
+                }
+            }
+        @endphp
+        @if (is_string($layoutFlashMessage) && $layoutFlashMessage !== '')
+            <div x-data="{ open: true }" x-show="open" role="status" aria-live="polite"
+                 class="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-xl items-start gap-3 rounded-lg border border-green-700 bg-white p-4 text-gray-900 shadow-lg">
+                <p class="flex-1">{{ $layoutFlashMessage }}</p>
+                <button type="button" class="font-semibold text-green-800 underline" x-on:click="open = false">
+                    {{ __('pub_theme::ui.close') }}
+                </button>
+            </div>
+        @endif
+
         {{ $slot }}
         @livewireScripts
-        @filamentScripts
+        @filamentScripts(withCore: true)
         @vite(['resources/js/app.js'], 'themes/Sixteen')
 
 

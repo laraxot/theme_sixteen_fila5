@@ -6,7 +6,7 @@
 ])
 
 <nav class="bottom-nav {{ $fixed ? 'fixed-bottom' : '' }} {{ $hiddenOnDesktop ? 'd-lg-none' : '' }}"
-     aria-label="Bottom navigation">
+     aria-label="{{ __('pub_theme::bootstrap_italia.bottom_nav.bottom_navigation.label') }}">
     <ul class="bottom-nav-list">
         @foreach($items as $item)
         <li class="bottom-nav-item">

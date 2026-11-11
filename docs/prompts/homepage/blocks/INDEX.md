@@ -217,7 +217,7 @@ La homepage di riferimento contiene **6 blocchi principali** organizzati vertica
 
 - [Design Comuni Blocks Analysis](../../design-comuni/design-comuni-block-analysis.md)
 - [HTML Comparison Tools](../../../../../../bashscripts/docs/html-comparison/README.md)
-- [Page Routing Architecture](../../../architecture/PAGE_ROUTING_ARCHITECTURE.md)
+- [Page Routing Architecture](../../../architecture/page-routing-architecture.md)
 - [Component System](../../../components)
 
 ## 📝 Note

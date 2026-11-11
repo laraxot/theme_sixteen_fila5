@@ -10,7 +10,9 @@ discussions: []
 status: draft
 ---
 
-# Sixteen {{TYPE^}} LLM Wiki Agent Instructions
+# Sixteen LLM Wiki Agent Instructions
+
+> Copia secondaria con la sola maiuscola diversa (collide su filesystem case-insensitive): fonte è [agents.md](./agents.md); questa copia ha in più solo frontmatter generico.
 
 > **Module/Theme:** Sixteen
 > **Scope:** Sixteen-specific knowledge only
@@ -36,9 +38,6 @@ You are the **Sixteen Wiki Maintainer**. Your job is to:
 
 ```yaml
 ---
-qmd: "AGENTS"
-issues: []
-discussions: []
 title: "Page Title"
 type: concept|entity|source|comparison|decision|troubleshooting
 sources: ["raw/articles/filename.md"]

@@ -32,7 +32,8 @@
     } elseif ($codeString !== '') {
         $ticket = app(GetPublicTicketByCodeAction::class)->execute($codeString);
     }
-    $payload = $ticket instanceof Ticket ? app(BuildTicketPublicDetailsPayloadAction::class)->execute($ticket) : null;
+    // Accesso gia' concesso sopra (codice di tracciamento o Gate::authorize): foto in ogni stato, con URL firmati (SEC-04).
+    $payload = $ticket instanceof Ticket ? app(BuildTicketPublicDetailsPayloadAction::class)->execute($ticket, accessGranted: true) : null;
     $timeline = $ticket instanceof Ticket ? app(BuildTicketTimelineAction::class)->execute($ticket) : [];
     $notFound = $codeString !== '' && ! $ticket instanceof Ticket;
     $statusEnum = is_array($payload) ? TicketStatusEnum::tryFrom((string) ($payload['status'] ?? '')) : null;

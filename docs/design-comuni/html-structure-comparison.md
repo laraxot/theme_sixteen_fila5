@@ -87,6 +87,6 @@ La struttura HTML di base è **presente e corretta** per tutte le sezioni princi
 
 **Collegamenti**:
 - [00-index.md](00-index.md) - Indice documentazione
-- [GSD_HTML_PARITY_PLAN.md](GSD_HTML_PARITY_PLAN.md) - Piano implementazione
-- [HTML_PARITY_VERIFICATION_REPORT.md](HTML_PARITY_VERIFICATION_REPORT.md) - Report precedente
+- [GSD_HTML_PARITY_PLAN.md](gsd-html-parity-plan.md) - Piano implementazione
+- [HTML_PARITY_VERIFICATION_REPORT.md](html-parity-verification-report.md) - Report precedente
 - [../../../docs/design-comuni/html-match.md](../../../docs/design-comuni/html-match.md) - Regola globale

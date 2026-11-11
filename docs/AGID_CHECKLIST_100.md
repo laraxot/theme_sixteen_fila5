@@ -8,7 +8,7 @@ qmd: "AGID CHECKLIST 100"
 issues: []
 discussions: []
 status: superseded
-superseded_by: agid_checklist-compliance.md
+superseded_by: agid-checklist-compliance.md
 ---
 
 # ✅ AGID COMPLIANCE - CHECKLIST 100%

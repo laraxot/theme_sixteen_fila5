@@ -129,6 +129,14 @@ body:has(.page-content[data-dc]) .it-header-center-wrapper {
  * trasparente 3.5rem nel center, transform/margin azzerati; slim intatta.
  */
 @media (max-width: 991.98px) {
+    /* The reference stylesheet contains 330/360px left offsets for a 375px
+       sample. They are not responsive: at 320px the close button leaves the
+       viewport. Keep the action anchored to the safe right edge instead. */
+    body:has(.it-header-wrapper) .navbar-collapsable .close-div {
+        right: max(2px, env(safe-area-inset-right)) !important;
+        left: auto !important;
+    }
+
     body:has(.page-content[data-dc]) .it-nav-wrapper {
         position: relative !important;
         display: block !important;

@@ -83,6 +83,9 @@
 <style>
     main[data-page="lista-risorse"] .row.g-4 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
     main[data-page="lista-risorse"] .row.g-4 > [class*="col-"] { width: auto; max-width: none; padding: 0; }
+    /* Griglia senza i margini negativi di .g-4 (il testo "nessuna novità" usciva di 0.75rem dal container); messaggio vuoto su tutta la riga. */
+    main[data-page="lista-risorse"] .row.g-4 { margin-left: 0; margin-right: 0; }
+    main[data-page="lista-risorse"] .row.g-4 > .col-12 { grid-column: 1 / -1; }
     main[data-page="lista-risorse"] .img-responsive-panoramic img { width: 100% !important; height: 12rem !important; object-fit: cover !important; display: block !important; }
     main[data-page="lista-risorse"] .cmp-input-search .input-group { position: relative; display: flex; align-items: stretch; }
     main[data-page="lista-risorse"] .cmp-input-search .form-control { padding-left: 2.5rem !important; }

@@ -15,9 +15,9 @@
     ];
 @endphp
 
-<section aria-label="FAQ" class="py-12 bg-base-100">
+<section aria-label="{{ __('pub_theme::blocks_content.default.faq.label') }}" class="py-12 bg-base-100">
     <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-2xl font-bold mb-8">Domande frequenti</h2>
+        <h2 class="text-2xl font-bold mb-8">{{ __('pub_theme::blocks_content.default.frequently_asked_questions.label') }}</h2>
         <div class="space-y-4" x-data="{ open: [] }">
             @foreach($questions as $i => $q)
                 <div class="border border-base-200 rounded-lg overflow-hidden">

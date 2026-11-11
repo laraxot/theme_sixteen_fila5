@@ -32,11 +32,11 @@
 <div class="container" id="main-container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-            <nav class="cmp-breadcrumbs mb-6" aria-label="breadcrumb">
+            <nav class="cmp-breadcrumbs mb-6" aria-label="{{ __('pub_theme::blocks_common.shared.breadcrumb.label') }}">
                 <ol class="flex flex-wrap items-center gap-2 text-sm text-[#5d7083]">
-                    <li><a href="/it/tests" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">Home</a><span class="mx-1" aria-hidden="true">/</span></li>
-                    <li><a href="/it/tests" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">Servizi</a><span class="mx-1" aria-hidden="true">/</span></li>
-                    <li class="text-[#17324d]" aria-current="page">Segnalazione disservizio</li>
+                    <li><a href="{{ route('container0.index', ['container0' => 'tests'], false) }}" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">{{ __('pub_theme::blocks_common.shared.home.label') }}</a><span class="mx-1" aria-hidden="true">/</span></li>
+                    <li><a href="{{ route('container0.index', ['container0' => 'tests'], false) }}" class="text-[#007a52] underline underline-offset-2 hover:text-[#005c3d]">{{ __('pub_theme::blocks_common.shared.services.label') }}</a><span class="mx-1" aria-hidden="true">/</span></li>
+                    <li class="text-[#17324d]" aria-current="page">{{ __('pub_theme::flow_report.shared.service_issue_report.label') }}</li>
                 </ol>
             </nav>
             <div class="cmp-heading p-0">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <p class="mt-3">
-                <a href="/it/tests/segnalazione-area-personale" class="t-primary text-paragraph font-semibold text-[#007a52] underline underline-offset-2">{{ $reservedText }}</a>
+                <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-area-personale'], false) }}" class="t-primary text-paragraph font-semibold text-[#007a52] underline underline-offset-2">{{ $reservedText }}</a>
                 <span class="text-paragraph text-[#334e68]"> {{ $reservedSuffix }}</span>
             </p>
         </div>
@@ -105,8 +105,8 @@
                                 <template x-if="step === 1">
                                     <div>
                                         <fieldset class="rating">
-                                            <legend class="visually-hidden">Valuta da 1 a 5 stelle la pagina</legend>
-                                            <div class="flex gap-1" role="radiogroup" aria-label="Valuta il servizio">
+                                            <legend class="visually-hidden">{{ __('pub_theme::blocks_common.shared.rate_the_page_from_1_to.label') }}</legend>
+                                            <div class="flex gap-1" role="radiogroup" aria-label="{{ __('pub_theme::flow_report.conferma.rate_the_service.label') }}">
                                                 <template x-for="star in [5,4,3,2,1]" :key="star">
                                                     <div>
                                                         <input type="radio" :id="'star' + star + 'a'" name="ratingA" :value="star" x-model="rating" class="hidden">
@@ -168,14 +168,14 @@
                                                 <div class="cmp-steps-rating__body">
                                                     <div class="form-group">
                                                         <label for="rating-step3-text" class="mb-2 block text-sm font-bold text-[#17324d]">{{ $detailsTitle }}</label>
-                                                        <textarea id="rating-step3-text" class="w-full rounded-md border-2 border-[#5d7083] bg-white px-4 py-3 text-[#17324d] focus:border-[#007a52] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" rows="3" maxlength="200" x-model="textFeedback" placeholder="Inserire massimo 200 caratteri"></textarea>
+                                                        <textarea id="rating-step3-text" class="w-full rounded-md border-2 border-[#5d7083] bg-white px-4 py-3 text-[#17324d] focus:border-[#007a52] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" rows="3" maxlength="200" x-model="textFeedback" placeholder="{{ __('pub_theme::flow_report.conferma.enter_a_maximum_of_200_characters.placeholder') }}"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </template>
                                         <div class="mt-6 flex justify-between gap-3">
-                                            <button type="button" class="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-[#007a52] px-5 py-3 font-bold text-[#007a52] transition-colors hover:bg-[#e6f3ee] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" x-on:click="step = 1; rating = 0; selectedOption = ''; textFeedback = ''">Indietro</button>
-                                            <button type="button" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#007a52] px-5 py-3 font-bold text-white transition-colors hover:bg-[#005c3d] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" x-on:click="step = 3" :class="!selectedOption ? 'opacity-50 cursor-not-allowed' : ''" :disabled="!selectedOption">Avanti</button>
+                                            <button type="button" class="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-[#007a52] px-5 py-3 font-bold text-[#007a52] transition-colors hover:bg-[#e6f3ee] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" x-on:click="step = 1; rating = 0; selectedOption = ''; textFeedback = ''">{{ __('pub_theme::blocks_common.shared.back.label') }}</button>
+                                            <button type="button" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#007a52] px-5 py-3 font-bold text-white transition-colors hover:bg-[#005c3d] focus:outline-none focus:ring-4 focus:ring-[#80c8ad]" x-on:click="step = 3" :class="!selectedOption ? 'opacity-50 cursor-not-allowed' : ''" :disabled="!selectedOption">{{ __('pub_theme::blocks_common.shared.next.label') }}</button>
                                         </div>
                                     </div>
                                 </template>
@@ -199,12 +199,12 @@
                 <div class="cmp-contacts">
                     <div class="card w-100 rounded-lg border border-[#d9e2e8] bg-white shadow-sm">
                         <div class="card-body p-6">
-                            <h2 class="title-medium-2-semi-bold text-xl font-semibold text-[#17324d]">Contatta il comune</h2>
+                            <h2 class="title-medium-2-semi-bold text-xl font-semibold text-[#17324d]">{{ __('pub_theme::flow_report.shared.contact_the_municipality.label') }}</h2>
                             <ul class="contact-list mt-4 space-y-3 p-0">
-                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/domande-frequenti"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2" stroke-linecap="round"/></svg><span>Leggi le domande frequenti</span></a></li>
-                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/assistenza-01-dati" data-element="contacts"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2"/><path d="M3 7l9 6 9-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Richiedi assistenza</span></a></li>
-                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="tel:050505"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 012-2h2l2 5-2 2a12 12 0 006 6l2-2 5 2v2a2 2 0 01-2 2A17 17 0 013 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chiama il numero verde 05 0505</span></a></li>
-                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="/it/tests/appuntamento-01-ufficio" data-element="appointment-booking"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2" stroke-linecap="round"/></svg><span>Prenota appuntamento</span></a></li>
+                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'domande-frequenti'], false) }}"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2" stroke-linecap="round"/></svg><span>{{ __('pub_theme::blocks_common.shared.read_the_frequently_asked_questions.label') }}</span></a></li>
+                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'assistenza-01-dati'], false) }}" data-element="contacts"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2"/><path d="M3 7l9 6 9-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>{{ __('pub_theme::blocks_common.shared.request_assistance.label') }}</span></a></li>
+                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="tel:050505"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 012-2h2l2 5-2 2a12 12 0 006 6l2-2 5 2v2a2 2 0 01-2 2A17 17 0 013 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>{{ __('pub_theme::blocks_common.shared.call_the_toll_free_number_05.label') }}</span></a></li>
+                                <li><a class="list-item flex items-center gap-3 text-[#007a52] hover:text-[#005c3d]" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'appuntamento-01-ufficio'], false) }}" data-element="appointment-booking"><svg class="icon icon-primary icon-sm h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2" stroke-linecap="round"/></svg><span>{{ __('pub_theme::blocks_common.shared.book_an_appointment.label') }}</span></a></li>
                             </ul>
                         </div>
                     </div>

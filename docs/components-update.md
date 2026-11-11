@@ -303,6 +303,7 @@ Per aggiornare componenti esistenti:
    - Verificare accessibilità
 
 ---
+
 **Autore**: Claude Code
 **Data**: 2025-10-15
 **Versione Tema**: 1.x

@@ -86,7 +86,7 @@ All page-specific styling is scoped to the wrapper:
 
 ## Related Rules
 
-- **[Tailwind Only Build](./TAILWIND_ONLY_BUILD_COMPLETE.md)** — No Bootstrap Italia CSS
+- **[Tailwind Only Build](./tailwind-only-build-complete.md)** — No Bootstrap Italia CSS
 - **[Design Comuni Replication Rules](./DESIGN_COMUNI_RULES.md)** — Overall parity guidelines
 - **[Translation Format](../translation-format.md)** — No hardcoded Italian in blades
 

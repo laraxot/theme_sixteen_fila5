@@ -1,60 +1,11 @@
-import { createRequire } from 'node:module';
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
-const require = createRequire(import.meta.url);
-
-// L'export esiste da laravel-vite-plugin 3 (Vite 8). Il tema installato e' il 2.1:
-// un import statico ferma `vite build` prima di copiare publicDir. DCP-183 tiene i font in fonts.css.
-function googleFontProvider() {
-    try {
-        return require('laravel-vite-plugin/fonts').google;
-    } catch {
-        return null;
-    }
-}
-
-function fontOptions() {
-    const google = googleFontProvider();
-    if (!google) {
-        return {};
-    }
-
-    return {
-        fonts: [
-            google('Titillium Web', {
-                alias: 'sans',
-                weights: [300, 400, 600, 700],
-                styles: ['normal', 'italic'],
-                subsets: ['latin', 'latin-ext'],
-                display: 'swap',
-                preload: [
-                    { weight: 400 },
-                    { weight: 700 },
-                ],
-                fallbacks: ['system-ui', 'sans-serif'],
-            }),
-            google('Lora', {
-                alias: 'serif',
-                weights: [400, 700],
-                styles: ['normal', 'italic'],
-                subsets: ['latin', 'latin-ext'],
-                display: 'swap',
-                fallbacks: ['Georgia', 'serif'],
-            }),
-            google('Roboto Mono', {
-                alias: 'mono',
-                weights: [400, 700],
-                styles: ['normal', 'italic'],
-                subsets: ['latin', 'latin-ext'],
-                display: 'swap',
-                fallbacks: ['ui-monospace', 'monospace'],
-            }),
-        ],
-    };
-}
+// Font: self-hosted in resources/css/design-comuni/fonts.css (DCP-183), nessuna richiesta a Google ne' a build ne' a runtime.
+// Il provider `google()` di laravel-vite-plugin scaricava gli stessi font da fonts.googleapis.com a ogni build (nessuna
+// direttiva @fonts li usava): build fallita senza rete e la build della CI instabile.
 
 export default defineConfig({
     base: '/themes/Sixteen/',
@@ -146,7 +97,6 @@ export default defineConfig({
                 'resources/views/**/*.blade.php',
             ],
 
-            ...fontOptions(),
         }),
 
         tailwindcss(),

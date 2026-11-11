@@ -55,8 +55,8 @@ Icona expand ha sfondo/colore diverso dal reference.
 ## Related Documentation
 
 - [Ticket wizard frontoffice](../../../Modules/Fixcity/docs/ticket-wizard-frontoffice.md) — wizard Filament, `main-container`, testo privacy
-- [BODY_CLASS_RULE.md](BODY_CLASS_RULE.md) — HTML parity: `<body>` senza classi
-- [STEPPER_MOBILE_FIRST_RULE.md](STEPPER_MOBILE_FIRST_RULE.md) — Stepper mobile-first CSS
+- [BODY_CLASS_RULE.md](body-class-rule.md) — HTML parity: `<body>` senza classi
+- [STEPPER_MOBILE_FIRST_RULE.md](stepper-mobile-first-rule.md) — Stepper mobile-first CSS
 - [Story 7-28](../../../_bmad-output/implementation-artifacts/7-28-segnalazione-02-dati-stepper-responsive-multilingual.md) — Stepper responsive + i18n
 - [Story 7-29](../../../_bmad-output/implementation-artifacts/7-29-segnalazione-crea-header-stepper-responsive-multilingual.md) — Header/stepper crea fix
 

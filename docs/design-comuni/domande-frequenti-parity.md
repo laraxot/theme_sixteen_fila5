@@ -94,7 +94,7 @@ Residuo principale:
 ## Verifica corrente 2026-04-03
 
 Analisi automatica aggiornata:
-- [STRUCTURE-DIFF.md](../pages/domande-frequenti/STRUCTURE-DIFF.md)
+- [STRUCTURE-DIFF.md](../pages/domande-frequenti/structure-diff.md)
 - [domande-frequenti-structure-comparison.json](../analysis/domande-frequenti-structure-comparison.json)
 - [domande-frequenti-element-trees.txt](../analysis/domande-frequenti-element-trees.txt)
 

@@ -12,6 +12,8 @@ status: draft
 
 # Bootstrap Italia Compliance Analysis - Sixteen Theme
 
+> Correzione regola: Bootstrap Italia non e' una dipendenza runtime di Sixteen (stack Tailwind + Alpine + Lit; vedi [no-bootstrap-italia.md](./no-bootstrap-italia.md) e [README.md](./README.md)). Questo inventario serve solo come riferimento normativo/visuale, non come obiettivo di "compliance" da implementare.
+
 ## Overview
 This document provides a comprehensive analysis of Bootstrap Italia design system components versus the current Sixteen theme implementation to identify missing components and ensure full compliance with Italian public administration standards.
 

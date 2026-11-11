@@ -103,8 +103,8 @@ The following CSS files in `laravel/Themes/Sixteen/resources/css/` may need upda
 
 ## Related Documents
 
-- [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](HOMEPAGE-HTML-STRUCTURE-COMPARISON.md) - HTML structure analysis
-- [../ARCHITECTURAL_DECISIONS.md](ARCHITECTURAL_DECISIONS.md) - Architecture decisions
+- [HOMEPAGE-HTML-STRUCTURE-COMPARISON.md](homepage-html-structure-comparison.md) - HTML structure analysis
+- [../ARCHITECTURAL_DECISIONS.md](architectural-decisions.md) - Architecture decisions
 - [../../../docs/design-comuni/README.md](README.md) - Design Comuni index
 
 ## Next Steps

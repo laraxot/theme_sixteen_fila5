@@ -84,6 +84,23 @@
 
         return $resolved !== '' && $resolved !== '#' ? $resolved : null;
     };
+    // Voce attiva: `element` dichiarato dal layout ($dcHeaderActive) oppure, se assente, il percorso della pagina che
+    // coincide con l'URL della voce o vi sta sotto (/it/blog/articolo -> Novità). Prima nessuna voce risultava attiva.
+    $currentNavPath = '/'.trim((string) parse_url(url()->current(), PHP_URL_PATH), '/');
+    $isActiveNavItem = static function (array $item) use ($storedNavHref, $currentNavPath): bool {
+        $element = $item['element'] ?? null;
+        $declared = view()->shared('dcHeaderActive');
+        if (filled($declared)) {
+            return $element === $declared;
+        }
+        $href = $storedNavHref((string) ($item['url'] ?? ''));
+        $itemPath = '/'.trim((string) parse_url((string) $href, PHP_URL_PATH), '/');
+        if ($href === null || $itemPath === '/' || preg_match('#^/[a-z]{2}$#', $itemPath) === 1) {
+            return false;
+        }
+
+        return $currentNavPath === $itemPath || str_starts_with($currentNavPath, $itemPath.'/');
+    };
     $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
     // Social: config('ente') (DCP-289); in assenza, i `social_links` del blocco (fallback config('comune.social')), solo URL http(s).
     $socials = $ente->social !== [] ? $ente->social : array_values(array_filter(
@@ -200,7 +217,7 @@
                                     <nav aria-label="{{ $d('menu.main_label') }}">
                                         <ul class="navbar-nav" data-element="main-navigation">
                                             @foreach ($navigation as $item)
-                                                <li class="nav-item"><a @class(['nav-link', 'active' => filled($dcHeaderActive ?? null) && ($item['element'] ?? null) === $dcHeaderActive]) href="{{ $storedNavHref((string) $item['url']) }}"@if (filled($item['element'] ?? null)) data-element="{{ $item['element'] }}"@endif @if (filled($dcHeaderActive ?? null) && ($item['element'] ?? null) === $dcHeaderActive) aria-current="page"@endif><span>{{ $item['label'] ?? '' }}</span></a></li>
+                                                <li class="nav-item">@php($navActive = $isActiveNavItem($item))<a @class(['nav-link', 'active' => $navActive]) href="{{ $storedNavHref((string) $item['url']) }}"@if (filled($item['element'] ?? null)) data-element="{{ $item['element'] }}"@endif @if ($navActive) aria-current="page"@endif><span>{{ $item['label'] ?? '' }}</span></a></li>
                                             @endforeach
                                         </ul>
                                     </nav>

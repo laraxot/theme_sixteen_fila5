@@ -44,7 +44,9 @@
     $filteredTicketsQuery = clone $baseTicketsQuery;
     if ($selectedTypes !== []) $filteredTicketsQuery->whereIn('type', $selectedTypes);
     $visibleTotal = (clone $filteredTicketsQuery)->count();
-    $liveTickets = $filteredTicketsQuery->latest()->take(20)->get();
+    // `media` in una query sola (DB-13); le foto escono da BuildTicketPublicImageUrlsAction: solo immagini, mai PDF (SEC-04).
+    $liveTickets = $filteredTicketsQuery->with('media')->latest()->take(20)->get();
+    $ticketImageUrls = app(\Modules\Fixcity\Actions\BuildTicketPublicImageUrlsAction::class);
     $resultsCount = $filterViewModel->getFilteredCount($selectedTypes);
     $initialOffset = $liveTickets->count();
     $hasMore = $visibleTotal > $initialOffset;
@@ -235,10 +237,7 @@
                                 @php
                                     $itemLocation = is_array($item->location) ? $item->location : [];
                                     $itemAddress = (string) ($itemLocation['address'] ?? $itemLocation['display_name'] ?? '');
-                                    $itemImages = $item->getMedia('attachments');
-                                    if ($itemImages->isEmpty()) {
-                                        $itemImages = $item->getMedia('ticket');
-                                    }
+                                    $itemImages = $ticketImageUrls->execute($item, auth()->user());
                                     $collapseId = 'collapse-ticket-'.$item->getKey();
                                 @endphp
                                 <div class="cmp-card mb-4 mb-lg-30">
@@ -263,7 +262,7 @@
                                                                     <div class="cmp-info-summary bg-white border-0">
                                                                         <div class="card">
                                                                             <div class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-end">
-                                                                                <a href="#" class="d-none text-decoration-none"><span class="text-button-sm-semi t-primary">{{ $item->isOwnedByAuthenticatedUser() ? __('pub_theme::segnalazione.card.edit.label') : '' }}</span></a>
+                                                                                <a href="#" class="d-none text-decoration-none"><span class="text-button-sm-semi t-primary">{{ $item->isOwnedByAuthenticatedUser() ? __('pub_theme::components_common.actions.edit.label') : '' }}</span></a>
                                                                             </div>
                                                                             <div class="card-body p-0">
                                                                                 @if ($itemAddress !== '')
@@ -281,11 +280,11 @@
                                                                                 <div class="single-line-info border-light">
                                                                                     <div class="text-paragraph-small">{{ __($ns.'.card.images.label') }}</div>
                                                                                     <div class="border-light border-0">
-                                                                                        @if ($itemImages->isNotEmpty())
+                                                                                        @if ($itemImages !== [])
                                                                                             <div class="d-lg-flex gap-2 mt-3">
-                                                                                                @foreach ($itemImages as $media)
+                                                                                                @foreach ($itemImages as $imageUrl)
                                                                                                     <div>
-                                                                                                        <img src="{{ $media->getFullUrl() }}" alt="{{ $item->name }}" class="img-fluid w-100 mb-3 mb-lg-0">
+                                                                                                        <img src="{{ $imageUrl }}" alt="{{ $item->name }}" class="img-fluid w-100 mb-3 mb-lg-0">
                                                                                                     </div>
                                                                                                 @endforeach
                                                                                             </div>

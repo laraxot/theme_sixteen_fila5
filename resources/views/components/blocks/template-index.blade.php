@@ -56,7 +56,7 @@
         @endif
     </header>
 
-    <nav class="mt-6 border-b border-[#d9d9d9]" aria-label="Sezioni dell'indice">
+    <nav class="mt-6 border-b border-[#d9d9d9]" aria-label="{{ __('pub_theme::components_common.a11y.index_sections.label') }}">
         <ul class="flex list-none gap-0 p-0" role="list">
             @foreach($navigation as $item)
                 <li class="w-1/2 text-center">
@@ -75,7 +75,7 @@
             <h2 class="mb-3 text-base font-semibold uppercase text-[#191919]">
                 {{ $data['heading'] ?? 'INDICE' }}
             </h2>
-            <nav aria-label="Indice della pagina">
+            <nav aria-label="{{ __('pub_theme::components_common.a11y.page_index.label') }}">
                 <ul class="m-0 list-none border-l-2 border-[#00a878] p-0">
                     @foreach($sections as $section)
                         @php
