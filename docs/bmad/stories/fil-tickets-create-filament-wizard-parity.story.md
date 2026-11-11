@@ -39,7 +39,7 @@ Reference: `https://italia.github.io/design-comuni-pagine-statiche/sito/segnalaz
 - JSON (EXISTING, CORRECT): `laravel/config/local/fixcity/database/content/pages/tickets.create.json` — slug: `tickets.create`, NOT `tests.tickets-create`. This file ALREADY exists; do NOT invent a new one.
 - Module docs: `Modules/Cms/docs/` (or relevant module) — update with wizard spec
 - Theme docs: `docs/bmad/stories/fil-tickets-create-parity.story.md`
-- Second brain: `KNOWLEDGE.md` — add rule: wizard pattern = Filament component, not custom HTML
+- Second brain: `knowledge.md` — add rule: wizard pattern = Filament component, not custom HTML
 - Status: `STATUS_RISULTATI_RICERCA.md` updated with wizard reference
 
 ## Acceptance Criteria
@@ -57,6 +57,6 @@ Reference: `https://italia.github.io/design-comuni-pagine-statiche/sito/segnalaz
 - `focus-visible` rings on all wizard buttons
 - Touch targets ≥44px
 - BMAD docs + second brain updated
-- Module + theme docs folders organized (`DOC-FOLDERS-INDEX.md` updated)
+- Module + theme docs folders organized (`doc-folders-index.md` updated)
 
 Correzione verificata 2026-10-13 (DCP-35 S4): (1) il namespace del wizard in Filament v5 è `Filament\Schemas\Components\Wizard` (`vendor/filament/schemas/src/Components/Wizard.php`); `Filament\Forms\Components\Wizard` non esiste. (2) I passi reali (`TicketForm::getSteps()`) sono `privacy`, `data`, `summary`, poi la pagina di conferma; non «tipo, categoria, descrizione, allegati, privacy, invio». (3) Il componente non è «MISSING»: il blocco `pub_theme::components.blocks.tests.ticket-crea` è `Themes/Sixteen/resources/views/components/blocks/tests/ticket-crea.blade.php` (esiste e monta `CreateTicketWizardWidget`); i file sotto `Themes/Sixteen/resources/views/pub_theme/` non sono raggiunti da nessuna view. (4) `MethodNotFoundException: callSchemaComponentMethod` non indica un componente rotto: era il Volt senza radice propria, vedi [D15](../../decision-log/D15-volt-fragment-explicit-root.md).

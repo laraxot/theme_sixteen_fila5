@@ -1,5 +1,5 @@
 ---
-id: operazioni-orario-visual-parity-97
+id: amministrazione-visual-parity-97
 type: bmad-story
 links:
   github_issue: #999
@@ -11,6 +11,9 @@ qmd: "operazioni orario   visual parity 97% target sixteen"
 status: superseded
 superseded_by: servizi-utente-visual-parity.story.md
 ---
+
+> Nota docs-temi: il testo qui sotto e' una copia byte per byte di [operazioni-orario-visual-parity.story.md](./operazioni-orario-visual-parity.story.md) (stessa copia anche in `servizi-catalogo-visual-parity.story.md`) e descrive `operazioni-orario`, non `amministrazione`. Da riscrivere per la pagina `amministrazione` quando la story viene ripresa; la fonte del testo e' il file indicato.
+
 # Operazioni Orario — Visual Parity 97% Target
 
 ## WHY (philosophy / religion / politics / zen)

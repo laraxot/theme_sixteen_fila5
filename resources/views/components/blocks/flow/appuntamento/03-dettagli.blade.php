@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Dettagli appuntamento',
-    'description' => 'Inserisci i dettagli della tua richiesta',
+    'title' => __('pub_theme::blocks_content.shared.appointment_details_2.label'),
+    'description' => __('pub_theme::flow_appointment.dettagli.enter_the_details_of_your_request.help'),
     'motivi' => [],
 ])
 
@@ -14,11 +14,11 @@
     
     if ($motivi->isEmpty()) {
         $motivi = collect([
-            ['id' => 'informazioni', 'name' => 'Informazioni generali'],
-            ['id' => 'pratica', 'name' => 'Pratica amministrativa'],
-            ['id' => 'certificato', 'name' => 'Richiesta certificato'],
-            ['id' => 'pagamento', 'name' => 'Pagamento'],
-            ['id' => 'altro', 'name' => 'Altro'],
+            ['id' => 'informazioni', 'name' => __('pub_theme::flow_appointment.dettagli.general_information.label')],
+            ['id' => 'pratica', 'name' => __('pub_theme::flow_appointment.dettagli.administrative_procedure.label')],
+            ['id' => 'certificato', 'name' => __('pub_theme::flow_appointment.dettagli.certificate_request.label')],
+            ['id' => 'pagamento', 'name' => __('pub_theme::blocks_common.shared.payment.label')],
+            ['id' => 'altro', 'name' => __('pub_theme::blocks_content.feedback_section.other.label')],
         ]);
     }
 @endphp
@@ -35,7 +35,7 @@
     <div class="space-y-6">
         <div>
             <label for="motivo" class="block text-sm font-medium text-gray-700 mb-2">
-                Motivo della visita <span class="text-red-500">*</span>
+                {{ __('pub_theme::flow_appointment.dettagli.reason_for_the_visit.label') }} <span class="text-red-500">*</span>
             </label>
             <select 
                 id="motivo" 
@@ -45,7 +45,7 @@
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 data-element="motivo-select"
             >
-                <option value="">Seleziona un motivo</option>
+                <option value="">{{ __('pub_theme::flow_appointment.dettagli.select_a_reason.label') }}</option>
                 @foreach($motivi as $m)
                     <option value="{{ $m['id'] }}">{{ $m['name'] }}</option>
                 @endforeach
@@ -54,7 +54,7 @@
 
         <div>
             <label for="note" class="block text-sm font-medium text-gray-700 mb-2">
-                Note aggiuntive (opzionale)
+                {{ __('pub_theme::flow_appointment.dettagli.additional_notes_optional.label') }}
             </label>
             <textarea 
                 id="note" 
@@ -62,7 +62,7 @@
                 x-model="note"
                 rows="4"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Inserisci eventuali informazioni utili..."
+                placeholder="{{ __('pub_theme::flow_appointment.dettagli.enter_any_useful_information.placeholder') }}"
                 data-element="note-textarea"
             ></textarea>
         </div>
@@ -75,7 +75,7 @@
             @click="currentStep--"
             data-element="step-prev"
         >
-            Indietro
+            {{ __('pub_theme::blocks_common.shared.back.label') }}
         </button>
         <button 
             type="button"
@@ -84,7 +84,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

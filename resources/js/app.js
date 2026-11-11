@@ -26,34 +26,20 @@ import { governanceCarousel } from './components/carousel';
 import { initHeaderMobileNav, isDesignComuniPage } from './theme/header-mobile-nav.js';
 import { dcCarousel, dcFormValidate, dcNavscroll, dcRating, mountDesignComuniComponents } from './theme/design-comuni-home.js';
 import motionReveal from './components/motion-reveal.js';
-
-let cameraUploadPromise;
-
-function ensureCameraUpload() {
-    if (!cameraUploadPromise) {
-        cameraUploadPromise = import('./components/camera-upload.js');
-    }
-
-    return cameraUploadPromise;
-}
-
-function preloadCameraUploadWhenNeeded() {
-    if (document.querySelector('input[type="file"]')) {
-        void ensureCameraUpload();
-    }
-}
+// window.MediaCameraImage: riduzione foto da fotocamera prima di $wire.upload (heic2any resta un chunk a parte)
+import '@modules/Media/resources/js/camera-image.js';
 
 /**
  * Register theme Alpine components onto Livewire/Filament’s Alpine bundle.
  *
  * IMPORTANT: questo file e' un ES module (defer). Il markup iniziale non deve
  * dipendere da Alpine.data registrati qui; l'header usa il controller
- * data-sixteen-mobile-nav importato in questo bundle Vite.
+ * il controller della navigazione mobile importato in questo bundle Vite.
  *
  * @param {object} AlpineInstance
  */
 function registerAlpineComponents(AlpineInstance) {
-    if (!AlpineInstance || document.documentElement.hasAttribute('data-sixteen-alpine-components')) {
+    if (!AlpineInstance || document.documentElement.hasAttribute('data-alpine-components')) {
         return;
     }
 
@@ -124,7 +110,7 @@ function registerAlpineComponents(AlpineInstance) {
         },
     }));
 
-    document.documentElement.setAttribute('data-sixteen-alpine-components', 'true');
+    document.documentElement.setAttribute('data-alpine-components', 'true');
 }
 
 if (window.Alpine) {
@@ -269,8 +255,6 @@ function initHeaderDropdowns() {
 document.addEventListener('DOMContentLoaded', initHeaderDropdowns);
 document.addEventListener('livewire:navigated', initHeaderDropdowns);
 document.addEventListener('livewire:update', initHeaderDropdowns);
-document.addEventListener('DOMContentLoaded', preloadCameraUploadWhenNeeded);
-document.addEventListener('livewire:navigated', preloadCameraUploadWhenNeeded);
 if (document.readyState !== 'loading') {
     initHeaderDropdowns();
 }

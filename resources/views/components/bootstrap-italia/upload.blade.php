@@ -14,8 +14,8 @@ $uploadId = $id ?? 'upload-' . uniqid();
                 <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-upload"></use>
             </svg>
             <p class="upload-drag-text">
-                Trascina qui il file oppure
-                <span class="upload-drag-link">sfoglia</span>
+                {{ __('pub_theme::components_forms.upload.drag_here.label') }}
+                <span class="upload-drag-link">{{ __('pub_theme::components_forms.upload.browse.label') }}</span>
             </p>
         </div>
         <input type="file"

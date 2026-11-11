@@ -7,7 +7,8 @@ updated: 2026-10-14
 qmd: "SEO FRONTEND OPTIMIZATION GUIDE"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: seo-frontend-optimization-guide.md
 ---
 
 # SEO & Frontend Optimization Guide - Sixteen Theme

@@ -15,6 +15,11 @@ qmd: "decision log   redesign design comuni sixteen"
 
 # Decision Log — Redesign Design Comuni
 
+## 2026-10-27 — Story client camera separata dal fallback Media
+
+- **Decisione:** Sixteen possiede la normalizzazione client-side; Media possiede il fallback Imagick. I due percorsi condividono il contratto Fixcity ma non duplicano ownership.
+- **Riferimento:** [story CAM-1.2](./stories/CAM-1.2-browser-normalization-livewire.story.md) e [epic cross-module](../../../Modules/Fixcity/docs/bmad/epics/mobile-camera-upload.epic.md).
+
 ## D35: Header slim, "Demo" come regione e avatar come il riferimento (2026-10-26)
 
 - **Decisione:** nella fascia slim, dove il riferimento Design Comuni scrive "Nome della Regione", il tenant dimostrativo mostra "Demo". E' un testo, non un link: senza URL la Blade emette `<span class="navbar-brand">` senza `href`, `aria-label` o `title`.
@@ -101,7 +106,7 @@ Indice rapido Auth/Login + igiene tooling (dettaglio sotto; hub in [README.md](.
 
 **Contesto:** standing order Modules a zero; turno docs su tema Sixteen + moduli random (User, Comment, Notify, Activity).
 **Decisione:** registrare verifica `phpstan analyse` sui moduli owner del FO (batch quattro moduli → exit 0); docs `bmad/` conformi a `md-filenames.py check` (0 date/suffissi); sotto `docs/bmad/` restano ~79 legacy con maiuscole (story `STORY-DEFECT-*`, `DC-027.*`) — segnalazione senza rinomina finche' il tool non propone target sicuri.
-**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/CSS-SCOPING-RULE.md) (nome legacy maiuscolo, contenuto canonico).
+**Track:** memoria [phpstan-modules-zero-standing-order](../../../../Modules/Xot/docs/wiki/memories/phpstan-modules-zero-standing-order.md), hub [00-INDEX.md](../00-INDEX.md), regola architettura [CSS-SCOPING-RULE.md](../architecture/css-scoping-rule.md) (nome legacy maiuscolo, contenuto canonico).
 **Stato:** OK al 2026-10-20.
 
 ## D28: PHPStan swarm — docs tema in parallelo al codice
@@ -452,3 +457,10 @@ misurate a 375, 768 e 1440px con body comparator e screenshot.
 - Login e registrazione usano lo stesso componente `components.utilities.google-button`.
 - La visibilità dipende dalla configurazione reale del provider, non dalla sola esistenza della route.
 - Il tema non conosce né conserva credenziali: espone solo il link localizzato verso il contratto OAuth del modulo User.
+
+## D40: feedback degli eventi usa fallback localizzati
+
+- **Decisione:** testi fallback del feedback e delle relative risposte stanno nei cataloghi `pub_theme::news.index.feedback.*`; il blocco CMS della lingua attiva può sovrascriverli.
+- **Decisione:** il feedback statico di `config/sixteen.php` è legacy italiano e si applica solo in italiano. Per en/de/es il fallback viene dai cataloghi tradotti.
+- **Motivazione:** un fallback italiano sotto `<html lang="en|de|es">` era annunciato con la lingua sbagliata da screen reader e restava visibile ai cittadini.
+- **Verifica:** cataloghi coperti dal test `NewsIndexLabelsAreTranslatedTest`; Blade cache e smoke responsive da eseguire nell'ambiente con DB e browser disponibili.

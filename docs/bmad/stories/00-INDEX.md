@@ -69,7 +69,7 @@ risultati, esegue il conflict check e aggiorna `bmad-output/sprint-status.yaml`.
 
 ## Registro completo (2026-10-14)
 
-- [00-REGISTRO-COMPLETO.md](00-REGISTRO-COMPLETO.md): tutte le story non citate negli indici principali (famiglie `catalog/`, `pages/`, `dcp-NN` senza data, `s-*`, `s150-*`, `DC-*`, `STORY-*` e `docs/stories/`), con stato e titolo dichiarati nei file.
+- [00-REGISTRO-COMPLETO.md](00-registro-completo.md): tutte le story non citate negli indici principali (famiglie `catalog/`, `pages/`, `dcp-NN` senza data, `s-*`, `s150-*`, `DC-*`, `STORY-*` e `docs/stories/`), con stato e titolo dichiarati nei file.
 - Story collegata di un altro modulo: [DCP-152 (owner Geo)](../../../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md), marker del dettaglio ticket (blocco `ticket-detail/design-comuni`) e pulsanti opachi del `coordinate-picker-lit` nelle pagine `data-dc`. Relazione con [DCP-148](dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md).
 - [DCP-183](dcp-183-font-come-asset-di-vite.story.md): i font del tema come asset di Vite (hash, manifest, preload) senza aggiornare Vite; strada nativa scelta, opzione `fonts` di laravel-vite-plugin rinviata (richiede Vite 8). Sorgente pronto, attivazione al prossimo build completo concordato.
 - [DCP-195](dcp-195-pulsante-cerca-invisibile-e-reset-button-senza-layer.story.md): il pulsante «Cerca» di `/tickets/track` e' invisibile (reset di `button` senza layer che batte le utility); causa misurata con CDP, decisioni D195-1..3.

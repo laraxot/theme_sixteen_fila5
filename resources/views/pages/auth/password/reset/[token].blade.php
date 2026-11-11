@@ -24,7 +24,7 @@ new class extends Component {
 >
     @volt('password.reset.token')
         <div class="page-content content" data-dc data-side="content">
-            @include('pub_theme::components.pages.auth-password-token', [
+            @include('pub_theme::components.pages.auth.password-token', [
                 'token' => $this->token,
                 'email' => request()->query('email'),
             ])

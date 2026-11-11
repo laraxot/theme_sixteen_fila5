@@ -1,6 +1,6 @@
 @props([
     'title' => '',
-    'button_label' => 'Invio',
+    'button_label' => __('pub_theme::news.index.search_submit'),
     'summary' => '',
     'items' => [],
     'filters' => [],
@@ -25,9 +25,9 @@
         <!-- Filters sidebar -->
         <aside class="dc-search-filters scroll-filter-wrapper d-none d-lg-block">
             <div class="bg-white rounded p-4 shadow-sm">
-                <h3 class="title-medium-2-semi-bold mb-3">Filtri da applicare</h3>
+                <h3 class="title-medium-2-semi-bold mb-3">{{ __('pub_theme::components_search.filters.to_apply_title.label') }}</h3>
                 <fieldset>
-                    <legend class="h6 text-uppercase category-list__title">Tipologie</legend>
+                    <legend class="h6 text-uppercase category-list__title">{{ __('pub_theme::components_common.fields.types.label') }}</legend>
                     <div class="categoy-list pb-4">
                         <ul class="list-none m-0">
                             @foreach($filters as $filter)
@@ -53,7 +53,7 @@
                 <div class="form-group autocomplete-wrapper mb-0">
                     <div class="input-group">
                         <label for="search-input" class="visually-hidden">{{ $title }}</label>
-                        <input type="search" class="form-control" placeholder="Cerca per parola chiave" id="search-input" name="search">
+                        <input type="search" class="form-control" placeholder="{{ __('pub_theme::components_search.fields.keyword_search.placeholder') }}" id="search-input" name="search">
                         <div class="input-group-append">
                             <button class="btn btn-primary" style="background-color:#007A52;color:#fff;border-color:#007A52;" type="button">{{ $button_label }}</button>
                         </div>
@@ -168,26 +168,26 @@
                 <div class="cmp-contacts mt-5">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
+                            <h2 class="title-medium-2-semi-bold">{{ __('pub_theme::navigation.homepage.contacts') }}</h2>
                             <ul class="contact-list p-0">
                                 @if(!empty($contacts['address']))
                                     <li class="contact-item">
-                                        <strong>Indirizzo:</strong> {{ $contacts['address'] }}
+                                        <strong>{{ __('pub_theme::components_common.form.address_colon.label') }}</strong> {{ $contacts['address'] }}
                                     </li>
                                 @endif
                                 @if(!empty($contacts['phone']))
                                     <li class="contact-item">
-                                        <strong>Telefono:</strong> {{ $contacts['phone'] }}
+                                        <strong>{{ __('pub_theme::components_common.form.phone_colon.label') }}</strong> {{ $contacts['phone'] }}
                                     </li>
                                 @endif
                                 @if(!empty($contacts['email']))
                                     <li class="contact-item">
-                                        <strong>Email:</strong> <a href="mailto:{{ $contacts['email'] }}">{{ $contacts['email'] }}</a>
+                                        <strong>{{ __('pub_theme::components_common.form.email_colon.label') }}</strong> <a href="mailto:{{ $contacts['email'] }}">{{ $contacts['email'] }}</a>
                                     </li>
                                 @endif
                                 @if(!empty($contacts['urp_office']))
                                     <li class="contact-item">
-                                        <strong>URP:</strong> {{ $contacts['urp_office'] }}
+                                        <strong>{{ __('pub_theme::components_footer.contacts.urp_short.label') }}</strong> {{ $contacts['urp_office'] }}
                                     </li>
                                 @endif
                             </ul>

@@ -66,7 +66,7 @@ qmd search "form" -c sixteen  # Solo questo modulo
 
 ## Riferimenti
 
-- [Global QMD Config](../qmd.md) (root docs)
+- [QMD — local docs search](../../../../docs/project/qmd-local-docs-search.md) (root docs)
 - [Operational Discipline](../../../../docs/wiki/concepts/llm-wiki-operational-discipline.md)
 - [On-Demand Pattern](./on-demand-pattern.md)
 

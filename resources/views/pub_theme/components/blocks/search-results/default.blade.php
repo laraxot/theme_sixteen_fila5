@@ -3,13 +3,13 @@
     'filters' => $data['filters'] ?? [],
     'pagination' => $data['pagination'] ?? [],
     'resultCount' => $data['result_count'] ?? 0,
-    'resultLabel' => $data['result_label'] ?? 'Risultati',
+    'resultLabel' => $data['result_label'] ?? __('pub_theme::listing_blocks.search_results.default_label.label'),
     'query' => $data['query'] ?? ''
 ]) })">
     @if(isset($data['query']) && $data['query'] !== '')
         <div class="search-summary mb-6">
             <p class="text-base text-neutral-700">
-                Sono presenti <strong x-text="resultCount"></strong> <span x-text="resultLabel.toLowerCase()"></span> per "<strong x-text="query"></strong>"
+                {{ __('pub_theme::listing_blocks.search_results.summary_prefix.label') }} <strong x-text="resultCount"></strong> <span x-text="resultLabel.toLowerCase()"></span> {{ __('pub_theme::listing_blocks.search_results.summary_for.label') }} "<strong x-text="query"></strong>"
             </p>
         </div>
     @endif
@@ -26,17 +26,17 @@
                 <input id="search-input"
                        type="text"
                        name="query"
-                       placeholder="Cerca..."
+                       placeholder="{{ __('pub_theme::listing_blocks.common.search.placeholder') }}"
                        @model="query"
                        @input="updateQuery($event.target.value)"
                        autocomplete="off"
                        class="block w-full px-12 pr-4 py-4 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:placeholder-neutral-500"
-                       aria-label="Cerca nel sito">
+                       aria-label="{{ __('pub_theme::listing_blocks.search_results.site.label') }}">
             </div>
             <button type="submit"
                     class="absolute right-4 top-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors"
-                    aria-label="Esegui ricerca">
-                Cerca
+                    aria-label="{{ __('pub_theme::listing_blocks.search_results.submit.label') }}">
+                {{ __('pub_theme::listing_blocks.common.search.label') }}
             </button>
         </form>
     </div>
@@ -44,7 +44,7 @@
     @if(isset($data['query']) && $data['query'] !== '')
         <div class="search-summary mb-6">
             <p class="text-base text-neutral-700">
-                Sono presenti <strong x-text="resultCount"></strong> <span x-text="resultLabel.toLowerCase()"></span> per "<strong x-text="query"></strong>"
+                {{ __('pub_theme::listing_blocks.search_results.summary_prefix.label') }} <strong x-text="resultCount"></strong> <span x-text="resultLabel.toLowerCase()"></span> {{ __('pub_theme::listing_blocks.search_results.summary_for.label') }} "<strong x-text="query"></strong>"
             </p>
         </div>
     @endif
@@ -79,7 +79,7 @@
                                         <span x-text="result.category"></span>
                                     </span>
                                     @if(isset($result['date']) && $result['date'])
-                                        <span x-text="`Aggiornato: ${result.date}`"></span>
+                                        <span x-text="`{{ __('pub_theme::listing_blocks.search_results.updated.label') }} ${result.date}`"></span>
                                     @endif
                                 </div>
                             @endif
@@ -91,10 +91,10 @@
 
         @if(isset($data['pagination']) && $data['pagination'])
             <div class="pagination-container mb-8">
-                <nav aria-label="Paginazione" class="flex items-center justify-between">
+                <nav aria-label="{{ __('pub_theme::listing_blocks.pagination.nav.label') }}" class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
                         <span class="text-sm text-neutral-600">
-                            Pagina <strong x-text="pagination.current_page"></strong> di <strong x-text="pagination.total_pages"></strong>
+                            {{ __('pub_theme::listing_blocks.pagination.page.label') }} <strong x-text="pagination.current_page"></strong> {{ __('pub_theme::listing_blocks.pagination.of.label') }} <strong x-text="pagination.total_pages"></strong>
                         </span>
                     </div>
 
@@ -103,14 +103,14 @@
                             <a href="#" @click="prevPage()"
                                class="px-3 py-1 text-sm text-neutral-700 bg-neutral-100 rounded hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                :class="!pagination.has_prev && 'opacity-50 pointer-events-none'">
-                                Precedente
+                                {{ __('pub_theme::listing_blocks.pagination.previous.label') }}
                             </a>
                         </li>
                         <li>
                             <a href="#" @click="nextPage()"
                                class="px-3 py-1 text-sm text-neutral-700 bg-neutral-100 rounded hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                :class="!pagination.has_next && 'opacity-50 pointer-events-none'">
-                                Successiva
+                                {{ __('pub_theme::listing_blocks.pagination.next.label') }}
                             </a>
                         </li>
                     </ul>
@@ -122,8 +122,8 @@
             <svg class="mx-auto h-12 w-12 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 01-18 0 9 9 0 0118 0z" />
             </svg>
-            <p class="mt-4 text-lg font-medium text-neutral-900">Nessun risultato trovato</p>
-            <p class="mt-2 text-sm text-neutral-500">Prova a modificare i filtri o la tua ricerca.</p>
+            <p class="mt-4 text-lg font-medium text-neutral-900">{{ __('pub_theme::listing_blocks.search_results.empty.title') }}</p>
+            <p class="mt-2 text-sm text-neutral-500">{{ __('pub_theme::listing_blocks.search_results.empty.help') }}</p>
         </div>
     @endif
 
@@ -140,7 +140,7 @@
                         </svg>
                     </button>
                 </template>
-                <span class="text-sm text-neutral-600" x-show="ratingValue > 0" x-text="`Hai valutato: ${ratingValue}/5`"></span>
+                <span class="text-sm text-neutral-600" x-show="ratingValue > 0" x-text="`{{ __('pub_theme::listing_blocks.search_results.rated.label') }} ${ratingValue}/5`"></span>
             </div>
             <div class="mt-2" x-show="ratingValue > 0">
                 <p class="text-sm text-neutral-600" x-text="rating.thanks"></p>

@@ -1,7 +1,7 @@
 @props(['data' => []])
 
 <div class="mb-5">
-    <h2 class="h4-semi-bold mb-3">Accesso ai servizi</h2>
+    <h2 class="h4-semi-bold mb-3">{{ __('pub_theme::blocks_content.access_method_card.access_to_services.label') }}</h2>
     <div class="row g-3">
         @if($data['items'])
         @foreach($data['items'] as $item)

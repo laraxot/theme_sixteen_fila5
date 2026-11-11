@@ -44,13 +44,13 @@
             <nav class="breadcrumb-container" aria-label="{{ __('fixcity::global.breadcrumb') }}">
                 <ol class="breadcrumb" data-element="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="/it/tests/homepage">Home</a>
+                        <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'homepage'], false) }}">{{ __('pub_theme::blocks_common.shared.home.label') }}</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/it/tests/servizi">Servizi</a>
+                        <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'servizi'], false) }}">{{ __('pub_theme::blocks_common.shared.services.label') }}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="#">Elenco segnalazioni</a>
+                        <a href="#">{{ __('pub_theme::flow_tickets.elenco.list_of_reports.label') }}</a>
                     </li>
                 </ol>
             </nav>
@@ -73,7 +73,7 @@
                 <div class="card-wrapper bg-grey-card rounded h-auto">
                     <div class="card card-teaser bg-grey-card rounded shadow-sm p-3">
                         <div class="card-body">
-                            <h2 class="title-medium-semi-bold mb-3">Categorie</h2>
+                            <h2 class="title-medium-semi-bold mb-3">{{ __('pub_theme::flow_tickets.elenco.categories.label') }}</h2>
                             <ul class="link-list">
                                 @foreach($categories as $cat)
                                     <li>
@@ -94,16 +94,16 @@
         <div class="col-lg-8 offset-lg-1">
             <!-- Search results bar -->
             <div class="d-flex justify-content-between border-bottom border-light pb-3 mt-5">
-                <span class="search-results">{{ $resultsCount }} Risultati</span>
+                <span class="search-results">{{ __('pub_theme::blocks_common.shared.results_count.label', ['count' => $resultsCount]) }}</span>
 
                 <button type="button" class="btn p-0 pe-2 d-lg-none" data-bs-toggle="modal" data-bs-target="#modal-categories">
-                    <span class="t-primary title-xsmall-semi-bold ms-1">Filtra</span>
+                    <span class="t-primary title-xsmall-semi-bold ms-1">{{ __('pub_theme::blocks_common.shared.filter.label') }}</span>
                     <svg class="icon icon-primary icon-sm" aria-hidden="true">
                         <use href="{{ $sprite }}#it-funnel"></use>
                     </svg>
                 </button>
                 <button type="button" class="btn p-0 pe-2 d-none d-lg-block">
-                    <span class="title-xsmall-semi-bold ms-1">Rimuovi tutti i filtri</span>
+                    <span class="title-xsmall-semi-bold ms-1">{{ __('pub_theme::flow_tickets.elenco.remove_all_filters.label') }}</span>
                 </button>
             </div>
 
@@ -119,7 +119,7 @@
                        aria-controls="mappa"
                        :aria-selected="activeTab === 'mappa'"
                        role="tab">
-                        Mappa
+                        {{ __('pub_theme::flow_tickets.elenco.map.label') }}
                     </a>
                 </li>
                 <li class="nav-item w-100" role="tab">
@@ -130,7 +130,7 @@
                        aria-controls="elenco"
                        :aria-selected="activeTab === 'elenco'"
                        role="tab">
-                        Elenco
+                        {{ __('pub_theme::flow_tickets.elenco.list.label') }}
                     </a>
                 </li>
             </ul>
@@ -148,7 +148,7 @@
                                     <div class="card card-teaser bg-grey-card rounded shadow-sm">
                                         <div class="card-body p-0">
                                             <div class="map-placeholder" style="height: 300px; background: #e8e8e8; display: flex; align-items: center; justify-content: center;">
-                                                <span class="text-muted">Mappa delle segnalazioni</span>
+                                                <span class="text-muted">{{ __('pub_theme::flow_tickets.elenco.map_of_reports.label') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -159,10 +159,10 @@
                             <div class="card-wrapper bg-grey-card rounded h-auto">
                                 <div class="card card-teaser bg-grey-card rounded shadow-sm p-3">
                                     <div class="card-body">
-                                        <h3 class="title-medium-semi-bold">Fai una segnalazione</h3>
-                                        <p class="subtitle-small mt-3">Se vuoi aggiungere una segnalazione, puoi farlo dopo esserti autenticato con le tue credenziali SPID o CIE.</p>
-                                        <a href="/it/tests/segnalazione-01-privacy" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
-                                            <span>Segnala disservizio</span>
+                                        <h3 class="title-medium-semi-bold">{{ __('pub_theme::flow_tickets.elenco.submit_a_report.label') }}</h3>
+                                        <p class="subtitle-small mt-3">{{ __('pub_theme::flow_tickets.elenco.if_you_want_to_add_a.message') }}</p>
+                                        <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-01-privacy'], false) }}" class="btn btn-primary mobile-full py-3 mt-2 mb-4 mb-lg-0">
+                                            <span>{{ __('pub_theme::blocks_common.shared.report_a_service_issue.label') }}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@
                                                 </button>
                                                 <div x-show="open" x-collapse>
                                                     <div class="mt-3 p-3 bg-white rounded">
-                                                        <p class="text-paragraph-small">Dettagli della segnalazione...</p>
+                                                        <p class="text-paragraph-small">{{ __('pub_theme::flow_tickets.elenco.report_details.message') }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -219,7 +219,7 @@
                     <!-- Load more button -->
                     <div class="text-center mt-10">
                         <button type="button" class="btn btn-outline-primary mobile-full py-3 mx-auto">
-                            <span>Carica altre segnalazioni</span>
+                            <span>{{ __('pub_theme::flow_tickets.elenco.load_more_reports.label') }}</span>
                         </button>
                     </div>
                 </div>
@@ -237,11 +237,11 @@
                     <div class="card shadow card-wrapper" data-element="feedback">
                         <div class="cmp-rating__card-first">
                             <div class="card-header border-0">
-                                <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">Quanto è stato facile usare questo servizio?</h2>
+                                <h2 class="title-medium-2-semi-bold mb-0" data-element="feedback-title">{{ __('pub_theme::blocks_common.shared.how_easy_was_it_to_use.label') }}</h2>
                             </div>
                             <div class="card-body">
                                 <fieldset class="rating">
-                                    <legend class="visually-hidden">Valuta da 1 a 5 stelle il servizio</legend>
+                                    <legend class="visually-hidden">{{ __('pub_theme::flow_tickets.elenco.rate_the_service_from_1_to.label') }}</legend>
                                     @for($i = 5; $i >= 1; $i--)
                                         <input type="radio" id="star{{ $i }}a" name="ratingA" value="{{ $i }}">
                                         <label class="full rating-star" for="star{{ $i }}a" data-element="feedback-rate-{{ $i }}">
@@ -269,7 +269,7 @@
                 <div class="cmp-contacts">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h2 class="title-medium-2-semi-bold">{{ __('sixteen::footer.contact_municipality') }}</h2>
+                            <h2 class="title-medium-2-semi-bold">{{ __('pub_theme::blocks_common.shared.contact_the_municipality.label') }}</h2>
                             <ul class="contact-list p-0">
                                 <li>
                                     <a class="list-item" href="#">
@@ -277,7 +277,7 @@
                                             <svg class="icon icon-primary icon-sm" aria-hidden="true">
                                                 <use href="{{ $sprite }}#it-help-circle"></use>
                                             </svg>
-                                            <span>Leggi le domande frequenti</span>
+                                            <span>{{ __('pub_theme::blocks_common.shared.read_the_frequently_asked_questions.label') }}</span>
                                         </span>
                                     </a>
                                 </li>
@@ -287,7 +287,7 @@
                                             <svg class="icon icon-primary icon-sm" aria-hidden="true">
                                                 <use href="{{ $sprite }}#it-mail"></use>
                                             </svg>
-                                            <span>Richiedi assistenza</span>
+                                            <span>{{ __('pub_theme::blocks_common.shared.request_assistance.label') }}</span>
                                         </span>
                                     </a>
                                 </li>
@@ -297,7 +297,7 @@
                                             <svg class="icon icon-primary icon-sm" aria-hidden="true">
                                                 <use href="{{ $sprite }}#it-hearing"></use>
                                             </svg>
-                                            <span>Chiama il numero verde 05 0505</span>
+                                            <span>{{ __('pub_theme::blocks_common.shared.call_the_toll_free_number_05.label') }}</span>
                                         </span>
                                     </a>
                                 </li>
@@ -315,8 +315,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="title-medium-semi-bold" id="modal-categories-title">Filtra per categoria</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                <h2 class="title-medium-semi-bold" id="modal-categories-title">{{ __('pub_theme::flow_tickets.elenco.filter_by_category.label') }}</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('pub_theme::blocks_common.shared.close.label') }}"></button>
             </div>
             <div class="modal-body">
                 <ul class="link-list">

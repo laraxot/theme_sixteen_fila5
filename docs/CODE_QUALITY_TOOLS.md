@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "CODE QUALITY TOOLS"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: code-quality-tools.md
 ---
 
 # 🔍 Code Quality Tools - Tema Sixteen

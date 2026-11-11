@@ -7,10 +7,10 @@
 --}}
 @props([
     'sponsors' => [],
-    'title' => 'Sponsor',
-    'subtitle' => 'I nostri partner',
+    'title' => __('pub_theme::components_content.sponsor.title.label'),
+    'subtitle' => __('pub_theme::components_content.sponsor.subtitle.label'),
 ])
-<section class="py-10 border-t border-slate-100 bg-slate-50" aria-label="Sezione sponsor" data-block="sponsor">
+<section class="py-10 border-t border-slate-100 bg-slate-50" aria-label="{{ __('pub_theme::components_content.sponsor.section.label') }}" data-block="sponsor">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-center text-xl font-bold text-slate-900">{{ $title }}</h2>
         @if ($subtitle)
@@ -26,7 +26,7 @@
                     @endif
                 </a>
             @empty
-                <span class="text-sm text-slate-400">Nessuno sponsor configurato.</span>
+                <span class="text-sm text-slate-400">{{ __('pub_theme::components_content.sponsor.empty.message') }}</span>
             @endforelse
         </div>
     </div>

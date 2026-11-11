@@ -5,12 +5,12 @@
 --}}
 @php
     $data = $data ?? [];
-    $title = isset($title) ? $title : ($data['title'] ?? 'Argomenti in evidenza');
+    $title = isset($title) ? $title : ($data['title'] ?? __('pub_theme::components_content.topics.featured.title'));
     $background_image = isset($background_image) ? $background_image : ($data['background_image'] ?? '');
     $items = isset($items) && is_array($items) ? $items : ($data['items'] ?? []);
     $other_topics = isset($other_topics) && is_array($other_topics) ? $other_topics : ($data['other_topics'] ?? []);
     $show_all_url = isset($show_all_url) ? $show_all_url : ($data['show_all_url'] ?? '#');
-    $show_all_label = isset($show_all_label) ? $show_all_label : ($data['show_all_label'] ?? 'Mostra tutti');
+    $show_all_label = isset($show_all_label) ? $show_all_label : ($data['show_all_label'] ?? __('pub_theme::components_content.topics.show_all.label'));
     $thematic_sites = isset($thematic_sites) && is_array($thematic_sites) ? $thematic_sites : ($data['thematic_sites'] ?? []);
 @endphp
 
@@ -31,10 +31,10 @@
                                 <p class="card-text pb-3">{{ $item['description'] ?? '' }}</p>
 
                                 @if(!empty($item['external_site']))
-                                <p class="mb-10 text-paragraph-small-semi">Visita il sito:</p>
+                                <p class="mb-10 text-paragraph-small-semi">{{ __('pub_theme::components_content.topic.visit_site_colon.label') }}</p>
                                 <a href="{{ $item['external_site']['url'] ?? '#' }}" class="card card-teaser card-bg-blue no-after rounded mt-0 p-3">
                                     <div class="avatar size-lg me-3">
-                                        <img src="{{ $item['external_site']['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                                        <img src="{{ $item['external_site']['image'] ?? 'https://picsum.photos/200/200' }}" alt="{{ __('pub_theme::components_common.a11y.image.label') }}">
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title text-white mb-1">{{ $item['external_site']['title'] ?? '' }}</h4>
@@ -60,7 +60,7 @@
                                 @endif
                             </div>
                             <a class="read-more text-success pt-0" href="{{ $item['url'] ?? '#' }}">
-                                <span class="text">Esplora argomento</span>
+                                <span class="text">{{ __('pub_theme::components_content.topic.explore.label') }}</span>
                                 <svg class="icon ms-0">
                                     <use href="{{ asset('themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                 </svg>
@@ -77,7 +77,7 @@
                 <div class="col-lg-10 col-xl-6 offset-lg-1 offset-xl-2">
                     <div class="row d-lg-inline-flex">
                         <div class="col-lg-3">
-                            <h3 class="text-uppercase mb-3 title-xsmall-bold text text-secondary">Altri argomenti</h3>
+                            <h3 class="text-uppercase mb-3 title-xsmall-bold text text-secondary">{{ __('pub_theme::navigation.homepage.other_topics') }}</h3>
                         </div>
                         <div class="col-lg-9">
                             <ul class="d-flex flex-wrap gap-1">
@@ -99,7 +99,7 @@
             @if(!empty($thematic_sites))
             <div class="row pt-5">
                 <div class="col-12">
-                    <h2>Siti tematici</h2>
+                    <h2>{{ __('pub_theme::navigation.homepage.thematic_sites') }}</h2>
                 </div>
             </div>
             <div class="pt-4 pt-lg-30">
@@ -117,7 +117,7 @@
                             <a href="{{ $site['url'] ?? '#' }}" class="card card-teaser {{ $colorClass }} rounded mt-0 p-3 h-100 text-decoration-none">
                                 <div class="d-flex align-items-start">
                                     <div class="avatar size-lg me-3 flex-shrink-0">
-                                        <img src="{{ $site['image'] ?? 'https://picsum.photos/200/200' }}" alt="Immagine">
+                                        <img src="{{ $site['image'] ?? 'https://picsum.photos/200/200' }}" alt="{{ __('pub_theme::components_common.a11y.image.label') }}">
                                     </div>
                                     <div class="card-body p-0">
                                         <h3 class="card-title {{ $site['color'] === 'warning' ? '' : 'text-white' }} sito-tematico">

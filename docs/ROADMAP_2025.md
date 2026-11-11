@@ -7,7 +7,8 @@ updated: 2026-09-26
 qmd: "ROADMAP 2025"
 issues: []
 discussions: []
-status: draft
+status: superseded
+superseded_by: roadmap-2025.md
 ---
 
 # 🎨 SIXTEEN THEME - ROADMAP 2025

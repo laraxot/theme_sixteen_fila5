@@ -26,7 +26,7 @@
                     
                     @if(isset($item['url']))
                     <a href="{{ $item['url'] }}" class="btn btn-outline-primary btn-sm">
-                        Scopri di più
+                        {{ __('pub_theme::components_common.actions.discover_more.label') }}
                         <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 inline ms-1" />
                     </a>
                     @endif

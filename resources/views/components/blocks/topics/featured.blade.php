@@ -1,12 +1,12 @@
 {{-- Topics Featured - Design Comuni Style (Tailwind CSS) --}}
 @props([
-    'title'               => 'Argomenti in evidenza',
+    'title'               => __('pub_theme::components_content.topics.featured.title'),
     'background_image'    => null,
     'items'               => [],   // [ ['title','description','links'=>[],'cta_label','cta_url'] ]
     'other_topics'        => [],   // [ ['title','url'] ]
-    'all_topics_label'    => 'Mostra tutti',
+    'all_topics_label'    => __('pub_theme::components_content.topics.show_all.label'),
     'all_topics_url'      => '#',
-    'themed_sites_title'  => 'Siti tematici',
+    'themed_sites_title'  => __('pub_theme::navigation.homepage.thematic_sites'),
     'themed_sites'        => [],   // [ ['title','description','url','image','color'] ]
 ])
 
@@ -63,7 +63,7 @@
                             <div class="mt-auto pt-4">
                                 <a href="{{ $item['cta_url'] }}"
                                    class="inline-flex items-center gap-1 text-white border border-white rounded px-4 py-2 text-sm font-semibold hover:bg-white hover:text-blue-900 transition-colors focus:outline-none">
-                                    {{ $item['cta_label'] ?? 'Esplora argomento' }}
+                                    {{ $item['cta_label'] ?? __('pub_theme::components_content.topic.explore.label') }}
                                     <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4" />
                                 </a>
                             </div>
@@ -76,7 +76,7 @@
         {{-- Altri argomenti: label + tag orizzontali --}}
         @if(!empty($other_topics))
             <div class="mb-8">
-                <p class="text-blue-200 text-sm font-semibold mb-3 uppercase tracking-wider">Altri argomenti</p>
+                <p class="text-blue-200 text-sm font-semibold mb-3 uppercase tracking-wider">{{ __('pub_theme::navigation.homepage.other_topics') }}</p>
                 <div class="flex flex-wrap gap-2">
                     @foreach($other_topics as $topic)
                         <a href="{{ $topic['url'] ?? '#' }}"

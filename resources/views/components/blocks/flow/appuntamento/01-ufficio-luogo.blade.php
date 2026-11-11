@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Seleziona sede',
-    'description' => 'Scegli la sede più vicina a te',
+    'title' => __('pub_theme::flow_appointment.ufficio_luogo.select_venue.title'),
+    'description' => __('pub_theme::flow_appointment.ufficio_luogo.choose_the_venue_closest_to_you.help'),
     'sedi' => [],
 ])
 
@@ -31,7 +31,7 @@
         <p class="text-gray-600 mb-6" data-element="step-description">{{ $description }}</p>
     @endif
 
-    <div class="space-y-4" role="radiogroup" aria-label="Selezione sede">
+    <div class="space-y-4" role="radiogroup" aria-label="{{ __('pub_theme::flow_appointment.ufficio_luogo.venue_selection.label') }}">
         @foreach($sedi as $sede)
             <label 
                 class="block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:border-blue-300 hover:bg-blue-50
@@ -81,7 +81,7 @@
 
         @if($sedi->isEmpty())
             <div class="text-center py-8 text-gray-500">
-                <p>Nessuna sede disponibile</p>
+                <p>{{ __('pub_theme::flow_appointment.ufficio_luogo.no_venue_available.label') }}</p>
             </div>
         @endif
     </div>
@@ -94,7 +94,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

@@ -75,10 +75,10 @@
 
             <!-- Navigation -->
             <div class="d-flex justify-content-between mt-4">
-                <a href="/it/tests/segnalazione-01-privacy" class="btn btn-outline-primary mobile-full" data-element="step-prev">
+                <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-01-privacy'], false) }}" class="btn btn-outline-primary mobile-full" data-element="step-prev">
                     <span>{{ __('fixcity::segnalazione.buttons.back.label') }}</span>
                 </a>
-                <a href="/it/tests/segnalazione-03-riepilogo" class="btn btn-primary mobile-full" data-element="step-next">
+                <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-03-riepilogo'], false) }}" class="btn btn-primary mobile-full" data-element="step-next">
                     <span>{{ __('fixcity::segnalazione.buttons.next.label') }}</span>
                 </a>
             </div>

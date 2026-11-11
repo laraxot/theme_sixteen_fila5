@@ -38,7 +38,7 @@
 
 <div class="col-12 col-lg-10">
     <div class="cmp-breadcrumbs" role="navigation">
-        <nav class="breadcrumb-container" aria-label="breadcrumb">
+        <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb_trail.label') }}">
             <ol class="breadcrumb p-0" data-element="breadcrumb">
                 @foreach ($breadcrumbItems as $item)
                     <li class="breadcrumb-item{{ $item['active'] ?? false ? ' active' : '' }}"{{ $item['active'] ?? false ? ' aria-current="page"' : '' }}>

@@ -24,8 +24,8 @@ status: draft
 
 Before you start, ensure:
 
-- [ ] You have read `PHASE-1-STRATEGY.md` (understand design reference)
-- [ ] You have read `GSD-PHASE-1-EXECUTION.md` (understand all 6 subtasks)
+- [ ] You have read `phase-1-strategy.md` (understand design reference)
+- [ ] You have read `gsd-phase-1-execution.md` (understand all 6 subtasks)
 - [ ] Subtask 1 (comparison script) is COMPLETE
 - [ ] You have read `PHASE-1-FINDINGS.md` (gap analysis from Researcher)
 - [ ] You understand the translation pattern: `fixcity::segnalazione.fields.title.label`
@@ -332,13 +332,13 @@ After you complete Subtasks 3 & 4:
 ## 📞 HELP & REFERENCES
 
 **Translation Pattern Questions**:
-- Read: `PHASE-1-STRATEGY.md` § Translation Patterns
+- Read: `phase-1-strategy.md` § Translation Patterns
 - File: `laravel/lang/it/fixcity.php`
 - Pattern: `fixcity::segnalazione.fields.title.label`
 
 **HTML Reference**:
 - https://italia.github.io/design-comuni-pagine-statiche/sito/ticket-list.html
-- Reference analysis in: `PHASE-1-STRATEGY.md` § ticket-list Analysis
+- Reference analysis in: `phase-1-strategy.md` § ticket-list Analysis
 
 **Bootstrap Grid Reference**:
 - Reference structure uses: `col-lg-3` (sidebar), `col-lg-9` (main)

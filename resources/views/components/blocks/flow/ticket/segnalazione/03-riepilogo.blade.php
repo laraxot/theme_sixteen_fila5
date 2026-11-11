@@ -82,10 +82,10 @@
 
             <!-- Navigation -->
             <div class="d-flex justify-content-between mt-4">
-                <a href="/it/tests/segnalazione-02-dati" class="btn btn-outline-primary mobile-full" data-element="step-prev">
+                <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-02-dati'], false) }}" class="btn btn-outline-primary mobile-full" data-element="step-prev">
                     <span>{{ __('fixcity::segnalazione.buttons.back.label') }}</span>
                 </a>
-                <a href="/it/tests/segnalazione-04-conferma" class="btn btn-primary mobile-full" data-element="step-next">
+                <a href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'segnalazione-04-conferma'], false) }}" class="btn btn-primary mobile-full" data-element="step-next">
                     <span>{{ __('fixcity::segnalazione.riepilogo.submit.label') }}</span>
                 </a>
             </div>

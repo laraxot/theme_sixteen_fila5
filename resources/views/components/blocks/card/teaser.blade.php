@@ -36,20 +36,20 @@
             <img src="{{ $image }}" alt="{{ $title }}">
         </div>
         <a class="read-more" href="{{ $url }}">
-            <span class="text">Vai alla pagina</span>
+            <span class="text">{{ __('pub_theme::blocks_content.shared.go_to_the_page.label') }}</span>
             <svg class="icon">
                 <use href="#it-arrow-right"></use>
             </svg>
-            <span class="sr-only">Vai alla pagina</span>
+            <span class="sr-only">{{ __('pub_theme::blocks_content.shared.go_to_the_page.label') }}</span>
         </a>
     @else
         @if($url)
         <a class="read-more" href="{{ $url }}">
-            <span class="text">Vai alla pagina</span>
+            <span class="text">{{ __('pub_theme::blocks_content.shared.go_to_the_page.label') }}</span>
             <svg class="icon">
                 <use href="#it-arrow-right"></use>
             </svg>
-            <span class="sr-only">Vai alla pagina</span>
+            <span class="sr-only">{{ __('pub_theme::blocks_content.shared.go_to_the_page.label') }}</span>
         </a>
         @endif
     </div>

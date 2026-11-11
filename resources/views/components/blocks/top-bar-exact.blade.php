@@ -13,7 +13,7 @@
 --}}
 
 @php
-    $regionName = $data['region_name'] ?? 'Nome della Regione';
+    $regionName = $data['region_name'] ?? __('pub_theme::header.slim.region.name.label');
     $regionUrl = $data['region_url'] ?? '#';
     $languages = $data['languages'] ?? [
         ['code' => 'ita', 'label' => 'ITA', 'active' => true],
@@ -33,8 +33,8 @@
                        href="{{ $regionUrl }}" 
                        target="_blank" 
                        rel="noopener"
-                       aria-label="Vai al portale {{ $regionName }} - link esterno - apertura nuova scheda"
-                       title="Vai al portale {{ $regionName }}">
+                       aria-label="{{ __('pub_theme::components_header.region.portal_external.label', ['region' => $regionName]) }}"
+                       title="{{ __('pub_theme::components_header.region.portal.title', ['region' => $regionName]) }}">
                         {{ $regionName }}
                     </a>
                     
@@ -48,7 +48,7 @@
                                     aria-expanded="false" 
                                     aria-controls="languages"
                                     aria-haspopup="true">
-                                <span class="visually-hidden">Lingua attiva:</span>
+                                <span class="visually-hidden">{{ __('pub_theme::header.language.active_prefix.label') }}</span>
                                 <span>{{ collect($languages)->firstWhere('active', true)['label'] }}</span>
                                 <svg class="icon">
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
@@ -65,7 +65,7 @@
                                                         <span>
                                                             {{ $lang['label'] }}
                                                             @if($lang['active'])
-                                                                <span class="visually-hidden">selezionata</span>
+                                                                <span class="visually-hidden">{{ __('pub_theme::header.language.selected_suffix.label') }}</span>
                                                             @endif
                                                         </span>
                                                     </a>
@@ -87,7 +87,7 @@
                                     <use href="/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-user"></use>
                                 </svg>
                             </span>
-                            <span class="d-none d-lg-block">Accedi all'area personale</span>
+                            <span class="d-none d-lg-block">{{ __('pub_theme::faq.contacts.login') }}</span>
                         </a>
                     </div>
                 </div>

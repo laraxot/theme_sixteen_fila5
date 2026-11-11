@@ -7,6 +7,8 @@ declare(strict_types=1);
  * parti non accessibili e contatti NON stanno qui: li fornisce l'ente nel JSON `accessibilita.index` (blocco accessibility-statement).
  */
 return [
+    'high_contrast_toggle' => 'Attiva o disattiva il contrasto elevato',
+    'contrast' => 'Contrasto',
     'home' => 'Home',
     'page' => ['title' => ['text' => 'Dichiarazione di accessibilità']],
     'title' => [

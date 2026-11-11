@@ -167,15 +167,15 @@
     <div class="bg-primary-800 text-white px-6 py-4">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-xl font-bold">Uffici e Contatti</h2>
+                <h2 class="text-xl font-bold">{{ __('pub_theme::municipal_components.office_map.title.label') }}</h2>
                 <p class="text-primary-100 text-sm mt-1">
-                    Trova gli uffici comunali e i relativi contatti
+                    {{ __('pub_theme::municipal_components.office_map.subtitle.help') }}
                 </p>
             </div>
             
             <div class="flex items-center space-x-2">
                 <span class="text-primary-200 text-sm">
-                    <span x-text="filteredOffices.length"></span> uffici
+                    <span x-text="filteredOffices.length"></span> {{ __('pub_theme::municipal_components.office_map.count.label') }}
                 </span>
             </div>
         </div>
@@ -187,7 +187,7 @@
             {{-- Filtro categoria --}}
             @if($showFilters)
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.office_map.category.label') }}</label>
                 <select x-model="selectedCategory" @change="filterOffices"
                         class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     @foreach($categories as $category)
@@ -205,7 +205,7 @@
                             'bg-white text-gray-700 hover:bg-gray-100': currentView !== 'list'
                         }"
                         class="px-4 py-2 border border-gray-300 rounded-l-md text-sm font-medium transition-colors">
-                    Lista
+                    {{ __('pub_theme::municipal_components.office_map.view_list.label') }}
                 </button>
                 <button @click="switchView('map')"
                         :class="{ 
@@ -213,7 +213,7 @@
                             'bg-white text-gray-700 hover:bg-gray-100': currentView !== 'map'
                         }"
                         class="px-4 py-2 border border-gray-300 rounded-r-md text-sm font-medium transition-colors">
-                    Mappa
+                    {{ __('pub_theme::home.list.map') }}
                 </button>
             </div>
         </div>
@@ -231,7 +231,7 @@
                     <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                     </svg>
-                    <p>Caricamento mappa in corso...</p>
+                    <p>{{ __('pub_theme::municipal_components.office_map.loading.message') }}</p>
                 </div>
             </div>
         </template>
@@ -245,7 +245,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <p class="text-gray-500">Nessun ufficio trovato</p>
+                        <p class="text-gray-500">{{ __('pub_theme::municipal_components.office_map.empty.message') }}</p>
                     </div>
                 </template>
 
@@ -330,7 +330,7 @@
                                 <template x-if="office.address">
                                     <button @click.stop="getDirections(office)"
                                             class="btn-italia bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 text-sm">
-                                        Indicazioni
+                                        {{ __('pub_theme::municipal_components.office_map.directions.label') }}
                                     </button>
                                 </template>
                             </div>

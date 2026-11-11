@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Seleziona servizio',
-    'description' => 'Scegli il servizio per cui effettuare il pagamento',
+    'title' => __('pub_theme::flow_payment.servizio.select_service.title'),
+    'description' => __('pub_theme::flow_payment.servizio.choose_the_service_you_want_to.help'),
     'servizi' => [],
 ])
 
@@ -31,7 +31,7 @@
         <p class="text-gray-600 mb-6" data-element="step-description">{{ $description }}</p>
     @endif
 
-    <div class="space-y-4" role="radiogroup" aria-label="Selezione servizio">
+    <div class="space-y-4" role="radiogroup" aria-label="{{ __('pub_theme::flow_payment.servizio.service_selection.label') }}">
         @foreach($servizi as $servizio)
             <label 
                 class="block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:border-blue-300 hover:bg-blue-50
@@ -78,7 +78,7 @@
 
         @if($servizi->isEmpty())
             <div class="text-center py-8 text-gray-500">
-                <p>Nessun servizio disponibile</p>
+                <p>{{ __('pub_theme::flow_payment.servizio.no_service_available.label') }}</p>
             </div>
         @endif
     </div>
@@ -91,7 +91,7 @@
             @click="currentStep++"
             data-element="step-next"
         >
-            Continua
+            {{ __('pub_theme::blocks_common.shared.continue.label') }}
         </button>
     </div>
 </div>

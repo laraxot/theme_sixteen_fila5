@@ -24,7 +24,7 @@ use Laravel\Folio\{title, middleware, name};
         @livewireScripts
         <livewire:toast />
         @livewire('notifications')
-        @filamentScripts
+        @filamentScripts(withCore: true)
         @vite(['resources/js/app.js'], 'themes/Sixteen')
         @stack('scripts')
 

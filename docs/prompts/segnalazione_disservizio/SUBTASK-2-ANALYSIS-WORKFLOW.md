@@ -261,9 +261,9 @@ Once PHASE-1-FINDINGS.md is ready:
 
 ## 🔗 REFERENCE DOCUMENTS
 
-- **Design Comuni Analysis**: PHASE-1-STRATEGY.md § ticket-list Analysis
-- **Execution Plan**: GSD-PHASE-1-EXECUTION.md § Subtask 2
-- **Template for Findings**: PHASE-1-FINDINGS-TEMPLATE.md
+- **Design Comuni Analysis**: phase-1-strategy.md § ticket-list Analysis
+- **Execution Plan**: gsd-phase-1-execution.md § Subtask 2
+- **Template for Findings**: phase-1-findings-template.md
 - **Tools Documentation**: bashscripts/docs/html/INDEX.md
 
 ---

@@ -65,7 +65,7 @@ Alpine.js-data o Lit.
 - `design-comuni/pages/homepage.blade.php`: conversione completa da BS Italia a Tailwind utility
 
 ### T3. Consolidamento documentazione
-- Creare `docs/design-comuni/DESIGN-COMUNI-CANONICAL.md` (unico documento di riferimento)
+- Creare `docs/design-comuni/design-comuni-canonical.md` (unico documento di riferimento)
 - Creare `docs/STORIES-INDEX.md` (indice di tutte le stories)
 - Archiviare (non cancellare) i file duplicati con data
 

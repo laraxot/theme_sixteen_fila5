@@ -1,8 +1,8 @@
 @props(['data' => []])
 
 @php
-    $placeholder = $data['placeholder'] ?? 'Cerca';
-    $buttonLabel = $data['buttonLabel'] ?? 'Invio';
+    $placeholder = $data['placeholder'] ?? __('pub_theme::header.center.search.label');
+    $buttonLabel = $data['buttonLabel'] ?? __('pub_theme::news.index.search_submit');
     $action = $data['action'] ?? '#';
     $inputId = $data['inputId'] ?? 'search-faq';
 @endphp
@@ -12,7 +12,7 @@
         <div class="cmp-input-search">
             <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
                 <div class="input-group">
-                    <label for="{{ $inputId }}" class="visually-hidden">Cerca nel sito</label>
+                    <label for="{{ $inputId }}" class="visually-hidden">{{ __('pub_theme::header.center.search.toggle_aria.label') }}</label>
                     <input type="search" id="{{ $inputId }}" name="autocomplete-three" class="autocomplete form-control" data-bs-autocomplete="[]" placeholder="{{ $placeholder }}">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="button-3">{{ $buttonLabel }}</button>

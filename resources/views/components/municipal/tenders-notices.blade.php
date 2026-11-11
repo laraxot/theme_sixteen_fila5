@@ -119,7 +119,7 @@
             <div>
                 <h2 class="text-xl font-bold">{{ $title }}</h2>
                 <p class="text-primary-100 text-sm mt-1">
-                    Opportunità e procedure amministrative del comune
+                    {{ __('pub_theme::municipal_components.tenders.subtitle.help') }}
                 </p>
             </div>
             
@@ -127,17 +127,17 @@
                 @if($showCounters)
                 <div class="text-right">
                     <div class="text-primary-200 text-sm">
-                        <span x-text="filteredItems.length"></span> risultati
+                        <span x-text="filteredItems.length"></span> {{ __('pub_theme::municipal_components.tenders.results.label') }}
                     </div>
                     <div class="text-primary-300 text-xs" x-show="filteredItems.length !== items.length">
-                        su <span x-text="items.length"></span> totali
+                        {{ __('pub_theme::municipal_components.tenders.out_of.label') }} <span x-text="items.length"></span> {{ __('pub_theme::municipal_components.tenders.total.label') }}
                     </div>
                 </div>
                 @endif
                 
                 <button @click="$dispatch('open-modal', { id: 'tenders-help' })"
                         class="p-1 text-primary-200 hover:text-white transition-colors"
-                        title="Guida all'uso">
+                        title="{{ __('pub_theme::municipal_components.tenders.guide.title') }}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -152,17 +152,17 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             {{-- Ricerca --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Cerca</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::header.center.search.label') }}</label>
                 <input type="text" 
                        x-model="searchTerm" 
                        @input="updateFilters"
-                       placeholder="Cerca per titolo, descrizione o riferimento..."
+                       placeholder="{{ __('pub_theme::municipal_components.tenders.search.placeholder') }}"
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
 
             {{-- Tipologia --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Tipologia</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.tenders.type.label') }}</label>
                 <select x-model="selectedType" @change="updateFilters"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     @foreach($types as $type)
@@ -175,7 +175,7 @@
 
             {{-- Stato --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Stato</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('pub_theme::municipal_components.tenders.status.label') }}</label>
                 <select x-model="selectedStatus" @change="updateFilters"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     @foreach($statuses as $status)
@@ -190,7 +190,7 @@
             <div class="flex items-end">
                 <button @click="searchTerm = ''; selectedType = 'Tutti'; selectedStatus = 'Tutti'; updateFilters()"
                         class="w-full px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Reset
+                    {{ __('pub_theme::municipal_components.tenders.reset.label') }}
                 </button>
             </div>
         </div>
@@ -204,8 +204,8 @@
                 <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <p class="text-gray-500">Nessun bando o avviso trovato</p>
-                <p class="text-gray-400 text-sm mt-2">Prova a modificare i filtri di ricerca</p>
+                <p class="text-gray-500">{{ __('pub_theme::municipal_components.tenders.empty.message') }}</p>
+                <p class="text-gray-400 text-sm mt-2">{{ __('pub_theme::common.search.empty_hint.message') }}</p>
             </div>
         </template>
 
@@ -286,7 +286,7 @@
                                class="btn-italia bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-center"
                                target="_blank"
                                rel="noopener noreferrer">
-                                Documento
+                                {{ __('pub_theme::municipal_components.tenders.document.label') }}
                             </a>
                         </template>
 
@@ -294,7 +294,7 @@
                             <a :href="item.download_url"
                                class="btn-italia bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-center"
                                download>
-                                Download
+                                {{ __('pub_theme::municipal_components.tenders.download.label') }}
                             </a>
                         </template>
 
@@ -302,7 +302,7 @@
                             <a :href="item.info_url"
                                class="btn-italia bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-center"
                                target="_blank">
-                                Info
+                                {{ __('pub_theme::municipal_components.tenders.info.label') }}
                             </a>
                         </template>
                     </div>
@@ -315,8 +315,8 @@
     <div class="bg-gray-50 px-6 py-4 border-t border-gray-200" x-show="filteredItems.length > 0">
         <div class="flex items-center justify-between">
             <div class="text-sm text-gray-700">
-                Mostrati <span x-text="paginatedItems.length"></span> di 
-                <span x-text="filteredItems.length"></span> risultati
+                {{ __('pub_theme::municipal_components.tenders.shown.label') }} <span x-text="paginatedItems.length"></span> {{ __('pub_theme::common.pagination.of.label') }} 
+                <span x-text="filteredItems.length"></span> {{ __('pub_theme::municipal_components.tenders.results.label') }}
             </div>
 
             <div class="flex space-x-2" x-show="totalPages > 1">
@@ -324,11 +324,11 @@
                         :disabled="currentPage === 1"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
                         class="px-3 py-1 border border-gray-300 rounded text-sm">
-                    Precedente
+                    {{ __('pub_theme::common.pagination.previous.label') }}
                 </button>
 
                 <span class="px-3 py-1 text-sm text-gray-700">
-                    Pagina <span x-text="currentPage"></span> di 
+                    {{ __('pub_theme::common.pagination.page.label') }} <span x-text="currentPage"></span> {{ __('pub_theme::common.pagination.of.label') }} 
                     <span x-text="totalPages"></span>
                 </span>
 
@@ -336,7 +336,7 @@
                         :disabled="currentPage === totalPages"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }"
                         class="px-3 py-1 border border-gray-300 rounded text-sm">
-                    Successiva
+                    {{ __('pub_theme::common.pagination.next.label') }}
                 </button>
             </div>
         </div>

@@ -50,7 +50,7 @@
             @if($featured)
                 <div class="absolute top-2 left-2">
                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-600 text-white">
-                        In evidenza
+                        {{ __('pub_theme::blocks_content.shared.featured.label') }}
                     </span>
                 </div>
             @endif
@@ -78,7 +78,7 @@
             <a 
                 href="{{ $url }}" 
                 class="hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
-                aria-label="Leggi l'articolo: {{ $title }}"
+                aria-label="{{ __('pub_theme::blocks_content.news_card.read_article.label', ['title' => $title]) }}"
             >
                 {{ $title }}
             </a>
@@ -95,7 +95,6 @@
                 @if($author)
                     <span class="flex items-center">
                         <x-filament::icon icon="heroicon-o-user" class="w-4 h-4 mr-1" />
-f7ac8eda (.)
                         {{ $author }}
                     </span>
                 @endif
@@ -104,11 +103,10 @@ f7ac8eda (.)
             <a 
                 href="{{ $url }}" 
                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
-                aria-label="Leggi l'articolo completo: {{ $title }}"
+                aria-label="{{ __('pub_theme::blocks_content.news_card.read_full_article.label', ['title' => $title]) }}"
             >
-                Leggi tutto
+                {{ __('pub_theme::blocks_content.shared.read_all.label') }}
                 <x-filament::icon icon="heroicon-o-arrow-right" class="w-4 h-4 ml-1" />
-f7ac8eda (.)
             </a>
         </div>
     </div>

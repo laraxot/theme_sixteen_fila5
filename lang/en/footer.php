@@ -15,4 +15,13 @@ return [
     'go_to_cookie_policy' => 'Go to Cookie policy',
     'go_to_privacy' => 'Go to Privacy notice',
     'go_to_accessibility' => 'Go to Accessibility statement',
+    'contacts' => 'Contacts',
+    'email' => 'Email',
+    'pec' => 'Certified email',
+    'phone' => 'Phone',
+    'fiscal_code' => 'Tax code',
+    'vat_number' => 'VAT number',
+    'useful_links' => 'Useful links',
+    'documents' => 'Documents',
+    'all_rights_reserved' => 'All rights reserved',
 ];

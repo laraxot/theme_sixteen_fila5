@@ -54,12 +54,9 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 ## Testing / PHPStan (2026-06-13)
 
 - [theme-component-test-contract](./concepts/theme-component-test-contract.md) — test UI module → path componenti Sixteen
-- [theme-tests-data-sacred](./concepts/theme-tests-data-sacred.md) — policy dati sacri + skip onesti
-- [perfection-checklist](./overviews/perfection-checklist.md) — checklist verso tema perfetto
 - [page-directory-structure](../page-directory-structure.md) — regola Folio canonica (root docs)
 - [completion-roadmap](./overviews/completion-roadmap.md) — priorità chiusura tema FO
 - [phpstan-compliance](./concepts/phpstan-compliance.md) — stato + confine neon `Modules/` only
-- [progetto-perfezione-roadmap](../../../../Themes/docs/progetto-perfezione-roadmap.md) _(target mancante, verificato 2026-10-14)_ — hub temi
 
 ## Header / auth slim (HTML + visual parity — religione permanente)
 - [design-comuni-header-parity](../../../../../docs/wiki/rules/design-comuni-header-parity.md) — rule root
@@ -109,6 +106,7 @@ Menu admin Filament **non** dipende dal tema — dipende da `config/local/workor
 
 - [fo-pa-tokens-uniformity](../architecture/fo-pa-tokens-uniformity.md) — token PA + `.fo-filament-form-shell`; no hex per `data-page`
 - [auth-login-ux-design-wcag](./design/auth-login-ux-design-wcag.md) — login/register WCAG + Filament primary
+- [mobile-navigation-contract](./concepts/mobile-navigation-contract.md) — hook condivisi per menu mobile e accessibilità
 - [filament-first-frontoffice](./concepts/filament-first-frontoffice.md) — Filament Blade su FO (`x-filament::tabs` su `/it`, skin Design Comuni)
 - [ticket-list-filament-tabs](./concepts/ticket-list-filament-tabs.md) _(target mancante, verificato 2026-10-14)_ — tab Mappa/Elenco STORY-065
 - [wizard-parity-documentation-map](./concepts/wizard-parity-documentation-map.md) — ordine lettura parity segnalazione (dry tema)

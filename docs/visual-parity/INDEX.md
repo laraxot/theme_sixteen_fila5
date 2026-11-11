@@ -25,11 +25,11 @@ status: draft
 docs/visual-parity/
 ├── INDEX.md                  # This file
 ├── reports/                  # Analysis reports (2026-09-26 batch)
-│   ├── COMPLETE-REPORT.md
-│   ├── FIX-ACTION-PLAN.md
-│   ├── LISTA-CATEGORIE-ANALYSIS.md
-│   ├── PROGRESS.md
-│   └── VISUAL-INSPECTION.md
+│   ├── complete-report.md
+│   ├── fix-action-plan.md
+│   ├── lista-categorie-analysis.md
+│   ├── progress.md
+│   └── visual-inspection.md
 ├── screenshots/
 │   ├── pages/<page>/         # Per-page evidence: local-*, ref-*, comparison.md
 │   └── legacy-2026-04/       # Historical evidence (2026-04, read-only)

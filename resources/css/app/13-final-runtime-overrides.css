@@ -159,7 +159,7 @@
     min-width: 24px !important;
   }
 }
-.navbar-collapsable[data-sixteen-mobile-nav-panel].is-open {
+.navbar-collapsable[data-mobile-nav-panel].is-open {
   display: flex !important;
   transform: translateX(0) !important;
 }

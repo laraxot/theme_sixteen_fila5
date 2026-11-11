@@ -4,16 +4,19 @@
     "version": "1.0.0",
     "type": "module",
     "description": "Sixteen Theme - Bootstrap Italia compliant theme for Italian PA websites",
-    "keywords": ["bootstrap-italia", "laravel", "theme", "italian-pa", "accessibility"],
+    "keywords": [
+        "bootstrap-italia",
+        "laravel",
+        "theme",
+        "italian-pa",
+        "accessibility"
+    ],
     "scripts": {
         "dev": "vite",
         "build": "vite build --config vite.config.optimized.js",
         "build:production": "NODE_ENV=production vite build --config vite.config.optimized.js --mode production",
         "build:analyze": "vite build --config vite.config.optimized.js --mode analyze",
         "preview": "vite preview",
-        "copy": "cp -r ./public/* ../../../public_html/themes/Sixteen/",
-        "copy:watch": "nodemon --watch ./public --exec 'npm run copy'",
-        "postbuild": "npm run copy",
         "lint": "eslint resources/js/**/*.js --fix",
         "lint:css": "stylelint resources/css/**/*.css --fix",
         "format": "prettier --write resources/**/*.{js,css,blade.php}",

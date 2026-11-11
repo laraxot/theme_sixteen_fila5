@@ -8,7 +8,7 @@
 @endphp
 
 <div class="dc-service-page mx-auto w-full max-w-[1166px] px-4 py-8">
-    <nav class="dc-service-breadcrumb mb-8" aria-label="breadcrumb">
+    <nav class="dc-service-breadcrumb mb-8" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb_trail.label') }}">
         <ol class="flex flex-wrap items-center gap-2 text-base">
             @foreach($breadcrumb as $item)
                 @if($loop->last)
@@ -37,24 +37,24 @@
         </div>
         <div class="flex flex-col gap-4 lg:items-start lg:pt-4">
             <button type="button" x-data @click="navigator.clipboard?.writeText(window.location.href)" class="inline-flex min-h-11 items-center gap-2 text-left text-base text-[#007a52] underline focus:outline-none focus:ring-2 focus:ring-[#007a52]">
-                <span aria-hidden="true">↗</span>{{ $data['share_label'] ?? 'Condividi' }}
+                <span aria-hidden="true">↗</span>{{ $data['share_label'] ?? __('pub_theme::components_content.service.share.label') }}
             </button>
             <button type="button" onclick="window.print()" class="inline-flex min-h-11 items-center gap-2 text-left text-base text-[#007a52] underline focus:outline-none focus:ring-2 focus:ring-[#007a52]">
-                <span aria-hidden="true">⋯</span>{{ $data['actions_label'] ?? 'Vedi azioni' }}
+                <span aria-hidden="true">⋯</span>{{ $data['actions_label'] ?? __('pub_theme::components_content.service.see_actions.label') }}
             </button>
         </div>
     </header>
 
     <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(220px,3fr)_minmax(0,8fr)]">
         <aside class="border-r-0 lg:border-r lg:border-[#d9d9d9] lg:pr-8">
-            <h2 class="text-base font-semibold uppercase text-[#191919]">{{ $data['index_label'] ?? 'INDICE DELLA PAGINA' }}</h2>
-            <nav class="mt-3" aria-label="Indice della pagina">
+            <h2 class="text-base font-semibold uppercase text-[#191919]">{{ $data['index_label'] ?? __('pub_theme::components_content.service.page_index_caps.label') }}</h2>
+            <nav class="mt-3" aria-label="{{ __('pub_theme::components_common.a11y.page_index.label') }}">
                 <ul class="border-l-2 border-[#007a52] pl-4">
                     @foreach($sections as $section)
                         <li><a class="block py-1 text-base text-[#007a52] hover:underline focus:outline-none focus:ring-2 focus:ring-[#007a52]" href="#{{ $section['id'] ?? '' }}">{{ $section['title'] ?? '' }}</a></li>
                     @endforeach
                     @if(! empty($contacts))
-                        <li><a class="block py-1 text-base text-[#007a52] hover:underline focus:outline-none focus:ring-2 focus:ring-[#007a52]" href="#contacts">{{ $contacts['title'] ?? 'Contatti' }}</a></li>
+                        <li><a class="block py-1 text-base text-[#007a52] hover:underline focus:outline-none focus:ring-2 focus:ring-[#007a52]" href="#contacts">{{ $contacts['title'] ?? __('pub_theme::components_common.nav.contacts.label') }}</a></li>
                     @endif
                 </ul>
             </nav>
@@ -93,7 +93,7 @@
 
             @if(! empty($contacts))
                 <section id="contacts" class="scroll-mt-8">
-                    <h2 class="mb-5 text-[2.5rem] font-bold leading-tight text-[#191919]">{{ $contacts['title'] ?? 'Contatti' }}</h2>
+                    <h2 class="mb-5 text-[2.5rem] font-bold leading-tight text-[#191919]">{{ $contacts['title'] ?? __('pub_theme::components_common.nav.contacts.label') }}</h2>
                     <div class="rounded border border-[#d9d9d9] bg-white p-6 shadow-sm">
                         <h3 class="text-xl font-semibold text-[#007a52]">{{ $contacts['office'] ?? '' }}</h3>
                         <p class="mt-3 whitespace-pre-line text-base leading-6 text-[#191919]">{{ $contacts['address'] ?? '' }}</p>
@@ -102,7 +102,7 @@
                     </div>
                     @if(! empty($topics))
                         <div class="mt-8">
-                            <span class="text-sm text-[#5d7083]">{{ $data['topics_label'] ?? 'Argomenti:' }}</span>
+                            <span class="text-sm text-[#5d7083]">{{ $data['topics_label'] ?? __('pub_theme::components_content.service.topics_colon.label') }}</span>
                             <div class="mt-3 flex flex-wrap gap-2">
                                 @foreach($topics as $topic)<a href="{{ $topic['url'] ?? '#' }}" class="rounded-full border border-[#007a52] px-3 py-1 text-sm text-[#007a52] hover:bg-[#e8f3ef]">{{ $topic['label'] ?? '' }}</a>@endforeach
                             </div>
@@ -116,11 +116,11 @@
 
     <section id="rating" class="mt-16 bg-[#007a52] px-6 py-12 text-white" aria-labelledby="service-rating-title" x-data="{rated: 0}">
         <div class="mx-auto max-w-2xl text-center">
-            <h2 id="service-rating-title" class="text-2xl font-semibold text-white">{{ $data['rating_title'] ?? 'Quanto è stato facile usare questo servizio?' }}</h2>
-            <p x-cloak x-show="rated > 0" class="mt-4 font-semibold text-white">{{ $data['rating_success'] ?? 'Grazie, il tuo parere ci aiuterà a migliorare il servizio!' }}</p>
-            <div x-show="rated === 0" class="mt-5 flex justify-center gap-2" role="radiogroup" aria-label="Valuta da 1 a 5">
+            <h2 id="service-rating-title" class="text-2xl font-semibold text-white">{{ $data['rating_title'] ?? __('pub_theme::components_reports.rating.service_ease.title') }}</h2>
+            <p x-cloak x-show="rated > 0" class="mt-4 font-semibold text-white">{{ $data['rating_success'] ?? __('pub_theme::news.index.feedback.thanks') }}</p>
+            <div x-show="rated === 0" class="mt-5 flex justify-center gap-2" role="radiogroup" aria-label="{{ __('pub_theme::components_reports.feedback.rate_1_5.label') }}">
                 <template x-for="star in [1,2,3,4,5]" :key="star">
-                    <button type="button" class="min-h-11 min-w-11 text-3xl focus:outline-none focus:ring-2 focus:ring-white" role="radio" :aria-checked="rated === star" x-on:click="rated = star" :aria-label="star + ' stelle'">★</button>
+                    <button type="button" class="min-h-11 min-w-11 text-3xl focus:outline-none focus:ring-2 focus:ring-white" role="radio" :aria-checked="rated === star" x-on:click="rated = star" :aria-label="star + @js(' '.__('pub_theme::components_reports.rating.stars_suffix.label'))">★</button>
                 </template>
             </div>
         </div>
@@ -128,7 +128,7 @@
 
     @if(! empty($data['related_content']))
         <section id="related-content" class="mx-auto mt-14 max-w-5xl" aria-labelledby="related-content-title">
-            <h2 id="related-content-title" class="text-3xl font-bold text-[#191919]">{{ $data['related_title'] ?? 'Contenuti correlati' }}</h2>
+            <h2 id="related-content-title" class="text-3xl font-bold text-[#191919]">{{ $data['related_title'] ?? __('pub_theme::components_content.service.related.title') }}</h2>
             <div class="mt-6 grid gap-4 md:grid-cols-3">
                 @foreach($data['related_content'] as $related)
                     <a href="{{ $related['url'] ?? '#' }}" class="rounded border border-[#d9d9d9] bg-white p-5 text-[#007a52] shadow-sm hover:shadow-md focus:outline-none focus:ring-4 focus:ring-[#80c8ad]">

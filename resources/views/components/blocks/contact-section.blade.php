@@ -13,18 +13,18 @@
 @php
     $title = $data['title'] ?? 'Contatta il Comune';
     $contactOptions = $data['contact_options'] ?? [
-        ['label' => 'FAQ', 'url' => '/it/tests/domande-frequenti', 'icon' => 'heroicon-o-question-mark-circle'],
-        ['label' => 'Assistenza', 'url' => '/it/tests/assistenza', 'icon' => 'heroicon-o-lifebuoy'],
-        ['label' => 'Numero Verde 05 0505', 'url' => 'tel:050505', 'icon' => 'heroicon-o-phone'],
-        ['label' => 'Appuntamento', 'url' => '/it/tests/appuntamento', 'icon' => 'heroicon-o-calendar'],
+        ['label' => __('pub_theme::blocks_content.default.faq.label'), 'url' => '/it/tests/domande-frequenti', 'icon' => 'heroicon-o-question-mark-circle'],
+        ['label' => __('pub_theme::blocks_content.contact_section.assistance.label'), 'url' => '/it/tests/assistenza', 'icon' => 'heroicon-o-lifebuoy'],
+        ['label' => __('pub_theme::blocks_content.contact_section.toll_free_number_05_0505.label'), 'url' => 'tel:050505', 'icon' => 'heroicon-o-phone'],
+        ['label' => __('pub_theme::blocks_content.contact_section.appointment.label'), 'url' => '/it/tests/appuntamento', 'icon' => 'heroicon-o-calendar'],
     ];
     $quickLinks = $data['quick_links'] ?? [
         ['label' => 'CIE', 'url' => '#'],
-        ['label' => 'Cambio residenza', 'url' => '#'],
-        ['label' => 'Tasse', 'url' => '#'],
-        ['label' => 'Appuntamenti', 'url' => '#'],
-        ['label' => 'Tessera elettorale', 'url' => '#'],
-        ['label' => 'Buono connettività', 'url' => '#'],
+        ['label' => __('pub_theme::blocks_content.contact_section.change_of_residence.label'), 'url' => '#'],
+        ['label' => __('pub_theme::blocks_content.contact_section.taxes.label'), 'url' => '#'],
+        ['label' => __('pub_theme::blocks_content.contact_section.appointments.label'), 'url' => '#'],
+        ['label' => __('pub_theme::blocks_content.contact_section.polling_card.label'), 'url' => '#'],
+        ['label' => __('pub_theme::blocks_content.contact_section.connectivity_voucher.label'), 'url' => '#'],
     ];
 @endphp
 
@@ -39,7 +39,7 @@
         <div class="row g-4">
             {{-- Contact Options --}}
             <div class="col-12 col-md-6">
-                <h3 class="h5 font-semibold mb-4">Come possiamo aiutarti?</h3>
+                <h3 class="h5 font-semibold mb-4">{{ __('pub_theme::blocks_content.contact_section.how_can_we_help_you.label') }}</h3>
                 <div class="grid grid-cols-2 gap-4">
                     @foreach($contactOptions as $option)
                     <a href="{{ $option['url'] }}" class="block p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-sm transition-all text-center">
@@ -52,7 +52,7 @@
             
             {{-- Quick Links --}}
             <div class="col-12 col-md-6">
-                <h3 class="h5 font-semibold mb-4">Link rapidi</h3>
+                <h3 class="h5 font-semibold mb-4">{{ __('pub_theme::blocks_content.contact_section.quick_links.label') }}</h3>
                 <ul class="space-y-2">
                     @foreach($quickLinks as $link)
                     <li>

@@ -19,7 +19,7 @@ qmd: "regola d35   i dati sono sacri, mai si toccano sixteen"
 
 ## Come ricordarlo per sempre
 - Documento primario: `Modules/Fixcity/docs/REGOLA_DATI_SACRI.md`
-- Second Brain: `docs/second-brain/KNOWLEDGE.md` (aggiunta regola D35)
+- Second Brain: `docs/second-brain/knowledge.md` (aggiunta regola D35)
 - BMAD: questo file
 - Nei test: se serve isolamento, usare `DatabaseTransactions` o factory con rollback, mai `RefreshDatabase`
 - Quando si scrive una migrazione: commento in cima con `@note Dati sacri — non cancellare tabella esistente`

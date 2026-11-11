@@ -11,7 +11,7 @@
     ]" />
 --}}
 
-<nav class="breadcrumb-container" aria-label="{{ __('Percorso di navigazione') }}">
+<nav class="breadcrumb-container" aria-label="{{ __('pub_theme::agid_components.breadcrumb.navigation_path.label') }}">
     <ol class="breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
         @foreach($items as $index => $item)
             <li class="breadcrumb-item" 

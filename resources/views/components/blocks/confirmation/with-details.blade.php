@@ -34,8 +34,8 @@
 --}}
 
 @props([
-    'title' => 'Appuntamento Confermato',
-    'message' => 'Il tuo appuntamento è stato confermato.',
+    'title' => __('pub_theme::blocks_content.shared.appointment_confirmed.title'),
+    'message' => __('pub_theme::blocks_content.shared.your_appointment_has_been_confirmed.message'),
     'details' => [],
     'icon' => 'check',
 ])
@@ -89,9 +89,9 @@
     
     {{-- Details Box --}}
     @if($details && count($details) > 0)
-    <div class="bg-gray-50 rounded-lg p-6" aria-label="Dettagli dell'appuntamento">
+    <div class="bg-gray-50 rounded-lg p-6" aria-label="{{ __('pub_theme::blocks_content.shared.appointment_details_3.label') }}">
         <h3 class="text-lg font-semibold text-gray-900 mb-4">
-            Dettagli Appuntamento
+            {{ __('pub_theme::blocks_content.shared.appointment_details.label') }}
         </h3>
         <dl class="space-y-3">
             @foreach($details as $label => $value)

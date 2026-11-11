@@ -17,6 +17,39 @@ return [
         'search_submit' => 'Enviar',
         'result_one' => '1 noticia encontrada',
         'result_many' => ':count noticias encontradas',
+        'feedback' => [
+            'title' => '¿Qué tan clara es la información de esta página?',
+            'legend' => 'Valora esta página de 1 a 5 estrellas',
+            'star_label' => 'Valora con %d de 5 estrellas',
+            'thanks' => 'Gracias. Tu opinión nos ayudará a mejorar este servicio.',
+            'positive' => [
+                'question' => '¿Qué aspectos te han gustado más?',
+                'answers' => [
+                    'clear' => 'Las indicaciones eran claras',
+                    'complete' => 'Las indicaciones eran completas',
+                    'progress' => 'Siempre sabía si estaba siguiendo los pasos correctamente',
+                    'technical' => 'No tuve problemas técnicos',
+                    'other' => 'Otro',
+                ],
+            ],
+            'negative' => [
+                'question' => '¿Dónde encontraste más dificultades?',
+                'answers' => [
+                    'clear' => 'A veces las indicaciones no eran claras',
+                    'complete' => 'A veces las indicaciones estaban incompletas',
+                    'progress' => 'A veces no sabía si estaba siguiendo los pasos correctamente',
+                    'technical' => 'Tuve problemas técnicos',
+                    'other' => 'Otro',
+                ],
+            ],
+            'detail' => [
+                'question' => '¿Quieres añadir más detalles?',
+                'label' => 'Detalles',
+                'help' => 'Introduce un máximo de 200 caracteres',
+            ],
+            'back' => 'Volver',
+            'next' => 'Siguiente',
+        ],
     ],
     'items' => [
         'one' => ['category' => 'Comunicado', 'date_iso' => '2026-09-01', 'date' => '1 de septiembre de 2026', 'title' => 'Nuevos servicios digitales para la ciudadanía', 'body' => 'Ya están disponibles nuevos trámites digitales municipales.'],

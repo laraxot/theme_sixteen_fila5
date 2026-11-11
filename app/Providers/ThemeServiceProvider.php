@@ -258,10 +258,20 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
     }
 
     /**
-     * Register authentication routes
+     * Registra le rotte SPID/CIE solo se l'identità digitale è abilitata.
+     *
+     * Il callback SPID non verifica firma, Issuer, Audience e scadenza della
+     * SAMLResponse (SpidAuthAction::validateSamlResponse): con le rotte attive
+     * chiunque può costruire una risposta e autenticarsi con un codice fiscale
+     * arbitrario. Le rotte restano spente finché la validazione non è completa
+     * e `SIXTEEN_SPID_ENABLED=true` non viene impostato di proposito.
      */
     protected function registerAuthRoutes(): void
     {
+        if (! static::digitalIdentityRoutesEnabled()) {
+            return;
+        }
+
         if (! $this->app->routesAreCached()) {
             $this->loadRoutesFrom(__DIR__.'/../../routes/auth.php');
         }
@@ -312,5 +322,13 @@ class ThemeServiceProvider extends XotBaseThemeServiceProvider
             $name = basename($file, '.php');
             $this->mergeConfigFrom($file, $namespace.'.'.$name);
         }
+    }
+
+    /**
+     * Vero solo se l'identità digitale (SPID/CIE) è stata abilitata esplicitamente.
+     */
+    public static function digitalIdentityRoutesEnabled(): bool
+    {
+        return config('sixteen.auth.spid.enabled') === true;
     }
 }

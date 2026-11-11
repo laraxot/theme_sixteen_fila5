@@ -12,7 +12,7 @@ related:
 status: draft
 ---
 
-# Sixteen {{TYPE^}} LLM Wiki Agent Instructions
+# Sixteen LLM Wiki Agent Instructions
 
 > **Module/Theme:** Sixteen
 > **Scope:** Sixteen-specific knowledge only

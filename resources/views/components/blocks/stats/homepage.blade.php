@@ -19,7 +19,7 @@
                                     <h3 class="card-title h5">{{ $item['title'] }}</h3>
                                     <p class="card-text">{{ $item['description'] ?? '' }}</p>
                                     <a href="{{ $item['url'] }}" class="read-more">
-                                        <span class="text">Leggi di più</span>
+                                        <span class="text">{{ __('pub_theme::components_common.actions.read_more.label') }}</span>
                                         <svg class="icon icon-primary icon-xs" aria-hidden="true">
                                             <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                                         </svg>
@@ -32,8 +32,8 @@
                 @endforeach
             </div>
             <div class="text-center mt-4">
-                <a class="btn btn-outline-primary" href="/it/tests/amministrazione">
-                    Tutta l'amministrazione
+                <a class="btn btn-outline-primary" href="{{ route('container0.view', ['container0' => 'tests', 'slug0' => 'amministrazione']) }}">
+                    {{ __('pub_theme::navigation.homepage.all_administration') }}
                     <svg class="icon icon-sm">
                         <use href="{{ asset('themes/sixteen/themes/Sixteen/design-comuni/assets/bootstrap-italia/dist/svg/sprites.svg#it-arrow-right') }}"></use>
                     </svg>

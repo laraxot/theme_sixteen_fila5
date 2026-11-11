@@ -12,8 +12,8 @@
 --}}
 
 @php
-    $cityName = $data['city_name'] ?? 'Nome del Comune';
-    $tagline = $data['tagline'] ?? 'Un comune da vivere';
+    $cityName = $data['city_name'] ?? __('pub_theme::header.center.nav.hamburger_brand.label');
+    $tagline = $data['tagline'] ?? __('pub_theme::header.center.brand.tagline.label');
     $logoUrl = $data['logo_url'] ?? asset('themes/Sixteen/images/logo-comune.svg');
     $socialLinks = $data['social_links'] ?? [
         ['platform' => 'twitter', 'url' => '#', 'icon' => 'ui-brands.twitter'],
@@ -50,8 +50,8 @@
                             type="text"
                             name="q"
                             class="form-control"
-                            placeholder="Cerca nel sito..."
-                            aria-label="Cerca"
+                            placeholder="{{ __('pub_theme::components_search.fields.site.placeholder') }}"
+                            aria-label="{{ __('pub_theme::header.center.search.label') }}"
                             style="border: 1px solid #CCCCCC;"
                         />
                         <button class="btn btn-primary" type="submit" style="background-color: #007A52; border-color: #007A52;">
@@ -87,7 +87,7 @@
                     {{-- Login Button - Comune Green (#007A52) --}}
                     <a href="{{ $loginUrl }}" class="btn btn-primary btn-sm px-4" style="background-color: #007A52; border-color: #007A52; color: #FFFFFF;">
                         <x-filament::icon icon="heroicon-m-user" class="w-4 h-4 mr-2" />
-                        Accedi
+                        {{ __('pub_theme::header.guest.login.label') }}
                     </a>
                 </div>
             </div>

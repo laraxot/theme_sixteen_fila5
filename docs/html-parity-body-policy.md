@@ -13,7 +13,7 @@ status: draft
 # HTML Parity Body Policy
 
 Related:
-- [CSS scoping rule](architecture/CSS-SCOPING-RULE.md)
+- [CSS scoping rule](architecture/css-scoping-rule.md)
 - [Theme docs index](00-INDEX.md)
 - [Fixcity parity rule](../../../Modules/Fixcity/docs/html-body-parity-rule.md)
 - [Agent parity rule](../../../bashscripts/ai/.agents/docs/rules/html-parity.md)
@@ -65,7 +65,7 @@ body:has(.tests-view-wrapper[data-slug="segnalazione-02-dati"]) .stepper {
 La route `pages/tests/[slug].blade.php` deve usare lo stesso wrapper semantico del Cms (`page-content[data-slug]`) per mantenere coerenza architetturale, linkabilita dei docs e scoping robusto.
 
 See also:
-- [CSS scoping rule](architecture/CSS-SCOPING-RULE.md)
+- [CSS scoping rule](architecture/css-scoping-rule.md)
 - [Fixcity parity rule](../../../Modules/Fixcity/docs/html-body-parity-rule.md)
 
 

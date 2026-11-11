@@ -19,7 +19,9 @@
     .auth-login-card form a { color: #007a52; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .auth-login-shell__crumb a:focus-visible,
     .auth-login-card a:focus-visible { outline: 2px solid #007a52; outline-offset: 2px; }
-    .auth-login-card { background: #fff; border: 1px solid #d9e1e8; border-radius: 0.25rem; padding: 1.5rem 1.25rem 2rem; }
+    /* Niente pannello con bordo: le pagine di accesso, registrazione e nuova password hanno la stessa resa delle altre pagine
+       (titolo allineato al breadcrumb, contenuto sullo sfondo della pagina). Il riquadro c'era solo qui: incoerente. */
+    .auth-login-card { background: transparent; border: 0; border-radius: 0; padding: 1rem 0 2.5rem; }
     .auth-login-card h1 { margin: 0; font-size: clamp(1.75rem, 4vw, 2.25rem); line-height: 1.15; font-weight: 700; color: #1a1a1a; }
     .auth-login-card .auth-login-lede { margin: 0.5rem 0 0; color: #5c6f82; font-size: 1.0625rem; line-height: 1.55; }
     .auth-login-card .auth-login-account,
@@ -114,7 +116,7 @@
     .auth-login-card [wire\:loading] { display: none; }
     @media (min-width: 640px) {
         .auth-login-shell { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .auth-login-card { padding: 2rem 2rem 2.25rem; }
+        .auth-login-card { padding: 1.5rem 0 3rem; }
     }
 </style>
 {{-- Dopo un invio non riuscito il focus va al primo campo non valido (WCAG 3.3.1, 2.4.3): il riepilogo role="alert" annuncia

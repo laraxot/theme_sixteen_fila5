@@ -23,8 +23,8 @@
 --}}
 
 @php
-    $cityName = $data['city_name'] ?? 'Il mio Comune';
-    $tagline = $data['tagline'] ?? 'Un comune da vivere';
+    $cityName = $data['city_name'] ?? __('pub_theme::header.center.brand.title.label');
+    $tagline = $data['tagline'] ?? __('pub_theme::header.center.brand.tagline.label');
     $logoUrl = $data['logo_url'] ?? asset('themes/sixteen/images/logo-comune.svg');
     $homeUrl = $data['home_url'] ?? '/it/tests/homepage';
     $socialLinks = $data['social_links'] ?? [
@@ -78,14 +78,14 @@
                             <div class="it-socials d-none d-lg-flex" 
                                  style="display: none; align-items: center; gap: 0.5rem;"
                                  class="hidden lg:flex">
-                                <span style="font-size: 0.875rem; color: #666666; margin-right: 0.5rem;">Seguici su</span>
+                                <span style="font-size: 0.875rem; color: #666666; margin-right: 0.5rem;">{{ __('pub_theme::header.center.social.follow.label') }}</span>
                                 <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 0.5rem;">
                                     @foreach($socialLinks as $social)
                                     <li style="margin: 0;">
                                         <a href="{{ $social['url'] }}" 
                                            target="_blank"
                                            rel="noopener"
-                                           aria-label="{{ $social['platform'] }} - link esterno - apertura nuova scheda"
+                                           aria-label="{{ __('pub_theme::components_header.social.external_link.label', ['platform' => $social['platform']]) }}"
                                            title="{{ $social['platform'] }}"
                                            style="color: #0066CC; text-decoration: none; font-size: 0.875rem; transition: color 0.2s;"
                                            class="hover:text-[#003D73] hover:underline">

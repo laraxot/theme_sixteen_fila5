@@ -1,11 +1,11 @@
 {{-- Bootstrap Italia Skiplinks Component --}}
 
-<div class="skiplinks" role="navigation" aria-label="Skip links">
+<div class="skiplinks" role="navigation" aria-label="{{ __('pub_theme::components_common.skiplinks.region.label') }}">
     <a class="visually-hidden-focusable screen-reader screen-reader-focusable" href="#content">
-        Salta al contenuto
+        {{ __('pub_theme::components_common.skiplinks.content.label') }}
     </a>
     <a class="visually-hidden-focusable screen-reader screen-reader-focusable" href="#navigation">
-        Salta al menu di navigazione
+        {{ __('pub_theme::components_common.skiplinks.navigation.label') }}
     </a>
     @if(!empty($links))
         @foreach($links as $link)
