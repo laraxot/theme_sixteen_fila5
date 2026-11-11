@@ -173,8 +173,8 @@ npm run copy
 
 ## 📚 Documentation Created
 
-1. **VITE_SECOND_PARAMETER_GUIDE.md** - Complete guide
-2. **VITE_MANIFEST_FIX_COMPLETE.md** - Fix summary
+1. **vite-second-parameter-guide.md** - Complete guide
+2. **vite-manifest-fix-complete.md** - Fix summary
 3. **This file** - Quick reference
 
 ---
@@ -216,8 +216,8 @@ ls public_html/themes/Sixteen/manifest.json
 
 ## 🔗 Related Documentation
 
-- [Vite Second Parameter Guide](VITE_SECOND_PARAMETER_GUIDE.md)
-- [Vite Manifest Fix Complete](VITE_MANIFEST_FIX_COMPLETE.md)
+- [Vite Second Parameter Guide](vite-second-parameter-guide.md)
+- [Vite Manifest Fix Complete](vite-manifest-fix-complete.md)
 - [Layout Architecture](layout-architecture.md)
 - [Build Commands Guide](../build-commands-guide.md)
 
