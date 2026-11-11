@@ -446,7 +446,7 @@ public_html/themes/Sixteen/manifest.json
 
 ## 📚 Related Documentation
 
-- [Vite Manifest Fix Complete](VITE_MANIFEST_FIX_COMPLETE.md)
+- [Vite Manifest Fix Complete](vite-manifest-fix-complete.md)
 - [Layout Architecture](layout-architecture.md)
 - [Build Commands Guide](../build-commands-guide.md)
 - [Master Documentation Index](../../../../../docs/MODULE_DOCS_INDEX.md)
