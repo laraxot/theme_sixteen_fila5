@@ -40,7 +40,7 @@
                 {{ __('user::login.actions.login.label') }}
             </span>
         </x-filament::button>
-        <span id="login-submit-status" class="sr-only" wire:loading wire:target="login" role="status" aria-live="polite">
+        <span id="login-submit-status" class="sr-only visually-hidden" wire:loading wire:target="login" role="status" aria-live="polite">
             {{ __('user::auth.login.logging_in.text') }}
         </span>
     </form>

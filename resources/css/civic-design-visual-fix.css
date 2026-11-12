@@ -186,8 +186,23 @@ p, span, body {
    5. FOOTER HEIGHT ADJUSTMENT (-19px issue)
    ============================================================================ */
 
+/* Altezza naturale: il vecchio `min-height: 775px` (copiato dalla pagina di riferimento) lasciava sotto i link
+   una fascia vuota di ~300px e spingeva il copyright fuori dal piede scuro. */
 .it-footer-main {
-  min-height: 775px !important;
+  min-height: 0 !important;
+}
+
+/* Riga del copyright: stessa fascia scura del piede (prima era su sfondo bianco, staccata dal footer). */
+footer#footer .it-footer-small-prints {
+  background-color: #202a2e !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem 0;
+}
+
+footer#footer .it-footer-small-prints,
+footer#footer .it-footer-small-prints .list-inline-item {
+  color: #ffffff !important;
+  font-size: 0.875rem;
 }
 
 .footer-column {

@@ -127,3 +127,45 @@ coordinate-picker-lit .map-container.is-fullscreen .map-picker-leaflet-pane {
   height: 100vh !important;
   height: 100dvh !important;
 }
+
+/*
+ * Front office sempre chiaro (Design Comuni non ha un tema scuro). Con il dispositivo in tema scuro daisyUI metteva
+ * `color-scheme: dark` su :root e il browser disegnava textarea e input con sfondo #3b3b3b e testo blu scuro: il campo
+ * «Dettagli» del wizard diventava una casella nera illeggibile (module_fixcity_fila5#70, theme_sixteen_fila5#116).
+ * I layout dichiarano `data-theme="light"`; qui la stessa garanzia per i controlli dei moduli.
+ */
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+.cmp-wizard-widget textarea,
+.cmp-wizard-widget input:not([type='checkbox']):not([type='radio']):not([type='file']),
+.cmp-wizard-widget select {
+  background-color: #ffffff;
+  color: #17324d;
+}
+
+/* Indicatore di caricamento dei pulsanti di accesso e registrazione: senza dimensioni l'SVG si allargava a tutto il
+   riquadro del pulsante (un anello verde di 400px durante "Registrazione in corso..."). */
+.fi-btn svg.animate-spin,
+body:has(.page-content[data-dc]) .fi-btn svg.animate-spin {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  flex-shrink: 0;
+  animation: spin 1s linear infinite;
+}
+
+/* Indicatore di caricamento proprio di Filament (`fi-loading-indicator`): nel front office il CSS del pannello non c'e'
+   e l'SVG prendeva tutta l'altezza disponibile. Dimensione fissa; nascosto dove il pulsante ha gia' il suo. */
+.fi-btn .fi-loading-indicator,
+body:has(.page-content[data-dc]) .fi-btn .fi-loading-indicator {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  flex-shrink: 0;
+  animation: spin 1s linear infinite;
+}
+
+.fi-btn:has(svg.animate-spin) .fi-loading-indicator,
+body:has(.page-content[data-dc]) .fi-btn:has(svg.animate-spin) .fi-loading-indicator {
+  display: none !important;
+}

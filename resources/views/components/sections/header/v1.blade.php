@@ -84,22 +84,22 @@
 
         return $resolved !== '' && $resolved !== '#' ? $resolved : null;
     };
-    // Voce attiva: `element` dichiarato dal layout ($dcHeaderActive) oppure, se assente, il percorso della pagina che
-    // coincide con l'URL della voce o vi sta sotto (/it/blog/articolo -> Novità). Prima nessuna voce risultava attiva.
+    // Voce attiva: `element` dichiarato dal layout ($dcHeaderActive) oppure, se assente, la voce il cui URL coincide con la
+    // pagina o la contiene, scegliendo il percorso PIU' LUNGO: /it/tickets/track e' "Traccia", non "Segnalazioni" (/it/tickets).
     $currentNavPath = '/'.trim((string) parse_url(url()->current(), PHP_URL_PATH), '/');
-    $isActiveNavItem = static function (array $item) use ($storedNavHref, $currentNavPath): bool {
+    $navMatchLength = static function (array $item) use ($storedNavHref, $currentNavPath): int {
         $element = $item['element'] ?? null;
         $declared = view()->shared('dcHeaderActive');
         if (filled($declared)) {
-            return $element === $declared;
+            return $element === $declared ? PHP_INT_MAX : 0;
         }
         $href = $storedNavHref((string) ($item['url'] ?? ''));
         $itemPath = '/'.trim((string) parse_url((string) $href, PHP_URL_PATH), '/');
         if ($href === null || $itemPath === '/' || preg_match('#^/[a-z]{2}$#', $itemPath) === 1) {
-            return false;
+            return 0;
         }
 
-        return $currentNavPath === $itemPath || str_starts_with($currentNavPath, $itemPath.'/');
+        return $currentNavPath === $itemPath || str_starts_with($currentNavPath, $itemPath.'/') ? strlen($itemPath) : 0;
     };
     $ente = app(\Modules\Tenant\Actions\Ente\GetEnteDataAction::class)->execute();
     // Social: config('ente') (DCP-289); in assenza, i `social_links` del blocco (fallback config('comune.social')), solo URL http(s).
@@ -120,7 +120,10 @@
     $realUser = auth()->user();
     $isSignedIn = (bool) (($dcSignedIn ?? false) || $realUser !== null);
     $displayName = $realUser !== null
-        ? (trim((string) ($realUser->name ?? '')) ?: (string) ($realUser->email ?? ''))
+        // Nome, poi nome e cognome, e solo per ultimo l'email (che in testata si legge da chiunque guardi lo schermo).
+        ? (trim((string) ($realUser->name ?? ''))
+            ?: trim((string) ($realUser->first_name ?? '').' '.(string) ($realUser->last_name ?? ''))
+            ?: (string) ($realUser->email ?? ''))
         : (string) $d('account.signed_in.name', __('pub_theme::header.user.personal_area'));
     $avatarUrl = $realUser instanceof \Modules\Comment\Models\Contracts\CanComment
         ? (string) $realUser->commentatorProperties()->avatar
@@ -130,6 +133,15 @@
         ? app(\Modules\Fixcity\Actions\BuildAuthenticatedUserTicketNotificationsQueryAction::class)->execute($realUser)->whereNull('read_at')->count()
         : 0;
     $navigation = array_values(array_filter((array) $d('navigation', []), static fn (mixed $item): bool => is_array($item) && $storedNavHref((string) ($item['url'] ?? '')) !== null));
+    $activeNavIndex = null;
+    $activeNavLength = 0;
+    foreach ($navigation as $navIndex => $navItem) {
+        $length = $navMatchLength($navItem);
+        if ($length > $activeNavLength) {
+            $activeNavIndex = $navIndex;
+            $activeNavLength = $length;
+        }
+    }
     $secondaryItems = array_values(array_filter((array) $d('secondary_navigation', []), static fn (mixed $item): bool => is_array($item) && $storedNavHref((string) ($item['url'] ?? '')) !== null));
 @endphp
 <header class="it-header-wrapper" data-bs-target="#header-nav-wrapper">
@@ -216,8 +228,8 @@
                                     </a>
                                     <nav aria-label="{{ $d('menu.main_label') }}">
                                         <ul class="navbar-nav" data-element="main-navigation">
-                                            @foreach ($navigation as $item)
-                                                <li class="nav-item">@php($navActive = $isActiveNavItem($item))<a @class(['nav-link', 'active' => $navActive]) href="{{ $storedNavHref((string) $item['url']) }}"@if (filled($item['element'] ?? null)) data-element="{{ $item['element'] }}"@endif @if ($navActive) aria-current="page"@endif><span>{{ $item['label'] ?? '' }}</span></a></li>
+                                            @foreach ($navigation as $navIndex => $item)
+                                                <li class="nav-item">@php($navActive = $navIndex === $activeNavIndex)<a @class(['nav-link', 'active' => $navActive]) href="{{ $storedNavHref((string) $item['url']) }}"@if (filled($item['element'] ?? null)) data-element="{{ $item['element'] }}"@endif @if ($navActive) aria-current="page"@endif><span>{{ $item['label'] ?? '' }}</span></a></li>
                                             @endforeach
                                         </ul>
                                     </nav>

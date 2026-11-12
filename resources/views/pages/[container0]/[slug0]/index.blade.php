@@ -123,7 +123,7 @@ new class extends Component {
     if ($specialPage === 'ticket-track') {
         $isDesignComuni = true;
         view()->share('dcRelativeAssets', true);
-        $headerActive = 'all-services';
+        $headerActive = 'track';
         $layoutComponent = 'layouts.app';
     }
     // dettaglio Novità/Eventi (Article): shell app + data-dc.
