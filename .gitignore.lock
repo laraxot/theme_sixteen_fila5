@@ -1,6 +1,0 @@
-LOCKED at 2026-11-12T07:40:14+00:00
-Task: kp-4e658b1cf932491ab12fb0c2cbd6f050
-Agent: copilot-cli
-Session: unknown
-PID: 813033
-PID note: subshell di lock.sh, gia' terminato — NON usarlo per giudicare il lock stale, guarda 'LOCKED at'
