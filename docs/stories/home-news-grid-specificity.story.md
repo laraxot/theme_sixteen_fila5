@@ -68,7 +68,8 @@ La regola generale e' scritta in [css-scoping-rule.md](../architecture/css-scopi
 - [x] Spec rossa prima, verde dopo: 3 passati (1440, 800, 375).
 - [x] Controllo a occhio dello screenshot dopo la correzione: 3 card per riga, immagini presenti.
 - [x] Regola documentata nel tema (`css-scoping-rule.md`) e nella memoria di progetto.
-- [ ] **Non fatto:** altri blocchi con la stessa trappola (`<style>` con `gap`, `display:grid`, `padding:0`, `width:auto` su un `.row`). Censimento proposto nel [piano di hardening](../plans/front-office-hardening-plan.md), onda 2.
+- [x] Censimento degli altri blocchi con la stessa trappola (`<style>` con `gap`, `display:grid`, `padding:0`, `width:auto` su un `.row`), fatto il 2026-11-12 sul dev (`:8081`): **due soli blocchi candidati**, `components/blocks/events-page/design-comuni.blade.php` (`/it/eventi`) e `components/blocks/blog/index.blade.php` (`/it/blog`). Misurati con Playwright a 1440/800/375 px: griglia CSS, `gap` 24 px, **3 card per riga a 1440 e a 800, 1 a 375**, nessuno scorrimento orizzontale. Non regrediscono perche' i loro selettori sono scopati sull'attributo (`main[data-page="eventi"] .row.g-4`, specificita' sopra lo scope `body:has(.page-content[data-dc]) .row`, 0,3,1): il difetto della home era un selettore a bassa specificita'. 7 falsi positivi del grep (`.row-title`, `.row-calendar` combaciano con `\.row\b`), scartati leggendo i selettori. `/it/lista-risorse` risponde 404: il blocco si vede su `/it/blog`.
+- [ ] **Non fatto:** (a) un test che vieti in modo meccanico un `.row` ridisegnato con selettore debole: i due blocchi sopra lo fanno **legittimamente** (selettore forte), quindi servirebbe una allowlist motivata e non l'ho scritto; (b) verifica **in produzione** dopo il deploy: dal dev non la posso fare.
 
 ## Lezioni
 
