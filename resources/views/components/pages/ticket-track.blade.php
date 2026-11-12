@@ -7,6 +7,7 @@
 --}}
 @php
     use Illuminate\Support\Facades\Gate;
+    use Modules\Fixcity\Actions\BuildAuthenticatedUserTicketsQueryAction;
     use Modules\Fixcity\Actions\BuildTicketPublicDetailsPayloadAction;
     use Modules\Fixcity\Actions\BuildTicketTimelineAction;
     use Modules\Fixcity\Actions\GetPublicTicketByCodeAction;
@@ -37,6 +38,16 @@
     $timeline = $ticket instanceof Ticket ? app(BuildTicketTimelineAction::class)->execute($ticket) : [];
     $notFound = $codeString !== '' && ! $ticket instanceof Ticket;
     $statusEnum = is_array($payload) ? TicketStatusEnum::tryFrom((string) ($payload['status'] ?? '')) : null;
+    // Utente autenticato senza ricerca in corso: elenco delle sue ultime segnalazioni (module_fixcity_fila5#73,
+    // theme_sixteen_fila5#117). Ogni voce apre questa stessa pagina con `ticket_id`, che passa da Gate::authorize.
+    $viewer = auth()->user();
+    $showMyTickets = $viewer instanceof UserContract && ! $authenticatedLookup && $codeString === '';
+    $myTicketsLimit = 10;
+    $myTickets = $showMyTickets
+        ? app(BuildAuthenticatedUserTicketsQueryAction::class)->execute($viewer)->limit($myTicketsLimit + 1)->get()
+        : collect();
+    $hasMoreMyTickets = $myTickets->count() > $myTicketsLimit;
+    $myTickets = $myTickets->take($myTicketsLimit);
     $createUrl = FrontofficeRoutes::ticketsCreate(false);
     $trackUrl = FrontofficeRoutes::ticketsTrack(false);
     $homeUrl = route('home', [], false);
@@ -92,8 +103,54 @@
                     {{ __('fixcity::ticket.track.empty_hint') }}
                     <a href="{{ $createUrl }}">{{ __('fixcity::ticket.track.create_cta') }}</a>
                 </p>
+                @guest
+                    <p class="dc-ticket-track__hint" data-element="ticket-track-login-hint">
+                        {!! __('fixcity::ticket.track.login_hint', ['link' => '<a href="'.e(route('login', ['redirect' => $trackUrl], false)).'">'.e(__('fixcity::ticket.track.login_link')).'</a>']) !!}
+                    </p>
+                @endguest
             @endif
         @endunless
+
+        @if ($showMyTickets)
+            <section class="dc-ticket-track__mine" data-element="ticket-track-my-tickets" aria-labelledby="ticket-track-mine-heading">
+                <h2 id="ticket-track-mine-heading" class="dc-ticket-track__mine-title">{{ __('fixcity::ticket.track.my_tickets_title') }}</h2>
+                @if ($myTickets->isEmpty())
+                    <p class="dc-ticket-track__mine-empty" role="status">
+                        {{ __('fixcity::ticket.track.my_tickets_empty') }}
+                        <a href="{{ $createUrl }}">{{ __('fixcity::ticket.track.create_cta') }}</a>
+                    </p>
+                @else
+                    <p class="dc-ticket-track__mine-intro">{{ __('fixcity::ticket.track.my_tickets_intro') }}</p>
+                    <ul class="dc-ticket-track__mine-list">
+                        @foreach ($myTickets as $myTicket)
+                            @php($myStatus = TicketStatusEnum::tryFrom($myTicket->resolveTicketStatusValue()))
+                            <li class="dc-ticket-track__mine-item">
+                                <a class="dc-ticket-track__mine-link" href="{{ $trackUrl }}?ticket_id={{ $myTicket->getKey() }}">
+                                    <span class="dc-ticket-track__mine-name">{{ $myTicket->name }}</span>
+                                    <span class="dc-ticket-track__mine-meta">
+                                        @if (filled($myTicket->code))
+                                            <code>{{ $myTicket->code }}</code>
+                                        @endif
+                                        @if ($myTicket->created_at !== null)
+                                            <span>{{ __('fixcity::ticket.track.my_tickets_sent_on', ['date' => $myTicket->created_at->translatedFormat('j F Y')]) }}</span>
+                                        @endif
+                                    </span>
+                                </a>
+                                @if ($myStatus instanceof TicketStatusEnum)
+                                    {{-- stato anche come testo: non affidato al solo colore (WCAG 1.4.1) --}}
+                                    <span class="badge rounded-pill bg-primary dc-ticket-track__status">{{ $myStatus->getLabel() }}</span>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
+                    @if ($hasMoreMyTickets)
+                        <p class="dc-ticket-track__mine-all">
+                            <a href="{{ FrontofficeRoutes::personalAreaPratiche(false) }}">{{ __('fixcity::ticket.track.my_tickets_all') }}</a>
+                        </p>
+                    @endif
+                @endif
+            </section>
+        @endif
 
         @if ($notFound)
             <div id="ticket-track-error" class="dc-ticket-track__alert" role="alert">

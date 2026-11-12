@@ -120,7 +120,10 @@
     $realUser = auth()->user();
     $isSignedIn = (bool) (($dcSignedIn ?? false) || $realUser !== null);
     $displayName = $realUser !== null
-        ? (trim((string) ($realUser->name ?? '')) ?: (string) ($realUser->email ?? ''))
+        // Nome, poi nome e cognome, e solo per ultimo l'email (che in testata si legge da chiunque guardi lo schermo).
+        ? (trim((string) ($realUser->name ?? ''))
+            ?: trim((string) ($realUser->first_name ?? '').' '.(string) ($realUser->last_name ?? ''))
+            ?: (string) ($realUser->email ?? ''))
         : (string) $d('account.signed_in.name', __('pub_theme::header.user.personal_area'));
     $avatarUrl = $realUser instanceof \Modules\Comment\Models\Contracts\CanComment
         ? (string) $realUser->commentatorProperties()->avatar
