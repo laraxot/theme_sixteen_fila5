@@ -12,11 +12,13 @@ related:
   - front-office-production-readiness-audit.story.md
   - ../architecture/css-scoping-rule.md
   - ../../../../Modules/Blog/docs/stories/front-office-demo-content-population.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/112"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/95"]
 ---
 
 # [STORY] Home «Novità»: le card stanno 3 per riga
+
+**Issue:** [#112](https://github.com/laraxot/theme_sixteen_fila5/issues/112) (aperta il 2026-11-12; correzione committata dalla sync, restano la verifica in produzione e il censimento degli altri blocchi).
 
 **Discussione (decisioni e alternative scartate):** [#95](https://github.com/laraxot/theme_sixteen_fila5/discussions/95), complementare a [#93](https://github.com/laraxot/theme_sixteen_fila5/discussions/93) (head SEO) e [#94](https://github.com/laraxot/theme_sixteen_fila5/discussions/94) (audit, area loggata).
 

@@ -13,7 +13,7 @@ related:
   - ./dcp-452-residui-di-ux-accessibilita-e-messa-in-produzione-del-tema.story.md
   - ./dcp-447-tema-ricostruibile-e-guardie-contro-i-mirror.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/100"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
 ---
 

@@ -13,7 +13,7 @@ related:
   - ./dcp-449-salto-di-layout-del-wizard-tickets-create.story.md
   - ./dcp-452-residui-di-ux-accessibilita-e-messa-in-produzione-del-tema.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/102"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
 ---
 

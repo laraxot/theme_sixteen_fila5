@@ -14,8 +14,8 @@ related:
   - ../../../../Modules/Gdpr/docs/stories/dcp-445-guardia-del-cablaggio-del-banner-cookie.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-457-guardia-e-misure-del-primo-livello-informativa-passo-1.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
-discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/101"]
+discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94", "https://github.com/laraxot/theme_sixteen_fila5/discussions/110"]
 ---
 
 # DCP-449: salto di layout del wizard `/tickets/create`

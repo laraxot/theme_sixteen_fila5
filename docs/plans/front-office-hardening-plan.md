@@ -17,11 +17,13 @@ related:
   - ../../../../Modules/Cms/docs/stories/head-sixteen-parity-closeout.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-455-strumenti-del-gate-sopravvivono-alla-sync.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/113", "https://github.com/laraxot/theme_sixteen_fila5/issues/111", "https://github.com/laraxot/theme_sixteen_fila5/issues/112"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/95"]
 ---
 
 # Piano: guardie e strumenti dopo l'audit del front office
+
+**Issue:** [#113](https://github.com/laraxot/theme_sixteen_fila5/issues/113) (il piano), [#111](https://github.com/laraxot/theme_sixteen_fila5/issues/111) (sprite), [#112](https://github.com/laraxot/theme_sixteen_fila5/issues/112) (griglia «Novita'»).
 
 **Discussione (decisioni e alternative scartate):** [#95](https://github.com/laraxot/theme_sixteen_fila5/discussions/95), complementare a [#93](https://github.com/laraxot/theme_sixteen_fila5/discussions/93) (head SEO) e [#94](https://github.com/laraxot/theme_sixteen_fila5/discussions/94) (audit, area loggata).
 

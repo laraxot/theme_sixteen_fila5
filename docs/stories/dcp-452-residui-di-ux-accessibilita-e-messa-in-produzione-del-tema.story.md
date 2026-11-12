@@ -13,8 +13,8 @@ related:
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-208-messa-online-compiti-del-fornitore-e-dell-ente.story.md
   - ./dcp-448-accessibilita-del-front-office-aria-faq-focus-e-menu.story.md
-issues: []
-discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/104"]
+discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94", "https://github.com/laraxot/theme_sixteen_fila5/discussions/109"]
 ---
 
 # DCP-452: residui di UX, accessibilità e messa in produzione del tema

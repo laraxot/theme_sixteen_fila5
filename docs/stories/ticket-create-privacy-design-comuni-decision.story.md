@@ -45,7 +45,7 @@ verifica soltanto la resa visuale.
 ## Contratto visuale
 
 - due paragrafi brevi `text-paragraph`;
-- un solo link localizzato (`/it/privacy`, `/en/privacy`, `/de/privacy`, `/es/privacy`);
+- tre link localizzati per lingua: privacy, termini e cookie policy;
 - checkbox vicino al link;
 - nessun titolo, elenco o paragrafo della policy integrale nello step;
 - struttura wizard, autenticazione, validazione e step successivi invariati.

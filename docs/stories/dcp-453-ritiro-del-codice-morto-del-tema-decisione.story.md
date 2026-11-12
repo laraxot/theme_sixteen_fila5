@@ -12,8 +12,8 @@ related:
   - ./front-office-production-readiness-audit.story.md
   - ./dcp-447-tema-ricostruibile-e-guardie-contro-i-mirror.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
-discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/105"]
+discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94", "https://github.com/laraxot/theme_sixteen_fila5/discussions/108"]
 ---
 
 # DCP-453: ritiro del codice morto del tema

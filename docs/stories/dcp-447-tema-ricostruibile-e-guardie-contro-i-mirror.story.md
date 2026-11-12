@@ -15,7 +15,7 @@ related:
   - ./dcp-451-guardia-sui-riferimenti-a-viste-cancellate.story.md
   - ../bmad/decisions/contract-tests-follow-live-files.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-200-registro-unico-delle-decisioni-aperte.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/99"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/94"]
 ---
 

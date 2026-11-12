@@ -12,11 +12,13 @@ related:
   - front-office-production-readiness-audit.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-154-gate-di-messa-in-produzione.story.md
   - ../../../../Modules/Fixcity/docs/stories/dcp-455-strumenti-del-gate-sopravvivono-alla-sync.story.md
-issues: []
+issues: ["https://github.com/laraxot/theme_sixteen_fila5/issues/111"]
 discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/95"]
 ---
 
 # [STORY] Lo sprite delle icone di Sixteen deve arrivare in produzione
+
+**Issue:** [#111](https://github.com/laraxot/theme_sixteen_fila5/issues/111) (aperta il 2026-11-12; resta aperta finche' non c'e' la verifica in produzione).
 
 **Discussione (decisioni e alternative scartate):** [#95](https://github.com/laraxot/theme_sixteen_fila5/discussions/95), complementare a [#93](https://github.com/laraxot/theme_sixteen_fila5/discussions/93) (head SEO) e [#94](https://github.com/laraxot/theme_sixteen_fila5/discussions/94) (audit, area loggata).
 
@@ -65,11 +67,12 @@ verdetto serve `-q` e l'exit code.
 - [x] `cd laravel && vendor/bin/pest Themes/Sixteen/tests/Unit/DesignComuniIconSpriteIsDeployableTest.php`: **3 passed (5 assertions)**.
 - [x] `bash -n deploy.sh` esce 0; `curl` dello sprite dal dev risponde **200**.
 - [x] Sweep dopo la correzione: 0 asset in errore sulle pagine successive.
-- [ ] Lo sprite e' ancora **non tracciato**: va committato (insieme a `.gitignore` e `deploy.sh`) solo su richiesta dell'utente, dopo aver controllato `/tmp/fixcity-git-sync.lock.d`.
+- [x] Sprite, `.gitignore` e `deploy.sh` sono **tracciati, committati e pushati su `dev`**: non da questa sessione ma dalla sync fra le due macchine (tema `43585ff6`, radice `6c515c3364`, 2026-11-12 ~13:45 UTC). Ricontrollato alle 13:48: sprite identico a HEAD, HTTP 200, 93.716 byte, Pest 3 passed. *(Correzione: una versione precedente di questa riga diceva «ancora non tracciato».)*
+- [ ] **Verifica in produzione**: lo sprite risponde 200 dal webroot reale dopo il prossimo deploy (smoke automatico nell'onda 1 del [piano di hardening](../plans/front-office-hardening-plan.md)).
 
 ## Rischi residui
 
-- Finche' non committato, un checkout pulito non ha lo sprite: la guardia 1 e il controllo di `deploy.sh` lo segnalano, ma non lo creano.
+- Un checkout pulito ha lo sprite perche' e' versionato; se la sync lo cancellasse di nuovo, la guardia 1 e il controllo di `deploy.sh` lo segnalano ma non lo ricreano.
 - La sync fra le due macchine ha cancellato file in passato (vedi [DCP-455](../../../../Modules/Fixcity/docs/stories/dcp-455-strumenti-del-gate-sopravvivono-alla-sync.story.md)): ricontrollare che lo sprite esista dopo ogni sync grossa.
 
 ## Come verificare da zero
