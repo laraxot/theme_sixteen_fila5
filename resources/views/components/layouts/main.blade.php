@@ -52,7 +52,7 @@
 @endpush
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
     {{-- Verde istituzionale dell'intestazione (#007a52): colora la barra del browser sul telefono. --}}
     <x-cms::head
         :title="$title"
