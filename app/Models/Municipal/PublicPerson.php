@@ -3,14 +3,18 @@
 declare(strict_types=1);
 
 namespace Themes\Sixteen\Models\Municipal;
+
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Themes\Sixteen\Enums\PublicPersonCategoryEnum;
@@ -31,7 +35,7 @@ use Themes\Sixteen\Enums\PublicPersonRoleEnum;
  * @property string|null $qualification
  * @property string|null $role
  * @property string $category
- * @property \Carbon\Carbon|null $birth_date
+ * @property Carbon|null $birth_date
  * @property string|null $birth_place
  * @property string|null $fiscal_code
  * @property string|null $email
@@ -43,25 +47,11 @@ use Themes\Sixteen\Enums\PublicPersonRoleEnum;
  * @property string|null $cv_file_path
  * @property float|null $compensation
  * @property float|null $travel_expenses
- * @property \Carbon\Carbon|null $start_date
- * @property \Carbon\Carbon|null $end_date
+ * @property Carbon|null $start_date
+ * @property Carbon|null $end_date
  * @property bool $is_active
  * @property bool $is_public
- * @property \Carbon\Carbon|null $publication_date
- * @property array|null $privacy_settings
- * @property array|null $social_profiles
- * @property array|null $education
- * @property array|null $work_experience
- * @property array|null $skills
- * @property array|null $languages
- * @property array|null $metadata
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, ContactPoint> $contacts
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsSpeaker
- * @property-read \Illuminate\Database\Eloquent\Collection<int, MunicipalEvent> $eventsAsParticipant * @property Carbon|null $publication_date
+ * @property Carbon|null $publication_date
  * @property array<array-key, mixed>|null $privacy_settings
  * @property array<array-key, mixed>|null $social_profiles
  * @property array<array-key, mixed>|null $education
@@ -86,39 +76,9 @@ use Themes\Sixteen\Enums\PublicPersonRoleEnum;
  */
 class PublicPerson extends Model
 {
+    /** @use HasFactory<Factory<static>> */
     use HasFactory, SoftDeletes;
 
-    /**
-     * Categorie di persone pubbliche secondo AGID
-     */
-    public const CATEGORIES = [
-        'politician' => 'Politico/Amministratore',
-        'manager' => 'Dirigente',
-        'employee' => 'Dipendente',
-        'consultant' => 'Consulente/Collaboratore',
-        'commission_member' => 'Componente Commissione',
-        'board_member' => 'Componente Organo',
-        'authority_member' => 'Componente Autorità',
-        'other' => 'Altro',
-    ];
-
-    /**
-     * Ruoli principali secondo AGID
-     */
-    public const ROLES = [
-        'mayor' => 'Sindaco',
-        'deputy_mayor' => 'Vicesindaco',
-        'councillor' => 'Assessore',
-        'president' => 'Presidente',
-        'vice_president' => 'Vicepresidente',
-        'secretary' => 'Segretario',
-        'general_manager' => 'Direttore Generale',
-        'manager' => 'Dirigente',
-        'supervisor' => 'Responsabile',
-        'employee' => 'Dipendente',
-        'consultant' => 'Consulente',
-        'collaborator' => 'Collaboratore',
-    ];
     protected $table = 'sixteen_public_people';
 
     protected $fillable = [
@@ -175,7 +135,8 @@ class PublicPerson extends Model
     ];
 
     /**
-     * Relazione con i punti di contatto     *
+     * Relazione con i punti di contatto
+     *
      * @return MorphMany<ContactPoint, $this>
      */
     public function contacts(): MorphMany
@@ -184,7 +145,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Relazione con le unità organizzative     *
+     * Relazione con le unità organizzative
+     *
      * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
      */
     public function organizationalUnits(): BelongsToMany
@@ -195,7 +157,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Relazione con le unità organizzative attive     *
+     * Relazione con le unità organizzative attive
+     *
      * @return BelongsToMany<OrganizationalUnit, $this, Pivot, 'pivot'>
      */
     public function activeOrganizationalUnits(): BelongsToMany
@@ -207,7 +170,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Relazione con i documenti associati     *
+     * Relazione con i documenti associati
+     *
      * @return HasMany<PublicDocument, $this>
      */
     public function documents(): HasMany
@@ -217,43 +181,58 @@ class PublicPerson extends Model
 
     /**
      * Scope per persone attive
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopeActive($query)    public function scopeActive(Builder $query): Builder
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);
     }
 
     /**
      * Scope per persone pubbliche
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopePublic($query)    public function scopePublic(Builder $query): Builder
+    public function scopePublic(Builder $query): Builder
     {
         return $query->where('is_public', true);
     }
 
     /**
      * Scope per categoria
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopeOfCategory($query, string $category)    public function scopeOfCategory(Builder $query, string $category): Builder
+    public function scopeOfCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
     }
 
     /**
      * Scope per ruolo
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopeWithRole($query, string $role)    public function scopeWithRole(Builder $query, string $role): Builder
+    public function scopeWithRole(Builder $query, string $role): Builder
     {
         return $query->where('role', $role);
     }
 
     /**
      * Scope per persone in carica
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopeInOffice($query)    public function scopeInOffice(Builder $query): Builder
+    public function scopeInOffice(Builder $query): Builder
     {
         return $query->where('start_date', '<=', now())
-            ->where(function ($q): void {
+            ->where(function (Builder $q): void {
                 $q->whereNull('end_date')
                     ->orWhere('end_date', '>', now());
             });
@@ -261,14 +240,18 @@ class PublicPerson extends Model
 
     /**
      * Scope ordinati per cognome e nome
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
      */
-    public function scopeOrdered($query)    public function scopeOrdered(Builder $query): Builder
+    public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('last_name')->orderBy('first_name');
     }
 
     /**
-     * Ottiene le qualifiche formattate     *
+     * Ottiene le qualifiche formattate
+     *
      * @return array<array-key, mixed>
      */
     public function getFormattedEducation(): array
@@ -289,7 +272,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Ottiene l'esperienza lavorativa formattata     *
+     * Ottiene l'esperienza lavorativa formattata
+     *
      * @return array<array-key, mixed>
      */
     public function getFormattedWorkExperience(): array
@@ -312,7 +296,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Ottiene i profili social formattati     *
+     * Ottiene i profili social formattati
+     *
      * @return array<array-key, mixed>
      */
     public function getFormattedSocialProfiles(): array
@@ -369,6 +354,8 @@ class PublicPerson extends Model
 
     /**
      * Ottiene informazioni per il profilo pubblico
+     *
+     * @return array<array-key, mixed>
      */
     public function getPublicProfile(): array
     {
@@ -404,7 +391,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per il nome completo     *
+     * Accessor per il nome completo
+     *
      * @return Attribute<string, never>
      */
     protected function fullName(): Attribute
@@ -415,7 +403,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per il nome invertito (Cognome, Nome)     *
+     * Accessor per il nome invertito (Cognome, Nome)
+     *
      * @return Attribute<string, never>
      */
     protected function displayName(): Attribute
@@ -426,7 +415,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per il nome della categoria     *
+     * Accessor per il nome della categoria
+     *
      * @return Attribute<string, never>
      */
     protected function categoryName(): Attribute
@@ -437,7 +427,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per il nome del ruolo     *
+     * Accessor per il nome del ruolo
+     *
      * @return Attribute<string|null, never>
      */
     protected function roleName(): Attribute
@@ -448,7 +439,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per l'età     *
+     * Accessor per l'età
+     *
      * @return Attribute<int|null, never>
      */
     protected function age(): Attribute
@@ -459,7 +451,8 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per verificare se è in carica     *
+     * Accessor per verificare se è in carica
+     *
      * @return Attribute<bool, never>
      */
     protected function isInOffice(): Attribute
@@ -476,24 +469,26 @@ class PublicPerson extends Model
     }
 
     /**
-     * Accessor per i giorni rimanenti in carica     *
+     * Accessor per i giorni rimanenti in carica
+     *
      * @return Attribute<float|null, never>
      */
     protected function daysInOffice(): Attribute
     {
         return Attribute::make(
-            get: function (): void {            get: function (): ?float {
+            get: function (): ?float {
                 if (! $this->is_in_office) {
-                    return;
+                    return null;
                 }
 
-                return $this->end_date?->diffInDays(now()) ?? null;                return $this->end_date?->diffInDays(now());
+                return $this->end_date?->diffInDays(now());
             }
         );
     }
 
     /**
-     * Accessor per l'URL della persona     *
+     * Accessor per l'URL della persona
+     *
      * @return Attribute<string, never>
      */
     protected function url(): Attribute
@@ -504,16 +499,14 @@ class PublicPerson extends Model
     }
 
     /**
-     * Mutator per nome (genera automaticamente lo slug)     *
+     * Mutator per nome (genera automaticamente lo slug)
+     *
      * @return Attribute<never, string>
      */
     protected function lastName(): Attribute
     {
         return Attribute::make(
-            set: function ($value) {
-                $this->attributes['last_name'] = $value;
-                if (empty($this->attributes['slug']) && ! empty($this->attributes['first_name'])) {
-                    $this->attributes['slug'] = Str::slug($this->attributes['first_name'].' '.$value);            set: function (string $value): string {
+            set: function (string $value): string {
                 $this->attributes['last_name'] = $value;
                 if (empty($this->attributes['slug']) && ! empty($this->first_name)) {
                     $this->attributes['slug'] = Str::slug($this->first_name.' '.$value);
@@ -532,14 +525,14 @@ class PublicPerson extends Model
         parent::boot();
 
         // Genera slug se mancante
-        static::creating(function ($model): void {        static::creating(function (self $model): void {
+        static::creating(function (self $model): void {
             if (empty($model->slug) && ! empty($model->first_name) && ! empty($model->last_name)) {
                 $model->slug = Str::slug($model->first_name.' '.$model->last_name);
             }
         });
 
         // Assicura unicità dello slug
-        static::creating(function ($model): void {        static::creating(function (self $model): void {
+        static::creating(function (self $model): void {
             $originalSlug = $model->slug;
             $counter = 1;
 
@@ -550,7 +543,7 @@ class PublicPerson extends Model
         });
 
         // Set default privacy settings
-        static::creating(function ($model): void {        static::creating(function (self $model): void {
+        static::creating(function (self $model): void {
             if (empty($model->privacy_settings)) {
                 $model->privacy_settings = [
                     'show_birth_info' => true,

@@ -2,17 +2,12 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Fixcity\App\Models\News;
 use Modules\Fixcity\App\Models\Ticket;
 use Tests\TestCase;
 
-uses(TestCase::class, RefreshDatabase::class);
-
-beforeEach(function () {
-    /** @var TestCase $this */
-    $this->artisan('migrate', ['--database' => 'testing']);
-});
+// Tests\TestCase usa DatabaseTransactions: mai RefreshDatabase ne' `migrate` (dati sacri, e il trait andava in fatale sul metodo gia' definito).
+uses(TestCase::class);
 
 test('homepage returns view', function () {
     /** @var TestCase $this */

@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 return [
+    // Brand name for <x-cms::head> (pub_theme::header.brand.name): de/es inherit from en.
+    'brand' => [
+        'name' => 'FixCity',
+    ],
     'guest' => [
         'login' => [
             'label' => 'Sign in',

@@ -37,7 +37,7 @@ new class extends Component
 ?>
 
 <x-layouts.app>
-    @volt('pages.view')
+    @volt('pages-old.view')
     <div>
         <x-page side="content" :slug="$slug" />
     </div>

@@ -1,7 +1,8 @@
 {{--
     Accordion FAQ `cmp-accordion faq` (collapse montato dal JS condiviso da data-bs-toggle/data-bs-target) e pulsante "Carica altre domande".
     $section = {accordion_id, col_class, items[{id, question, answer}] | source, visible?, filterable?, empty?, more{col_class, label}}. Il riferimento ha
-    aria-expanded="true" su pulsanti chiusi e lo lascia cosi' anche dopo il clic (misurato con dom-diff-after-click): replicato tale e quale per la parity.
+    aria-expanded="true" su pulsanti chiusi: qui NO (WCAG 4.1.2). Il pannello parte chiuso, quindi il pulsante dichiara `false`; il JS condiviso lo
+    alterna al clic. Con `true` iniziale lo stato era invertito per chi usa un lettore di schermo (audit 2026-11-11, F-01); guardia: CollapsedButtonsStartCollapsedTest.
     `source: "faq"` legge le domande pubblicate da Fixcity (ListPublishedFaqsAction) al posto di `items`; l'id mancante diventa `faq-<n>`.
     Senza `visible` e `filterable` il markup e' quello del riferimento (statico). Con `visible` il pulsante `more` mostra le altre domande; con
     `filterable` l'elenco segue il campo di ricerca che ha `filter` = accordion_id (evento `list-filter`); `empty` e' il testo senza risultati. Alpine, nessun CSS.
@@ -21,10 +22,10 @@
                     @php($itemId = $item['id'] ?? 'faq-'.$loop->iteration)
                     <div class="accordion-item"@if ($live) data-text="{{ \Illuminate\Support\Str::lower(($item['question'] ?? '').' '.($item['answer'] ?? '')) }}" x-show="q === '' ? {{ $loop->index }} < shown : $el.dataset.text.includes(q)"@endif>
                         <h2 class="accordion-header" id="heading{{ $itemId }}">
-                            <button class="accordion-button collapsed title-snall-semi-bold py-3" style="color:#17324d !important;background-color:#fff !important" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $itemId }}" aria-expanded="true" aria-controls="collapse{{ $itemId }}">
+                            <button class="accordion-button collapsed title-snall-semi-bold py-3" style="color:#17324d !important;background-color:#fff !important" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $itemId }}" aria-expanded="false" aria-controls="collapse{{ $itemId }}">
                                 <div class="button-wrapper">{{ $item['question'] ?? '' }}
                                     <div class="icon-wrapper">
-                                        <svg class="icon icon-xs me-1 icon-primary"><use href="{{ $icon('') }}" xlink:href="{{ $icon('') }}"></use><span class=""></span></svg>
+                                        <svg class="icon icon-xs me-1 icon-primary"><use href="{{ $icon('it-expand') }}" xlink:href="{{ $icon('it-expand') }}"></use><span class=""></span></svg>
                                     </div>
                                 </div>
                             </button>

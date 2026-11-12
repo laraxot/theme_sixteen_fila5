@@ -65,8 +65,6 @@
     <style>
         .fc-home-news .row-title > div { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: baseline; justify-content: space-between; }
         .fc-home-news .read-more { display: inline-flex; align-items: center; gap: .35rem; font-weight: 600; color: #007a52; text-decoration: none; }
-        .fc-home-news__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1.5rem; margin: 0; }
-        .fc-home-news__grid > [class*="col-"] { width: auto; max-width: none; padding: 0; }
         .fc-home-news .card-wrapper { background: #fff; height: 100%; }
         .fc-home-news .img-wrapper { margin: 0; }
         .fc-home-news .img-wrapper img { width: 100%; height: 12rem; object-fit: cover; display: block; }

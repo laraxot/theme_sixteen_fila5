@@ -13,7 +13,7 @@ related:
   - ../../../../Modules/Blog/docs/stories/blog-events-listing-body-and-search.story.md
   - ../../../../Modules/Fixcity/docs/stories/citizen-receipt-photos-rating-and-real-phone.story.md
 issues: []
-discussions: []
+discussions: ["https://github.com/laraxot/theme_sixteen_fila5/discussions/93"]
 ---
 
 # Front office completeness audit and fixes

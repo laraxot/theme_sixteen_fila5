@@ -3,8 +3,8 @@ title: "CSS SCOPING RULE"
 type: note
 tags: [documentation]
 created: 2026-09-26
-updated: 2026-09-26
-qmd: "CSS SCOPING RULE"
+updated: 2026-11-11
+qmd: "CSS SCOPING RULE specificita body:has data-dc gap row bootstrap blocco inline style"
 issues: []
 discussions: []
 status: draft
@@ -106,3 +106,21 @@ See also:
 Per le pagine con chrome Design Comuni (`pages/tests/*` e le pagine reali con JSON `layout` design-comuni*) lo scope degli stili generati e' `body:has(.page-content[data-dc])`: il `<body>` resta plain e lo scope dipende dal wrapper `data-dc` (DCP-32, decision-log D16); fino al 2026-10-13 era `.page-content[data-slug*="tests."]`. Il wrapper
 canonico e' `div.page-content` (con `data-slug` e `data-dc`). Header, footer, modale di ricerca e skiplink stanno fuori da `page-content` ma dentro lo stesso body, quindi sono coperti dallo stesso scope
 (provato con scope solo su `<main>`: footer 76,6% contro 100%). Shell: `components/layouts/app.blade.php`. Dettagli: `docs/bmad/decisions/parity-root-cause-and-guardrails.md`.
+
+## Specificità: il `<style>` di un blocco perde contro lo scope (2026-11-11)
+
+Lo scope di sopra ha un costo: ogni regola di Bootstrap generata diventa `body:has(.page-content[data-dc]) .row`, e `:has()` conta
+come la specificità del suo argomento, quindi **0,3,1** (`.page-content[data-dc]` pesa 0,2,0, più `body` e `.row`). Un `<style>` scritto dentro un
+blocco con `.mio-blocco__grid { display: grid }` (0,1,0) o `.mio-blocco__grid > [class*="col-"] { padding: 0 }` (0,2,0) **non vince mai**, anche se
+viene dopo nel documento. Gli errori non si vedono: il blocco «Novità» della home dichiarava una griglia `auto-fill`, ma la riga restava `display: flex`
+con colonne da `col-md-6 col-xl-4` e il suo `gap: 1.5rem` **si sommava** al gutter `g-4` (3 × 440 + 2 × 24 = 1368 px in una riga da 1320): a 1440 px la terza
+card andava a capo da sola e a 800 px ce n'era una per riga.
+
+Regole:
+
+- Il layout di una riga Bootstrap lo dicono le **classi nel markup** (`row g-4`, `col-md-6 col-xl-4`): non aggiungere `gap`, `display: grid`, `padding: 0` o
+  `width: auto` per «aggiustarlo», perché il gap funziona (non è in conflitto) e le altre regole no.
+- Se serve davvero una griglia propria, **non usare `.row`**: un elemento con una sola classe del blocco e senza `col-*` sui figli.
+- Se serve sovrascrivere Bootstrap, la specificità deve superare 0,3,1: per esempio `main[data-page="eventi"] .row.g-4 > [class*="col-"]` (0,4,1),
+  come fanno `events-page/design-comuni` e `blog/index`. Si verifica con lo stile **calcolato** (`getComputedStyle`), non rileggendo il CSS.
+- Guardia: `tests/browser/home-news-grid.spec.mjs` (3, 2 e 1 card per riga a 1440, 800 e 375 px). Era rossa prima della correzione.

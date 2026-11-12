@@ -67,3 +67,44 @@ Come ottenere parity Design Comuni con Tailwind/DaisyUI/Lit senza reintrodurre B
 ## Prossimo step BMAD
 
 Vedi [bmad-planning.md](./bmad-planning.md) — eseguire la Wave 1 e aggiornare il decision-log owner.
+
+## Iniziativa Head e readiness front office
+
+Il PO ha selezionato tutte le otto tecniche BMAD per il workstream Head Cms + audit guest/autenticato. La sintesi completa e' nel [report dedicato](./bmad/front-office-readiness-brainstorming.md); il piano operativo e' [front-office-production-readiness-plan.md](./bmad/front-office-production-readiness-plan.md). Le differenze deliberate e la decisione D-7 aperta sono nella [discussion #93](https://github.com/laraxot/theme_sixteen_fila5/discussions/93).
+
+## Sessione 85: difetti muti dello sweep anonimo (2026-11-12)
+
+Tecniche usate: 5 Perche', reverse brainstorming, matrice di scelta delle guardie. Evidenze: [sweep anonimo](./how-to/front-office-anonymous-sweep.md), [sprite](./stories/icon-sprite-deployability.story.md), [griglia Novita'](./stories/home-news-grid-specificity.story.md). Decisioni e alternative scartate: [discussion #95](https://github.com/laraxot/theme_sixteen_fila5/discussions/95).
+
+### 5 Perche'
+
+| Difetto | 1 | 2 | 3 | 4 | 5 (radice) |
+|---|---|---|---|---|---|
+| Sprite icone in 404 su ogni pagina | il file non e' nel repo | `.gitignore` lo escludeva due volte (riga esplicita + `dist/`) | git non rientra in una cartella esclusa | `deploy.sh` non costruisce il tema e controllava solo `manifest.json` | **nessuno verifica cio' che il server dovra' servire** |
+| Home «Novita'» a 2 card per riga | la terza card va a capo | le regole inline del blocco non vincono | lo scope del tema pesa 0,3,1 (`:has()` prende la specificita' del suo argomento) | i blocchi sono scritti contro Bootstrap, non contro lo scope | **nessun controllo misura il layout** |
+| Canonical/hreflang spariti su 36 URL | il nuovo head li emette solo sulle pagine indicizzabili | la «parita'» non li elencava come obbligo | il diff dell'head si faceva a mano | nessuna linea di base presa prima della migrazione | **la parita' era un'intenzione, non un contratto misurabile** |
+| 5 strumenti del gate cancellati | la sync ha adottato le cancellazioni dell'altro lato | nessuna revisione sulle cancellazioni di `bashscripts/tools/` | gli strumenti non sono protetti da nulla | il gate semplicemente non parte, senza errore | **uno strumento mancante non fa fallire niente** |
+
+Filo comune: ogni difetto era **muto** (nessun errore, nessun test rosso). La prevenzione e' una guardia che interroga il sistema reale, non il sorgente.
+
+### Reverse brainstorming: come riprodurli di proposito
+
+1. Aggiungere un asset sotto una cartella ignorata e non toccare `deploy.sh`.
+2. Ridisegnare un `.row` con `gap` dentro un `<style>` di blocco.
+3. Migrare l'head senza salvare prima lo sweep «prima».
+4. Lasciare la sync libera di adottare cancellazioni.
+5. Lanciare il go-live gate sul `.env` di sviluppo e leggere il verde come verde di produzione.
+
+### Matrice delle guardie (scelta)
+
+| Idea | Cosa intercetta | Costo | Falsi positivi | Esito |
+|---|---|---|---|---|
+| Smoke post-deploy (6 URL + asset del tema) | asset mancanti, 500 | basso | pochi (timeout) | **scelta, onda 1** |
+| Guardia degli id icona (`<use href=...#id>` esiste nello sprite) | icone rotte | basso | pochi | **scelta, onda 1** |
+| Censimento dei `<style>` che ridisegnano un `.row` | trappole di specificita' | basso | medi (serve `getComputedStyle`) | **scelta, onda 1** |
+| Sweep come strumento versionato con test | tutto cio' che si vede | medio | medi | **scelta, onda 3** |
+| Diff dell'head in CI | regressioni di parita' | medio | pochi | scelta, onda 2 (dopo DEC-62) |
+| `!important` come regola generale | niente | basso | n/a | **scartata**: nasconde la causa e peggiora la specificita' |
+| Screenshot diff su ogni pagina | layout | alto | **molti** (lazy-load, carico della macchina) | **scartata** |
+
+Piano: [front-office-hardening-plan](./plans/front-office-hardening-plan.md). Decisioni aperte: registro DCP-200, sezione F2 (DEC-62..72).

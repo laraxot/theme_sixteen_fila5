@@ -8,6 +8,10 @@ return [
     | Header Translations (Design Comuni parity — Story 8-105)
     |--------------------------------------------------------------------------
     */
+    // Nome del brand per <x-cms::head> (pub_theme::header.brand.name): de/es ereditano da en.
+    'brand' => [
+        'name' => 'FixCity',
+    ],
     'guest' => [
         'login' => [
             'label' => 'Accedi',

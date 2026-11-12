@@ -8,7 +8,8 @@ test('auth login styling is scoped to reusable component hooks', function (): vo
     $themeRoot = dirname(__DIR__, 2);
     $css = file_get_contents($themeRoot.'/resources/css/app/14-auth-login.css');
     $login = file_get_contents($themeRoot.'/resources/views/pages/auth/login.blade.php');
-    $component = file_get_contents($themeRoot.'/resources/views/components/pages/auth-login.blade.php');
+    // `pages/auth-login.blade.php` e' ormai un alias di una riga: il blocco vero sta in `pages/auth/login.blade.php`.
+    $component = file_get_contents($themeRoot.'/resources/views/components/pages/auth/login.blade.php');
 
     expect($css)
         ->toContain('.auth-login-card')

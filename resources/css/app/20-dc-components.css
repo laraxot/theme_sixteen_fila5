@@ -238,6 +238,15 @@
   fill: var(--bs-primary, #007a52);
 }
 
+/*
+  Focus da tastiera sulle stelle (audit 2026-11-11, F-12): il radio e' 1x1 px (nascosto), quindi l'indicatore visibile e' quello della label, un
+  anello arancione di 2px = 2.14:1 su bianco (minimo 3:1, WCAG 1.4.11/2.4.11). Stesso anello bianco + scuro della regola `.rating > input` qui sotto.
+  `!important` perche' `design-comuni/components.css` (copia del riferimento, minificata) ha `.cmp-rating .rating input:focus+label {box-shadow: ... #f90 !important}`.
+*/
+.page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item input:focus-visible + label {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 5px #1a1a1a !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-content[data-dc] .cmp-rating fieldset.rating.dc-rating-stars .dc-rating-stars__item svg {
     transition: none;

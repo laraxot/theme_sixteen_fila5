@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-    <!-- AGID Required Meta -->
-    <meta name="description" content="Accesso sicuro ai servizi digitali - {{ config('app.name') }}">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#0066CC">
-    
-    <!-- Title -->
-    <title>{{ $title ?? __('pub_theme::components_common.nav.access.label') }} - {{ config('app.name') }}</title>
-    
-    <!-- Assets -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Sixteen')
-    
-    <!-- AGID Custom Styles -->
+@push('styles')
     <style>
         :root {
             --agid-primary: #0066CC;
@@ -189,7 +173,14 @@
             100% { transform: rotate(360deg); }
         }
     </style>
-</head>
+@endpush
+
+<x-cms::head
+    :title="$title ?? __('pub_theme::components_common.nav.access.label')"
+    :description="__('pub_theme::components_common.brand.digital_services.text')"
+    theme-color="#0066CC"
+/>
+
 <body>
     <!-- Skip Links AGID -->
     <a href="#main-content" class="agid-skip-link">{{ __('pub_theme::components_common.skiplinks.main_content.label') }}</a>
@@ -341,5 +332,7 @@
             });
         });
     </script>
+    {{-- Il CSS lo rende <x-cms::head>; il JS del tema resta caricato a fine body (module/defer). --}}
+    @vite(['resources/js/app.js'], 'themes/Sixteen')
 </body>
 </html>

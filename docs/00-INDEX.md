@@ -65,13 +65,16 @@ nuova struttura.
 6. [header/footer parity](bmad/header-footer-parity-report.md) — gate Playwright;
 7. [header/footer data model](bmad/header-footer-data-model.md) — elementi, forma JSON e AC;
 8. [header/footer rationale](second-brain/header-footer-rationale.md) — decisione e perché;
-9. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
-10. [design-comuni](design-comuni/design-comuni-canonical.md) — vincoli visuali;
-11. [design-system](design-system/README.md) — token e componenti del tema;
-12. [pages](pages/) — contratti delle pagine e parity;
-13. [stories](stories/) — storie BMAD e acceptance criteria;
-14. [visual-parity](visual-parity/) — verifiche, screenshot per pagina e report;
-15. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
+9. [front-office readiness plan](bmad/front-office-production-readiness-plan.md) — copertura guest/auth e gate;
+10. [front-office readiness brainstorming](bmad/front-office-readiness-brainstorming.md) — otto tecniche BMAD;
+11. [Cms Head adoption plan](../../../Modules/Cms/docs/bmad/head-component-adoption-plan.md) — ownership, decisioni e parita';
+12. [wiki](wiki/README.md) — conoscenza consolidata e regole on-demand;
+13. [design-comuni](design-comuni/design-comuni-canonical.md) — vincoli visuali;
+14. [design-system](design-system/README.md) — token e componenti del tema;
+15. [pages](pages/) — contratti delle pagine e parity;
+16. [stories](stories/) — storie BMAD e acceptance criteria;
+17. [visual-parity](visual-parity/) — verifiche, screenshot per pagina e report;
+18. [investigation](investigation/) — analisi riproducibili, non decisioni canoniche.
 
 Per le pagine CMS di primo livello, leggere anche il contratto
 [FAQ route ownership](bmad/faq-route-ownership.md): una pagina come
@@ -112,6 +115,14 @@ chiude il gate.
 
 - [Studio del tema reale e correzione degli ingressi](bmad/stories/docs-studio-stato-e-ingressi.story.md): stato vivo provato, conteggi, rotte dormienti, layout `design-comuni*`, indici storici.
 
+## Head Cms e production readiness
+
+- [Audit guest e autenticati](stories/front-office-production-readiness-audit.story.md)
+- [Brainstorming BMAD a otto tecniche](bmad/front-office-readiness-brainstorming.md)
+- [Piano di readiness](bmad/front-office-production-readiness-plan.md)
+- [Decisioni Head e parita'](../../../Modules/Cms/docs/bmad/head-component-adoption-plan.md)
+- [Discussion #93](https://github.com/laraxot/theme_sixteen_fila5/discussions/93)
+
 ## Story BMAD recenti (standard di codice)
 
 - [Parity degli attributi data-* (2026-10-29)](stories/data-attribute-parity.story.md) — via `data-sixteen-*` dal markup; regola in [data-attribute-rule.md](data-attribute-rule.md) (scala di scelta, inventario del riferimento: 12 nomi, nessuno col nome del tema); 6 varianti legacy di header, una sola con un consumatore.
@@ -149,6 +160,20 @@ chiude il gate.
 - [Registro completo delle story](bmad/stories/00-registro-completo.md): le story di `stories/` e `bmad/stories/` che prima non avevano un indice (stato e titolo dichiarati nei file)
 - [DCP-148 dettaglio pubblico e Segui](bmad/stories/dcp-148-dettaglio-pubblico-segnalazione-e-segui.story.md): blocco `components/blocks/ticket-detail/design-comuni.blade.php`
 - [DCP-152 (modulo Geo): marker del dettaglio e pulsanti della mappa](../../../Modules/Geo/docs/stories/dcp-152-marker-dettaglio-ticket-e-pulsanti-mappa-su-pagine-dc.story.md): il blocco passa `marker-icon-url`, `marker-color`, `marker-label` al `coordinate-picker-lit` (vedi [coordinate-picker](wiki/coordinate-picker.md))
+
+## Audit front office anonimo (2026-11-12)
+
+- [Sprite delle icone: deve arrivare in produzione (F-01/F-02)](stories/icon-sprite-deployability.story.md): `.gitignore` a due livelli, `test -f` in `deploy.sh`, guardia che interroga git
+- [Home «Novita'»: 3 card per riga (F-06)](stories/home-news-grid-specificity.story.md): specificita' dello scope contro il `<style>` dei blocchi
+- [Sweep del front office anonimo e diff dell'head](how-to/front-office-anonymous-sweep.md): metodo, soglie, trappole
+- [Piano di hardening: guardie e strumenti](plans/front-office-hardening-plan.md): onde per non ripetere i difetti muti
+- [Brainstorming, sessione 85](bmad-brainstorming.md): 5 Perche', reverse brainstorming, matrice delle guardie
+- Discussione con decisioni e alternative scartate: [#95](https://github.com/laraxot/theme_sixteen_fila5/discussions/95)
+
+## Decisione wizard privacy — 2026-11-12
+
+- [DCP-456-Sixteen: informativa a due livelli](bmad/stories/ticket-create-privacy-design-comuni-decision.story.md)
+- [Discussion #96](https://github.com/laraxot/theme_sixteen_fila5/discussions/96): differenze tra informativa integrale duplicata e avviso breve con approfondimento.
 
 --- BMAD + second brain note (agent AI update 2026-10-14) ---
 - [second brain: kp-174d15a58ff94901b2b0df0d86b8907a] Design Comuni parity
