@@ -89,6 +89,14 @@ Vedi ADR root [fo-pa-tokens-no-per-page-hex.md](../../../../../docs/wiki/decisio
 
 ## Verifica
 
+## Pass 2026-11-12 — reinvio verifica email
+
+Il pulsante «clicca qui per richiederne un altro» della pagina `/it/auth/verify`
+usa `wire:target="resend"`: durante l’invio viene disabilitato, mostra lo
+spinner Filament e il testo localizzato «invio in corso…». Lo stato è esposto
+anche con `aria-busy` e `role="status"`, così l’utente non ripete il click e
+il feedback è comprensibile anche con tecnologia assistiva.
+
 ## Pass 2026-10-20 — checkbox Ricordami
 
 `Checkbox::make('remember')` c'era. In pagina il riquadro non si vedeva: `body:has(.page-content[data-dc]) input` impone `-webkit-appearance: none` e le utility Filament (sfondo, anello, spunta) non dipingono, quindi il controllo da 20px è trasparente. Il vestito disegna il riquadro su `.fi-checkbox-input`, spunta bianca su verde quando è selezionato. Nessun checkbox scritto a mano.

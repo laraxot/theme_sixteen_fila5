@@ -74,8 +74,20 @@ rebuild o un ripristino che non cambia nessun esito e' una prova utile quanto un
 - `git check-ignore -v` stampa anche le negazioni: usare `-q` e l'exit code.
 - Un test che cerca una riga in un file di configurazione puo' essere verde mentre il comportamento e' rotto (falso verde): provarlo rosso su una copia.
 - Dopo una sync fra le due macchine controllare che gli strumenti citati esistano ancora (il merge `1af871d0c` ne ha cancellati cinque).
+- **429 non e' un difetto.** `/{lang}/tickets/track` ha un freno (`throttle:10,1`, DCP-149/150): 4 lingue x 2 viewport in pochi secondi dallo stesso IP lo fanno scattare. Una pagina in 429 **non e' stata misurata**: rilanciare con `--concurrency 1` o dopo un minuto, mai contarla come buona.
+- **Un 500 o `|---LINE:n---|` improvvisi su pagine che nessuno ha toccato** sono quasi sempre una gara fra sessioni: un `view:clear` o una build di un altro agente mentre si misura. Prima di cercare nel codice: rilanciare dopo un minuto; se persiste, rimuovere **solo** i file toccati in `storage/framework/views` (mai un `view:clear` generale, DCP-377).
+- **Chiave grezza che compare solo su una pagina nuova:** controllare le chiavi della vista contro i file lang (`FixcityTranslationKeysCitedByViewsExistTest`): nasce da un lavoro a meta' di un'altra sessione, non da un difetto del sito.
 
 ## Limite attuale
 
-Gli script usati (sweep Playwright, analisi, diff dell'head) erano locali alla sessione e **non sono versionati**: questo documento e' la specifica per riscriverli.
-Promuoverli a strumento con test e' proposto nell'onda 3 del [piano di hardening](../plans/front-office-hardening-plan.md).
+**Aggiornamento 2026-11-12.** Lo sweep (raccolta, regole di analisi, self-test) e' ora versionato in `bashscripts/tools/visual/fo-sweep.mjs`:
+
+```bash
+node bashscripts/tools/visual/fo-sweep.mjs --self-test
+node bashscripts/tools/visual/fo-sweep.mjs --base http://127.0.0.1:8081 --out /tmp/sweep-guest.json                      # ospite
+node bashscripts/tools/visual/fo-sweep.mjs --base http://127.0.0.1:8091 --state /tmp/scratch-auth-fixture-$USER/auth.json --out /tmp/sweep-auth.json   # loggato (utente di prova)
+```
+
+Ricava gli URL dalla `sitemap.xml`, apre ognuno a 1440 e 375 px, esce con 1 se trova anomalie. Con `--only <sottostringa>` si rilancia una pagina sola dopo una correzione.
+Resta **da fare**: il diff dell'head sul DOM e la soglia nel go-live gate (`--sweep`), onda 3 del [piano di hardening](../plans/front-office-hardening-plan.md).
+**Non** sostituisce il confronto con il riferimento Design Comuni: gli strumenti di parita' (`parity-gate.sh`, `compare-*.mjs`) sono stati cancellati da un mirror (vedi [DCP-455](../../../../Modules/Fixcity/docs/stories/dcp-455-strumenti-del-gate-sopravvivono-alla-sync.story.md), «Seconda perdita»).

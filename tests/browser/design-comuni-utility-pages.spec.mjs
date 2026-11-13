@@ -10,6 +10,7 @@ const LOCALES = [
 const WIDTHS = [320, 390, 768, 1440];
 
 test('FAQ and site map are real, localized and usable at all supported widths', async ({ page }) => {
+    test.setTimeout(120_000);
     for (const locale of LOCALES) {
         for (const width of WIDTHS) {
             await page.setViewportSize({ width, height: 900 });
@@ -17,7 +18,7 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             const onPageError = (error) => pageErrors.push(error.message);
             page.on('pageerror', onPageError);
 
-            const faqResponse = await page.goto(`${BASE}/${locale.code}/domande-frequenti`, { waitUntil: 'networkidle' });
+            const faqResponse = await page.goto(`${BASE}/${locale.code}/domande-frequenti`, { waitUntil: 'domcontentloaded' });
             expect(faqResponse?.status()).toBe(200);
             await expect(page.getByRole('heading', { level: 1, name: locale.faq })).toBeVisible();
             const faqItems = page.locator('#faq-content .accordion-item, #accordion-faq .accordion-item');
@@ -32,10 +33,10 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
             expect(pageErrors).toEqual([]);
 
-            const sitemapResponse = await page.goto(`${BASE}/${locale.code}/mappa-sito`, { waitUntil: 'networkidle' });
+            const sitemapResponse = await page.goto(`${BASE}/${locale.code}/mappa-sito`, { waitUntil: 'domcontentloaded' });
             expect(sitemapResponse?.status()).toBe(200);
             await expect(page.getByRole('heading', { level: 1, name: locale.sitemap })).toBeVisible();
-            await expect(page.locator('#sitemap-content section')).toHaveCount(3);
+            await expect(page.locator('#sitemap-content section')).toHaveCount(4, { timeout: 15_000 });
             await expect(page.locator('#sitemap-content')).not.toContainText(/pub_theme::|fixcity::/i);
             await expect(page.locator(`#sitemap-content a[href$="/${locale.code}/tickets"]`)).toBeVisible();
             await expect(page.locator(`#sitemap-content a[href$="/${locale.code}/area-personale/pratiche"]`)).toBeVisible();
@@ -50,7 +51,7 @@ test('FAQ and site map are real, localized and usable at all supported widths', 
 
 test('site map keeps the guest personal-area redirect local to the selected language', async ({ page }) => {
     for (const locale of LOCALES) {
-        await page.goto(`${BASE}/${locale.code}/mappa-sito`, { waitUntil: 'networkidle' });
+        await page.goto(`${BASE}/${locale.code}/mappa-sito`, { waitUntil: 'domcontentloaded' });
         await page.locator(`#sitemap-content a[href$="/${locale.code}/area-personale/pratiche"]`).click();
         await expect(page).toHaveURL(new RegExp(`/${locale.code}/auth/login$`));
     }

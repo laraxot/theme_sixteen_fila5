@@ -15,7 +15,14 @@
             <div class="cmp-breadcrumbs" role="navigation">
                 <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::blocks_common.shared.breadcrumb.label') }}"><ol class="breadcrumb p-0" data-element="breadcrumb">
                     @foreach ($d('breadcrumb.items', []) as $crumb)
-                        <li class="breadcrumb-item"><a href="{{ $crumb['url'] ?? '#' }}">{{ $crumb['label'] ?? '' }}</a><span class="separator">/</span></li>
+                        <li class="breadcrumb-item">
+                            @if (filled($crumb['url'] ?? null) && ($crumb['url'] ?? '') !== '#')
+                                <a href="{{ $crumb['url'] }}">{{ $crumb['label'] ?? '' }}</a>
+                            @else
+                                <span>{{ $crumb['label'] ?? '' }}</span>
+                            @endif
+                            <span class="separator">/</span>
+                        </li>
                     @endforeach
                     <li class="breadcrumb-item active" aria-current="page">{{ $d('breadcrumb.current') }}</li>
                 </ol></nav>

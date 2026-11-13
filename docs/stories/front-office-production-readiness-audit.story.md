@@ -253,3 +253,127 @@ Richiesta dell'utente: «documenta tutto dentro le cartelle docs dentro i moduli
 | [Piano a onde](../plans/front-office-ux-performance-backlog-plan.md) | ordine proposto: decisioni, guardie, misure, modifiche | proposta |
 
 I numeri delle story vengono dal registro DCP-200 (DEC-69…72) e dalla numerazione per ora di creazione del file. Le story DCP-455…457 del modulo Fixcity (gate, passo 1 del wizard) non sono di questo elenco.
+
+## Terzo giro (2026-11-12): ospite e utente loggato con lo strumento versionato
+
+Fase BMAD: **Test/Fix** (verifica reale, poi correzione, poi guardia). Sessione Claude, in parallelo alla passata Codex qui sotto: le due non si sovrappongono, questa misura i **difetti muti** (chiavi grezze, meta mancanti, 4xx/5xx) che un test sul sorgente non vede.
+
+**Strumento:** `bashscripts/tools/visual/fo-sweep.mjs` (versionato, `--self-test`, solo GET). Ricava gli URL dalla `sitemap.xml` della base e apre ogni pagina a 1440 e 375 px; registra status, title/description/canonical/hreflang/robots, h1, alt, chiavi grezze, overflow orizzontale, asset in 4xx ed errori di console. Con `--state` usa la sessione dell'utente di prova isolato (`scratch-auth-fixture.sh`, DB scratch), mai l'utente reale.
+
+| Base | URL distinti | Record (URL x viewport) | Anomalie prima | Dopo (riesecuzione mirata sulle pagine corrette) |
+|---|---|---|---|---|
+| ospite, dev `:8081` | 140 | 280 | 15: 7 chiavi grezze su `/{lang}/tickets/track`, 1 x 500 e 7 marcatori `\|---LINE:n---\|` | `/tickets/track` in 4 lingue: 0 chiavi grezze; 2 x 429 sul freno anti-abuso (vedi sotto) |
+| loggato, fixture `:8091` | 116 | 232 | 14: 5 chiavi grezze su `/{lang}/tickets/track`, 8 x `description` assente su `/{lang}/tickets/create`, 1 x 429 | 0 su `track` e su `create` |
+
+### Difetti trovati e corretti
+
+| Id | Difetto (MISURATO) | Causa | Correzione | Guardia |
+|---|---|---|---|---|
+| T-01 | `/{lang}/tickets/track` mostra le chiavi grezze `fixcity::ticket.track.my_tickets_title` e altre sei, **in tutte e quattro le lingue**, a ospite e a loggato | la vista `components/pages/ticket-track.blade.php` (lavoro in corso dell'altra sessione) cita 7 chiavi che nessun file lang definiva: `login_hint`, `login_link`, `my_tickets_title`, `my_tickets_intro`, `my_tickets_empty`, `my_tickets_sent_on`, `my_tickets_all` | 7 chiavi aggiunte in `Modules/Fixcity/lang/{it,de,es}/ticket.php` e `en/ticket_track.php` (additive, dopo `not_found_help`) | `Themes/Sixteen/tests/Unit/FixcityTranslationKeysCitedByViewsExistTest.php`: ogni chiave letterale `fixcity::` citata dalle viste esiste in it/en/de/es (`hasForLocale`, senza fallback); i prefissi dinamici sono esclusi. **Prova inversa:** tolta `my_tickets_title` da `de`, rosso con chiave e `file:riga`; ripristinata, verde (5/5) |
+| T-02 | da loggato `/{lang}/tickets/create` non ha `<meta name="description">` (8 record su 8) | `tickets/create.json` non aveva il campo `description` localizzato, a differenza di `track.json` | `description` it/en/de/es aggiunta alle **tre** copie del JSON (tenant `config/local/fixcity/.../tickets/create.json`, `Modules/Fixcity/config/database/content/pages/tickets.create.json` e `.../tickets/create.json`) | `TicketCreatePageMiddlewareGuardTest` controllava solo 2 copie su 3 pur dicendo «three copies»: ora le controlla tutte e 3. **Prova inversa:** testo guastato nella terza copia, rosso; ripristinata, verde |
+| T-03 | 1 x 500 e 7 marcatori `\|---LINE:n---\|` su pagine che il codice non ha rotto | file compilati in `storage/framework/views` lasciati da un 500 e un `view:clear` di un'altra sessione a metà richiesta (stessa famiglia di DCP-377) | rimossi i 2 file toccati, rigenerati da soli; niente `view:clear` generale | nessuna: e' una gara fra sessioni, non un difetto del sito. Regola nel how-to |
+
+**Non e' un difetto:** `/{lang}/tickets/track` risponde 429 se lo sweep apre 4 lingue x 2 viewport in pochi secondi dallo stesso IP (freno `throttle` di DCP-149/150, voluto). Una pagina in 429 **non e' stata misurata**: lo sweep la segnala come tale (`status 429: freno anti-abuso, pagina NON misurata`), non la dichiara buona. Ripetuta a freno scaduto: 200, nessuna chiave grezza, link «Inicia sesión» tradotto.
+
+**Misura che non ho preso:** nessuna misura di tempo, la macchina era a carico 27-49 (F-05). `ComuneControllerTest` (18 rossi) resta la linea di base nota, non toccata da questo giro.
+
+## Evidenza corrente — passata Codex 2026-11-12
+
+Questa sezione sostituisce ogni risultato storico non riconvalidato. Graphify è stato interrogato prima dell'esplorazione del codice; le pagine Hindsight archiviate sono state verificate contro l'albero corrente.
+
+| Gate | Evidenza | Esito |
+|---|---|---|
+| Bootstrap | `composer check-platform-reqs`, `php artisan --version`, `route:list --json`, `view:cache` da `laravel/` | pass; PHP 8.4.27, Laravel 13.42.0 |
+| Asset tema | `npm run build` da `laravel/Themes/Sixteen` | pass; Vite 8.3.4 |
+| Suite Sixteen Unit+Feature | Pest Unit + Feature | **197 failed, 6 skipped, 494 passed, 3539 assertions**; non verde |
+| Routing | `folio:list --json` + HTTP su `127.0.0.1:8081` | Folio registra `tickets/create`, `tickets/track` e `area-personale/*`; HTTP guest verificato: home, track, privacy, cookie-policy, ricerca e mappa-sito 200; create e area-personale redirigono al login localizzato. Flussi autenticati e provider reali restano aperti |
+| Identità digitale | test sicurezza mirato + route gate | callback SPID/CIE fail-closed senza certificato/JWKS trusted; route disabilitate di default |
+| Browser | `a11y-axe.spec.mjs`, guest, 375/768/1440, server `127.0.0.1:8081` | prima passata **23 pass, 12 skip auth, 1 fail** per 429 transitorio sul throttle intenzionale `10/min`; ripetizione isolata di `/it/tickets/track` a 375: pass, 0 violazioni. Fixture autenticata e screenshot non eseguiti |
+
+### Correzioni di questa passata
+
+- I blocchi riusabili di breadcrumb, hero, dettaglio news e conferma segnalazione non emettono più `href="#"` quando manca un URL CMS; i CTA senza destinazione vengono omessi e non vengono inventati valori demo di email, ricevuta o servizi.
+- Il CSS del blocco blog è scoped a `.sixteen-blog-index`, non a `main[data-page="lista-risorse"]`, quindi resta riusabile fuori da una pagina specifica.
+- I callback SPID/CIE verificano firma trusted e i `return_url` restano sulla stessa origine; sono stati aggiunti test fail-closed.
+
+### Decisione di rilascio
+
+Stato: **NON PRODUCTION READY**. Restano aperti suite rossa, fixture autenticata, screenshot/manual UX, gate dell'ambiente target e verifica di provider/certificati reali.
+
+## Quarta passata — parity responsive header/footer (2026-11-12)
+
+Scope: Sixteen rispetto al markup Design Comuni, a 375/768/1440 px, con utente ospite e stato autenticato rappresentato dal contratto del tema.
+
+- Il caricamento isolato dei JSON CMS durante i test ora si inizializza lazily da `config/<tenant>/database/content`, senza scrivere mai nei contenuti versionati. Questo evita che `x-section` venga verificato senza i blocchi reali di header/footer.
+- Il test browser del tracking ora limita il submit al form `.dc-ticket-track__form`; prima selezionava anche i submit della ricerca globale e produceva un falso fallimento.
+- Verifica Pest mirata: **21 pass, 218 assertions** (`FooterV1DesignComuniStructureTest`, `HeaderSlimBarContractTest`).
+- Verifica browser tracking: **2 pass**, incluse larghezze 320/390/575/576/768/1440 e contrasto a 375/1280. Il `429` multilingua resta il rate limit intenzionale `10/min`, non un difetto responsive.
+
+Resta non certificabile il go-live complessivo: la suite Sixteen completa e i flussi autenticati reali devono ancora essere verdi e il gate va eseguito sull'ambiente di destinazione.
+
+### Evidenza aggiuntiva Codex: parity visiva e responsive
+
+La fixture isolata è stata avviata su `127.0.0.1:8092` con database scratch e storage separato; il login UI reale ha prodotto una
+sessione Playwright autenticata. Le pagine del wizard (passo 1, dati/mappa e riepilogo) e dell'area personale (pratiche, seguite,
+notifiche, impostazioni) hanno superato axe WCAG 2.1 AA a **375, 768 e 1440 px**: **21/21 pass**, 0 violazioni bloccanti.
+
+Il controllo DOM/screenshot su home ospite e autenticata ha misurato, a tutte le tre larghezze, `scrollWidth === clientWidth` (overflow
+orizzontale 0), header e footer presenti, e asset CSS del tema caricati dal manifest Vite. Il menu mobile si apre entro il viewport e
+chiude con `Escape`; il menu utente autenticato resta entro il viewport a 375, 768 e 1440 px. Le immagini di controllo sono state
+salvate fuori dal repository in `/tmp/fixcity-{guest,auth}-{375,768,1440}.png`.
+
+Durante il controllo è emerso un drift di contratto: «I miei servizi» usava `FrontofficeRoutes::servicesIndex()` mentre il riferimento
+Design Comuni e le guardie del tema richiedono la named Folio route `services.categories`. Il partial vivo
+`components/sections/header/partials/user-dropdown.blade.php` è stato riallineato alla route canonica; le guardie
+`HeaderAreaPersonaleLinksContractTest` e `HeaderV1SlimDropdownContractTest` ora sono **17/17 pass**.
+
+La parità non equivale ancora a certificazione di produzione: restano la suite completa rossa (fallimenti storici da triagiare), il
+go-live gate sull'ambiente target, i provider SPID/CIE reali e le prove con tecnologie assistive/rete degradata.
+
+## Quinta passata — parita' chrome e fix /area-personale/servizi (2026-11-19)
+
+Scope: verifica parita' Sixteen ↔ Design Comuni (header/footer/CSS) e responsive 375/768/1440,
+piu' chiusura dei 404 residui trovati dal crawl.
+
+### Esiti della verifica
+
+- **Chrome identico su tutte le pagine**: misura DOM computata su 19 URL (home, blog, eventi,
+  ticket, track, create, confirmation, privacy, FAQ, ricerca, servizi, lista-categorie,
+  mappa-sito, login, register, 404, area personale) — header 222px / Titillium Web / 17 link
+  e footer 547px / 17 link ovunque, `data-dc` presente anche sulle pagine `layout: app`
+  (ricerca, track, mappa-sito, lista-categorie): nessuna divergenza visiva del chrome.
+- **Nessun overflow orizzontale** a 375/768/1440 su 18 screenshot (`scratchpad/fo-audit/shots.js`).
+- **Flussi interattivi verdi**: login ok/ko, wizard creazione segnalazione (23 step),
+  API tickets/list e geojson 200, track page con input.
+
+### Fix applicato
+
+- **`/it/area-personale/servizi` 404 → 200**: mancava la pagina CMS `area-personale.servizi`
+  (le 4 sorelle ce l'hanno). La catch-all `[container0]/[slug0]` del tema risolve via
+  `ResolvePageAction` e abortiva 404 prima del blade Volt legacy in `Modules/User`.
+  Creato `config/local/fixcity/database/content/pages/area-personale/servizi.json`
+  (`design-comuni`, `auth`, it/en/de/es, blocco `content-page` + `cards-simple`).
+  Story: `Modules/User/docs/stories/area-personale-servizi-cms-page.story.md`.
+  Verifiche: guest 302→login (it/en), auth 200 con H1 "I miei servizi",
+  `view:cache` ok, `PersonalAreaPagesTest` 34/34.
+
+### Restano 404 legittimi (rotta non piu' esistente / pagine di test)
+
+`/it/learn`, `/it/genesis/*`, `/it/mobile*`, `/it/prova`, `/it/artisan-commands-manager`,
+`/it/dashboard`, `/it/profile/edit`, `/it/notifications`, `/it/errors/password-expired`,
+`/it/segnalazione-dettaglio` — nessun link pubblico li raggiunge; sono pagine legacy o di
+test non collegate. Nessuna azione: nessun soft-404, il 404 e' genuino.
+
+## Pagina sfuggita: `/it/auth/verify` (2026-11-12)
+
+Segnalata dall'utente: la pagina non e' coerente con Design Comuni. **Causa dell'omissione (MISURATA, non dedotta):**
+
+- La pagina e' del modulo User (`Modules/User/resources/views/pages/auth/verify.blade.php`), non ha override in `Themes/Sixteen/.../pages/auth/` (li' ci sono solo `login`, `register`, `logout`, `password/reset`) e usa `<x-layouts.main>` con markup Tailwind/Breeze (`sm:max-w-md`, `dark:`), senza componenti Design Comuni.
+- `middleware(['auth', 'throttle:6,1'])`: da ospite risponde **302 a `/it/auth/login`**, quindi lo sweep da ospite misurava il login, mai la verifica.
+- Non e' nella `sitemap.xml` (0 voci `/auth/`) e la lista fissa di `fo-sweep.mjs` aveva solo `/auth/login` e `/auth/register`: il tool puo' vedere solo cio' che gli si elenca, e la coerenza visiva con DC **non e' una sua misura** (DCP-455: strumenti di parita' cancellati).
+- Lo sweep verificava assenza di difetti tecnici (chiavi grezze, overflow, asset 4xx, axe), non l'uso del layout giusto.
+
+**Rimedio gia' applicato:** `fo-sweep.mjs` ora include `/auth/verify`, `/auth/password/reset`, `/auth/password/confirm`, `/profile/edit`, `/dashboard`.
+
+**Altre pagine sospette (inventario per grep, NON ancora aperte nel browser):** pagine Folio dei moduli senza override in Sixteen con markup Tailwind e senza componenti DC: `User/auth/verify`, `User/auth/password/confirm`, `User/dashboard/index`, `User/profile/edit`, `User/learn/index`, `User/genesis/about`, `User/genesis/power-ups`, `Fixcity/prova`. Da verificare quali sono raggiungibili e con quale utente; **un 404 o un'incoerenza non si ripara con un file in `Themes/Sixteen/.../pages`** (regola del tema, solo `auth/` e' ammessa): si porta la vista del modulo ai componenti DC o si decide con DEC-70.
+**Aperto:** correggere `verify` (e `password/confirm`) e rilanciare lo sweep da loggato; poi giro visivo delle altre sette.

@@ -18,7 +18,19 @@
     .auth-login-card .auth-login-links a,
     .auth-login-card form a { color: #007a52; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .auth-login-shell__crumb a:focus-visible,
-    .auth-login-card a:focus-visible { outline: 2px solid #007a52; outline-offset: 2px; }
+    .auth-login-card a:focus-visible,
+    .auth-login-card .auth-login-links button.auth-link-button:focus-visible { outline: 2px solid #007a52; outline-offset: 2px; }
+    /* Azioni secondarie che non sono link (resend verifica email, logout da verify): stesso aspetto dei link. */
+    .auth-login-card .auth-login-links button.auth-link-button { padding: 0; border: 0; background: none; font: inherit; color: #007a52; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .auth-link-button__loading { display: none; align-items: center; gap: 0.375rem; }
+    .auth-link-button--loading .auth-link-button__label { display: none; }
+    .auth-link-button--loading .auth-link-button__loading { display: inline-flex; }
+    .auth-link-button:disabled { cursor: wait; opacity: 0.7; }
+    /* Il CSS di Filament non e' caricato nel front office: l'SVG dell'indicatore non ha ne' misura ne' animazione (misurato 59x59 e fermo). */
+    .auth-link-button__spinner { flex: none; width: 0.875rem; height: 0.875rem; transform-origin: center; animation: auth-link-spin 0.8s linear infinite; }
+    @keyframes auth-link-spin { to { transform: rotate(360deg); } }
+    /* Con "riduci animazioni" il movimento resta, piu' lento: e' l'unico segnale che l'invio e' in corso. */
+    @media (prefers-reduced-motion: reduce) { .auth-link-button__spinner { animation-duration: 2.4s; } }
     /* Niente pannello con bordo: le pagine di accesso, registrazione e nuova password hanno la stessa resa delle altre pagine
        (titolo allineato al breadcrumb, contenuto sullo sfondo della pagina). Il riquadro c'era solo qui: incoerente. */
     .auth-login-card { background: transparent; border: 0; border-radius: 0; padding: 1rem 0 2.5rem; }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Contracts\UserContract;
 use Themes\Sixteen\Actions\SpidAuthAction;
+use Themes\Sixteen\Actions\Auth\SanitizeReturnUrlAction;
 use Themes\Sixteen\Events\SpidAuthenticated;
 use Themes\Sixteen\Events\SpidLoggedOut;
 
@@ -36,7 +37,8 @@ class SpidAuthController extends Controller
     {
         try {
             $level = (int) $request->query('level', 2);
-            $returnUrl = $request->query('return_url', app(GetPostLoginUrlAction::class)->execute());
+            $fallbackUrl = app(GetPostLoginUrlAction::class)->execute();
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $request->query('return_url'), $fallbackUrl);
 
             // Valida il provider
             $providers = $this->spidService->getProviders();
@@ -101,7 +103,7 @@ class SpidAuthController extends Controller
 
             // Redirect all'URL di ritorno
             $returnUrl = Session::pull('spid.return_url');
-            $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : app(GetPostLoginUrlAction::class)->execute();
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $returnUrl, app(GetPostLoginUrlAction::class)->execute());
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione SPID completata con successo.');

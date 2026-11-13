@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Contracts\UserContract;
 use Themes\Sixteen\Actions\CieAuthAction;
+use Themes\Sixteen\Actions\Auth\SanitizeReturnUrlAction;
 use Themes\Sixteen\Events\CieAuthenticated;
 use Themes\Sixteen\Events\CieLoggedOut;
 
@@ -35,7 +36,8 @@ class CieAuthController extends Controller
     public function login(Request $request): RedirectResponse
     {
         try {
-            $returnUrl = $request->query('return_url', app(GetPostLoginUrlAction::class)->execute());
+            $fallbackUrl = app(GetPostLoginUrlAction::class)->execute();
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $request->query('return_url'), $fallbackUrl);
 
             Log::info('CIE login initiated', [
                 'method' => 'web',
@@ -64,7 +66,8 @@ class CieAuthController extends Controller
     public function mobileLogin(Request $request): RedirectResponse|JsonResponse
     {
         try {
-            $returnUrl = $request->query('return_url', app(GetPostLoginUrlAction::class)->execute());
+            $fallbackUrl = app(GetPostLoginUrlAction::class)->execute();
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $request->query('return_url'), $fallbackUrl);
 
             Log::info('CIE mobile login initiated', [
                 'method' => 'mobile',
@@ -136,7 +139,7 @@ class CieAuthController extends Controller
 
             // Redirect all'URL di ritorno
             $returnUrl = Session::pull('cie.return_url');
-            $returnUrl = is_string($returnUrl) && $returnUrl !== '' ? $returnUrl : app(GetPostLoginUrlAction::class)->execute();
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $returnUrl, app(GetPostLoginUrlAction::class)->execute());
 
             return redirect()->to($returnUrl)
                 ->with('success', 'Autenticazione CIE completata con successo.');
@@ -164,7 +167,7 @@ class CieAuthController extends Controller
             $user = Auth::user();
             $sessionUserData = Session::get('cie.user_data');
             $userData = is_array($sessionUserData) ? $sessionUserData : null;
-            $returnUrl = $request->query('return_url', route('home'));
+            $returnUrl = app(SanitizeReturnUrlAction::class)->execute($request, $request->query('return_url'), route('home'));
 
             if ($user !== null && $userData !== null) {
                 Log::info('CIE logout initiated', [

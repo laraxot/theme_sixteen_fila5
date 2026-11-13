@@ -81,32 +81,30 @@
 @endphp
 
 <style>
-    main[data-page="lista-risorse"] .row.g-4 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-    main[data-page="lista-risorse"] .row.g-4 > [class*="col-"] { width: auto; max-width: none; padding: 0; }
+    .sixteen-blog-index .row.g-4 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    .sixteen-blog-index .row.g-4 > [class*="col-"] { width: auto; max-width: none; padding: 0; }
     /* Griglia senza i margini negativi di .g-4 (il testo "nessuna novità" usciva di 0.75rem dal container); messaggio vuoto su tutta la riga. */
-    main[data-page="lista-risorse"] .row.g-4 { margin-left: 0; margin-right: 0; }
-    main[data-page="lista-risorse"] .row.g-4 > .col-12 { grid-column: 1 / -1; }
-    main[data-page="lista-risorse"] .img-responsive-panoramic img { width: 100% !important; height: 12rem !important; object-fit: cover !important; display: block !important; }
-    main[data-page="lista-risorse"] .cmp-input-search .input-group { position: relative; display: flex; align-items: stretch; }
-    main[data-page="lista-risorse"] .cmp-input-search .form-control { padding-left: 2.5rem !important; }
-    main[data-page="lista-risorse"] .cmp-input-search .autocomplete-icon { position: absolute; left: 0.65rem; top: 50%; width: 1.25rem; height: 1.25rem; transform: translateY(-50%); pointer-events: none; z-index: 1; overflow: hidden; }
-    main[data-page="lista-risorse"] .cmp-input-search .autocomplete-icon svg { width: 1.25rem; height: 1.25rem; display: block; }
-    main[data-page="lista-risorse"] .card-wrapper { background: #fff; height: 100%; }
-    main[data-page="lista-risorse"] .card-title,
-    main[data-page="lista-risorse"] .card-title a,
-    main[data-page="lista-risorse"] .category { color: #007a52; text-decoration: none; }
-    main[data-page="lista-risorse"] .card-title { font-size: 1.25rem; line-height: 1.3; margin: 0 0 0.5rem; }
-    main[data-page="lista-risorse"] .card-text { color: #5c6f82; }
-    main[data-page="lista-risorse"] .bg-grey-card { background: #eceff1; }
-    main[data-page="lista-risorse"] .pagination { display: flex; gap: 0.5rem; list-style: none; padding: 0; justify-content: center; }
-    main[data-page="lista-risorse"] .page-link { color: #007a52; }
+    .sixteen-blog-index .img-responsive-panoramic img { width: 100% !important; height: 12rem !important; object-fit: cover !important; display: block !important; }
+    .sixteen-blog-index .cmp-input-search .input-group { position: relative; display: flex; align-items: stretch; }
+    .sixteen-blog-index .cmp-input-search .form-control { padding-left: 2.5rem !important; }
+    .sixteen-blog-index .cmp-input-search .autocomplete-icon { position: absolute; left: 0.65rem; top: 50%; width: 1.25rem; height: 1.25rem; transform: translateY(-50%); pointer-events: none; z-index: 1; overflow: hidden; }
+    .sixteen-blog-index .cmp-input-search .autocomplete-icon svg { width: 1.25rem; height: 1.25rem; display: block; }
+    .sixteen-blog-index .card-wrapper { background: #fff; height: 100%; }
+    .sixteen-blog-index .card-title,
+    .sixteen-blog-index .card-title a,
+    .sixteen-blog-index .category { color: #007a52; text-decoration: none; }
+    .sixteen-blog-index .card-title { font-size: 1.25rem; line-height: 1.3; margin: 0 0 0.5rem; }
+    .sixteen-blog-index .card-text { color: #5c6f82; }
+    .sixteen-blog-index .bg-grey-card { background: #eceff1; }
+    .sixteen-blog-index .pagination { display: flex; gap: 0.5rem; list-style: none; padding: 0; justify-content: center; }
+    .sixteen-blog-index .page-link { color: #007a52; }
     @media (max-width: 768px) {
-        main[data-page="lista-risorse"] .row.g-4 { grid-template-columns: 1fr; }
+        .sixteen-blog-index .row.g-4 { grid-template-columns: 1fr; }
     }
 </style>
 
 {{-- Breadcrumb: id main-container resta su <main> (skiplink); niente id duplicato. --}}
-<div class="container">
+<div class="container sixteen-blog-index">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="cmp-breadcrumbs" role="navigation">

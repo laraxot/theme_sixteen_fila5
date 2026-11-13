@@ -4,18 +4,16 @@
     $steps = $data['steps'] ?? ['Autorizzazioni e condizioni', 'Dati di segnalazione', 'Riepilogo', 'Conferma'];
     $step = $data['step'] ?? 4;
     $title = $data['title'] ?? 'Segnalazione inviata';
-    $receiptCode = $data['receipt_code'] ?? 'AN4059281';
+    $receiptCode = $data['receipt_code'] ?? null;
     $summaryText = $data['summary_text'] ?? 'Grazie, abbiamo ricevuto la tua segnalazione';
     $visibilityText = $data['visibility_text'] ?? 'Sarà visibile sulla lista di tutte segnalazioni una volta presa in carico dall\u2019amministrazione.';
     $emailIntro = $data['email_intro'] ?? 'Abbiamo inviato il riepilogo all\u2019email:';
-    $email = $data['email'] ?? 'giulia.bianchi@gmail.com';
+    $email = $data['email'] ?? null;
     $receiptLabel = $data['receipt_label'] ?? 'Scarica la ricevuta (PDF 100KB)';
     $reservedText = $data['reserved_text'] ?? 'Consulta la richiesta';
     $reservedSuffix = $data['reserved_suffix'] ?? 'nella tua area riservata';
     $relatedTitle = $data['related_title'] ?? 'Servizi correlati';
-    $relatedServices = $data['related_services'] ?? [
-        ['label' => 'Richiesta appuntamento', 'url' => '/it/tests/appuntamento-01-ufficio'],
-    ];
+    $relatedServices = $data['related_services'] ?? [];
     $ratingTitle = $data['rating_title'] ?? 'Quanto è stato facile usare questo servizio?';
     $positiveTitle = $data['positive_title'] ?? 'Quali sono stati gli aspetti che hai preferito?';
     $negativeTitle = $data['negative_title'] ?? 'Dove hai incontrato le maggiori difficoltà?';

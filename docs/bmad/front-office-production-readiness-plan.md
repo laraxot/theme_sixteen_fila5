@@ -73,6 +73,13 @@ Check all supported locales `it`, `en`, `de`, and `es` where the route is expect
 
 ## Evidence and coordination rules
 
+### Current execution evidence — 12 November 2026
+
+- Production guest smoke checks returned `200` for `/it` and `/it/auth/login`.
+- The live axe sweep exposed one serious, shared footer defect: the footer home link used `aria-label="FixCity"` while also containing the visible `FixCity` heading. The shared footer now relies on that visible heading as its accessible name. The deployed site must be rebuilt/deployed before the live check can turn green.
+- Historical baseline: the authenticated browser sweep was not certified because no isolated `FIXCITY_STORAGE_STATE` fixture was available and the local application server was not running.
+- Owner-scoped tables (`users`, `socialite_users`, `ticket_subscribers`) belong to the `user` connection/database; production migration status and config cache still require a server-side read-only check.
+
 The existing audit story reports earlier URL sweeps, fixes, and test results. Treat those as historical reports until the exact checks are rerun against the current tree. The worktree already contains extensive concurrent modifications; do not overwrite or revert them. Check ownership and locks before touching a shared file, and append verification findings rather than silently rewriting another session's record.
 
 The Ruflo claims service returned `policy-anchor-log-missing` in this session. That is a coordination-tool blocker, not evidence that no other claim exists. Local file-lock checks were free when inspected; repeat them immediately before shared edits.
@@ -91,3 +98,77 @@ Use isolated browser state and credentials that are not committed or written int
 - [Front-office production-readiness audit](../stories/front-office-production-readiness-audit.story.md)
 - [Cms Head migration](../../../../Modules/Cms/docs/stories/head-sixteen-layout-migration.story.md)
 - [Head parity closeout and D-7](../../../../Modules/Cms/docs/stories/head-sixteen-parity-closeout.story.md)
+
+## Verification update — 12 November 2026
+
+- `php artisan test Themes/Sixteen/tests/Unit --compact`: rerun after removing the obsolete `ComuneControllerTest`; the current Sixteen contracts are the source of truth for CMS/Folio routes.
+- `npm run lint`: passes with no errors after replacing the modal ternary side effect with an explicit branch.
+- `npm run build`: passes; Vite emitted the production manifest and assets. The generated asset set still requires deployment and a live cache-busting smoke check.
+- The old `ComuneControllerTest` asserted removed `comune.*` routes and non-existent `Modules\\Fixcity\\App\\Models` classes. It was deleted as a stale duplicate of `ComunePagesTest`, not skipped to hide a product failure.
+- Remaining release blockers are environmental: authenticated browser state, local app server, deployed asset verification, and the Cms Head D-7 decision.
+
+### Fresh isolated browser verification
+
+The previous authenticated-fixture note is superseded for local evidence by a fresh,
+isolated scratch fixture (server `127.0.0.1:8091`, storage state kept outside the
+repository). The strict axe suite was rerun serially:
+
+- `45 passed`, `1 skipped`, `0` axe violations, across guest and authenticated pages,
+  the ticket wizard and personal area at 375, 768 and 1440 px.
+- The single skip is the optional mobile ticket-filter interaction because the current
+  page does not render its trigger; opening/focus/Escape behavior therefore remains
+  explicitly unverified, not green by implication.
+- The authenticated fixture had a verified email, so the ticket wizard reached its
+  map and summary steps. This removes the earlier fixture-induced `/auth/verify` and
+  `429` noise from the browser evidence; it does not certify production.
+
+The route sweep completed with the rate-limit exception recorded below. Production assets, target
+database migrations/config cache and Cms Head D-7 remain release blockers. The local
+audit helper was also corrected to derive screenshot output from `__dirname` and to
+accept `FIXCITY_BASE_URL`; the stale homepage assertion and non-recursive Folio test
+file scan were corrected and their focused suite passes (`16 tests, 175 assertions`).
+
+The completed sweep sampled 248 route/viewport combinations and stopped with eight
+`429` responses, all on localized `/auth/verify` pages. Those pages were not measured;
+the responses are rate-limiter noise from the shared local fixture, not a functional
+pass. A production decision must rerun this subset after the limiter window or with a
+dedicated test account/IP and record the result separately.
+
+### Live production check — 12 November 2026
+
+Una verifica guest contro `https://fixcity.eu` ha confermato `200` per home, login,
+lista ticket e tracking; `/tickets/create` e `/auth/verify` ridirigono correttamente a
+login senza sessione; `/tickets/1` restituisce il 404 applicativo atteso. Tuttavia la
+suite axe live ha fallito tutti i 24 casi guest (8 pagine × 3 viewport) per la stessa
+violazione serious `label-content-name-mismatch`: il deploy live contiene ancora
+`aria-label="FixCity"` sul link che contiene il titolo visibile `FixCity`.
+
+La correzione è già presente nel sorgente del footer e passa sulla fixture locale, ma
+non è ancora presente nell'ambiente live. È quindi necessario pubblicare il codice
+aggiornato e svuotare/ricompilare le view prima di ripetere la verifica production.
+
+Il controllo asset live è invece verde: il manifest Sixteen, lo sprite Design Comuni,
+`assets/xot/header-actions-wrap.css` e `/api/tickets/geojson` hanno restituito `200`
+con content type coerente.
+
+L'accesso SSH read-only tentato con l'utente applicativo `ploi` sull'IP risolto da
+`fixcity.eu` è stato rifiutato (`Permission denied (publickey)`); nessuna modifica
+remota è stata quindi eseguita. Il deploy resta un'azione del gestore con accesso al
+server, da verificare poi con il comando Playwright riportato nel runbook Xot.
+
+La sola correzione runtime del footer è stata isolata e pubblicata su `laraxot/dev`
+nel commit `3fb6e00b40`. Il controllo live successivo ha ancora rilevato il markup
+precedente: il push non attiva un deploy Ploi automatico in questo repository.
+
+### Hardening aggiornato — 12 novembre 2026
+
+- L'audit integrale ha riprodotto un errore applicativo nei flussi di creazione e
+  cancellazione ticket: `Ticket` dichiarava `deleted_at` e veniva chiamato con
+  `withTrashed()`, ma non usava `SoftDeletes`. Il model ora abilita il trait e i
+  test mirati non riproducono più quell'errore.
+- L'audit deploy ha trovato una riga distruttiva in `deploy.sh` che cancellava
+  `database/migrations/*`; è stata rimossa e la regola è stata annotata nel runbook
+  Xot. Il deploy staging/live resta da verificare con accesso al server.
+- Il risultato locale resta distinto dal risultato live: il footer corretto, la
+  cache delle view e lo schema/configurazione `user` non sono ancora certificati
+  sull'ambiente pubblico.

@@ -17,7 +17,14 @@
             <div class="cmp-breadcrumbs" role="navigation">
                 <nav class="breadcrumb-container" aria-label="{{ __('pub_theme::components_common.a11y.breadcrumb_trail.label') }}"><ol class="breadcrumb p-0" data-element="breadcrumb">
                     @foreach ($d('breadcrumb.items', []) as $crumb)
-                        <li class="breadcrumb-item"><a href="{{ $crumb['url'] ?? '#' }}">{{ $crumb['label'] ?? '' }}</a><span class="separator">/</span></li>
+                        <li class="breadcrumb-item">
+                            @if (filled($crumb['url'] ?? null) && ($crumb['url'] ?? '') !== '#')
+                                <a href="{{ $crumb['url'] }}">{{ $crumb['label'] ?? '' }}</a>
+                            @else
+                                <span>{{ $crumb['label'] ?? '' }}</span>
+                            @endif
+                            <span class="separator">/</span>
+                        </li>
                     @endforeach
                     <li class="breadcrumb-item active" aria-current="page">{{ $d('breadcrumb.current') }}</li>
                 </ol></nav>
@@ -41,7 +48,7 @@
         <div class="col-lg-3 offset-lg-1">
             @foreach ($d('actions', []) as $action)
                 <div class="dropdown d-inline">
-                    <button aria-label="{{ $action['aria_label'] ?? '' }}" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="{{ $action['id'] ?? '' }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg class="icon" aria-hidden="true"><use xlink:href="{{ $sprite($action['icon'] ?? '') }}"></use></svg>
+                    <button aria-label="{{ $action['aria_label'] ?? ($action['label'] ?? __('pub_theme::a11y.actions')) }}" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="{{ $action['id'] ?? '' }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg class="icon" aria-hidden="true"><use xlink:href="{{ $sprite($action['icon'] ?? '') }}"></use></svg>
                         <small>{{ $action['label'] ?? '' }}</small></button>
                     <div class="dropdown-menu shadow-lg" aria-labelledby="{{ $action['id'] ?? '' }}">
                         <div class="link-list-wrapper">
@@ -61,7 +68,7 @@
                 <div class="row"><span class="mb-2 small">{{ $d('topics.title') }}</span></div>
                 <ul class="d-flex flex-wrap gap-1">
                     @foreach ($d('topics.items', []) as $topic)
-                        <li><a class="chip chip-simple" href="#"><span class="chip-label">{{ $topic }}</span></a></li>
+                        <li><span class="chip chip-simple"><span class="chip-label">{{ $topic }}</span></span></li>
                     @endforeach
                 </ul>
             </div>
@@ -121,7 +128,7 @@
                     <div class="card-wrapper rounded shadow-sm h-auto">
                         <div class="card card-teaser card-teaser-info rounded shadow-sm p-4">
                             <div class="card-body pe-3">
-                                <h5 class="card-title"><a class="text-decoration-none" href="#"> {{ $d('curator.office.name') }} </a></h5>
+                        <h5 class="card-title">{{ $d('curator.office.name') }}</h5>
                                 <div class="card-text">
                                     @foreach ($d('curator.office.lines', []) as $line)
                                         <p>{{ $line }}</p>
@@ -136,7 +143,7 @@
                     <h6><small>{{ $d('curator.people.title') }}</small></h6>
                     <ul class="d-flex flex-wrap gap-1 mt-2">
                         @foreach ($d('curator.people.items', []) as $person)
-                            <li><a class="chip chip-simple" href="#"><span class="chip-label">{{ $person }}</span></a></li>
+                            <li><span class="chip chip-simple"><span class="chip-label">{{ $person }}</span></span></li>
                         @endforeach
                     </ul>
                 </div>

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Actions;
 
+use Firebase\JWT\JWK;
+use Firebase\JWT\JWT;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -247,13 +249,29 @@ class CieAuthAction
 
     protected function validateIdToken(string $idToken): array
     {
-        $parts = explode('.', $idToken);
-
-        if (count($parts) !== 3) {
-            throw new Exception('Invalid JWT format');
+        $jwksUri = config('cie.certificates.jwks_uri');
+        if (! is_string($jwksUri) || $jwksUri === '') {
+            throw new Exception('JWT signature verification unavailable');
         }
 
-        $payload = json_decode(base64_decode($parts[1]), true);
+        $headerPart = explode('.', $idToken)[0] ?? '';
+        $headerPart .= str_repeat('=', (4 - strlen($headerPart) % 4) % 4);
+        $header = json_decode(base64_decode(strtr($headerPart, '-_', '+/'), true) ?: '', true);
+        $algorithms = config('cie.token.algorithms', []);
+        if (! is_array($header) || ! is_array($algorithms) || ! in_array($header['alg'] ?? null, $algorithms, true)) {
+            throw new Exception('JWT signature verification failed');
+        }
+
+        $jwks = Http::acceptJson()->get($jwksUri);
+        if (! $jwks->successful() || ! is_array($keySet = $jwks->json())) {
+            throw new Exception('JWT signature verification failed');
+        }
+
+        try {
+            $payload = (array) JWT::decode($idToken, JWK::parseKeySet($keySet));
+        } catch (Exception $exception) {
+            throw new Exception('JWT signature verification failed', previous: $exception);
+        }
 
         if (! isset($payload['nonce']) || $payload['nonce'] !== Session::get('cie.nonce')) {
             throw new Exception('Nonce verification failed');

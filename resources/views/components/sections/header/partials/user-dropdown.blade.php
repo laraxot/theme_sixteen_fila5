@@ -45,7 +45,7 @@
                 <div class="link-list-wrapper">
                     <ul class="link-list">
                         <li>
-                            <a class="dropdown-item list-item" href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeRoutes::servicesIndex() }}" role="menuitem">
+                            <a class="dropdown-item list-item" href="{{ route('services.categories') }}" role="menuitem">
                                 <span>{{ __('pub_theme::header.user.dropdown.my_services.label') }}</span>
                             </a>
                         </li>

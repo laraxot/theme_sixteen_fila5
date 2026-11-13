@@ -63,6 +63,7 @@
 
     $brand = is_array($brand) ? $brand : [];
     $brandLogo = trim((string) ($brand['logo'] ?? '')) !== '' ? (string) $brand['logo'] : 'assets/fixcity/svg/logo.svg';
+    $brandName = $value($brand['name'] ?? null, 'FixCity');
     $eu_logo = is_array($eu_logo) ? $eu_logo : [];
     $euSrc = trim((string) ($eu_logo['src'] ?? ''));
     $contact = is_array($contact) ? $contact : [];
@@ -118,11 +119,12 @@
                         <img class="ue-logo" src="{{ \Themes\Sixteen\Infrastructure\Assets\DesignComuniAssets::url($euSrc) }}" alt="{{ $value($eu_logo['alt'] ?? null) }}">
                     @endif
                     <div class="it-brand-wrapper">
+                        {{-- The visible brand heading already provides the accessible name. --}}
                         <a href="{{ $localize('/') }}">
                             {{-- stesso marchio dell'header (schema brand.logo) --}}
                             @include('pub_theme::components.sections.partials.brand-mark', ['src' => $brandLogo, 'size' => 82, 'invert' => true])
                             <div class="it-brand-text">
-                                <h2 class="no_toc">{{ $value($brand['name'] ?? null) }}</h2>
+                                <h2 class="no_toc">{{ $brandName }}</h2>
                                 @if (filled($brand['description'] ?? null))
                                     <p class="h3">{{ $value($brand['description'] ?? null) }}</p>
                                 @endif

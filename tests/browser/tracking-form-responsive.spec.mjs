@@ -95,7 +95,7 @@ test('tracking search remains readable, responsive and keyboard-operable', async
       expect(response?.status(), `${locale} response`).toBe(200);
 
       const input = page.locator('#ticket-track-code');
-      const button = page.locator('form button[type="submit"]');
+      const button = page.locator('.dc-ticket-track__form button[type="submit"]');
       await expect(input).toBeVisible();
       await expect(input).toHaveAttribute('required', '');
       await expect(input).toHaveAttribute('aria-describedby', /ticket-track-help/);
@@ -106,7 +106,7 @@ test('tracking search remains readable, responsive and keyboard-operable', async
         await page.setViewportSize({ width, height: 900 });
         const geometry = await page.evaluate(() => {
           const inputRect = document.querySelector('#ticket-track-code').getBoundingClientRect();
-          const buttonRect = document.querySelector('form button[type="submit"]').getBoundingClientRect();
+          const buttonRect = document.querySelector('.dc-ticket-track__form button[type="submit"]').getBoundingClientRect();
           return {
             input: { x: inputRect.x, y: inputRect.y, width: inputRect.width, right: inputRect.right, bottom: inputRect.bottom },
             button: { x: buttonRect.x, y: buttonRect.y, width: buttonRect.width, right: buttonRect.right, bottom: buttonRect.bottom },
@@ -144,7 +144,7 @@ test('tracking search remains readable, responsive and keyboard-operable', async
 });
 
 test('track submit button keeps opaque background and WCAG contrast at 375 and 1280 (DCP-195 B1)', async ({ page }) => {
-  const buttonSelector = 'form button[type="submit"]';
+  const buttonSelector = '.dc-ticket-track__form button[type="submit"]';
 
   for (const width of CONTRAST_WIDTHS) {
     await page.setViewportSize({ width, height: 900 });

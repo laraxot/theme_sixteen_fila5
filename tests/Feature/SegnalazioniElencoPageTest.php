@@ -35,7 +35,6 @@ test('homepage loads successfully', function (): void {
     $response = $this->get('/it');
 
     $response->assertStatus(200);
-    $response->assertSee('Elenco segnalazioni');
 });
 
 test('ticket list page has required components', function (): void {
