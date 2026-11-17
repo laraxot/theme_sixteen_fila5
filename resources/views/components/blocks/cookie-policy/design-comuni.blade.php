@@ -45,7 +45,8 @@
                 <div class="col-lg-9" data-element="cookie-policy">
                     <p>{{ $t('policy_intro') }}</p>
                     {{-- Il CSS del tema non definisce .table-responsive e le utility Tailwind sono spente nello scope data-dc: lo scorrimento a 375 px e' inline finche' una regola non entra in 20-dc-components.css (build). --}}
-                    <div class="table-responsive" style="overflow-x: auto">
+                    {{-- tabindex + role region: su telefono la tabella scorre e va raggiunta da tastiera (axe scrollable-region-focusable, WCAG 2.1.1) --}}
+                    <div class="table-responsive" style="overflow-x: auto" tabindex="0" role="region" aria-label="{{ $t('policy_table_caption') }}">
                         <table class="table table-borderless-0 align-middle" data-element="cookie-inventory">
                             <caption>{{ $t('policy_table_caption') }}</caption>
                             <thead>
