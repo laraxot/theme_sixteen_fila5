@@ -157,7 +157,7 @@
                                 <span class="d-lg-block navbar-brand">{{ $regionLink['name'] }}</span>
                             @endif
                         @endif
-                        <div class="it-header-slim-right-zone ms-auto" role="navigation">
+                        <div class="it-header-slim-right-zone ms-auto" role="navigation" aria-label="{{ __('pub_theme::header.slim.tools_aria') }}">
                             @include('pub_theme::components.sections.header.partials.language-switcher')
                             @if ($isSignedIn)
                                 @include('pub_theme::components.sections.header.partials.user-dropdown')

@@ -343,8 +343,8 @@ status: draft
 ## 🔗 Documenti Correlati
 
 - [Blocks System Index](../design-comuni/blocks/00-index.md)
-- [Pages Census](../design-comuni/pages-census.md)
-- [Product Brief](../design-comuni/product-brief.md)
+- [Pages Census](design-comuni/pages-census.md)
+- [Product Brief](design-comuni/product-brief.md)
 - [Layout Architecture](../architecture/layout-architecture.md)
 - [Replikate.txt](./prompts/replikate.txt)
 

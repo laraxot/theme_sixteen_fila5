@@ -45,12 +45,12 @@
             </div>
         </div>
 
-        <aside class="fc-home-hero__signal" aria-label="{{ $signal_eyebrow }}">
+        <div class="fc-home-hero__signal" role="group" aria-label="{{ $signal_eyebrow }}">
             <span class="fc-home-hero__signal-mark" aria-hidden="true"></span>
             <p class="fc-eyebrow">{{ $signal_eyebrow }}</p>
             <p class="fc-home-hero__signal-value">{{ $signal_heading }}</p>
             <p class="fc-home-hero__signal-body">{{ $signal_body }}</p>
             <div class="fc-home-hero__signal-line" aria-hidden="true"></div>
-        </aside>
+        </div>
     </div>
 </section>

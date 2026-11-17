@@ -16,7 +16,7 @@ status: draft
 
 **Status**: In Progress  
 **Last Updated**: 2026-04-02  
-**Related**: [← Master Index](../00-HOMEPAGE-REPLICATION-INDEX.md)
+**Related**: [← Master Index](../00-homepage-replication-index.md)
 
 ---
 
@@ -105,7 +105,7 @@ Analyzes each major section:
 ---
 
 **Navigation**: 
-- [← Back to Master Index](../00-HOMEPAGE-REPLICATION-INDEX.md)
+- [← Back to Master Index](../00-homepage-replication-index.md)
 - [Next: Screenshots →](../screenshots/README.md)
 
 
@@ -122,7 +122,7 @@ Analyzes each major section:
 - Element differences inventory
 - Recommendation: Proceed to CSS/JS phase
 
-🔗 [Read](./FAQ-STRUCTURE-ANALYSIS.md) | [← Back](#-documents-in-this-folder)
+🔗 [Read](faq-structure-analysis.md) | [← Back](#-documents-in-this-folder)
 
 ---
 
@@ -135,7 +135,7 @@ Analyzes each major section:
 - Expected Tailwind CSS classes
 - Implementation roadmap
 
-🔗 [Read](./FAQ-VISUAL-ANALYSIS.md) | [← Back](#-documents-in-this-folder)
+🔗 [Read](faq-visual-analysis.md) | [← Back](#-documents-in-this-folder)
 
 ---
 

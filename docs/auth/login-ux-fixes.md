@@ -108,13 +108,13 @@ Lo schema aveva già `->password()->revealable()`. In pagina l'occhio stava sott
 **Verifica 2026-10-20 (live fixcity.eu):** markup con `passwordRevealFormComponent()`,
 classe `fi-revealable`, bottoni Filament «Mostra password» / «Nascondi password»
 e SVG occhio. Contratto: [filament-blueprint.md](../bmad/filament-blueprint.md),
-decisione D25 in [decision-log.md](../bmad/decision-log.md), test
+decisione D25 in [decision-log.md](../decision-log.md), test
 `LoginPasswordRevealableTest` nel modulo User.
 
 **Verifica 2026-10-20 (live fixcity.eu):** markup con `passwordRevealFormComponent()`,
 classe `fi-revealable`, bottoni Filament «Mostra password» / «Nascondi password»
 e SVG occhio. Contratto: [filament-blueprint.md](../bmad/filament-blueprint.md),
-decisione D25 in [decision-log.md](../bmad/decision-log.md), test
+decisione D25 in [decision-log.md](../decision-log.md), test
 `LoginPasswordRevealableTest` nel modulo User.
 
 ## Non è ancora la pagina del riferimento

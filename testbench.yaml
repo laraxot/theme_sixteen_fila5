@@ -1,0 +1,2 @@
+providers:
+  - Themes\Sixteen\Providers\ThemeServiceProvider
