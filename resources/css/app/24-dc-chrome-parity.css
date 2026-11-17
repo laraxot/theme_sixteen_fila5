@@ -1,0 +1,101 @@
+/*
+ * Parita' del chrome (header e footer) con Design Comuni.
+ * Riferimento misurato: italia/design-comuni-pagine-statiche 2.4 (bootstrap-italia 2.9), stesse pagine a 360-1440 px
+ * (story docs/stories/dc-chrome-responsive-parity.story.md). Regole legacy con `.it-header-*`/`.it-brand-*` e `!important`
+ * sfuggono all'isolamento (postcss/isolate-legacy-important.cjs le esenta) e imponevano valori diversi sulle pagine reali:
+ * logo 82 px anche su telefono (header alto 120 px invece di 80), titolo 16 px su desktop invece di 28, pulsante di ricerca
+ * di 36 px bianco invece dell'icona su area 48x48. Qui il contratto finale, con specificita' sopra quelle regole.
+ */
+
+/* Header centrale: logo e titolo. Sotto 992 px come Design Comuni; da 992 px logo 82 e titolo 28. */
+html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-brand-wrapper > a > svg.icon {
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  height: 48px !important;
+  margin-right: 8px !important;
+}
+
+html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-brand-wrapper .it-brand-title {
+  font-size: 1.25rem !important;
+  line-height: 1.1 !important;
+  font-weight: 600 !important;
+}
+
+html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-brand-wrapper .it-brand-tagline {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 991.98px) {
+  /* Altezza 80 px come Design Comuni: logo 48 + 16 sopra e sotto (prima 16 + 12 + 88 di min-height = 120 px). */
+  html body:has(.page-content[data-dc]) .it-header-center-wrapper {
+    height: 80px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-header-center-content-wrapper {
+    min-height: 80px !important;
+    height: 80px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Ricerca su telefono e tablet: icona bianca 24 px su area di tocco 48x48, senza cerchio (Design Comuni). */
+  html body:has(.page-content[data-dc]) .it-header-center-content-wrapper .it-search-wrapper .search-link {
+    width: 3rem !important;
+    height: 3rem !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    margin-left: 1rem !important;
+  }
+
+  html body:has(.page-content[data-dc]) .it-header-center-content-wrapper .it-search-wrapper .search-link svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    fill: #ffffff !important;
+  }
+
+  /* Il logo del footer resta uguale a quello dell'header (istruzione «logo footer = logo header»). */
+  html body:has(.page-content[data-dc]) .it-footer .it-brand-wrapper svg.icon.fc-brand-mark {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-brand-wrapper > a > svg.icon {
+    flex: 0 0 82px !important;
+    width: 82px !important;
+    height: 82px !important;
+    margin-right: 16px !important;
+  }
+
+  html body:has(.page-content[data-dc]) .it-header-center-wrapper .it-brand-wrapper .it-brand-title {
+    font-size: 1.75rem !important;
+  }
+}
+
+/*
+ * Spazio fra header e breadcrumb: Design Comuni ha 24 px (32 px da 768) di `margin-top` su `.cmp-breadcrumbs`.
+ * 22-header-shell.css lo azzera perche' il margine lasciava una fascia bianca fra l'header verde e le sezioni a fondo
+ * grigio. Stesso spazio come `padding-top`: prende lo sfondo della sezione, quindi niente fascia bianca, e il breadcrumb
+ * non e' piu' incollato all'header.
+ */
+html body:has(.page-content[data-dc]) .cmp-breadcrumbs {
+  margin-top: 0 !important;
+  padding-top: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  html body:has(.page-content[data-dc]) .cmp-breadcrumbs {
+    padding-top: 2rem !important;
+  }
+}
+
+/* Nome della regione nella barra sottile: peso normale come Design Comuni (era semibold sotto 992 px). */
+html body:has(.page-content[data-dc]) .it-header-slim-wrapper .navbar-brand {
+  font-weight: 400 !important;
+}
