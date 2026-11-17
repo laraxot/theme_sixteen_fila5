@@ -1,0 +1,51 @@
+/**
+ * /it/auth/login — LAYOUT ONLY.
+ *
+ * I colori e i bordi arrivano da:
+ *   - FoFormShell  → components/fo-filament-form-shell.css  (bordo wrapper, focus, suffix)
+ *   - PA Tokens    → components/civic-design-tokens.css    (--fixcity-primary, --fixcity-field-*)
+ *   - PaDesignColors → Modules\Xot\Support\PaDesignColors   (Filament primary verde #007A52)
+ *   - XotServiceProvider::registerPaFilamentColors()       (FilamentColor::register FO widget)
+ *   - ApplyMetatagToPanelAction                            (colors su ogni XotBasePanelProvider)
+ *
+ * VIETATO qui:
+ *   - Hex `#007A52` / `#006945` / `#5c6f82` su `body[data-page='auth-login']`
+ *   - Override di `bg-primary-*` / `hover:bg-primary-*` su CTA
+ *   - Ridefinire `border` / `box-shadow` su `.fi-input-wrp` (è compito di fo-filament-form-shell)
+ *
+ * REGOLE: docs/Themes/Sixteen/docs/architecture/fo-pa-tokens-uniformity.md
+ *          laravel/docs/wiki/memories/pa-design-colors-no-hex-overrides.md
+ *
+ * Scope: `body[data-page="auth-login"]` (anche `auth-register` se l'override è solo di layout).
+ */
+body[data-page='auth-login'] main,
+body[data-page='auth-register'] main {
+    @apply bg-slate-50;
+}
+
+body[data-page='auth-login'] .auth-login-card .fi-section,
+body[data-page='auth-register'] .auth-register-card .fi-section {
+    @apply rounded-none border-0 shadow-none;
+}
+
+/* Helper testo Filament v5 (fi-sc-dense sotto il campo) */
+body[data-page='auth-login'] .fo-filament-form-shell .fi-sc.fi-inline.fi-sc-dense,
+body[data-page='auth-register'] .fo-filament-form-shell .fi-sc.fi-inline.fi-sc-dense {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+body[data-page='auth-login'] .fo-filament-form-shell .fi-sc.fi-inline.fi-sc-dense .fi-sc-text,
+body[data-page='auth-register'] .fo-filament-form-shell .fi-sc.fi-inline.fi-sc-dense .fi-sc-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--dc-gray-medium, #5c6f82);
+}
+
+/* Password register: sempre colonna piena (no affiancamento stretto) */
+body[data-page='auth-register'] .fo-filament-form-shell .fi-grid-col:has([id='form.password']),
+body[data-page='auth-register'] .fo-filament-form-shell .fi-grid-col:has([id='form.password_confirmation']) {
+    grid-column: 1 / -1;
+}
+
+/* Skip-link già gestito da layout PA; qui solo eventuali tweak di posizione assenti. */
