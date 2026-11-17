@@ -274,5 +274,5 @@ ls -la resources/dist/assets/
 - [Route Patterns](../route-patterns.md)
 - [Layout Base](resources/views/layouts/base.blade.php)
 - [Vite Config](vite.config.js)
-- [Package.json](package.json)
+- [Package.json](../Main_files/five/package.json)
 

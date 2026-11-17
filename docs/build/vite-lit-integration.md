@@ -376,7 +376,7 @@ static styles = css`
 
 - [Lit Concepts in Geo Module](../../../../Modules/Geo/docs/wiki/concepts/lit-web-components.md)
 - [Vite Configuration](./vite.config.js)
-- [App Entry Point](./resources/js/app.js)
+- [App Entry Point](../Main_files/five/src/app.js)
 
 ---
 

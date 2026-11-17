@@ -16,7 +16,7 @@ status: draft
 - Incidente: `header.json` e' tornato con marker `.merge_file_*` alle 20:51 (dopo la risoluzione delle 20:49), JSON non valido e fascia senza regione; risolto di nuovo tenendo il lato "Demo". Verificare sempre `json_decode` dopo un sync.
 - Regressione trovata dalle misure: cerchio bianco con icona bianca (invisibile) e hover #00966a con testo 3,8:1. Corretti con le misure del riferimento (24px, icona verde 18px, hover #006342).
 - Bug di accessibilita' trovato dal test rosso: con l'ente che vince, `aria-label` e `title` dicevano ancora "Demo" (WCAG 2.5.3). `RegionPortalLinkLabels::resolve` ora segue il nome dell'ente.
-- Link: [decision-log D35](../bmad/decision-log.md), [studio e misure](../bmad/header-design-comuni-study.md).
+- Link: [decision-log D35](../decision-log.md), [studio e misure](../bmad/header-design-comuni-study.md).
 
 ## [2026-10-26] git + fo | audit dei marker di merge nel front office: 5 file, entrambi i lati studiati
 
@@ -25,7 +25,7 @@ status: draft
 - Regressione trovata: prendere l'incoming puro del footer faceva leggere `pub_theme::footer.*`, che esiste solo in italiano. In de il footer mostrava "Telefono:" e orari/numero verde senza etichetta. Test rosso poi verde: `FooterV1DesignComuniStructureTest` + `EnteDataFrontOfficeTest` = 58 test, 729 asserzioni.
 - Incidente: questo log era stato sovrascritto da una sessione parallela (1422 righe ridotte a 33); ripristinato dal blob di HEAD, in avanti, senza reset.
 - Altri marker rimasti nei moduli: solo in file `.old` di backup, non runtime.
-- Link: [MERGE_CONFLICT_RESOLUTION_LOG](../merge-conflict-resolution-log.md), [decision-log](../bmad/decision-log.md).
+- Link: [MERGE_CONFLICT_RESOLUTION_LOG](../merge-conflict-resolution-log.md), [decision-log](../decision-log.md).
 
 ## [2026-10-26] (voce di una sessione parallela, imprecisa: vedi la voce sopra)
 
@@ -60,7 +60,7 @@ module: "Sixteen"
 
 ## [2026-10-22] fo | audit UI/UX Design Comuni — data-dc home/track + no gravatar (D33)
 
-- Link: [04-audit-ui-ux-design-comuni.md](../compliance/04-audit-ui-ux-design-comuni.md), [decision-log.md](../bmad/decision-log.md), [filament-blueprint.md](../bmad/filament-blueprint.md).
+- Link: [04-audit-ui-ux-design-comuni.md](../compliance/04-audit-ui-ux-design-comuni.md), [decision-log.md](../decision-log.md), [filament-blueprint.md](../bmad/filament-blueprint.md).
 - User: «analizzare tutta la ui/ux… DesignComuni… bmad + second brain + filament blueprint».
 - Smoke `fixcity.eu`: home/track `data-dc=0` → fix; D-03 Gravatar → iniziali; A-14 breadcrumb i18n; D-12 assistenza → tickets/create.
 
@@ -73,7 +73,7 @@ module: "Sixteen"
 
 ## [2026-10-22] fo | reusable Infrastructure/Presentation + Action (D32)
 
-- Link: [reusable-components.md](../rules/reusable-components.md), [filament-blueprint.md](../bmad/filament-blueprint.md), [decision-log.md](../bmad/decision-log.md).
+- Link: [reusable-components.md](../rules/reusable-components.md), [filament-blueprint.md](../bmad/filament-blueprint.md), [decision-log.md](../decision-log.md).
 - User: «devi sempre cercare di creare componenti riutilizzabili… bmad + second brain + filament blueprint».
 - Estratti: `Infrastructure\Url\FrontofficeContainerAliases` + `FrontofficeRoutes`, `Presentation\Search\FrontofficeSearchSuggestions`, `Actions\Folio\ResolveContainer0IndexAction`.
 - Folio `[container0]/index` e search-modal / services / faq consumano i pezzi riusabili; niente alias inline.
@@ -112,7 +112,7 @@ module: "Sixteen"
   `blocks/home/hero` e `blocks/hero/split`; rebuild Sixteen.
 - Prompt: riscrittura strutturata di `docs/prompts/04.md` (filosofia civica, matrice
   stato, decisione Event=Article content_type, gate, DoD).
-- Doc: [accessibility](../accessibility.md), [decision-log D18](../bmad/decision-log.md),
+- Doc: [accessibility](../accessibility.md), [decision-log D18](../decision-log.md),
   [dcp-221](../bmad/stories/dcp-221-homepage-tipografia-leggibilita-wcag.story.md).
 
 ## [2026-10-16] bugfix | /it/blog getAttribute on null

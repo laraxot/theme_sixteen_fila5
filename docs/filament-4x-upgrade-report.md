@@ -15,12 +15,12 @@ status: draft
 **Data**: 2025-09-30
 **Status**: ✅ COMPLETATO E TESTATO
 **Versione Filament**: 4.0.20
-**Versione Laravel**: 12.32.3  
+**Versione Laravel**: 12.32.3
 
 ## 🔧 Correzioni Implementate
 
 ### 1. Header Ricreato da Zero
-**Problema**: Header non allineato al reference AGID  
+**Problema**: Header non allineato al reference AGID
 **Soluzione**: Ricreazione completa del componente header
 
 **File modificato**:
@@ -34,7 +34,7 @@ status: draft
 - Dropdown utente per area autenticata
 
 ### 2. Asset Management Aggiornato
-**Problema**: Asset non correttamente deployati  
+**Problema**: Asset non correttamente deployati
 **Soluzione**: Aggiornamento processi di build e copy
 
 **File modificati**:
@@ -81,7 +81,7 @@ status: draft
 ### Comandi Aggiornati
 ```bash
 # Build assets
-cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen
 npm run build
 
 # Deploy assets

@@ -26,7 +26,7 @@ status: draft
    - 8-phase workflow
    - Principles and rules
 
-2. **[Homepage Structure Analysis](./design-comuni/pages/homepage-structure-diff.md)**
+2. **[Homepage Structure Analysis](design-comuni/homepage-structure-diff.md)**
    - Detailed structural diff (Reference vs Local)
    - 35+ identified issues
    - Actionable fixes with priority levels
@@ -214,7 +214,7 @@ npm run build && npm run copy && php artisan optimize:clear
 ### By Purpose
 
 **Understanding the Problem**:
-- [Homepage Structure Analysis](./design-comuni/pages/homepage-structure-diff.md)
+- [Homepage Structure Analysis](design-comuni/homepage-structure-diff.md)
 
 **Learning the Protocol**:
 - [REPLIKATE Protocol](./prompts/replikate.txt)
@@ -305,7 +305,7 @@ npm run build && npm run copy && php artisan optimize:clear
 **🟢 ALL SYSTEMS READY FOR PHASE 2**
 
 Next agent should:
-1. Read [Homepage Structure Analysis](./design-comuni/pages/homepage-structure-diff.md)
+1. Read [Homepage Structure Analysis](design-comuni/homepage-structure-diff.md)
 2. Read [REPLIKATE Protocol](./prompts/replikate.txt)
 3. Follow the 4 tasks in order
 4. Test and document results
