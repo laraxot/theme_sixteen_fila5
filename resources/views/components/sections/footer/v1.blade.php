@@ -137,7 +137,7 @@
                 @foreach ($columnsWithLinks as $column)
                     <div class="col-md-3 footer-items-wrapper">
                         @if ($column['title'] !== '')
-                            <h4 class="footer-heading-title">{{ $column['title'] }}</h4>
+                            <h3 class="footer-heading-title">{{ $column['title'] }}</h3>
                         @endif
                         <ul class="footer-list">
                             @foreach ($column['links'] as $link)
@@ -149,7 +149,7 @@
                 @if ($contactRows !== [] || $contactLinks !== [] || $legalLinks !== [])
                     <div class="col-md-9 mt-md-4 footer-items-wrapper">
                         @if ($contactRows !== [] && filled($contact['title'] ?? null))
-                            <h4 class="footer-heading-title">{{ $value($contact['title'] ?? null) }}</h4>
+                            <h3 class="footer-heading-title">{{ $value($contact['title'] ?? null) }}</h3>
                         @endif
                         <div class="row">
                             @if ($contactRows !== [])
@@ -179,7 +179,7 @@
                 @endif
                 @if ($socialLinks !== [])
                     <div class="col-md-3 mt-md-4 footer-items-wrapper">
-                        <h4 class="footer-heading-title">{{ $value($social_title, (string) __('pub_theme::footer.follow_us')) }}</h4>
+                        <h3 class="footer-heading-title">{{ $value($social_title, (string) __('pub_theme::footer.follow_us')) }}</h3>
                         <ul class="list-inline text-start social">
                             @foreach ($socialLinks as $item)
                                 <li class="list-inline-item">

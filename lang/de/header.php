@@ -27,4 +27,6 @@ return array_replace_recursive($base, [
             'logout' => ['label' => 'Abmelden'],
         ],
     ],
+    // nome della zona destra della fascia alta (role=navigation): distingue i landmark di navigazione (axe landmark-unique)
+    'slim' => ['tools_aria' => 'Sprache und persönlicher Bereich'],
 ]);

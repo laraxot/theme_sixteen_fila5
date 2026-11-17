@@ -39,7 +39,7 @@ it('renders the Design Comuni footer structure', function (string $locale): void
         ->and($footer->querySelector('.it-footer-small-prints .it-footer-small-prints-list li'))->not->toBeNull()
         ->and($footer->querySelector('.logo-wrapper .it-brand-wrapper a svg.fc-brand-mark'))->not->toBeNull()
         ->and(trim((string) $footer->querySelector('.it-brand-text h2.no_toc')?->textContent))->toBe('FixCity')
-        ->and($footer->querySelectorAll('.footer-items-wrapper h4.footer-heading-title')->length)->toBeGreaterThan(1)
+        ->and($footer->querySelectorAll('.footer-items-wrapper h3.footer-heading-title')->length)->toBeGreaterThan(1)
         ->and($footer->querySelectorAll('ul.footer-list li a')->length)->toBeGreaterThan(3)
         ->and($footer->querySelectorAll('.footer-bottom a')->length)->toBeGreaterThan(1)
         ->and($footer->querySelector('[data-element="faq"]'))->not->toBeNull()

@@ -48,8 +48,28 @@ a 360, 390, 576, 768, 992, 1200 e 1440 px, da anonimo e da cittadino autenticato
   (`ResolveRobotsPolicyAction`), icona linkata solo se il file esiste e non e' vuoto; `HeadSeoPolicyTest` lega il TestCase
   per file come vuole `laravel/tests/Pest.php`.
 
+## Icone del sito (2026-11-17)
+
+Confermato dal proprietario: lo scudo rosso del 2026-11-12 sostituito dal marchio (megafono bianco su verde #007a52).
+`resources/static/`: `favicon.ico` (16/32/48 px; a 16 e 32 px tratti ingrossati, solo il megafono, perche' la cornice del
+logo si impastava), `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`, `maskable-512.png` e `site.webmanifest`
+(il `Head` del Cms lo collega solo se il file esiste). Anche `public_html/favicon.ico`, chiesto dai browser in automatico.
+
+## Accessibilita' (axe-core 4.10, WCAG 2.2 AA + best practice, 17 pagine a 1366 e 390 px)
+
+Prima: 5 regole violate. Ora: **0**.
+
+| Regola | Dove | Correzione |
+| --- | --- | --- |
+| heading-order | piede, tutte le pagine | titoli delle colonne `h3` (prima `h4` dopo l'`h2` dell'ente; il riferimento ha lo stesso salto), peso 600 invariato |
+| landmark-unique | fascia alta | `aria-label` sulla zona lingua/area personale (`header.slim.tools_aria`, 4 lingue) |
+| landmark-complementary-is-top-level | home | il riquadro «Impegno civico» non e' piu' un `<aside>` dentro `<main>`, ma un gruppo con nome |
+| color-contrast | ricerca del blog | segnaposto #576a7c (4,8:1, prima 4,38:1) |
+| scrollable-region-focusable | cookie policy su telefono | tabella che scorre raggiungibile da tastiera (`tabindex`, `role=region`) |
+
 ## Aperto
 
-- Il `favicon.ico` aggiunto il 2026-11-12 non e' il marchio Fixcity (scudo rosso con fiamma): da confermare con il
-  proprietario prima di sostituirlo col marchio (icona pronta, verde #007a52 con il marchio bianco).
-- Peso del CSS: #102.
+- Peso del CSS (#102): `app-*.css` servito su ogni pagina e' 3,3 MB (260 KB con gzip); circa 13.500 regole valgono solo fuori
+  dalle pagine `data-dc`, cioe' quasi mai nel front office. Toglierle e' un refactoring a se' (misurare pagina per pagina).
+- Test Gdpr: 70 test di pagina descrivono un flusso di registrazione che non esiste (POST su /register con 302, testi
+  inventati); da riscrivere sul widget Livewire reale. Il bootstrap e' sistemato (uses() per file, helper inclusi dalla radice).
