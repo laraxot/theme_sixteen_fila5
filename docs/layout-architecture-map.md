@@ -45,7 +45,7 @@ Comprehensive guide to layout hierarchy, components, and DRY/KISS rationale.
 **Implements:**
 - ← [UI Spec](_bmad-output/ui-spec.md) - Component library requirements
 - ← [Architecture](_bmad-output/architecture.md) - System architecture patterns
-- ← [PRD](_bmad-output/prd.md) - Product requirements
+- ← [PRD](prd.md) - Product requirements
 
 ---
 

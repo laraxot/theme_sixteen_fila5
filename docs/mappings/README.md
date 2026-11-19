@@ -16,7 +16,7 @@ status: draft
 
 **Status**: In Progress  
 **Last Updated**: 2026-04-02  
-**Related**: [← Master Index](../00-HOMEPAGE-REPLICATION-INDEX.md)
+**Related**: [← Master Index](../00-homepage-replication-index.md)
 
 ---
 
@@ -192,7 +192,7 @@ Replace Bootstrap classes:
 ---
 
 **Navigation**: 
-- [← Back to Master Index](../00-HOMEPAGE-REPLICATION-INDEX.md)
+- [← Back to Master Index](../00-homepage-replication-index.md)
 - [← Previous: Visual Comparison](../visual-comparison/README.md)
 - [Next: Phases →](../phases/README.md)
 

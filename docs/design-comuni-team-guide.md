@@ -484,7 +484,7 @@ it('matches Design Comuni homepage', function () {
 ## Theme Documentation
 
 ### Design Comuni Replication
-- [Team Guide](../Themes/Sixteen/docs/design-comuni-team-guide.md)
+- [Team Guide](design-comuni-team-guide.md)
 - [Component Catalog](../Themes/Sixteen/docs/COMPONENT_CATALOG.md)
 - [Block Types](../Themes/Sixteen/docs/BLOCK_TYPES.md)
 - [JSON Structure](../Themes/Sixteen/docs/JSON_STRUCTURE.md)

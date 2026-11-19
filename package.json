@@ -5,8 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "npm run prepare:static-assets && vite build && npm run prune:assets",
-        "prune:assets": "node resources/scripts/prune-stale-assets.mjs",
+        "build": "npm run prepare:static-assets && vite build",
         "prepare:static-assets": "node resources/scripts/prepare-static-assets.mjs",
         "build:clear-views": "npm run build",
         "build:analyze": "vite build --mode analyze",
