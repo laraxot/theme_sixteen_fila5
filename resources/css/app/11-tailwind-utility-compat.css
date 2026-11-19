@@ -1,0 +1,5 @@
+/* Header Design Comuni - Logo bianco su sfondo scuro per parità con design-comuni */
+.design-comuni-header .it-brand-wrapper > a > svg,
+.design-comuni-header .it-brand-wrapper > a > svg * {
+    filter: brightness(0) invert(1) !important;
+}

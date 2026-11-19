@@ -1,0 +1,16 @@
+{
+    "name": "FixCity",
+    "short_name": "FixCity",
+    "description": "Segnala un problema del tuo Comune e segui la soluzione.",
+    "start_url": "/it",
+    "scope": "/",
+    "display": "browser",
+    "lang": "it",
+    "background_color": "#ffffff",
+    "theme_color": "#007a52",
+    "icons": [
+        { "src": "/themes/Sixteen/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "/themes/Sixteen/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+        { "src": "/themes/Sixteen/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
+}

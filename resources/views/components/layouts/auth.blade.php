@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full" data-theme="light">
+@push('styles')
+    <style>
+        :root {
+            --agid-primary: #0066CC;
+            --agid-primary-dark: #004080;
+            --agid-secondary: #5C6F82;
+            --agid-success: #008758;
+            --agid-warning: #A66300;
+            --agid-danger: #D73527;
+            --agid-gray-50: #F8F9FA;
+            --agid-gray-100: #F1F3F4;
+            --agid-gray-900: #17324D;
+        }
+        
+        .agid-skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--agid-primary);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+            z-index: 1000;
+            transition: top 0.2s;
+        }
+        
+        .agid-skip-link:focus {
+            top: 0;
+        }
+        
+        .agid-header {
+            background: var(--agid-primary);
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .agid-breadcrumb {
+            background: var(--agid-gray-50);
+            border-bottom: 1px solid #E5E7EB;
+            padding: 0.75rem 0;
+        }
+        
+        .agid-main {
+            min-height: calc(100vh - 200px);
+            background: var(--agid-gray-50);
+            padding: 2rem 0;
+        }
+        
+        .agid-footer {
+            background: var(--agid-gray-900);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .agid-form-container {
+            max-width: 28rem;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+            overflow: hidden;
+        }
+        
+        .agid-form-header {
+            background: #F8FAFC;
+            padding: 1.5rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .agid-form-body {
+            padding: 1.5rem;
+        }
+        
+        .agid-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #D1D5DB;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .agid-input:focus {
+            outline: none;
+            border-color: var(--agid-primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+        
+        .agid-button {
+            width: 100%;
+            background: var(--agid-primary);
+            color: white;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .agid-button:hover:not(:disabled) {
+            background: var(--agid-primary-dark);
+        }
+        
+        .agid-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .agid-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+        }
+        
+        /* Responsive Design AGID */
+        @media (max-width: 640px) {
+            .agid-form-container {
+                margin: 0 1rem;
+                border-radius: 0;
+            }
+            
+            .agid-main {
+                padding: 1rem 0;
+            }
+            
+            .agid-header {
+                padding: 0.75rem 0;
+            }
+            
+            .agid-header h1 {
+                font-size: 1.125rem;
+            }
+            
+            .agid-header p {
+                font-size: 0.875rem;
+            }
+        }
+        
+        /* Focus States AGID */
+        .agid-focus:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+            border-color: var(--agid-primary);
+        }
+        
+        /* Loading States */
+        .agid-loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .agid-loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: agid-spin 1s linear infinite;
+        }
+        
+        @keyframes agid-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+@endpush
+
+<x-cms::head
+    :title="$title ?? __('pub_theme::components_common.nav.access.label')"
+    :description="__('pub_theme::components_common.brand.digital_services.text')"
+    theme-color="#0066CC"
+/>
+
+<body>
+    <!-- Skip Links AGID -->
+    <a href="#main-content" class="agid-skip-link">{{ __('pub_theme::components_common.skiplinks.main_content.label') }}</a>
+    <a href="#login-form" class="agid-skip-link">{{ __('pub_theme::components_common.skiplinks.login_form.label') }}</a>
+
+    <!-- AGID Header Istituzionale -->
+    <header role="banner" class="agid-header">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <x-pub_theme::ui.logo class="h-8 w-auto text-white" />
+                    <x-pub_theme::ui.logo class="h-8 w-auto text-white" />
+                    <div>
+                        <h1 class="text-lg font-semibold">{{ config('app.name', __('pub_theme::components_common.brand.entity_name.label')) }}</h1>
+                        <p class="text-sm opacity-90">{{ config('app.tagline', __('pub_theme::components_common.brand.digital_services.text')) }}</p>
+                    </div>
+                </div>
+                @if(config('app.institution_url'))
+                    <a href="{{ config('app.institution_url') }}" 
+                       class="text-white hover:text-blue-200 transition-colors text-sm"
+                       target="_blank" rel="noopener noreferrer">
+                        {{ __('pub_theme::components_content.nav.entity_site.label') }}
+                    </a>
+                @endif
+            </div>
+        </div>
+    </header>
+
+    <!-- AGID Breadcrumb -->
+    <nav class="agid-breadcrumb" aria-label="{{ __('pub_theme::components_common.a11y.navigation_path.label') }}">
+        <div class="container mx-auto px-4">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li>
+                    <a href="{{ route('home') }}" class="text-blue-600 hover:text-blue-800 transition-colors">
+                        <x-filament::icon icon="heroicon-o-home" class="w-4 h-4 inline mr-1" />
+                        {{ __('pub_theme::components_common.nav.home.label') }}
+                    </a>
+                </li>
+                <li class="text-gray-400" aria-hidden="true">/</li>
+                <li class="text-gray-700 font-medium" aria-current="page">
+                    {{ __('pub_theme::components_common.nav.access.label') }}
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" class="agid-main">
+        <div class="container mx-auto px-4">
+            {{ $slot }}
+        </div>
+    </main>
+
+    <!-- AGID Footer Istituzionale -->
+    <footer role="contentinfo" class="agid-footer">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Ente Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <x-pub_theme::ui.logo class="h-10 w-auto text-white" />
+                        <x-pub_theme::ui.logo class="h-10 w-auto text-white" />
+                        <div>
+                            <h3 class="text-lg font-semibold">{{ config('app.name', __('pub_theme::components_common.brand.entity_name.label')) }}</h3>
+                            <p class="text-sm opacity-80">{{ config('app.tagline', __('pub_theme::components_common.brand.digital_services_short.text')) }}</p>
+                        </div>
+                    </div>
+                    @if(config('app.institution_address'))
+                        <p class="text-sm opacity-80">{{ config('app.institution_address') }}</p>
+                    @endif
+                </div>
+                
+                <!-- Link Obbligatori AGID -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">{{ __('pub_theme::components_common.footer.information.label') }}</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="{{ url('/pages/privacy') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ __('pub_theme::components_footer.legal.privacy_short.label') }}</a></li>
+                        <li><a href="{{ url('/pages/legal-notes') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ __('pub_theme::legal.documents.legal_notes.title') }}</a></li>
+                        <li><a href="{{ url('/pages/accessibility') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ __('pub_theme::accessibility.page.title.text') }}</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contatti -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">{{ __('pub_theme::components_common.footer.support.label') }}</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="{{ url('/pages/contacts') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ __('pub_theme::components_common.nav.contacts.label') }}</a></li>
+                        <li><a href="{{ url('/pages/help') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ __('pub_theme::components_common.footer.help.label') }}</a></li>
+                        @if(config('app.support_email'))
+                            <li><a href="mailto:{{ config('app.support_email') }}" class="opacity-80 hover:opacity-100 transition-opacity">{{ config('app.support_email') }}</a></li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-700 text-center text-sm opacity-80">
+                <p>&copy; {{ date('Y') }} {{ config('app.name') }}{{ __('pub_theme::components_footer.legal.rights_reserved.label') }}</p>
+                <p class="mt-2">{{ __('pub_theme::components_common.footer.agid_compliance.text') }}</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AGID JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus Management
+            const firstInput = document.querySelector('#login-form input:not([type="hidden"]):not([disabled])');
+            if (firstInput) {
+                // Delay focus to allow page to fully load
+                setTimeout(() => firstInput.focus(), 100);
+            }
+            
+            // Form Submission Feedback
+            const form = document.querySelector('#login-form form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    if (submitBtn && !submitBtn.disabled) {
+                        submitBtn.setAttribute('aria-busy', 'true');
+                        submitBtn.disabled = true;
+                        const originalText = submitBtn.textContent;
+                        submitBtn.textContent = 'Accesso in corso...';
+                        
+                        // Re-enable after 10 seconds as fallback
+                        setTimeout(() => {
+                            if (submitBtn.disabled) {
+                                submitBtn.disabled = false;
+                                submitBtn.removeAttribute('aria-busy');
+                                submitBtn.textContent = originalText;
+                            }
+                        }, 10000);
+                    }
+                });
+            }
+            
+            // Error Messages Accessibility
+            const errorMessages = document.querySelectorAll('.error-message, .alert-danger');
+            errorMessages.forEach(error => {
+                error.setAttribute('role', 'alert');
+                error.setAttribute('aria-live', 'polite');
+            });
+            
+            // Success Messages Accessibility
+            const successMessages = document.querySelectorAll('.success-message, .alert-success');
+            successMessages.forEach(success => {
+                success.setAttribute('role', 'status');
+                success.setAttribute('aria-live', 'polite');
+            });
+        });
+    </script>
+    {{-- Il CSS lo rende <x-cms::head>; il JS del tema resta caricato a fine body (module/defer). --}}
+    @vite(['resources/js/app.js'], 'themes/Sixteen')
+</body>
+</html>

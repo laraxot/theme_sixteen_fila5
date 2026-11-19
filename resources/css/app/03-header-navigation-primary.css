@@ -1,0 +1,6 @@
+/* Header logo bianco - C7: logo header */
+.design-comuni-header .it-brand-wrapper > a > svg,
+.it-brand-wrapper .icon,
+.it-brand-wrapper svg image {
+    filter: brightness(0) invert(1) !important;
+}

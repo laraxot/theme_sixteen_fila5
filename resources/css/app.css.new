@@ -1,0 +1,15 @@
+/**
+ * Sixteen Theme - Design Comuni Italia
+ *
+ * Bootstrap Italia styles converted to Tailwind CSS with @apply
+ * Based on: https://italia.github.io/design-comuni-pagine-statiche/
+ */
+
+/* Local fonts are bundled and fingerprinted by Vite. */
+@import './design-comuni/fonts.css';
+
+/* Leaflet + cluster (mappa segnalazioni /it/) */
+@import 'leaflet/dist/leaflet.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+

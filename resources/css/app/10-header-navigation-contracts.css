@@ -1,0 +1,171 @@
+/*
+ * Header navigation component contract and fullscreen map root state.
+ * Extracted from resources/css/app.css to keep app.css as a small import index.
+ */
+
+/* Header navbar component contract: site-wide green, never page-scoped. */
+.it-header-navbar-wrapper,
+.it-header-navbar-wrapper .container,
+.it-header-navbar-wrapper .row,
+.it-header-navbar-wrapper .col-12,
+.it-header-navbar-wrapper .navbar,
+.it-header-navbar-wrapper .navbar-nav,
+.it-header-navbar-wrapper .navbar-secondary,
+.it-header-navbar-wrapper .nav-item {
+  background: #007a52 !important;
+  background-color: #007a52 !important;
+  color: #ffffff !important;
+}
+
+.it-header-navbar-wrapper .nav-link,
+.it-header-navbar-wrapper .nav-link span {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/*
+ * Voci della barra principale: UN solo indicatore, largo quanto la voce.
+ * Prima c'erano tre segni diversi (sfondo di hover largo quanto la voce, barra di 2.75rem centrata da
+ * 05-homepage-parity-overrides, testo sottolineato da qui; per la voce attiva anche un border-bottom): il riquadro
+ * e la barra sotto non coincidevano. Ora sfondo e barra hanno la stessa larghezza; il testo non si sottolinea.
+ * Questo file e' l'ultimo importato da app.css: queste regole chiudono la cascata.
+ */
+.it-header-navbar-wrapper .navbar-nav .nav-link {
+  position: relative !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link:hover,
+.it-header-navbar-wrapper .navbar-nav .nav-link:focus-visible {
+  background: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page'] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active:hover,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page']:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link:hover::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link:focus-visible::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page']::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  height: 3px !important;
+  transform: none !important;
+  border-radius: 0 !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link:hover::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link:focus-visible::after {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link.active::after,
+.it-header-navbar-wrapper .navbar-nav .nav-link[aria-current='page']::after {
+  background-color: #ffffff !important;
+}
+
+.it-header-navbar-wrapper .navbar-nav .nav-link:focus-visible {
+  outline: 2px solid #ffffff !important;
+  outline-offset: -4px !important;
+}
+
+.it-header-navbar-wrapper .icon {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+html.geo-map-fullscreen-active,
+html.geo-map-fullscreen-active body {
+  overflow: hidden !important;
+}
+
+coordinate-picker-lit:fullscreen,
+coordinate-picker-lit:fullscreen .map-container,
+coordinate-picker-lit .map-container.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  /* Mobile: dvh segue la barra URL di iOS/Android (100vh la eccede e taglia il fondo mappa); 100vh = fallback. */
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  z-index: 2147483647 !important;
+}
+
+coordinate-picker-lit:fullscreen .map-picker-leaflet-pane,
+coordinate-picker-lit .map-container.is-fullscreen .map-picker-leaflet-pane {
+  height: 100vh !important;
+  height: 100dvh !important;
+}
+
+/*
+ * Front office sempre chiaro (Design Comuni non ha un tema scuro). Con il dispositivo in tema scuro daisyUI metteva
+ * `color-scheme: dark` su :root e il browser disegnava textarea e input con sfondo #3b3b3b e testo blu scuro: il campo
+ * «Dettagli» del wizard diventava una casella nera illeggibile (module_fixcity_fila5#70, theme_sixteen_fila5#116).
+ * I layout dichiarano `data-theme="light"`; qui la stessa garanzia per i controlli dei moduli.
+ */
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+.cmp-wizard-widget textarea,
+.cmp-wizard-widget input:not([type='checkbox']):not([type='radio']):not([type='file']),
+.cmp-wizard-widget select {
+  background-color: #ffffff;
+  color: #17324d;
+}
+
+/* Indicatore di caricamento dei pulsanti di accesso e registrazione: senza dimensioni l'SVG si allargava a tutto il
+   riquadro del pulsante (un anello verde di 400px durante "Registrazione in corso..."). */
+.fi-btn svg.animate-spin,
+body:has(.page-content[data-dc]) .fi-btn svg.animate-spin {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  flex-shrink: 0;
+  animation: spin 1s linear infinite;
+}
+
+/* Indicatore di caricamento proprio di Filament (`fi-loading-indicator`): nel front office il CSS del pannello non c'e'
+   e l'SVG prendeva tutta l'altezza disponibile. Dimensione fissa; nascosto dove il pulsante ha gia' il suo. */
+.fi-btn .fi-loading-indicator,
+body:has(.page-content[data-dc]) .fi-btn .fi-loading-indicator {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  flex-shrink: 0;
+  animation: spin 1s linear infinite;
+}
+
+.fi-btn:has(svg.animate-spin) .fi-loading-indicator,
+body:has(.page-content[data-dc]) .fi-btn:has(svg.animate-spin) .fi-loading-indicator {
+  display: none !important;
+}
