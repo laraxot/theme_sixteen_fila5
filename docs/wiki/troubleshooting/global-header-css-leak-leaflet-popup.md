@@ -60,4 +60,4 @@ Il popup usava il tag semantico `<header class="popup__header">` → ereditava l
 ## Collegamenti
 
 - [geo-map-popup-leaflet-boundary.md](../concepts/geo-map-popup-leaflet-boundary.md)
-- [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents-2026-06.md) — incidente popup spacing
+- [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents.md) — incidente popup spacing
