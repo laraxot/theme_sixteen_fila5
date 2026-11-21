@@ -191,5 +191,5 @@ ls -la resources/dist/assets/
 - [Layout Usage Patterns](../layout-usage-patterns.md)
 - [Layout Guest](resources/views/layouts/guest.blade.php)
 - [Vite Config](vite.config.js)
-- [Package.json](package.json)
+- [Package.json](../Main_files/five/package.json)
 
