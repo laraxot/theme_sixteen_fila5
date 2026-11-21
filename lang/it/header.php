@@ -80,6 +80,8 @@ return [
     ],
 
     'slim' => [
+        // nome della zona destra della fascia alta (role=navigation): distingue i landmark di navigazione (axe landmark-unique)
+        'tools_aria' => 'Lingua e area personale',
         'region' => [
             'name' => [
                 'label' => 'Nome della Regione',

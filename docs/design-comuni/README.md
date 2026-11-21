@@ -87,7 +87,7 @@ All comparison screenshots are in the `screenshots/` subdirectory:
 - [bashscripts/body/](../../../bashscripts/body/) — Bash orchestrator scripts (html-structure-compare.sh, compare-ticket-list.sh)
 - [Body Structure Comparison Output](../body-structure-comparison/) — Generated reports and parity scores
 - [Segnalazioni Elenco Report](../body-structure-comparison/ticket-list/report.md) — Structured diff output with BLOCK/FLAG/WARN severity
-- [Segnalazioni Elenco Parity Score](../body-structure-comparison/ticket-list/parity-score.md) — Score card tracking parity over runs
+- [Segnalazioni Elenco Parity Score](../html-compare/segnalazioni-elenco/parity-score.md) — Score card tracking parity over runs
 - [Segnalazioni Elenco Analysis](../prompts/segnalazione_disservizio/ticket-list-html-parity-analysis.md) — Phase 1 parity summary (90%+ structural)
 
 ## Progress Status

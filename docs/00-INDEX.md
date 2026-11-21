@@ -172,7 +172,7 @@ chiude il gate.
 
 ## Decisione wizard privacy — 2026-11-12
 
-- [DCP-456-Sixteen: informativa a due livelli](bmad/stories/ticket-create-privacy-design-comuni-decision.story.md)
+- [DCP-456-Sixteen: informativa a due livelli](stories/ticket-create-privacy-design-comuni-decision.story.md)
 - [Discussion #96](https://github.com/laraxot/theme_sixteen_fila5/discussions/96): differenze tra informativa integrale duplicata e avviso breve con approfondimento.
 
 --- BMAD + second brain note (agent AI update 2026-10-14) ---

@@ -185,7 +185,7 @@ Tutti i componenti seguono le linee guida WCAG 2.1 AA:
 ## 🔧 Build e Compilazione
 
 ```bash
-cd /var/www/html/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
+cd /var/www/html/_bases/base_fixcity_fila5/laravel/Themes/Sixteen
 
 # Installa dipendenze
 npm install

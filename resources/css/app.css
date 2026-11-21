@@ -217,6 +217,7 @@
 @import './design-comuni/components.css';
 @import './design-comuni/overrides.css';
 @import './app/22-header-shell.css';
+@import './app/24-dc-chrome-parity.css';
 
 /* Leggibilità: gerarchia più sobria su /it senza ridurre il testo di base.
    I controlli mantengono almeno 16px e le aree di attivazione WCAG. */

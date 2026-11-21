@@ -47,3 +47,13 @@ Pattern standard (da pages/index.blade.php -> applicato a pages/auth/login.blade
 # Convenzione 5 elementi aggiornata BMAD
 <namespace>::<contesto>.<collezione>.<chiave>.<tipo>
 Esempio corretto: user::auth.login.intro.text
+
+## Regressione del mirror del 2026-11-17
+
+Il mirror del root `8a8f309737` aveva rimesso testo fisso (italiano e inglese mescolati) in 19
+componenti Blade del tema che usavano già chiavi `pub_theme::` (accessibilità, upload, hero,
+cookiebar, avatar, rating, navigation, ...). Ripristinate le chiavi, che esistono in it/en/de/es.
+Un testo scritto a mano in un componente del tema è quasi sempre una regressione, non una scelta:
+prima di toccarlo cercare la chiave in `Themes/Sixteen/lang/`. Dettaglio per file nella story
+`Modules/Xot/docs/stories/sync-unrelated-histories-repair.story.md`, sezione "Mirror del
+2026-11-17: differenze di significato".

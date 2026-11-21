@@ -307,14 +307,14 @@ Themes/Sixteen/
 
 ### Development
 ```bash
-cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen
 npm install
 npm run dev
 ```
 
 ### Production
 ```bash
-cd /var/www/_bases/base_fixcity_fila5_mono/laravel/Themes/Sixteen
+cd /var/www/_bases/base_fixcity_fila5/laravel/Themes/Sixteen
 npm run build
 npm run copy  # Copy to main Laravel public/
 ```
@@ -427,10 +427,10 @@ Senza questi comandi, le modifiche NON saranno visibili!
 
 ---
 
-**Versione**: 1.0.0  
-**Ultimo Aggiornamento**: 2025-01-01  
-**Maintainer**: Frontend Team  
-**Status**: 🚧 In Development (55% completo)  
+**Versione**: 1.0.0
+**Ultimo Aggiornamento**: 2025-01-01
+**Maintainer**: Frontend Team
+**Status**: 🚧 In Development (55% completo)
 **Prossima Revisione**: 2025-02-01
 
 

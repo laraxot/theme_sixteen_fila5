@@ -49,3 +49,12 @@ qmd: "decision log   front office redesign with designcomuni sixteen"
 - **Motivazione**: `BaseUser` è una implementazione astratta; il contratto consente modelli utente concreti di altri moduli senza accoppiamento del tema.
 - **Capability**: relazioni o comportamenti opzionali devono usare il contratto specifico o una guardia capability, non un ritorno implicito a `BaseUser`.
 - **Fonte**: `Modules/User/docs/wiki/concepts/usercontract-boundary.md` e `Themes/Sixteen/docs/auth/user-contract-boundary.md`.
+
+## Cronologia del redesign (dal vecchio AGENTS.md)
+
+Righe di diario che stavano in testa all'`AGENTS.md` di root fino al 2026-11-19, quando quel file e' diventato
+una mappa per gli agenti. Riportate com'erano.
+
+- m00283–m00408 Sixteen redesign execution completed; artifacts created (\"tests.index.json\", layout-test.blade.php, dynamic [slug].blade.php), decisions D10/D11 eliminating design-comuni redundancy, subagents completed, MEMORY.md updated with initiative kp-174d15a58ff94901b2b0df0d86b8907a, open objectives listed (homepage rebuild, segnalazione-dettaglio, all pages, WCAG 2.1 AA, tab groups), constraints AGENTS.md + UX strict, errors resolved (parse error, view not found, undefined $bodyPage, 404 /tests), loop remains open.
+- m00417–m00554 Docs organized for qmd + graphify + second brain + BMAD compliance; header/footer deep study performed with data flow analysis and bug fix for duplicated header slug; layout-test created with Tailwind+Alpine+Lit+DaisyUI+Flowbite, NO Bootstrap; header receives blocks prop → extracts first block's data → falls back to config('comune.*') → localizes URLs via LaravelLocalization; key data fields documented; layout-test verified; loop open.
+- m00575–m00576 Header/footer bug fixed: duplicate <x-section slug=\"header\" /> removed, corrected to header + footer; layout-test now contains proper header and footer sections; visual parity 95%+ achieved; stack compliance verified.

@@ -12,7 +12,7 @@
 --}}
 
 @props([
-    'label' => 'Alto contrasto',
+    'label' => __('pub_theme::agid_components.contrast_toggle.high_contrast.label'),
     'icon' => 'heroicon-o-eye',
     'size' => 'sm',
     'variant' => 'outline'
@@ -43,7 +43,7 @@
     aria-label="{{ $label }}"
     aria-pressed="false"
     data-contrast-toggle
-    title="Attiva/disattiva l'alto contrasto per migliorare la leggibilità"
+    title="{{ __('pub_theme::agid_components.contrast_toggle.turn_high_contrast_on_or_off.title') }}"
 >
     @if($icon)
         <x-dynamic-component :component="$icon" class="h-4 w-4" />
@@ -52,7 +52,7 @@
     <span class="contrast-toggle-text">{{ $label }}</span>
     
     <span class="sr-only" aria-live="polite" id="contrast-status">
-        Contrasto normale attivo
+        {{ __('pub_theme::agid_components.contrast_toggle.normal_contrast_is_on.label') }}
     </span>
 </button>
 

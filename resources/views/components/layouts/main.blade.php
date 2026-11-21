@@ -52,7 +52,9 @@
 @endpush
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+{{-- data-geo-*: le mappe chiedono tile e geocoding al proxy del modulo Geo sul nostro dominio, mai a terzi dal browser
+     (privacy prima del consenso, issue #106; config geo.config.osm_proxy). Su <html>: il <body> resta plain. --}}
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light" data-geo-tile-url="{{ url('api/geo/tiles/osm') }}/{z}/{x}/{y}.png" data-geo-nominatim-url="{{ url('api/geo/nominatim') }}">
     {{-- Verde istituzionale dell'intestazione (#007a52): colora la barra del browser sul telefono. --}}
     <x-cms::head
         :title="$title"

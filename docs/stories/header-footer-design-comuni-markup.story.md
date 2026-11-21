@@ -76,7 +76,7 @@ Status: **review**
 
 ## Update 2026-10-26 (D35): "Demo" in the slim bar and the reference avatar
 
-Supersedes the line above that says the region name "Demo" was removed from `header.json`: the decision is now the opposite, see [D35](../bmad/decision-log.md) and [study](../bmad/header-design-comuni-study.md).
+Supersedes the line above that says the region name "Demo" was removed from `header.json`: the decision is now the opposite, see [D35](../decision-log.md) and [study](../bmad/header-design-comuni-study.md).
 
 - `header.json` `region.name` = "Demo" in it, en, de, es. Plain text (`span.navbar-brand`), no `href`. The ente from `config('ente')` wins, and the link name follows it (`RegionPortalLinkLabels::resolve($region, $ente->region_name)`).
 - The personal area button uses the reference numbers: white 24px `.rounded-icon`, green 18px `icon-primary` glyph, 16px/600 label from `lg`, hover `#006342`. CSS only, in `resources/css/app/22-header-shell.css`.

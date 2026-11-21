@@ -7,6 +7,8 @@ use PHPUnit\Framework\Assert;
 use Tests\TestCase;
 
 use function Pest\Laravel\get;
+use function Safe\filesize;
+use function Safe\parse_url;
 
 uses(TestCase::class);
 
@@ -37,18 +39,20 @@ it('brands the title of inner pages and repeats it in og:title and twitter:title
 it('does not repeat the brand where the title already has it', function (string $url, string $title): void {
     expect(headOf($url)->querySelector('title')?->textContent)->toBe($title);
 })->with([
-    'home' => ['/it', "FixCity \u{2014} Segnala un problema, segui la soluzione"],
+    // ComposeDocumentTitleAction (Cms): il brand scritto in testa al titolo JSON passa in coda, con un solo separatore.
+    'home' => ['/it', 'Segnala un problema, segui la soluzione | FixCity'],
     'login' => ['/it/auth/login', 'Accedi a FixCity'],
 ]);
 
 it('marks private and service pages noindex and leaves the public ones alone', function (string $url, ?string $robots): void {
     expect(headContent(headOf($url), 'meta[name="robots"]'))->toBe($robots);
 })->with([
-    'login' => ['/it/auth/login', 'noindex,follow'],
-    'tracking' => ['/en/tickets/track', 'noindex,follow'],
-    'confirmation' => ['/it/tickets/confirmation', 'noindex,follow'],
-    'list' => ['/it/tickets', null],
-    'privacy' => ['/it/privacy', null],
+    // valori di ResolveRobotsPolicyAction (Cms), coperti anche da Modules/Cms/tests/Unit/Actions/Head
+    'login' => ['/it/auth/login', 'noindex, follow'],
+    'tracking' => ['/en/tickets/track', 'noindex, follow'],
+    'confirmation' => ['/it/tickets/confirmation', 'noindex, follow'],
+    'list' => ['/it/tickets', 'index, follow, max-image-preview:large'],
+    'privacy' => ['/it/privacy', 'index, follow, max-image-preview:large'],
 ]);
 
 it('declares the theme color and the regional og:locale', function (string $locale, string $regional): void {
@@ -63,11 +67,16 @@ it('declares the theme color and the regional og:locale', function (string $loca
     ['es', 'es_ES'],
 ]);
 
-it('does not invent an og:image or an icon', function (): void {
+it('does not invent an og:image and links only an icon that really exists', function (): void {
     $document = headOf('/it/tickets');
+    $icon = (string) $document->querySelector('link[rel~="icon"]')?->getAttribute('href');
+    $iconPath = parse_url($icon, PHP_URL_PATH);
+    $iconFile = public_path(ltrim(is_string($iconPath) ? $iconPath : '', '/'));
 
+    // il favicon.ico di 0 byte dello scheletro Laravel non conta come icona (Head::isServableFile)
     expect($document->querySelector('meta[property="og:image"]'))->toBeNull()
-        ->and($document->querySelector('link[rel~="icon"]'))->toBeNull();
+        ->and($icon)->not->toBe('')
+        ->and(is_file($iconFile) && filesize($iconFile) > 0)->toBeTrue();
 });
 
 it('keeps the page number in canonical and alternates and drops the filters', function (string $query, string $suffix): void {

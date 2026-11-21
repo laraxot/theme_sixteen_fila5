@@ -8,9 +8,16 @@
         'class' => 'mb-8',
     ]])
 
-    <div class="mb-8 max-w-3xl">
-        <h1 id="categories-title" class="mb-3 text-4xl font-bold text-gray-900">{{ __('pub_theme::services.categories.title') }}</h1>
-        <p class="text-xl text-gray-700">{{ __('pub_theme::services.categories.subtitle') }}</p>
+    {{-- Hero del riferimento (lista-categorie.html): h1 32/42 px e sommario 20 px come le altre pagine Design Comuni. --}}
+    <div class="cmp-hero">
+        <section class="it-hero-wrapper bg-white align-items-start">
+            <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
+                <h1 id="categories-title" class="text-black" data-element="page-name">{{ __('pub_theme::services.categories.title') }}</h1>
+                <div class="hero-text">
+                    <p>{{ __('pub_theme::services.categories.subtitle') }}</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div class="mb-10 flex flex-wrap gap-4" aria-label="{{ __('pub_theme::services.categories.actions.aria') }}">

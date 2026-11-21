@@ -14,7 +14,7 @@ status: draft
 
 ## Problema Identificato
 
-Il file `/var/www/html/_bases/base_<nome progetto>_fila5_mono/laravel/Themes/Sixteen/resources/views/pages/auth/login.blade.php` è stato segnalato come non conforme alle aspettative.
+Il file `/var/www/html/_bases/base_<nome progetto>_fila5/laravel/Themes/Sixteen/resources/views/pages/auth/login.blade.php` è stato segnalato come non conforme alle aspettative.
 
 ## Analisi del File Attuale
 
@@ -56,7 +56,7 @@ $authenticate = function() {
 
     if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
         session()->regenerate();
-        
+
         // Redirect to localized home page
         $locale = app()->getLocale();
         return redirect()->intended('/' . $locale);
@@ -190,4 +190,4 @@ Il file di login del tema Sixteen è già implementato correttamente secondo le 
 *Analisi completata il: $(date)*
 *Tema: Sixteen*
 *File: login.blade.php*
-*Stato: Corretto secondo convenzioni* 
+*Stato: Corretto secondo convenzioni*
