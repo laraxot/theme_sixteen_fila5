@@ -4,6 +4,8 @@ type: decision
 status: accepted
 theme: Sixteen
 updated: 2026-11-23
+issues:
+  - "https://github.com/laraxot/theme_sixteen_fila5/issues/104"
 ---
 
 # Sixteen possiede presentazione e chrome del front office
@@ -15,6 +17,11 @@ Sixteen è il tema front office attivo e deve mantenere coerenza con Design Comu
 ## Decisione
 
 Sixteen possiede shell, navigazione, accessibilità e viste dei blocchi; CMS, User e moduli di dominio possiedono dati, routing e autorizzazioni.
+
+Per l’editorial Design Comuni il tema mantiene una sola implementazione
+riusabile per ogni pattern visuale: i blocchi ricevono dati dal CMS o da un
+contratto di presentazione, mentre etichette, URL e stati specifici restano nei
+dati. Non si duplicano viste equivalenti per ottenere una parità apparente.
 
 Le pagine Folio `[container0]`, `[container0]/[slug0]` e
 `[container0]/[slug0]/[container1]` sono shell Volt lineari: ricevono i parametri
@@ -46,6 +53,13 @@ Le funzionalità speciali devono essere espresse da blocchi JSON CMS, Action o
 route/middleware del modulo owner. Una shell più corta non autorizza a perdere
 un comportamento: prima si trasferisce la responsabilità al proprietario
 corretto e poi si rimuove la duplicazione dalla Blade.
+
+La parità Design Comuni viene dichiarata solo per pagine e stati presenti nel
+repository. Un audit può usare markup, test, dati JSON e riferimenti pubblici
+verificabili; non introduce screenshot, fixture o pagine locali non presenti.
+Il wizard di segnalazione segue lo stesso criterio: passi condivisi e componenti
+riusabili nel tema, contenuti e destinazioni nei JSON CMS, logica di dominio nei
+moduli owner.
 
 Per i dettagli dinamici, Sixteen riceve dal data bag l'identificativo applicativo
 e renderizza il blocco generico del tema. Non interpreta l'ID come slug CMS e non
