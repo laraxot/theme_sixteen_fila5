@@ -115,6 +115,14 @@ I percorsi `area-personale/*` sono pagine CMS rese dal tema con blocchi condivis
 - le pagine CMS non devono essere sostituite da pagine Folio semanticamente duplicate;
 - il tema Sixteen dimostra il flusso front office, non una matrice completa dei permessi amministrativi.
 
+## Inventario documentale e funzionalità osservabili
+
+La documentazione utente è distribuita in [`manuals/manuale-utente.md`](manuals/manuale-utente.md), [`manuals/user-manual.md`](manuals/user-manual.md) e nel PDF [`manuals/manuale-utente.pdf`](manuals/manuale-utente.pdf). Questo manuale chiarisce invece attori e deleghe. La decisione architetturale è [`adr/front-office-theme-owns-presentation.md`](adr/front-office-theme-owns-presentation.md) e il contratto di shell è [`contracts/folio-page-shell.md`](contracts/folio-page-shell.md).
+
+Il materiale visuale comprende [`screenshots/`](screenshots/), [`manuals/assets/front-office-home.png`](manuals/assets/front-office-home.png), i confronti Design Comuni e le immagini dei flussi `segnalazione-*` sotto `docs/prompts/` e `docs/visual-analysis/`.
+
+Dal codice delle view sono osservabili homepage e pagine CMS generiche, autenticazione (login, registrazione, logout, reset e verifica), elenco e dettaglio delle segnalazioni, wizard di creazione, area personale, servizi, eventi, news/blog, ricerca, accessibilità, contatti e mappe. La disponibilità effettiva dipende da slug CMS, tenant e moduli abilitati; la presenza della view non equivale a una verifica HTTP in ogni configurazione.
+
 ## Fonti
 
 - [`Themes/Sixteen/resources/views/pages/index.blade.php`](../resources/views/pages/index.blade.php)
