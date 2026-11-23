@@ -67,6 +67,17 @@ test('folio pages con Component richiedono @volt statico uguale a name()', funct
     }
 });
 
+test('la pagina dinamica monta il fragment Volt anche per i rami speciali', function (): void {
+    $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/[slug0]/index.blade.php';
+    $html = (string) file_get_contents($path);
+
+    expect($html)->toContain("@volt('container0.view')");
+    expect($html)->toContain('@if ($specialPage !== null)');
+    expect($html)->toContain('@endvolt');
+    expect(strpos($html, "@volt('container0.view')"))
+        ->toBeLessThan(strpos($html, '@if ($specialPage !== null)'));
+});
+
 test('container0 index usa mount lineare filament way senza logica dominio', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/index.blade.php';
     $html = (string) file_get_contents($path);

@@ -136,28 +136,31 @@ new class extends Component {
     }
 @endphp
 <x-dynamic-component :component="$layoutComponent" :title="$pageTitle" :meta-description="$pageDescription" :header-active="$headerActive">
-    @if ($specialPage !== null)
-        <div class="page-content content"@if(in_array($specialPage, ['ticket-detail', 'ticket-track', 'auth-login', 'auth-register'], true)) data-dc @endif data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
-            @if ($specialPage === 'auth-login')
-                @include('pub_theme::components.pages.auth-login')
-            @elseif ($specialPage === 'auth-register')
-                @include('pub_theme::components.pages.auth-register')
-            @elseif ($specialPage === 'ticket-track')
-                @include('pub_theme::components.pages.ticket-track')
-            @else
-                @include('pub_theme::components.pages.ticket-detail')
-            @endif
-        </div>
-    @else
-        {{--
-            Il div.page-content e' la radice del componente Volt. Livewire stampa wire:id sul primo tag a inizio
-            riga del fragment: con <x-page> come unico contenuto finiva dentro il widget Livewire di un blocco
-            (es. CreateTicketWizardWidget) e ogni wire:model / callSchemaComponentMethod colpiva il Volt.
-        --}}
-        @volt('container0.view')
+    {{--
+        Il fragment deve essere montato anche per i rami speciali (in particolare /tickets/{id}).
+        @volt e' valutato dal compilatore Volt: lasciarlo dentro @else produce un componente senza
+        fragment quando la route entra in $specialPage.
+
+        @see laravel/Themes/Sixteen/docs/wiki/rules/volt-usage-rule.md
+    --}}
+    @volt('container0.view')
+        @if ($specialPage !== null)
+            <div class="page-content content"@if(in_array($specialPage, ['ticket-detail', 'ticket-track', 'auth-login', 'auth-register'], true)) data-dc @endif data-slug="{{ request()->segment(2).'.'.request()->segment(3) }}" data-side="content">
+                @if ($specialPage === 'auth-login')
+                    @include('pub_theme::components.pages.auth-login')
+                @elseif ($specialPage === 'auth-register')
+                    @include('pub_theme::components.pages.auth-register')
+                @elseif ($specialPage === 'ticket-track')
+                    @include('pub_theme::components.pages.ticket-track')
+                @else
+                    @include('pub_theme::components.pages.ticket-detail')
+                @endif
+            </div>
+        @else
+            {{-- Livewire deve avere una radice propria, fuori dal widget del blocco CMS. --}}
             <div class="page-content content"@if($this->isDesignComuni) data-dc @endif data-slug="{{ $this->pageSlug }}" data-side="content">
                 <x-page side="content" :slug="$this->pageSlug" :data="$this->data" />
             </div>
-        @endvolt
-    @endif
+        @endif
+    @endvolt
 </x-dynamic-component>

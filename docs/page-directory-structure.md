@@ -79,6 +79,16 @@ I JSON del tenant seguono la regola opposta: una cartella per contenitore (`page
 
 ## Pattern richiesti
 
+### Catalogo servizi CMS
+
+La pagina di prova `/it/tests/servizi` usa l'entrypoint unico `pages/tests/[slug].blade.php` e il contenuto
+`config/local/fixcity/database/content/pages/tests/tests.servizi.json`. Il JSON delega la presentazione alla vista
+riusabile `components.pages.services`, che espone solo le tre destinazioni realmente disponibili in FixCity:
+creazione, elenco e tracciamento delle segnalazioni.
+
+Non aggiungere card di servizi comunali, categorie o filtri di ricerca senza una sorgente dati reale e un URL
+funzionante. La pagina non simula il catalogo del sito istituzionale con link `#` o conteggi inventati.
+
 ### Tests
 
 Il file [`[slug].blade.php`](../resources/views/pages/tests/[slug].blade.php) è l'unico entrypoint dinamico per tutte le pagine `tests/*`.
