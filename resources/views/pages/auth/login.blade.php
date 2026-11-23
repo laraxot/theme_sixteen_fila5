@@ -14,7 +14,7 @@ use Modules\Cms\Http\Middleware\PageSlugMiddleware;
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 
-name('auth.login');
+name('login');
 middleware(PageSlugMiddleware::class);
 
 /**

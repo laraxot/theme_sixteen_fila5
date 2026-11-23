@@ -2,7 +2,6 @@
 
 @php
     use Illuminate\Support\Str;
-    use Modules\Fixcity\Enums\TicketStatusEnum;
     use Modules\Fixcity\ViewModels\SegnalazioniFilterViewModel;
 
     $ns = 'pub_theme::segnalazione';
@@ -25,27 +24,20 @@
     $mainContent = $blockData['main_content'] ?? [];
     $selectedTypes = request()->collect('types')->filter(static fn ($type): bool => is_string($type) && $type !== '')->values()->all();
 
-    $baseTicketsQuery = \Modules\Fixcity\Models\Ticket::query();
-    $currentUserId = auth()->id();
-    if ($currentUserId !== null) {
-        $baseTicketsQuery->where(function ($query) use ($currentUserId): void {
-            $query->whereIn('status', TicketStatusEnum::canViewByAll())->orWhere('owner_id', $currentUserId);
-        });
-    } else {
-        $baseTicketsQuery->whereIn('status', TicketStatusEnum::canViewByAll());
-    }
-
     $filterViewModel = new SegnalazioniFilterViewModel();
     $filters = [
         'title' => $t($blockData['filters']['title'] ?? '', __($ns.'.filters.legend.label')),
         'items' => $filterViewModel->getFilterItems(), 'total' => $filterViewModel->getTotalCount(),
     ];
 
-    $filteredTicketsQuery = clone $baseTicketsQuery;
-    if ($selectedTypes !== []) $filteredTicketsQuery->whereIn('type', $selectedTypes);
-    $visibleTotal = (clone $filteredTicketsQuery)->count();
+    // Cards, conteggio e marker devono essere proiezioni dello stesso GeoJSON pubblico.
+    $filteredFeatureIds = $filterViewModel->getFilteredFeatureIds($selectedTypes);
+    $filteredTicketsQuery = \Modules\Fixcity\Models\Ticket::query()->whereIn('id', $filteredFeatureIds);
+    $visibleTotal = count($filteredFeatureIds);
     // `media` in una query sola (DB-13); le foto escono da BuildTicketPublicImageUrlsAction: solo immagini, mai PDF (SEC-04).
-    $liveTickets = $filteredTicketsQuery->with('media')->latest()->take(20)->get();
+    $liveTickets = $filteredFeatureIds === []
+        ? collect()
+        : $filteredTicketsQuery->with('media')->latest()->take(20)->get();
     $ticketImageUrls = app(\Modules\Fixcity\Actions\BuildTicketPublicImageUrlsAction::class);
     $resultsCount = $filterViewModel->getFilteredCount($selectedTypes);
     $initialOffset = $liveTickets->count();

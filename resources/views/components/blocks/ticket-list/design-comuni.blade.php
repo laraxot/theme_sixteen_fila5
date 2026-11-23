@@ -66,16 +66,14 @@
                     <a href="{{ $base }}" class="btn p-0 pe-2 d-none d-lg-block"><span class="title-xsmall-semi-bold ms-1">{{ $t('filters.reset') }}</span></a>
                 @endif
             </div>
-            <ul class="nav nav-tabs w-100 flex-nowrap border-bottom border-light mb-40 mt-3 shadow-none" id="tabDisservizio" role="tablist" aria-label="{{ $t('tabs.label') }}">
+            <div x-data="{ activeTab: '{{ $listActive ? 'list' : 'map' }}', selectTab(tab) { this.activeTab = tab; if (tab === 'map') this.$nextTick(() => document.getElementById('block-map')?.refreshWhenVisible?.()); } }">
+            <x-filament::tabs id="tabDisservizio" class="segnalazioni-tabs w-100 mb-40 mt-3" :label="$t('tabs.label')">
                 @foreach (['map' => $t('tabs.map'), 'list' => $t('tabs.list')] as $tabKey => $tabLabel)
-                    {{-- ARIA valida (li presentation, a role=tab): il riferimento ha li role=tab con a role=button, che axe segnala (nested-interactive, aria-allowed-attr) --}}
-                    <li class="nav-item w-100" role="presentation">
-                        <a @class(['nav-link', 'active' => $listActive === ($tabKey === 'list'), 'title-medium-semi-bold pt-0']) href="#data-ex-disservizio{{ $loop->iteration }}" data-bs-toggle="tab" role="tab" aria-controls="data-ex-disservizio{{ $loop->iteration }}" aria-selected="{{ $listActive === ($tabKey === 'list') ? 'true' : 'false' }}"> {{ $tabLabel }} </a>
-                    </li>
+                    <x-filament::tabs.item id="tab-disservizio-{{ $loop->iteration }}" class="w-100 title-medium-semi-bold" alpine-active="activeTab === '{{ $tabKey }}'" x-on:click="selectTab('{{ $tabKey }}')" role="tab" aria-controls="data-ex-disservizio{{ $loop->iteration }}" :aria-selected="$listActive === ($tabKey === 'list') ? 'true' : 'false'">{{ $tabLabel }}</x-filament::tabs.item>
                 @endforeach
-            </ul>
+            </x-filament::tabs>
             <div class="tab-content">
-                <div @class(['tab-pane fade', 'show active' => ! $listActive]) id="data-ex-disservizio1" role="tabpanel">
+                <div @class(['tab-pane fade', 'show active' => ! $listActive]) id="data-ex-disservizio1" role="tabpanel" x-show="activeTab === 'map'" x-cloak>
                     <div class="row">
                         <div class="col-12">
                             <div class="map-box" style="container-type:inline-size">
@@ -87,7 +85,7 @@
                         @include('pub_theme::components.blocks.ticket-list.invite', ['headingId' => 'create-ticket-heading'])
                     </div>
                 </div>
-                <div @class(['tab-pane fade', 'show active' => $listActive]) id="data-ex-disservizio2" role="tabpanel">
+                <div @class(['tab-pane fade', 'show active' => $listActive]) id="data-ex-disservizio2" role="tabpanel" x-show="activeTab === 'list'" x-cloak>
                     <div class="row">
                         <h2 class="visually-hidden">{{ $t('tabs.list') }}</h2>
                         @forelse ($list['items'] as $item)
@@ -104,6 +102,7 @@
                         @include('pub_theme::components.blocks.ticket-list.invite', ['headingId' => 'create-ticket-heading-list'])
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

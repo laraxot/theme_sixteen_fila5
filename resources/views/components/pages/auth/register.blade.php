@@ -1,4 +1,5 @@
 {{--
+  @see docs/wiki/concepts/fo-folio-named-routes-header.md
   Callers: CMS auth.register → <x-page> → questo componente (Folio pages/auth/register).
   Guscio e resa: <x-auth.shell> + widget Livewire dominio (DCP-290): card, campi, pulsante Google.
   Widget Gdpr RegisterWidget = dominio (consensi + create user). Nessun controller.
@@ -24,7 +25,7 @@
     @include('components.utilities.google-button')
 
     <p class="auth-login-links">
-        <a href="{{ route('password.request') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
+        <a href="{{ $localize('/auth/password/reset') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
     </p>
     <p class="auth-login-links">
         <a href="{{ $localize('/accessibilita') }}">{{ __('pub_theme::accessibility.page.title.text') }}</a>

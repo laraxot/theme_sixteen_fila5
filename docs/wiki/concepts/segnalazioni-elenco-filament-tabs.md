@@ -1,40 +1,36 @@
 ---
 qmd: "segnalazioni elenco filament tabs"
-issues: []
+issues: ["#139", "#151", "#155"]
 discussions: []
-title: "Segnalazioni elenco — tab Design Comuni su /it (Alpine.js)"
+title: "Segnalazioni elenco — tab Filament 5 su /it"
 type: concept
 status: active
 created: 2026-05-28
-updated: 2026-05-29
+updated: 2026-11-23
 tags: [filament, tabs, ticket-list, design-comuni, alpine, segnalazioni-elenco]
 related:
   - ../../../../../../docs/stories/STORY-065-it-segnalazioni-filament-tabs.md
   - ../../../../../Modules/Fixcity/docs/wiki/concepts/ticket-list-map-architecture.md
 ---
 
-# Tab Design Comuni su `/it`
+# Tab Filament 5 su `/it`
 
-## Regola classi
+## Contratto
 
-**NO feature-prefixed class names.** Non usare `segnalazioni-tabs-bar` o `ticket-tabs-bar`.
-Usare solo classi CSS standard di [Design Comuni](https://italia.github.io/design-comuni-pagine-statiche/sito/segnalazioni-elenco.html):
-- `.nav.nav-tabs` (tab bar)
-- `.nav-item` (wrapper singolo tab)
-- `.nav-link` (link tab)
-- `.active` (stato attivo)
-- `.tab-content` / `.tab-pane` (pannelli)
+La navigazione Mappa/Elenco usa `x-filament::tabs` e `x-filament::tabs.item`.
+Non usare `ul.nav.nav-tabs`, `data-bs-toggle="tab"` o un secondo gestore Bootstrap
+per questi due tab. Mappe, filtri, GeoJSON e pannelli lista restano invariati.
 
 ## Implementazione
 
-- Componente: `resources/views/components/blocks/segnalazioni/tabs.blade.php`
-- HTML puro con classi Design Comuni (no `x-filament::tabs`)
-- Interattività: Alpine.js (`activeTab` + `x-on:click.prevent`), no Bootstrap JS
-- Pannelli: `x-show`, `x-bind:class` con `active show`
+- Componente: `resources/views/components/blocks/ticket-list/design-comuni.blade.php`
+- Interattività: `selectTab()` nello scope Alpine del blocco, con `alpine-active` di Filament.
+- Pannelli: `x-show`, `x-bind:class` con `active show`.
+- La mappa viene aggiornata quando Mappa torna visibile.
 
 ## CSS
 
-Skin Design Comuni in `style-apply.css` — selettori `.ticket-list .segnalazioni-fi-tabs` e `.segnalazioni-elenco .nav-tabs`.
+Gli override CSS restano limitati allo scope `#segnalazioni-elenco-root .segnalazioni-tabs`.
 
 ## Riferimenti
 
