@@ -1,5 +1,10 @@
-{{--
-    Dettaglio pubblico /{lang}/tickets/{id} (DCP-148). I dati ($ticketDetail) li prepara pages/[container0]/[slug0]/index.blade.php con
-    BuildPublicTicketDetailAction (404 se la segnalazione non esiste o non e' pubblica); il contenuto sta nel blocco Design Comuni.
---}}
-@include('pub_theme::components.blocks.ticket-detail.design-comuni', ['detail' => $ticketDetail])
+{{-- @see Modules/Fixcity/docs/wiki/concepts/public-ticket-detail-and-follow.md --}}
+@php
+    $ticketSlug = is_string($slug0 ?? null) ? $slug0 : '';
+    abort_unless(ctype_digit($ticketSlug), 404);
+    $ticketDetail = app(\Modules\Fixcity\Actions\BuildPublicTicketDetailAction::class)->execute((int) $ticketSlug, auth()->user());
+    abort_if($ticketDetail === null, 404);
+@endphp
+@include('pub_theme::components.blocks.ticket-detail.design-comuni', [
+    'detail' => $ticketDetail,
+])
