@@ -12,12 +12,8 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     expect(file_exists($bladePath))->toBeTrue('Blade header v1 mancante: '.$bladePath);
 
     $v1 = (string) file_get_contents($bladePath);
-    $partials = (string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/slim.blade.php')
-        .(string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/center.blade.php')
-        .(string) file_get_contents($themeRoot.'/resources/views/components/sections/header/partials/navbar.blade.php');
-    $header = $v1.$partials;
-    expect($header)->toContain('language-switcher');
-    expect($header)->toContain('user-dropdown');
+    expect($v1)->toContain('language-switcher');
+    expect($v1)->toContain('user-dropdown');
 
     $langPath = $themeRoot.'/resources/views/components/sections/header/partials/language-switcher.blade.php';
     $userPath = $themeRoot.'/resources/views/components/sections/header/partials/user-dropdown.blade.php';
@@ -40,10 +36,10 @@ test('header v1 slim usa data-bs-toggle per lingua e utente e non langOpen/userO
     expect($userHtml)->toContain("route('services.categories')");
     expect($userHtml)->not->toContain("route('tests.view'");
 
-    expect($header.$langHtml.$userHtml)->not->toContain('langOpen');
-    expect($header.$langHtml.$userHtml)->not->toContain('userOpen');
-    expect($header.$langHtml.$userHtml)->not->toContain('x-data="{ langOpen');
-    expect($header.$langHtml.$userHtml)->not->toContain('x-data="{ userOpen');
+    expect($v1.$langHtml.$userHtml)->not->toContain('langOpen');
+    expect($v1.$langHtml.$userHtml)->not->toContain('userOpen');
+    expect($v1.$langHtml.$userHtml)->not->toContain('x-data="{ langOpen');
+    expect($v1.$langHtml.$userHtml)->not->toContain('x-data="{ userOpen');
 });
 
 test('header v1 slim wrapper non forza background hex inline (token CSS)', function (): void {
@@ -56,10 +52,7 @@ test('header v1 slim wrapper non forza background hex inline (token CSS)', funct
 
 test('header v1 espone il contratto condiviso della navigazione mobile', function (): void {
     $bladePath = dirname(__DIR__, 4).'/Themes/Sixteen/resources/views/components/sections/header/v1.blade.php';
-    $html = file_get_contents($bladePath)
-        .file_get_contents(dirname($bladePath).'/partials/slim.blade.php')
-        .file_get_contents(dirname($bladePath).'/partials/center.blade.php')
-        .file_get_contents(dirname($bladePath).'/partials/navbar.blade.php');
+    $html = file_get_contents($bladePath);
 
     $forbiddenThemePrefix = 'data-'.'sixteen-';
 

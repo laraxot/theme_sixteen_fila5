@@ -3,7 +3,7 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-updated: 2026-10-14
+updated: 2026-11-19
 qmd: "sixteen theme design comuni folio volt accessibility documentation index classificazione cartelle indici storici INDEX.md index.md"
 status: active
 tags: [docs, sixteen]
@@ -20,14 +20,11 @@ controller in `app/Http/Controllers/`, `routes/web.php` e `routes/auth.php`
 route:list` non ha `comune/*`, `auth/spid` ne' `auth/cie`. Stato e conteggi in
 [README.md](README.md).
 
-Questo file è l'indice operativo unico. Stato reale degli altri indici (verificato
-2026-10-14): `00-index.old.md`, `documentation-index.old.md` e
-`index.historical-bmad.old.md` sono storici (suffisso `.old`); `INDEX.md` (la
-mappa delle sottocartelle, DCP-112) è stato rimosso da git (commit
-`52268d5b`): per le cartelle usa la tabella "Classificazione delle cartelle" qui
-sotto. `index.md` è l'indice BMAD/QMD più vecchio (router storico) e
-`master-documentation.md` è un resoconto del 2026-04-01, entrambi senza suffisso
-`.old`; restano anche `00-INDEX.md.tmp` (residuo del 2026-09-24),
+Questo file è l'indice operativo unico. Gli indici storici con suffisso `.old`
+(`00-index.old.md`, `documentation-index.old.md`, `index.historical-bmad.old.md`)
+e il residuo `00-INDEX.md.tmp` sono stati rimossi il 2026-11-19 (issue #64).
+`index.md` è l'indice BMAD/QMD più vecchio (router storico) e
+`master-documentation.md` è un resoconto del 2026-04-01; restano anche
 `00-homepage-replication-index.md`, `design-comuni-replication-index.md`,
 `replikate-master-index.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
 nuova struttura.

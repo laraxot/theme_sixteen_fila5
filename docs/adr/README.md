@@ -40,9 +40,6 @@ Pro, contro, debito che resta, cosa misurare. Chi cambia la decisione scrive un 
 
 ## Decisioni
 
-- [Sixteen possiede presentazione e chrome del front office](front-office-theme-owns-presentation.md)
-- [Sixteen compila gli asset con Vite e pubblica tramite symlink](build-assets-via-vite-and-symlink.md)
-
 
 ## Decisioni precedenti (formato libero, non ancora ADR)
 

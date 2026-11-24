@@ -209,15 +209,6 @@
     background-size: 16px 12px !important;
 }
 
-/* DCP-129: il select del passo dati segue il reference Design Comuni; non eredita la freccia/padding del guscio Filament. */
-.cmp-wizard-widget .wizard-dc-form-shell .it-page-section#report-info .select-wrapper.select-partials select.u-grey-dark {
-    appearance: auto !important;
-    -webkit-appearance: auto !important;
-    background-image: none !important;
-    background-size: auto !important;
-    padding: 6px 8px !important;
-}
-
 .cmp-wizard-widget .wizard-dc-form-shell input:not(.it-page-section *)::placeholder,
 .cmp-wizard-widget .wizard-dc-form-shell textarea:not(.it-page-section *)::placeholder {
     color: #5c6f82 !important;

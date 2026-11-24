@@ -30,7 +30,3 @@ Chi cambia il comportamento aggiorna il contratto nello stesso commit.
 
 ## Contratti
 
-- [Contratto shell Folio Sixteen](folio-page-shell.md)
-- [Contratto build asset Sixteen](build-surface.md)
-- [ADR ownership della presentazione](../adr/front-office-theme-owns-presentation.md)
-

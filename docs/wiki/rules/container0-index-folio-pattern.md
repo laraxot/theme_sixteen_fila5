@@ -19,14 +19,9 @@ Quando si definisce una pagina Folio per `pages/[container0]/index.blade.php`:
 | Elemento | Corretto | Errato |
 |----------|----------|--------|
 | `name()` | `name('container0.index')` | `name('container0.list')` |
-| `middleware()` | `PageSlugMiddleware::class` | `render()` con risoluzione dominio duplicata |
+| `render()` | `ResolveContainer0IndexAction` | alias / `Auth::check` / `abort` inline |
 | Proprietà Component | Solo `container0`, `pageSlug`, `data` | Aggiungere `pageTitle`, `metaDescription`, logica complessa |
 | `mount()` | Semplice: `$this->pageSlug = $container0.'.index'` | `match()` con locale, CMS, fallback |
-
-La view non deve contenere `render()` con `ResolveContainer0IndexAction`, alias,
-`Auth::check`, `abort` o lookup CMS: la risoluzione della pagina e l'accesso sono
-responsabilità di `PageSlugMiddleware`. Il layout riceve già il contesto corretto;
-la shell si limita a montare il data bag e delegare il rendering a `<x-page>`.
 
 ## File di riferimento
 
