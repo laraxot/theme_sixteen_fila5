@@ -1,4 +1,5 @@
 {{--
+  @see docs/wiki/concepts/fo-folio-named-routes-header.md
   Conferma password — contenuto della pagina `auth/password/confirm` (DCP-***).
   Callers: Themes/Sixteen pages/auth/password/confirm.blade.php e Modules/User
   pages/auth/password/confirm.blade.php (dentro il frammento Volt `auth.password.confirm`,
@@ -23,6 +24,6 @@
     </form>
 
     <p class="auth-login-links">
-        <a href="{{ route('password.request') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
+        <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/auth/password/reset') }}">{{ __('user::auth.login.forgot_password.text') }}</a>
     </p>
 </x-auth.shell>

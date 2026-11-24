@@ -28,6 +28,7 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
         $themeRoot.'/resources/views/pages/[container0]/index.blade.php',
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/index.blade.php',
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/index.blade.php',
+        $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/[slug1]/index.blade.php',
     ];
 
     foreach ($paths as $path) {
@@ -47,8 +48,8 @@ test('Sixteen usa app come unica shell pubblica e non mantiene il layout design-
 
     expect(file_exists($layoutsRoot.'/app.blade.php'))->toBeTrue();
     expect(file_exists($layoutsRoot.'/design-comuni.blade.php'))->toBeFalse();
-    expect($dynamicPage)->toContain("'layouts.app'");
-    expect($dynamicPage)->not->toContain("'layouts.design-comuni'");
+    expect($dynamicPage)->toContain('<x-layouts.app>');
+    expect($dynamicPage)->not->toContain('layouts.design-comuni');
 });
 
 test('folio pages con Component richiedono @volt statico uguale a name()', function (): void {
@@ -57,6 +58,7 @@ test('folio pages con Component richiedono @volt statico uguale a name()', funct
         $themeRoot.'/resources/views/pages/[container0]/index.blade.php' => "@volt('container0.index')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/index.blade.php' => "@volt('container0.view')",
         $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/index.blade.php' => "@volt('container1.index')",
+        $themeRoot.'/resources/views/pages/[container0]/[slug0]/[container1]/[slug1]/index.blade.php' => "@volt('container1.view')",
         $themeRoot.'/resources/views/pages/tests/[slug].blade.php' => "@volt('tests.view')",
     ];
 
@@ -65,6 +67,56 @@ test('folio pages con Component richiedono @volt statico uguale a name()', funct
         expect($html)->toContain($voltDirective);
         expect($html)->toContain('@endvolt');
     }
+});
+
+test('la pagina dinamica usa la stessa shell Volt lineare dell indice', function (): void {
+    $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/[slug0]/index.blade.php';
+    $html = (string) file_get_contents($path);
+
+    expect($html)->toContain("@volt('container0.view')");
+    expect($html)->toContain('middleware(PageSlugMiddleware::class)');
+    expect($html)->toContain("\$this->pageSlug = \$container0.'.view'");
+    expect($html)->toContain('<x-layouts.app>');
+    expect($html)->toContain('<x-page side="content"');
+    expect($html)->toContain('data-dc');
+    expect($html)->not->toContain('ResolvePageAction');
+    expect($html)->not->toContain('specialPage');
+    expect($html)->not->toContain('x-dynamic-component');
+    expect($html)->not->toContain('request()->segment');
+    expect($html)->not->toContain('Page::findUniqueBySlug');
+    expect($html)->not->toContain('@php');
+    expect($html)->toContain('@endvolt');
+});
+
+test('la pagina annidata usa la stessa shell Volt lineare', function (): void {
+    $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/[slug0]/[container1]/index.blade.php';
+    $html = (string) file_get_contents($path);
+
+    expect($html)->toContain("name('container1.index')");
+    expect($html)->toContain('middleware(PageSlugMiddleware::class)');
+    expect($html)->toContain("\$this->pageSlug = \$container0.'.view'");
+    expect($html)->toContain('<x-layouts.app>');
+    expect($html)->toContain("@volt('container1.index')");
+    expect($html)->toContain('<x-page side="content"');
+    expect($html)->toContain('data-dc');
+    expect($html)->not->toContain('render(');
+    expect($html)->not->toContain('RedirectResponse');
+    expect($html)->not->toContain('LaravelLocalization');
+    expect($html)->not->toContain('@include');
+    expect($html)->not->toContain('@php');
+    expect($html)->not->toContain('specialPage');
+
+    $deepPath = dirname(__DIR__, 2).'/resources/views/pages/[container0]/[slug0]/[container1]/[slug1]/index.blade.php';
+    $deepHtml = (string) file_get_contents($deepPath);
+
+    expect($deepHtml)->toContain("name('container1.view')");
+    expect($deepHtml)->toContain('function mount(string $container0');
+    expect($deepHtml)->toContain("\$this->pageSlug = \$container0.'.view'");
+    expect($deepHtml)->toContain("@volt('container1.view')");
+    expect($deepHtml)->toContain("'slug1' => \$slug1");
+    expect($deepHtml)->toContain('<x-page side="content"');
+    expect($deepHtml)->not->toContain('render(');
+    expect($deepHtml)->not->toContain('@php');
 });
 
 test('container0 index usa mount lineare filament way senza logica dominio', function (): void {
@@ -91,8 +143,14 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
     expect($html)->not->toContain("=== 'domande-frequenti'");
     expect($html)->not->toContain("=== 'blog'");
     expect($html)->not->toContain("=== 'events'");
-    // Logica alias/404/area-personale fuori dalla shell (Support + Action riusabili).
-    expect($html)->toContain('ResolveContainer0IndexAction');
+    // La shell non duplica il resolver: PageSlugMiddleware governa il ciclo Folio/CMS.
+    expect($html)->toContain('PageSlugMiddleware::class');
+    expect($html)->not->toContain('ResolveContainer0IndexAction');
+    expect($html)->not->toContain('render(');
+    expect($html)->not->toContain('RedirectResponse');
+    expect($html)->not->toContain('Page::findUniqueBySlug');
+    expect($html)->not->toContain('parity_page');
+    expect($html)->not->toContain('PageDescription');
     expect($html)->not->toContain('foIndexAliases');
     expect($html)->not->toContain('Auth::check');
 });

@@ -1,4 +1,5 @@
 {{--
+  @see docs/wiki/concepts/fo-folio-named-routes-header.md
   Callers: Modules/User pages/auth/password/[token].blade.php (route password.reset).
   Guscio e resa: <x-auth.shell> come login (DCP-290). `$token` e `$email` arrivano dalla pagina e vanno al widget.
 --}}
@@ -14,7 +15,7 @@
     </div>
 
     <p class="auth-login-links">
-        <a href="{{ route('password.request') }}">{{ __('user::password_recovery.request_new') }}</a>
+        <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/auth/password/reset') }}">{{ __('user::password_recovery.request_new') }}</a>
     </p>
     <p class="auth-login-links">
         <a href="{{ \Themes\Sixteen\Infrastructure\Url\FrontofficeUrl::fromStoredUrl('/auth/login') }}">{{ __('user::password_recovery.back_to_login') }}</a>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Themes\Sixteen\Http\Livewire\Appointment;
 
 use Carbon\Carbon;
@@ -19,6 +21,8 @@ use Themes\Sixteen\Rules\AppointmentAvailability;
 /**
  * Componente Livewire per creazione appuntamento multi-step
  * Conforme alle specifiche AGID per prenotazioni servizi comunali
+ *
+ * @see docs/appointment-enums.md
  */
 class CreateAppointment extends Component
 {

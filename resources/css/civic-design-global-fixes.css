@@ -90,10 +90,8 @@
   font-weight: 600 !important;
 }
 
-/* Brand text - reference uses 16px */
-.it-brand-text,
-.it-brand-title,
-.it-brand-tagline {
+/* Brand text: il titolo NON si forza a 16 px (Design Comuni: 20 px su telefono, 28 px da 992 px; app/24-dc-chrome-parity.css). */
+.it-brand-text {
   font-size: 16px !important;
 }
 
