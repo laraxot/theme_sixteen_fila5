@@ -142,6 +142,7 @@ storage/
 # graphify-out: generated AST/knowledge graph — never commit (no git-lfs; rebuild with graphify update)
 graphify-out/
 *.lock
+docs/screenshots/
 # Strumenti locali/IDE (wiki module-theme-root-hygiene)
 .agents/
 .codex/
