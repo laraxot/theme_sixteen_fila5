@@ -1,45 +1,26 @@
 ---
-title: "Architecture Decision Records"
+title: "ADR del tema Sixteen"
 type: index
-tags: [adr, decisioni]
+tags: [adr, decisioni, sixteen, design-comuni]
 created: 2026-11-18
-updated: 2026-11-18
+updated: 2026-11-24
 ---
 
-# Architecture Decision Records
+# ADR del tema Sixteen
 
-Il **perche'** delle scelte di questo pacchetto: una decisione per file, con le alternative scartate.
-Il nome del file e' l'argomento, senza date ne' numeri (la data sta nella frontmatter).
+Il **perche'** delle forme del tema che un agente sarebbe tentato di "semplificare": markup identico a Design Comuni,
+nomi degli attributi `data-*`, identita' digitale spenta di default, asset serviti da symlink.
 
-## Formato
-
-```markdown
----
-title: "ADR — <decisione in una riga>"
-type: decision
-status: accepted | superseded | deprecated
-created: AAAA-MM-GG
-updated: AAAA-MM-GG
-issues: []
----
-
-# ADR: <decisione>
-
-## Contesto
-Fatti e vincoli che hanno reso necessaria la scelta (misure, norme, policy, incidenti).
-
-## Decisione
-Cosa si fa, in concreto, e dove sta nel codice.
-
-## Alternative scartate
-Ogni alternativa seria, con il motivo per cui non e' stata scelta.
-
-## Conseguenze
-Pro, contro, debito che resta, cosa misurare. Chi cambia la decisione scrive un nuovo ADR e segna questo `superseded`.
-```
+**Quando leggerli:** prima di aggiungere markup, classi o attributi a un componente, di toccare il login SPID/CIE, o di
+cambiare come si servono gli asset. Formato (5 sezioni, `type: decision`, `## Verifica`):
+[regola del canon](../../../../Modules/Xot/docs/rules/action-behavioral-contract.md).
 
 ## Decisioni
 
+- [Parita' HTML con Design Comuni](design-comuni-html-parity.md) — il `<body>` e' quello del riferimento; cambiano solo CSS (Tailwind) e JS (Alpine).
+- [Attributi data-* per ruolo](data-attributes-named-by-role.md) — mai `data-sixteen-*`: prima gli agganci del riferimento, poi `data-element`, poi un nome di comportamento.
+- [SPID e CIE spenti di default](digital-identity-routes-off-by-default.md) — rotte registrate solo con `sixteen.auth.spid.enabled === true`, dopo l'incidente SEC-02.
+- [Asset via symlink public_html/themes](theme-assets-via-public-symlink.md) — il web server serve `Themes/Sixteen/public`; le Action PHP di asset restano senza rotta.
 
 ## Decisioni precedenti (formato libero, non ancora ADR)
 

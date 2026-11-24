@@ -17,6 +17,11 @@ use Spatie\QueueableAction\QueueableAction;
 use function Safe\base64_decode;
 use function Safe\gzdeflate;
 
+/**
+ * Costruisce le richieste SAML SPID e valida la risposta dell'IdP (firma, certificato fidato, RelayState).
+ *
+ * @contract docs/contracts/spid-auth-action.md
+ */
 class SpidAuthAction
 {
     use QueueableAction;
@@ -122,7 +127,8 @@ class SpidAuthAction
 
         Log::info('SPID authentication successful', [
             'provider' => Session::get('spid.provider'),
-            'user_attributes' => $attributes,
+            // solo i nomi: i valori (codice fiscale, email, ...) sono dati personali e non vanno nei log
+            'attribute_names' => array_keys($attributes),
         ]);
 
         return $attributes;
