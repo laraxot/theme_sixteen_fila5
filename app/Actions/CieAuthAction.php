@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Themes\Sixteen\Actions;
 
+use Exception;
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
