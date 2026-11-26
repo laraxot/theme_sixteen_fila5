@@ -1,6 +1,4 @@
 {{--
-  @see docs/stories/11-auth-pages-design-comuni-redesign.story.md
-  @see docs/social-login-bmad.md
   Callers: CMS auth.login → <x-page> → questo componente (Folio pages/auth/login).
   Guscio e resa: <x-auth.shell> + widget Livewire dominio (DCP-290).
   Widget LoginWidget = dominio (credenziali). Nessun controller.
@@ -34,7 +32,7 @@
     @include('components.utilities.google-button')
 
     <p class="auth-login-links">
-        <a href="{{ $localize('/auth/password/reset') }}">{{ __('fixcity::auth.login.forgot_password.text') }}</a>
+        <a href="{{ route('password.request') }}">{{ __('fixcity::auth.login.forgot_password.text') }}</a>
     </p>
     <p class="auth-login-links">
         <a href="{{ $localize('/accessibilita') }}">{{ __('pub_theme::accessibility.page.title.text') }}</a>

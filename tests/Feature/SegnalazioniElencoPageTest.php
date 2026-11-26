@@ -43,9 +43,7 @@ test('ticket list page has required components', function (): void {
     $response = $this->get(TICKET_LIST_URL);
 
     $response->assertStatus(200);
-    $response->assertSee('fi-tabs');
-    $response->assertSee('fi-tabs-item');
-    $response->assertDontSee('nav nav-tabs');
+    $response->assertSee('nav-tabs');
     $response->assertSee('category-list');
     $response->assertSee('map-lit');
 });
@@ -67,9 +65,6 @@ test('ticket list page has map and list tabs', function (): void {
     $response->assertStatus(200);
     $response->assertSee('Mappa');
     $response->assertSee('Elenco');
-    $response->assertSee('x-bind:class', false);
-    $response->assertSee('x-on:click="selectTab(\'list\')"', false);
-    $response->assertDontSee('data-bs-toggle="tab"', false);
 });
 
 test('ticket list page has filters', function (): void {

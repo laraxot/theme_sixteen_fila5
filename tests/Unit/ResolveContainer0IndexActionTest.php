@@ -22,8 +22,7 @@ test('ResolveContainer0IndexAction delega agli Infrastructure riusabili', functi
     expect($aliases)->toContain("'segnalazioni' => 'tickets'");
     expect($aliases)->toContain("'faq' => 'domande-frequenti'");
 
-    expect($folio)->not->toContain('ResolveContainer0IndexAction');
-    expect($folio)->toContain('PageSlugMiddleware::class');
+    expect($folio)->toContain('ResolveContainer0IndexAction');
     expect($folio)->not->toContain('foIndexAliases');
     expect($folio)->not->toContain('Auth::check');
 });

@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Spatie\QueueableAction\QueueableAction;
 
+/**
+ * Flusso OIDC CIE: URL di autorizzazione, scambio del code, verifica firma/nonce/aud/iss/exp dell'id_token.
+ *
+ * @contract docs/contracts/cie-auth-action.md
+ */
 class CieAuthAction
 {
     use QueueableAction;
@@ -107,7 +112,8 @@ class CieAuthAction
         $userAttributes = array_merge($userData, $idTokenClaims);
 
         Log::info('CIE authentication successful', [
-            'user_attributes' => $userAttributes,
+            // solo i nomi: i valori (codice fiscale, email, ...) sono dati personali e non vanno nei log
+            'attribute_names' => array_keys($userAttributes),
             'auth_method' => Session::get('cie.auth_method', 'web'),
         ]);
 

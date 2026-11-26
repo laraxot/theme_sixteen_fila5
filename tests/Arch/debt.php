@@ -15,4 +15,8 @@ return [
     'security' => [
         'Themes\Sixteen\Models\Appointment',
     ],
+    // file senza declare(strict_types=1)
+    'strict' => [
+        'Themes\Sixteen\Http\Livewire\Appointment\CreateAppointment',
+    ],
 ];

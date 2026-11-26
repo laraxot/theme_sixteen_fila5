@@ -10,6 +10,11 @@ use Safe\Exceptions\UrlException;
 use function Safe\parse_url;
 use function Safe\preg_match;
 
+/**
+ * Accetta un URL di ritorno solo se resta sullo stesso schema, host e porta della richiesta; altrimenti il fallback.
+ *
+ * @contract docs/contracts/sanitize-return-url-action.md
+ */
 final class SanitizeReturnUrlAction
 {
     public function execute(Request $request, mixed $candidate, string $fallback): string

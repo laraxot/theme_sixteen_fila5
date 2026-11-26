@@ -44,7 +44,7 @@ new class extends Component {
         $this->container0 = $container0;
         $this->slug0 = $slug0;
         $this->pageSlug = $container0.'.view';
-        $this->data = ['container0' => $container0, 'slug0' => $slug0, 'slug' => $slug0];
+        $this->data = ['container0' => $container0, 'slug0' => $slug0];
     }
 };
 ?>
@@ -65,7 +65,6 @@ Con `new class extends Component`, `@volt('…')` statico (stesso valore di `nam
 | `[container0]/index` | `container0.index` | `container0.index` |
 | `[container0]/[slug0]/index` | `container0.view` | `container0.view` |
 | `[container0]/[slug0]/[container1]/index` | `container1.index` | `container1.index` |
-| `[container0]/[slug0]/[container1]/[slug1]/index` | `container1.view` | `container1.view` |
 
 **Mai** `@volt($pageSlug)` — `$pageSlug` dipende da `$container0` a runtime.
 
@@ -126,71 +125,6 @@ new class extends Component {
 | `@volt` statico | Collega template SFC a `name()` |
 | `<x-page>` | Carica blocchi CMS |
 | Modulo | Business logic |
-
-## Dettagli `[container0]/[slug0]`
-
-La pagina di dettaglio segue lo stesso contratto: `PageSlugMiddleware`, mount
-lineare dei parametri, data bag opaco e `<x-page>`. Non contiene query CMS,
-resolver di dominio, rami speciali, metadata o layout dinamici. Il tema fornisce
-solo la shell; la risoluzione del contenuto e la sua presentazione appartengono ai
-componenti/action owner del modulo CMS.
-
-```php
-name('container0.view');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public function mount(string $container0, string $slug0 = ''): void
-    {
-        $this->pageSlug = $container0.'.'.$slug0;
-        $this->data = compact('container0', 'slug0') + ['slug' => $slug0];
-    }
-};
-```
-
-## Percorsi annidati `[container0]/[slug0]/[container1]`
-
-Anche il terzo segmento resta una shell Volt lineare: il tema trasporta i tre
-parametri nel data bag e delega il contenuto a `<x-page>`. Redirect, autenticazione,
-password e altre varianti non appartengono alla view generica.
-
-```php
-name('container1.index');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public function mount(string $container0, string $slug0 = '', string $container1 = ''): void
-    {
-        $this->pageSlug = $container0.'.view';
-        $this->data = compact('container0', 'slug0', 'container1') + ['slug' => $container1];
-    }
-};
-```
-
-## Percorsi annidati `[container0]/[slug0]/[container1]/[slug1]`
-
-Il quarto livello segue la stessa shell: aggiunge `slug1` al data bag, mantiene
-`PageSlugMiddleware` e delega a `<x-page>`. Il `pageSlug` resta quello del
-contenitore CMS (`container0.view`); i quattro segmenti sono contesto opaco e
-non diventano logica nella Blade.
-
-```php
-name('container1.view');
-middleware(PageSlugMiddleware::class);
-
-new class extends Component {
-    public function mount(
-        string $container0,
-        string $slug0 = '',
-        string $container1 = '',
-        string $slug1 = '',
-    ): void {
-        $this->pageSlug = $container0.'.view';
-        $this->data = compact('container0', 'slug0', 'container1', 'slug1')
-            + ['slug' => $slug1];
-    }
-};
-```
 
 ## Collegamenti
 
