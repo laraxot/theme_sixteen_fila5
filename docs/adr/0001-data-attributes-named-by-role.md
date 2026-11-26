@@ -8,7 +8,7 @@ updated: 2026-11-26
 decision-makers: [team front office]
 related:
   - ../data-attribute-rule.md
-  - design-comuni-html-parity.md
+  - 0002-design-comuni-html-parity.md
 ---
 
 # ADR: `data-*` per ruolo, non per proprietario
@@ -19,7 +19,7 @@ Fino al 2026-10-29 il menu mobile usava `data-sixteen-mobile-nav*` e `resources/
 `data-sixteen-alpine-components` su `<html>`: un prefisso «ordinato» per evitare collisioni. Il riferimento Design Comuni
 (33 pagine) usa 12 nomi `data-*` in tutto (`data-element`, `data-bs-*`, `data-step`, ...) e **nessuno** porta il nome di un
 tema o di un progetto (inventario e comando di rigenerazione in [data-attribute-rule](../data-attribute-rule.md)). Con la
-[parità HTML](design-comuni-html-parity.md), un attributo che il riferimento non ha è già una differenza. Che nome dare a un
+[parità HTML](0002-design-comuni-html-parity.md), un attributo che il riferimento non ha è già una differenza. Che nome dare a un
 aggancio per JS, test o analytics?
 
 ## Driver della decisione

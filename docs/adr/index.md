@@ -11,7 +11,7 @@ updated: 2026-11-26
 
 Indice operativo della cartella owner-local. Il formato e la governance condivisi sono in [Xot](../../../../Modules/Xot/docs/adr/README.md).
 
-- [data-attributes-named-by-role.md](data-attributes-named-by-role.md)
-- [design-comuni-html-parity.md](design-comuni-html-parity.md)
-- [digital-identity-routes-off-by-default.md](digital-identity-routes-off-by-default.md)
-- [theme-assets-via-public-symlink.md](theme-assets-via-public-symlink.md)
+- [0001-data-attributes-named-by-role.md](0001-data-attributes-named-by-role.md)
+- [0002-design-comuni-html-parity.md](0002-design-comuni-html-parity.md)
+- [0003-digital-identity-routes-off-by-default.md](0003-digital-identity-routes-off-by-default.md)
+- [0004-theme-assets-via-public-symlink.md](0004-theme-assets-via-public-symlink.md)

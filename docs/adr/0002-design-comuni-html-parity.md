@@ -9,7 +9,7 @@ decision-makers: [team front office]
 related:
   - ../body-class-rule.md
   - ../data-attribute-rule.md
-  - data-attributes-named-by-role.md
+  - 0001-data-attributes-named-by-role.md
 ---
 
 # ADR: l'HTML dentro `<body>` e' quello di Design Comuni, cambiano solo CSS e JS
@@ -52,7 +52,7 @@ riferimento (una classe in più, un wrapper, un attributo proprio), si accetta l
 - Le varianti di sezione si scelgono dai JSON di contenuto del tenant (`"view": "pub_theme::components.sections.header.v1"`
   in `config/local/fixcity/database/content/sections/header.json:16`): il renderer canonico è quello allineato al riferimento.
 - Regole figlie: [body-class-rule](../body-class-rule.md) (nessuna classe propria sul `<body>`) e
-  [attributi `data-*`](data-attributes-named-by-role.md).
+  [attributi `data-*`](0001-data-attributes-named-by-role.md).
 
 ## Conseguenze
 

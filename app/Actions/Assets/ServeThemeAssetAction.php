@@ -10,6 +10,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Serve un file di `Themes/Sixteen/public` con cache immutabile di un anno; rifiuta `..` e i path vuoti con 404.
  *
+ * @see docs/contracts/serve-theme-asset-action.md
+ *
  * @contract docs/contracts/serve-theme-asset-action.md
  */
 final class ServeThemeAssetAction

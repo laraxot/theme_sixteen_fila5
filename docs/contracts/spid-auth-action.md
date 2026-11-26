@@ -7,7 +7,7 @@ status: accepted
 created: 2026-11-24
 updated: 2026-11-26
 related:
-  - ../adr/digital-identity-routes-off-by-default.md
+  - ../adr/0003-digital-identity-routes-off-by-default.md
   - ../../app/Http/Controllers/SpidAuthController.php
   - ../../tests/Unit/AuthAndAssetActionContractsTest.php
 ---
@@ -16,7 +16,7 @@ related:
 
 Service Provider SAML per SPID. La usa solo `app/Http/Controllers/SpidAuthController.php` (più `routes/auth.php:100,117` per lo
 stato), le cui rotte esistono solo con `sixteen.auth.spid.enabled === true` (vedi
-[ADR](../adr/digital-identity-routes-off-by-default.md)). **Con l'identità digitale accesa valgono i «Limiti noti» in fondo:
+[ADR](../adr/0003-digital-identity-routes-off-by-default.md)). **Con l'identità digitale accesa valgono i «Limiti noti» in fondo:
 la firma è controllata, il contenuto dell'asserzione no.**
 
 ## Input
@@ -73,17 +73,17 @@ un test: servirebbe una risposta SAML firmata di prova e una sessione.
 - Non autentica l'utente in Laravel e non crea l'utente: lo fa il controller con `Auth::login()` e
   `Modules\User\Actions\Auth\UpsertUserFromDigitalIdentityAction`; il controller scrive anche `spid.authenticated`.
 - Non valida l'URL di ritorno: lo fa `SanitizeReturnUrlAction` nel controller ([contratto](sanitize-return-url-action.md)).
-- Non firma le `AuthnRequest` (i metadata dichiarano `AuthnRequestsSigned="true"` a `SpidAuthAction.php:143`: debito verso le
+- Non firma le `AuthnRequest` (i metadata dichiarano `AuthnRequestsSigned="true"` a `SpidAuthAction.php:145`: debito verso le
   regole tecniche AgID).
 - Non controlla `NotOnOrAfter`, `Audience`, `InResponseTo`, `Destination` né `Issuer` dell'asserzione: non aggiungerli «per
-  completezza» qui senza un test; il posto giusto è una libreria SAML dedicata (decisione aperta, [ADR](../adr/digital-identity-routes-off-by-default.md)).
+  completezza» qui senza un test; il posto giusto è una libreria SAML dedicata (decisione aperta, [ADR](../adr/0003-digital-identity-routes-off-by-default.md)).
 
 ## Limiti noti
 
-- Limite noto (sicurezza, da leggere prima di abilitare SPID): `validateSamlResponse` (`SpidAuthAction.php:330-392`) verifica la
-  firma sul `SignedInfo` (`openssl_verify` a riga 385) ma non legge né ricalcola `ds:Reference` / `ds:DigestValue` (nessuna
+- Limite noto (sicurezza, da leggere prima di abilitare SPID): `validateSamlResponse` (`SpidAuthAction.php:332-395`) verifica la
+  firma sul `SignedInfo` (`openssl_verify` a riga 387) ma non legge né ricalcola `ds:Reference` / `ds:DigestValue` (nessuna
   occorrenza di `Digest` o `Reference` nel file), e `extractUserAttributes` legge `//saml:Attribute` ovunque nel documento
-  (riga 405). Quindi la firma non è legata agli attributi letti: da lettura del codice, un `SignedInfo` + `SignatureValue` +
+  (riga 407). Quindi la firma non è legata agli attributi letti: da lettura del codice, un `SignedInfo` + `SignatureValue` +
   certificato validi, copiati da una risposta autentica, accompagnerebbero un'asserzione con attributi diversi. Non provato con
   una risposta forgiata (nessuna è stata costruita in questa passata); è il motivo per cui INV-1 non basta come garanzia di
   autenticità.
@@ -96,4 +96,4 @@ un test: servirebbe una risposta SAML firmata di prova e una sessione.
 - Limite noto: il controller mostra al cittadino `$e->getMessage()` (`SpidAuthController.php:121`): i messaggi `SAMLResponse
   mancante` e `RelayState non valido` rivelano quale controllo è fallito, contro l'intento del messaggio unico.
 - Limite noto: l'algoritmo RSA-SHA1 resta accettato (INV-5) e l'impronta del certificato è SHA-1.
-- Limite noto: il ritorno di `DOMDocument::loadXML` non è controllato (`SpidAuthAction.php:122`).
+- Limite noto: il ritorno di `DOMDocument::loadXML` non è controllato (`SpidAuthAction.php:124`).

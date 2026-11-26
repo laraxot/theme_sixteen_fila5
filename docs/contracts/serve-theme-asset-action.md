@@ -7,14 +7,14 @@ status: accepted
 created: 2026-11-24
 updated: 2026-11-26
 related:
-  - ../adr/theme-assets-via-public-symlink.md
+  - ../adr/0004-theme-assets-via-public-symlink.md
   - ../../app/Actions/Assets/ServeDesignComuniAssetAction.php
 ---
 
 # Contratto: ServeThemeAssetAction
 
 Serve via PHP un file della cartella `public/` del tema. È il **ripiego** per gli asset: il percorso normale passa dal symlink
-`public_html/themes/Sixteen` e dal web server ([ADR](../adr/theme-assets-via-public-symlink.md)). Le rotte esistono:
+`public_html/themes/Sixteen` e dal web server ([ADR](../adr/0004-theme-assets-via-public-symlink.md)). Le rotte esistono:
 `laravel/routes/web.php:15` (`/themes/Sixteen/{path}` → `execute`) e `laravel/routes/web.php:20`
 (`/{lang}/assets/{path}` → `ServeDesignComuniAssetAction`, che delega a questa Action con il prefisso `design-comuni/assets/`).
 
@@ -37,7 +37,7 @@ Serve via PHP un file della cartella `public/` del tema. È il **ripiego** per g
 | SIXTEEN-ASSET-INV-1 | Un percorso vuoto o che contiene `..` (anche con `\`) è 404 prima di qualunque accesso al filesystem. Se viene violata, un percorso come `../.env` raggiunge `base_path()` fuori da `public/`. | `SIXTEEN-ASSET-INV-1` |
 | SIXTEEN-ASSET-INV-2 | Si servono solo file sotto `Themes/Sixteen/public` (più l'unico ripiego del logo): mai `resources/`, `config/`, sorgenti. Se viene violata, il tema espone il proprio codice sorgente. | — (non dimostrato) |
 
-SIXTEEN-ASSET-INV-2 oggi discende da INV-1 più il prefisso fisso `Themes/Sixteen/public/` (`ServeThemeAssetAction.php:25`): nessun
+SIXTEEN-ASSET-INV-2 oggi discende da INV-1 più il prefisso fisso `Themes/Sixteen/public/` (`ServeThemeAssetAction.php:27`): nessun
 test chiede un file esistente fuori da `public/` né il ripiego del logo. Backlog test nel [README](README.md).
 
 ## Effetti collaterali
@@ -62,6 +62,6 @@ test chiede un file esistente fuori da `public/` né il ripiego del logo. Backlo
 ## Limiti noti
 
 - Limite noto: un nome di file legittimo che contiene due punti consecutivi (`foo..bar.css`) è rifiutato con 404, perché il
-  controllo è `str_contains($relativePath, '..')` (`ServeThemeAssetAction.php:21`) e non lavora per segmenti.
+  controllo è `str_contains($relativePath, '..')` (`ServeThemeAssetAction.php:23`) e non lavora per segmenti.
 - Limite noto: nessun test prova che le rotte di `routes/web.php` arrivino davvero all'Action quando il symlink manca (vedi ADR,
   «Conseguenze»).

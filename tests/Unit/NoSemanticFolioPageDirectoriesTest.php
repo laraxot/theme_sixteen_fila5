@@ -48,7 +48,7 @@ test('sixteen pages ammette solo auth, container0 e tests', function (): void {
     expect(glob($pagesRoot.'/profile*') ?: [])->toBe([]);
 
     expect(is_dir($pagesRoot.'/[container0]'))->toBeTrue();
-});
+})->group('SIXTEEN-FOLIO-INV-3');
 
 /*
  * Anche i FILE in radice di pages/ sono pagine: l'unico ammesso e' index.blade.php (`/{lingua}`, monta home.json).
@@ -71,4 +71,4 @@ test('in radice di pages ammette solo index.blade.php', function (): void {
     }
 
     expect(array_values(array_diff($files, ['index.blade.php'])))->toBe([]);
-});
+})->group('SIXTEEN-FOLIO-INV-3');

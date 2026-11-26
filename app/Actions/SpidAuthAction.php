@@ -20,6 +20,8 @@ use function Safe\gzdeflate;
 /**
  * Costruisce le richieste SAML SPID e valida la risposta dell'IdP (firma, certificato fidato, RelayState).
  *
+ * @see docs/contracts/spid-auth-action.md
+ *
  * @contract docs/contracts/spid-auth-action.md
  */
 class SpidAuthAction

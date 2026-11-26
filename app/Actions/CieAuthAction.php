@@ -16,6 +16,8 @@ use Spatie\QueueableAction\QueueableAction;
 /**
  * Flusso OIDC CIE: URL di autorizzazione, scambio del code, verifica firma/nonce/aud/iss/exp dell'id_token.
  *
+ * @see docs/contracts/cie-auth-action.md
+ *
  * @contract docs/contracts/cie-auth-action.md
  */
 class CieAuthAction

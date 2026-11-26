@@ -44,4 +44,4 @@ test('CIE rejects an unsigned JWT before reading claims', function (): void {
 
     expect(fn (): mixed => $method->invoke($action, 'eyJhbGciOiJub25lIn0.eyJzdWIiOiIxIn0.'))
         ->toThrow(Exception::class, 'JWT signature verification');
-});
+})->group('SIXTEEN-CIE-INV-1');

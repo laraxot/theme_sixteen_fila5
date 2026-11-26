@@ -59,7 +59,7 @@ registrati: le rotte esposte sono solo superficie d'attacco. Le rotte di identit
 ## Stato attuale
 
 - Il «debito» della versione del 2026-11-24 includeva «attributi utente scritti nei log». Per le due Action non è più vero:
-  `SpidAuthAction.php:127-130` e `CieAuthAction.php:114-118` registrano solo `attribute_names`. Resta vero nei controller:
+  `SpidAuthAction.php:130-134` e `CieAuthAction.php:116-120` registrano solo `attribute_names`. Resta vero nei controller:
   `app/Http/Controllers/SpidAuthController.php:101` e `CieAuthController.php:137` scrivono `fiscal_code` in `Log::info`, e
   `SpidAuthController.php:113` / `CieAuthController.php:149` scrivono `$request->all()` (la `SAMLResponse` intera) in
   `Log::error` quando il callback fallisce. Il test sui log (group `SIXTEEN-SPID-INV-6`) legge solo le Action.
