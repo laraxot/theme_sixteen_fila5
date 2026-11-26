@@ -61,9 +61,14 @@ Vietati `data-sixteen-*`, `data-<modulo>-*`, `data-<progetto>-*`, in Blade, JS (
   non trova nessuna Blade che emetta `data-mobile-nav*` (restano i selettori opzionali in
   `resources/js/theme/header-mobile-nav.js:6-41` e in due CSS), e `rg -l "data-sixteen" laravel/Themes/Sixteen/public` non trova
   nulla: i bundle serviti sono stati ricostruiti.
-- La guardia scrive `data-(sixteen|two|fixcity|techplanner)` e `dataset.(sixteen|fixcity|techplanner)`
-  (`tests/Unit/DataAttributeParityContractTest.php:51`): un `data-<modulo>-*` (per esempio `data-geo-*`) non è intercettato,
-  anche se questo ADR lo vieta. Nessuna conferma automatica per quel caso.
+- La guardia cerca `data-(sixteen|two|fixcity|techplanner)` e `dataset.(sixteen|fixcity|techplanner)`
+  (`tests/Unit/DataAttributeParityContractTest.php:46`): un `data-<modulo>-*` non è intercettato, anche se questo ADR lo vieta.
+- Il codice di oggi contiene proprio quel caso: `resources/views/components/layouts/main.blade.php:57` mette
+  `data-geo-tile-url` e `data-geo-nominatim-url` su `<html>` (il commento alle righe 55-56 ne spiega il motivo: proxy del modulo
+  Geo, issue #106) e `resources/views/components/blocks/geo/mappa-static.blade.php:42` ha `data-geo-local="true"` dentro il
+  body. Sono nomi `data-<modulo>-*`, vietati dalla Decisione: o si riscrivono secondo la scala (per esempio con la
+  configurazione letta dal JS invece che da attributi), o l'ADR ammette un'eccezione scritta per i dati di configurazione su
+  `<html>`. Decisione aperta, da prendere con l'owner della parità HTML.
 
 ## Conferma
 
@@ -71,5 +76,6 @@ Vietati `data-sixteen-*`, `data-<modulo>-*`, `data-<progetto>-*`, in Blade, JS (
   primo test fallisce se un Blade, JS o CSS di `resources/` scrive un `data-*` col nome del tema, di un tema fratello o del
   progetto; il secondo fallisce se una Blade emette un `data-mobile-nav*` che nessun JS o CSS legge.
 - Per il divieto sui nomi di modulo, comando di review da `laravel/`:
-  `rg -n "data-(geo|fixcity|cms|user|ticket)[a-z-]*=" Themes/Sixteen/resources/views`. Nessun test automatico oggi; proposta:
+  `rg -n "data-(geo|fixcity|cms|user|ticket)[a-z-]*=" Themes/Sixteen/resources/views` (oggi trova i tre punti elencati sopra;
+  a decisione presa deve tornare vuoto o coincidere con l'eccezione scritta). Nessun test automatico oggi; proposta:
   estendere l'espressione regolare del test ai nomi di `Modules/*`.
