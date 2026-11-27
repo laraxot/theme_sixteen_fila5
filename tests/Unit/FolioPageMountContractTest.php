@@ -38,7 +38,7 @@ test('container0 slug0 pages usano Volt Component mount non request route', func
         expect($html)->not->toContain('request()->route("container0"');
         expect($html)->not->toMatch('/@php\s+\$container0\s*=/');
     }
-});
+})->group('SIXTEEN-FOLIO-INV-2');
 
 test('Sixteen usa app come unica shell pubblica e non mantiene il layout design-comuni', function (): void {
     $themeRoot = dirname(__DIR__, 2);
@@ -65,7 +65,7 @@ test('folio pages con Component richiedono @volt statico uguale a name()', funct
         expect($html)->toContain($voltDirective);
         expect($html)->toContain('@endvolt');
     }
-});
+})->group('SIXTEEN-FOLIO-INV-1');
 
 test('container0 index usa mount lineare filament way senza logica dominio', function (): void {
     $path = dirname(__DIR__, 2).'/resources/views/pages/[container0]/index.blade.php';
@@ -95,7 +95,7 @@ test('container0 index usa mount lineare filament way senza logica dominio', fun
     expect($html)->toContain('ResolveContainer0IndexAction');
     expect($html)->not->toContain('foIndexAliases');
     expect($html)->not->toContain('Auth::check');
-});
+})->group('SIXTEEN-FOLIO-INV-4');
 
 test('le pagine CMS container0 non hanno route Folio esplicite concorrenti', function (): void {
     $themeRoot = dirname(__DIR__, 2);
@@ -133,4 +133,4 @@ test('folio pages non usano @volt con variabile dinamica', function (): void {
         expect($html)->not->toContain('@volt($');
         expect($html)->not->toContain("@volt('folio.");
     }
-});
+})->group('SIXTEEN-FOLIO-INV-1');

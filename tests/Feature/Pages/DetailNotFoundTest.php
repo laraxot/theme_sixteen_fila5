@@ -24,7 +24,7 @@ it('answers 404 for a detail slug that has no record', function (string $path): 
     'blog template slug' => '/it/blog/view',
     'unknown event' => '/it/events/evento-inesistente-xyz',
     'events template slug' => '/it/events/view',
-]);
+])->group('SIXTEEN-FOLIO-INV-5');
 
 it('still serves the listing and the real CMS detail pages', function (string $path): void {
     /** @var TestCase $this */
