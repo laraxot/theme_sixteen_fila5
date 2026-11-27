@@ -90,7 +90,7 @@ Doc build: [map-lit-vite-build-troubleshooting.md](./map-lit-vite-build-troubles
 ## Documentazione ricostruzione
 
 - [geo-map-lit-reconstruction-guide.md](../../../../../Modules/Geo/docs/wiki/concepts/geo-map-lit-reconstruction-guide.md)
-- [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents-2026-06.md)
+- [map-lit-it-incidents-2026-06.md](../../../../Modules/Geo/docs/wiki/troubleshooting/map-lit-it-incidents.md)
 
 ## Riferimenti codice
 
