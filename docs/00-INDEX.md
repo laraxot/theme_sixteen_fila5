@@ -3,13 +3,8 @@ title: "Sixteen theme documentation index"
 type: index
 theme: Sixteen
 created: 2026-09-27
-<<<<<<< .merge_file_LE8TZj
-updated: 2026-11-19
-qmd: "sixteen theme design comuni folio volt accessibility documentation index classificazione cartelle indici storici INDEX.md index.md"
-=======
 updated: 2026-11-26
 qmd: "sixteen theme design comuni folio volt accessibility documentation index"
->>>>>>> .merge_file_OhxHAr
 status: active
 tags: [docs, sixteen]
 ---
@@ -25,32 +20,6 @@ controller in `app/Http/Controllers/`, `routes/web.php` e `routes/auth.php`
 route:list` non ha `comune/*`, `auth/spid` ne' `auth/cie`. Stato e conteggi in
 [README.md](README.md).
 
-<<<<<<< .merge_file_LE8TZj
-Questo file è l'indice operativo unico. Gli indici storici con suffisso `.old`
-(`00-index.old.md`, `documentation-index.old.md`, `index.historical-bmad.old.md`)
-e il residuo `00-INDEX.md.tmp` sono stati rimossi il 2026-11-19 (issue #64).
-`index.md` è l'indice BMAD/QMD più vecchio (router storico) e
-`master-documentation.md` è un resoconto del 2026-04-01; restano anche
-`00-homepage-replication-index.md`, `design-comuni-replication-index.md`,
-`replikate-master-index.md` e `SCRIPTS_INDEX.md`. Non usarli per decidere una
-nuova struttura.
-
-## Riorganizzazione docs 2026-10-13
-
-- `build/` — tutti i 14 documenti Vite/build (erano sparsi alla root come
-  `vite-*.md`/`VITE_*.md`); `build/INDEX.md` non esiste: ordine di lettura da
-  [vite-configuration-guide.md](build/vite-configuration-guide.md);
-- `visual-parity/` — struttura consolidata: `reports/`, `screenshots/pages/`
-  (evidenza per pagina), `screenshots/legacy-2026-04/` (evidenza storica),
-  `scripts/` (bug del path annidato `scripts/docs/visual-parity/scripts/`
-  eliminato);
-- `visual-parity-screenshots/` accorpato in `visual-parity/screenshots/pages/`;
-- `visual-comparison/` resta evidence storica cross-referenziata.
-
-## Classificazione delle cartelle (file presenti il 2026-10-14)
-
-| Ruolo | Cartelle (n. file) |
-=======
 ## Struttura docs/ (consolidata 2026-11-26, issue #119)
 
 `docs/` e' stato consolidato a **100 file `.md`** (era ~1452). Tutto il materiale
@@ -63,7 +32,6 @@ lowercase-kebab, niente date/timestamp nel nome, niente suffissi `-1`/`-2`.
 ### Cosa resta in `docs/`
 
 | Percorso | Contenuto |
->>>>>>> .merge_file_OhxHAr
 |---|---|
 | `README.md`, `00-INDEX.md` (questo file), `readme-en.md` | Indici e identita' del tema |
 | `page-directory-structure.md` | Regola canonica delle pagine Folio (riferenziata dai test arch) |
